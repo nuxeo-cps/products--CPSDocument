@@ -33,6 +33,7 @@ from Products.CMFCore.CMFCorePermissions import View
 from Products.CMFCore.CMFCorePermissions import ModifyPortalContent
 from Products.CMFCore.PortalContent import PortalContent
 from Products.CMFCore.PortalFolder import PortalFolder
+from Products.CMFCore.CMFCatalogAware import CMFCatalogAware
 
 from Products.CMFCore.interfaces.DublinCore import DublinCore as IDublinCore
 from Products.CMFCore.interfaces.Contentish import Contentish as IContentish
@@ -321,8 +322,8 @@ InitializeClass(CPSDocumentMixin)
 # XXX: please explain why
 from Products.CMFDefault.DublinCore import DefaultDublinCoreImpl
 
-class CPSDocument(CPSDocumentMixin, PortalFolder, PortalContent,
-                  DefaultDublinCoreImpl):
+class CPSDocument(CPSDocumentMixin, CMFCatalogAware, PortalFolder,
+                  PortalContent, DefaultDublinCoreImpl):
     """CPS Document
 
     Basic document type from which real types are derived according to
