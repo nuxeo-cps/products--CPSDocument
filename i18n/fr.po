@@ -324,7 +324,7 @@ msgid "label_relation"
 msgstr "Relation"
 
 msgid "cpsdoc_hidden_folder"
-msgstr "Cacher ce repertoire dans la navigation"
+msgstr "Cacher ce répertoire dans la navigation"
 
 msgid "cpsdoc_hidden_folder_help"
 msgstr ""
