@@ -324,7 +324,6 @@ class FlexibleTypeInformation(TypeInformation):
             layout.manage_clone(tpl_widget, prefixed_widget_id)
             widget = layout[widget_id]
 
-
         # Create the needed fields.
         field_types = widget.getFieldTypes()
         field_inits = widget.getFieldInits()
@@ -377,13 +376,18 @@ class FlexibleTypeInformation(TypeInformation):
         layout.setLayoutDefinition(layoutdef)
 
         # Delete the widgets and the fields they use.
+        allowed_widgets = layout.allowed_widgets
         for widget_id in widget_ids:
             widget = layout[widget_id]
             for field_id in widget.fields:
                 # Delete the field.
                 schema.delSubObject(field_id)
-            # Delete the widget.
-            layout.delSubObject(widget_id)
+            if widget_id in allowed_widgets:
+                # turn widget into a template widget
+                widget.setTemplate()
+            else:
+                # Delete the widget.
+                layout.delSubObject(widget_id)
 
     security.declareProtected(ModifyPortalContent, 'flexibleChangeLayout')
     def flexibleChangeLayout(self, ob, layout_id, up_row=None, down_row=None,
