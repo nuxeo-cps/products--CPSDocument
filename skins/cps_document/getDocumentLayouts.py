@@ -377,8 +377,8 @@ event_layout = {
         'rows': [
             [{'ncols': 1, 'widget_id': 'title'},],
             [{'ncols': 1, 'widget_id': 'description'},],
-            [{'ncols': 1, 'widget_id': 'end'},
-             {'ncols': 1, 'widget_id': 'start'},],
+            [{'ncols': 1, 'widget_id': 'start'},
+             {'ncols': 1, 'widget_id': 'end'},],
             [{'ncols': 1, 'widget_id': 'content'},],
             [{'ncols': 1, 'widget_id': 'attachedFile'},],
             ],
