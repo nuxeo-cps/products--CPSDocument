@@ -29,7 +29,9 @@ metadata_schema = {
     'Format': {'type': 'CPS String Field',
                'data': {'write_ignore_storage': 1,}},
     'Language': {'type': 'CPS String Field',
-                 'data': {'write_ignore_storage': 1,}},
+                 'data': {'write_ignore_storage': 1,
+                          'default_expr':
+                          'portal/Localizer/get_selected_language|nothing'}},
     'Rights': {'type': 'CPS String Field', 'data': {'is_searchabletext': 0}},
     'Creator': {'type': 'CPS String Field',
                 'data': {'is_searchabletext': 0,
