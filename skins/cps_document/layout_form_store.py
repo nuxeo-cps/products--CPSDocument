@@ -1,4 +1,4 @@
-##parameters=layout_mode, layout=None, datastructure=None, **kw
+##parameters=layout_mode, datastructure=None, **kw
 # $Id$
 """Called when a form is validated by the user.
 """
