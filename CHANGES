@@ -8,7 +8,10 @@ New features:
 - implementing a flat view of the book document, with the book displayed in
   one single page. The flat/with pages behaviour can be configured for each
   book.
-
+- adding the posibility to import documents from a ZIP file. For each file
+  in the ZIP archive, an attached file will be created, with the same name
+  as the original file. The mimetypes for the attached files are obtained
+  automatically based on the extension of the imported files.
 Bug fixes:
 ~~~~~~~~~~
 -
