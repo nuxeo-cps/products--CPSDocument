@@ -1,5 +1,5 @@
 ##parameters=proxydocs
-# $Id $
+# $Id$
 
 def sort(a,b):
     return cmp(a.getContent()['title'],b.getContent()['title'])
