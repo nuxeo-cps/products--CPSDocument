@@ -297,6 +297,27 @@ imagegallery_schema = {
                 'is_searchabletext': 0,
             },
         },
+    'popup_mode': {
+        'type': 'CPS Int Field',
+        'data': {
+                'default_expr': 'python:0',
+                'is_searchabletext': 0,
+            },
+        },
+    'popup_width': {
+        'type': 'CPS Int Field',
+        'data': {
+                'default_expr': 'python:300',
+                'is_searchabletext': 0,
+            },
+        },
+    'popup_height': {
+        'type': 'CPS Int Field',
+        'data': {
+                'default_expr': 'python:300',
+                'is_searchabletext': 0,
+            },
+        },
     }
 
 ########################################################
