@@ -21,6 +21,7 @@ Bug fixes:
 - Made the FAQ document use the new Layout properties "layout_create_method",
   "layout_edit_method", "layout_view_method", and more generally
   "layout_*_method".
+- fixing default language initialization
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - register ZippedHtmlWidget
