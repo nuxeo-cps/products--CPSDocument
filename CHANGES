@@ -21,4 +21,4 @@ Bug fixes:
   "layout_*_method".
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- register ZippedHtmlWidget
