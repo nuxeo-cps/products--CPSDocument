@@ -24,6 +24,7 @@ vocabularies = {
             )},
         },
     'language_voc': {
+        'type': 'CPS Vocabulary',
         'data': {'tuples': (
             ('fr', 'Français', 'label_language_fr'),
             ('en', 'English', 'label_language_en'),
@@ -31,7 +32,7 @@ vocabularies = {
             ('de', 'Deutsch', 'label_language_de'),
             ('it', 'Italiano', 'label_language_it'),
             ('nl', 'Nederlands', 'label_language_nl'),
-            ('pt_BR', 'Brasileiro', 'label_language_pt_BR'),
+            ('pt_BR', 'Portugueses(Brasileiro)', 'label_language_pt_BR'),
             )},
         },
     }
