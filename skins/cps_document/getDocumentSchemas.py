@@ -327,6 +327,51 @@ image_schema = {
         },
     }
 
+imagegallery_schema = {
+    'title': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'description': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'preview_width': {
+        'type': 'CPS Int Field',
+        'data': {
+                'default': '64',
+                'is_indexed': 0,
+            },
+        },
+    'preview_height': {
+        'type': 'CPS Int Field',
+        'data': {
+                'default': '64',
+                'is_indexed': 0,
+            },
+        },
+    'nb_cols': {
+        'type': 'CPS Int Field',
+        'data': {
+                'default': '3',
+                'is_indexed': 0,
+            },
+        },
+    'nb_items': {
+        'type': 'CPS Int Field',
+        'data': {
+                'default': '9',
+                'is_indexed': 0,
+            },
+        },
+    }
+
 
 ###########################################################
 # END OF SCHEMAS DEFINITIONS
@@ -345,6 +390,7 @@ schemas['file'] = file_schema
 schemas['event'] = event_schema
 schemas['link'] = link_schema
 schemas['image'] = image_schema
+schemas['imagegallery'] = imagegallery_schema
 #schemas['dummy_form'] = dummy_form_schema
 
 cschemas = context.getCustomDocumentSchemas()

@@ -687,6 +687,131 @@ image_layout = {
         },
     }
 
+imagegallery_layout = {
+    'widgets': {
+        'title': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['title'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_imgallery_title_label_edit',
+                'label': '',
+                'description': 'Image Gallery title',
+                'css_class': 'dtitle',
+                'is_required': 1,
+                'display_width': 40,
+                'size_max': 72,
+            },
+        },
+        'description': {
+            'type': 'TextArea Widget',
+            'data': {
+                'fields': ['description'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_imgallery_description_label_edit',
+                'label': '',
+                'description': 'Image Gallery description',
+                'css_class': 'ddescription',
+                'width': 40,
+                'height': 5,
+                'render_mode': 'stx',
+            },
+        },
+        'preview_width': {
+            'type': 'Int Widget',
+            'data': {
+                'fields': ['preview_width'],
+                'is_required': 0,
+                'is_i18n': 0,
+                'label_edit': 'cpsdoc_imgallery_width_label_edit',
+                'label': '',
+                'hidden_view': 1,
+                'hidden_edit': 0,
+                'hidden_empty': 0,
+                'description': '',
+                'css_class': '',
+                'is_limited': 1,
+                'min_value': 0.0,
+                'max_value': 65536.0,
+                'thousands_separator': '',
+            },
+        },
+        'preview_height': {
+            'type': 'Int Widget',
+            'data': {
+                'fields': ['preview_height'],
+                'is_required': 0,
+                'is_i18n': 0,
+                'label_edit': 'cpsdoc_imgallery_height_label_edit',
+                'label': '',
+                'hidden_view': 1,
+                'hidden_edit': 0,
+                'hidden_empty': 0,
+                'description': '',
+                'css_class': '',
+                'is_limited': 1,
+                'min_value': 0.0,
+                'max_value': 65536.0,
+                'thousands_separator': '',
+            },
+        },
+        'nb_items': {
+            'type': 'Int Widget',
+            'data': {
+                'fields': ['nb_items'],
+                'is_required': 0,
+                'is_i18n': 0,
+                'label_edit': 'cpsdoc_imgallery_items_label_edit',
+                'label': '',
+                'hidden_view': 1,
+                'hidden_edit': 0,
+                'hidden_empty': 0,
+                'description': '',
+                'css_class': '',
+                'is_limited': 1,
+                'min_value': 0.0,
+                'max_value': 65536.0,
+                'thousands_separator': '',
+            },
+        },
+        'nb_cols': {
+            'type': 'Int Widget',
+            'data': {
+                'fields': ['nb_cols'],
+                'is_required': 0,
+                'is_i18n': 0,
+                'label_edit': 'cpsdoc_imgallery_col_label_edit',
+                'label': '',
+                'hidden_view': 1,
+                'hidden_edit': 0,
+                'hidden_empty': 0,
+                'description': '',
+                'css_class': '',
+                'is_limited': 1,
+                'min_value': 0.0,
+                'max_value': 128.0,
+                'thousands_separator': '',
+            },
+        }
+    },
+    'layout': {
+        'style_prefix': 'layout_imagegallery_',
+        'ncols': 2,
+        'rows': [
+            [{'ncols': 2, 'widget_id': 'title'},
+                ],
+            [{'ncols': 2, 'widget_id': 'description'},
+                ],
+            [{'ncols': 1, 'widget_id': 'preview_width'},
+             {'ncols': 1, 'widget_id': 'preview_height'},
+                ],
+            [{'ncols': 1, 'widget_id': 'nb_items'},
+             {'ncols': 1, 'widget_id': 'nb_cols'},
+                ],
+            ],
+        },
+    }
+
 
 
 #########################################################
@@ -760,6 +885,7 @@ layouts['file'] = file_layout
 layouts['event'] = event_layout
 layouts['link'] = link_layout
 layouts['image'] = image_layout
+layouts['imagegallery'] = imagegallery_layout
 #layouts['dummy_form'] = dummy_form_layout
 # test
 layouts['news1'] = news1_layout

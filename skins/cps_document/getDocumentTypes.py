@@ -123,6 +123,26 @@ link_type = {
     'display_in_cmf_calendar': 1,
     }
 
+imagegallery_type = {
+    'title': 'portal_type_ImageGallery_title',
+    'description': 'portal_type_ImageGallery_description',
+    'content_icon': 'imgallery_icon.gif',
+    'content_meta_type': 'CPS Document',
+    'permission': 'Add portal content',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': ('Image',),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'folderishdocument',
+    'schemas': ['imagegallery'],
+    'layouts': ['imagegallery'],
+    'flexible_layouts': [],
+    'storage_methods': [],
+    'cps_workspace_wf': 'workspace_folderish_content_wf',
+    }
+
 image_type = {
     'title': 'portal_type_Image_title',
     'description': 'portal_type_Image_description',
@@ -170,6 +190,7 @@ types['File'] = file_type
 types['EventDoc'] = event_type
 types['Link'] = link_type
 types['Image'] = image_type
+types['ImageGallery'] = imagegallery_type
 #types['Dummy Form'] = dummy_form_type
 
 ctypes = context.getCustomDocumentTypes()
