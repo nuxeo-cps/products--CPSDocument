@@ -48,7 +48,11 @@ class CPSDocumentMixin(ExtensionClass.Base):
         ti = self.getTypeInfo()
         return ti.renderObject(self, mode=mode, layout_id=layout_id, **kw)
 
-    security.declareProtected(ModifyPortalContent, 'renderEdit')
+    # This is not protected using ModifyPortalContent because the object
+    # may be frozen, and will only be unfrozen just before committing.
+    # The security check on ModifyPortalContent is now done by DataModel
+    # just before commit.
+    security.declareProtected(View, 'renderEdit')
     def renderEdit(self, request=None, mode='edit', errmode='edit',
                    layout_id=None, **kw):
         """Modify the object from the request (if present), and return
@@ -63,7 +67,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
         return ti.renderEditObject(self, request, mode=mode, errmode=errmode,
                                    layout_id=layout_id, **kw)
 
-    security.declareProtected(ModifyPortalContent, 'validateStoreRender')
+    # See remark about security above.
+    security.declareProtected(View, 'validateStoreRender')
     def validateStoreRender(self, request=None,
                             mode='edit', okmode='edit', errmode='edit',
                             layout_id=None, **kw):
@@ -88,6 +93,9 @@ class CPSDocumentMixin(ExtensionClass.Base):
         """Edit the document.
 
         The keyword arguments describes fields, not widgets.
+
+        This method assumes that self really is editable, thus is not a
+        frozen document.
         """
         ti = self.getTypeInfo()
         return ti.editObject(self, kw)
