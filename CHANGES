@@ -4,6 +4,8 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - new LanguageSelector in the common Layout
+- Add an HTML id for each widget: it can be widget id ar group id between
+  several widget. Use it for javascript work.
 Bug fixes:
 ~~~~~~~~~~
 - fix #430: TextImage widget (and flexibleDocument) broken under IE
