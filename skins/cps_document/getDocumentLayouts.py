@@ -600,7 +600,7 @@ news_start_layout = {
             'type': 'Photo Widget',
             'data': {
                 'title': 'cpsdoc_flex_photo_title',
-                'fields': ['photo', 'photo_subtitle', 'photo_position'],
+                'fields': ['photo', 'photo_subtitle', 'photo_position', 'photo_original'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_flex_photo_label_edit',
                 'configurable': 'position',
