@@ -37,6 +37,16 @@ metadata_layout = {
                 'render_format': 'text',
             },
         },
+        'PortalType': {
+            'type': 'Method Widget',
+            'data': {
+                'is_i18n': 1,
+                'label_edit': 'label_portal_type',
+                'label': 'label_portal_type',
+                'readonly_layout_modes': ['create', 'edit'],
+                'render_method': 'widget_portal_type',
+            },
+        },
         'Subject': {
             'type': 'MultiSelect Widget',
             'data': {
@@ -217,6 +227,7 @@ metadata_layout = {
         'rows': [
             [{'ncols': 2, 'widget_id': 'Title'},],
             [{'ncols': 2, 'widget_id': 'Description'},],
+            [{'ncols': 2, 'widget_id': 'PortalType'},],
             [{'widget_id': 'Subject'},
              {'widget_id': 'Rights'},],
             [{'widget_id': 'Source'},
