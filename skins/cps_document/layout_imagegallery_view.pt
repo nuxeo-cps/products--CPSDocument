@@ -1,3 +1,15 @@
+<tal:block tal:define="checkPerm nocall: here/portal_membership/checkPermission;"
+           condition="python: checkPerm('List folder contents', here,
+  'aq_parent')">
+  <a href="../">
+  <img tal:replace="structure python:here.getImgTag('UpFolder_icon.gif',
+    base_url=here.portal_url.getPortalPath()+'/')">
+  <span i18n:translate="description_up_to">
+    <b i18n:name="up_id" tal:content="python:options['proxy'].aq_parent.title_or_id()">
+      Up ID</b>
+  </span>
+  </a>
+</tal:block>
 <metal:block use-macro="here/layout_lib/macros/div_view" />
 <tal:block tal:define="proxy nocall:options/proxy;
                        items proxy/getFolderContents;
