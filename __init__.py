@@ -19,7 +19,7 @@
 
 from Products.CMFCore import utils
 from Products.CMFCore.DirectoryView import registerDirectory
-from Products.CMFCore.CMFCorePermissions import AddPortalContent
+from Products.CMFCore.permissions import AddPortalContent
 
 try:
     from Products.CPSDefault.Portal import CPSDefaultSite

@@ -28,10 +28,10 @@ from AccessControl import ClassSecurityInfo, Unauthorized
 from OFS.Image import File, Image
 from ZPublisher.HTTPRequest import FileUpload
 
-from Products.CMFCore.CMFCorePermissions import View
-from Products.CMFCore.CMFCorePermissions import ModifyPortalContent
-from Products.CMFCore.CMFCorePermissions import ChangePermissions
-from Products.CMFCore.CMFCorePermissions import ManagePortal
+from Products.CMFCore.permissions import View
+from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFCore.permissions import ChangePermissions
+from Products.CMFCore.permissions import ManagePortal
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.TypesTool import FactoryTypeInformation
 from Products.CMFCore.interfaces.portal_types \

@@ -20,11 +20,9 @@
 from Products.CMFCore.TypesTool import TypesTool, typeClasses
 from AccessControl.PermissionRole import PermissionRole
 
-from Products.CMFCore.CMFCorePermissions import ManagePortal
-
 from OFS.PropertyManager import PropertyManager
 from Products.CMFCore.TypesTool import TypeInformation
-from Products.CMFCore.CMFCorePermissions import ManageProperties
+from Products.CMFCore.permissions import ManagePortal, ManageProperties
 
 from Products.CPSDocument.FlexibleTypeInformation import FlexibleTypeInformation
 from Products.CPSDocument.FlexibleTypeInformation import addFlexibleTypeInformationForm
