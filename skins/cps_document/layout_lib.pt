@@ -118,9 +118,9 @@
     tal:attributes="value layout/layout_id">
   <select name="widget_type">
     <option value="."
-      tal:repeat="wtid proxy/portal_widget_types/objectIds"
-      tal:attributes="value wtid"
-      tal:content="wtid">Type</option>
+      tal:repeat="widget options/allowed_widgets"
+      tal:attributes="value widget/getWidgetId"
+      tal:content="widget/title_or_id">Type</option>
   </select>
   <input type="submit" name="addwidget_button" value="button_add"
    class="context"
