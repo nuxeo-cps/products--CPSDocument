@@ -95,7 +95,7 @@
   </tr>
 </table>
 <input type="submit" class="standalone" name="cpsdocument_edit_button"
-  value="button_change" i18n:attributes="value" />
+  value="button_change" i18n:attributes="value">
 </form>
 </div>
 </metal:block>
