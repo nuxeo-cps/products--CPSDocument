@@ -189,10 +189,17 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     security.declareProtected(ManagePortal, 'manage_export')
     manage_export = DTMLFile('zmi/type_export', globals())
 
-    security.declarePublic('getProxyRolesAllowed')
+    security.declarePublic('getProxyTypesAllowed')
     def getProxyTypesAllowed(self):
         """Return the list of allowed portal types strings."""
-        return ['', 'document', 'folder', 'folderishdocument']
+        # This method is monkey-patched by CPSCore.TypesToolPatches
+        return ['',
+                'document',
+                'folder',
+                'folderishdocument',
+                'btreefolder',
+                'btreefolderishdocument',
+                ]
 
     #
     # Agent methods
