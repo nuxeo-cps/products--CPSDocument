@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-12-16 11:35default\n"
+"POT-Creation-Date: 2003-12-19 11:06default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -83,6 +83,11 @@ msgstr ""
 msgid "button_delete"
 msgstr ""
 
+#.   <button condition="widget/help" attributes="onclick python:'toggleFormTooltip(\'%s\')' % tooltip_id;" class="tooltipControl" type="button">button_help</button>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_help"
+msgstr ""
+
 #.   <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
 #.               <input attributes="name string:deleterow_${repeat/row/index};
 #.                                 onclick python:'return window.confirm(\'%s\')' %
@@ -132,6 +137,11 @@ msgstr ""
 #.   <h1>heading_metadata_view</h1>
 #: from ../skins/cps_document/layout_metadata_view.pt
 msgid "heading_metadata_view"
+msgstr ""
+
+#.   <span condition="widget/is_i18n" content="widget/help">i18_key-help_for_this_field</span>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "i18_key-help_for_this_field"
 msgstr ""
 
 #.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>

@@ -1,24 +1,26 @@
+# translation of fr.po to Francais
 # translation of fr.po to francais
 # translation of fr.po to ben
 # Gettext Message File for default.
 # Your Name <your@email>, Year
 # ben <ben@nuxeo.com>, 2003.
 # emmanuel <epietriga@nuxeo.com>, 2003.
+# DARCHE <madarche@nuxeio.com>, 2003.
 #
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-16 11:35default\n"
-"PO-Revision-Date: 2003-12-16 11:36+0100\n"
-"Last-Translator: ben <ben@nuxeo.com>\n"
-"Language-Team: ben\n"
+"POT-Creation-Date: 2003-12-19 11:06default\n"
+"PO-Revision-Date: 2003-12-19 11:07+0100\n"
+"Last-Translator: DARCHE <madarche@nuxeio.com>\n"
+"Language-Team: Francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;X-Generator: KBabel 1.0.2\n"
-"X-Generator: KBabel 1.0.1\n"
+"X-Generator: KBabel 1.0.2\n"
 
 #.   <h1 condition="creation">
 #.         Create a document of type
@@ -84,6 +86,11 @@ msgstr "Créer"
 msgid "button_delete"
 msgstr "Supprimer"
 
+#.   <button condition="widget/help" attributes="onclick python:'toggleFormTooltip(\'%s\')' % tooltip_id;" class="tooltipControl" type="button">button_help</button>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_help"
+msgstr "Aide"
+
 #.   <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
 #.               <input attributes="name string:deleterow_${repeat/row/index};
 #.                                 onclick python:'return window.confirm(\'%s\')' %
@@ -134,6 +141,11 @@ msgstr "Edition des Méta-données"
 #: from ../skins/cps_document/layout_metadata_view.pt
 msgid "heading_metadata_view"
 msgstr "Méta-données du document"
+
+#.   <span condition="widget/is_i18n" content="widget/help">i18_key-help_for_this_field</span>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "i18_key-help_for_this_field"
+msgstr ""
 
 #.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
 #.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>

@@ -76,6 +76,7 @@
                          wid widget/getWidgetId;
                          err python:ds.getError(wid);
                          is_required widget/is_required|nothing;
+                         tooltip_id python:wid + '_help';
                          css_class python:test(err, 'row error',
                                            test(is_flexible, 'group', 'row'))">
         <div tal:attributes="class css_class">
@@ -87,18 +88,20 @@
             <span tal:condition="not:widget/is_i18n"
               tal:content="widget/label_edit">label</span>
           </div>
-          <span class="tooltipControl"
+          <button type="button" class="tooltipControl"
                 tal:condition="widget/help"
-		tal:attributes="
-                onmouseover python:'toggleFormTooltip(true, \'%s\')' % (wid + '_help');
-                onmouseout python:'toggleFormTooltip(false, \'%s\')' % (wid + '_help');
-                "><img alt="" src="tooltip_icon.gif"></span>
+		tal:attributes="onclick python:'toggleFormTooltip(\'%s\')' % tooltip_id;"
+                i18n:translate=""
+          >button_help</button>
           <div class="field">
             <div tal:replace="structure cell/widget_rendered"/>
           </div>
-          <div class="tooltipArea"
+          <div class="tooltipArea" style="visibility: hidden;"
                tal:condition="widget/help"
-               tal:attributes="id python:wid + '_help'">
+               tal:attributes="
+               id tooltip_id;
+               onclick python:'showFormTooltip(false, \'%s\')' % tooltip_id;
+            ">
             <span i18n:translate="" tal:condition="widget/is_i18n"
               tal:content="widget/help">i18_key-help_for_this_field</span>
             <span tal:condition="not:widget/is_i18n"
