@@ -16,6 +16,8 @@ New features:
 - #254: DublinCore full implementation with Coverage, Source and Relation
 - Metadata Contributors is computed automaticly by adding editors
 - edition and metadata edition heading display portal type icon
+- Link Document store href using Relation metadata instead of href attribute
+  backward compatibility is done using cpsdocument_installer
 Bug fixes:
 ~~~~~~~~~~
 - no way to enable/disable discussion on a document
