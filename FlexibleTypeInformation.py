@@ -376,7 +376,7 @@ class FlexibleTypeInformation(TypeInformation):
         layout.setLayoutDefinition(layoutdef)
 
         # Delete the widgets and the fields they use.
-        allowed_widgets = layout.allowed_widgets
+        allowed_widgets = layout.getAllowedWidgetIds()
         for widget_id in widget_ids:
             widget = layout[widget_id]
             for field_id in widget.fields:
