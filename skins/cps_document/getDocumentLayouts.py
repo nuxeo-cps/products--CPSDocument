@@ -251,6 +251,12 @@ metadata_layout = {
 # common header layout
 common_layout = {
     'widgets': {
+        'LanguageSelector': {
+            'type': 'Document Language Select Widget',
+            'data': {
+                'fields': ['Language'],
+            },
+        },
         'Title': {
             'type': 'Heading Widget',
             'data': {
@@ -280,6 +286,7 @@ common_layout = {
     'layout': {
         'style_prefix': 'layout_default_',
         'rows': [
+            [{'widget_id': 'LanguageSelector'}],
             [{'widget_id': 'Title'},],
             [{'widget_id': 'Description'},],
             ],
