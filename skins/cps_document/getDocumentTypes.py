@@ -37,8 +37,9 @@ news_type = {
     'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
     'schemas': ['news'],
-    'layouts': ['news', 'news2'],
-    'flexible_layouts': ['news2:news2'],
+    'layouts': ['news'],
+#    'layouts': ['news1', 'news2'],
+#    'flexible_layouts': ['news2:news2'],
     'storage_methods': [],
     }
 
