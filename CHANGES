@@ -8,6 +8,8 @@ Bug fixes:
 ~~~~~~~~~~
 - Fixed action syntax (TALES).
 - Fixed layout lib to correclty use actions.
+- Fixed comments (forum) layout problems (inline display)
+
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Remove hardcoded cpsdocument templates references
