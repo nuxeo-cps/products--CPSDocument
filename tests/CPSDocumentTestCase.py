@@ -4,7 +4,7 @@ from Products.CPSDefault.tests import CPSTestCase
 ZopeTestCase.installProduct('CPSDocument')
 ZopeTestCase.installProduct('CPSSchemas')
 
-CPSTestCase.setupPortal(CPSTestCase.CPSInstaller)
+CPSTestCase.setupPortal()
 
 CPSDocumentTestCase = CPSTestCase.CPSTestCase
 
