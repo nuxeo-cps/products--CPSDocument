@@ -15,6 +15,16 @@ type information should look like.</p>
     '<dtml-var sequence-key>': <dtml-var sequence-item>,
 </dtml-if>
 </dtml-in>
+    'actions': (
+<dtml-in listActions>
+         {'id': <dtml-var "_.repr(getId())">,
+          'name': <dtml-var "_.repr(Title())">,
+          'action': <dtml-var "_.repr(getActionExpression())">,
+          'condition': <dtml-var "_.repr(getCondition())">,
+          'permissions': <dtml-var "_.repr(getPermissions())">,
+          'category': <dtml-var "_.repr(getCategory())">,
+          'visible': <dtml-var "_.repr(getVisibility())">,},
+</dtml-in>    )
 }
 </pre>
 

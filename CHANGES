@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- The FlexibleTypeInformation export now exports actions as well.
 Bug fixes:
 ~~~~~~~~~~
 -
