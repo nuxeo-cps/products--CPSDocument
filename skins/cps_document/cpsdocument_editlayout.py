@@ -6,7 +6,8 @@ Action called when something is changed in the flexible part of a document.
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
-layout_id = kw['layout_id']
+layout_id = kw.get('layout_id')
+msg = ''
 
 up_row = None
 down_row = None
@@ -20,13 +21,14 @@ for k in kw.keys():
         delete_rows.append(int(k[len('deleterow_'):]))
 if up_row is not None or down_row is not None:
     context.getContent().flexibleChangeLayout(layout_id, up_row=up_row, down_row=down_row)
+    msg="layout changed"
 if delete_rows:
     context.getContent().flexibleDelWidgetRows(layout_id, delete_rows)
+    msg="layout changed"
 
 if kw.has_key('addwidget_button'):
-    kwargs = {'label_edit': kw['widget_label_edit']}
+    kwargs = {'label_edit': kw.get('widget_label_edit')}
     context.getContent().flexibleAddWidget(layout_id, kw['widget_type'], **kwargs)
+    msg="layout changed"
 
-
-if REQUEST is not None:
-    REQUEST.RESPONSE.redirect(context.absolute_url()+'/cpsdocument_editlayout_form')
+return msg
