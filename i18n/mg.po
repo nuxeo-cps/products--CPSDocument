@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-07 11:33default\n"
+"POT-Creation-Date: 2005-03-14 12:14default\n"
 "PO-Revision-Date: 2004-11-25 13:38+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -156,10 +156,10 @@ msgstr ""
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document/layout_newsitem_view.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_view.pt
-#: ../skins/cps_document_cmf/layout_lib_div_view.pt 1 more references
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt
+#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "label"
 
@@ -208,6 +208,10 @@ msgstr "Daty : "
 msgid "cpsdoc_date_label"
 msgstr "Ny "
 
+#, fuzzy
+msgid "cpsdoc_attachedFile_label"
+msgstr "Sary na antotandahatsoratra alefa : "
+
 msgid "cpsdoc_preview_label_edit"
 msgstr "Sary kely (vignette) : "
 
@@ -222,6 +226,49 @@ msgstr "Sakan'ny fenêtre"
 
 msgid "cpsdoc_popup_height_label_edit"
 msgstr "Haavon'ny fenêtre"
+
+msgid "label_source"
+msgstr "Fototra"
+
+msgid "label_coverage"
+msgstr "Fihelezana"
+
+msgid "label_relation"
+msgstr "Fifandraisana"
+
+msgid "cpsdoc_hidden_folder"
+msgstr ""
+"Aza aseho ity repertoara ity eo amin'ny fandehandehanana eo anivon'ny "
+"tranonkala"
+
+msgid "cpsdoc_hidden_folder_help"
+msgstr ""
+"Tsy ho hita ity repertoara ity amin'ny fandehandehanana eo anivon'ny "
+"tranonkala amin'ny endriny voalohany (par défaut). Ho hita nefa izy ao "
+"amin'ny 'Mandrindra ny votoatiny'. Ampiasao ny 'Gérer les rôles locaux' raha "
+"tianao fehezina ny fandehanana ao amin'io repertoara io."
+
+msgid "help_dc_subject"
+msgstr "Ny mikasika ny votoatin'ny ressource."
+
+msgid "help_dc_contirbutors"
+msgstr "Ireo olona izay niasa tamin'ny famoronana ny votoatin'ny ressource."
+
+msgid "help_dc_source"
+msgstr ""
+"Une référence à une ressource à partir de laquelle la ressource actuelle a "
+"été dérivée. "
+
+msgid "help_dc_coverage"
+msgstr "Ny fihelezan'ny ressource."
+
+msgid "help_dc_relation"
+msgstr ""
+"Une référence (URL) à une autre ressource qui a un rapport avec cette "
+"ressource. "
+
+msgid "label_portal_type"
+msgstr "Karazana ressource"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Vondrona lahatsoratra"
@@ -295,13 +342,6 @@ msgid "cpsdoc_faq_answer_label"
 msgstr "Valiny :  "
 
 # default doc types
-msgid "portal_type_ImageGallery_title"
-msgstr "Vondrona sary"
-
-msgid "portal_type_ImageGallery_description"
-msgstr "Andiana sary"
-
-# default doc types
 msgid "portal_type_Glossary_title"
 msgstr "Glossaire"
 
@@ -315,8 +355,38 @@ msgstr "Glossaire - dikan'ireo teny"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Ny nampidirina tao amin'ny 'glossaire'"
 
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr "Aseho daholo ireo zavatra nampidirina raha tsy nifididy litera mihitsy"
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr "Teny"
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Dikany"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_NewsItem_title"
+msgstr "FAQ - Question posée fréquemment"
+
+#, fuzzy
+msgid "portal_type_NewsItem_description"
+msgstr "Fanontaniana / Valiny"
+
+#, fuzzy
+msgid "cpsdoc_NewsItem_label_related_subjects"
+msgstr "Daty nivoahana : "
+
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Daty nivoahana : "
+
+#, fuzzy
+msgid "portal_type_PressRelease_title"
+msgstr "Pejy"
+
+#, fuzzy
+msgid "portal_type_PressRelease_description"
+msgstr "Antotandahatsoratra miendrika pejy ao anaty boky"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -361,6 +431,13 @@ msgstr "Sary"
 msgid "cpsdoc_Image_label_edit"
 msgstr "Sary : "
 
+# default doc types
+msgid "portal_type_ImageGallery_title"
+msgstr "Vondrona sary"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Andiana sary"
+
 msgid "cpsdoc_imgallery_width_label_edit"
 msgstr "Sakan'ny sary kely (miniatures)"
 
@@ -372,15 +449,6 @@ msgstr "Isan'ny sary kely (miniatures) ao amin'ny pejy iray"
 
 msgid "cpsdoc_imgallery_col_label_edit"
 msgstr "Isan'ny colonne ao amin'ny pejy iray"
-
-msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Aseho daholo ireo zavatra nampidirina raha tsy nifididy litera mihitsy"
-
-msgid "cpsdoc_glossary_term_label_edit"
-msgstr "Teny"
-
-msgid "cpsdoc_glossary_expl_label_edit"
-msgstr "Dikany"
 
 # default doc types
 msgid "portal_type_Book_title"
@@ -415,46 +483,3 @@ msgstr ""
 
 msgid "cpsdoc_book_display_flat"
 msgstr ""
-
-msgid "label_source"
-msgstr "Fototra"
-
-msgid "label_coverage"
-msgstr "Fihelezana"
-
-msgid "label_relation"
-msgstr "Fifandraisana"
-
-msgid "cpsdoc_hidden_folder"
-msgstr ""
-"Aza aseho ity repertoara ity eo amin'ny fandehandehanana eo anivon'ny "
-"tranonkala"
-
-msgid "cpsdoc_hidden_folder_help"
-msgstr ""
-"Tsy ho hita ity repertoara ity amin'ny fandehandehanana eo anivon'ny "
-"tranonkala amin'ny endriny voalohany (par défaut). Ho hita nefa izy ao "
-"amin'ny 'Mandrindra ny votoatiny'. Ampiasao ny 'Gérer les rôles locaux' raha "
-"tianao fehezina ny fandehanana ao amin'io repertoara io."
-
-msgid "help_dc_subject"
-msgstr "Ny mikasika ny votoatin'ny ressource."
-
-msgid "help_dc_contirbutors"
-msgstr "Ireo olona izay niasa tamin'ny famoronana ny votoatin'ny ressource."
-
-msgid "help_dc_source"
-msgstr ""
-"Une référence à une ressource à partir de laquelle la ressource actuelle a "
-"été dérivée. "
-
-msgid "help_dc_coverage"
-msgstr "Ny fihelezan'ny ressource."
-
-msgid "help_dc_relation"
-msgstr ""
-"Une référence (URL) à une autre ressource qui a un rapport avec cette "
-"ressource. "
-
-msgid "label_portal_type"
-msgstr "Karazana ressource"

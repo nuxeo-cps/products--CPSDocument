@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-07 11:33default\n"
+"POT-Creation-Date: 2005-03-14 12:14default\n"
 "PO-Revision-Date: 2004-07-12 18:00+0200\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@dhl.com>\n"
 "Language-Team: francais <rheinland@dzug.org>\n"
@@ -143,10 +143,10 @@ msgstr ""
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document/layout_newsitem_view.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_view.pt
-#: ../skins/cps_document_cmf/layout_lib_div_view.pt 1 more references
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt
+#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "Label"
 
@@ -164,6 +164,14 @@ msgstr ""
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "next"
+msgstr ""
+
+#.   <a href="." attributes="href python:'/'+
+#.                                       itemList[pos - 1].absolute_url(relative=1) +
+#.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
+#: from ../skins/cps_document/popup_image.pt
+#: ../skins/cps_document_cmf/popup_image.pt
+msgid "previous"
 msgstr ""
 
 #.   <label for="comments">Reason of the modification</label>
@@ -187,11 +195,65 @@ msgstr "Datum: "
 msgid "cpsdoc_date_label"
 msgstr " "
 
+#, fuzzy
+msgid "cpsdoc_attachedFile_label"
+msgstr "Anhaftende Datei: "
+
 msgid "cpsdoc_preview_label_edit"
 msgstr "Icon: "
 
 msgid "cpsdoc_allow_discussion_label_edit"
 msgstr "Erlaube Diskussion: "
+
+#, fuzzy
+msgid "cpsdoc_popup_mode_label_edit"
+msgstr "Datum: "
+
+#, fuzzy
+msgid "cpsdoc_popup_width_label_edit"
+msgstr "Datum: "
+
+#, fuzzy
+msgid "cpsdoc_popup_height_label_edit"
+msgstr "Minibild Höhe"
+
+msgid "label_source"
+msgstr "Quelle"
+
+msgid "label_coverage"
+msgstr "Kontext"
+
+msgid "label_relation"
+msgstr "Beziehung"
+
+msgid "cpsdoc_hidden_folder"
+msgstr "Verberge diesen Folder in der Navigation"
+
+msgid "cpsdoc_hidden_folder_help"
+msgstr ""
+"Der Folder wird in der 'Folder Ansicht' verborgen. Sie können dennoch darauf "
+"zugreifen indem Sie 'Folder Inhalt' aufrufen oder bei der Auswahl eines "
+"Publikationsziels. Benutzen Sie 'Lokal Rollen' um den Zugang zu sichern."
+
+msgid "help_dc_subject"
+msgstr "Der Themenbereich des Inhalts dieser Ressource."
+
+msgid "help_dc_contirbutors"
+msgstr "Teilnehmer die für den Inhalt dieser Ressource verantwortlich sind."
+
+msgid "help_dc_source"
+msgstr ""
+"Ein Verweis auf ein Objekt oder eine Ressource von dem der Inhalt dieser "
+"Ressource abgeleitet ist."
+
+msgid "help_dc_coverage"
+msgstr "Der Kontext des Inhalts dieser Ressource."
+
+msgid "help_dc_relation"
+msgstr "Beziehung zu einer verwandten Ressource."
+
+msgid "label_portal_type"
+msgstr "Ressourcen Typ"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Text: "
@@ -264,13 +326,6 @@ msgid "cpsdoc_faq_answer_label"
 msgstr "Antwort vollständig: "
 
 # default doc types
-msgid "portal_type_ImageGallery_title"
-msgstr "Bilder Gallerie"
-
-msgid "portal_type_ImageGallery_description"
-msgstr "Eine Sammlung von Bildern oder Fotos"
-
-# default doc types
 msgid "portal_type_Glossary_title"
 msgstr "Glossar"
 
@@ -284,8 +339,39 @@ msgstr "Glossar Eintrag"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Begriffdefinition (für Glossare)"
 
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr "Zeige alle Einträge wenn kein Buchstabe ausgewählt wurde"
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr "Eintrag"
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Definition"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_NewsItem_title"
+msgstr "FAQ Titel"
+
+#, fuzzy
+msgid "portal_type_NewsItem_description"
+msgstr "FAQ Frage & Antwort"
+
+#, fuzzy
+msgid "cpsdoc_NewsItem_label_related_subjects"
+msgstr "Datum:"
+
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Datum:"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_PressRelease_title"
+msgstr "Buchseite"
+
+#, fuzzy
+msgid "portal_type_PressRelease_description"
+msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -330,6 +416,13 @@ msgstr "ein Bild oder ein Foto"
 msgid "cpsdoc_Image_label_edit"
 msgstr "Bild: "
 
+# default doc types
+msgid "portal_type_ImageGallery_title"
+msgstr "Bilder Gallerie"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Eine Sammlung von Bildern oder Fotos"
+
 msgid "cpsdoc_imgallery_width_label_edit"
 msgstr "Minibild Weite"
 
@@ -341,15 +434,6 @@ msgstr "Anzahl der Minibilder pro Seite"
 
 msgid "cpsdoc_imgallery_col_label_edit"
 msgstr "Anzahl der Spalten pro Seite"
-
-msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Zeige alle Einträge wenn kein Buchstabe ausgewählt wurde"
-
-msgid "cpsdoc_glossary_term_label_edit"
-msgstr "Eintrag"
-
-msgid "cpsdoc_glossary_expl_label_edit"
-msgstr "Definition"
 
 # default doc types
 msgid "portal_type_Book_title"
@@ -363,6 +447,15 @@ msgid "portal_type_Page_title"
 msgstr "Buchseite"
 
 msgid "portal_type_Page_description"
+msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Chapter_title"
+msgstr "Buchseite"
+
+#, fuzzy
+msgid "portal_type_Chapter_description"
 msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
@@ -379,41 +472,3 @@ msgstr ""
 
 msgid "cpsdoc_book_display_flat"
 msgstr ""
-
-msgid "label_source"
-msgstr "Quelle"
-
-msgid "label_coverage"
-msgstr "Kontext"
-
-msgid "label_relation"
-msgstr "Beziehung"
-
-msgid "cpsdoc_hidden_folder"
-msgstr "Verberge diesen Folder in der Navigation"
-
-msgid "cpsdoc_hidden_folder_help"
-msgstr ""
-"Der Folder wird in der 'Folder Ansicht' verborgen. Sie können dennoch darauf "
-"zugreifen indem Sie 'Folder Inhalt' aufrufen oder bei der Auswahl eines "
-"Publikationsziels. Benutzen Sie 'Lokal Rollen' um den Zugang zu sichern."
-
-msgid "help_dc_subject"
-msgstr "Der Themenbereich des Inhalts dieser Ressource."
-
-msgid "help_dc_contirbutors"
-msgstr "Teilnehmer die für den Inhalt dieser Ressource verantwortlich sind."
-
-msgid "help_dc_source"
-msgstr ""
-"Ein Verweis auf ein Objekt oder eine Ressource von dem der Inhalt dieser "
-"Ressource abgeleitet ist."
-
-msgid "help_dc_coverage"
-msgstr "Der Kontext des Inhalts dieser Ressource."
-
-msgid "help_dc_relation"
-msgstr "Beziehung zu einer verwandten Ressource."
-
-msgid "label_portal_type"
-msgstr "Ressourcen Typ"

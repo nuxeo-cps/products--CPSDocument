@@ -17,7 +17,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument_en\n"
-"POT-Creation-Date: 2005-03-07 11:33default\n"
+"POT-Creation-Date: 2005-03-14 12:14default\n"
 "PO-Revision-Date: 2004-10-04 16:55+0100\n"
 "Last-Translator:  <>\n"
 "Language-Team: Euskara <eu@li.org>\n"
@@ -51,6 +51,12 @@ msgstr "Editatu  \"${title}\""
 msgid "Page ${page}"
 msgstr "${page}. orrialdea"
 
+#.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+msgid "Type"
+msgstr ""
+
 #.   <block content="type_info/Title" define="type_name request/type_name;
 #.                           type_info python:here.portal_types[type_name]">Type Title</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
@@ -58,11 +64,24 @@ msgstr "${page}. orrialdea"
 msgid "Type Title"
 msgstr ""
 
+#.   <span>to</span>
+#: from ../skins/cps_document/layout_event_view.pt
+#: ../skins/cps_document_cmf/layout_event_view.pt
+#, fuzzy
+msgid "cpsdoc_Event_end_label"
+msgstr "Nori: "
+
 #.   <span>from</span>
 #: from ../skins/cps_document/layout_event_view.pt
 #: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "Hasiera: "
+
+#.   <h2>Import ZIP File</h2>
+#: from ../skins/cps_document/cpsdocument_import_zip_form.pt
+#, fuzzy
+msgid "cpsdoc_import_zip_title"
+msgstr "Argazkia"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -135,10 +154,10 @@ msgstr "Laguntza"
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document/layout_newsitem_view.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_view.pt
-#: ../skins/cps_document_cmf/layout_lib_div_view.pt 1 more references
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt
+#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "Etiketa"
 
@@ -187,6 +206,10 @@ msgstr "Data: "
 msgid "cpsdoc_date_label"
 msgstr " "
 
+#, fuzzy
+msgid "cpsdoc_attachedFile_label"
+msgstr "Fitxategi erantsia: "
+
 msgid "cpsdoc_preview_label_edit"
 msgstr "Ikonoa: "
 
@@ -202,8 +225,51 @@ msgstr "Leihoaren zabalera"
 msgid "cpsdoc_popup_height_label_edit"
 msgstr "Leihoaren zabalera"
 
+msgid "label_source"
+msgstr "Iturria"
+
+#, fuzzy
+msgid "label_coverage"
+msgstr "Iturria"
+
+#, fuzzy
+msgid "label_relation"
+msgstr "Iturria"
+
+msgid "cpsdoc_hidden_folder"
+msgstr "Nabigatzean, karpeta hau ezkutatu"
+
+msgid "cpsdoc_hidden_folder_help"
+msgstr ""
+"karpeta hau ezkutuan geratuko da. Gero ere ikusi ahal izango duzu, "
+"\"Karpetaren Edukiak\" klikatuz. Edo bestela, publikatzerakoan. Erabili Use "
+"'Rol lokalak' karpetaren segurtasuna ziurtatzeko."
+
+msgid "help_dc_subject"
+msgstr ""
+
+msgid "help_dc_contirbutors"
+msgstr ""
+
+#, fuzzy
+msgid "help_dc_source"
+msgstr "Iturria"
+
+msgid "help_dc_coverage"
+msgstr ""
+
+msgid "help_dc_relation"
+msgstr ""
+
+msgid "label_portal_type"
+msgstr "Baliabide mota"
+
 msgid "cpsdoc_flex_content_title"
 msgstr "Testua: "
+
+#, fuzzy
+msgid "cpsdoc_flex_content_label_edit"
+msgstr "Eskuineko zutabeko testua: "
 
 msgid "cpsdoc_flex_content_right_label_edit"
 msgstr "Eskuineko zutabeko testua: "
@@ -229,6 +295,14 @@ msgstr "Lotura (URL)"
 
 msgid "cpdoc_flex_link_label_edit"
 msgstr "Loturako helbidea: "
+
+#, fuzzy
+msgid "cpsdoc_flex_textimage_title"
+msgstr "Testua: "
+
+#, fuzzy
+msgid "cpsdoc_flex_textimage_label_edit"
+msgstr "Eskuineko zutabeko testua: "
 
 # default doc types
 msgid "portal_type_Flexible_title"
@@ -264,13 +338,6 @@ msgid "cpsdoc_faq_answer_label"
 msgstr "Erantzuna: "
 
 # default doc types
-msgid "portal_type_ImageGallery_title"
-msgstr "Irudi bilduma"
-
-msgid "portal_type_ImageGallery_description"
-msgstr "Argazki bilduma"
-
-# default doc types
 msgid "portal_type_Glossary_title"
 msgstr "Glosarioa"
 
@@ -284,8 +351,40 @@ msgstr "Glosarioko sarrera"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Terminoaren definizioa (glosariorako)"
 
+#, fuzzy
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr "Azalpena"
+
+#, fuzzy
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr "Azalpena"
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Azalpena"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_NewsItem_title"
+msgstr "FAQ sarrera"
+
+#, fuzzy
+msgid "portal_type_NewsItem_description"
+msgstr "Galdera / Erantzuna"
+
+#, fuzzy
+msgid "cpsdoc_NewsItem_label_related_subjects"
+msgstr "Data:"
+
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Data:"
+
+#, fuzzy
+msgid "portal_type_PressRelease_title"
+msgstr "Liburua - Orrialdea"
+
+#, fuzzy
+msgid "portal_type_PressRelease_description"
+msgstr "Indexatutako fitxategi erantsia"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -330,36 +429,64 @@ msgstr "Argazkia"
 msgid "cpsdoc_Image_label_edit"
 msgstr "Irudia: "
 
-msgid "cpsdoc_imgallery_col_label_edit"
+# default doc types
+msgid "portal_type_ImageGallery_title"
+msgstr "Irudi bilduma"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Argazki bilduma"
+
+#, fuzzy
+msgid "cpsdoc_imgallery_width_label_edit"
 msgstr "Zenbat zutabe orrialdeko"
 
-msgid "cpsdoc_glossary_expl_label_edit"
-msgstr "Azalpena"
+#, fuzzy
+msgid "cpsdoc_imgallery_height_label_edit"
+msgstr "Zenbat zutabe orrialdeko"
+
+#, fuzzy
+msgid "cpsdoc_imgallery_items_label_edit"
+msgstr "Zenbat zutabe orrialdeko"
+
+msgid "cpsdoc_imgallery_col_label_edit"
+msgstr "Zenbat zutabe orrialdeko"
 
 # default doc types
 msgid "portal_type_Book_title"
 msgstr "Liburua"
 
+#, fuzzy
+msgid "portal_type_Book_description"
+msgstr "URL"
+
 msgid "portal_type_Page_title"
 msgstr "Liburua - Orrialdea"
+
+#, fuzzy
+msgid "portal_type_Page_description"
+msgstr "Argazkia"
 
 msgid "portal_type_Chapter_title"
 msgstr "Liburua - Kapitulua"
 
+#, fuzzy
+msgid "portal_type_Chapter_description"
+msgstr "Argazkia"
+
+#, fuzzy
+msgid "cpsdoc_book_nb_summary_page_label_edit"
+msgstr "Azalpena"
+
+#, fuzzy
+msgid "cpsdoc_book_has_search_box_label_edit"
+msgstr "Azalpena"
+
 msgid "cpsdoc_book_display"
 msgstr ""
 
-msgid "label_source"
-msgstr "Iturria"
+#, fuzzy
+msgid "cpsdoc_book_display_pages"
+msgstr "Aurreko orrialdea"
 
-msgid "cpsdoc_hidden_folder"
-msgstr "Nabigatzean, karpeta hau ezkutatu"
-
-msgid "cpsdoc_hidden_folder_help"
+msgid "cpsdoc_book_display_flat"
 msgstr ""
-"karpeta hau ezkutuan geratuko da. Gero ere ikusi ahal izango duzu, "
-"\"Karpetaren Edukiak\" klikatuz. Edo bestela, publikatzerakoan. Erabili Use "
-"'Rol lokalak' karpetaren segurtasuna ziurtatzeko."
-
-msgid "label_portal_type"
-msgstr "Baliabide mota"

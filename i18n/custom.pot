@@ -32,6 +32,9 @@ msgstr ""
 msgid "cpsdoc_date_label"
 msgstr ""
 
+msgid "cpsdoc_attachedFile_label"
+msgstr ""
+
 msgid "cpsdoc_preview_label_edit"
 msgstr ""
 

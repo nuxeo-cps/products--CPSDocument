@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
-"POT-Creation-Date: 2005-03-07 11:33default\n"
+"POT-Creation-Date: 2005-03-14 12:14default\n"
 "PO-Revision-Date: 2004-09-30 16:17+0100\n"
 "Last-Translator: Fabio Nosari <fabnos@fastwebnet.it>\n"
 "Language-Team: Fabio NOSARI <fabnos@fastwebnet.it>\n"
@@ -147,10 +147,10 @@ msgstr ""
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document/layout_newsitem_view.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_view.pt
-#: ../skins/cps_document_cmf/layout_lib_div_view.pt 1 more references
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt
+#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "etichetta"
 
@@ -200,6 +200,10 @@ msgstr "Data:"
 msgid "cpsdoc_date_label"
 msgstr "Data"
 
+#, fuzzy
+msgid "cpsdoc_attachedFile_label"
+msgstr "File allegato:"
+
 msgid "cpsdoc_preview_label_edit"
 msgstr "Miniatura di anteprima:"
 
@@ -214,6 +218,46 @@ msgstr "Larghezza della finestra:"
 
 msgid "cpsdoc_popup_height_label_edit"
 msgstr "Altezza della finestra:"
+
+# metadata
+msgid "label_source"
+msgstr "Origine:"
+
+msgid "label_coverage"
+msgstr "Copertura:"
+
+msgid "label_relation"
+msgstr "Correlazioni:"
+
+msgid "cpsdoc_hidden_folder"
+msgstr "Nascondi questa cartella nella navigazione"
+
+msgid "cpsdoc_hidden_folder_help"
+msgstr ""
+"Questa cartella risulterà nascosta nella modalità di visualizzazione, benché "
+"sia possibile ancora visualizzare e accedere ad essa utilizzando 'Contenuti "
+"della cartella' e quando si deve scegliere una sezione per la pubblicazione. "
+"Utilizza 'Ruoli locali' per consentire l'accesso alla cartella."
+
+msgid "help_dc_subject"
+msgstr "L'argomento del contenuto della risorsa."
+
+msgid "help_dc_contirbutors"
+msgstr ""
+"Soggetti responsabili nella creazione di contributi al contenuto della "
+"risorsa."
+
+msgid "help_dc_source"
+msgstr "Riferimento ad una risorsa dalla quale deriva quella in oggetto."
+
+msgid "help_dc_coverage"
+msgstr "L'estensione o scopo del contenuto della risorsa."
+
+msgid "help_dc_relation"
+msgstr "Un collegamento (URL) ad una risorsa analoga."
+
+msgid "label_portal_type"
+msgstr "Tipo di risorsa:"
 
 # flex content
 msgid "cpsdoc_flex_content_title"
@@ -284,13 +328,6 @@ msgstr "Risposta:"
 msgid "cpsdoc_faq_answer_label"
 msgstr "Risposta:"
 
-# Images
-msgid "portal_type_ImageGallery_title"
-msgstr "Immagini - Album"
-
-msgid "portal_type_ImageGallery_description"
-msgstr "Raccoglitore di immagini"
-
 # Glossary
 msgid "portal_type_Glossary_title"
 msgstr "Glossario - Raccoglitore"
@@ -304,8 +341,41 @@ msgstr "Glossario - Elemento di glossario"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Definizione di un termine"
 
+# Glossary
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr ""
+"Visualizza tutti gli oggetti se non è stata selezionata alcuna lettera:"
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr "Termine"
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Definizione"
+
+#, fuzzy
+msgid "portal_type_NewsItem_title"
+msgstr "FAQ - Domanda posta frequentemente"
+
+#, fuzzy
+msgid "portal_type_NewsItem_description"
+msgstr "Domanda posta frequentemente e relativa risposta"
+
+#, fuzzy
+msgid "cpsdoc_NewsItem_label_related_subjects"
+msgstr "Data di pubblicazione: "
+
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Data di pubblicazione: "
+
+#, fuzzy
+msgid "portal_type_PressRelease_title"
+msgstr "Libro - Pagina"
+
+#, fuzzy
+msgid "portal_type_PressRelease_description"
+msgstr ""
+"Un documento flessibile presentato con l'aspetto di una pagina interna di un "
+"libro"
 
 # File
 msgid "portal_type_File_title"
@@ -350,6 +420,13 @@ msgstr "Un'immagine"
 msgid "cpsdoc_Image_label_edit"
 msgstr "Immagine:"
 
+# Images
+msgid "portal_type_ImageGallery_title"
+msgstr "Immagini - Album"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Raccoglitore di immagini"
+
 # ImageGallery
 msgid "cpsdoc_imgallery_width_label_edit"
 msgstr "Larghezza delle miniature:"
@@ -362,17 +439,6 @@ msgstr "Numero di miniature per pagina:"
 
 msgid "cpsdoc_imgallery_col_label_edit"
 msgstr "Numero di colonne per pagina:"
-
-# Glossary
-msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr ""
-"Visualizza tutti gli oggetti se non è stata selezionata alcuna lettera:"
-
-msgid "cpsdoc_glossary_term_label_edit"
-msgstr "Termine"
-
-msgid "cpsdoc_glossary_expl_label_edit"
-msgstr "Definizione"
 
 # Book and page
 msgid "portal_type_Book_title"
@@ -413,43 +479,3 @@ msgstr ""
 
 msgid "cpsdoc_book_display_flat"
 msgstr ""
-
-# metadata
-msgid "label_source"
-msgstr "Origine:"
-
-msgid "label_coverage"
-msgstr "Copertura:"
-
-msgid "label_relation"
-msgstr "Correlazioni:"
-
-msgid "cpsdoc_hidden_folder"
-msgstr "Nascondi questa cartella nella navigazione"
-
-msgid "cpsdoc_hidden_folder_help"
-msgstr ""
-"Questa cartella risulterà nascosta nella modalità di visualizzazione, benché "
-"sia possibile ancora visualizzare e accedere ad essa utilizzando 'Contenuti "
-"della cartella' e quando si deve scegliere una sezione per la pubblicazione. "
-"Utilizza 'Ruoli locali' per consentire l'accesso alla cartella."
-
-msgid "help_dc_subject"
-msgstr "L'argomento del contenuto della risorsa."
-
-msgid "help_dc_contirbutors"
-msgstr ""
-"Soggetti responsabili nella creazione di contributi al contenuto della "
-"risorsa."
-
-msgid "help_dc_source"
-msgstr "Riferimento ad una risorsa dalla quale deriva quella in oggetto."
-
-msgid "help_dc_coverage"
-msgstr "L'estensione o scopo del contenuto della risorsa."
-
-msgid "help_dc_relation"
-msgstr "Un collegamento (URL) ad una risorsa analoga."
-
-msgid "label_portal_type"
-msgstr "Tipo di risorsa:"

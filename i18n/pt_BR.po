@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
-"POT-Creation-Date: 2005-03-07 11:33default\n"
+"POT-Creation-Date: 2005-03-14 12:14default\n"
 "PO-Revision-Date: 2004-09-01 12:09-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@curiango.ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
@@ -146,10 +146,10 @@ msgstr "Tecla de ajuda i18 para este campo"
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document/layout_newsitem_view.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_view.pt
-#: ../skins/cps_document_cmf/layout_lib_div_view.pt 1 more references
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt
+#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "Rótulo"
 
@@ -199,6 +199,10 @@ msgstr "Data:"
 msgid "cpsdoc_date_label"
 msgstr "Data"
 
+#, fuzzy
+msgid "cpsdoc_attachedFile_label"
+msgstr "Documento anexado"
+
 msgid "cpsdoc_preview_label_edit"
 msgstr "Previsão"
 
@@ -213,6 +217,43 @@ msgstr "Largura da janela"
 
 msgid "cpsdoc_popup_height_label_edit"
 msgstr "Altura da janela"
+
+# metadata
+msgid "label_source"
+msgstr "Origem"
+
+msgid "label_coverage"
+msgstr "Cobertura"
+
+msgid "label_relation"
+msgstr "Relação"
+
+msgid "cpsdoc_hidden_folder"
+msgstr "Pasta oculta"
+
+msgid "cpsdoc_hidden_folder_help"
+msgstr ""
+"Esta pasta será oculta no modo de visualização; você ainda poderá vê-la/"
+"acessá-la usando 'Conteúdo da Pasta' ou quando escolher um alvo para "
+"publicação. Use 'Papéis Locais' para definir a segurança no acesso à pasta."
+
+msgid "help_dc_subject"
+msgstr "Um tópico do conteúdo do recurso."
+
+msgid "help_dc_contirbutors"
+msgstr "Responsáveis por fazer contribuições ao conteúdo do recurso."
+
+msgid "help_dc_source"
+msgstr "Uma Referência a um recurso do qual o recurso presente é derivado."
+
+msgid "help_dc_coverage"
+msgstr "A extensão ou escopo do conteúdo do recurso."
+
+msgid "help_dc_relation"
+msgstr "Uma referência (URL) a um recurso relacionado."
+
+msgid "label_portal_type"
+msgstr "Tipo do Recurso"
 
 # flex content
 msgid "cpsdoc_flex_content_title"
@@ -285,13 +326,6 @@ msgstr "Resposta:"
 msgid "cpsdoc_faq_answer_label"
 msgstr "Resposta:"
 
-# Images
-msgid "portal_type_ImageGallery_title"
-msgstr "Fototeca"
-
-msgid "portal_type_ImageGallery_description"
-msgstr "Galeria de imagens/fotos"
-
 # Glossary
 msgid "portal_type_Glossary_title"
 msgstr "Glossário"
@@ -305,8 +339,38 @@ msgstr "Glossário - definição de termos"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Entrada de glossário:"
 
+# Glossary
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr "Mostrar todas as entradas se não selecionar nenhuma letra"
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr "Término"
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Definição"
+
+#, fuzzy
+msgid "portal_type_NewsItem_title"
+msgstr "FAQ - Pergunta feita com freqüência"
+
+#, fuzzy
+msgid "portal_type_NewsItem_description"
+msgstr "Pergunta / Resposta"
+
+#, fuzzy
+msgid "cpsdoc_NewsItem_label_related_subjects"
+msgstr "Data de ocorrência:"
+
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Data de ocorrência:"
+
+#, fuzzy
+msgid "portal_type_PressRelease_title"
+msgstr "Livro - Página"
+
+#, fuzzy
+msgid "portal_type_PressRelease_description"
+msgstr "Um documento flexível mostrado como uma página em um livro"
 
 # File
 msgid "portal_type_File_title"
@@ -351,6 +415,13 @@ msgstr "Uma imagem"
 msgid "cpsdoc_Image_label_edit"
 msgstr "Imagem:"
 
+# Images
+msgid "portal_type_ImageGallery_title"
+msgstr "Fototeca"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Galeria de imagens/fotos"
+
 # ImageGallery
 msgid "cpsdoc_imgallery_width_label_edit"
 msgstr "Tamanho das miniaturas (thumbnails)"
@@ -363,16 +434,6 @@ msgstr "Número de miniaturas (thumbnails) por página"
 
 msgid "cpsdoc_imgallery_col_label_edit"
 msgstr "Número de colunas por página"
-
-# Glossary
-msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Mostrar todas as entradas se não selecionar nenhuma letra"
-
-msgid "cpsdoc_glossary_term_label_edit"
-msgstr "Término"
-
-msgid "cpsdoc_glossary_expl_label_edit"
-msgstr "Definição"
 
 # Book and page
 msgid "portal_type_Book_title"
@@ -407,40 +468,3 @@ msgstr ""
 
 msgid "cpsdoc_book_display_flat"
 msgstr ""
-
-# metadata
-msgid "label_source"
-msgstr "Origem"
-
-msgid "label_coverage"
-msgstr "Cobertura"
-
-msgid "label_relation"
-msgstr "Relação"
-
-msgid "cpsdoc_hidden_folder"
-msgstr "Pasta oculta"
-
-msgid "cpsdoc_hidden_folder_help"
-msgstr ""
-"Esta pasta será oculta no modo de visualização; você ainda poderá vê-la/"
-"acessá-la usando 'Conteúdo da Pasta' ou quando escolher um alvo para "
-"publicação. Use 'Papéis Locais' para definir a segurança no acesso à pasta."
-
-msgid "help_dc_subject"
-msgstr "Um tópico do conteúdo do recurso."
-
-msgid "help_dc_contirbutors"
-msgstr "Responsáveis por fazer contribuições ao conteúdo do recurso."
-
-msgid "help_dc_source"
-msgstr "Uma Referência a um recurso do qual o recurso presente é derivado."
-
-msgid "help_dc_coverage"
-msgstr "A extensão ou escopo do conteúdo do recurso."
-
-msgid "help_dc_relation"
-msgstr "Uma referência (URL) a um recurso relacionado."
-
-msgid "label_portal_type"
-msgstr "Tipo do Recurso"

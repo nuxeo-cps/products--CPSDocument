@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-07 11:33default\n"
-"PO-Revision-Date: 2005-01-25 18:01+0100\n"
+"POT-Creation-Date: 2005-03-14 12:14default\n"
+"PO-Revision-Date: 2005-03-14 12:15+0100\n"
 "Last-Translator: DARCHE <madarche@nuxeo.com>\n"
 "Language-Team: Francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -156,10 +156,10 @@ msgstr ""
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document/layout_newsitem_view.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_view.pt
-#: ../skins/cps_document_cmf/layout_lib_div_view.pt 1 more references
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt
+#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "label"
 
@@ -168,8 +168,8 @@ msgstr "label"
 msgid "label_zip_file"
 msgstr "ZIP File"
 
-#.   <a href="." attributes="href python:'/'+ 
-#.                                       itemList[pos + 1].absolute_url(relative=1) + 
+#.   <a href="." attributes="href python:'/'+
+#.                                       itemList[pos + 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -208,6 +208,9 @@ msgstr "Date: "
 msgid "cpsdoc_date_label"
 msgstr "On "
 
+msgid "cpsdoc_attachedFile_label"
+msgstr "Attached file:"
+
 msgid "cpsdoc_preview_label_edit"
 msgstr "Icon: "
 
@@ -222,6 +225,42 @@ msgstr "Window width"
 
 msgid "cpsdoc_popup_height_label_edit"
 msgstr "Window Height"
+
+msgid "label_source"
+msgstr "Source"
+
+msgid "label_coverage"
+msgstr "Coverage"
+
+msgid "label_relation"
+msgstr "Relation"
+
+msgid "cpsdoc_hidden_folder"
+msgstr "Hide this folder in the navigation"
+
+msgid "cpsdoc_hidden_folder_help"
+msgstr ""
+"this folder will be hidden in view mode, you can still view/access this "
+"folder using 'Folder Contents' or when choosing a target for publishing. Use "
+"'Local Roles' to secure the folder access."
+
+msgid "help_dc_subject"
+msgstr "A topic of the content of the resource."
+
+msgid "help_dc_contirbutors"
+msgstr "Entities responsible for making contributions to the content of the resource."
+
+msgid "help_dc_source"
+msgstr "A Reference to a resource from which the present resource is derived."
+
+msgid "help_dc_coverage"
+msgstr "The extent or scope of the content of the resource."
+
+msgid "help_dc_relation"
+msgstr "A reference (URL) to a related resource."
+
+msgid "label_portal_type"
+msgstr "Resource type"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Text block"
@@ -294,13 +333,6 @@ msgid "cpsdoc_faq_answer_label"
 msgstr "Answer: "
 
 # default doc types
-msgid "portal_type_ImageGallery_title"
-msgstr "Image Gallery"
-
-msgid "portal_type_ImageGallery_description"
-msgstr "Set of pictures"
-
-# default doc types
 msgid "portal_type_Glossary_title"
 msgstr "Glossary"
 
@@ -313,6 +345,15 @@ msgstr "Glossary Entry"
 
 msgid "portal_type_GlossaryItem_description"
 msgstr "Term definition (for glossaries)"
+
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr "Display all entries if no letter is selected"
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr "Term"
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Definition"
 
 msgid "portal_type_NewsItem_title"
 msgstr "News item"
@@ -377,6 +418,13 @@ msgstr "A picture"
 msgid "cpsdoc_Image_label_edit"
 msgstr "Image: "
 
+# default doc types
+msgid "portal_type_ImageGallery_title"
+msgstr "Image Gallery"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Set of pictures"
+
 msgid "cpsdoc_imgallery_width_label_edit"
 msgstr "Thumbnail Width"
 
@@ -388,15 +436,6 @@ msgstr "Number of Thumbnails per Page"
 
 msgid "cpsdoc_imgallery_col_label_edit"
 msgstr "Number of Columns per Page"
-
-msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Display all entries if no letter is selected"
-
-msgid "cpsdoc_glossary_term_label_edit"
-msgstr "Term"
-
-msgid "cpsdoc_glossary_expl_label_edit"
-msgstr "Definition"
 
 # default doc types
 msgid "portal_type_Book_title"
@@ -432,39 +471,3 @@ msgstr "With separate pages"
 msgid "cpsdoc_book_display_flat"
 msgstr "Flat view"
 
-msgid "label_source"
-msgstr "Source"
-
-msgid "label_coverage"
-msgstr "Coverage"
-
-msgid "label_relation"
-msgstr "Relation"
-
-msgid "cpsdoc_hidden_folder"
-msgstr "Hide this folder in the navigation"
-
-msgid "cpsdoc_hidden_folder_help"
-msgstr ""
-"this folder will be hidden in view mode, you can still view/access this "
-"folder using 'Folder Contents' or when choosing a target for publishing. Use "
-"'Local Roles' to secure the folder access."
-
-msgid "help_dc_subject"
-msgstr "A topic of the content of the resource."
-
-msgid "help_dc_contirbutors"
-msgstr ""
-"Entities responsible for making contributions to the content of the resource."
-
-msgid "help_dc_source"
-msgstr "A Reference to a resource from which the present resource is derived."
-
-msgid "help_dc_coverage"
-msgstr "The extent or scope of the content of the resource."
-
-msgid "help_dc_relation"
-msgstr "A reference (URL) to a related resource."
-
-msgid "label_portal_type"
-msgstr "Resource type"

@@ -6,6 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
+- Added back the translation for "attached file" that got erroneously removed.
 - Translated the "label_language_pt_BR" msgid into the shorter translated
   accordingly "Brazilian" word.
 - Made the FAQ document use the new Layout properties "layout_create_method",

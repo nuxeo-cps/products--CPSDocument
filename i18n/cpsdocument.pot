@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2005-03-07 11:33default\n"
+"POT-Creation-Date: 2005-03-14 12:14default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -145,10 +145,10 @@ msgstr ""
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document/layout_newsitem_view.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_view.pt
-#: ../skins/cps_document_cmf/layout_lib_div_view.pt 1 more references
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt
+#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr ""
 
@@ -182,7 +182,7 @@ msgstr ""
 msgid "transition_comments_modification"
 msgstr ""
 
-# generic names
+# Generic names
 msgid "cpsdoc_title_label_edit"
 msgstr ""
 
@@ -196,6 +196,9 @@ msgid "cpsdoc_date_label_edit"
 msgstr ""
 
 msgid "cpsdoc_date_label"
+msgstr ""
+
+msgid "cpsdoc_attachedFile_label"
 msgstr ""
 
 msgid "cpsdoc_preview_label_edit"
@@ -213,7 +216,41 @@ msgstr ""
 msgid "cpsdoc_popup_height_label_edit"
 msgstr ""
 
-# flex content
+# Metadata
+msgid "label_source"
+msgstr ""
+
+msgid "label_coverage"
+msgstr ""
+
+msgid "label_relation"
+msgstr ""
+
+msgid "cpsdoc_hidden_folder"
+msgstr ""
+
+msgid "cpsdoc_hidden_folder_help"
+msgstr ""
+
+msgid "help_dc_subject"
+msgstr ""
+
+msgid "help_dc_contirbutors"
+msgstr ""
+
+msgid "help_dc_source"
+msgstr ""
+
+msgid "help_dc_coverage"
+msgstr ""
+
+msgid "help_dc_relation"
+msgstr ""
+
+msgid "label_portal_type"
+msgstr ""
+
+# Flexible content
 msgid "cpsdoc_flex_content_title"
 msgstr ""
 
@@ -250,14 +287,14 @@ msgstr ""
 msgid "cpsdoc_flex_textimage_label_edit"
 msgstr ""
 
-# Flexible
+# Flexible Document
 msgid "portal_type_Flexible_title"
 msgstr ""
 
 msgid "portal_type_Flexible_description"
 msgstr ""
 
-# Faq
+# FAQ
 msgid "portal_type_FAQ_title"
 msgstr ""
 
@@ -282,13 +319,6 @@ msgstr ""
 msgid "cpsdoc_faq_answer_label"
 msgstr ""
 
-# Images
-msgid "portal_type_ImageGallery_title"
-msgstr ""
-
-msgid "portal_type_ImageGallery_description"
-msgstr ""
-
 # Glossary
 msgid "portal_type_Glossary_title"
 msgstr ""
@@ -302,7 +332,16 @@ msgstr ""
 msgid "portal_type_GlossaryItem_description"
 msgstr ""
 
-# NewsItem
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr ""
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr ""
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr ""
+
+# News Item
 msgid "portal_type_NewsItem_title"
 msgstr ""
 
@@ -365,7 +404,13 @@ msgstr ""
 msgid "cpsdoc_Image_label_edit"
 msgstr ""
 
-# ImageGallery
+# Image Gallery
+msgid "portal_type_ImageGallery_title"
+msgstr ""
+
+msgid "portal_type_ImageGallery_description"
+msgstr ""
+
 msgid "cpsdoc_imgallery_width_label_edit"
 msgstr ""
 
@@ -376,16 +421,6 @@ msgid "cpsdoc_imgallery_items_label_edit"
 msgstr ""
 
 msgid "cpsdoc_imgallery_col_label_edit"
-msgstr ""
-
-# Glossary
-msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr ""
-
-msgid "cpsdoc_glossary_term_label_edit"
-msgstr ""
-
-msgid "cpsdoc_glossary_expl_label_edit"
 msgstr ""
 
 # Book and page
@@ -420,38 +455,4 @@ msgid "cpsdoc_book_display_pages"
 msgstr ""
 
 msgid "cpsdoc_book_display_flat"
-msgstr ""
-
-# metadata
-msgid "label_source"
-msgstr ""
-
-msgid "label_coverage"
-msgstr ""
-
-msgid "label_relation"
-msgstr ""
-
-msgid "cpsdoc_hidden_folder"
-msgstr ""
-
-msgid "cpsdoc_hidden_folder_help"
-msgstr ""
-
-msgid "help_dc_subject"
-msgstr ""
-
-msgid "help_dc_contirbutors"
-msgstr ""
-
-msgid "help_dc_source"
-msgstr ""
-
-msgid "help_dc_coverage"
-msgstr ""
-
-msgid "help_dc_relation"
-msgstr ""
-
-msgid "label_portal_type"
 msgstr ""
