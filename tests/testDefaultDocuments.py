@@ -11,6 +11,17 @@ import unittest
 from Testing import ZopeTestCase
 import CPSDocumentTestCase
 
+class DummyResponse:
+    def __init__(self):
+        self.headers = {}
+        self.data = ''
+
+    def setHeader(self, key, value):
+        self.headers[key] = value
+
+    def write(self, data):
+        self.data += data
+
 
 class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     def afterSetUp(self):
@@ -108,6 +119,18 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         # edit file as string
         doc.edit(file="toto")
         self.assertEquals(doc.file, "toto") 
+
+        self.assertEquals(doc.downloadFile('file'), "toto")
+
+        reponse = DummyResponse()
+        doc.downloadFile('file', reponse)
+        self.assertEquals(reponse.data, "toto")
+        self.assertEquals(reponse.headers['Content-Type'], 
+            'application/octet-stream')
+        self.assertEquals(reponse.headers['Content-Length'], 
+            len("toto"))
+        self.assertEquals(reponse.headers['Content-Disposition'],
+            "inline; filename=file")
 
 
     def testFlexible(self):
