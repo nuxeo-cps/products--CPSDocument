@@ -9,14 +9,14 @@ vocabularies = {
     'dummy_voc': {
         'data': {
             'dict': {
-                'foo': "Foo",
-                'bar': "Bar",
-                'baz123': "Baz123",
+                'news': "News",
+                'society': "Society",
+                'technology': "Technology",
                 },
             'list': [
-                'foo',
-                'bar',
-                'baz123',
+                'society',
+                'news',
+                'technology',
                 ],
             },
         },
