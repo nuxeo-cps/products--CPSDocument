@@ -298,6 +298,13 @@ schemas['file'] = file_schema
 schemas['event'] = event_schema
 schemas['imagegallery'] = imagegallery_schema
 
+# other products
+try:
+    schemas.update(context.getCPSCollectorSchemas())
+except AttributeError:
+    pass
+
+
 if loadcustom:
     cschemas = context.getCustomDocumentSchemas()
     schemas.update(cschemas)

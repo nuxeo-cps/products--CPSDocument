@@ -343,6 +343,12 @@ types['Link'] = link_type
 types['Image'] = image_type
 types['ImageGallery'] = imagegallery_type
 
+# other products
+try:
+    types.update(context.getCPSCollectorTypes())
+except AttributeError:
+    pass
+
 if loadcustom:
     ctypes = context.getCustomDocumentTypes()
     types.update(ctypes)
