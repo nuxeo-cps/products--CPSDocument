@@ -15,6 +15,8 @@ import CPSDocumentTestCase
 from Products.CPSSchemas.Widget import widgetname
 from Products.CMFCore.utils import _getViewFor
 
+from OFS.Image import File
+
 class DummyResponse:
     def __init__(self):
         self.headers = {}
@@ -397,6 +399,60 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         # XXX: what next?
 
+    def testObjectCreationWithDefaultValuesForDataModel(self):
+
+        #
+        # Test passing kw to invokeFactory to initialize data model.
+        #
+
+        # 1 - Test standard working case with key values included within the dm
+
+        doc_type = 'File'
+        doc_id = doc_type.lower()
+
+        self.ws.invokeFactory(doc_type, doc_id, Title='title',
+                              Description='description')
+
+        proxy = getattr(self.ws, doc_id)
+        doc = proxy.getContent()
+
+        self.assertEqual(doc.Title(), 'title')
+        self.assertEqual(doc.Description(), 'description')
+
+        self.ws.manage_delObjects([doc_id])
+
+        self.assert_(doc_id not in self.ws.objectIds())
+
+        # 2 - Non working case with key values not included within the dm
+
+        self.ws.invokeFactory(doc_type, doc_id, xx='title', yy='description')
+
+        proxy = getattr(self.ws, doc_id)
+        doc = proxy.getContent()
+
+        self.assertEqual(getattr(doc, 'xx', None), None)
+        self.assertEqual(getattr(doc, 'yy', None), None)
+
+        self.ws.manage_delObjects([doc_id])
+
+        self.assert_(doc_id not in self.ws.objectIds())
+
+        # 3 - Non special metadata case working
+
+        file_instance = File('x', 'x', 'xx')
+        self.ws.invokeFactory(doc_type, doc_id, file=file_instance)
+
+        proxy = getattr(self.ws, doc_id)
+        doc = proxy.getContent()
+
+        dm = doc.getTypeInfo().getDataModel(doc, proxy)
+        self.assert_('file' in dm.keys())
+
+        self.assertEqual(doc.file, file_instance)
+
+        self.ws.manage_delObjects([doc_id])
+
+        self.assert_(doc_id not in self.ws.objectIds())
 
 def test_suite():
     suite = unittest.TestSuite()
