@@ -21,7 +21,7 @@
 Type information for types described by a flexible set of schemas and layout.
 """
 
-from zLOG import LOG, DEBUG
+from zLOG import LOG, DEBUG, PROBLEM
 from Acquisition import aq_base, aq_parent, aq_inner
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
@@ -154,6 +154,10 @@ class FlexibleTypeInformation(FactoryTypeInformation):
          'label': 'Schemas'},
         {'id': 'layouts', 'type': 'tokens', 'mode': 'w',
          'label': 'Layouts'},
+        {'id': 'layout_clusters', 'type': 'tokens', 'mode': 'w',
+         'label': 'Layout clusters'},
+        # Layout clusters: sequence of tokens of the form
+        #  clusterid:layoutid,-layoutid,layoutid...
         {'id': 'flexible_layouts', 'type': 'tokens', 'mode': 'w',
          'label': 'Flexible layouts'}, # XXX layout1:schema1 layout2:schema2
         {'id': 'storage_methods', 'type': 'tokens', 'mode': 'w',
@@ -166,6 +170,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     schemas = []
     # XXX assume fixed storage adapters for now
     layouts = []
+    layout_clusters = []
     flexible_layouts = []
     storage_methods = [] # XXX will later use a storage adapter in the schema
     cps_is_searchable = 1
@@ -564,7 +569,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
     security.declarePrivate('getLayout')
     def getLayout(self, layout_id, ob=None):
-        """Get the layout for our type.
+        """Get a layout for our type.
 
         Takes into account flexible layouts from ob.
         """
@@ -582,29 +587,71 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                              % (layout_id, self.getId()))
         return layout
 
-    security.declarePrivate('_listLayouts')
-    def _listLayouts(self, layout_id=None, ob=None):
-        """Get the layout list for our type.
+    security.declarePrivate('getLayoutIds')
+    def getLayoutIds(self, layout_id=None, cluster=None):
+        """Get the list of layout ids for our type.
 
-        Takes into account flexible layouts from ob.
+        If layout_id is specified, uses it (it may be a tuple).
 
-        Returns a list of Layout objects.
+        Otherwise if cluster is specified, uses the layouts defined by
+        that cluster in the layout_clusters mapping.
+
+        Otherwise uses the default layouts.
+
+        Returns a list of layout ids.
         """
-        layouts = []
-        type_layouts = self.layouts
-        if layout_id is None:
-            for layout_id in type_layouts:
-                layouts.append(self.getLayout(layout_id, ob))
-        elif layout_id in tuple(type_layouts) + ('metadata',):
-            layouts.append(self.getLayout(layout_id, ob))
+        if layout_id is not None:
+            if isinstance(layout_id, str):
+                layout_ids = [layout_id]
+            elif isinstance(layout_id, (tuple, list)):
+                layout_ids = list(layout_id)
+            else:
+                raise ValueError("Invalid layout id %s in portal_type '%s'"
+                                 % (`layout_id`, self.getId()))
+        elif cluster is not None:
+            # parse cluster definitions
+            base = None
+            default = None
+            cldef = []
+            for s in self.layout_clusters:
+                try:
+                    cl, v = s.split(':')
+                    v = v.split(',')
+                except ValueError:
+                    LOG('getLayoutIds', PROBLEM,
+                        "Invalid layout cluster %s in portal_type '%s'"
+                        %(`s`, self.getId()))
+                    continue
+                if cl == 'default':
+                    default = v
+                if cl == cluster:
+                    cldef = v
+                    break
+            # parse cluster def
+            if not cldef or cldef[0].startswith('-'):
+                if default is not None:
+                    cldef = default + cldef
+            if not cldef or cldef[0].startswith('-'):
+                layout_ids = list(self.layouts)
+            else:
+                layout_ids = []
+            for lid in cldef:
+                if lid.startswith('-'):
+                    lid = lid[1:]
+                    if lid in layout_ids:
+                        layout_ids.remove(lid)
+                else:
+                    if lid not in layout_ids:
+                        layout_ids.append(lid)
         else:
-            raise ValueError("No layout '%s' in portal_type '%s'"
-                             % (layout_id, self.getId()))
-        return layouts
+            layout_ids = list(self.layouts)
+
+        return layout_ids
 
     security.declarePrivate('_computeLayoutStructures')
     def _computeLayoutStructures(self, datastructure, layout_mode,
-                                 layout_id=None, ob=None, request=None):
+                                 layout_id=None, cluster=None,
+                                 ob=None, request=None):
         """Initialize the datastructure and compute the layout.
 
         Datastructure is initialized according to the widgets and the
@@ -614,7 +661,9 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         Returns a list of layout_structures.
         """
-        layouts = self._listLayouts(layout_id=layout_id, ob=ob)
+        lids = self.getLayoutIds(layout_id=layout_id, cluster=cluster)
+        layouts = [self.getLayout(lid, ob) for lid in lids]
+
         for layout in layouts:
             layout.prepareLayoutWidgets(datastructure)
         if request is not None:
@@ -798,14 +847,17 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     #
 
     security.declarePrivate('renderObject')
-    def renderObject(self, ob, layout_mode='view', layout_id=None, **kw):
+    def renderObject(self, ob, layout_mode='view',
+                     layout_id=None, cluster=None,
+                     **kw):
         """Render the object."""
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
 
         layout_structures = self._computeLayoutStructures(
-            ds, layout_mode, layout_id=layout_id, ob=ob, request=None)
+            ds, layout_mode, layout_id=layout_id, cluster=cluster,
+            ob=ob, request=None)
 
         return self._renderLayouts(layout_structures, ds, ob,
                                    layout_mode=layout_mode, **kw)
@@ -836,7 +888,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     def renderEditObjectDetailed(self, ob, request=None,
                                  layout_mode='edit',
                                  layout_mode_err='edit',
-                                 layout_id=None, **kw):
+                                 layout_id=None, cluster=None,
+                                 **kw):
         """Modify the object from request, returns detailed information
         about the rendering.
 
@@ -862,7 +915,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         ds = DataStructure(datamodel=dm)
 
         layout_structures = self._computeLayoutStructures(
-            ds, layout_mode, layout_id=layout_id, ob=ob, request=request)
+            ds, layout_mode, layout_id=layout_id, cluster=cluster,
+            ob=ob, request=request)
 
         if request is None:
             is_valid = 1
@@ -896,7 +950,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                                   layout_mode='edit',
                                   layout_mode_ok='edit',
                                   layout_mode_err='edit',
-                                  layout_id=None, **kw):
+                                  layout_id=None, cluster=None,
+                                  **kw):
         """Modify the object from request, store data, and renders to
         new layout mode.
 
@@ -920,7 +975,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         ds = DataStructure(datamodel=dm)
 
         layout_structures = self._computeLayoutStructures(
-            ds, layout_mode, layout_id=layout_id, ob=ob, request=request)
+            ds, layout_mode, layout_id=layout_id, cluster=cluster,
+            ob=ob, request=request)
 
         is_valid = 1
         if request is not None:
@@ -965,7 +1021,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
     security.declarePublic('renderCreateObjectDetailed')
     def renderCreateObjectDetailed(self, container, request=None, validate=1,
-                                   layout_mode='create', layout_id=None,
+                                   layout_mode='create',
+                                   layout_id=None, cluster=None,
                                    create_callback=None,
                                    created_callback=None,
                                    **kw):
@@ -993,7 +1050,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         ds = DataStructure(datamodel=dm)
 
         layout_structures = self._computeLayoutStructures(
-            ds, layout_mode, layout_id=layout_id, ob=None, request=request)
+            ds, layout_mode, layout_id=layout_id, cluster=cluster,
+            ob=None, request=request)
 
         is_valid = 1
         if validate:

@@ -13,3 +13,4 @@ New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - splitting macros in progress
 - fix for #453 makes accessible javascript library
+- Experimental support for layout clusters in portal types.

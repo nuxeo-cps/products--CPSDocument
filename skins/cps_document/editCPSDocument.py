@@ -1,4 +1,4 @@
-##parameters=REQUEST, layout_id=None
+##parameters=REQUEST, layout_id=None, cluster=None
 # $Id$
 """
 edit layout and content if form submited
@@ -17,7 +17,7 @@ else:
     psm = ''
 
 res = doc.renderEditDetailed(request=request, proxy=context,
-                             layout_id=layout_id)
+                             layout_id=layout_id, cluster=cluster)
 
 if not res[1]:
     psm = 'psm_content_error'
