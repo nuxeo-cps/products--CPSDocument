@@ -11,9 +11,9 @@ New features:
 - refactoring all document definition using common schema/layout
   WARNING News document schema is updated and not using anymore longTitle 
   so data may be lost
-- adding DublinCore Metadata: Coverage, Source and Relation
-- edition and metadata edition heading display portal type icon
+- #254: DublinCore full implementation with Coverage, Source and Relation
 - Metadata Contributors is computed automaticly by adding editors
+- edition and metadata edition heading display portal type icon
 Bug fixes:
 ~~~~~~~~~~
 - no way to enable/disable discussion on a document
