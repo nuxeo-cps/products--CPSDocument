@@ -91,7 +91,7 @@ widgets = {
             'type': 'CPS Html Widget Type',
             'data': {},
             },
-         'Method Widget': {
+        'Method Widget': {
             'type': 'CPS Method Widget Type',
             'data': {},
             },
