@@ -466,11 +466,16 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             for field_id in widget.fields:
                 # Delete the field.
                 schema.delSubObject(field_id)
-            if widget_id in flexible_widgets:
+                # XXX FIXME it has to be handle differently
+                # It assumes it is an AttributeStorage.
+                # All the properties are not removed.
+                # Though, this one is enough to prevent the file to be proposed
+                # again next time you create the same kind of widget.
                 # Delete from the object otherweise the same content appears
                 # each time you wanna add the same kind of widget again.
                 # Was the case with the attached file.
-                setattr(ob, widget_id, None)
+                setattr(ob, field_id, None)
+            if widget_id in flexible_widgets:
                 # Hide the widget as we may need it to create new widget.
                 widget.hide()
             else:
