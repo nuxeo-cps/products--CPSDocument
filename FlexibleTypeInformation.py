@@ -76,12 +76,6 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
                      '',
                      ModifyPortalContent,
                      'object')
-    flexti.addAction('edit_layout',
-                     'action_edit_layout',
-                     'cpsdocument_editlayout_form',
-                     'python: object.portal_types[object.getPortalTypeName()].flexible_layouts', # condition: only for CMF 1.4 and above
-                     ModifyPortalContent,
-                     'object')
     flexti.addAction('metadata',
                      'action_metadata',
                      'metadata_edit_form',
