@@ -9,4 +9,4 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Pass adapters to the datamodel, not schemas. FlexibleTypeInformation : getDataModel()
