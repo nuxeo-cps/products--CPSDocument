@@ -613,7 +613,6 @@ news_start_layout = {
                 'label_edit': 'cpsdoc_flex_textimage_label_edit',
                 'widget_ids': ['photo',
                                'content',
-                               'content_right',
                                ],
             },
         },
@@ -646,23 +645,6 @@ news_start_layout = {
                 'configurable': 'format',
                 },
             },
-        'content_right': {
-            'type': 'Text Widget',
-            'data': {
-                'fields': ['content_right', 'content_right_position',
-                           'content_right_format'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_flex_content_right_label_edit',
-                'label': '',
-                'css_class': 'dcontent',
-                'width': 72,
-                'height': 10,
-                'render_format': 'html',
-                'render_position': 'normal',
-                'configurable': 'format',
-                },
-            },
-
         },
     'layout': {
         'style_prefix': 'layout_default_',

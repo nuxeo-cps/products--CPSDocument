@@ -189,23 +189,6 @@ news_schema = {
         'data': {
             },
         },
-    'content_right': {
-        'type': 'CPS String Field',
-        'data': {
-                'default_expr': 'string:',
-                'is_searchabletext': 1,
-            },
-        },
-    'content_right_position': {
-        'type': 'CPS String Field',
-        'data': {
-            },
-        },
-    'content_right_format': {
-        'type': 'CPS String Field',
-        'data': {
-            },
-        },
     }
 
 ########################################################
