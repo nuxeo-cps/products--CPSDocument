@@ -184,7 +184,7 @@ class FlexibleTypeInformation(TypeInformation):
     security.declarePublic('getProxyRolesAllowed')
     def getProxyTypesAllowed(self):
         """ return the list of allowed portal types strings """
-        return ['','document','folder','folderishdocument']
+        return ['', 'document', 'folder', 'folderishdocument']
 
     #
     # Agent methods
@@ -217,7 +217,7 @@ class FlexibleTypeInformation(TypeInformation):
 
         Returns the object.
         """
-        ob = addCPSDocument(container, id, **kw)
+        ob = addCPSDocument(container, id, *args, **kw)
         # XXX fill-in defaults
         # XXX
         return ob
@@ -307,7 +307,6 @@ class FlexibleTypeInformation(TypeInformation):
 
         tpl_widget = layout[wtid]
         widget_id = wtid
-        widget_type = tpl_widget.meta_type
 
         if layout[wtid].isHidden():
             # use hidden widget
