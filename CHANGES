@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- fix #454: Invalid widget css class in edition. This css class was hardcoded in
+  CPSUrlWidget.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
