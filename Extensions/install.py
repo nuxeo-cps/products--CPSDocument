@@ -133,11 +133,13 @@ class CPSInstaller(BaseInstaller):
             wfc = getattr(sections, '.cps_workflow_configuration')
 
         for ptype in self.newptypes:
+            if 'cps_section_wf' in self.flextypes[ptype].keys():
+                wwf = self.flextypes[ptype]['cps_section_wf']
+            else:
+                wwf = 'section_content_wf'
             self.log("  Add %s chain to portal type %s in %s of %s" % (
-                'section_content_wf', ptype, '.cps_workflow_configuration',
-                SECTIONS_ID))
-            wfc.manage_addChain(portal_type=ptype,
-                                chain='section_content_wf')
+                wwf, ptype, '.cps_workflow_configuration', SECTIONS_ID))
+            wfc.manage_addChain(portal_type=ptype, chain=wwf)
 
     def updatePortalTree(self):
         # register folderish document types in portal_tree
