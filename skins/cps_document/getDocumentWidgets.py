@@ -128,6 +128,14 @@ widgets = {
                 'render_method': 'widget_textimage_render',
                 },
             },
+        'Ordered List Widget': {
+            'type': 'CPS Ordered List Widget Type',
+            'data': {},
+            },
+        'Unordered List Widget': {
+            'type': 'CPS Unordered List Widget Type',
+            'data': {},
+            },
         }
 
 cwidgets = context.getCustomDocumentWidgets()
