@@ -16,7 +16,6 @@ faq_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -24,7 +23,6 @@ faq_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -32,7 +30,6 @@ faq_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 0,
             },
         },
@@ -40,7 +37,6 @@ faq_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 0,
             },
         },
@@ -55,7 +51,6 @@ dummy_form_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -63,7 +58,6 @@ dummy_form_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -78,7 +72,6 @@ news_schema = {
         'type': 'CPS Image Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 0,
             },
         },
@@ -86,17 +79,29 @@ news_schema = {
         'type': 'CPS File Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 0,
-                'suffix_html': '',
-                'suffix_text': '',
+                'suffix_html': '_html',
+                'suffix_text': '_text',
+            },
+        },
+    'attachedFile_html': {
+        'type': 'CPS File Field',
+        'data': {
+                'default': '',
+                'is_indexed': 0,
+            },
+        },
+    'attachedFile_text': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
             },
         },
     'newsdate': {
         'type': 'CPS DateTime Field',
         'data': {
                 'default': '',
-                'allow_none': 1,
                 'is_indexed': 0,
             },
         },
@@ -104,7 +109,6 @@ news_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -112,7 +116,6 @@ news_schema = {
         'type': 'CPS Image Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 0,
             },
         },
@@ -120,7 +123,6 @@ news_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': 'resume',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -128,7 +130,6 @@ news_schema = {
         'type': 'CPS String List Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -136,7 +137,6 @@ news_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -144,7 +144,6 @@ news_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -159,7 +158,6 @@ breve_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -167,7 +165,6 @@ breve_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -175,7 +172,6 @@ breve_schema = {
         'type': 'CPS DateTime Field',
         'data': {
                 'default': '',
-                'allow_none': 1,
                 'is_indexed': 0,
             },
         },
@@ -183,7 +179,6 @@ breve_schema = {
         'type': 'CPS Image Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 0,
             },
         },
@@ -191,7 +186,6 @@ breve_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
             },
         },
@@ -206,7 +200,6 @@ fichier_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 0,
             },
         },
@@ -214,7 +207,6 @@ fichier_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 0,
             },
         },
@@ -222,7 +214,6 @@ fichier_schema = {
         'type': 'CPS File Field',
         'data': {
                 'default': '',
-                'allow_none': 0,
                 'is_indexed': 1,
                 'suffix_html': '.html',
                 'suffix_text': '.txt',
