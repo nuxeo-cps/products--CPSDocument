@@ -163,6 +163,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     storage_methods = [] # XXX will later use a storage adapter in the schema
     cps_is_searchable = 1
     cps_proxy_type = 'document'
+    cps_display_as_document_in_listing = 0
 
     def __init__(self, id, **kw):
         FactoryTypeInformation.__init__(self, id, **kw)
