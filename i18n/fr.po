@@ -278,7 +278,7 @@ msgstr "Attacher un fichier"
 
 # default doc types
 msgid "portal_type_Event_title"
-msgstr "Evénement"
+msgstr "Événement"
 
 msgid "portal_type_Event_description"
 msgstr "Un événement"
