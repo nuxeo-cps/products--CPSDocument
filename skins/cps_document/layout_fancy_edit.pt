@@ -18,8 +18,8 @@
              tal:condition="err">
           <b style="color: red" tal:content="err">err</b>
         </div>
-        <tal:block condition="widget/title">
-          <strong tal:content="widget/title">label</strong>:
+        <tal:block condition="widget/label_edit">
+          <strong tal:content="widget/label_edit">label</strong>:
         </tal:block>
         <div tal:replace="structure python:widget.render('edit', ds, dm)" />
       </tal:block>

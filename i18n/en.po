@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2003-09-05 17:18default\n"
-"PO-Revision-Date: 2003-09-05 17:19+0200\n"
+"POT-Creation-Date: 2003-09-09 16:39default\n"
+"PO-Revision-Date: 2003-09-09 16:47+0200\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -45,21 +45,6 @@ msgstr "Change"
 msgid "cpsdoc_form_error"
 msgstr "Invalid form submit:"
 
-#.   <label>Change</label>
-#: from ../skins/cps_document/widget_file_render.pt
-msgid "cpsdoc_label_file_change"
-msgstr "Change"
-
-#.   <label>Delete</label>
-#: from ../skins/cps_document/widget_file_render.pt
-msgid "cpsdoc_label_file_delete"
-msgstr "Delete"
-
-#.   <label>Keep</label>
-#: from ../skins/cps_document/widget_file_render.pt
-msgid "cpsdoc_label_file_keep"
-msgstr "Keep"
-
 #.   <em content="err" style="color: red">err</em>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "err"
@@ -84,57 +69,35 @@ msgstr "News"
 msgid "portal_type_News_description"
 msgstr "A news document"
 
-msgid "cpsdoc_err_string"
-msgstr "Invalid string"
-
-msgid "cpsdoc_err_textarea"
-msgstr "invalid text"
-
-msgid "cpsdoc_err_int"
-msgstr "invalid integer"
-
-msgid "cpsdoc_err_date"
-msgstr "invalid date"
-
-msgid "cpsdoc_err_file"
-msgstr "invalid file"
-
-msgid "cpsdoc_err_image"
-msgstr "invalid image"
-
-msgid "cpsdoc_err_empty"
-msgstr "Field required"
-
-msgid "cpsdoc_News_newsdate_title"
+msgid "cpsdoc_News_newsdate_label_edit"
 msgstr "Date :"
 
-msgid "cpsdoc_News_newsdate_title_view"
-msgstr "At: "
+msgid "cpsdoc_News_newsdate_label"
+msgstr " "
 
-msgid "cpsdoc_News_title_title"
+msgid "cpsdoc_News_title_label_edit"
 msgstr "Short Title: "
 
-msgid "cpsdoc_News_description_title"
+msgid "cpsdoc_News_description_label_edit"
 msgstr "Description: "
 
-msgid "cpsdoc_News_longTitle_title"
+msgid "cpsdoc_News_longTitle_label_edit"
 msgstr "Long title: "
 
-msgid "cpsdoc_News_content_title"
+msgid "cpsdoc_News_content_label_edit"
 msgstr "Content of the news: "
 
-msgid "cpsdoc_News_photo_title"
+msgid "cpsdoc_News_photo_label_edit"
+msgstr "Photo : "
+
+msgid "cpsdoc_News_photo_label"
 msgstr "Illustration of the News: "
 
-msgid "cpsdoc_News_photo_title_view"
-msgstr "photo 1"
-
-msgid "cpsdoc_News_preview_title"
+msgid "cpsdoc_News_preview_label_edit"
 msgstr "Image preview: "
 
-msgid "cpsdoc_News_attachedFile_title"
+msgid "cpsdoc_News_attachedFile_label_edit"
 msgstr "Attached file: "
 
-msgid "cpsdoc_News_attachedFile_title_view"
-msgstr "More information: "
-
+msgid "cpsdoc_News_attachedFile_label"
+msgstr "Attached file: "

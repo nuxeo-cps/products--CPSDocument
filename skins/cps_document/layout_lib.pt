@@ -12,11 +12,11 @@
       <tal:block define="widget cell/widget"
         condition="not:widget/hidden_view">
       <div tal:attributes="class widget/css_class|nothing">
-        <tal:block condition="widget/title_view">
+        <tal:block condition="widget/label">
           <span i18n:translate="" tal:condition="widget/is_i18n"
-            tal:content="widget/title_view">label</span>
+            tal:content="widget/label">label</span>
           <span tal:condition="not:widget/is_i18n"
-            tal:content="widget/title_view">label</span>
+            tal:content="widget/label">label</span>
         </tal:block>
         <tal:block replace="structure python:widget.render('view', ds, dm)" />
       </div>
@@ -36,11 +36,11 @@
       <tal:block define="widget cell/widget"
         condition="not:widget/hidden_view">
       <div tal:attributes="class widget/css_class|nothing">
-        <tal:block condition="widget/title_view">
+        <tal:block condition="widget/label">
           <span i18n:translate="" tal:condition="widget/is_i18n"
-            tal:content="widget/title_view">label</span>
+            tal:content="widget/label">label</span>
           <span tal:condition="not:widget/is_i18n"
-            tal:content="widget/title_view">label</span>
+            tal:content="widget/label">label</span>
         </tal:block>
         <tal:block replace="structure python:widget.render('view', ds, dm)" />
       </div>
@@ -71,13 +71,13 @@
                          is_required widget/is_required|nothing"
         condition="not:widget/hidden_edit">
         <div tal:attributes="class python:test(err, 'row error', 'row')">
-          <div class="label" tal:condition="widget/title"
+          <div class="label" tal:condition="widget/label_edit"
             tal:attributes="class python:test(is_required, 'label required',
                                               'label')">
             <span i18n:translate="" tal:condition="widget/is_i18n"
-              tal:content="widget/title">label</span>
+              tal:content="widget/label_edit">label</span>
             <span tal:condition="not:widget/is_i18n"
-              tal:content="widget/title">label</span>
+              tal:content="widget/label_edit">label</span>
           </div>
           <div class="field">
             <div tal:replace="structure python:widget.render('edit', ds, dm)"/>

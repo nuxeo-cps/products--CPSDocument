@@ -11,7 +11,7 @@
   <tr>
    <td width="20%">
       <strong>
-        <span tal:replace="python:widgets['title'].title" />
+        <span tal:replace="python:widgets['title'].label" />
       </strong>
    </td>
    <td>
@@ -27,8 +27,8 @@
   <tr tal:repeat="row layout/rows">
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget">
-        <tal:block condition="python:widget.title and widget.id[3:] not in fixed_layouts ">
-          <strong tal:content="widget/title">label</strong>:
+        <tal:block condition="python:widget.label and widget.id[3:] not in fixed_layouts ">
+          <strong tal:content="widget/label">label</strong>:
           <div tal:replace="structure python:widget.render('view', ds, dm)" />
       </tal:block>
       </tal:block>

@@ -27,14 +27,14 @@
              tal:condition="err">
           <b style="color: red" tal:content="err">err</b>
         </div>
-        <span tal:replace="widget/title">label</span>:
+        <span tal:replace="widget/label_edit">label</span>:
         <div tal:replace="structure python:widget.render('view', ds, dm)" />
       </tal:block>
     </td>
   </tr>
 </table>
 Ajouter:
-<input type="string" name="widget_title" value="" />
+<input type="string" name="widget_label_edit" value="" />
 <select name="widget_type">
   <option value="."
     tal:repeat="wtid here/portal_widgets/objectIds"
