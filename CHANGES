@@ -7,7 +7,7 @@ New features:
 - Required fields are displayed with a mark
 Bug fixes:
 ~~~~~~~~~~
--
+- #144: Correctly unfreeze object before modifying them: pass the proxy.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Split CPSSchemas into a separate package.
