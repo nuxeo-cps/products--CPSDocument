@@ -3,7 +3,8 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- News document use textimage widget enable 2 columns layout and photo
+  subtitle
 Bug fixes:
 ~~~~~~~~~~
 -
