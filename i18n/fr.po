@@ -399,13 +399,13 @@ msgstr "Attacher un fichier"
 
 # default doc types
 msgid "portal_type_ZippedHtml_title"
-msgstr "Archive Zip Html"
+msgstr "Archive Zip HTML"
 
 msgid "portal_type_ZippedHtml_description"
-msgstr "Une archive zip contenant des documents au format Html pouvant être prévisualisé"
+msgstr "Une archive zip contenant des documents au format HTML pouvant être prévisualisé"
 
 msgid "cpsdoc_zippedhtml_label"
-msgstr "Archive zip de documents au format Html"
+msgstr "Archive zip de documents au format HTML"
 
 # default doc types
 msgid "portal_type_Event_title"
