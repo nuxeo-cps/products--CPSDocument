@@ -6,17 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- Added the "workflow" class to the document edit form so that comments have the
-  same style as those in CPSDefault.
-- Better comments field + help on the document modification form.
-- Use CMFCore.permissions instead of CMFCore.CMFCorePermissions to avoid
-  warnings.
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- Added a "documentFields" class to group together the fields pertaining to a
-  document. This is a stricter grouping scheme than the one defined by the
-  "group" class.
-- Modified metadata schema to make only Title and Description fields be indexable
-  by SearchableText.
-- Added the posibility of having a search box inside all the pages/chapters of
-  a book document.
+-
