@@ -18,3 +18,5 @@ New internal features:
   "group" class.
 - Modified metadata schema to make only Title and Description fields be indexable
   by SearchableText.
+- Added the posibility of having a search box inside all the pages/chapters of
+  a book document.
