@@ -22,5 +22,5 @@ New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Changed method name verifyMetaDatas -> verifyMetaData since this is the
   correct spelling.
-- default layout libs: renamed widget_css_class into css_class and got rid or
-  widget_group_id and style (visibility) that were not used.
+- default layout libs: got rid or widget_group_id and style (visibility) that
+  were not used.
