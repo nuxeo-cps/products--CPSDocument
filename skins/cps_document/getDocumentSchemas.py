@@ -11,18 +11,19 @@ Please, follow the same pattern to add new schemas.
 #########################################################
 #metadata schema
 metadata_schema = {
-    'Title': {'type': 'CPS String Field', 'data': {}},
-    'Description': {'type': 'CPS String Field', 'data': {}},
-    'Subject': {'type': 'CPS String List Field', 'data': {}},
-    'Contributors': {'type': 'CPS String List Field', 'data': {}},
+    'Title': {'type': 'CPS String Field', 'data': {'is_indexed': 1,}},
+    'Description': {'type': 'CPS String Field', 'data': {'is_indexed': 1}},
+    'Subject': {'type': 'CPS String List Field', 'data': {'is_indexed': 1}},
+    'Contributors': {'type': 'CPS String List Field',
+                     'data': {'is_indexed': 1}},
     'CreationDate': {'type': 'CPS DateTime Field', 'data': {}},
     'ModificationDate': {'type': 'CPS DateTime Field', 'data': {}},
     'EffectiveDate': {'type': 'CPS DateTime Field', 'data': {}},
     'ExpirationDate': {'type': 'CPS DateTime Field', 'data': {}},
     'Format': {'type': 'CPS String Field', 'data': {}},
     'Language': {'type': 'CPS String Field', 'data': {}},
-    'Rights': {'type': 'CPS String Field', 'data': {}},
-    'Creator': {'type': 'CPS String Field', 'data': {}},
+    'Rights': {'type': 'CPS String Field', 'data': {'is_indexed': 1}},
+    'Creator': {'type': 'CPS String Field', 'data': {'is_indexed': 1}},
     }
 
 
