@@ -27,3 +27,5 @@ New internal features:
 - A document is fully initialized with initial values before being inserted
   into the workflow.
 - no more title and description in schema def using metadata schema with Title and Description
+- refactoring cpsdocument_*.pt renaming few scripts like 
+  cpsdocument_create.py -> createCPSDocument
