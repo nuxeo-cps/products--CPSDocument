@@ -273,6 +273,14 @@ file_type = {
     'flexible_layouts': [],
     'storage_methods': [],
     'use_content_status_history': 1,
+    'actions_add': ({'id': 'edit_online',
+                     'name': 'action_edit_online',
+                     'action': 'python:portal.getExternalEditorPath(object, "file", "file")',
+                     'condition': ('python:object is not None '
+                                   'and object.getContent().file is not None '
+                                   'and modules["Products.CPSSchemas.utils"].isProductPresent("Products.ExternalEditor")'),
+                     'permissions': ('Modify portal content',)},
+                ),
     }
 
 link_type = {
