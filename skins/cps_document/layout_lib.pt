@@ -10,7 +10,7 @@
   <tr tal:repeat="row layout/rows">
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget;
-        wrender python:widget.render('view', ds)"
+                         wrender python:widget.render('view', ds)"
         condition="python: not widget.hidden_view and
                            (not widget.hidden_empty or wrender.strip())">
       <div tal:attributes="class widget/css_class|nothing">
@@ -36,7 +36,7 @@
   <tal:block repeat="row layout/rows">
     <tal:block repeat="cell row">
       <tal:block define="widget cell/widget;
-        wrender python:widget.render('view', ds)"
+                         wrender python:widget.render('view', ds)"
         condition="python: not widget.hidden_view and
                            (not widget.hidden_empty or wrender.strip())">
       <div tal:attributes="class widget/css_class|nothing">
