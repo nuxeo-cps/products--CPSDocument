@@ -3,8 +3,8 @@ ZODB Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- first implementation of Metadata view using Layout/Schema
-- user with View permission on a document can view his metadata
+- New Metadata view using CPS Layout/Schema replacing ugly metadata_edit_form for CPSDocument
+- user with View permission on a document is now able to view document metadata
 - Document view display 'Created by xxx, last modified ....' at the end
 Bug fixes:
 ~~~~~~~~~~
