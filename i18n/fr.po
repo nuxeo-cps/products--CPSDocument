@@ -182,7 +182,7 @@ msgid "portal_type_Flexible_title"
 msgstr "Document flexible"
 
 msgid "portal_type_Flexible_description"
-msgstr "Enfin un document flexible"
+msgstr "Un document dont la structure peut �tre modifi�e"
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -222,14 +222,14 @@ msgid "portal_type_Glossary_title"
 msgstr "Glossaire"
 
 msgid "portal_type_Glossary_description"
-msgstr "Ensemble de définitions de termes classés alphabètiquement"
+msgstr "Ensemble de définitions de termes classés alphabétiquement"
 
 # default doc types
 msgid "portal_type_GlossaryItem_title"
 msgstr "Définition de terme"
 
 msgid "portal_type_GlossaryItem_description"
-msgstr "entrée de glossaire"
+msgstr "Entrée de glossaire"
 
 msgid "portal_type_News_title"
 msgstr "Nouvelle"
