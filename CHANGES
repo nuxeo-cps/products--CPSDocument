@@ -6,9 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- Fixed the fact that a notification was sent when a non-valid modification was
-  made on a document. This regression had been introduced while fixing #393
-  (notified when following "Edit" link).
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

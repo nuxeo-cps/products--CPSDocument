@@ -1,4 +1,22 @@
 *******************************************
+** CPSDocument V0.32.2 [R1 build 2005/02/01-11:37 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- Fixed the fact that a notification was sent when a non-valid modification was
+  made on a document. This regression had been introduced while fixing #393
+  (notified when following "Edit" link).
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.32.1 [R1 build 2005/01/28-15:03 by madarche]
 
 Requires:
