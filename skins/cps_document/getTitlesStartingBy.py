@@ -9,6 +9,6 @@ if strt:
         if proxy.getContent()['title'].lower().startswith(strt):
             res.append(proxy)
 elif all:
-    res=proxydocs
+    res = proxydocs
 #return empty list if no letter specified (and all is false) 
 return res
