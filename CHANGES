@@ -14,3 +14,5 @@ New internal features:
 - Added a "documentFields" class to group together the fields pertaining to a
   document. This is a stricter grouping scheme than the one defined by the
   "group" class.
+- Modified metadata schema to make only Title and Description fields be indexable
+  by SearchableText.
