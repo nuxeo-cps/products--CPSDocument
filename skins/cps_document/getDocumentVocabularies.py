@@ -8,11 +8,23 @@ Please, follow the same pattern to add new ones.
 vocabularies = {
     'subject_voc': {
         'type': 'CPS Vocabulary',
-        'data': {'list': (
-            "Arts", "Business", "Computers", "Games", "Health",
-            "Home", "Kids and Teens", "News", "Recreation",
-            "Reference", "Regional", "Science", "Shopping",
-            "Society", "Sports",
+        'data': {'tuples': (
+            ("Arts", "Arts", "label_subject_Arts"),
+            ("Business", "Business", "label_subject_Business"),
+            ("Computers", "Computers", "label_subject_Computers"),
+            ("Games", "Games", "label_subject_Games"),
+            ("Health", "Health", "label_subject_Health"),
+            ("Home", "Home", "label_subject_Home"),
+            ("Kids and Teens", "Kids and Teens",
+             "label_subject_Kids and Teens"),
+            ("News", "News", "label_subject_News"),
+            ("Recreation", "Recreation", "label_subject_Recreation"),
+            ("Reference", "Reference", "label_subject_Reference"),
+            ("Regional", "Regional", "label_subject_Regional"),
+            ("Science", "Science", "label_subject_Science"),
+            ("Shopping", "Shopping", "label_subject_Shopping"),
+            ("Society", "Society", "label_subject_Society"),
+            ("Sports", "Sports", "label_subject_Sports"),
             )},
         },
     'dummy_voc': {
