@@ -457,11 +457,12 @@ class FlexibleTypeInformation(TypeInformation):
     def renderObject(self, ob, mode='view', layout_id=None, **kw):
         """Render the object."""
         dm = self.getDataModel(ob)
-        ds = DataStructure()
+        ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
-        layout = layoutob.getLayoutData(ds, dm)
+        layout = layoutob.getLayoutData(ds)
+        # XXX datamodel=None is temporary backward compat.
         return self._renderLayoutStyle(ob, mode, layout=layout,
-                                       datastructure=ds, datamodel=dm, **kw)
+                                       datastructure=ds, datamodel=None, **kw)
 
     security.declarePrivate('renderEditObject')
     def renderEditObject(self, ob, request=None, mode='edit', errmode='edit',
@@ -480,12 +481,12 @@ class FlexibleTypeInformation(TypeInformation):
         modified.
         """
         dm = self.getDataModel(ob)
-        ds = DataStructure()
+        ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
-        layoutdata = layoutob.getLayoutData(ds, dm)
+        layoutdata = layoutob.getLayoutData(ds)
         if request is not None:
             ds.updateFromMapping(request.form)
-            ok = layoutob.validateLayout(layoutdata, ds, dm)
+            ok = layoutob.validateLayout(layoutdata, ds)
             if ok:
                 # Update the object from dm.
                 ob = dm._commit(proxy=kw.get('proxy'))
@@ -498,8 +499,9 @@ class FlexibleTypeInformation(TypeInformation):
                 mode = errmode
         else:
             ok = 1
+        # XXX datamodel=None is temporary backward compat.
         return self._renderLayoutStyle(ob, mode, layout=layoutdata,
-                                       datastructure=ds, datamodel=dm, ok=ok,
+                                       datastructure=ds, datamodel=None, ok=ok,
                                        **kw)
 
     security.declarePrivate('validateStoreRenderObject')
@@ -523,14 +525,14 @@ class FlexibleTypeInformation(TypeInformation):
         modified.
         """
         dm = self.getDataModel(ob)
-        ds = DataStructure()
+        ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
         # Prepare each widget, and so update the datastructure.
-        layoutdata = layoutob.getLayoutData(ds, dm)
+        layoutdata = layoutob.getLayoutData(ds)
         if request is not None:
             # Validate from request.
             ds.updateFromMapping(request.form)
-            ok = layoutob.validateLayout(layoutdata, ds, dm)
+            ok = layoutob.validateLayout(layoutdata, ds)
             if ok:
                 method_name = None
                 for sm in self.storage_methods:
@@ -547,8 +549,9 @@ class FlexibleTypeInformation(TypeInformation):
                     if method is None:
                         raise ValueError("No storage method %s" %
                                          method_name)
+                    # XXX datamodel=None is temporary backward compat.
                     method(mode, layout=layoutdata,
-                           datastructure=ds, datamodel=dm, **kw)
+                           datastructure=ds, datamodel=None, **kw)
                 else:
                     # Do storage by committing the dm.
                     ob = dm._commit(proxy=kw.get('proxy'))
@@ -562,8 +565,9 @@ class FlexibleTypeInformation(TypeInformation):
                 mode = errmode
         else:
             ok = 1
+        # XXX datamodel=None is temporary backward compat.
         return self._renderLayoutStyle(ob, mode, layout=layoutdata,
-                                       datastructure=ds, datamodel=dm, ok=ok,
+                                       datastructure=ds, datamodel=None, ok=ok,
                                        **kw)
 
     security.declarePrivate('editObject')
