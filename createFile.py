@@ -23,7 +23,7 @@ with types according to their extensions
 """
 
 from Products.CMFCore.utils import getToolByName
-from OFS.Image.File import File
+from OFS.Image import File
 from zLOG import LOG, DEBUG, INFO
 from AccessControl import ModuleSecurityInfo
 from zipfile import ZipFile, BadZipfile
