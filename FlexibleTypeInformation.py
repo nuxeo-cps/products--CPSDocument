@@ -305,34 +305,41 @@ class FlexibleTypeInformation(TypeInformation):
         self._makeObjectFlexible(ob)
         layout, schema = self._getFlexibleLayoutAndSchemaFor(ob, layout_id)
 
-        # Find free widget id (based on the widget type name).
-        widget_id_base = wtid.lower().replace(' widget', '').replace(' ', '')
-        widget_id = widget_id_base
-        widget_ids = layout.keys()
-        n = 0
-        while widget_id in widget_ids:
-            n += 1
-            widget_id = '%s_%d' % (widget_id_base, n)
+        tpl_widget = layout[wtid]
+        widget_id = wtid
+        widget_type = tpl_widget.meta_type
 
-        # Create the widget.
-        widget = layout.addWidget(widget_id, wtid, **kw)
+        if layout[wtid].isTemplate():
+            # first widget use the template
+            widget = tpl_widget
+        else:
+            widget_id = wtid
+            widget_ids = layout.keys()
+            n = 0
+            while widget_id in widget_ids:
+                n += 1
+                widget_id = '%s_%d' % (wtid, n)
+            LOG('FlexibleAddWidget', DEBUG, 'adding widget_id %s' % widget_id)
+            prefixed_widget_id = '%s_%d' % (tpl_widget.getId(), n)
+            layout.manage_clone(tpl_widget, prefixed_widget_id)
+            widget = layout[widget_id]
+
 
         # Create the needed fields.
         field_types = widget.getFieldTypes()
         fields = []
         for field_type in field_types:
             # Find free field id (based on the field type name).
-            s = field_type.lower().replace(' field', '').replace('cps ', '')
-            field_id_base = 'val_%s' % s.replace(' ', '') # Prefix with val_
-            field_id = field_id_base
+            field_id = widget_id
+            field_ids = schema.keys()
             n = 0
-            all_field_ids = schema.keys()
-            while field_id in all_field_ids:
+            while field_id in field_ids:
                 n += 1
-                field_id = '%s_%d' % (field_id_base, n)
+                field_id = '%s_f%d' % (widget_id, n)
 
             # Create the field.
             schema.addField(field_id, field_type) # Use default parameters.
+            LOG('FlexibleAddWidget', DEBUG, 'adding field_id %s' % field_id)
             fields.append(field_id)
 
         # Set the fields used by the widget.
