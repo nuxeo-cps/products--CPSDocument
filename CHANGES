@@ -1,6 +1,7 @@
 Requires:
 ~~~~~~~~~
-- Launch upgradeNewsSchema to upgrade existing News document.
+- Launch the "upgradeNewsDocuments" ExternalMethod contained in
+  CPSDocument/Extensions/util.py to upgrade existing News documents.
 New features:
 ~~~~~~~~~~~~~
 -
