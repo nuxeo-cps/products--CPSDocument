@@ -10,6 +10,7 @@ Bug fixes:
 ~~~~~~~~~~
 - fix #430: TextImage widget (and flexibleDocument) broken under IE
   missing left column due to peekaboo bug
+- Removed "float: center;" invalid CSS property for "dcenter" class.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
