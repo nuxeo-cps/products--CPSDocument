@@ -7,7 +7,7 @@ New features:
 - Required fields are displayed with a mark
 Bug fixes:
 ~~~~~~~~~~
-- #144: Correctly unfreeze object before modifying them: pass the proxy.
+- P1 #144: Versioning is not incremental while editing the document
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Split CPSSchemas into a separate package.
