@@ -6,7 +6,7 @@ New features:
 - Redirect to the document view after validating metadata if no error
 Bug fixes:
 ~~~~~~~~~~
-- #393
+- 
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Added key 'use_content_status_history' for types needing a link to
