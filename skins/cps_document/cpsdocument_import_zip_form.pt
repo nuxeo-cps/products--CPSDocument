@@ -1,19 +1,26 @@
 <metal:body use-macro="here/content_lib_master/macros/master">
 <metal:header fill-slot="header">
-  <h2 i18n:translate="cpsdoc_import_zip_title">Import ZIP File - 
-    <span tal:replace="here/Title">My Title</span></h2>
+  <h2 i18n:translate="cpsdoc_import_zip_title">Import ZIP File</h2>
 </metal:header>
 
 <metal:main fill-slot="main">
   <form method="post" enctype="multipart/form-data"
         tal:attributes="action string:${here/absolute_url}/cpsdocument_import_zip">
-    <input type="hidden" name="type_name" value="File"/>
-    <input type="hidden" name="widget__file_choice" value="1"/>
-        <span i18n:translate="">label_zip_file</span>
+    <div class="group">
+      <p>
+        <input type="hidden" name="type_name" value="File"/>
+        <input type="hidden" name="widget__file_choice" value="1"/>
+      </p>
+      <p>
+        <tal:block i18n:translate="label_zip_file">ZIP File</tal:block>
         <input type="file" name="zip_file" size="24" />
-        <br /><br />
+      </p>
+
+      <p>
         <input type="submit" class="standalone"
-         name="import" value="Import" />
+               name="import" value="Import" />
+      </p>
+    </div>
   </form>
 </metal:main>
 </metal:body>
