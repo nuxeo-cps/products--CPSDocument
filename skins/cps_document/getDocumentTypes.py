@@ -44,6 +44,45 @@ faqitem_type = {
     'storage_methods': [],
     }
 
+glossary_type = {
+    'title': 'portal_type_Glossary_title',
+    'description': 'portal_type_Glossary_description',
+    'content_icon': 'glossary_icon.gif',
+    'content_meta_type': 'CPS Document',
+    'permission': 'Add portal content',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': ('GlossaryItem',),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'folderishdocument',
+    'schemas': ['glossary'],
+    'layouts': ['glossary'],
+    'flexible_layouts': [],
+    'storage_methods': [],
+    'cps_workspace_wf': 'workspace_folderish_content_wf',
+    }
+
+glossaryitem_type = {
+    'title': 'portal_type_GlossaryItem_title',
+    'description': 'portal_type_GlossaryItem_description',
+    'content_icon': 'glossary_icon.gif',
+    'content_meta_type': 'CPS Document',
+    'permission': 'Add portal content',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': (),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'document',
+    'schemas': ['glossaryitem'],
+    'layouts': ['glossaryitem'],
+    'flexible_layouts': [],
+    'storage_methods': [],
+    }
+
 news_type = {
     'title': 'portal_type_News_title',
     'description': 'portal_type_News_description',
@@ -185,6 +224,8 @@ types = {}
 
 types['FAQ'] = faq_type
 types['FAQitem'] = faqitem_type
+types['Glossary'] = glossary_type
+types['GlossaryItem'] = glossaryitem_type
 types['News'] = news_type
 types['File'] = file_type
 types['EventDoc'] = event_type
