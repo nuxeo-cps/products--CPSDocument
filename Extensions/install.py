@@ -146,6 +146,18 @@ def install(self):
     sections_id = 'sections'
     workspaces_id = 'workspaces'
 
+    # register folderish document types in portal_tree
+    pr("Registering folderish document types in portal_tree")
+    trtool = portal.portal_trees
+    trtool[workspaces_id].manage_changeProperties(
+        type_names=trtool[workspaces_id].type_names + ['FAQ',]
+        )
+    trtool[sections_id].manage_rebuild()
+    trtool[sections_id].manage_changeProperties(
+        type_names=trtool[sections_id].type_names + ['FAQ',]
+        )
+    trtool[sections_id].manage_rebuild()
+
     # check workflow association
     pr("Verifying local workflow association")
     if not '.cps_workflow_configuration' in portal[workspaces_id].objectIds():
