@@ -150,7 +150,7 @@ msgid "cpsdoc_date_label_edit"
 msgstr "Date: "
 
 msgid "cpsdoc_date_label"
-msgstr " "
+msgstr "On "
 
 msgid "cpsdoc_preview_label_edit"
 msgstr "Icon: "
@@ -168,13 +168,13 @@ msgid "cpsdoc_popup_height_label_edit"
 msgstr "Window Height"
 
 msgid "cpsdoc_flex_content_title"
-msgstr "Text: "
+msgstr "Text block"
 
 msgid "cpsdoc_flex_content_label_edit"
-msgstr "Text block: "
+msgstr "Text: "
 
 msgid "cpsdoc_flex_content_right_label_edit"
-msgstr "Right column text: "
+msgstr "Right column text (optional): "
 
 msgid "cpsdoc_flex_attachedFile_title"
 msgstr "Attached file"
@@ -268,7 +268,7 @@ msgid "cpsdoc_News_newsdate_label_edit"
 msgstr "Date:"
 
 msgid "cpsdoc_News_newsdate_label"
-msgstr " "
+msgstr "Dated "
 
 msgid "cpsdoc_News_title_label_edit"
 msgstr "Short Title: "
@@ -283,10 +283,10 @@ msgid "cpsdoc_News_content_label_edit"
 msgstr "Content of the news: "
 
 msgid "cpsdoc_News_photo_label_edit"
-msgstr "Photo: "
+msgstr "Photograph: "
 
 msgid "cpsdoc_News_photo_label"
-msgstr "Illustration of the News: "
+msgstr ""
 
 msgid "cpsdoc_News_preview_label_edit"
 msgstr "Image preview: "
