@@ -77,6 +77,13 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
                          '', # condition: only for CMF 1.4 and above
                          ModifyPortalContent,
                          'object')
+        flexti.addAction('contents',
+                         'action_folder_contents',
+                         'folder_contents',
+                         "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type == 'folderishdocument'",
+                         ModifyPortalContent,
+                         'object')
+
 
     except TypeError, errorType:
         flexti.addAction('view',
