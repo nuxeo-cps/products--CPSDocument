@@ -1,15 +1,12 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
 -
-
 New features:
 ~~~~~~~~~~~~~
--
-
+- Flexible document now use Text Image compound widget enabling easy to page edition
 Bug fixes:
 ~~~~~~~~~~
 -
-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
