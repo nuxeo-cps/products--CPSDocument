@@ -473,7 +473,7 @@ folder_layout = {
 faq_layout = {
     'widgets': {},
     'layout': {
-        'style_prefix': 'layout_faq_',
+        'layout_view_method': 'layout_faq_view',
         'rows': [[],],
         }
     }
@@ -522,7 +522,6 @@ faqitem_layout = {
         },
     },
     'layout': {
-        'style_prefix': 'layout_default_',
         'rows': [
             [{'widget_id': 'Title'},],
             [{'widget_id': 'Description'},],
