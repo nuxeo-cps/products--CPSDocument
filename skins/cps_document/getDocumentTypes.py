@@ -349,7 +349,7 @@ try:
 except AttributeError:
     pass
 try:
-    types.update(context.getNuxMailBoxerDocumentTypes())
+    types.update(context.getCPSMailBoxerDocumentTypes())
 except AttributeError, e:
     pass
 

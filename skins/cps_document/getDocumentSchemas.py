@@ -304,7 +304,7 @@ try:
 except AttributeError:
     pass
 try:
-    schemas.update(context.getNuxMailBoxerDocumentSchemas())
+    schemas.update(context.getCPSMailBoxerDocumentSchemas())
 except AttributeError,e:
     pass
 

@@ -984,7 +984,7 @@ layouts['imagegallery'] = imagegallery_layout
 
 # other products
 try:
-    layouts.update(context.getNuxMailBoxerDocumentLayouts())
+    layouts.update(context.getCPSMailBoxerDocumentLayouts())
 except AttributeError,e:
     pass
 
