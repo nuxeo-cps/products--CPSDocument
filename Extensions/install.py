@@ -33,88 +33,30 @@
 import os
 from App.Extensions import getPath
 from re import match
-from zLOG import LOG, INFO, DEBUG
+
+from Products.CPSDefault.Installer import BaseInstaller
 
 SECTIONS_ID = 'sections'
 WORKSPACES_ID = 'workspaces'
+SKINS = (
+    ('cps_document', 'Products/CPSDocument/skins/cps_document'),
+)
 
-class Installer:
-    def __init__(self, context):
-        self._log = []
-        self.context = context
-        self.portal = context.portal_url.getPortalObject()
-
+class CPSInstaller(BaseInstaller):
+    product_name = 'CPSDocument'
 
     def install(self):
         self.log("Starting CPSDocument install")
-        self.setupSkins()
+        self.setupSkins(SKINS)
         self.installCPSSchemas()
         self.setupPortalTypes()
         self.setupTranslations()
         self.log("End of specific CPSDocument install")
 
-    #
-    # Logging
-    #
-    def log(self, bla, zlog=1):
-        self._log.append(bla)
-        if (bla and zlog):
-            LOG('CPSDocument install:', INFO, bla)
-
-    def logOK(self):
-        self.log(" Already correctly installed")
-
-    def logResult(self):
-        return '<html><head><title>CPSDocument Update</title></head>' \
-            '<body><pre>'+ '\n'.join(self._log) + '</pre></body></html>'
-
 
     #
     # These methods do the actual work
     #
-    # TODO: this is almost completely generic code, it should move to 
-    # a superclass
-    def setupSkins(self):
-        # skins
-        skins = ('cps_document',)
-        paths = {
-            'cps_document': 'Products/CPSDocument/skins/cps_document',
-        }
-        skin_installed = 0
-        for skin in skins:
-            path = paths[skin]
-            path = path.replace('/', os.sep)
-            self.log(" FS Directory View '%s'" % skin)
-            if skin in self.portal.portal_skins.objectIds():
-                dv = self.portal.portal_skins[skin]
-                oldpath = dv.getDirPath()
-                if oldpath == path:
-                    self.logok()
-                else:
-                    self.log("  Correctly installed, correcting path")
-                    dv.manage_properties(dirpath=path)
-            else:
-                skin_installed = 1
-                self.portal.portal_skins.manage_addProduct['CMFCore'].manage_addDirectoryView(filepath=path, id=skin)
-                self.log("  Creating skin")
-        if skin_installed:
-            allskins = self.portal.portal_skins.getSkinPaths()
-            for skin_name, skin_path in allskins:
-                if skin_name != 'Basic':
-                    continue
-                path = [x.strip() for x in skin_path.split(',')]
-                path = [x for x in path if x not in skins] # strip all
-                if path and path[0] == 'custom':
-                    path = path[:1] + list(skins) + path[1:]
-                else:
-                    path = list(skins) + path
-                npath = ', '.join(path)
-                self.portal.portal_skins.addSkinSelection(skin_name, npath)
-                self.log(" Fixup of skin %s" % skin_name)
-            self.log(" Resetting skin cache")
-            self.portal._v_skindata = None
-            self.portal.setupCurrentSkin()
-
     def installCPSSchemas(self):
         # call cpsschemas install
         from Products.CPSSchemas.Extensions.install import install as \
@@ -209,37 +151,8 @@ class Installer:
                 + ['FAQ', 'ImageGallery', 'Glossary'])
         trtool[SECTIONS_ID].manage_rebuild()
 
-    # TODO: this method is completely generic and should go to a superclass
-    def setupTranslations(self):
-        """Import .po files"""
 
-        mcat = self.portal['Localizer']['default']
-        self.log(" Checking available languages")
-        podir = os.path.join('Products', 'CPSDocument')
-        popath = getPath(podir, 'i18n')
-        if popath is None:
-            self.log(" !!! Unable to find .po dir")
-        else:
-            self.log("  Checking installable languages")
-            langs = []
-            avail_langs = mcat.get_languages()
-            self.log("    Available languages: %s" % str(avail_langs))
-            for file in os.listdir(popath):
-                if file.endswith('.po'):
-                    m = match('^.*([a-z][a-z])\.po$', file)
-                    if m is None:
-                        self.log('    Skipping bad file %s' % file)
-                        continue
-                    lang = m.group(1)
-                    if lang in avail_langs:
-                        lang_po_path = os.path.join(popath, file)
-                        lang_file = open(lang_po_path)
-                        self.log("    Importing %s into '%s' locale" % (file, lang))
-                        mcat.manage_import(lang, lang_file)
-                    else:
-                        self.log('    Skipping not installed locale for file %s' % file)
-
-class CMFInstaller(Installer):
+class CMFInstaller(CPSInstaller):
     def setupPortalTypes(self):
         # setup portal_types
         self.log("Verifying portal types")
@@ -254,7 +167,7 @@ class CMFInstaller(Installer):
 
 
 def install(self):
-    installer = Installer(self)
+    installer = CPSInstaller(self)
     installer.install()
     return installer.logResult()
 
