@@ -9,8 +9,10 @@ if __name__ == '__main__':
 
 from pprint import pprint
 import unittest
+from DateTime import DateTime
 from Testing import ZopeTestCase
 import CPSDocumentTestCase
+from Products.CPSSchemas.Widget import widgetname
 
 class DummyResponse:
     def __init__(self):
@@ -50,9 +52,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         self.document_types = self.portal.getDocumentTypes()
         # getFolderContents check SESSION to get user display choice
         self.portal.REQUEST.SESSION = {}
-
-        # Some views are using sessions
-        self.portal.REQUEST.SESSION = {}
+        self.portal.REQUEST.form = {}
 
     def beforeTearDown(self):
         self.logout()
@@ -81,7 +81,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             self._testEditRendering(doc, proxy=proxy)
 
             # XXX: Doesn't work and I don't know why.
-            # doc.view() 
+            # doc.view()
             # So I'm using this hack instead:
             self.assert_(myGetViewFor(proxy)())
 
@@ -127,6 +127,43 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         wft = self.portal.portal_workflow
         for doc_type in self.document_types.keys():
             wft.invokeFactoryFor(self.ws, doc_type, doc_type.lower())
+
+    def testMetadata(self):
+        self.ws.invokeFactory('News', 'news')
+        doc = self.ws.news.getContent()
+        metadata = ('Title', 'Description', 'Subject',
+                    'Contributors', 'EffectiveDate', 'ExpirationDate',
+                    'Rights', 'Relation', 'Source', 'Coverage')
+        data = {}
+        form = {}
+        for d in metadata:
+            if d == 'Relation':
+                v = 'http://www.nuxeo.com'
+            elif d in ('EffectiveDate', 'ExpirationDate'):
+                date = '01/01/2004'
+                hour = '23'
+                minute = '59'
+                v = DateTime('%s %s:%s' % (date, hour, minute))
+                form[widgetname(d + '_date')] = date
+                form[widgetname(d + '_hour')] = hour
+                form[widgetname(d + '_minute')] = minute
+            elif d == 'Contributors':
+                v = ['The %s' % d]
+            elif d in ('Subject',):
+                v = []
+            else:
+                v = 'The %s' % d
+            data[d] = v
+            form[widgetname(d)] = v
+
+        request = self.portal.REQUEST
+        request.form = form
+        rendered, is_valid, ds = doc.renderEditDetailed(request=request,
+                                                        layout_id='metadata')
+        self.assert_(is_valid, 'invalid input: ' + str(ds.getErrors()) +
+                     'ds = ' + str(ds))
+        for k, v in data.items():
+            self.assertEquals(ds[k], v)
 
     def testNews(self):
         self.ws.invokeFactory('News', 'news')
