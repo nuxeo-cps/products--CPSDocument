@@ -157,10 +157,8 @@ class FlexibleTypeInformation(TypeInformation):
           'select_variable': 'getProxyTypesAllowed', 'label':'CPS Proxytype'},
          {'id': 'schemas', 'type': 'tokens', 'mode': 'w',
           'label': 'Schemas'},
-         {'id': 'default_layout', 'type': 'string', 'mode': 'w',
-          'label': 'Default layout'},
-         {'id': 'layout_style_prefix', 'type': 'string', 'mode': 'w',
-          'label': 'Layout style prefix'},
+         {'id': 'layouts', 'type': 'tokens', 'mode': 'w',
+          'label': 'Layouts'},
          {'id': 'flexible_layouts', 'type': 'tokens', 'mode': 'w',
           'label': 'Flexible layouts'}, # XXX layout1:schema1 layout2:schema2
          {'id': 'storage_methods', 'type': 'tokens', 'mode': 'w',
@@ -171,8 +169,7 @@ class FlexibleTypeInformation(TypeInformation):
     permission = 'Add portal content'
     schemas = []
     # XXX assume fixed storage adapters for now
-    default_layout = ''
-    layout_style_prefix = ''
+    layouts = []
     flexible_layouts = []
     storage_methods = [] # XXX will later use a storage adapter in the schema
     cps_is_searchable = 1
@@ -189,7 +186,7 @@ class FlexibleTypeInformation(TypeInformation):
 
     security.declareProtected(ManagePortal, 'manage_export')
     manage_export = DTMLFile('zmi/type_export', globals())
-        
+
     security.declarePublic('getProxyRolesAllowed')
     def getProxyTypesAllowed(self):
         """ return the list of allowed portal types strings """
@@ -447,7 +444,7 @@ class FlexibleTypeInformation(TypeInformation):
         ltool = getToolByName(self, 'portal_layouts')
         flexible_layouts = self._getFlexibleLayouts()
         if not layout_id:
-            layout_id = self.default_layout
+            layout_id = self.layouts[0]
         layout = None
         if layout_id in flexible_layouts and ob is not None:
             lc = ob._getOb('.cps_layouts', None)
@@ -460,18 +457,82 @@ class FlexibleTypeInformation(TypeInformation):
                              % (layout_id, self.getId()))
         return layout
 
-    security.declarePrivate('_renderLayoutStyle')
-    def _renderLayoutStyle(self, context, layout_mode, **kw):
-        """Render a layout according to the style defined in
-        the FlexTI and the layout_mode.
+    security.declarePrivate('getLayouts')
+    def getLayouts(self, layout_id=None, ob=None):
+        """Get the layout list for our type.
+
+        Takes into account flexible layouts from ob.
+
+        Returns a sequence of Layout objects.
+        """
+        layouts = []
+        for layout_id in self.layouts:
+            layouts.append(self.getLayout(layout_id, ob))
+
+        return layouts
+
+    security.declarePrivate('getLayouts')
+    def getLayouts(self, layout_id=None, ob=None):
+        """Get the layout list for our type.
+
+        Takes into account flexible layouts from ob.
+
+        Returns a sequence of Layout objects.
+        """
+        layouts = []
+        for layout_id in self.layouts:
+            layouts.append(self.getLayout(layout_id, ob))
+
+        return layouts
+
+    security.declarePrivate('_prepareDataStructure')
+    def _prepareDataStructure(self, ds, ob=None, layout_id=None):
+        """Init ds according to the layouts"""
+        # XXX todo if layout_id check that it exists
+        layouts = self.getLayouts(ob=ob, layout_id=layout_id)
+        for layout in layouts:
+            layout.prepareLayoutWidgets(ds)
+
+    security.declarePrivate('_renderLayouts')
+    def _renderLayouts(self, ob, layout_mode, layout_id=None, **kw):
+        """get html rendering of all layouts according to the layout_mode
 
         Uses context as a rendering context.
         """
-        layout_meth = self.layout_style_prefix + layout_mode
-        layout_style = getattr(context, layout_meth, None)
-        if layout_style is None:
-            raise RuntimeError("No layout method '%s'" % layout_meth)
-        return layout_style(layout_mode=layout_mode, **kw)
+        # XXX todo if layout_id check that it exists
+        rendered = ''
+        ds = kw['datastructure']
+        layouts = self.getLayouts(ob=ob, layout_id=layout_id)
+        for layout in layouts:
+            mode_chooser = layout.getStandardWidgetModeChooser(layout_mode, ds)
+            layout_data = layout.computeLayout(ds, mode_chooser)
+            layout_meth = layout_data['style_prefix'] + layout_mode
+            layout_style = getattr(ob, layout_meth, None)
+            if layout_style is None:
+                raise RuntimeError("No layout method '%s'" % layout_meth)
+            rendered += layout_style(layout_mode=layout_mode,
+                                     layout=layout_data, **kw)
+
+        return rendered
+
+    security.declarePrivate('_validateLayouts')
+    def _validateLayouts(self, datastructure, ob, layout_mode, layout_id=None):
+        """Validate all layouts
+        """
+        # XXX todo if layout_id check that it exists
+        is_valid = 1
+        layouts = self.getLayouts(ob=ob, layout_id=layout_id)
+        for layout in layouts:
+            if layout_id and layout.getId() != layout_id:
+                continue
+            mode_chooser = layout.getStandardWidgetModeChooser(
+                layout_mode, datastructure)
+            layout_data = layout.computeLayout(datastructure, mode_chooser)
+            if not layout.validateLayout(layout_data, datastructure):
+                is_valid = 0
+                break
+
+        return is_valid
 
     security.declarePrivate('renderObject')
     def renderObject(self, ob, layout_mode='view', layout_id=None, **kw):
@@ -479,13 +540,10 @@ class FlexibleTypeInformation(TypeInformation):
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
-        layoutob = self.getLayout(layout_id, ob)
-        # XXX Make mode_chooser passable by the caller?
-        mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
-        layoutob.prepareLayoutWidgets(ds)
-        layoutdata = layoutob.computeLayout(ds, mode_chooser)
-        return self._renderLayoutStyle(ob, layout_mode, layout=layoutdata,
-                                       datastructure=ds, **kw)
+        self._prepareDataStructure(ds)
+
+        return self._renderLayouts(ob, layout_mode,
+                                   datastructure=ds, **kw)
 
     def _commitDM(self, dm):
         """Commits the dm.
@@ -530,23 +588,20 @@ class FlexibleTypeInformation(TypeInformation):
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
-        layoutob = self.getLayout(layout_id, ob)
-        mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
-        layoutob.prepareLayoutWidgets(ds)
-        if request is not None:
+        self._prepareDataStructure(ds)
+
+        is_valid = 1
+        if request:
             ds.updateFromMapping(request.form)
-            layoutdata = layoutob.computeLayout(ds, mode_chooser)
-            ok = layoutob.validateLayout(layoutdata, ds)
-            if ok:
+            is_valid = self._validateLayouts(ds, ob, layout_mode, layout_id)
+            if is_valid:
                 ob = self._commitDM(dm)
             else:
                 layout_mode = layout_mode_err
-        else:
-            ok = 1
-            layoutdata = layoutob.computeLayout(ds, mode_chooser)
-        rendered = self._renderLayoutStyle(ob, layout_mode, layout=layoutdata,
-                                           datastructure=ds, ok=ok, **kw)
-        return rendered, ok, ds
+
+        rendered = self._renderLayouts(ob, layout_mode,
+                                       ok=is_valid, datastructure=ds, **kw)
+        return rendered, is_valid, ds
 
     security.declarePrivate('renderEditObject')
     def renderEditObject(self, *args, **kw):
@@ -586,15 +641,17 @@ class FlexibleTypeInformation(TypeInformation):
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
-        layoutob = self.getLayout(layout_id, ob)
-        mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
-        layoutob.prepareLayoutWidgets(ds)
-        if request is not None:
-            # Validate from request.
+        self._prepareDataStructure(ds)
+
+        rendered = None
+        is_valid = 1
+        if request:
             ds.updateFromMapping(request.form)
-            layoutdata = layoutob.computeLayout(ds, mode_chooser)
-            ok = layoutob.validateLayout(layoutdata, ds)
-            if ok:
+            is_valid = self._validateLayouts(ds, ob, layout_mode, layout_id)
+            if not is_valid:
+                layout_mode = layout_mode_err
+            else:
+                layout_mode = layout_mode_ok
                 method_name = None
                 for sm in self.storage_methods:
                     v = sm.split(':')
@@ -604,7 +661,9 @@ class FlexibleTypeInformation(TypeInformation):
                         continue
                     method_name = v[1]
                     break
-                if method_name:
+                if method_name is None:
+                    ob = self._commitDM(dm)
+                else:
                     # Do storage using a method.
                     method = getattr(ob, method_name, None)
                     if method is None:
@@ -612,16 +671,9 @@ class FlexibleTypeInformation(TypeInformation):
                                          method_name)
                     method(layout_mode, layout=layoutdata, datastructure=ds,
                            **kw)
-                else:
-                    ob = self._commitDM(dm)
-                layout_mode = layout_mode_ok
-            else:
-                layout_mode = layout_mode_err
-        else:
-            ok = 1
-            layoutdata = layoutob.computeLayout(ds, mode_chooser)
-        return self._renderLayoutStyle(ob, layout_mode, layout=layoutdata,
-                                       datastructure=ds, ok=ok, **kw)
+
+        return self._renderLayouts(ob, layout_mode,
+                                   ok=is_valid, datastructure=ds, **kw)
 
     security.declarePrivate('editObject')
     def editObject(self, ob, mapping):
@@ -654,30 +706,28 @@ class FlexibleTypeInformation(TypeInformation):
             and the datamodel,
           - created_callback is called in the context of the object.
 
-        Returns (rendered, ok, datastructure):
+        Returns (rendered, is_valid, datastructure):
         - rendered is the rendered HTML (may also have redirected),
-        - ok is the result of the validation,
+        - is_valid is the result of the validation,
         - datastructure is the resulting datastructure.
         """
         dm = self.getDataModel(None, context=container)
         ds = DataStructure(datamodel=dm)
-        layoutob = self.getLayout(layout_id)
-        mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
-        layoutob.prepareLayoutWidgets(ds)
-        rendered = None
-        if not validate:
-            # Initial display, datastructure contains defaults.
-            if request is not None:
-                # Update with initial data from request
-                ds.updateFromMapping(request.form)
-                layoutdata = layoutob.computeLayout(ds, mode_chooser)
-            ok = 1
-        else:
-            # Validate from request.
+        self._prepareDataStructure(ds)
+
+        if request:
             ds.updateFromMapping(request.form)
-            layoutdata = layoutob.computeLayout(ds, mode_chooser)
-            ok = layoutob.validateLayout(layoutdata, ds)
-        if validate and ok:
+        rendered = None
+        is_valid = 1
+        if validate:
+            is_valid = self._validateLayouts(ds, None, layout_mode,
+                                             layout_id)
+        if not validate or not is_valid:
+            rendered = self._renderLayouts(container, layout_mode,
+                                           ok=is_valid, datastructure=ds,
+                                           **kw)
+        else:
+            # creation
             create_func = getattr(container, create_callback, None)
             if create_func is None:
                 raise ValueError("Unknown create_callback %s" %
@@ -686,7 +736,6 @@ class FlexibleTypeInformation(TypeInformation):
             proxy = create_func(type_name, dm)
             # XXX check proxy is accessible?
             if hasattr(aq_base(proxy), 'getContent'):
-                # Get CPS content object.
                 ob = proxy.getContent()
             else:
                 ob = proxy
@@ -697,12 +746,8 @@ class FlexibleTypeInformation(TypeInformation):
                 raise ValueError("Unknown created_callback %s" %
                                  created_callback)
             rendered = created_func() or ''
-        else:
-            rendered = self._renderLayoutStyle(container, layout_mode,
-                                               layout=layoutdata,
-                                               datastructure=ds, ok=ok,
-                                               **kw)
-        return rendered, ok, ds
+
+        return rendered, is_valid, ds
 
     security.declarePublic('renderCreateObject')
     def renderCreateObject(self, *args, **kw):
