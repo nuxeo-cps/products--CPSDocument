@@ -34,4 +34,25 @@ if do_notify:
                                             {'comments': request.get('comments')
                                              })
 
+    # only done if we are in workspaces
+    # in sections, modification leads to a full new version
+    current = context
+    curr_portal_type = ''
+    in_workspace = False
+
+    while curr_portal_type <> 'Portal' and current and not in_workspace:
+        curr_portal_type = current.portal_type
+        if curr_portal_type == 'Workspace':
+            in_workspace = True
+        else:
+            next = current.getParentNode()
+            if next == current:
+                current = None
+            else:
+                current = next
+
+    if in_workspace:
+        pw = context.portal_workflow
+        pw.doActionFor(context, 'modify', comment='')
+
 return res[0], psm
