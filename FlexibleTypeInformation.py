@@ -80,7 +80,7 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
                      'object')
     flexti.addAction('metadata',
                      'action_metadata',
-                     'cpsdocument_metadata_edit_form',
+                     'cpsdocument_metadata',
                      '',
                      View,
                      'object')
