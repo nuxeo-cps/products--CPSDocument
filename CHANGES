@@ -3,6 +3,7 @@ ZODB Requires:
 - CPSSchemas product
 - Must delete portal_schemas, portal_layouts, portal_widgets and
   portal_vocabularies and let the updater recreate them.
+- require CPSSchema > 0.2.0
 New features:
 ~~~~~~~~~~~~~
 - Required fields are displayed with a mark
@@ -15,3 +16,4 @@ New internal features:
 - Split CPSSchemas into a separate package.
 - renaming widget properties 'title' into 'label_edit' and 'title_view' into 'label'
 - Don't pass both datastructure and datamodel around.
+- loading jscalendar css and js to use datewidget
