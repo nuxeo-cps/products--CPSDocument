@@ -598,19 +598,19 @@ class FlexibleTypeInformation(TypeInformation):
         self._commitDM(dm)
 
     security.declarePublic('renderCreateObject')
-    def renderCreateObject(self, container,
-                           request=None, mode='create', layout_id=None,
+    def renderCreateObject(self, container, request=None, validate=1,
+                           mode='create', layout_id=None,
                            create_function=None, redirect_action=None,
                            **kw):
         """Render an object for creation, maybe create it.
 
-        If request is None, the object is rendered from default values
-        in the specified mode.
+        If validate is false, the object is rendered from default values
+        or the ones in request, in the specified mode.
 
-        If request is not None:
-        - the parameters are validated.
+        If validate is true:
+        - the parameters from request are validated,
         - if there is a validation error:
-          - the object is rendered in mode mode;
+          - the object is rendered in mode mode,
         - if there is no validation error:
           - the object is created by calling create_function in the
             context of the container and with argument the type_name
@@ -622,8 +622,11 @@ class FlexibleTypeInformation(TypeInformation):
         layoutob = self.getLayout(layout_id)
         # Prepare each widget, and so update the datastructure.
         layoutdata = layoutob.getLayoutData(ds)
-        if request is None:
+        if not validate:
             # Initial display, datastructure contains defaults.
+            if request is not None:
+                # Update with initial data from request
+                ds.updateFromMapping(request.form)
             ok = 1
         else:
             # Validate from request.
