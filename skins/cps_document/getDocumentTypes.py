@@ -68,7 +68,7 @@ faqitem_type = {
 glossary_type = {
     'title': 'portal_type_Glossary_title',
     'description': 'portal_type_Glossary_description',
-    'content_icon': 'glossary_icon.gif',
+    'content_icon': 'glossaries_icon.gif',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
