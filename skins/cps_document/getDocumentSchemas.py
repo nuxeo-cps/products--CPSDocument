@@ -345,28 +345,28 @@ imagegallery_schema = {
     'preview_width': {
         'type': 'CPS Int Field',
         'data': {
-                'default': '64',
+                'default': 64,
                 'is_indexed': 0,
             },
         },
     'preview_height': {
         'type': 'CPS Int Field',
         'data': {
-                'default': '64',
+                'default': 64,
                 'is_indexed': 0,
             },
         },
     'nb_cols': {
         'type': 'CPS Int Field',
         'data': {
-                'default': '3',
+                'default': 3,
                 'is_indexed': 0,
             },
         },
     'nb_items': {
         'type': 'CPS Int Field',
         'data': {
-                'default': '9',
+                'default': 9,
                 'is_indexed': 0,
             },
         },
