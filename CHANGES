@@ -1,16 +1,14 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
 -
-
 New features:
 ~~~~~~~~~~~~~
--
-
+- [may be unstable] first implementation of Metadata view using Layout/Schema
 Bug fixes:
 ~~~~~~~~~~
 -
-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - A document is fully initialized with initial values before being inserted
   into the workflow.
+- no more title and description in schema def using metadata schema with Title and Description
