@@ -48,10 +48,10 @@
           <div class="label" tal:condition="widget/label_edit"
             tal:attributes="class python:test(is_required, 'label required',
                                               'label')">
-            <span i18n:translate="" tal:condition="widget/is_i18n"
-              tal:content="widget/label_edit">label</span>
-            <span tal:condition="not:widget/is_i18n"
-              tal:content="widget/label_edit">label</span>
+            <tal:block i18n:translate="" tal:condition="widget/is_i18n"
+              tal:content="widget/label_edit">label</tal:block>
+            <tal:block tal:condition="not:widget/is_i18n"
+              tal:content="widget/label_edit">label</tal:block>
           </div>
           <button type="button" class="tooltipControl"
                   tal:condition="widget/help"

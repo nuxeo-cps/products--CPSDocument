@@ -15,7 +15,7 @@ New features:
 - added possibility to select the document Language at creation time 
 Bug fixes:
 ~~~~~~~~~~
--
+- Removed some needless <span> elements used for i18n.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
