@@ -15,4 +15,4 @@ Bug fixes:
 
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Field property is_indexed has been renamed to is_searchabletext.
