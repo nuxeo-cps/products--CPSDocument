@@ -9,4 +9,5 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Added key 'use_content_status_history' for types needing a link to
+  content_status_history page.

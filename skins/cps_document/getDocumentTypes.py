@@ -118,6 +118,7 @@ flexible_type = {
     'layouts': ['common', 'flexible_content'],
     'flexible_layouts': ['flexible_content:flexible_content'],
     'storage_methods': [],
+    'use_content_status_history': 1,
     }
 
 faq_type = {
@@ -140,6 +141,7 @@ faq_type = {
     'storage_methods': [],
     'cps_workspace_wf': 'workspace_folderish_content_wf',
     'cps_display_as_document_in_listing': 1,
+    'use_content_status_history': 1,
     }
 
 faqitem_type = {
@@ -160,6 +162,7 @@ faqitem_type = {
     'layouts': ['faqitem'],
     'flexible_layouts': [],
     'storage_methods': [],
+    'use_content_status_history': 1,
     }
 
 glossary_type = {
@@ -182,6 +185,7 @@ glossary_type = {
     'storage_methods': [],
     'cps_workspace_wf': 'workspace_folderish_content_wf',
     'cps_display_as_document_in_listing': 1,
+    'use_content_status_history': 1,
     }
 
 glossaryitem_type = {
@@ -202,6 +206,7 @@ glossaryitem_type = {
     'layouts': ['common', 'glossaryitem'],
     'flexible_layouts': [],
     'storage_methods': [],
+    'use_content_status_history': 1,
     }
 
 news_type = {
@@ -222,6 +227,7 @@ news_type = {
     'layouts': ['common', 'news'],
     'flexible_layouts': [],
     'storage_methods': [],
+    'use_content_status_history': 1,
     }
 
 event_type = {
@@ -243,6 +249,7 @@ event_type = {
     'flexible_layouts': [],
     'storage_methods': [],
     'display_in_cmf_calendar': 1,
+    'use_content_status_history': 1,
     }
 
 file_type = {
@@ -263,6 +270,7 @@ file_type = {
     'layouts': ['common', 'file'],
     'flexible_layouts': [],
     'storage_methods': [],
+    'use_content_status_history': 1,
     }
 
 link_type = {
@@ -284,6 +292,7 @@ link_type = {
     'flexible_layouts': [],
     'storage_methods': [],
     'display_in_cmf_calendar': 1,
+    'use_content_status_history': 1,
     }
 
 imagegallery_type = {
@@ -306,6 +315,7 @@ imagegallery_type = {
     'storage_methods': [],
     'cps_workspace_wf': 'workspace_folderish_content_wf',
     'cps_display_as_document_in_listing': 1,
+    'use_content_status_history': 1,
     }
 
 image_type = {
@@ -326,6 +336,7 @@ image_type = {
     'layouts': ['common', 'image'],
     'flexible_layouts': [],
     'storage_methods': [],
+    'use_content_status_history': 1,
     }
 
 book_type = {
@@ -348,6 +359,7 @@ book_type = {
     'storage_methods': [],
     'cps_workspace_wf': 'workspace_folderish_content_wf',
     'cps_display_as_document_in_listing': 0,
+    'use_content_status_history': 1,
     }
 
 page_type = {
@@ -368,6 +380,7 @@ page_type = {
     'layouts': ['page', 'common', 'flexible_content'],
     'flexible_layouts': ['flexible_content:flexible_content'],
     'storage_methods': [],
+    'use_content_status_history': 1,
     }
 
 types = {}
