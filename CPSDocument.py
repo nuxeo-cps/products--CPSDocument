@@ -205,7 +205,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
     security.declareProtected(View, 'getAdditionalContentInfo')
     def getAdditionalContentInfo(self, proxy):
-        """Return a dictonary used in getContentInfo."""
+        """Return a dictionary used in getContentInfo."""
         infos = {}
         doc = aq_base(self)
 
