@@ -202,10 +202,11 @@ msgstr "Image : "
 
 # default doc types
 msgid "cpsdoc_flex_link_title"
-msgstr "Lien"
+msgstr "Titre du lien : "
 
+# FIXME: this msg is not used anywhere
 msgid "cpdoc_flex_link_label_edit"
-msgstr "Adresse de site web : "
+msgstr "Adresse du lien : "
 
 msgid "cpsdoc_flex_textimage_title"
 msgstr "Bloc de texte et image"

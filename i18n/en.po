@@ -198,14 +198,14 @@ msgid "cpsdoc_flex_photo_title"
 msgstr "Photo"
 
 msgid "cpsdoc_flex_photo_label_edit"
-msgstr "Photo : "
+msgstr "Photo: "
 
 # default doc types
 msgid "cpsdoc_flex_link_title"
-msgstr "Link"
+msgstr "Link title"
 
 msgid "cpdoc_flex_link_label_edit"
-msgstr "Http link: "
+msgstr "Link address: "
 
 msgid "cpsdoc_flex_textimage_title"
 msgstr "Image and Text block"
@@ -218,7 +218,7 @@ msgid "portal_type_Flexible_title"
 msgstr "Flexible document"
 
 msgid "portal_type_Flexible_description"
-msgstr "Flexible document !"
+msgstr "Flexible document!"
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -274,7 +274,7 @@ msgid "portal_type_News_description"
 msgstr "A news document"
 
 msgid "cpsdoc_News_newsdate_label_edit"
-msgstr "Date :"
+msgstr "Date:"
 
 msgid "cpsdoc_News_newsdate_label"
 msgstr " "
@@ -292,7 +292,7 @@ msgid "cpsdoc_News_content_label_edit"
 msgstr "Content of the news: "
 
 msgid "cpsdoc_News_photo_label_edit"
-msgstr "Photo : "
+msgstr "Photo: "
 
 msgid "cpsdoc_News_photo_label"
 msgstr "Illustration of the News: "
@@ -321,23 +321,23 @@ msgid "portal_type_Event_description"
 msgstr "An event"
 
 msgid "cpsdoc_Event_start_label_edit"
-msgstr "From : "
+msgstr "From: "
 
 msgid "cpsdoc_Event_end_label_edit"
-msgstr "To : "
+msgstr "To: "
 
 msgid "cpsdoc_Event_content_label_edit"
 msgstr "Content of the event: "
 
 # default doc types
 msgid "portal_type_Link_title"
-msgstr "Link"
+msgstr "Link title"
 
 msgid "portal_type_Link_description"
 msgstr "An URL"
 
 msgid "cpsdoc_Link_label_edit"
-msgstr "Http link: "
+msgstr "Link address: "
 
 # default doc types
 msgid "portal_type_Image_title"
