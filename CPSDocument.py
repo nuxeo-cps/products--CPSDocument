@@ -22,6 +22,7 @@ from zLOG import LOG, DEBUG, ERROR
 from types import ListType, TupleType
 from cgi import escape
 import ExtensionClass
+import re
 from Globals import InitializeClass
 from AccessControl import Unauthorized
 from AccessControl import ClassSecurityInfo
@@ -207,10 +208,14 @@ class CPSDocumentMixin(ExtensionClass.Base):
         """ Return a dictonary used in getContentInfo """
         infos = {}
         summary_fields = ['body', 'content']
+        tag_pattern = re.compile(r'<[^>]*>')
         summary = ''
         for f in summary_fields:
             if hasattr(aq_base(self), f):
-                summary += getattr(self, f)
+                try:
+                    summary += tag_pattern.sub('', getattr(self, f))
+                except TypeError:
+                    pass
                 if len(summary) > SUMMARY_MAX_LEN:
                     summary = summary[:SUMMARY_MAX_LEN] + '...'
                     break
