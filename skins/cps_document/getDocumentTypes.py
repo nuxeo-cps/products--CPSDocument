@@ -65,7 +65,7 @@ dummy_form_type = {
     }
 
 file_type = {
-    'title': 'portal_type_File',
+    'title': 'portal_type_File_title',
     'description': 'portal_type_File_description',
     'content_icon': 'attachedfile_icon.gif',
     'content_meta_type': 'CPS Document',
