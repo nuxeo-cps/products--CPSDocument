@@ -27,10 +27,6 @@ widgets = {
             'type': 'CPS Password Widget Type',
             'data': {},
             },
-        'Link Widget': {
-            'type': 'CPS Link Widget Type',
-            'data': {},
-            },
         'TextArea Widget': {
             'type': 'CPS TextArea Widget Type',
             'data': {},
@@ -102,6 +98,12 @@ widgets = {
         'InternalLinks Widget': {
             'type': 'CPS InternalLinks Widget Type',
             'data': {},
+            },
+        'Link Widget': {
+            'type': 'CPS Compound Widget Type',
+            'data': {
+                'render_method': 'widget_link_render',
+                },
             },
         }
 
