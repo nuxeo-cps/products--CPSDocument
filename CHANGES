@@ -9,4 +9,6 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- FlexibleTypeInformation._constructInstance() take into account the kw
+given as argument to initialize the data model. Check the comment out within
+the method
