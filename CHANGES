@@ -12,6 +12,7 @@ New features:
   in the ZIP archive, an attached file will be created, with the same name
   as the original file. The mimetypes for the attached files are obtained
   automatically based on the extension of the imported files.
+- added possibility to select the document Language at creation time 
 Bug fixes:
 ~~~~~~~~~~
 -
