@@ -150,11 +150,11 @@ def install(self):
     pr("Registering folderish document types in portal_tree")
     trtool = portal.portal_trees
     trtool[workspaces_id].manage_changeProperties(
-        type_names=list(trtool[workspaces_id].type_names) + ['FAQ',]
+        type_names=list(trtool[workspaces_id].type_names) + ['FAQ', 'ImageGallery',]
         )
     trtool[sections_id].manage_rebuild()
     trtool[sections_id].manage_changeProperties(
-        type_names=list(trtool[sections_id].type_names) + ['FAQ',]
+        type_names=list(trtool[sections_id].type_names) + ['FAQ', 'ImageGallery',]
         )
     trtool[sections_id].manage_rebuild()
 
