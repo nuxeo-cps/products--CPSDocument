@@ -58,6 +58,12 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     def beforeTearDown(self):
         self.logout()
 
+    attr_values_1 = {'1 Subject': ['1 New Subject',],
+                     '1 Title': '1 New Title',
+                     '1 Description': '1 New Description'}
+    attr_values_2 = {'2 Subject': ['2 New Subject',],
+                     '2 Title': '2 New Title',
+                     '2 Description': '2 New Description'}
     def testCreateDocumentsInWorkspacesRoot(self):
         for doc_type in self.document_types.keys():
             if doc_type in ('Section',):
@@ -80,27 +86,32 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
                 except AttributeError:
                     doc = proxy
 
-                self._testInterfaces(doc)
-                self._testDefaultAttributes(doc)
-
-                # XXX: should be 0 for an empty object, right?
-                self.assert_(doc.get_size() >= 0)
-
-                self.assertEquals(doc.getAdditionalContentInfo(proxy), {})
-
-                # Rendering / default view test (on the proxy)
-                self._testRendering(doc, proxy=proxy)
-                self._testMetadataRendering(doc, proxy=proxy)
-                self._testEditRendering(doc, proxy=proxy)
-
-                # Normal View
-                view = _getViewFor(proxy)
-                self.assert_(view())
-
-                self.assert_(self.isValidXML(doc.exportAsXML(proxy=proxy)))
+                self._validateDocument(proxy, doc)
+                # testing edition
+                # contributors is not expected to change during edition
+                expected_invariable = self.attr_values_1
+                expected_invariable['Contributors'] = doc.contributors
+                expected_invariable['Creator'] = doc.Creator()
+                doc.edit(**self.attr_values_1)
+                self._validateDocument(proxy, doc, expected_invariable)
 
         # Now testing global view for the container
         self.assert_(self.ws.folder_view())
+
+
+    def _validateDocument(self, proxy, doc, attr_expected=None):
+        self._testInterfaces(doc)
+        self._testDefaultAttributes(doc)
+        self._testDefaultAttributeValues(doc, attr_expected)
+        self.assertEquals(doc.getAdditionalContentInfo(proxy), {})
+        # Rendering / default view test (on the proxy)
+        self._testRendering(doc, proxy=proxy)
+        self._testMetadataRendering(doc, proxy=proxy)
+        self._testEditRendering(doc, proxy=proxy)
+        # Normal View
+        view = _getViewFor(proxy)
+        self.assert_(view())
+        self.assert_(self.isValidXML(doc.exportAsXML(proxy=proxy)))
 
     # Standard conversion to attributes for special metadata schema.
     field_to_attr = {
@@ -130,6 +141,25 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
                     # Not expected to be an attribute at all.
                     continue
                 self.assert_(hasattr(doc, attr_name))
+
+    def _testDefaultAttributeValues(self, doc, attr_expected):
+        # size of the document must be > 0
+        self.assert_(doc.get_size() > 0)
+        if attr_expected is not None:
+            type_info = doc.getTypeInfo()
+            for schema in type_info.schemas:
+                for prop_name in self.document_schemas[schema].keys():
+                    if prop_name not in attr_expected.keys():
+                        continue
+                    attr_name = self.field_to_attr.get(prop_name, prop_name)
+                    if attr_name is None:
+                        # Not expected to be an attribute at all.
+                        continue
+                    self.assertEquals(getattr(doc, attr_name),
+                                      attr_expected[prop_name],
+                                      'attr %s is %s expected %s' % (
+                        attr_name, getattr(doc, attr_name),
+                        attr_expected[prop_name]))
 
     def _testInterfaces(self, doc):
         from Interface.Verify import verifyObject
