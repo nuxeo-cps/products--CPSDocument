@@ -275,6 +275,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
                    xml))
 
     # TODO: must be completed if we want to implement Florent's proposal
+    # XXX FG: we want to use this with any document type so we should
+    # probably patch Item instead. And ProxyBase must be changed too.
     security.declareProtected(View, 'download')
     def downloadFile(self, field_name, RESPONSE=None):
         """Download File contained in attribute <field_name>"""
