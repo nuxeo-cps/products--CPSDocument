@@ -596,6 +596,10 @@ class FlexibleTypeInformation(TypeInformation):
         evtool = getToolByName(self, 'portal_eventservice', None)
         if evtool is not None:
             evtool.notify('sys_modify_object', ob, {})
+            proxy = dm.getProxy()
+            if proxy is not None:
+                # XXX Should be done by the proxy tool or something.
+                evtool.notify('sys_modify_object', proxy, {})
         return ob
 
     security.declarePrivate('renderEditObjectDetailed')
