@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-10-13 16:26default\n"
+"POT-Creation-Date: 2003-11-06 15:23default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -32,16 +32,16 @@ msgstr ""
 msgid "Edit ${title}"
 msgstr ""
 
-#.   <input value="button_add" name="addwidget_button" type="submit" />
-#: from ../skins/cps_document/layout_dummy_editlayout.pt
-#: ../skins/cps_document/layout_fancy_editlayout.pt
-#: ../skins/cps_document/layout_form_editlayout.pt
+#.   <input value="button_add" class="context" name="addwidget_button" type="submit">
+#.   </input>
+#: from ../skins/cps_document/layout_lib.pt
 msgid "button_add"
 msgstr ""
 
 #.   <input value="button_change" name="cpsdocument_edit_button" type="submit" />
 #.   <input condition="not:creation" value="button_change" class="standalone" name="cpsdocument_edit_button" type="submit">
-#.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#.     <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#.     <block content="structure string:</div></form>" />
 #.   </input></input>
 #: from ../skins/cps_document/layout_dummy_edit.pt
 #: ../skins/cps_document/layout_fancy_edit.pt
@@ -51,9 +51,37 @@ msgid "button_change"
 msgstr ""
 
 #.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#.     <block content="structure string:</div></form>" />
 #.   </input>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "button_create"
+msgstr ""
+
+#.   <input attributes="name string:deleterow_${repeat/row/index};
+#.                                 onclick python:'return window.confirm(\'%s\')' %
+#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
+#.             </input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_delete"
+msgstr ""
+
+#.   <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
+#.               <input attributes="name string:deleterow_${repeat/row/index};
+#.                                 onclick python:'return window.confirm(\'%s\')' %
+#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
+#.             </input></input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_move_down"
+msgstr ""
+
+#.   <input condition="not:repeat/row/start" attributes="name string:uprow_${repeat/row/index}" value="button_move_up" class="context moveUp" type="submit">
+#.               <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
+#.               <input attributes="name string:deleterow_${repeat/row/index};
+#.                                 onclick python:'return window.confirm(\'%s\')' %
+#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
+#.             </input></input></input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_move_up"
 msgstr ""
 
 #.   <span>to</span>
@@ -66,9 +94,14 @@ msgstr ""
 msgid "cpsdoc_Event_start_label"
 msgstr ""
 
-#.   <span>Form error.</span>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "cpsdoc_form_error"
+#.   <a condition="next_page" attributes="href string:${request/URL0}?start:int=${next_page/first}" href=".">cpsdoc_label_next</a>
+#: from ../skins/cps_document/layout_imagegallery_view.pt
+msgid "cpsdoc_label_next"
+msgstr ""
+
+#.   <a condition="previous_page" attributes="href string:${request/URL0}?start:int=${previous_page/first}" href=".">cpsdoc_label_previous</a>
+#: from ../skins/cps_document/layout_imagegallery_view.pt
+msgid "cpsdoc_label_previous"
 msgstr ""
 
 #.   <em content="err" style="color: red">err</em>
@@ -192,4 +225,21 @@ msgid "portal_type_Image_description"
 msgstr ""
 
 msgid "cpsdoc_Image_label_edit"
+msgstr ""
+
+# ImageGallery
+msgid "cpsdoc_imgallery_width_label_edit"
+msgstr ""
+
+msgid "cpsdoc_imgallery_height_label_edit"
+msgstr ""
+
+msgid "cpsdoc_imgallery_items_label_edit"
+msgstr ""
+
+msgid "cpsdoc_imgallery_col_label_edit"
+msgstr ""
+
+# Glossary
+msgid "cpsdoc_glossary_dispall_label_edit"
 msgstr ""

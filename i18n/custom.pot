@@ -135,5 +135,20 @@ msgstr ""
 msgid "cpsdoc_Image_label_edit"
 msgstr ""
 
-	
+# ImageGallery
+msgid "cpsdoc_imgallery_width_label_edit"
+msgstr ""
+
+msgid "cpsdoc_imgallery_height_label_edit"
+msgstr ""
+
+msgid "cpsdoc_imgallery_items_label_edit"
+msgstr ""
+
+msgid "cpsdoc_imgallery_col_label_edit"
+msgstr ""
+
+# Glossary
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr ""
 

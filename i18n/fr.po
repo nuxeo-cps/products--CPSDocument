@@ -10,14 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-13 16:26default\n"
-"PO-Revision-Date: 2003-10-30 10:38+0100\n"
+"POT-Creation-Date: 2003-11-06 15:23default\n"
+"PO-Revision-Date: 2003-11-06 15:26+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;"
+"Plural-Forms: nplurals=1; plural=0;X-Generator: KBabel 1.0.2\n"
 "X-Generator: KBabel 1.0.2\n"
 
 #.   <h1>
@@ -33,16 +33,16 @@ msgstr "Créer un document de type ${type_name}"
 msgid "Edit ${title}"
 msgstr "Edition de «${title}»"
 
-#.   <input value="button_add" name="addwidget_button" type="submit" />
-#: from ../skins/cps_document/layout_dummy_editlayout.pt
-#: ../skins/cps_document/layout_fancy_editlayout.pt
-#: ../skins/cps_document/layout_form_editlayout.pt
+#.   <input value="button_add" class="context" name="addwidget_button" type="submit">
+#.   </input>
+#: from ../skins/cps_document/layout_lib.pt
 msgid "button_add"
 msgstr "Ajouter"
 
 #.   <input value="button_change" name="cpsdocument_edit_button" type="submit" />
 #.   <input condition="not:creation" value="button_change" class="standalone" name="cpsdocument_edit_button" type="submit">
-#.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#.     <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#.     <block content="structure string:</div></form>" />
 #.   </input></input>
 #: from ../skins/cps_document/layout_dummy_edit.pt
 #: ../skins/cps_document/layout_fancy_edit.pt
@@ -52,10 +52,38 @@ msgid "button_change"
 msgstr "Enregistrer"
 
 #.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#.     <block content="structure string:</div></form>" />
 #.   </input>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "button_create"
 msgstr "Créer"
+
+#.   <input attributes="name string:deleterow_${repeat/row/index};
+#.                                 onclick python:'return window.confirm(\'%s\')' %
+#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
+#.             </input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_delete"
+msgstr "Supprimer"
+
+#.   <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
+#.               <input attributes="name string:deleterow_${repeat/row/index};
+#.                                 onclick python:'return window.confirm(\'%s\')' %
+#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
+#.             </input></input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_move_down"
+msgstr "Déplacer en dessous"
+
+#.   <input condition="not:repeat/row/start" attributes="name string:uprow_${repeat/row/index}" value="button_move_up" class="context moveUp" type="submit">
+#.               <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
+#.               <input attributes="name string:deleterow_${repeat/row/index};
+#.                                 onclick python:'return window.confirm(\'%s\')' %
+#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
+#.             </input></input></input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_move_up"
+msgstr "Déplacer au dessus"
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -67,10 +95,15 @@ msgstr " au "
 msgid "cpsdoc_Event_start_label"
 msgstr "Du"
 
-#.   <span>Form error.</span>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "cpsdoc_form_error"
-msgstr "Entrée invalide, veuillez corriger les erreurs:"
+#.   <a condition="next_page" attributes="href string:${request/URL0}?start:int=${next_page/first}" href=".">cpsdoc_label_next</a>
+#: from ../skins/cps_document/layout_imagegallery_view.pt
+msgid "cpsdoc_label_next"
+msgstr "Suivant"
+
+#.   <a condition="previous_page" attributes="href string:${request/URL0}?start:int=${previous_page/first}" href=".">cpsdoc_label_previous</a>
+#: from ../skins/cps_document/layout_imagegallery_view.pt
+msgid "cpsdoc_label_previous"
+msgstr "Précédent"
 
 #.   <em content="err" style="color: red">err</em>
 #: from ../skins/cps_document/layout_lib.pt
@@ -192,6 +225,24 @@ msgstr "Une image"
 
 msgid "cpsdoc_Image_label_edit"
 msgstr "Image : "
+
+msgid "cpsdoc_imgallery_width_label_edit"
+msgstr "Largeur des miniatures"
+
+msgid "cpsdoc_imgallery_height_label_edit"
+msgstr "Hauteur des miniatures"
+
+msgid "cpsdoc_imgallery_items_label_edit"
+msgstr "Nombre de miniatures par page"
+
+msgid "cpsdoc_imgallery_col_label_edit"
+msgstr "Nombre de colonnes par page"
+
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr "Afficher toutes les entrées si aucune lettre n'est sélectionnée (0 ou 1)"
+
+#~ msgid "cpsdoc_form_error"
+#~ msgstr "Entrée invalide, veuillez corriger les erreurs:"
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Thème du document"
