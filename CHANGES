@@ -8,9 +8,11 @@ ZODB Requires:
   the 'common' layout
 New features:
 ~~~~~~~~~~~~~
-- refactoring all document definition using common schema/layout
+- refactoring all documents definition using common schema/layout
   WARNING News document schema is updated and not using anymore longTitle 
   so data may be lost
+- Metadata that make sense are duplicated in edition 
+  ex Source and Rights for Image and File
 - #254: DublinCore full implementation with Coverage, Source and Relation
 - Metadata Contributors is computed automaticly by adding editors
 - edition and metadata edition heading display portal type icon
