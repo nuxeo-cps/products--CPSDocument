@@ -18,7 +18,7 @@ def upgradeNewsDocuments(self):
     
     id            : upgradeNewsDocuments
     title         : Use this method if you upgrade an instance older than CPS 3.2.1
-    Module Name   : CPSDocument.util
+    Module Name   : CPSDocument.upgrade
     Function Name : upgradeNewsDocuments
     
     - save it
