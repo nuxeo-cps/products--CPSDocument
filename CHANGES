@@ -9,4 +9,5 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Set _has_generic_edit_method flag for CPSDocumentMixin (Used by WebDAV
+  in ProxyBase).
