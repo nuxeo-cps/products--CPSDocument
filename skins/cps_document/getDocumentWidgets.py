@@ -7,6 +7,10 @@ Please, follow the same pattern to add new ones
 """
 
 widgets = {
+        'Boolean Widget': {
+            'type': 'CPS Boolean Widget Type',
+            'data': {},
+            },
         'Int Widget': {
             'type': 'CPS Int Widget Type',
             'data': {},
