@@ -11,7 +11,7 @@ flexible_type = {
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
-    'immediate_view': 'cpsdocument_view',
+    'immediate_view': 'cpsdocument_edit_form',
     'global_allow': 1,
     'filter_content_types': 1,
     'allowed_content_types': (),
