@@ -30,28 +30,27 @@
 #         portal._setObject('cpsdocument_installer', cpsdocument_installer)
 #     pr(portal.cpsdocument_installer())
 
-import os
-from App.Extensions import getPath
-from re import match
-
-from Products.CPSDefault.Installer import BaseInstaller
+from Products.CPSInstaller.CPSInstaller import CPSInstaller
 
 SECTIONS_ID = 'sections'
 WORKSPACES_ID = 'workspaces'
-SKINS = (
-    ('cps_document', 'Products/CPSDocument/skins/cps_document'),
-)
+SKINS = { 'cps_document': 'Products/CPSDocument/skins/cps_document'}
 
-class CPSInstaller(BaseInstaller):
+class DocInstaller(CPSInstaller):
     product_name = 'CPSDocument'
 
     def install(self):
         self.log("Starting CPSDocument install")
-        self.setupSkins(SKINS)
-        self.checkLinkBackwardCompatibility()
+        self.verifySkins(SKINS)
+        # This installer calls skins later, so we need to reset the skins now.
+        self.resetSkinCache()
         self.installCPSSchemas()
+        self.installDocumentSchemas()
         self.setupPortalTypes()
+        self.checkLinkBackwardCompatibility()
+        self.updateWorkflowAssociations()
         self.setupTranslations()
+        self.finalize()
         self.log("End of specific CPSDocument install")
 
 
@@ -71,107 +70,36 @@ class CPSInstaller(BaseInstaller):
         self.flextypes = self.portal.getDocumentTypes()
         self.newptypes = self.flextypes.keys()
         self.ttool = self.portal.portal_types
-
-        self.registerTypes()
-        self.allowTypesInWorkspaces()
+        self.verifyFlexibleTypes(self.flextypes)
+        types = self.newptypes[:]
+        types.remove('Section')
+        self.allowContentTypes(types, 'Workspace')
         self.updatePortalTree()
-        self.updateWorkflowAssociations()
-
-    def allowTypesInWorkspaces(self):
-        if 'Workspace' in self.ttool.objectIds():
-            workspace_act = list(self.ttool['Workspace'].allowed_content_types)
-        else:
-            raise "DependanceError", 'Workspace'
-        for ptype in self.newptypes:
-            if ptype not in workspace_act and ptype not in ('Section',):
-                workspace_act.append(ptype)
-        self.ttool['Workspace'].allowed_content_types = workspace_act
-
-    def registerTypes(self):
-        ptypes_installed = self.ttool.objectIds()
-        display_in_cmf_calendar = []
-        for ptype, data in self.flextypes.items():
-            self.log("  Type '%s'" % ptype)
-            if ptype in ptypes_installed:
-                self.ttool.manage_delObjects([ptype])
-                self.log("   Deleted")
-            ti = self.ttool.addFlexibleTypeInformation(id=ptype)
-            if data.get('display_in_cmf_calendar'):
-                display_in_cmf_calendar.append(ptype)
-                del data['display_in_cmf_calendar']
-            ti.manage_changeProperties(**data)
-
-            if data.has_key('actions'):
-                self.log("    Setting actions")
-                # delete all actions
-                nb_action = len(ti.listActions())
-                ti.deleteActions(selections=range(nb_action))
-                # and set the new ones
-                for a in data['actions']:
-                    ti.addAction(a['id'],
-                                 a['name'],
-                                 a['action'],
-                                 a.get('condition', ''),
-                                 a['permissions'][0],
-                                 'object',
-                                 visible=a.get('visible',1))
-            self.log("   Installation")
-
-        # register ptypes to portal_calendar
-        if display_in_cmf_calendar and hasattr(self.portal, 'portal_calendar'):
-            self.portal.portal_calendar.calendar_types = display_in_cmf_calendar
 
     def updateWorkflowAssociations(self):
         # check workflow association
-        self.log("Verifying local workflow association")
-
-        sections = self.portal[SECTIONS_ID]
-        workspaces = self.portal[WORKSPACES_ID]
-
-        if not '.cps_workflow_configuration' in workspaces.objectIds():
-            raise "DependanceError", \
-                  'no .cps_workflow_configuration in Workspace'
-        else:
-            workspace_wfc = getattr(workspaces, '.cps_workflow_configuration')
-
-        if not '.cps_workflow_configuration' in sections.objectIds():
-            raise "DependanceError", \
-                  'no .cps_workflow_configuration in Section'
-        else:
-            section_wfc = getattr(sections, '.cps_workflow_configuration')
-        
+        ws_chain = {}
+        se_chain = {}
         for ptype in self.newptypes:
-            if self.flextypes[ptype].has_key('cps_workspace_wf'):
-                wwf = self.flextypes[ptype]['cps_workspace_wf']
-                workspace_wfc.manage_addChain(portal_type=ptype, chain=wwf)
-                self.log("  Add %s chain to portal type %s in %s of %s" % (
-                    wwf, ptype, '.cps_workflow_configuration', WORKSPACES_ID))
-            else:
-                workspace_wfc.manage_addChain(portal_type=ptype,
-                                              chain='workspace_content_wf')
-            if self.flextypes[ptype].has_key('cps_section_wf'):
-                wwf = self.flextypes[ptype]['cps_section_wf']
-                section_wfc.manage_addChain(portal_type=ptype, chain=wwf)
-                wwf = 'workspace_content_wf'
-                self.log("  Add %s chain to portal type %s in %s of %s" % (
-                    wwf, ptype, '.cps_workflow_configuration', SECTIONS_ID))
-            else:
-                section_wfc.manage_addChain(portal_type=ptype,
-                                            chain='section_content_wf')
+            ws_chain[ptype] = 'workspace_content_wf'
+            se_chain[ptype] = 'section_content_wf'
+        for ptype in self.newptypes:
+            wf = self.flextypes[ptype].get('cps_workspace_wf',
+                                           'workspace_content_wf')
+            ws_chain[ptype] = wf
+            wf = self.flextypes[ptype].get('cps_section_wf',
+                                           'section_content_wf')
+            se_chain[ptype] = wf
+        self.verifyLocalWorkflowChains(self.portal[WORKSPACES_ID], ws_chain)
+        self.verifyLocalWorkflowChains(self.portal[SECTIONS_ID], se_chain)
 
     def updatePortalTree(self):
         # register folderish document types in portal_tree
         self.log("Registering folderish document types in portal_tree")
-        trtool = self.portal.portal_trees
-        trtool[WORKSPACES_ID].manage_changeProperties(
-            type_names=list(trtool[WORKSPACES_ID].type_names)
-                + ['FAQ', 'ImageGallery', 'Glossary'])
-        trtool[WORKSPACES_ID].manage_rebuild()
-        trtool[SECTIONS_ID].manage_changeProperties(
-            type_names=list(trtool[SECTIONS_ID].type_names)
-                + ['FAQ', 'ImageGallery', 'Glossary'])
-        trtool[SECTIONS_ID].manage_rebuild()
-
+        self.verifyTreeCacheTypes(WORKSPACES_ID,
+                                  ['FAQ', 'ImageGallery', 'Glossary'])
+        self.verifyTreeCacheTypes(SECTIONS_ID,
+                                  ['FAQ', 'ImageGallery', 'Glossary'])
 
     def checkLinkBackwardCompatibility(self):
         # now Link document use Metadata Relation to store href
@@ -200,9 +128,17 @@ class CPSInstaller(BaseInstaller):
                 href = getattr(ob, 'href')
                 if href and not getattr(ob, 'Relation', None):
                     setattr(ob, 'Relation', href)
-                    self.log("  Setting Relation = href for doc %s" % ob.getId())
+                    self.log("  Setting Relation = href for doc %s" % \
+                                ob.getId())
 
-class CMFInstaller(CPSInstaller):
+    def installDocumentSchemas(self):
+        self.verifyWidgets(self.portal.getDocumentWidgets())
+        self.verifySchemas(self.portal.getDocumentSchemas())
+        self.verifyLayouts(self.portal.getDocumentLayouts())
+        self.verifyVocabularies(self.portal.getDocumentVocabularies())
+
+
+class CMFInstaller(DocInstaller):
     def setupPortalTypes(self):
         # setup portal_types
         self.log("Verifying portal types")
@@ -217,7 +153,7 @@ class CMFInstaller(CPSInstaller):
 
 
 def install(self):
-    installer = CPSInstaller(self)
+    installer = DocInstaller(self)
     installer.install()
     return installer.logResult()
 
