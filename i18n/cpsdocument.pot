@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-02-06 09:38default\n"
+"POT-Creation-Date: 2004-02-16 15:32default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -325,4 +325,19 @@ msgid "cpsdoc_hidden_folder"
 msgstr ""
 
 msgid "cpsdoc_hidden_folder_help"
+msgstr ""
+
+msgid "help_dc_subject"
+msgstr ""
+
+msgid "help_dc_contirbutors"
+msgstr ""
+
+msgid "help_dc_source"
+msgstr ""
+
+msgid "help_dc_coverage"
+msgstr ""
+
+msgid "help_dc_relation"
 msgstr ""

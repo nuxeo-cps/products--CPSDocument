@@ -46,6 +46,7 @@ metadata_layout = {
                 'label_edit': 'label_subject',
                 'label': 'label_subject',
                 'vocabulary': 'subject_voc',
+                'help': 'help_dc_subject',
                 'size': 5,
             },
         },
@@ -56,6 +57,7 @@ metadata_layout = {
                 'is_i18n': 1,
                 'label_edit': 'label_contributors',
                 'label': 'label_contributors',
+                'help': 'help_dc_contirbutors',
             },
         },
         'CreationDate': {
@@ -159,6 +161,7 @@ metadata_layout = {
                 'label': 'label_source',
                 'display_width': 30,
                 'size_max': 80,
+                'help': 'help_dc_source',
             },
         },
         'Coverage': {
@@ -170,6 +173,7 @@ metadata_layout = {
                 'label': 'label_coverage',
                 'display_width': 30,
                 'size_max': 80,
+                'help': 'help_dc_coverage',
             },
         },
         'Relation': {
@@ -180,6 +184,7 @@ metadata_layout = {
                 'label_edit': 'label_relation',
                 'label': 'label_relation',
                 'display_width': 72,
+                'help': 'help_dc_relation',
             },
         },
         'preview': {

@@ -255,3 +255,19 @@ msgstr ""
 
 msgid "cpsdoc_hidden_folder_help"
 msgstr ""
+
+msgid "help_dc_subject"
+msgstr ""
+
+msgid "help_dc_contirbutors"
+msgstr ""
+
+msgid "help_dc_source"
+msgstr ""
+
+msgid "help_dc_coverage"
+msgstr ""
+
+msgid "help_dc_relation"
+msgstr ""
+

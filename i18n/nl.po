@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-06 09:38default\n"
+"POT-Creation-Date: 2004-02-16 15:32default\n"
 "PO-Revision-Date: 2004-02-16 14:14+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -362,6 +362,21 @@ msgstr "Datum van publicatie"
 msgid "cpsdoc_hidden_folder_help"
 msgstr "Datum van publicatie"
 
+msgid "help_dc_subject"
+msgstr ""
+
+msgid "help_dc_contirbutors"
+msgstr ""
+
+msgid "help_dc_source"
+msgstr ""
+
+msgid "help_dc_coverage"
+msgstr ""
+
+msgid "help_dc_relation"
+msgstr ""
+
 #~ msgid "button_add"
 #~ msgstr "Toevoegen"
 
@@ -373,4 +388,3 @@ msgstr "Datum van publicatie"
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Thema"
-

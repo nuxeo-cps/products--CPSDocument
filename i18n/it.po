@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-06 09:38default\n"
+"POT-Creation-Date: 2004-02-16 15:32default\n"
 "PO-Revision-Date: 2004-01-07 12:10+0100\n"
 "Last-Translator: Paolo Dina <paolo@php3.it>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -321,10 +321,28 @@ msgstr "Nascondi questa folder nella navigazione"
 
 msgid "cpsdoc_hidden_folder_help"
 msgstr ""
-"Questa cartella verrà nascosta nella modalità di visualizzazione, puoi ancora"
-"visualizzare/accedere ad essa utilizzando 'Contenuti della cartella' o al"
-"momento di scegliere una sezione per la pubblicazione."
-"Utilizza 'Ruoli locali' per assicurare l'accesso alla cartella."
+"Questa cartella verrà nascosta nella modalità di visualizzazione, puoi "
+"ancoravisualizzare/accedere ad essa utilizzando 'Contenuti della cartella' o "
+"almomento di scegliere una sezione per la pubblicazione.Utilizza 'Ruoli "
+"locali' per assicurare l'accesso alla cartella."
+
+msgid "help_dc_subject"
+msgstr ""
+
+msgid "help_dc_contirbutors"
+msgstr ""
+
+#, fuzzy
+msgid "help_dc_source"
+msgstr "Sorgente"
+
+#, fuzzy
+msgid "help_dc_coverage"
+msgstr "Riempimento"
+
+#, fuzzy
+msgid "help_dc_relation"
+msgstr "Relazione"
 
 #~ msgid "batch_next"
 #~ msgstr "avanti"
