@@ -248,9 +248,9 @@ class CPSDocumentMixin(ExtensionClass.Base):
     def get_size(self):
         """Return the size of the data.
 
-        This is informative only, for display purposes.
+        This is informative only, for display purposes. It's used
+        by the ZMI for instance, and also by CPS folder listing.
         """
-        # XXX: what is exactly the 'size'?
         if self._size:
             return self._size
         return self._compute_size()
