@@ -43,7 +43,7 @@
          tal:attributes="href python:test(popup_mode,'.' , '/'+item.absolute_url(relative=1));
                          onClick python:test(popup_mode, 'window.open(\'' + 
                                                           item.absolute_url(relative=1) + 
-                                                          '/popup_image' + '?pos=%s' % (repeat['item'].index + page_batch_start) +
+                                                          '/popup_image' + '?pos=%s' % (repeat['row'].index * nb_cols + repeat['item'].index + page_batch_start) +
                                                           '\', \'view_image\', ' +
                                                           '\'innerwidth=%s' % popup_width + 
                                                           ',innerheight=%s' % popup_height +
