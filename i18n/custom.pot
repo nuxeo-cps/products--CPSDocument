@@ -16,7 +16,7 @@ msgstr ""
 "Preferred-encodings: utf-8 latin1\n"
 "Domain: default\n"
 
-# generic names
+# Generic names
 msgid "cpsdoc_title_label_edit"
 msgstr ""
 
@@ -48,226 +48,7 @@ msgid "cpsdoc_popup_height_label_edit"
 msgstr ""
 
 
-# flex content
-msgid "cpsdoc_flex_content_title"
-msgstr ""
-
-msgid "cpsdoc_flex_content_label_edit"
-msgstr ""
-
-msgid "cpsdoc_flex_content_right_label_edit"
-msgstr ""
-
-msgid "cpsdoc_flex_attachedFile_title"
-msgstr ""
-
-msgid "cpsdoc_flex_attachedFile_label_edit"
-msgstr ""
-
-msgid "cpsdoc_flex_attachedFile_label"
-msgstr ""
-
-msgid "cpsdoc_flex_photo_title"
-msgstr ""
-
-msgid "cpsdoc_flex_photo_label_edit"
-msgstr ""
-
-msgid "cpsdoc_flex_link_title"
-msgstr ""
-
-msgid "cpdoc_flex_link_label_edit"
-msgstr ""
-
-msgid "cpsdoc_flex_textimage_title"
-msgstr ""
-
-msgid "cpsdoc_flex_textimage_label_edit"
-msgstr ""
-
-# Flexible
-msgid "portal_type_Flexible_title"
-msgstr ""
-
-msgid "portal_type_Flexible_description"
-msgstr ""
-
-# Faq
-msgid "portal_type_FAQ_title"
-msgstr ""
-
-msgid "portal_type_FAQ_description"
-msgstr ""
-
-msgid "portal_type_FAQitem_title"
-msgstr ""
-
-msgid "portal_type_FAQitem_description"
-msgstr ""
-
-msgid "cpsdoc_faq_question_label_edit"
-msgstr ""
-
-msgid "cpsdoc_faq_long_question_label_edit"
-msgstr ""
-
-msgid "cpsdoc_faq_answer_label_edit"
-msgstr ""
-
-msgid "cpsdoc_faq_answer_label"
-msgstr ""
-
-# Images
-
-msgid "portal_type_ImageGallery_title"
-msgstr ""
-
-msgid "portal_type_ImageGallery_description"
-msgstr ""
-
-# Glossary
-
-msgid "portal_type_Glossary_title"
-msgstr ""
-
-msgid "portal_type_Glossary_description"
-msgstr ""
-
-msgid "portal_type_GlossaryItem_title"
-msgstr ""
-
-msgid "portal_type_GlossaryItem_description"
-msgstr ""
-
-# NewsItem
-msgid "portal_type_NewsItem_title"
-msgstr ""
-
-msgid "portal_type_NewsItem_description"
-msgstr ""
-
-msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr ""
-
-msgid "cpsdoc_NewsItem_label_publication_date"
-msgstr ""
-
-# Press Release
-msgid "portal_type_PressRelease_title"
-msgstr ""
-
-msgid "portal_type_PressRelease_description"
-msgstr ""
-
-# File
-msgid "portal_type_File_title"
-msgstr ""
-
-msgid "portal_type_File_description"
-msgstr ""
-
-# Event
-msgid "portal_type_Event_title"
-msgstr ""
-
-msgid "portal_type_Event_description"
-msgstr ""
-
-msgid "cpsdoc_Event_start_label"
-msgstr ""
-
-msgid "cpsdoc_Event_end_label"
-msgstr ""
-
-msgid "cpsdoc_Event_start_label_edit"
-msgstr ""
-
-msgid "cpsdoc_Event_end_label_edit"
-msgstr ""
-
-msgid "cpsdoc_Event_content_label_edit"
-msgstr ""
-
-# Link
-msgid "portal_type_Link_title"
-msgstr ""
-
-msgid "portal_type_Link_description"
-msgstr ""
-
-msgid "cpsdoc_Link_label_edit"
-msgstr ""
-
-# Image
-msgid "portal_type_Image_title"
-msgstr ""
-
-msgid "portal_type_Image_description"
-msgstr ""
-
-msgid "cpsdoc_Image_label_edit"
-msgstr ""
-
-# ImageGallery
-msgid "cpsdoc_imgallery_width_label_edit"
-msgstr ""
-
-msgid "cpsdoc_imgallery_height_label_edit"
-msgstr ""
-
-msgid "cpsdoc_imgallery_items_label_edit"
-msgstr ""
-
-msgid "cpsdoc_imgallery_col_label_edit"
-msgstr ""
-
-# Glossary
-msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr ""
-
-msgid "cpsdoc_glossary_term_label_edit"
-msgstr ""
-
-msgid "cpsdoc_glossary_expl_label_edit"
-msgstr ""
-
-# Book and page
-
-msgid "portal_type_Book_title"
-msgstr ""
-
-msgid "portal_type_Book_description"
-msgstr ""
-
-msgid "portal_type_Page_title"
-msgstr ""
-
-msgid "portal_type_Page_description"
-msgstr ""
-
-msgid "portal_type_Chapter_title"
-msgstr ""
-
-msgid "portal_type_Chapter_description"
-msgstr ""
-
-msgid "cpsdoc_book_nb_summary_page_label_edit"
-msgstr ""
-
-msgid "cpsdoc_book_has_search_box_label_edit"
-msgstr ""
-
-msgid "cpsdoc_book_display"
-msgstr ""
-
-msgid "cpsdoc_book_display_pages"
-msgstr ""
-
-msgid "cpsdoc_book_display_flat"
-msgstr ""
-
-# metadata
-
+# Metadata
 msgid "label_source"
 msgstr ""
 
@@ -305,4 +86,229 @@ msgid "label_zip_file"
 msgstr ""
 
 msgid "cpsdoc_import_zip_title"
+msgstr ""
+
+
+# Flexible content
+msgid "cpsdoc_flex_content_title"
+msgstr ""
+
+msgid "cpsdoc_flex_content_label_edit"
+msgstr ""
+
+msgid "cpsdoc_flex_content_right_label_edit"
+msgstr ""
+
+msgid "cpsdoc_flex_attachedFile_title"
+msgstr ""
+
+msgid "cpsdoc_flex_attachedFile_label_edit"
+msgstr ""
+
+msgid "cpsdoc_flex_attachedFile_label"
+msgstr ""
+
+msgid "cpsdoc_flex_photo_title"
+msgstr ""
+
+msgid "cpsdoc_flex_photo_label_edit"
+msgstr ""
+
+msgid "cpsdoc_flex_link_title"
+msgstr ""
+
+msgid "cpdoc_flex_link_label_edit"
+msgstr ""
+
+msgid "cpsdoc_flex_textimage_title"
+msgstr ""
+
+msgid "cpsdoc_flex_textimage_label_edit"
+msgstr ""
+
+
+# Flexible Document
+msgid "portal_type_Flexible_title"
+msgstr ""
+
+msgid "portal_type_Flexible_description"
+msgstr ""
+
+
+# FAQ
+msgid "portal_type_FAQ_title"
+msgstr ""
+
+msgid "portal_type_FAQ_description"
+msgstr ""
+
+msgid "portal_type_FAQitem_title"
+msgstr ""
+
+msgid "portal_type_FAQitem_description"
+msgstr ""
+
+msgid "cpsdoc_faq_question_label_edit"
+msgstr ""
+
+msgid "cpsdoc_faq_long_question_label_edit"
+msgstr ""
+
+msgid "cpsdoc_faq_answer_label_edit"
+msgstr ""
+
+msgid "cpsdoc_faq_answer_label"
+msgstr ""
+
+
+# Glossary
+msgid "portal_type_Glossary_title"
+msgstr ""
+
+msgid "portal_type_Glossary_description"
+msgstr ""
+
+msgid "portal_type_GlossaryItem_title"
+msgstr ""
+
+msgid "portal_type_GlossaryItem_description"
+msgstr ""
+
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr ""
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr ""
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr ""
+
+
+# News Item
+msgid "portal_type_NewsItem_title"
+msgstr ""
+
+msgid "portal_type_NewsItem_description"
+msgstr ""
+
+msgid "cpsdoc_NewsItem_label_related_subjects"
+msgstr ""
+
+msgid "cpsdoc_NewsItem_label_publication_date"
+msgstr ""
+
+
+# Press Release
+msgid "portal_type_PressRelease_title"
+msgstr ""
+
+msgid "portal_type_PressRelease_description"
+msgstr ""
+
+
+# File
+msgid "portal_type_File_title"
+msgstr ""
+
+msgid "portal_type_File_description"
+msgstr ""
+
+
+# Event
+msgid "portal_type_Event_title"
+msgstr ""
+
+msgid "portal_type_Event_description"
+msgstr ""
+
+msgid "cpsdoc_Event_start_label"
+msgstr ""
+
+msgid "cpsdoc_Event_end_label"
+msgstr ""
+
+msgid "cpsdoc_Event_start_label_edit"
+msgstr ""
+
+msgid "cpsdoc_Event_end_label_edit"
+msgstr ""
+
+msgid "cpsdoc_Event_content_label_edit"
+msgstr ""
+
+
+# Link
+msgid "portal_type_Link_title"
+msgstr ""
+
+msgid "portal_type_Link_description"
+msgstr ""
+
+msgid "cpsdoc_Link_label_edit"
+msgstr ""
+
+
+# Image
+msgid "portal_type_Image_title"
+msgstr ""
+
+msgid "portal_type_Image_description"
+msgstr ""
+
+msgid "cpsdoc_Image_label_edit"
+msgstr ""
+
+
+# Image Gallery
+msgid "portal_type_ImageGallery_title"
+msgstr ""
+
+msgid "portal_type_ImageGallery_description"
+msgstr ""
+
+msgid "cpsdoc_imgallery_width_label_edit"
+msgstr ""
+
+msgid "cpsdoc_imgallery_height_label_edit"
+msgstr ""
+
+msgid "cpsdoc_imgallery_items_label_edit"
+msgstr ""
+
+msgid "cpsdoc_imgallery_col_label_edit"
+msgstr ""
+
+
+# Book and page
+msgid "portal_type_Book_title"
+msgstr ""
+
+msgid "portal_type_Book_description"
+msgstr ""
+
+msgid "portal_type_Page_title"
+msgstr ""
+
+msgid "portal_type_Page_description"
+msgstr ""
+
+msgid "portal_type_Chapter_title"
+msgstr ""
+
+msgid "portal_type_Chapter_description"
+msgstr ""
+
+msgid "cpsdoc_book_nb_summary_page_label_edit"
+msgstr ""
+
+msgid "cpsdoc_book_has_search_box_label_edit"
+msgstr ""
+
+msgid "cpsdoc_book_display"
+msgstr ""
+
+msgid "cpsdoc_book_display_pages"
+msgstr ""
+
+msgid "cpsdoc_book_display_flat"
 msgstr ""
