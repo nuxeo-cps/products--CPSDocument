@@ -250,3 +250,8 @@ msgstr ""
 msgid "label_relation"
 msgstr ""
 
+msgid "cpsdoc_hidden_in_folder_view"
+msgstr ""
+
+msgid "cpsdo_hidden_in_folder_view_help"
+msgstr ""

@@ -8,47 +8,41 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-04 11:26default\n"
+"POT-Creation-Date: 2004-02-05 17:41default\n"
 "PO-Revision-Date: 2003-11-04 11:36+0200\n"
 "Last-Translator: Koen Adriaensen <koen.adriaensen@cgey.be>\n"
 "Language-Team: Christian Czerwinski <christian.czerwinski@cgey.be>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#.   <h1>
+#.   <h1 condition="creation">
 #.         Create a document of type
-#.         ${type_name (tal content="request/type_name")}
+#.         ${type_name}
 #.       </h1>
-#: from ../skins/cps_document/cpsdocument_create_form.pt
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
 msgstr "Een document creëren van type ${type_name}"
 
-#.   <h1>Edit ${title (tal content="here/title_or_id")}</h1>
+#.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr "Bewerken van «${title}»"
 
-#.   <input value="button_add" name="addwidget_button" type="submit" />
-#: from ../skins/cps_document/layout_dummy_editlayout.pt
-#: ../skins/cps_document/layout_fancy_editlayout.pt
-#: ../skins/cps_document/layout_form_editlayout.pt
-msgid "button_add"
-msgstr "Toevoegen"
+#.   <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "Type"
+msgstr ""
 
-#.   <input value="button_change" name="cpsdocument_edit_button" type="submit" />
-#.   <input condition="not:creation" value="button_change" class="standalone" name="cpsdocument_edit_button" type="submit">
-#.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
-#.   </input></input>
-#: from ../skins/cps_document/layout_dummy_edit.pt
-#: ../skins/cps_document/layout_fancy_edit.pt
-#: ../skins/cps_document/layout_form_edit.pt
-#: ../skins/cps_document/layout_lib.pt
-msgid "button_change"
-msgstr "Wijzigen"
+#.   <block define="type_name request/type_name;
+#.                           type_info python:here.portal_types[type_name]" content="type_info/Title">Type Title</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Type Title"
+msgstr ""
 
 #.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#.     <block content="structure string:</div></form>" />
 #.   </input>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "button_create"
@@ -64,19 +58,39 @@ msgstr " tot "
 msgid "cpsdoc_Event_start_label"
 msgstr "Van"
 
-#.   <span>Form error.</span>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "cpsdoc_form_error"
-msgstr "Ongeldige invoer, gelieve de fouten te corrigeren:"
+#.   <span>
+#.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
+#.     </span>
+#: from ../skins/cps_document/layout_imagegallery_view.pt
+#, fuzzy
+msgid "description_up_to"
+msgstr "Beschrijving : "
 
 #.   <em content="err" style="color: red">err</em>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "err"
 msgstr "error"
 
+#.   <span condition="metadata">heading_metadata_edit</span>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "heading_metadata_edit"
+msgstr ""
+
+#.   <h1>heading_metadata_view</h1>
+#: from ../skins/cps_document/layout_metadata_view.pt
+msgid "heading_metadata_view"
+msgstr ""
+
+#.   <span condition="widget/is_i18n" content="widget/help">i18_key-help_for_this_field</span>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "i18_key-help_for_this_field"
+msgstr ""
+
 #.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
 #.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>
+#.   <strong content="widget/label">label</strong>
 #: from ../skins/cps_document/layout_lib.pt
+#: ../skins/cps_document/layout_metadata_view.pt
 msgid "label"
 msgstr "label"
 
@@ -89,11 +103,95 @@ msgstr "Beschrijving : "
 msgid "cpsdoc_theme_label_edit"
 msgstr "Thema : "
 
+#, fuzzy
+msgid "cpsdoc_date_label_edit"
+msgstr "Afbeelding : "
+
+#, fuzzy
+msgid "cpsdoc_date_label"
+msgstr "Datum van publicatie"
+
+#, fuzzy
+msgid "cpsdoc_preview_label_edit"
+msgstr "Visualisering : "
+
+#, fuzzy
+msgid "cpsdoc_allow_discussion_label_edit"
+msgstr "Uitgebreide vraag : "
+
+#, fuzzy
+msgid "cpsdoc_flex_content_title"
+msgstr "Inhoud : "
+
+#, fuzzy
+msgid "cpsdoc_flex_content_label_edit"
+msgstr "Inhoud : "
+
+#, fuzzy
+msgid "cpsdoc_flex_content_right_label_edit"
+msgstr "Inhoud : "
+
+#, fuzzy
+msgid "cpsdoc_flex_attachedFile_title"
+msgstr "Bijlage : "
+
+#, fuzzy
+msgid "cpsdoc_flex_attachedFile_label_edit"
+msgstr "Bijlage : "
+
+#, fuzzy
+msgid "cpsdoc_flex_attachedFile_label"
+msgstr "Bijlage : "
+
+#, fuzzy
+msgid "cpsdoc_flex_photo_title"
+msgstr " "
+
+#, fuzzy
+msgid "cpsdoc_flex_photo_label_edit"
+msgstr "Afbeelding : "
+
+# default doc types
+#, fuzzy
+msgid "cpsdoc_flex_link_title"
+msgstr "Link"
+
+#, fuzzy
+msgid "cpdoc_flex_link_label_edit"
+msgstr "Connectie http :"
+
+# default doc types
+#, fuzzy
+msgid "cpsdoc_flex_textimage_title"
+msgstr "Afbeelding"
+
+#, fuzzy
+msgid "cpsdoc_flex_textimage_label_edit"
+msgstr "Thema : "
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Flexible_title"
+msgstr "Dossier"
+
+#, fuzzy
+msgid "portal_type_Flexible_description"
+msgstr "Geheel van documenten"
+
 # default doc types
 msgid "portal_type_FAQ_title"
 msgstr "FAQ"
 
 msgid "portal_type_FAQ_description"
+msgstr "Overzicht van de meest gestelde vragen"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_FAQitem_title"
+msgstr "FAQ"
+
+#, fuzzy
+msgid "portal_type_FAQitem_description"
 msgstr "Overzicht van de meest gestelde vragen"
 
 msgid "cpsdoc_faq_question_label_edit"
@@ -107,6 +205,33 @@ msgstr "Antwoord : "
 
 msgid "cpsdoc_faq_answer_label"
 msgstr "Antwoord :  "
+
+# default doc types
+#, fuzzy
+msgid "portal_type_ImageGallery_title"
+msgstr "Afbeelding"
+
+#, fuzzy
+msgid "portal_type_ImageGallery_description"
+msgstr "Een afbeelding"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Glossary_title"
+msgstr "Dossier"
+
+#, fuzzy
+msgid "portal_type_Glossary_description"
+msgstr "Een nieuwsbericht"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_GlossaryItem_title"
+msgstr "Dossier"
+
+#, fuzzy
+msgid "portal_type_GlossaryItem_description"
+msgstr "Geheel van documenten"
 
 msgid "portal_type_News_title"
 msgstr "Nieuws"
@@ -189,6 +314,58 @@ msgstr "Een afbeelding"
 
 msgid "cpsdoc_Image_label_edit"
 msgstr "Afbeelding : "
+
+#, fuzzy
+msgid "cpsdoc_imgallery_width_label_edit"
+msgstr "Titel : "
+
+#, fuzzy
+msgid "cpsdoc_imgallery_height_label_edit"
+msgstr "Afbeelding : "
+
+#, fuzzy
+msgid "cpsdoc_imgallery_items_label_edit"
+msgstr "Titel : "
+
+#, fuzzy
+msgid "cpsdoc_imgallery_col_label_edit"
+msgstr "Titel : "
+
+#, fuzzy
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr "Titel : "
+
+#, fuzzy
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr "Thema : "
+
+#, fuzzy
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Afbeelding : "
+
+msgid "label_source"
+msgstr ""
+
+msgid "label_coverage"
+msgstr ""
+
+msgid "label_relation"
+msgstr ""
+
+msgid "cpsdoc_hidden_in_folder_view"
+msgstr ""
+
+msgid "cpsdo_hidden_in_folder_view_help"
+msgstr ""
+
+#~ msgid "button_add"
+#~ msgstr "Toevoegen"
+
+#~ msgid "button_change"
+#~ msgstr "Wijzigen"
+
+#~ msgid "cpsdoc_form_error"
+#~ msgstr "Ongeldige invoer, gelieve de fouten te corrigeren:"
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Thema"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-12-19 11:06default\n"
+"POT-Creation-Date: 2004-02-05 17:41default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #.   <h1 condition="creation">
 #.         Create a document of type
-#.         ${type_name (tal content="request/type_name")}
+#.         ${type_name}
 #.       </h1>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
@@ -37,35 +37,10 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#.   <a condition="next_page" attributes="href python:'%s?%s'%(request['URL'],
-#.                                               mq(request.form, start=next_page.first))">Next</a>
-#: from ../skins/cps_document/layout_imagegallery_view.pt
-msgid "batch_next"
-msgstr ""
-
-#.   <a condition="previous_page" attributes="href python:'%s?%s'%(request['URL'],
-#.                                                 mq(request.form,
-#.                                                    start=previous_page.first))">Previous</a>
-#: from ../skins/cps_document/layout_imagegallery_view.pt
-msgid "batch_previous"
-msgstr ""
-
-#.   <input value="button_add" class="context" name="addwidget_button" type="submit">
-#.   </input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_add"
-msgstr ""
-
-#.   <input value="button_change" name="cpsdocument_edit_button" type="submit" />
-#.   <input condition="not:creation" value="button_change" class="standalone" name="cpsdocument_edit_button" type="submit">
-#.     <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
-#.     <block content="structure string:</div></form>" />
-#.   </input></input>
-#: from ../skins/cps_document/layout_dummy_edit.pt
-#: ../skins/cps_document/layout_fancy_edit.pt
-#: ../skins/cps_document/layout_form_edit.pt
-#: ../skins/cps_document/layout_lib.pt
-msgid "button_change"
+#.   <block define="type_name request/type_name;
+#.                           type_info python:here.portal_types[type_name]" content="type_info/Title">Type Title</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Type Title"
 msgstr ""
 
 #.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
@@ -73,38 +48,6 @@ msgstr ""
 #.   </input>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "button_create"
-msgstr ""
-
-#.   <input attributes="name string:deleterow_${repeat/row/index};
-#.                                 onclick python:'return window.confirm(\'%s\')' %
-#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
-#.             </input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_delete"
-msgstr ""
-
-#.   <button condition="widget/help" attributes="onclick python:'toggleFormTooltip(\'%s\')' % tooltip_id;" class="tooltipControl" type="button">button_help</button>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_help"
-msgstr ""
-
-#.   <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
-#.               <input attributes="name string:deleterow_${repeat/row/index};
-#.                                 onclick python:'return window.confirm(\'%s\')' %
-#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
-#.             </input></input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_move_down"
-msgstr ""
-
-#.   <input condition="not:repeat/row/start" attributes="name string:uprow_${repeat/row/index}" value="button_move_up" class="context moveUp" type="submit">
-#.               <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
-#.               <input attributes="name string:deleterow_${repeat/row/index};
-#.                                 onclick python:'return window.confirm(\'%s\')' %
-#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
-#.             </input></input></input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_move_up"
 msgstr ""
 
 #.   <span>to</span>
@@ -376,4 +319,10 @@ msgid "label_coverage"
 msgstr ""
 
 msgid "label_relation"
+msgstr ""
+
+msgid "cpsdoc_hidden_in_folder_view"
+msgstr ""
+
+msgid "cpsdo_hidden_in_folder_view_help"
 msgstr ""

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-19 11:06default\n"
-"PO-Revision-Date: 2004-01-20 14:52+0100\n"
+"POT-Creation-Date: 2004-02-05 17:41default\n"
+"PO-Revision-Date: 2004-02-05 17:55+0100\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #.   <h1 condition="creation">
 #.         Create a document of type
-#.         ${type_name (tal content="request/type_name")}
+#.         ${type_name}
 #.       </h1>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
@@ -40,36 +40,11 @@ msgstr "Edit \"${title}\""
 msgid "Type"
 msgstr "nop"
 
-#.   <a condition="next_page" attributes="href python:'%s?%s'%(request['URL'],
-#.                                               mq(request.form, start=next_page.first))">Next</a>
-#: from ../skins/cps_document/layout_imagegallery_view.pt
-msgid "batch_next"
-msgstr "Next"
-
-#.   <a condition="previous_page" attributes="href python:'%s?%s'%(request['URL'],
-#.                                                 mq(request.form,
-#.                                                    start=previous_page.first))">Previous</a>
-#: from ../skins/cps_document/layout_imagegallery_view.pt
-msgid "batch_previous"
-msgstr "Previous"
-
-#.   <input value="button_add" class="context" name="addwidget_button" type="submit">
-#.   </input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_add"
-msgstr "Add"
-
-#.   <input value="button_change" name="cpsdocument_edit_button" type="submit" />
-#.   <input condition="not:creation" value="button_change" class="standalone" name="cpsdocument_edit_button" type="submit">
-#.     <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
-#.     <block content="structure string:</div></form>" />
-#.   </input></input>
-#: from ../skins/cps_document/layout_dummy_edit.pt
-#: ../skins/cps_document/layout_fancy_edit.pt
-#: ../skins/cps_document/layout_form_edit.pt
-#: ../skins/cps_document/layout_lib.pt
-msgid "button_change"
-msgstr "Save Changes"
+#.   <block define="type_name request/type_name;
+#.                           type_info python:here.portal_types[type_name]" content="type_info/Title">Type Title</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Type Title"
+msgstr ""
 
 #.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
 #.     <block content="structure string:</div></form>" />
@@ -77,38 +52,6 @@ msgstr "Save Changes"
 #: from ../skins/cps_document/layout_lib.pt
 msgid "button_create"
 msgstr "Create"
-
-#.   <input attributes="name string:deleterow_${repeat/row/index};
-#.                                 onclick python:'return window.confirm(\'%s\')' %
-#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
-#.             </input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_delete"
-msgstr "Delete"
-
-#.   <button condition="widget/help" attributes="onclick python:'toggleFormTooltip(\'%s\')' % tooltip_id;" class="tooltipControl" type="button">button_help</button>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_help"
-msgstr "Help"
-
-#.   <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
-#.               <input attributes="name string:deleterow_${repeat/row/index};
-#.                                 onclick python:'return window.confirm(\'%s\')' %
-#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
-#.             </input></input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_move_down"
-msgstr "Move Down"
-
-#.   <input condition="not:repeat/row/start" attributes="name string:uprow_${repeat/row/index}" value="button_move_up" class="context moveUp" type="submit">
-#.               <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
-#.               <input attributes="name string:deleterow_${repeat/row/index};
-#.                                 onclick python:'return window.confirm(\'%s\')' %
-#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
-#.             </input></input></input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_move_up"
-msgstr "Move Up"
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -378,6 +321,40 @@ msgstr "Coverage"
 
 msgid "label_relation"
 msgstr "Relation"
+
+msgid "cpsdoc_hidden_in_folder_view"
+msgstr "Hide this section in default folder view"
+
+msgid "cpsdo_hidden_in_folder_view_help"
+msgstr ""
+"this section will be hidden in view mode, "
+"you can still view/access this section using 'Folder Contents' or when choosing "
+"a target for publishing. "
+"Use 'Local Roles' to secure a section."
+
+#~ msgid "batch_next"
+#~ msgstr "Next"
+
+#~ msgid "batch_previous"
+#~ msgstr "Previous"
+
+#~ msgid "button_add"
+#~ msgstr "Add"
+
+#~ msgid "button_change"
+#~ msgstr "Save Changes"
+
+#~ msgid "button_delete"
+#~ msgstr "Delete"
+
+#~ msgid "button_help"
+#~ msgstr "Help"
+
+#~ msgid "button_move_down"
+#~ msgstr "Move Down"
+
+#~ msgid "button_move_up"
+#~ msgstr "Move Up"
 
 #~ msgid "cpsdoc_label_next"
 #~ msgstr "Next"
