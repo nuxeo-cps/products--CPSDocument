@@ -1,11 +1,14 @@
 <tal:block define="doc here/getContent;
-                   global editlayoutmsg python:here.editLayouts(REQUEST=request);
-                   validate python:request.has_key('cpsdocument_edit_button') or editlayoutmsg;
-                   edit_request python: validate and request or nothing;
-                   res python: doc.renderEditDetailed(request=edit_request, proxy=here);
+                   layout_changed python:here.editLayouts(REQUEST=request);
+                   need_validation python:layout_changed or
+                     request.has_key('cpsdocument_edit_button');
+                   edit_request python: need_validation and request or nothing;
+                   res python: doc.renderEditDetailed(request=edit_request,
+                     proxy=here);
                    global rendered_main python: res[0];
-                   rendered_ok python: res[1];
-                   global portal_status_message python: validate and (rendered_ok and 'psm_content_changed' or 'psm_content_error') or '';
+                   global portal_status_message python: need_validation and
+                     (res[1] and 'psm_content_changed' or 'psm_content_error')
+                     or '';
                 " />
 <metal:block use-macro="here/content_lib/macros/master">
   <metal:block fill-slot="css_slot">
