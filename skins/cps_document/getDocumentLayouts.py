@@ -336,10 +336,10 @@ flexible_content_layout = {
 
 faqitem_layout = {
     'widgets': {
-        'title': {
+        'Title': {
             'type': 'String Widget',
             'data': {
-                'fields': ['title'],
+                'fields': ['Title'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_faq_question_label_edit',
                 'label': '',
@@ -350,10 +350,10 @@ faqitem_layout = {
                 'size_max': 72,
             },
         },
-        'description': {
+        'Description': {
             'type': 'TextArea Widget',
             'data': {
-                'fields': ['description'],
+                'fields': ['Description'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_faq_long_question_label_edit',
                 'label': '',
@@ -395,10 +395,10 @@ faqitem_layout = {
 
 faq_layout = {
     'widgets': {
-        'title': {
+        'Title': {
             'type': 'String Widget',
             'data': {
-                'fields': ['title'],
+                'fields': ['Title'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_title_label_edit',
                 'label': '',
@@ -409,10 +409,10 @@ faq_layout = {
                 'size_max': 72,
             },
         },
-        'description': {
+        'Description': {
             'type': 'TextArea Widget',
             'data': {
-                'fields': ['description'],
+                'fields': ['Description'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_description_label_edit',
                 'label': '',
@@ -441,10 +441,10 @@ faq_layout = {
 
 glossaryitem_layout = {
     'widgets': {
-        'title': {
+        'Title': {
             'type': 'String Widget',
             'data': {
-                'fields': ['title'],
+                'fields': ['Title'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_glossary_term_label_edit',
                 'label': '',
@@ -455,10 +455,10 @@ glossaryitem_layout = {
                 'size_max': 72,
             },
         },
-        'description': {
+        'Description': {
             'type': 'TextArea Widget',
             'data': {
-                'fields': ['description'],
+                'fields': ['Description'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_glossary_expl_label_edit',
                 'label': '',
@@ -484,10 +484,10 @@ glossaryitem_layout = {
 
 glossary_layout = {
     'widgets': {
-        'title': {
+        'Title': {
             'type': 'String Widget',
             'data': {
-                'fields': ['title'],
+                'fields': ['Title'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_title_label_edit',
                 'label': '',
@@ -498,10 +498,10 @@ glossary_layout = {
                 'size_max': 72,
             },
         },
-        'description': {
+        'Description': {
             'type': 'TextArea Widget',
             'data': {
-                'fields': ['description'],
+                'fields': ['Description'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_description_label_edit',
                 'label': '',
@@ -593,10 +593,10 @@ news_layout = {
                 'time_setting': 1,
             },
         },
-        'title': {
+        'Title': {
             'type': 'String Widget',
             'data': {
-                'fields': ['title'],
+                'fields': ['Title'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_News_title_label_edit',
                 'label': '',
@@ -620,10 +620,10 @@ news_layout = {
                 'size_max': 2*1024*1024,
             },
         },
-        'description': {
+        'Description': {
             'type': 'TextArea Widget',
             'data': {
-                'fields': ['description'],
+                'fields': ['Description'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_News_description_label_edit',
                 'label': '',
@@ -705,10 +705,10 @@ news_layout = {
 
 file_layout = {
     'widgets': {
-        'title': {
+        'Title': {
             'type': 'String Widget',
             'data': {
-                'fields': ['title'],
+                'fields': ['Title'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_title_label_edit',
                 'css_class': 'dtitle',
@@ -717,10 +717,10 @@ file_layout = {
                 'size_max': 72,
             },
         },
-        'description': {
+        'Description': {
             'type': 'TextArea Widget',
             'data': {
-                'fields': ['description'],
+                'fields': ['Description'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_description_label_edit',
                 'description': '',
@@ -766,10 +766,10 @@ file_layout = {
 #########################################################
 event_layout = {
     'widgets': {
-        'title': {
+        'Title': {
             'type': 'String Widget',
             'data': {
-                'fields': ['title'],
+                'fields': ['Title'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_title_label_edit',
                 'css_class': 'dtitle',
@@ -778,10 +778,10 @@ event_layout = {
                 'size_max': 72,
             },
         },
-        'description': {
+        'Description': {
             'type': 'TextArea Widget',
             'data': {
-                'fields': ['description'],
+                'fields': ['Description'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_description_label_edit',
                 'description': '',
@@ -898,10 +898,10 @@ link_layout = {
 
 image_layout = {
     'widgets': {
-        'title': {
+        'Title': {
             'type': 'String Widget',
             'data': {
-                'fields': ['title'],
+                'fields': ['Title'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_title_label_edit',
                 'css_class': 'dtitle',
@@ -910,10 +910,10 @@ image_layout = {
                 'size_max': 72,
             },
         },
-        'description': {
+        'Description': {
             'type': 'TextArea Widget',
             'data': {
-                'fields': ['description'],
+                'fields': ['Description'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_description_label_edit',
                 'description': '',
@@ -952,10 +952,10 @@ image_layout = {
 
 imagegallery_layout = {
     'widgets': {
-        'title': {
+        'Title': {
             'type': 'String Widget',
             'data': {
-                'fields': ['title'],
+                'fields': ['Title'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_title_label_edit',
                 'label': '',
@@ -966,10 +966,10 @@ imagegallery_layout = {
                 'size_max': 72,
             },
         },
-        'description': {
+        'Description': {
             'type': 'TextArea Widget',
             'data': {
-                'fields': ['description'],
+                'fields': ['Description'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_description_label_edit',
                 'label': '',
@@ -1075,10 +1075,10 @@ imagegallery_layout = {
 
 dummy_form_layout = {
     'widgets': {
-        'title': {
+        'Title': {
             'type': 'String Widget',
             'data': {
-                'fields': ['title'],
+                'fields': ['Title'],
                 'is_i18n': 0,
                 'label_edit': 'Dummy Form title field',
                 'label': '',
@@ -1089,10 +1089,10 @@ dummy_form_layout = {
                 'size_max': 0,
             },
         },
-        'description': {
+        'Description': {
             'type': 'TextArea Widget',
             'data': {
-                'fields': ['description'],
+                'fields': ['Description'],
                 'is_i18n': 0,
                 'label_edit': 'Dummy Form Description field',
                 'label': '',
