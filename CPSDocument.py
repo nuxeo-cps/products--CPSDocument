@@ -45,64 +45,60 @@ class CPSDocumentMixin(ExtensionClass.Base):
     _size = 0
 
     security.declareProtected(View, 'render')
-    def render(self, mode='view', layout_id=None, **kw):
-        """Render the object according to a mode."""
-        ti = self.getTypeInfo()
-        return ti.renderObject(self, mode=mode, layout_id=layout_id, **kw)
+    def render(self, **kw):
+        """Render the object according to a layout mode.
+
+        Arguments are layout_mode, layout_id, proxy.
+        """
+        return self.getTypeInfo().renderObject(self, **kw)
 
     # This is not protected using ModifyPortalContent because the object
     # may be frozen, and will only be unfrozen just before committing.
     # The security check on ModifyPortalContent is now done by DataModel
     # just before commit.
     security.declareProtected(View, 'renderEditDetailed')
-    def renderEditDetailed(self, request=None, mode='edit', errmode='edit',
-                           layout_id=None, **kw):
+    def renderEditDetailed(self, **kw):
         """Modify the object from the request (if present), and return
         the HTML rendering and some detailed information.
 
-        Renders the mode, or the errmode if a validation error occurred.
+        Arguments are request, layout_mode, layout_mode_er, layout_id,
+        proxy.
+
+        Renders in layout_mode, or layout_mode_err if a validation error
+        occurred.
 
         An optional 'proxy' arg can be given, it will be passed to the
         layouts and the backend.
         """
-        ti = self.getTypeInfo()
-        return ti.renderEditObjectDetailed(self, request,
-                                           mode=mode, errmode=errmode,
-                                           layout_id=layout_id, **kw)
+        return self.getTypeInfo().renderEditObjectDetailed(self, **kw)
 
     # See remark about security above.
     security.declareProtected(View, 'renderEdit')
-    def renderEdit(self, request=None, mode='edit', errmode='edit',
-                   layout_id=None, **kw):
+    def renderEdit(self, **kw):
         """Modify the object from the request (if present), and return
         the HTML rendering.
 
         See renderEditDetailed for more.
         """
-        ti = self.getTypeInfo()
-        return ti.renderEditObject(self, request,
-                                   mode=mode, errmode=errmode,
-                                   layout_id=layout_id, **kw)
+        return self.getTypeInfo().renderEditObject(self, **kw)
 
     # See remark about security above.
     security.declareProtected(View, 'validateStoreRender')
-    def validateStoreRender(self, request=None,
-                            mode='edit', okmode='edit', errmode='edit',
-                            layout_id=None, **kw):
+    def validateStoreRender(self, **kw):
         """Modify the object from request, store data, and renders to new mode.
 
-        If no request was passed, renders mode.
+        Arguments are request, layout_mode, layout_mode_ok,
+        layout_mode_err, layout_id, proxy.
 
-        If request was passed, renders okmode, or errmode if validation
-        failed.
+        If no request was passed, renders layout_mode.
+
+        If request was passed, renders layout_mode_ok, or
+        layout_mode_err if validation failed.
 
         An optional 'proxy' arg can be given, it will be passed to the
         layouts and the backend.
         """
-        ti = self.getTypeInfo()
-        return ti.validateStoreRenderObject(self, request, mode=mode,
-                                            okmode=okmode, errmode=errmode,
-                                            layout_id=layout_id, **kw)
+        return self.getTypeInfo().validateStoreRenderObject(self, *kw)
 
     # XXX make this a WorkflowMethod
     security.declareProtected(ModifyPortalContent, 'edit')
@@ -114,8 +110,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
         This method assumes that self really is editable, thus is not a
         frozen document.
         """
-        ti = self.getTypeInfo()
-        return ti.editObject(self, kw)
+        return self.getTypeInfo().editObject(self, kw)
 
 
     security.declareProtected(View, 'SearchableText')
