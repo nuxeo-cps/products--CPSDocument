@@ -16,10 +16,15 @@ ZODB Requires:
      to:
          'layouts': ['xxx'],
 
+  3/ in getDocumentLayouts.py, change:
+         'hidden_view': 1,
+     to:
+         'hidden_layout_modes': ['view'],
 New features:
 ~~~~~~~~~~~~~
 - handle list of layouts vs single layout per ptype
 - no more editlayout mode, a layout is editable if flexible
+- Use refactored widgets with new hidden syntax.
 Bug fixes:
 ~~~~~~~~~~
 -
