@@ -9,6 +9,7 @@ Please, follow the same pattern to add new layouts
 # SHARED LAYOUTS
 #########################################################
 # metadata layout
+
 metadata_layout = {
     'widgets': {
         'Title': {
@@ -261,7 +262,6 @@ common_layout = {
                 'render_format': 'text',
             },
         },
-
     },
     'layout': {
         'style_prefix': 'layout_default_',
@@ -390,16 +390,14 @@ flexible_content_layout = {
             },
     },
     'layout': {
-        'flexible_widgets': ['textimage:4', 'link',
-                            'attachedFile:3'],
+        'flexible_widgets': ['textimage:4', 'link', 'attachedFile:3'],
         'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
-            [ ],
+            [],
             ],
         },
     }
-
 
 
 #########################################################
@@ -438,7 +436,6 @@ faqitem_layout = {
             ],
         },
     }
-
 
 
 #########################################################
@@ -625,9 +622,11 @@ file_layout = {
         },
     }
 
+
 #########################################################
 # EVENT LAYOUT
 #########################################################
+
 event_layout = {
     'widgets': {
         'start': {
@@ -723,7 +722,7 @@ link_layout = {
                 'label_edit': 'cpsdoc_Link_label_edit',
                 'is_i18n': 1,
                 'fields': [],
-                'widget_ids': [ 'Relation', 'Title', 'Description'],
+                'widget_ids': ['Relation', 'Title', 'Description'],
             },
         },
         'Title': {
@@ -756,7 +755,6 @@ link_layout = {
                 'display_width': 60,
             },
         },
-
     },
     'layout': {
         'style_prefix': 'layout_default_',
@@ -767,6 +765,7 @@ link_layout = {
             ],
         },
     }
+
 
 #########################################################
 # IMAGE LAYOUT
@@ -906,7 +905,6 @@ imagegallery_layout = {
             ],
         },
     }
-
 
 
 ###########################################################
