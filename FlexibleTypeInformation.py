@@ -82,7 +82,7 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
                      'action_metadata',
                      'cpsdocument_metadata_edit_form',
                      '',
-                     ModifyPortalContent,
+                     View,
                      'object')
     flexti.addAction('localroles',
                      'action_local_roles',
