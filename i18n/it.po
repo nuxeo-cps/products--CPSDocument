@@ -304,31 +304,8 @@ msgstr "Glossario - Elemento di glossario"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Definizione di un termine"
 
-# News
-#, fuzzy
-msgid "portal_type_NewsItem_title"
-msgstr "Notizia"
-
-#, fuzzy
-msgid "portal_type_NewsItem_description"
-msgstr "Documento per la descrizione di notizie"
-
-#, fuzzy
-msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Titolo riassuntivo: "
-
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Data di pubblicazione: "
-
-#, fuzzy
-msgid "portal_type_PressRelease_title"
-msgstr "Libro - Pagina"
-
-#, fuzzy
-msgid "portal_type_PressRelease_description"
-msgstr ""
-"Un documento flessibile presentato con l'aspetto di una pagina interna di un "
-"libro"
 
 # File
 msgid "portal_type_File_title"
@@ -476,42 +453,3 @@ msgstr "Un collegamento (URL) ad una risorsa analoga."
 
 msgid "label_portal_type"
 msgstr "Tipo di risorsa:"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_title_label_edit"
-#~ msgstr "Titolo riassuntivo: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_description_label_edit"
-#~ msgstr "Descrizione:"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_longTitle_label_edit"
-#~ msgstr "Titolo completo:"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_content_label_edit"
-#~ msgstr "Contenuto della notizia:"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_preview_label_edit"
-#~ msgstr "Icona: "
-
-#~ msgid "cpsdoc_News_attachedFile_label_edit"
-#~ msgstr "File allegato:"
-
-#~ msgid "cpsdoc_News_attachedFile_label"
-#~ msgstr "File allegato:"
-
-#, fuzzy
-#~ msgid "cpsdoc_News_image_label"
-#~ msgstr "pubblicato il:"
-
-#~ msgid "cpsdoc_News_photo_label_edit"
-#~ msgstr "Illustrazione:"
-
-#~ msgid "cpsdoc_News_photo_label"
-#~ msgstr "Illustrazione della notizia:"
-
-#~ msgid "err"
-#~ msgstr "Errore "

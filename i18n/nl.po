@@ -78,46 +78,6 @@ msgstr "Van"
 msgid "cpsdoc_import_zip_title"
 msgstr ""
 
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
-#: from ../skins/cps_document/layout_page_view.pt
-#: ../skins/cps_document_cmf/layout_page_view.pt
-#, fuzzy
-msgid "cpsdoc_link_next_page"
-msgstr "Visualisering : "
-
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
-#: from ../skins/cps_document/layout_page_view.pt
-#: ../skins/cps_document_cmf/layout_page_view.pt
-#, fuzzy
-msgid "cpsdoc_link_previous_page"
-msgstr "Visualisering : "
-
-# default doc types
-#.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
-#: from ../skins/cps_document/layout_page_view.pt
-#: ../skins/cps_document_cmf/layout_page_view.pt
-#, fuzzy
-msgid "cpsdoc_link_toc"
-msgstr "Link"
-
-#.   <h3>cpsdoc_title_toc</h3>
-#: from ../skins/cps_document/layout_book_view.pt
-#: ../skins/cps_document/layout_chapter_view.pt
-#: ../skins/cps_document_cmf/layout_book_view.pt
-#: ../skins/cps_document_cmf/layout_chapter_view.pt
-#, fuzzy
-msgid "cpsdoc_title_toc"
-msgstr "Titel : "
-
-#.   <span>
-#.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
-#.     </span>
-#: from ../skins/cps_document/layout_imagegallery_view.pt
-#: ../skins/cps_document_cmf/layout_imagegallery_view.pt
-#, fuzzy
-msgid "description_up_to"
-msgstr "Beschrijving : "
-
 #.   <block condition="metadata">heading_metadata_edit</block>
 #.   <span condition="metadata">heading_metadata_edit</span>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
@@ -203,103 +163,11 @@ msgstr "Thema : "
 msgid "cpsdoc_date_label_edit"
 msgstr "Datum : "
 
-#, fuzzy
-msgid "cpsdoc_date_label"
-msgstr "Datum van publicatie"
-
-#, fuzzy
-msgid "cpsdoc_preview_label_edit"
-msgstr "Visualisering : "
-
-#, fuzzy
-msgid "cpsdoc_allow_discussion_label_edit"
-msgstr "Uitgebreide vraag : "
-
-#, fuzzy
-msgid "cpsdoc_popup_mode_label_edit"
-msgstr "Datum : "
-
-#, fuzzy
-msgid "cpsdoc_popup_width_label_edit"
-msgstr "Datum : "
-
-#, fuzzy
-msgid "cpsdoc_popup_height_label_edit"
-msgstr "Afbeelding : "
-
-#, fuzzy
-msgid "cpsdoc_flex_content_title"
-msgstr "Inhoud : "
-
-#, fuzzy
-msgid "cpsdoc_flex_content_label_edit"
-msgstr "Inhoud : "
-
-#, fuzzy
-msgid "cpsdoc_flex_content_right_label_edit"
-msgstr "Inhoud : "
-
-#, fuzzy
-msgid "cpsdoc_flex_attachedFile_title"
-msgstr "Bijlage : "
-
-#, fuzzy
-msgid "cpsdoc_flex_attachedFile_label_edit"
-msgstr "Bijlage : "
-
-#, fuzzy
-msgid "cpsdoc_flex_attachedFile_label"
-msgstr "Bijlage : "
-
-#, fuzzy
-msgid "cpsdoc_flex_photo_title"
-msgstr " "
-
-#, fuzzy
-msgid "cpsdoc_flex_photo_label_edit"
-msgstr "Afbeelding : "
-
-# default doc types
-#, fuzzy
-msgid "cpsdoc_flex_link_title"
-msgstr "Link"
-
-#, fuzzy
-msgid "cpdoc_flex_link_label_edit"
-msgstr "Connectie http :"
-
-# default doc types
-#, fuzzy
-msgid "cpsdoc_flex_textimage_title"
-msgstr "Afbeelding"
-
-#, fuzzy
-msgid "cpsdoc_flex_textimage_label_edit"
-msgstr "Thema : "
-
-# default doc types
-#, fuzzy
-msgid "portal_type_Flexible_title"
-msgstr "Dossier"
-
-#, fuzzy
-msgid "portal_type_Flexible_description"
-msgstr "Geheel van documenten"
-
 # default doc types
 msgid "portal_type_FAQ_title"
 msgstr "FAQ"
 
 msgid "portal_type_FAQ_description"
-msgstr "Overzicht van de meest gestelde vragen"
-
-# default doc types
-#, fuzzy
-msgid "portal_type_FAQitem_title"
-msgstr "FAQ"
-
-#, fuzzy
-msgid "portal_type_FAQitem_description"
 msgstr "Overzicht van de meest gestelde vragen"
 
 msgid "cpsdoc_faq_question_label_edit"
@@ -314,56 +182,8 @@ msgstr "Antwoord : "
 msgid "cpsdoc_faq_answer_label"
 msgstr "Antwoord :  "
 
-# default doc types
-#, fuzzy
-msgid "portal_type_ImageGallery_title"
-msgstr "Afbeelding"
-
-#, fuzzy
-msgid "portal_type_ImageGallery_description"
-msgstr "Een afbeelding"
-
-# default doc types
-#, fuzzy
-msgid "portal_type_Glossary_title"
-msgstr "Dossier"
-
-#, fuzzy
-msgid "portal_type_Glossary_description"
-msgstr "Een nieuwsbericht"
-
-# default doc types
-#, fuzzy
-msgid "portal_type_GlossaryItem_title"
-msgstr "Dossier"
-
-#, fuzzy
-msgid "portal_type_GlossaryItem_description"
-msgstr "Geheel van documenten"
-
-#, fuzzy
-msgid "portal_type_NewsItem_title"
-msgstr "Nieuws"
-
-#, fuzzy
-msgid "portal_type_NewsItem_description"
-msgstr "Een nieuwsbericht"
-
-#, fuzzy
-msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Titel : "
-
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Datum van publicatie : "
-
-# default doc types
-#, fuzzy
-msgid "portal_type_PressRelease_title"
-msgstr "Afbeelding"
-
-#, fuzzy
-msgid "portal_type_PressRelease_description"
-msgstr "Een afbeelding"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -408,65 +228,6 @@ msgstr "Een afbeelding"
 msgid "cpsdoc_Image_label_edit"
 msgstr "Afbeelding : "
 
-#, fuzzy
-msgid "cpsdoc_imgallery_width_label_edit"
-msgstr "Titel : "
-
-#, fuzzy
-msgid "cpsdoc_imgallery_height_label_edit"
-msgstr "Afbeelding : "
-
-#, fuzzy
-msgid "cpsdoc_imgallery_items_label_edit"
-msgstr "Titel : "
-
-#, fuzzy
-msgid "cpsdoc_imgallery_col_label_edit"
-msgstr "Titel : "
-
-#, fuzzy
-msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Titel : "
-
-#, fuzzy
-msgid "cpsdoc_glossary_term_label_edit"
-msgstr "Thema : "
-
-#, fuzzy
-msgid "cpsdoc_glossary_expl_label_edit"
-msgstr "Afbeelding : "
-
-# default doc types
-#, fuzzy
-msgid "portal_type_Book_title"
-msgstr "Link"
-
-#, fuzzy
-msgid "portal_type_Book_description"
-msgstr "Een URL"
-
-# default doc types
-#, fuzzy
-msgid "portal_type_Page_title"
-msgstr "Afbeelding"
-
-#, fuzzy
-msgid "portal_type_Page_description"
-msgstr "Een afbeelding"
-
-# default doc types
-#, fuzzy
-msgid "portal_type_Chapter_title"
-msgstr "Afbeelding"
-
-#, fuzzy
-msgid "portal_type_Chapter_description"
-msgstr "Een afbeelding"
-
-#, fuzzy
-msgid "cpsdoc_book_nb_summary_page_label_edit"
-msgstr "Afbeelding : "
-
 msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr ""
 
@@ -488,14 +249,6 @@ msgstr ""
 msgid "label_relation"
 msgstr ""
 
-#, fuzzy
-msgid "cpsdoc_hidden_folder"
-msgstr "Datum van publicatie"
-
-#, fuzzy
-msgid "cpsdoc_hidden_folder_help"
-msgstr "Datum van publicatie"
-
 msgid "help_dc_subject"
 msgstr ""
 
@@ -513,57 +266,3 @@ msgstr ""
 
 msgid "label_portal_type"
 msgstr ""
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_title_label_edit"
-#~ msgstr "Titel : "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_description_label_edit"
-#~ msgstr "Beschrijving : "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_longTitle_label_edit"
-#~ msgstr "Ondertitel : "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_content_label_edit"
-#~ msgstr "Inhoud : "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_preview_label_edit"
-#~ msgstr "Visualisering : "
-
-#~ msgid "cpsdoc_News_attachedFile_label_edit"
-#~ msgstr "Bijlage : "
-
-#~ msgid "cpsdoc_News_attachedFile_label"
-#~ msgstr "Bijlage : "
-
-#, fuzzy
-#~ msgid "cpsdoc_News_image_label"
-#~ msgstr "Datum van publicatie"
-
-#~ msgid "cpsdoc_News_photo_label_edit"
-#~ msgstr "Afbeelding : "
-
-#~ msgid "cpsdoc_News_photo_label"
-#~ msgstr " "
-
-#~ msgid "err"
-#~ msgstr "error"
-
-#~ msgid "button_create"
-#~ msgstr "Aanmaken"
-
-#~ msgid "button_add"
-#~ msgstr "Toevoegen"
-
-#~ msgid "button_change"
-#~ msgstr "Wijzigen"
-
-#~ msgid "cpsdoc_form_error"
-#~ msgstr "Ongeldige invoer, gelieve de fouten te corrigeren:"
-
-#~ msgid "cpsdoc_theme"
-#~ msgstr "Thema"

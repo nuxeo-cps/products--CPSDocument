@@ -51,13 +51,6 @@ msgstr "Editatu  \"${title}\""
 msgid "Page ${page}"
 msgstr "${page}. orrialdea"
 
-#.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
-#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
-#, fuzzy
-msgid "Type"
-msgstr "nop"
-
 #.   <block content="type_info/Title" define="type_name request/type_name;
 #.                           type_info python:here.portal_types[type_name]">Type Title</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
@@ -65,24 +58,11 @@ msgstr "nop"
 msgid "Type Title"
 msgstr ""
 
-#.   <span>to</span>
-#: from ../skins/cps_document/layout_event_view.pt
-#: ../skins/cps_document_cmf/layout_event_view.pt
-#, fuzzy
-msgid "cpsdoc_Event_end_label"
-msgstr " to  "
-
 #.   <span>from</span>
 #: from ../skins/cps_document/layout_event_view.pt
 #: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "Hasiera: "
-
-#.   <h2>Import ZIP File</h2>
-#: from ../skins/cps_document/cpsdocument_import_zip_form.pt
-#, fuzzy
-msgid "cpsdoc_import_zip_title"
-msgstr "Argazkia"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -225,10 +205,6 @@ msgstr "Leihoaren zabalera"
 msgid "cpsdoc_flex_content_title"
 msgstr "Testua: "
 
-#, fuzzy
-msgid "cpsdoc_flex_content_label_edit"
-msgstr "Text block: "
-
 msgid "cpsdoc_flex_content_right_label_edit"
 msgstr "Eskuineko zutabeko testua: "
 
@@ -253,14 +229,6 @@ msgstr "Lotura (URL)"
 
 msgid "cpdoc_flex_link_label_edit"
 msgstr "Loturako helbidea: "
-
-#, fuzzy
-msgid "cpsdoc_flex_textimage_title"
-msgstr "Image and Text block"
-
-#, fuzzy
-msgid "cpsdoc_flex_textimage_label_edit"
-msgstr "Text and image block: "
 
 # default doc types
 msgid "portal_type_Flexible_title"
@@ -316,28 +284,8 @@ msgstr "Glosarioko sarrera"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Terminoaren definizioa (glosariorako)"
 
-#, fuzzy
-msgid "portal_type_NewsItem_title"
-msgstr "Albisteak"
-
-#, fuzzy
-msgid "portal_type_NewsItem_description"
-msgstr "Albiste bat"
-
-#, fuzzy
-msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Irudia: "
-
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Data:"
-
-#, fuzzy
-msgid "portal_type_PressRelease_title"
-msgstr "Liburua - Orrialdea"
-
-#, fuzzy
-msgid "portal_type_PressRelease_description"
-msgstr "A flexible document displayed as a page in a book"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -382,28 +330,8 @@ msgstr "Argazkia"
 msgid "cpsdoc_Image_label_edit"
 msgstr "Irudia: "
 
-#, fuzzy
-msgid "cpsdoc_imgallery_width_label_edit"
-msgstr "Thumbnail Width"
-
-#, fuzzy
-msgid "cpsdoc_imgallery_height_label_edit"
-msgstr "Thumbnail Height"
-
-#, fuzzy
-msgid "cpsdoc_imgallery_items_label_edit"
-msgstr "Number of Thumbnails per Page"
-
 msgid "cpsdoc_imgallery_col_label_edit"
 msgstr "Zenbat zutabe orrialdeko"
-
-#, fuzzy
-msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Display all entries if no letter is selected"
-
-#, fuzzy
-msgid "cpsdoc_glossary_term_label_edit"
-msgstr "Term"
 
 msgid "cpsdoc_glossary_expl_label_edit"
 msgstr "Azalpena"
@@ -412,53 +340,17 @@ msgstr "Azalpena"
 msgid "portal_type_Book_title"
 msgstr "Liburua"
 
-#, fuzzy
-msgid "portal_type_Book_description"
-msgstr "A folder that displays the documents it contains as pages"
-
 msgid "portal_type_Page_title"
 msgstr "Liburua - Orrialdea"
-
-#, fuzzy
-msgid "portal_type_Page_description"
-msgstr "A flexible document displayed as a page in a book"
 
 msgid "portal_type_Chapter_title"
 msgstr "Liburua - Kapitulua"
 
-#, fuzzy
-msgid "portal_type_Chapter_description"
-msgstr "A Chapter contain Pages"
-
-#, fuzzy
-msgid "cpsdoc_book_nb_summary_page_label_edit"
-msgstr "Number of table of content items displayed per page"
-
-#, fuzzy
-msgid "cpsdoc_book_has_search_box_label_edit"
-msgstr "Number of table of content items displayed per page"
-
 msgid "cpsdoc_book_display"
 msgstr ""
 
-#, fuzzy
-msgid "cpsdoc_book_display_pages"
-msgstr "Aurreko orrialdea"
-
-#, fuzzy
-msgid "cpsdoc_book_display_flat"
-msgstr "Display all entries if no letter is selected"
-
 msgid "label_source"
 msgstr "Iturria"
-
-#, fuzzy
-msgid "label_coverage"
-msgstr "Coverage"
-
-#, fuzzy
-msgid "label_relation"
-msgstr "Relation"
 
 msgid "cpsdoc_hidden_folder"
 msgstr "Nabigatzean, karpeta hau ezkutatu"
@@ -469,64 +361,5 @@ msgstr ""
 "\"Karpetaren Edukiak\" klikatuz. Edo bestela, publikatzerakoan. Erabili Use "
 "'Rol lokalak' karpetaren segurtasuna ziurtatzeko."
 
-#, fuzzy
-msgid "help_dc_subject"
-msgstr "A topic of the content of the resource."
-
-#, fuzzy
-msgid "help_dc_contirbutors"
-msgstr ""
-"Entities responsible for making contributions to the content of the resource."
-
-#, fuzzy
-msgid "help_dc_source"
-msgstr "A Reference to a resource from which the present resource is derived."
-
-#, fuzzy
-msgid "help_dc_coverage"
-msgstr "The extent or scope of the content of the resource."
-
-#, fuzzy
-msgid "help_dc_relation"
-msgstr "A reference (URL) to a related resource."
-
 msgid "label_portal_type"
 msgstr "Baliabide mota"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_title_label_edit"
-#~ msgstr "Izenburu laburra: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_description_label_edit"
-#~ msgstr "Azalpena: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_longTitle_label_edit"
-#~ msgstr "Izenburu luzea: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_content_label_edit"
-#~ msgstr "Albistearen edukia: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_preview_label_edit"
-#~ msgstr "Irudiaren aurrebista: "
-
-#~ msgid "err"
-#~ msgstr "Errorea"
-
-#~ msgid "cpsdoc_NewsItem_publication_date_label"
-#~ msgstr " "
-
-#~ msgid "cpsdoc_News_photo_label_edit"
-#~ msgstr "Argazkia: "
-
-#~ msgid "cpsdoc_News_photo_label"
-#~ msgstr "Albistearen irudia: "
-
-#~ msgid "cpsdoc_News_attachedFile_label_edit"
-#~ msgstr "Fitxategi erantsia: "
-
-#~ msgid "cpsdoc_News_attachedFile_label"
-#~ msgstr "Fitxategi erantsia: "

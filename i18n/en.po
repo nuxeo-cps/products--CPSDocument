@@ -468,38 +468,3 @@ msgstr "A reference (URL) to a related resource."
 
 msgid "label_portal_type"
 msgstr "Resource type"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_title_label_edit"
-#~ msgstr "Short Title: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_description_label_edit"
-#~ msgstr "Description: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_longTitle_label_edit"
-#~ msgstr "Long title: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_content_label_edit"
-#~ msgstr "Content of the news: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_preview_label_edit"
-#~ msgstr "Picture preview: "
-
-#~ msgid "cpsdoc_News_attachedFile_label_edit"
-#~ msgstr "Attached file: "
-
-#~ msgid "cpsdoc_News_attachedFile_label"
-#~ msgstr "Attached file: "
-
-#~ msgid "cpsdoc_NewsItem_publication_date_label"
-#~ msgstr "Publishing date:"
-
-#~ msgid "cpsdoc_News_photo_label_edit"
-#~ msgstr "Picture: "
-
-#~ msgid "err"
-#~ msgstr "Error"

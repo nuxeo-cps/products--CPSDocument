@@ -166,15 +166,6 @@ msgstr ""
 msgid "next"
 msgstr ""
 
-#.   <a href="." attributes="href python:'/'+
-#.                                       itemList[pos - 1].absolute_url(relative=1) +
-#.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
-#: from ../skins/cps_document/popup_image.pt
-#: ../skins/cps_document_cmf/popup_image.pt
-#, fuzzy
-msgid "previous"
-msgstr "Vorheriger"
-
 #.   <label for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
@@ -201,18 +192,6 @@ msgstr "Icon: "
 
 msgid "cpsdoc_allow_discussion_label_edit"
 msgstr "Erlaube Diskussion: "
-
-#, fuzzy
-msgid "cpsdoc_popup_mode_label_edit"
-msgstr "Datum: "
-
-#, fuzzy
-msgid "cpsdoc_popup_width_label_edit"
-msgstr "Datum: "
-
-#, fuzzy
-msgid "cpsdoc_popup_height_label_edit"
-msgstr "Minibild Höhe"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Text: "
@@ -305,29 +284,8 @@ msgstr "Glossar Eintrag"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Begriffdefinition (für Glossare)"
 
-#, fuzzy
-msgid "portal_type_NewsItem_title"
-msgstr "Nachrichten oder Text Dokument"
-
-#, fuzzy
-msgid "portal_type_NewsItem_description"
-msgstr "Ein normaler Text oder eine Nachricht"
-
-#, fuzzy
-msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Kurz Titel: "
-
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Datum:"
-
-# default doc types
-#, fuzzy
-msgid "portal_type_PressRelease_title"
-msgstr "Buchseite"
-
-#, fuzzy
-msgid "portal_type_PressRelease_description"
-msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -407,15 +365,6 @@ msgstr "Buchseite"
 msgid "portal_type_Page_description"
 msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
 
-# default doc types
-#, fuzzy
-msgid "portal_type_Chapter_title"
-msgstr "Buchseite"
-
-#, fuzzy
-msgid "portal_type_Chapter_description"
-msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
-
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Anzahl der Einträge im Inhaltsverzeichnis pro Seite"
 
@@ -468,75 +417,3 @@ msgstr "Beziehung zu einer verwandten Ressource."
 
 msgid "label_portal_type"
 msgstr "Ressourcen Typ"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_title_label_edit"
-#~ msgstr "Kurz Titel: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_description_label_edit"
-#~ msgstr "Beschreibung: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_longTitle_label_edit"
-#~ msgstr "Lang Titel: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_content_label_edit"
-#~ msgstr "Inhalt der Nachrichten: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_preview_label_edit"
-#~ msgstr "Bild Vorabansicht: "
-
-#~ msgid "cpsdoc_News_attachedFile_label_edit"
-#~ msgstr "Anhaftende Datei: "
-
-#~ msgid "cpsdoc_News_attachedFile_label"
-#~ msgstr "Anhaftende Datei: "
-
-#, fuzzy
-#~ msgid "cpsdoc_News_image_label"
-#~ msgstr " "
-
-#~ msgid "cpsdoc_News_photo_label_edit"
-#~ msgstr "Foto: "
-
-#~ msgid "cpsdoc_News_photo_label"
-#~ msgstr "Bild zur Nachricht: "
-
-#~ msgid "err"
-#~ msgstr "Fehler"
-
-#~ msgid "button_create"
-#~ msgstr "Erstellen"
-
-#~ msgid "batch_next"
-#~ msgstr "Nächster"
-
-#~ msgid "button_add"
-#~ msgstr "Neu"
-
-#~ msgid "button_change"
-#~ msgstr "Sichern Änderungen"
-
-#~ msgid "button_delete"
-#~ msgstr "Löschen"
-
-#~ msgid "button_help"
-#~ msgstr "Hilfe"
-
-#~ msgid "button_move_down"
-#~ msgstr "Runter"
-
-#~ msgid "button_move_up"
-#~ msgstr "Hoch"
-
-#~ msgid "cpsdoc_label_next"
-#~ msgstr "Nächste"
-
-#~ msgid "cpsdoc_form_error"
-#~ msgstr "Ungültige Eingabe:"
-
-#~ msgid "cpsdoc_theme"
-#~ msgstr "Thema"

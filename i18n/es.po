@@ -83,38 +83,6 @@ msgstr "Del"
 msgid "cpsdoc_import_zip_title"
 msgstr ""
 
-# default doc types
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
-#: from ../skins/cps_document/layout_page_view.pt
-#: ../skins/cps_document_cmf/layout_page_view.pt
-#, fuzzy
-msgid "cpsdoc_link_next_page"
-msgstr "Un enlace (URL)"
-
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
-#: from ../skins/cps_document/layout_page_view.pt
-#: ../skins/cps_document_cmf/layout_page_view.pt
-#, fuzzy
-msgid "cpsdoc_link_previous_page"
-msgstr "Icono:"
-
-# default doc types
-#.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
-#: from ../skins/cps_document/layout_page_view.pt
-#: ../skins/cps_document_cmf/layout_page_view.pt
-#, fuzzy
-msgid "cpsdoc_link_toc"
-msgstr "Un enlace (URL)"
-
-#.   <h3>cpsdoc_title_toc</h3>
-#: from ../skins/cps_document/layout_book_view.pt
-#: ../skins/cps_document/layout_chapter_view.pt
-#: ../skins/cps_document_cmf/layout_book_view.pt
-#: ../skins/cps_document_cmf/layout_chapter_view.pt
-#, fuzzy
-msgid "cpsdoc_title_toc"
-msgstr "Título: "
-
 #    <span>
 #        ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #      </span>
@@ -226,18 +194,6 @@ msgstr "Icono:"
 msgid "cpsdoc_allow_discussion_label_edit"
 msgstr "Activar comentarios:"
 
-#, fuzzy
-msgid "cpsdoc_popup_mode_label_edit"
-msgstr "Fecha:"
-
-#, fuzzy
-msgid "cpsdoc_popup_width_label_edit"
-msgstr "Fecha:"
-
-#, fuzzy
-msgid "cpsdoc_popup_height_label_edit"
-msgstr "Altura de las miniaturas"
-
 msgid "cpsdoc_flex_content_title"
 msgstr "Bloque de texto"
 
@@ -331,29 +287,8 @@ msgstr "Glosario - definiciones de términos"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Entrada de glosario"
 
-#, fuzzy
-msgid "portal_type_NewsItem_title"
-msgstr "Noticia"
-
-#, fuzzy
-msgid "portal_type_NewsItem_description"
-msgstr "Una noticia"
-
-#, fuzzy
-msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Título corto:"
-
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Fecha de aparición: "
-
-# default doc types
-#, fuzzy
-msgid "portal_type_PressRelease_title"
-msgstr "Imagen"
-
-#, fuzzy
-msgid "portal_type_PressRelease_description"
-msgstr "Una imagen"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -419,37 +354,6 @@ msgstr "Término"
 msgid "cpsdoc_glossary_expl_label_edit"
 msgstr "Definición"
 
-# default doc types
-#, fuzzy
-msgid "portal_type_Book_title"
-msgstr "Enlace"
-
-#, fuzzy
-msgid "portal_type_Book_description"
-msgstr "Una URL"
-
-# default doc types
-#, fuzzy
-msgid "portal_type_Page_title"
-msgstr "Imagen"
-
-#, fuzzy
-msgid "portal_type_Page_description"
-msgstr "Una imagen"
-
-# default doc types
-#, fuzzy
-msgid "portal_type_Chapter_title"
-msgstr "Imagen"
-
-#, fuzzy
-msgid "portal_type_Chapter_description"
-msgstr "Una imagen"
-
-#, fuzzy
-msgid "cpsdoc_book_nb_summary_page_label_edit"
-msgstr "Definición"
-
 msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr ""
 
@@ -496,46 +400,3 @@ msgstr "El alcance o la cobertura espacio-temporal del recurso."
 
 msgid "help_dc_relation"
 msgstr "Una referencia (URL) a otro recurso que tiene relación con éste."
-
-#, fuzzy
-msgid "label_portal_type"
-msgstr "Cobertura"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_title_label_edit"
-#~ msgstr "Título corto:"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_description_label_edit"
-#~ msgstr "Descripción: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_longTitle_label_edit"
-#~ msgstr "Título largo: "
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_content_label_edit"
-#~ msgstr "Contenido de la noticia:"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_preview_label_edit"
-#~ msgstr "Icono: "
-
-#~ msgid "cpsdoc_News_attachedFile_label_edit"
-#~ msgstr "Fichero adjunto: "
-
-#~ msgid "cpsdoc_News_attachedFile_label"
-#~ msgstr "Fichero adjunto: "
-
-#, fuzzy
-#~ msgid "cpsdoc_News_image_label"
-#~ msgstr "aparecido el "
-
-#~ msgid "cpsdoc_News_photo_label_edit"
-#~ msgstr "Foto: "
-
-#~ msgid "cpsdoc_News_photo_label"
-#~ msgstr " Foto: "
-
-#~ msgid "err"
-#~ msgstr "Error"

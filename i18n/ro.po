@@ -309,10 +309,6 @@ msgstr ""
 msgid "portal_type_NewsItem_description"
 msgstr ""
 
-#, fuzzy
-msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Box de cautare"
-
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr ""
 
@@ -456,19 +452,3 @@ msgstr ""
 
 msgid "label_portal_type"
 msgstr ""
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_title_label_edit"
-#~ msgstr "Box de cautare"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_description_label_edit"
-#~ msgstr "Box de cautare"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_longTitle_label_edit"
-#~ msgstr "Box de cautare"
-
-#, fuzzy
-#~ msgid "cpsdoc_NewsItem_content_label_edit"
-#~ msgstr "Box de cautare"
