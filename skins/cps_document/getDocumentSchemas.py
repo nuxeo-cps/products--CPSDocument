@@ -2,14 +2,13 @@
 #$Id$
 
 """
-Here are defined the list of schemas to be registred
+Here are defined the list of schemas to be registred.
 Please, follow the same pattern to add new schemas.
 """
 
 #########################################################
-# SHARED SCHEMAS
+# Metadata
 #########################################################
-#metadata schema
 metadata_schema = {
     'Title': {'type': 'CPS String Field',
               'data': {'is_searchabletext': 1,}},
@@ -41,8 +40,9 @@ metadata_schema = {
     'Coverage': {'type': 'CPS String Field', 'data': {'is_searchabletext': 0}},
     }
 
-
-# common schema
+#########################################################
+# Common
+#########################################################
 common_schema = {
     'allow_discussion': {
         'type': 'CPS Int Field',
@@ -60,7 +60,9 @@ common_schema = {
         },
     }
 
-# flexible content schema
+#########################################################
+# Flexible content
+#########################################################
 flexible_content_schema = {
     # the schema will be created inside the document
     }
@@ -78,7 +80,34 @@ folder_schema = {
     }
 
 #########################################################
-# FAQ SHEMA
+# Document
+#########################################################
+document_schema = {
+    'content': {
+        'type': 'CPS String Field',
+        'data': {
+                'default_expr': 'string:',
+                'is_searchabletext': 1,
+            },
+        },
+    'content_position': {
+        'type': 'CPS String Field',
+        'data': {
+                'default_expr': 'string:',
+                'is_searchabletext': 1,
+            },
+        },
+    'content_format': {
+        'type': 'CPS String Field',
+        'data': {
+                'default_expr': 'string:',
+                'is_searchabletext': 1,
+            },
+        },
+    }
+
+#########################################################
+# FAQ item
 #########################################################
 faqitem_schema = {
     'content': {
@@ -105,7 +134,7 @@ faqitem_schema = {
     }
 
 #########################################################
-# Glossary SCHEMA
+# Glossary
 #########################################################
 glossary_schema = {
     'display_all': {
@@ -117,11 +146,9 @@ glossary_schema = {
         },
     }
 
-
 ########################################################
-# News SCHEMA
+# News item
 ########################################################
-
 newsitem_schema = {
     'content': {
         'type': 'CPS String Field',
@@ -169,9 +196,8 @@ newsitem_schema = {
     }
 
 ########################################################
-# File SCHEMA
+# File
 ########################################################
-
 file_schema = {
     'file': {
         'type': 'CPS File Field',
@@ -206,11 +232,9 @@ file_schema = {
         },
     }
 
-
 ########################################################
-# Event SCHEMA
+# Event
 ########################################################
-
 event_schema = {
     'start': {
         'type': 'CPS DateTime Field',
@@ -273,13 +297,12 @@ event_schema = {
     }
 
 ########################################################
-# Link SCHEMA
+# Link
 ########################################################
-
 # store href using Relation metadata
 
 ########################################################
-# Image SCHEMA
+# Image
 ########################################################
 imagegallery_schema = {
     'preview_width': {
@@ -334,9 +357,8 @@ imagegallery_schema = {
     }
 
 ########################################################
-# Book SCHEMA
+# Book
 ########################################################
-
 book_schema = {
     'nb_items_per_summary_page': {
         'type': 'CPS Int Field',
@@ -359,9 +381,6 @@ book_schema = {
         },
     }
 
-###########################################################
-# END OF SCHEMAS DEFINITIONS
-###########################################################
 
 schemas = {}
 
