@@ -204,14 +204,16 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
 
     security.declareProtected(View, 'getAdditionalContentInfo')
-    def getAdditionalContentInfo(self):
+    def getAdditionalContentInfo(self, proxy):
         """ Return a dictonary used in getContentInfo """
         infos = {}
-        summary_fields = ['body', 'content']
+        doc = aq_base(self)
+
+        summary_fields = ('body', 'content', 'content_right')
         tag_pattern = re.compile(r'<[^>]*>')
         summary = ''
         for f in summary_fields:
-            if hasattr(aq_base(self), f):
+            if hasattr(doc, f):
                 try:
                     summary += tag_pattern.sub('', getattr(self, f))
                 except TypeError:
@@ -222,8 +224,15 @@ class CPSDocumentMixin(ExtensionClass.Base):
         if summary:
             infos['summary'] = summary
 
-        if hasattr(aq_base(self), 'preview') and self.preview:
-            infos['preview'] = self.absolute_url(1) + '/preview'
+        if hasattr(doc, 'preview') and self.preview:
+            infos['preview'] =  proxy.absolute_url(1) + '/preview'
+
+        photo_fields = ('photo', 'image', 'photo_1', 'preview')
+        for f in photo_fields:
+            if hasattr(doc, f) and getattr(doc, f, None):
+                infos['photo'] = proxy.absolute_url(1) + '/'+ f
+                break
+
         return infos
 
 
