@@ -13,6 +13,9 @@ Bug fixes:
 - Modified the event document layout so that it uses the more powerful and
   accessible "Text Widget" instead of the "Rich Text Editor Widget".
 - fix popup_rte size bug: now popup window is resizable
+- Made the notification in editCPSDocument.py only happen when the document has
+  been submitted for modification Close #393 (notified when following "Edit"
+  link).
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - splitting macros in progress

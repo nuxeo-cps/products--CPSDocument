@@ -12,6 +12,12 @@ layout_changed = context.editLayouts(REQUEST=REQUEST);
 if layout_changed or REQUEST.has_key('cpsdocument_edit_button'):
     request = REQUEST
     psm = 'psm_content_changed'
+    # XXX:
+    # Notification has to be done manually here until the workflow takes care of
+    # the "workflow_modify" transition.
+    context.portal_eventservice.notifyEvent('workflow_modify', context,
+                                            {'comments': REQUEST.get('comments')
+                                             })
 else:
     request = None
     psm = ''
@@ -21,13 +27,5 @@ res = doc.renderEditDetailed(request=request, proxy=context,
 
 if not res[1]:
     psm = 'psm_content_error'
-else:
-    # XXX
-    # Has to be handled in here since the workflow doesn't take care
-    # of that yet.
-    context.portal_eventservice.notifyEvent('workflow_modify',
-                                            context,
-                                            {'comments': REQUEST.get('comments')})
-
 
 return res[0], psm
