@@ -1,5 +1,5 @@
 # translation of pt-BR.po to Português do Brasil
-# translation of cpsdocument.po to Português do Brasil
+# translation of cpsdocument.po to PortuguÃƒÂªs do Brasil
 # ##########################################################
 # ################# DON'T EDIT THIS FILE! ##################
 # ##########################################################
@@ -10,13 +10,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
 "POT-Creation-Date: 2004-07-13 11:03default\n"
-"PO-Revision-Date: 2004-06-08 13:48-0300\n"
+"PO-Revision-Date: 2004-09-01 12:09-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@curiango.ipen.br>\n"
-"Language-Team: Português do Brasil <pt@li.org>\n"
+"Language-Team: Portugues do Brasil <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
 
 #.   <h1 condition="creation">
 #.         Create a document of type
@@ -70,7 +69,7 @@ msgstr "Anterior"
 #.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_toc"
-msgstr "Índice"
+msgstr "Link"
 
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
@@ -118,14 +117,14 @@ msgstr "Rótulo"
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "next"
-msgstr ""
+msgstr "Próximo"
 
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos - 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "previous"
-msgstr ""
+msgstr "Anterior"
 
 # generic names
 msgid "cpsdoc_title_label_edit"
@@ -149,17 +148,14 @@ msgstr "Previsão"
 msgid "cpsdoc_allow_discussion_label_edit"
 msgstr "Permite discussão"
 
-#, fuzzy
 msgid "cpsdoc_popup_mode_label_edit"
-msgstr "Data:"
+msgstr "Mostra imagens em uma janela popup"
 
-#, fuzzy
 msgid "cpsdoc_popup_width_label_edit"
-msgstr "Data:"
+msgstr "Largura da janela"
 
-#, fuzzy
 msgid "cpsdoc_popup_height_label_edit"
-msgstr "Altura das miniaturas"
+msgstr "Altura da janela"
 
 # flex content
 msgid "cpsdoc_flex_content_title"
@@ -366,18 +362,16 @@ msgid "portal_type_Book_description"
 msgstr "Um pasta que mostra os documentos que contém como páginas"
 
 msgid "portal_type_Page_title"
-msgstr "Página"
+msgstr "Livro - Página"
 
 msgid "portal_type_Page_description"
-msgstr "Descrição da página"
+msgstr "Um documento flexível mostrado como uma página em um livro"
 
-#, fuzzy
 msgid "portal_type_Chapter_title"
-msgstr "Página"
+msgstr "Livro - Capítulo"
 
-#, fuzzy
 msgid "portal_type_Chapter_description"
-msgstr "Descrição da página"
+msgstr "Um Capítulo contém Páginas"
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Número de entradas do índice mostrados por página"
@@ -397,7 +391,7 @@ msgstr "Pasta oculta"
 
 msgid "cpsdoc_hidden_folder_help"
 msgstr ""
-"esta pasta será oculta no modo de visualização; você ainda poderá vê-la/"
+"Esta pasta será oculta no modo de visualização; você ainda poderá vê-la/"
 "acessá-la usando 'Conteúdo da Pasta' ou quando escolher um alvo para "
 "publicação. Use 'Papéis Locais' para definir a segurança no acesso à pasta."
 
