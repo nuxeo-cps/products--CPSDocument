@@ -3,9 +3,6 @@
                    widgets options/layout/widgets;
                    ds options/datastructure;
                   ">
-
-<div class="dtitle" tal:content="doc/title" />
-<div class="ddescription" tal:content="doc/description|nothing" />
 <br>
 <div class="dbold">
   <span i18n:translate="cpsdoc_Event_start_label">from</span>
