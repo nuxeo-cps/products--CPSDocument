@@ -131,6 +131,50 @@ flexible_type = {
     'use_content_status_history': 1,
     }
 
+newsitem_type = {
+    'title': 'portal_type_NewsItem_title',
+    'description': 'portal_type_NewsItem_description',
+    'content_icon': 'newsitem_icon.png',
+    'content_meta_type': 'CPS Document',
+    'product': 'CPSDocument',
+    'factory': 'addCPSDocument',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': (),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'document',
+    'schemas': ['metadata', 'common', 'newsitem', 'flexible_content'],
+    'layouts': ['common', 'newsitem_start', 'newsitem_flexible', 'newsitem_end'],
+    'layout_clusters': ['metadata:metadata'],
+    'flexible_layouts': ['newsitem_flexible:flexible_content'],
+    'storage_methods': [],
+    'use_content_status_history': 1,
+    }
+
+pressrelease_type = {
+    'title': 'portal_type_PressRelease_title',
+    'description': 'portal_type_PressRelease_description',
+    'content_icon': 'pressrelease_icon.png',
+    'content_meta_type': 'CPS Document',
+    'product': 'CPSDocument',
+    'factory': 'addCPSDocument',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': (),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'document',
+    'schemas': ['metadata', 'common', 'newsitem', 'flexible_content'],
+    'layouts': ['common', 'newsitem_start', 'newsitem_flexible', 'newsitem_end'],
+    'layout_clusters': ['metadata:metadata'],
+    'flexible_layouts': ['newsitem_flexible:flexible_content'],
+    'storage_methods': [],
+    'use_content_status_history': 1,
+    }
+
 faq_type = {
     'title': 'portal_type_FAQ_title',
     'description': 'portal_type_FAQ_description',
@@ -219,50 +263,6 @@ glossaryitem_type = {
     'layouts': ['common', 'glossaryitem'],
     'layout_clusters': ['metadata:metadata'],
     'flexible_layouts': [],
-    'storage_methods': [],
-    'use_content_status_history': 1,
-    }
-
-newsitem_type = {
-    'title': 'portal_type_NewsItem_title',
-    'description': 'portal_type_NewsItem_description',
-    'content_icon': 'newsitem_icon.png',
-    'content_meta_type': 'CPS Document',
-    'product': 'CPSDocument',
-    'factory': 'addCPSDocument',
-    'immediate_view': 'cpsdocument_view',
-    'global_allow': 1,
-    'filter_content_types': 1,
-    'allowed_content_types': (),
-    'allow_discussion': 0,
-    'cps_is_searchable': 1,
-    'cps_proxy_type': 'document',
-    'schemas': ['metadata', 'common', 'newsitem', 'flexible_content'],
-    'layouts': ['common', 'newsitem_start', 'newsitem_flexible', 'newsitem_end'],
-    'layout_clusters': ['metadata:metadata'],
-    'flexible_layouts': ['newsitem_flexible:flexible_content'],
-    'storage_methods': [],
-    'use_content_status_history': 1,
-    }
-
-pressrelease_type = {
-    'title': 'portal_type_PressRelease_title',
-    'description': 'portal_type_PressRelease_description',
-    'content_icon': 'pressrelease_icon.png',
-    'content_meta_type': 'CPS Document',
-    'product': 'CPSDocument',
-    'factory': 'addCPSDocument',
-    'immediate_view': 'cpsdocument_view',
-    'global_allow': 1,
-    'filter_content_types': 1,
-    'allowed_content_types': (),
-    'allow_discussion': 0,
-    'cps_is_searchable': 1,
-    'cps_proxy_type': 'document',
-    'schemas': ['metadata', 'common', 'newsitem', 'flexible_content'],
-    'layouts': ['common', 'newsitem_start', 'newsitem_flexible', 'newsitem_end'],
-    'layout_clusters': ['metadata:metadata'],
-    'flexible_layouts': ['newsitem_flexible:flexible_content'],
     'storage_methods': [],
     'use_content_status_history': 1,
     }
@@ -464,12 +464,12 @@ types = {}
 types['Section'] = section_type
 types['Workspace'] = workspace_type
 types['Flexible'] = flexible_type
+types['News Item'] = newsitem_type
+types['Press Release'] = pressrelease_type
 types['FAQ'] = faq_type
 types['FAQitem'] = faqitem_type
 types['Glossary'] = glossary_type
 types['GlossaryItem'] = glossaryitem_type
-types['News Item'] = newsitem_type
-types['Press Release'] = pressrelease_type
 types['File'] = file_type
 types['EventDoc'] = event_type
 types['Link'] = link_type
