@@ -138,7 +138,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
         dm = self.getTypeInfo().getDataModel(self)
         # XXX uses internal knowledge of DataModel
         for fieldid, field in dm._fields.items():
-            if not field.is_indexed:
+            if not field.is_searchabletext:
                 continue
             value = dm[fieldid]
             if (not isinstance(value, ListType) and

@@ -12,13 +12,13 @@ Please, follow the same pattern to add new schemas.
 #metadata schema
 metadata_schema = {
     'Title': {'type': 'CPS String Field',
-              'data': {'is_indexed': 1,}},
+              'data': {'is_searchabletext': 1,}},
     'Description': {'type': 'CPS String Field',
-                    'data': {'is_indexed': 1}},
+                    'data': {'is_searchabletext': 1}},
     'Subject': {'type': 'CPS String List Field',
-                'data': {'is_indexed': 1}},
+                'data': {'is_searchabletext': 1}},
     'Contributors': {'type': 'CPS String List Field',
-                     'data': {'is_indexed': 1,
+                     'data': {'is_searchabletext': 1,
                               'write_process_expr':
                               'python: portal.computeContributors(user, value)'
                               },},
@@ -32,13 +32,13 @@ metadata_schema = {
                'data': {'write_ignore_storage': 1,}},
     'Language': {'type': 'CPS String Field',
                  'data': {'write_ignore_storage': 1,}},
-    'Rights': {'type': 'CPS String Field', 'data': {'is_indexed': 1}},
+    'Rights': {'type': 'CPS String Field', 'data': {'is_searchabletext': 1}},
     'Creator': {'type': 'CPS String Field',
-                'data': {'is_indexed': 1,
+                'data': {'is_searchabletext': 1,
                          'write_ignore_storage': 1,}},
-    'Source': {'type': 'CPS String Field', 'data': {'is_indexed': 1}},
-    'Relation': {'type': 'CPS String Field', 'data': {'is_indexed': 1}},
-    'Coverage': {'type': 'CPS String Field', 'data': {'is_indexed': 1}},
+    'Source': {'type': 'CPS String Field', 'data': {'is_searchabletext': 1}},
+    'Relation': {'type': 'CPS String Field', 'data': {'is_searchabletext': 1}},
+    'Coverage': {'type': 'CPS String Field', 'data': {'is_searchabletext': 1}},
     }
 
 
@@ -48,14 +48,14 @@ common_schema = {
         'type': 'CPS Int Field',
         'data': {
             'default_expr': 'python:0',
-            'is_indexed': 0,
+            'is_searchabletext': 0,
             },
         },
     'preview': {
         'type': 'CPS Image Field',
         'data': {
             'default_expr': 'nothing',
-            'is_indexed': 0,
+            'is_searchabletext': 0,
             },
         },
     }
@@ -73,7 +73,7 @@ faqitem_schema = {
         'type': 'CPS String Field',
         'data': {
                 'default_expr': 'string:',
-                'is_indexed': 1,
+                'is_searchabletext': 1,
             },
         },
     }
@@ -86,7 +86,7 @@ glossary_schema = {
         'type': 'CPS Int Field',
         'data': {
                 'default_expr': 'python:0',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     }
@@ -101,7 +101,7 @@ news_schema = {
         'type': 'CPS File Field',
         'data': {
                 'default_expr': 'nothing',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
                 'suffix_html': '_html',
                 'suffix_text': '_text',
             },
@@ -110,35 +110,35 @@ news_schema = {
         'type': 'CPS File Field',
         'data': {
                 'default_expr': 'nothing',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     'attachedFile_text': {
         'type': 'CPS String Field',
         'data': {
                 'default_expr': 'string:',
-                'is_indexed': 1,
+                'is_searchabletext': 1,
             },
         },
     'newsdate': {
         'type': 'CPS DateTime Field',
         'data': {
                 'default_expr': 'nothing',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     'photo': {
         'type': 'CPS Image Field',
         'data': {
                 'default_expr': 'nothing',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     'content': {
         'type': 'CPS String Field',
         'data': {
                 'default_expr': 'string:',
-                'is_indexed': 1,
+                'is_searchabletext': 1,
             },
         },
     }
@@ -152,7 +152,7 @@ file_schema = {
         'type': 'CPS File Field',
         'data': {
                 'default_expr': 'nothing',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
                 'suffix_html': '_html',
                 'suffix_text': '_text',
             },
@@ -161,14 +161,14 @@ file_schema = {
         'type': 'CPS File Field',
         'data': {
                 'default_expr': 'nothing',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     'file_text': {
         'type': 'CPS String Field',
         'data': {
                 'default_expr': 'string:',
-                'is_indexed': 1,
+                'is_searchabletext': 1,
             },
         },
     }
@@ -183,28 +183,28 @@ event_schema = {
         'type': 'CPS DateTime Field',
         'data': {
                 'default_expr': 'nothing',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     'end': {
         'type': 'CPS DateTime Field',
         'data': {
                 'default_expr': 'nothing',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     'content': {
         'type': 'CPS String Field',
         'data': {
                 'default_expr': 'string:',
-                'is_indexed': 1,
+                'is_searchabletext': 1,
             },
         },
     'attachedFile': {
         'type': 'CPS File Field',
         'data': {
                 'default_expr': 'nothing',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
                 'suffix_html': '_html',
                 'suffix_text': '_text',
             },
@@ -213,14 +213,14 @@ event_schema = {
         'type': 'CPS File Field',
         'data': {
                 'default_expr': 'nothing',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     'attachedFile_text': {
         'type': 'CPS String Field',
         'data': {
                 'default_expr': 'string:',
-                'is_indexed': 1,
+                'is_searchabletext': 1,
             },
         },
     }
@@ -239,28 +239,28 @@ imagegallery_schema = {
         'type': 'CPS Int Field',
         'data': {
                 'default_expr': 'python:64',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     'preview_height': {
         'type': 'CPS Int Field',
         'data': {
                 'default_expr': 'python:64',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     'nb_cols': {
         'type': 'CPS Int Field',
         'data': {
                 'default_expr': 'python:3',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     'nb_items': {
         'type': 'CPS Int Field',
         'data': {
                 'default_expr': 'python:9',
-                'is_indexed': 0,
+                'is_searchabletext': 0,
             },
         },
     }
