@@ -6,6 +6,8 @@ New features:
 - Made the documents use the 'metadata' cluster instead of the 'metadata'
   layout so that is easier to customize metadata page for a given portal type.
 - Portal type's export specify cps_workspace_wf and cps_sections_wf.
+- Added the "Document" document type, the CPS equivalent of the CMF Document,
+  that can be used to create HTML pages.
 Bug fixes:
 ~~~~~~~~~~
 - Made the upgradeDocuments() method in the upgrade module more generic.

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: es-CPSDocument\n"
-"POT-Creation-Date: 2005-03-14 12:14default\n"
+"POT-Creation-Date: 2005-03-26 13:55default\n"
 "PO-Revision-Date: 2004-03-27 20:48+0100\n"
 "Last-Translator: ¡lvaro Tejero Cantero <alvaro@antalia.com>\n"
 "Language-Team:  Espa√±ol <es@li.org>\n"
@@ -325,6 +325,15 @@ msgstr "Documento flexible:"
 
 msgid "portal_type_Flexible_description"
 msgstr "Un documento cuya estructura puede ser modificada"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Document_title"
+msgstr "Evento"
+
+#, fuzzy
+msgid "portal_type_Document_description"
+msgstr "Un evento"
 
 # default doc types
 msgid "portal_type_FAQ_title"

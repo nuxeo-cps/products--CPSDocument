@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-14 12:14default\n"
+"POT-Creation-Date: 2005-03-26 13:55default\n"
 "PO-Revision-Date: 2005-03-14 12:15+0100\n"
 "Last-Translator: DARCHE <madarche@nuxeo.com>\n"
 "Language-Team: Francais <fr@li.org>\n"
@@ -168,8 +168,8 @@ msgstr "label"
 msgid "label_zip_file"
 msgstr "ZIP File"
 
-#.   <a href="." attributes="href python:'/'+
-#.                                       itemList[pos + 1].absolute_url(relative=1) +
+#.   <a href="." attributes="href python:'/'+ 
+#.                                       itemList[pos + 1].absolute_url(relative=1) + 
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -248,7 +248,8 @@ msgid "help_dc_subject"
 msgstr "A topic of the content of the resource."
 
 msgid "help_dc_contirbutors"
-msgstr "Entities responsible for making contributions to the content of the resource."
+msgstr ""
+"Entities responsible for making contributions to the content of the resource."
 
 msgid "help_dc_source"
 msgstr "A Reference to a resource from which the present resource is derived."
@@ -305,6 +306,13 @@ msgstr "Flexible document"
 
 msgid "portal_type_Flexible_description"
 msgstr "Flexible document!"
+
+# default doc types
+msgid "portal_type_Document_title"
+msgstr "Document"
+
+msgid "portal_type_Document_description"
+msgstr "A basic document that can be used to create an HTML page"
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -470,4 +478,3 @@ msgstr "With separate pages"
 
 msgid "cpsdoc_book_display_flat"
 msgstr "Flat view"
-

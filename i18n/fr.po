@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-14 12:14default\n"
+"POT-Creation-Date: 2005-03-26 13:55default\n"
 "PO-Revision-Date: 2005-03-14 12:15+0100\n"
 "Last-Translator: DARCHE <madarche@nuxeo.com>\n"
 "Language-Team: Francais <fr@li.org>\n"
@@ -169,8 +169,8 @@ msgstr "label"
 msgid "label_zip_file"
 msgstr "Fichier ZIP"
 
-#.   <a href="." attributes="href python:'/'+
-#.                                       itemList[pos + 1].absolute_url(relative=1) +
+#.   <a href="." attributes="href python:'/'+ 
+#.                                       itemList[pos + 1].absolute_url(relative=1) + 
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -250,7 +250,8 @@ msgid "help_dc_subject"
 msgstr "Le sujet du contenu de la ressource."
 
 msgid "help_dc_contirbutors"
-msgstr "Les entités qui ont contribué à la création du contenu de la ressource."
+msgstr ""
+"Les entités qui ont contribué à la création du contenu de la ressource."
 
 msgid "help_dc_source"
 msgstr ""
@@ -312,6 +313,13 @@ msgstr "Document flexible"
 
 msgid "portal_type_Flexible_description"
 msgstr "Un document dont la structure peut être modifiée"
+
+# default doc types
+msgid "portal_type_Document_title"
+msgstr "Document"
+
+msgid "portal_type_Document_description"
+msgstr "Un document de base qui peut être utilisé pour créer une page HTML"
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -449,7 +457,8 @@ msgid "portal_type_Book_title"
 msgstr "Livre"
 
 msgid "portal_type_Book_description"
-msgstr "Un dossier présentant les documents qu'il contient sous la forme de pages"
+msgstr ""
+"Un dossier présentant les documents qu'il contient sous la forme de pages"
 
 msgid "portal_type_Page_title"
 msgstr "Livre - Page"
@@ -477,4 +486,3 @@ msgstr "par page"
 
 msgid "cpsdoc_book_display_flat"
 msgstr "à plat"
-

@@ -17,7 +17,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument_en\n"
-"POT-Creation-Date: 2005-03-14 12:14default\n"
+"POT-Creation-Date: 2005-03-26 13:55default\n"
 "PO-Revision-Date: 2004-10-04 16:55+0100\n"
 "Last-Translator:  <>\n"
 "Language-Team: Euskara <eu@li.org>\n"
@@ -310,6 +310,15 @@ msgstr "Dokumentu malgua"
 
 msgid "portal_type_Flexible_description"
 msgstr "Zuk zeuk sortu dokumentua, zure beharren arabera!"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Document_title"
+msgstr "Hitzordua"
+
+#, fuzzy
+msgid "portal_type_Document_description"
+msgstr "Hitzordu bat"
 
 # default doc types
 msgid "portal_type_FAQ_title"

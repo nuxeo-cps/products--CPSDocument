@@ -1,6 +1,5 @@
 ##parameters=loadcustom=1
 #$Id$
-
 """
 Here are defined the list of schemas to be registred.
 Please, follow the same pattern to add new schemas.
@@ -391,6 +390,7 @@ schemas['metadata'] = metadata_schema
 schemas['common'] = common_schema
 schemas['flexible_content'] = flexible_content_schema
 schemas['folder'] = folder_schema
+schemas['document'] = document_schema
 schemas['faqitem'] = faqitem_schema
 schemas['glossary'] = glossary_schema
 schemas['newsitem'] = newsitem_schema

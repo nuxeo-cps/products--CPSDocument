@@ -109,6 +109,28 @@ workspace_type = {
                 ),
     }
 
+document_type = {
+    'title': 'portal_type_Document_title',
+    'description': 'portal_type_Document_description',
+    'content_icon': 'document_icon.png',
+    'content_meta_type': 'CPS Document',
+    'product': 'CPSDocument',
+    'factory': 'addCPSDocument',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': (),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'document',
+    'schemas': ['metadata', 'common', 'document'],
+    'layouts': ['common', 'document'],
+    'layout_clusters': ['metadata:metadata'],
+    'flexible_layouts': [],
+    'storage_methods': [],
+    'use_content_status_history': 1,
+    }
+
 flexible_type = {
     'title': 'portal_type_Flexible_title',
     'description': 'portal_type_Flexible_description',
@@ -463,6 +485,7 @@ page_type = {
 types = {}
 types['Section'] = section_type
 types['Workspace'] = workspace_type
+types['Document'] = document_type
 types['Flexible'] = flexible_type
 types['News Item'] = newsitem_type
 types['Press Release'] = pressrelease_type

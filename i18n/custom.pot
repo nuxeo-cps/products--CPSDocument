@@ -138,6 +138,14 @@ msgid "portal_type_Flexible_description"
 msgstr ""
 
 
+# Document
+msgid "portal_type_Document_title"
+msgstr ""
+
+msgid "portal_type_Document_description"
+msgstr ""
+
+
 # FAQ
 msgid "portal_type_FAQ_title"
 msgstr ""

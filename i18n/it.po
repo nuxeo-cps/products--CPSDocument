@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
-"POT-Creation-Date: 2005-03-14 12:14default\n"
+"POT-Creation-Date: 2005-03-26 13:55default\n"
 "PO-Revision-Date: 2004-09-30 16:17+0100\n"
 "Last-Translator: Fabio Nosari <fabnos@fastwebnet.it>\n"
 "Language-Team: Fabio NOSARI <fabnos@fastwebnet.it>\n"
@@ -302,6 +302,15 @@ msgstr "Documento flessibile"
 
 msgid "portal_type_Flexible_description"
 msgstr "Documento modificabile nella struttura"
+
+# Event
+#, fuzzy
+msgid "portal_type_Document_title"
+msgstr "Avvenimento"
+
+#, fuzzy
+msgid "portal_type_Document_description"
+msgstr "Un evento"
 
 # Faq
 msgid "portal_type_FAQ_title"

@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
-"POT-Creation-Date: 2005-03-14 12:14default\n"
+"POT-Creation-Date: 2005-03-26 13:55default\n"
 "PO-Revision-Date: 2004-09-01 12:09-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@curiango.ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
@@ -298,6 +298,15 @@ msgstr "Documento Flexível"
 
 msgid "portal_type_Flexible_description"
 msgstr "Um documento cuja estrutura pode ser modificada de modo flexível."
+
+# Event
+#, fuzzy
+msgid "portal_type_Document_title"
+msgstr "Evento"
+
+#, fuzzy
+msgid "portal_type_Document_description"
+msgstr "Um evento"
 
 # Faq
 msgid "portal_type_FAQ_title"

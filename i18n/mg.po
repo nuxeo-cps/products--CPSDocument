@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-14 12:14default\n"
+"POT-Creation-Date: 2005-03-26 13:55default\n"
 "PO-Revision-Date: 2004-11-25 13:38+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -314,6 +314,15 @@ msgstr "Antotandahatsoratra azo ovaina"
 
 msgid "portal_type_Flexible_description"
 msgstr "Antotandahatsoratra azo ovaina"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Document_title"
+msgstr "Zava-mitranga"
+
+#, fuzzy
+msgid "portal_type_Document_description"
+msgstr "Zava-mitranga"
 
 # default doc types
 msgid "portal_type_FAQ_title"

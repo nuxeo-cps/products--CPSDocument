@@ -9,7 +9,6 @@ Please, follow the same pattern to add new layouts
 # SHARED LAYOUTS
 #########################################################
 # metadata layout
-
 metadata_layout = {
     'widgets': {
         'Title': {
@@ -444,10 +443,8 @@ flexible_content_layout = {
         },
     }
 
-
-
 #########################################################
-# folder LAYOUT used by section and workspace
+# Folder layout used by section and workspace
 #########################################################
 folder_layout = {
     'widgets': {
@@ -467,6 +464,36 @@ folder_layout = {
         'rows': [[{'widget_id': 'hidden_folder'}, ], ],
         }
 }
+
+#########################################################
+# Document
+#########################################################
+document_layout = {
+    'widgets': {
+        'content': {
+            'type': 'Text Widget',
+            'data': {
+                'fields': ['content', 'content_position', 'content_format'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_flex_content_label_edit',
+                'label': '',
+                'css_class': 'dcontent',
+                'width': 72,
+                'height': 10,
+                'render_format': 'html',
+                'render_position': 'normal',
+                'configurable': 'format',
+                },
+            },
+        },
+    'layout': {
+        'style_prefix': 'layout_default_',
+        'rows': [
+            [{'widget_id': 'content'}],
+            ],
+        },
+    }
+
 #########################################################
 # FAQ LAYOUT
 #########################################################
@@ -534,7 +561,6 @@ faqitem_layout = {
 #########################################################
 # Glossary LAYOUT
 #########################################################
-
 glossaryitem_layout = {
     'widgets': {
         },
@@ -568,7 +594,6 @@ glossary_layout = {
             ],
         },
     }
-
 
 #########################################################
 # NEWS LAYOUT
@@ -734,7 +759,6 @@ newsitem_end_layout = {
 #########################################################
 # FILE LAYOUT
 #########################################################
-
 file_layout = {
     'widgets': {
         'Source': {
@@ -789,11 +813,9 @@ file_layout = {
         },
     }
 
-
 #########################################################
 # EVENT LAYOUT
 #########################################################
-
 event_layout = {
     'widgets': {
         'start': {
@@ -878,11 +900,9 @@ event_layout = {
         },
     }
 
-
 #########################################################
 # LINK LAYOUT
 #########################################################
-
 link_layout = {
     'widgets': {
         'link': {
@@ -935,11 +955,9 @@ link_layout = {
         },
     }
 
-
 #########################################################
 # IMAGE LAYOUT
 #########################################################
-
 image_layout = {
     'widgets': {
         'Source': {
@@ -993,7 +1011,6 @@ image_layout = {
 #########################################################
 # IMAGE GALLERY LAYOUT
 #########################################################
-
 imagegallery_layout = {
     'widgets': {
         'preview_width': {
@@ -1130,7 +1147,6 @@ imagegallery_layout = {
 #########################################################
 # BOOK LAYOUT
 #########################################################
-
 book_layout = {
     'widgets': {
         'nb_items_per_summary_page': {
@@ -1193,7 +1209,6 @@ book_layout = {
 #########################################################
 # CHAPTER LAYOUT
 #########################################################
-
 chapter_layout = {
     'widgets': {
         'nb_items_per_summary_page': {
@@ -1235,7 +1250,6 @@ chapter_layout = {
 #########################################################
 # PAGE LAYOUT
 #########################################################
-
 page_layout = {
     'widgets': {
 
@@ -1260,6 +1274,7 @@ layouts['metadata'] = metadata_layout
 layouts['common'] = common_layout
 layouts['flexible_content'] = flexible_content_layout
 layouts['folder'] = folder_layout
+layouts['document'] = document_layout
 layouts['faq'] = faq_layout
 layouts['faqitem'] = faqitem_layout
 layouts['glossary'] = glossary_layout
