@@ -18,9 +18,9 @@
 <div class="dcontent" tal:content="structure doc/content" />
 
 <tal:block
-  define="file_render python:widgets['attachedFile'].render('view', ds);"
+  define="file_render python:widgets['attachedFile']['widget'].render('view', ds);"
   condition="python: file_render and len(file_render.strip())">
-  <span i18n:translate="" tal:content="python:widgets['attachedFile'].label" />
+  <span i18n:translate="" tal:content="python:widgets['attachedFile']['widget'].label" />
   <span tal:replace="structure file_render" />
 </tal:block>
 </tal:block>
