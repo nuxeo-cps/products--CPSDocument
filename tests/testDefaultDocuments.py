@@ -57,6 +57,8 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             self._testInterfaces(doc)
             self._testDefaultAttributes(doc)
             self._testRendering(doc, proxy=proxy)
+            self._testMetadataRendering(doc, proxy=proxy)
+            self._testEditRendering(doc, proxy=proxy)
 
             # XXX: should be 0 for an empty object, right?
             self.assert_(doc.get_size() >= 0)
@@ -84,7 +86,17 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         verifyObject(IDublinCore, doc)
 
     def _testRendering(self, doc, proxy):
-        doc.render(proxy=proxy)
+        res = doc.render(proxy=proxy)
+        self.assert_(res[1])
+
+    def _testMetadataRendering(self, doc, proxy):
+        res = doc.renderEditDetailed(request=None, proxy=proxy,
+                                     layout_id='metadata')
+        self.assert_(res[1])
+
+    def _testEditRendering(self, doc, proxy):
+        res = doc.renderEditDetailed(request=None, proxy=proxy)
+        self.assert_(res[1])
 
     def testCreateDocumentsInWorkspacesRootThroughWFTool(self):
         wft = self.portal.portal_workflow
