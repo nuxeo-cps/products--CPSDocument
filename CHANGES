@@ -6,8 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- For the tooltips, do not output unneeded HTML elements like <span> and <div>.
-  For block that serve as conditional or translation blocks use <tal:block>.
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

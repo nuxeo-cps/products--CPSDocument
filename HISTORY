@@ -1,4 +1,21 @@
 *******************************************
+** CPSDocument V0.28.1 [R1 build 2004/10/26-13:02 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- For the tooltips, do not output unneeded HTML elements like <span> and <div>.
+  For block that serve as conditional or translation blocks use <tal:block>.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.28.0 [R1 build 2004/10/21-15:33 by ben]
 
 Requires:
