@@ -43,6 +43,8 @@ from Products.CPSSchemas.StorageAdapter import AttributeStorageAdapter, \
      MetaDataStorageAdapter
 
 from Products.CPSDocument.CPSDocument import addCPSDocument
+from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget, _isinstance
+
 
 
 # inserted into TypesTool by PatchTypesTool
@@ -336,7 +338,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         ltool = getToolByName(self, 'portal_layouts')
         layout_ob = ltool._getOb(layout_id)
         tpl_widget = layout_ob[wtid]
-        if tpl_widget.meta_type != 'CPS Compound Widget':
+        if not _isinstance(tpl_widget, CPSCompoundWidget):
             return self._flexibleAddSimpleWidget(ob, layout_id, wtid, **kw)
 
         # Compound widget - creating sub widgets
