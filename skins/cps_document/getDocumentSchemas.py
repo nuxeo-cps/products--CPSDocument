@@ -81,20 +81,6 @@ flexible_content_schema = {
 #########################################################
 
 faqitem_schema = {
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
     'content': {
         'type': 'CPS String Field',
         'data': {
@@ -105,20 +91,6 @@ faqitem_schema = {
     }
 
 faq_schema = {
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
     }
 
 #########################################################
@@ -126,37 +98,9 @@ faq_schema = {
 #########################################################
 
 glossaryitem_schema = {
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
     }
 
 glossary_schema = {
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
     'display_all': {
         'type': 'CPS Int Field',
         'data': {
@@ -171,20 +115,6 @@ glossary_schema = {
 ########################################################
 
 dummy_form_schema = {
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
     }
 
 ########################################################
@@ -229,25 +159,11 @@ news_schema = {
                 'is_indexed': 0,
             },
         },
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
     'photo': {
         'type': 'CPS Image Field',
         'data': {
                 'default': '',
                 'is_indexed': 0,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
             },
         },
     'theme': {
@@ -278,20 +194,6 @@ news_schema = {
 ########################################################
 
 file_schema = {
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
     'file': {
         'type': 'CPS File Field',
         'data': {
@@ -323,20 +225,6 @@ file_schema = {
 ########################################################
 
 event_schema = {
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
     'start': {
         'type': 'CPS DateTime Field',
         'data': {
@@ -388,20 +276,6 @@ event_schema = {
 ########################################################
 
 link_schema = {
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
     'href': {
         'type': 'CPS String Field',
         'data': {
@@ -418,20 +292,6 @@ link_schema = {
 ########################################################
 
 image_schema = {
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
     'preview': {
         'type': 'CPS Image Field',
         'data': {
@@ -442,20 +302,6 @@ image_schema = {
     }
 
 imagegallery_schema = {
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
     'preview_width': {
         'type': 'CPS Int Field',
         'data': {
