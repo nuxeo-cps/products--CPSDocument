@@ -6,6 +6,9 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
+- Made the upgradeDocuments() method in the upgrade module more generic.
+- Changed the portal type "PressRelease" into "Press Release" according to the
+  development guide, to have naming consistency.
 - Added back the translation for "attached file" that got erroneously removed.
 - Translated the "label_language_pt_BR" msgid into the shorter translated
   accordingly "Brazilian" word.
