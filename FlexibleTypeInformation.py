@@ -174,6 +174,15 @@ class FlexibleTypeInformation(TypeInformation):
     def __init__(self, id, **kw):
         TypeInformation.__init__(self, id, **kw)
 
+    manage_options = TypeInformation.manage_options + (
+        {'label': 'Export',
+         'action': 'manage_export',
+         },
+        )
+
+    security.declareProtected(ManagePortal, 'manage_export')
+    manage_export = DTMLFile('zmi/type_export', globals())
+        
     security.declarePublic('getProxyRolesAllowed')
     def getProxyTypesAllowed(self):
         """ return the list of allowed portal types strings """
