@@ -46,7 +46,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
                 self.assert_(hasattr(doc, prop_name))
 
     def _testInterfaces(self, doc):
-        from Interface.Verify import verifyClass
+        from Interface.Verify import verifyObject
         from Products.CMFCore.interfaces.Dynamic \
             import DynamicType as IDynamicType
         from Products.CMFCore.interfaces.Contentish \
@@ -54,11 +54,9 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         from Products.CMFCore.interfaces.DublinCore \
             import DublinCore as IDublinCore
 
-        verifyClass(IDynamicType, doc.__class__)
-        verifyClass(IContentish, doc.__class__)
-        # XXX: CPSDocument inherits from DefaultDublinCoreImpl
-        # so this test should pass -> ???
-        #verifyClass(IDublinCore, doc.__class__)
+        verifyObject(IDynamicType, doc)
+        verifyObject(IContentish, doc)
+        verifyObject(IDublinCore, doc)
 
 
     # XXX: this should work by fixing ZTC (add some methode to the

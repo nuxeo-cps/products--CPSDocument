@@ -33,6 +33,11 @@ from Products.CMFCore.CMFCorePermissions import ModifyPortalContent
 from Products.CMFCore.PortalContent import PortalContent
 from Products.CMFCore.PortalFolder import PortalFolder
 
+from Products.CMFCore.interfaces.DublinCore import DublinCore as IDublinCore
+from Products.CMFCore.interfaces.Contentish import Contentish as IContentish
+from Products.CMFCore.interfaces.Dynamic import DynamicType as IDynamicType
+
+
 SUMMARY_MAX_LEN = 418  # XXX: better get rid of magical constants
 
 class CPSDocumentMixin(ExtensionClass.Base):
@@ -278,6 +283,8 @@ class CPSDocument(CPSDocumentMixin, PortalContent, PortalFolder,
 
     meta_type = "CPS Document"
     portal_type = "CPS Document" # To ease testing.
+
+    __implements__ = (IDublinCore, IContentish, IDynamicType)
 
     security = ClassSecurityInfo()
 
