@@ -25,7 +25,7 @@ from zLOG import LOG, DEBUG
 from Acquisition import aq_base, aq_parent, aq_inner
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
-from OFS.Image import File
+from OFS.Image import File, Image
 from ZPublisher.HTTPRequest import FileUpload
 
 from Products.CMFCore.CMFCorePermissions import View
@@ -37,7 +37,7 @@ from Products.CMFCore.TypesTool import FactoryTypeInformation
 from Products.CMFCore.interfaces.portal_types \
     import ContentTypeInformation as ITypeInformation
 
-from Products.CPSSchemas.utils import copyFile
+from Products.CPSSchemas.utils import copyFile, copyImage
 from Products.CPSSchemas.Schema import SchemaContainer
 from Products.CPSSchemas.Layout import LayoutContainer
 from Products.CPSSchemas.DataModel import DataModel
@@ -697,12 +697,15 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         note that for the moment we only support File object."""
         skey = '%s_%s' % (SESSION_ITEM_KEY, item_id)
-        if type(item) is File:
+        if type(item) is File or Image:
             # file obj must be cloned otherwhise we run into:
             # "Attempt to store an object from a foreign database
             # connection" error which means that a same (persistant) object
             # can not be stored into the zodb and into a session
-            request.SESSION[skey] = copyFile(item)
+            if type(item) is File:
+                request.SESSION[skey] = copyFile(item)
+            elif type(item) is Image:
+                request.SESSION[skey] = copyImage(item)
             LOG('FlexibleTypeInformation._addSessionItem', DEBUG,
                 'Saving file into SESSION %s: %s' % (skey, item.title))
 
@@ -713,12 +716,15 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         skey = '%s_%s' % (SESSION_ITEM_KEY, item_id)
         item_session = request.SESSION.get(skey)
         if item_session is not None:
-            if type(item_session) is File:
+            if type(item_session) is File or Image:
                 # file obj must be cloned otherwhise we run into:
                 # "Attempt to store an object from a foreign database
                 # connection" error which means that a same (persistant) object
                 # can not be stored into the zodb and into a session
-                item = copyFile(item_session)
+                if type(item_session) is File:
+                    item = copyFile(item_session)
+                elif type(item_session) is Image:
+                    item = copyImage(item_session)
                 LOG('FlexibleTypeInformation._getSessionItem', DEBUG,
                     'Restore file from SESSION %s=%s' %
                     (skey, item.title))
