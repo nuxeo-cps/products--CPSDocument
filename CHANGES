@@ -4,6 +4,9 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - Section and Workspace are CPSDocument
+  WorkspaceMember can edit and metadata edit the workspace
+  this actions was hidden but possible in previous version
+  same for SectionMember
 Bug fixes:
 ~~~~~~~~~~
 - Make computeContributors work if the user is defined outside the portal.
