@@ -10,7 +10,7 @@ Actually tested with CMF-1.4.7
 DEPENDENCIES :
 ---------------
 
-Here stand below the mandatory products for CPSSchemas within the CMF:
+Here are the mandatory products for CPSSchemas within the CMF:
 
  - CPSSchemas > 0.29.0
 
@@ -24,9 +24,9 @@ Here stand below the mandatory products for CPSSchemas within the CMF:
  - Localizer = 1.0.1
 
  - PortalTransforms -> CVS Nuxeo : http://cvs.nuxeo.com (didn't the test the
-   logilab version for while can't say anything)
+   logilab version for a while so we can't say anything about it)
 
-Localizer and TranslationService stands still here because of the skins.  It
+Localizer and TranslationService are still here because of the skins.  It
 can be successfully installed without though but the widgets are going to be
 broken.
 
