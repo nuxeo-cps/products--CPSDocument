@@ -1,4 +1,45 @@
 *******************************************
+** CPSDocument V0.33.0 [R1 build 2005/03/07-16:01 by madarche]
+
+Requires:
+~~~~~~~~~
+- CPSSchemas > 0.39
+- Now using CPSUtil.integration.isProductPresent method.
+New features:
+~~~~~~~~~~~~~
+- adding search capability to the book document. The search box can be 
+  configured independently for each book.
+- implementing a flat view of the book document, with the book displayed in
+  one single page. The flat/with pages behavior can be configured for each
+  book.
+- adding the possibility to import documents from a ZIP file. For each file
+  in the ZIP archive, an attached file will be created, with the same name
+  as the original file. The mimetypes for the attached files are obtained
+  automatically based on the extension of the imported files.
+- added possibility to select the document Language at creation time 
+Bug fixes:
+~~~~~~~~~~
+- Removed some needless <span> elements used for i18n.
+- Made object construction keep the proxy set by the workflow tool,
+  for the benefit of computed fields that need it.
+- Made the News and PressRelease document types only have 1 column and not 2.
+  With 2 columns those document types were utterly unusable and moreover having
+  the notion of 2 columns in the schema is not that good anyway.
+- Renamed the "News" document type into the correct English name "News Item".
+- Renamed the "Publishing date" label into the correct English name "Publication
+  date".
+- Made the News Item document use the new SubjectWidget to link to related
+  subjects.
+- Made the News Item have unlimited attached files through its flexible layout.
+- Changed title size limitation from 100 characters to 250.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Changed method name verifyMetaDatas -> verifyMetaData since this is the
+  correct spelling.
+- default layout libs: got rid or widget_group_id and style (visibility) that
+  were not used.
+
+*******************************************
 ** CPSDocument V0.32.2 [R1 build 2005/02/01-11:37 by madarche]
 
 Requires:
