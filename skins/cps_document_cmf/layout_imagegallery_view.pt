@@ -1,0 +1,102 @@
+<tal:block tal:define="checkPerm nocall: here/portal_membership/checkPermission;"
+           condition="python: checkPerm('List folder contents', here,
+  'aq_parent')">
+  <a href="../">
+  <img tal:replace="structure python:here.getImgTag('UpFolder_icon.gif',
+    base_url=here.portal_url.getPortalPath()+'/')">
+  <span i18n:translate="description_up_to">
+    <strong i18n:name="up_id" tal:content="python:options['proxy'].aq_parent.title_or_id()">
+      Up ID</strong>
+  </span>
+  </a>
+</tal:block>
+<metal:block use-macro="here/layout_lib/macros/div_view" />
+<tal:block tal:define="proxy nocall:options/proxy;
+                       items proxy/getFolderContents;
+                       gallery python:here;
+                       nb_cols python:getattr(gallery,'nb_cols','3');
+                       nb_items python:int(getattr(gallery,'nb_items',9));
+                       page_batch_start python:int(path('request/start | nothing') or 0);
+                       page_batch python:modules['ZTUtils'].Batch(items,
+                                                                  size=nb_items,
+                                                                  start=page_batch_start);
+                       previous_page python:page_batch.previous;
+                       next_page python:page_batch.next;
+                       nb_items_in_current_batch python:len(page_batch);
+                       mod python:nb_items_in_current_batch % nb_cols;
+                       div python:nb_items_in_current_batch / nb_cols;
+                       th_width python:getattr(gallery,'preview_width','64');
+                       th_height python:getattr(gallery,'preview_height','64');
+                       nb_rows_in_current_batch python:test(mod == 0,div,div + 1);
+                       popup_mode python:getattr(gallery, 'popup_mode', 0);
+                       popup_width python:getattr(gallery, 'popup_width', 300);
+                       popup_height python:getattr(gallery, 'popup_height', 300);
+                       ">
+<table style="text-align:center;width:100%"
+  summary="gallery layout">
+  <tr tal:repeat="row python:range(nb_rows_in_current_batch)">
+  <tal:block tal:define="batch python:modules['ZTUtils'].Batch(page_batch,
+                                                               size=nb_cols,
+                                                               start=row*nb_cols);">
+    <td tal:repeat="item batch">
+      <a href="."
+         tal:attributes="href python:test(popup_mode,'.' , '/'+item.absolute_url(relative=1));
+                         onClick python:test(popup_mode, 'window.open(\'' +
+                                                          item.absolute_url(relative=1) +
+                                                          '/popup_image' + '?pos=%s' % (repeat['item'].index + page_batch_start) +
+                                                          '\', \'view_image\', ' +
+                                                          '\'innerwidth=%s' % popup_width +
+                                                          ',innerheight=%s' % popup_height +
+                                                          ',location=no' +
+                                                          ',menubar=no' +
+                                                          ',personalbar=no' +
+                                                          ',toolbar=no' +
+                                                          ',status=no' +
+                                                          ',scrollbars=yes'
+                                                          '\');; return false', 'return true')">
+        <img tal:replace="structure
+                           python:here.getImgTag(
+                             item.absolute_url(relative=1)+'/preview',
+                             base_url='',width=th_width,height=th_height,
+                             keep_ratio=1)">
+        <br />
+        <p tal:replace="item/Title"></p>
+      </a>
+    </td>
+  </tal:block>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+  summary="batch layout"
+  condition="python:previous_page or next_page">
+  <tr class="even">
+    <td align="center" width="100%"
+        tal:define="mq nocall:modules/ZTUtils/make_query;">
+      <a href="." tal:condition="previous_page"
+         tal:attributes="href python:'%s?%s'%(request['URL'],
+                                              mq(request.form,
+                                                 start=0))">«</a>
+      <a tal:condition="previous_page"
+         tal:attributes="href python:'%s?%s'%(request['URL'],
+                                              mq(request.form,
+                                                 start=previous_page.first))"
+         i18n:translate="batch_previous">Previous</a>
+      <a tal:condition="next_page"
+         tal:attributes="href python:'%s?%s'%(request['URL'],
+                                            mq(request.form, start=next_page.first))"
+         i18n:translate="batch_next">Next</a>
+      <a href="." tal:condition="next_page"
+         tal:attributes="href python:'%s?%s'%(request['URL'],
+                                              mq(request.form,
+                                                 start=len(items) - (len(items) % nb_items)))">
+        »</a>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
+</tal:block>

@@ -1,0 +1,23 @@
+<tal:block define="doc here;
+                   layout options/layout;
+                   widgets layout/widgets;
+                   ds options/datastructure;
+                  ">
+<br />
+<div class="dbold">
+  <span i18n:translate="cpsdoc_Event_start_label">from</span>
+  <tal:block content="python:here.getDateStr(doc.start, 'medium')" />
+  <span i18n:translate="cpsdoc_Event_end_label">to</span>
+  <tal:block content="python:here.getDateStr(doc.end, 'medium')" />
+</div>
+<br />
+
+<div class="dcontent" tal:content="structure doc/content" />
+
+<tal:block
+  define="file_render python:widgets['attachedFile']['widget'].render('view', ds, layout_mode='view');"
+  condition="python: file_render and len(file_render.strip())">
+  <span i18n:translate="" tal:content="python:widgets['attachedFile']['widget'].label" />
+  <span tal:replace="structure file_render" />
+</tal:block>
+</tal:block>
