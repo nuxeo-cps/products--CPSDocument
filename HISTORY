@@ -1,4 +1,22 @@
 *******************************************
+** CPSDocument V0.17.0 [R1 build 2004/03/08-14:13 by ben]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- #283: Title of a cpsdocument must use H1
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- register Identifier Widget
+- register NuxMailBoxer document types (if present)
+- register Heading Widget
+
+*******************************************
 ** CPSDocument V0.16.0 [R1 build 2004/02/25-08:45 by ben]
 
 Requires:
