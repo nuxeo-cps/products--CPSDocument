@@ -13,6 +13,7 @@ from DateTime import DateTime
 from Testing import ZopeTestCase
 import CPSDocumentTestCase
 from Products.CPSSchemas.Widget import widgetname
+from Products.CMFCore.utils import _getViewFor
 
 class DummyResponse:
     def __init__(self):
@@ -33,15 +34,6 @@ def randomText(max_len=10):
     import random
     return ''.join(
         [chr(random.randint(32, 128)) for i in range(0, max_len)])
-
-
-def myGetViewFor(obj, view='view'):
-    ti = obj.getTypeInfo()
-    actions = ti.listActions()
-    for action in actions:
-        if action.getId() == view:
-            return getattr(obj, action.action.text)
-    raise "Unverified assumption"
 
 
 class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
@@ -79,10 +71,9 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             self._testMetadataRendering(doc, proxy=proxy)
             self._testEditRendering(doc, proxy=proxy)
 
-            # XXX: Doesn't work and I don't know why.
-            # doc.view()
-            # So I'm using this hack instead:
-            self.assert_(myGetViewFor(proxy)())
+            # Normal View
+            view = _getViewFor(proxy)
+            self.assert_(view())
 
             self.assert_(self.isValidXML(doc.exportAsXML(proxy=proxy)))
 

@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Fixed action syntax (TALES).
+- Fixed layout lib to correclty use actions.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Remove hardcoded cpsdocument templates references

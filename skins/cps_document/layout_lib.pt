@@ -51,16 +51,14 @@
               ds options/datastructure;
               creation creation|nothing;
               metadata metadata|nothing;
-              type_name request/type_name|nothing;
-              ti python:type_name and getattr(context.portal_types,
-              type_name) or getattr(context.portal_types,
-                                    context.portal_type);
-              creation_form python:test(ti, ti.getActionById('create',
-              'cpsdocument_create_form'), 'cpsdocument_create_form');
-              edit_form python:test(ti, ti.getActionById('edit',
-              'cpsdocument_edit_form'), 'cpsdocument_edit_form');
-              metadata_form python:test(ti, ti.getActionById('metadata',
-              'cpsdocument_metadata'), 'cpsdocument_metadata');
+              type_name request/type_name|here/portal_type;
+              ti here/portal_types/?type_name;
+              creation_form python:ti.getActionById('create',
+                  'cpsdocument_create_form');
+              edit_form python:ti.getActionById('edit',
+                  'cpsdocument_edit_form');
+              metadata_form python:ti.getActionById('metadata',
+                  'cpsdocument_metadata');
               formaction python: test(creation, creation_form,
                                  test(metadata, metadata_form,
                                                 edit_form));
