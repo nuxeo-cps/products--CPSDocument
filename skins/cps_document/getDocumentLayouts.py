@@ -172,14 +172,13 @@ metadata_layout = {
             },
         },
         'Relation': {
-            'type': 'String Widget',
+            'type': 'URL Widget',
             'data': {
                 'fields': ['Relation'],
                 'is_i18n': 1,
                 'label_edit': 'label_relation',
                 'label': 'label_relation',
                 'display_width': 72,
-                'size_max': 100,
             },
         },
         'preview': {
@@ -304,13 +303,12 @@ flexible_content_layout = {
             },
         },
         'link_href': {
-            'type': 'String Widget',
+            'type': 'URL Widget',
             'data': {
                 'fields': ['?'],
                 'is_i18n': 1,
                 'label_edit': 'cpsschemas_label_link_href',
                 'display_width': 60,
-                'size_max': 256,
             },
         },
         'link_title': {
@@ -851,14 +849,13 @@ link_layout = {
             },
         },
         'href': {
-            'type': 'String Widget',
+            'type': 'URL Widget',
             'data': {
                 'fields': ['href'],
                 'is_i18n': 1,
                 'is_required': 1,
                 'label_edit': 'cpsschemas_label_link_href',
                 'display_width': 60,
-                'size_max': 256,
             },
         },
 
