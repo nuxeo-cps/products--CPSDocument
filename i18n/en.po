@@ -375,7 +375,7 @@ msgid "portal_type_Chapter_title"
 msgstr "Chapter"
 
 msgid "portal_type_Chapter_description"
-msgstr "A flexible document displayed as chapter in a book"
+msgstr "A Chapter contain Pages"
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Number of table of content items displayed per page"
