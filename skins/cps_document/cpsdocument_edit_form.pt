@@ -10,6 +10,8 @@
   " />
 <metal:block use-macro="here/content_lib/macros/master">
   <metal:block fill-slot="css_slot">
+    <metal:block define-macro="widgets_javascript">
+    <!-- XXX this has to move to CPSSchemas -->
     <style type="text/css"
       tal:content="string:@import url(${base_url}calendar-win2k-1.css);"></style>
     <script type="text/javascript" src="calendar.js"
@@ -34,7 +36,7 @@
    }
    //-->
    </script>
-
+   </metal:block>
   </metal:block>
 
   <metal:block fill-slot="header">
