@@ -985,6 +985,12 @@ layouts['link'] = link_layout
 layouts['image'] = image_layout
 layouts['imagegallery'] = imagegallery_layout
 
+# other products
+try:
+    layouts.update(context.getNuxMailBoxerDocumentLayouts())
+except AttributeError,e:
+    pass
+
 if loadcustom:
     clayouts = context.getCustomDocumentLayouts()
     layouts.update(clayouts)

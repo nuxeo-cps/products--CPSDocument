@@ -303,6 +303,10 @@ try:
     schemas.update(context.getCPSCollectorSchemas())
 except AttributeError:
     pass
+try:
+    schemas.update(context.getNuxMailBoxerDocumentSchemas())
+except AttributeError,e:
+    pass
 
 
 if loadcustom:
