@@ -11,7 +11,7 @@ the only thing the user sees).
 
 folder = context
 
-id = datamodel.get('title')
+id = datamodel.get('Title')
 if not id:
     id = 'my ' + type_name
 
