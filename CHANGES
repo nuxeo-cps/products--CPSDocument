@@ -1,18 +1,12 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
 -
-
 New features:
 ~~~~~~~~~~~~~
-- Ordered List and Unordered List widgets
 -
-
 Bug fixes:
 ~~~~~~~~~~
-- Glossary and Glossary & FAQ items now fully use 'common' widgets and layout
-- Glossary's display_all option is now a Boolean Widget
 -
-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- Field property is_indexed has been renamed to is_searchabletext.
+-
