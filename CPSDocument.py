@@ -106,7 +106,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
     def edit(self, mapping={}, proxy=None, REQUEST=None, **kw):
         """Edit the document.
 
-        The mapping and the keyword arguments describes fields, not
+        The mapping and the keyword arguments describe fields, not
         widgets.
 
         An optional 'proxy' arg can be given, it will be passed to the
