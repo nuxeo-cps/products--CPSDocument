@@ -1,4 +1,20 @@
 *******************************************
+** CPSDocument V0.8.0 [R1 build 2003/12/15-09:05 by ben]
+
+ZODB Requires:
+~~~~~~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- Flexible document improvement using Text Image compound widget
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.7.0 [R1 build 2003/12/10-17:20 by ben]
 
 ZODB Requires:

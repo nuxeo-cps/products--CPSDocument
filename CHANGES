@@ -1,12 +1,15 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
 -
+
 New features:
 ~~~~~~~~~~~~~
-- Flexible document improvement using Text Image compound widget
+-
+
 Bug fixes:
 ~~~~~~~~~~
 -
+
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
