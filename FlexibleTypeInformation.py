@@ -32,7 +32,7 @@ from Products.CMFCore.CMFCorePermissions import ChangePermissions
 from Products.CMFCore.CMFCorePermissions import ManagePortal
 from Products.CMFCore.utils import _checkPermission
 from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.TypesTool import TypeInformation
+from Products.CMFCore.TypesTool import FactoryTypeInformation
 from Products.CMFCore.interfaces.portal_types \
     import ContentTypeInformation as ITypeInformation
 
@@ -128,7 +128,7 @@ factory_type_information = (
     )
 
 
-class FlexibleTypeInformation(TypeInformation):
+class FlexibleTypeInformation(FactoryTypeInformation):
     """Flexible Type Information
 
     Describes how to construct a form-based document.
@@ -142,29 +142,24 @@ class FlexibleTypeInformation(TypeInformation):
     security = ClassSecurityInfo()
 
     _properties = (
-        TypeInformation._basic_properties +
-        ({'id': 'permission', 'type': 'string', 'mode': 'w',
-          'label': 'Constructor permission'},
-         # XXX Make above menus.
-         ) +
-        TypeInformation._advanced_properties +
-        (
-         {'id':'cps_is_searchable', 'type': 'boolean', 'mode':'w',
-          'label':'CPS Searchable'},
-         {'id':'cps_proxy_type', 'type': 'selection', 'mode':'w',
-          'select_variable': 'getProxyTypesAllowed', 'label':'CPS Proxytype'},
-         {'id': 'schemas', 'type': 'tokens', 'mode': 'w',
-          'label': 'Schemas'},
-         {'id': 'layouts', 'type': 'tokens', 'mode': 'w',
-          'label': 'Layouts'},
-         {'id': 'flexible_layouts', 'type': 'tokens', 'mode': 'w',
-          'label': 'Flexible layouts'}, # XXX layout1:schema1 layout2:schema2
-         {'id': 'storage_methods', 'type': 'tokens', 'mode': 'w',
-          'label': 'Storage methods'}, # XXX use schema storage adapters later
-         )
+        FactoryTypeInformation._properties + (
+        {'id':'cps_is_searchable', 'type': 'boolean', 'mode':'w',
+         'label':'CPS Searchable'},
+        {'id':'cps_proxy_type', 'type': 'selection', 'mode':'w',
+         'select_variable': 'getProxyTypesAllowed', 'label':'CPS Proxytype'},
+        {'id': 'schemas', 'type': 'tokens', 'mode': 'w',
+         'label': 'Schemas'},
+        {'id': 'layouts', 'type': 'tokens', 'mode': 'w',
+         'label': 'Layouts'},
+        {'id': 'flexible_layouts', 'type': 'tokens', 'mode': 'w',
+         'label': 'Flexible layouts'}, # XXX layout1:schema1 layout2:schema2
+        {'id': 'storage_methods', 'type': 'tokens', 'mode': 'w',
+         'label': 'Storage methods'}, # XXX use schema storage adapters later
+        )
         )
     content_meta_type = 'CPS Document'
-    permission = 'Add portal content'
+    product = 'CPSDocument'
+    factory = 'addCPSDocument'
     schemas = []
     # XXX assume fixed storage adapters for now
     layouts = []
@@ -174,9 +169,9 @@ class FlexibleTypeInformation(TypeInformation):
     cps_proxy_type = 'document'
 
     def __init__(self, id, **kw):
-        TypeInformation.__init__(self, id, **kw)
+        FactoryTypeInformation.__init__(self, id, **kw)
 
-    manage_options = TypeInformation.manage_options + (
+    manage_options = FactoryTypeInformation.manage_options + (
         {'label': 'Export',
          'action': 'manage_export',
          },
@@ -193,13 +188,6 @@ class FlexibleTypeInformation(TypeInformation):
     #
     # Agent methods
     #
-
-    security.declarePublic('isConstructionAllowed')
-    def isConstructionAllowed(self, container):
-        """Does the current user have the permission required in
-        order to construct an instance in the container?
-        """
-        return _checkPermission(self.permission, container)
 
     security.declarePublic('constructInstance')
     def constructInstance(self, container, id, *args, **kw):
@@ -221,10 +209,32 @@ class FlexibleTypeInformation(TypeInformation):
 
         Returns the object.
         """
-        ob = addCPSDocument(container, id, *args, **kw)
-        # XXX fill-in defaults
-        # XXX
-        return ob
+        # This is FactoryTypeInformation.constructInstance except
+        # that no security checks are done.
+        m = self._getFactoryMethodNoSec(container)
+        id = str(id)
+        if getattr(m, 'isDocTemp', 0):
+            args = (m.aq_parent, self.REQUEST) + args
+            kw['id'] = id
+        else:
+            args = (id,) + args
+
+        id = m(*args, **kw) or id  # allow factory to munge ID
+        ob = container._getOb( id )
+        return self._finishConstruction(ob)
+
+    security.declarePrivate('_getFactoryMethodNoSec')
+    def _getFactoryMethodNoSec(self, container):
+        """Get the factory method, no security checks."""
+        if not self.product or not self.factory:
+            raise ValueError("Product factory for %s was undefined" %
+                             self.getId())
+        p = container.manage_addProduct[self.product]
+        m = getattr(p, self.factory, None)
+        if m is None:
+            raise ValueError("Product factory for %s was invalid" %
+                             self.getId())
+        return m
 
     #
     # Flexible behavior
