@@ -1,4 +1,24 @@
 *******************************************
+** CPSDocument V0.12.1 [R1 build 2004/02/08-12:37 by fermigier]
+
+Requires:
+~~~~~~~~~
+- need latest CPSDefault
+New features:
+~~~~~~~~~~~~~
+- Section and Workspace are CPSDocument
+  WorkspaceMember can edit and metadata edit the workspace
+  this actions was hidden but possible in previous version
+  same for SectionMember
+Bug fixes:
+~~~~~~~~~~
+- Make computeContributors work if the user is defined outside the portal.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- you can define action for CPSDocument using the same syntax that actions in a fti
+  see Section in getDocumentType for example
+
+*******************************************
 ** CPSDocument V0.12.0 [R1 build 2004/02/05-15:20 by ben]
 
 ZODB Requires:
