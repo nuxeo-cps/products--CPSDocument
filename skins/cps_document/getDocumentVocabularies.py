@@ -1,4 +1,4 @@
-##parameters=
+##parameters=loadcustom=1
 #$Id$
 """
 Here are defined the vocabularies.
@@ -37,8 +37,8 @@ vocabularies = {
         },
     }
 
-cvocabularies = context.getCustomDocumentVocabularies()
-
-vocabularies.update(cvocabularies)
+if loadcustom:
+    cvocabularies = context.getCustomDocumentVocabularies()
+    vocabularies.update(cvocabularies)
 
 return vocabularies
