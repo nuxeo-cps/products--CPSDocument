@@ -110,6 +110,13 @@ widgets = {
                 'render_method': 'widget_link_render',
                 },
             },
+        'Text Image Widget': {
+            'type': 'CPS Compound Widget Type',
+            'data': {
+                'prepare_validate_method': 'widget_textimage_prepare_validate',
+                'render_method': 'widget_textimage_render',
+                },
+            },
         }
 
 cwidgets = context.getCustomDocumentWidgets()
