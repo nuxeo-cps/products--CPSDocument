@@ -23,15 +23,15 @@ vocabularies = {
             ('technology', "Technology", ''),
             )},
         },
-    'language_voc_vocabulary': {
+    'language_voc': {
         'data': {'tuples': (
-            ('label_language_fr', 'Français', 'label_language_fr'),
-            ('label_language_en', 'English', 'label_language_en'),
-            ('label_language_es', 'Castellano', 'label_language_es'),
-            ('label_language_de', 'Deutsch', 'label_language_de'),
-            ('label_language_it', 'Italiano', 'label_language_it'),
-            ('label_language_nl', 'Nederlands', 'label_language_nl'),
-            ('label_language_pt_BR', 'Brasileiro', 'label_language_pt_BR'),
+            ('fr', 'Français', 'label_language_fr'),
+            ('en', 'English', 'label_language_en'),
+            ('es', 'Castellano', 'label_language_es'),
+            ('de', 'Deutsch', 'label_language_de'),
+            ('it', 'Italiano', 'label_language_it'),
+            ('nl', 'Nederlands', 'label_language_nl'),
+            ('pt_BR', 'Brasileiro', 'label_language_pt_BR'),
             )},
         },
     }
