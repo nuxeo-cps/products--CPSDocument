@@ -196,24 +196,28 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             doc.getAdditionalContentInfo(proxy)['summary'],
             very_long_content[0:SUMMARY_MAX_LEN] + '...')
 
-
     def testFile(self):
-        self.ws.invokeFactory('File', 'file')
+        self.ws.invokeFactory('File', 'file1')
 
-        doc = self.ws.file.getContent()
-        # you have to edit object before it has its default values.
+        proxy = self.ws.file1
+        doc = proxy.getContent()
+        # You have to edit object before it has its default values.
         doc.edit()
 
         # Default value. Shouldn't it be '' ?
         self.assertEquals(doc.file, None)
+        self.assertEquals(proxy['file'], None)
+        self.assertEquals(doc.downloadFile('file'), '')
 
-        # edit file as string
+        # Edit file as string
         text = randomText()
         doc.edit(file=text)
         self.assertEquals(doc.file, text)
-
+        self.assertEquals(proxy['file'], text)
         self.assertEquals(doc.downloadFile('file'), text)
 
+        # XXX: theses tests are not enough, this the *proxy*'s behavior
+        # is not correct, not the document's.
         response = DummyResponse()
         doc.downloadFile('file', response)
         self.assertEquals(response.data, text)
@@ -225,7 +229,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             "inline; filename=file")
 
     if 0: # Don't know hown to do that
-        # edit
+        # Edit
         class FieldStorage:
             def __init__(self, **kw):
                 for k, v in kw.items():
@@ -250,10 +254,21 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         self.assertEquals(response.headers['Content-Disposition'],
             "inline; filename=filename")
 
+    # XXX: this one fails currently, I don't know the correct behavior but
+    # something is broken somewhere.
+    def _testFileCalledFile(self):
+        self.ws.invokeFactory('File', 'file')
+        proxy = self.ws.file
+        doc = proxy.getContent()
+        doc.edit()
+        self.assertEquals(proxy['file'], '')
+
     def testFlexible(self):
         self.ws.invokeFactory('Flexible', 'flex')
         doc = self.ws.flex.getContent()
         doc.edit()
+
+        # XXX: now do something!
 
     def testDocumentSearch(self):
         # The aim of this test is first to assert that documents can be queried.
@@ -272,7 +287,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         # Search done with the catalog
         catalog = self.portal.portal_catalog
-        query={'SearchableText': ''}
+        query = {'SearchableText': ''}
         proxies = catalog(**query)
         #print "proxies count = %s" % len(proxies)
 
