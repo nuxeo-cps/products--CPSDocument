@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-19 16:09default\n"
-"PO-Revision-Date: 2005-01-19 16:15+0100\n"
+"POT-Creation-Date: 2005-01-25 18:15default\n"
+"PO-Revision-Date: 2005-01-25 18:01+0100\n"
 "Last-Translator: DARCHE <madarche@nuxeo.com>\n"
 "Language-Team: Francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -121,6 +121,16 @@ msgstr "Metadata edition"
 msgid "heading_metadata_view"
 msgstr "Metadata"
 
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.         In this filed you can give the reason of the modification that you are doing on this document.
+#.         Your comments may be used to notify other users.
+#.       </div>
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+msgid "help_transition_comments_modification"
+msgstr ""
+"In this filed you can give the reason of the modification that you are doing "
+"on this document. Your comments may be used to notify other users."
+
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
@@ -141,8 +151,8 @@ msgstr ""
 msgid "label"
 msgstr "label"
 
-#.   <a href="." attributes="href python:'/'+
-#.                                       itemList[pos + 1].absolute_url(relative=1) +
+#.   <a href="." attributes="href python:'/'+ 
+#.                                       itemList[pos + 1].absolute_url(relative=1) + 
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -159,6 +169,11 @@ msgstr "Next"
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "previous"
 msgstr "Previous"
+
+#.   <label for="comments">Reason of the modification</label>
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+msgid "transition_comments_modification"
+msgstr "Reason of the modification"
 
 msgid "cpsdoc_title_label_edit"
 msgstr "Title: "
@@ -318,7 +333,9 @@ msgid "portal_type_PressRelease_title"
 msgstr "Press Release"
 
 msgid "portal_type_PressRelease_description"
-msgstr "A Press Release is a special News aimed at the press through formal publication"
+msgstr ""
+"A Press Release is a special News aimed at the press through formal "
+"publication"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -428,7 +445,8 @@ msgid "help_dc_subject"
 msgstr "A topic of the content of the resource."
 
 msgid "help_dc_contirbutors"
-msgstr "Entities responsible for making contributions to the content of the resource."
+msgstr ""
+"Entities responsible for making contributions to the content of the resource."
 
 msgid "help_dc_source"
 msgstr "A Reference to a resource from which the present resource is derived."
@@ -454,4 +472,3 @@ msgstr "Resource type"
 
 #~ msgid "err"
 #~ msgstr "Error"
-

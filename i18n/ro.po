@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2005-01-19 16:09default\n"
+"POT-Creation-Date: 2005-01-25 18:15default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -112,6 +112,14 @@ msgstr ""
 msgid "heading_metadata_view"
 msgstr ""
 
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.         In this filed you can give the reason of the modification that you are doing on this document.
+#.         Your comments may be used to notify other users.
+#.       </div>
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+msgid "help_transition_comments_modification"
+msgstr ""
+
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
@@ -149,6 +157,11 @@ msgstr ""
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "previous"
+msgstr ""
+
+#.   <label for="comments">Reason of the modification</label>
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+msgid "transition_comments_modification"
 msgstr ""
 
 # generic names

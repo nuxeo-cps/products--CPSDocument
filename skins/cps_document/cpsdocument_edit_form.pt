@@ -6,8 +6,10 @@
 <metal:block define-macro="edit_form">
 <metal:block use-macro="here/content_lib_master/macros/master">
   <metal:block fill-slot="css_slot">
-    <metal:block define-macro="widgets_javascript">
+    <link rel="Stylesheet" type="text/css" href=""
+      tal:attributes="href string:${base_url}document.css" />
 
+    <metal:block define-macro="widgets_javascript">
     <!-- XXX this has to move to CPSSchemas -->
     <style type="text/css"
       tal:content="string:@import url(${base_url}calendar-win2k-1.css);"></style>

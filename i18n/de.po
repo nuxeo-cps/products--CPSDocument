@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-19 16:09default\n"
+"POT-Creation-Date: 2005-01-25 18:15default\n"
 "PO-Revision-Date: 2004-07-12 18:00+0200\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@dhl.com>\n"
 "Language-Team: francais <rheinland@dzug.org>\n"
@@ -110,6 +110,14 @@ msgstr "Metadaten Bearbeiten "
 msgid "heading_metadata_view"
 msgstr "Metadaten"
 
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.         In this filed you can give the reason of the modification that you are doing on this document.
+#.         Your comments may be used to notify other users.
+#.       </div>
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+msgid "help_transition_comments_modification"
+msgstr ""
+
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
@@ -149,6 +157,11 @@ msgstr ""
 #, fuzzy
 msgid "previous"
 msgstr "Vorheriger"
+
+#.   <label for="comments">Reason of the modification</label>
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+msgid "transition_comments_modification"
+msgstr ""
 
 msgid "cpsdoc_title_label_edit"
 msgstr "Titel: "
