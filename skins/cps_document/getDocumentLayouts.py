@@ -57,6 +57,7 @@ faq_layout = {
         },
     },
     'layout': {
+        'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
             [{'ncols': 1, 'widget_id': 'title'},
@@ -75,36 +76,6 @@ faq_layout = {
 
 news_layout = {
     'widgets': {
-        'preview': {
-            'type': 'Image Widget',
-            'data': {
-                'fields': ['preview'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_News_preview_label_edit',
-                'label': '',
-                'hidden_view': 1,
-                'description': 'cpsdoc_News_preview_description',
-                'deletable': 1,
-                'display_width': 200,
-                'display_height': 150,
-                'size_max': 1024*1024,
-            },
-        },
-        'attachedFile': {
-            'type': 'File Widget',
-            'data': {
-                'fields': ['attachedFile',
-                           'attachedFile_text',
-                           'attachedFile_html'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_News_attachedFile_label_edit',
-                'label': 'cpsdoc_News_attachedFile_label',
-                'hidden_empty': 1,
-                'description': 'cpsdoc_News_attachedFile_description',
-                'deletable': 1,
-                'size_max': 3*1024*1024,
-            },
-        },
         'newsdate': {
             'type': 'Date Widget',
             'data': {
@@ -130,20 +101,6 @@ news_layout = {
                 'css_class': 'dtitle',
                 'display_width': 30,
                 'size_max': 72,
-            },
-        },
-        'photo': {
-            'type': 'Image Widget',
-            'data': {
-                'fields': ['photo'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_News_photo_label_edit',
-                'label': '',
-                'description': 'cpsdoc_News_photo_description',
-                'css_class': 'dleft',
-                'display_width': 250,
-                'display_height': 150,
-                'size_max': 2*1024*1024,
             },
         },
         'description': {
@@ -186,6 +143,70 @@ news_layout = {
                 'size_max': 72,
             },
         },
+    },
+    'layout': {
+        'style_prefix': 'layout_default_',
+        'ncols': 2,
+        'rows': [
+            [{'ncols': 1, 'widget_id': 'theme'},
+             ],
+            [{'ncols': 1, 'widget_id': 'title'},
+             {'ncols': 1, 'widget_id': 'newsdate'},
+             ],
+            [{'ncols': 1, 'widget_id': 'longTitle'},
+             ],
+            [{'ncols': 1, 'widget_id': 'description'},
+             ],
+            ],
+        },
+    }
+
+news2_layout = {
+    'widgets': {
+        'preview': {
+            'type': 'Image Widget',
+            'data': {
+                'fields': ['preview'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_News_preview_label_edit',
+                'label': '',
+                'hidden_view': 1,
+                'description': 'cpsdoc_News_preview_description',
+                'deletable': 1,
+                'display_width': 200,
+                'display_height': 150,
+                'size_max': 1024*1024,
+            },
+        },
+        'attachedFile': {
+            'type': 'File Widget',
+            'data': {
+                'fields': ['attachedFile',
+                           'attachedFile_text',
+                           'attachedFile_html'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_News_attachedFile_label_edit',
+                'label': 'cpsdoc_News_attachedFile_label',
+                'hidden_empty': 1,
+                'description': 'cpsdoc_News_attachedFile_description',
+                'deletable': 1,
+                'size_max': 3*1024*1024,
+            },
+        },
+        'photo': {
+            'type': 'Image Widget',
+            'data': {
+                'fields': ['photo'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_News_photo_label_edit',
+                'label': '',
+                'description': 'cpsdoc_News_photo_description',
+                'css_class': 'dleft',
+                'display_width': 250,
+                'display_height': 150,
+                'size_max': 2*1024*1024,
+            },
+        },
         'content': {
             'type': 'Rich Text Editor Widget',
             'data': {
@@ -202,17 +223,9 @@ news_layout = {
         },
     },
     'layout': {
-    'ncols': 2,
+        'style_prefix': 'layout_default_',
+        'ncols': 2,
         'rows': [
-            [{'ncols': 1, 'widget_id': 'theme'},
-             ],
-            [{'ncols': 1, 'widget_id': 'title'},
-             {'ncols': 1, 'widget_id': 'newsdate'},
-             ],
-            [{'ncols': 1, 'widget_id': 'longTitle'},
-             ],
-            [{'ncols': 1, 'widget_id': 'description'},
-             ],
             [{'ncols': 1, 'widget_id': 'photo'},
              {'ncols': 1, 'widget_id': 'preview'},
              ],
@@ -223,6 +236,7 @@ news_layout = {
             ],
         },
     }
+
 
 #########################################################
 # FILE LAYOUT
@@ -273,6 +287,7 @@ file_layout = {
         },
     },
     'layout': {
+        'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
             [{'ncols': 1, 'widget_id': 'title'},
@@ -373,6 +388,7 @@ event_layout = {
         },
     },
     'layout': {
+        'style_prefix': 'layout_event_',
         'ncols': 2,
         'rows': [
             [{'ncols': 1, 'widget_id': 'title'},],
@@ -407,6 +423,7 @@ link_layout = {
         },
     },
     'layout': {
+        'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
             [{'ncols': 1, 'widget_id': 'link'},
@@ -461,6 +478,7 @@ image_layout = {
         },
     },
     'layout': {
+        'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
             [{'ncols': 1, 'widget_id': 'title'},
@@ -518,6 +536,7 @@ dummy_form_layout = {
         },
     },
     'layout': {
+        'style_prefix': 'layout_form_',
         'ncols': 1,
         'rows': [
             [{'ncols': 1, 'widget_id': 'title'},
@@ -540,6 +559,7 @@ layouts = {}
 
 layouts['faq'] = faq_layout
 layouts['news'] = news_layout
+layouts['news2'] = news2_layout
 layouts['file'] = file_layout
 layouts['event'] = event_layout
 layouts['link'] = link_layout
