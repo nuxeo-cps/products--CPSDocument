@@ -1,6 +1,3 @@
-<tal:block define="doc here/getContent;
-                   rendered_main python: doc.render(proxy=here);
-  ">
 <metal:block define-macro="view">
 <metal:block use-macro="here/content_lib/macros/master">
   <metal:block fill-slot="header">
@@ -12,7 +9,7 @@
   </metal:block>
 
   <metal:block fill-slot="main">
-    <tal:block tal:content="structure rendered_main" />
+    <tal:block tal:content="structure rendered_main|python:doc.render(proxy=here)" />
 
     <tal:block tal:condition="python:hasattr(here,'portal_discussion') and
       hasattr(here.portal_discussion, 'isCommentingAllowedFor')">
@@ -28,4 +25,3 @@
 
 </metal:block>
 </metal:block>
-</tal:block>
