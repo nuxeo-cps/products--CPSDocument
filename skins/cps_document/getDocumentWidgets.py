@@ -72,6 +72,10 @@ widgets = {
             'type': 'CPS MultiSelect Widget Type',
             'data': {},
             },
+        'ExtendedSelect Widget': {
+            'type': 'CPS ExtendedSelect Widget Type',
+            'data': {},
+            },
         }
 
 cwidgets = context.getCustomDocumentWidgets()
