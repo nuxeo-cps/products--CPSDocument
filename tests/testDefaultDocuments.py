@@ -225,26 +225,27 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         # Default value. Shouldn't it be '' ?
         self.assertEquals(doc.file, None)
         self.assertEquals(proxy['file'], None)
-        self.assertEquals(doc.downloadFile('file'), '')
+        #XXX move download tests to the proxy behavior
+        #XXX self.assertEquals(doc.downloadFile('file'), '')
 
         # Edit file as string
         text = randomText()
         doc.edit(file=text)
         self.assertEquals(doc.file, text)
         self.assertEquals(proxy['file'], text)
-        self.assertEquals(doc.downloadFile('file'), text)
+        #XXX self.assertEquals(doc.downloadFile('file'), text)
 
         # XXX: theses tests are not enough, this the *proxy*'s behavior
         # is not correct, not the document's.
-        response = DummyResponse()
-        doc.downloadFile('file', response)
-        self.assertEquals(response.data, text)
-        self.assertEquals(response.headers['Content-Type'],
-            'application/octet-stream')
-        self.assertEquals(response.headers['Content-Length'],
-            len(text))
-        self.assertEquals(response.headers['Content-Disposition'],
-            "inline; filename=file")
+        #response = DummyResponse()
+        #doc.downloadFile('file', response)
+        #self.assertEquals(response.data, text)
+        #self.assertEquals(response.headers['Content-Type'],
+        #    'application/octet-stream')
+        #self.assertEquals(response.headers['Content-Length'],
+        #    len(text))
+        #self.assertEquals(response.headers['Content-Disposition'],
+        #    "inline; filename=file")
 
     if 0: # Don't know hown to do that
         # Edit
