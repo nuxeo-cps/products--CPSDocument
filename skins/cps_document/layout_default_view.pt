@@ -1,2 +1,1 @@
-<h2>Ressources connexes</h2>
 <metal:block use-macro="here/layout_lib_div_view/macros/div_view" />
