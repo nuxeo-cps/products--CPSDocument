@@ -265,22 +265,27 @@ class CPSDocumentMixin(ExtensionClass.Base):
         """Compute the _size attribute.
 
         The _size attribute is used by get_size, to return an
-        informative size about the object.
+        informative size about the object (including hidden fields like
+        file_html and file_txt).
         """
+        # XXX this is not user-focused since the "size" for the user will
+        # usually mean "how big will it be (and how long will it take) if
+        # I download the file.
         size = 0
         if datamodel is None:
             dm = self.getTypeInfo().getDataModel(self)
         else:
             dm = datamodel
         # XXX uses internal knowledge of DataModel
-        for fieldid, field in dm._fields.items():
+        for field_id in dm._fields.keys():
             try:
-                if hasattr(aq_base(dm[fieldid]), 'get_size'):
-                    size += dm[fieldid].get_size()
-                if isinstance(dm[fieldid], UnicodeType):
-                    size += len(dm[fieldid])
+                if hasattr(aq_base(dm[field_id]), 'get_size'):
+                    field_size = dm[field_id].get_size()
+                elif isinstance(dm[field_id], UnicodeType):
+                    field_size = len(dm[field_id])
                 else:
-                    size += len(str(dm[fieldid]))
+                    field_size = len(str(dm[field_id]))
+                size += field_size
             except KeyError:
                 pass
 
