@@ -1,4 +1,4 @@
-# TODO: 
+# TODO:
 # - don't depend on getDocumentSchemas / getDocumentTypes but is there
 #   an API for that ?
 
@@ -38,6 +38,8 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         self.ws = self.portal.workspaces
         self.document_schemas = self.portal.getDocumentSchemas()
         self.document_types = self.portal.getDocumentTypes()
+        # getFolderContents check SESSION to get user display choice
+        self.portal.REQUEST.SESSION = {}
 
     def beforeTearDown(self):
         self.logout()
@@ -53,10 +55,10 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
             self._testInterfaces(doc)
             self._testDefaultAttributes(doc)
-            self._testRendering(doc)
+            self._testRendering(doc, proxy=proxy)
 
             # XXX: should be 0 for an empty object, right?
-            self.assert_(doc.get_size() >= 0) 
+            self.assert_(doc.get_size() >= 0)
 
             self.assertEquals(doc.getAdditionalContentInfo(), {})
 
@@ -80,10 +82,8 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         verifyObject(IContentish, doc)
         verifyObject(IDublinCore, doc)
 
-    def _testRendering(self, doc):
-        # It doesn't work with those 3 types. Why ?
-        if doc.portal_type not in ('ImageGallery', 'FAQ', 'Glossary'):
-            doc.render()
+    def _testRendering(self, doc, proxy):
+        doc.render( proxy=proxy )
 
     def testCreateDocumentsInWorkspacesRootThroughWFTool(self):
         wft = self.portal.portal_workflow
@@ -115,7 +115,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         very_long_content = 'A very long content' * 100
         doc.edit(content=very_long_content)
         self.assertEquals(
-            doc.getAdditionalContentInfo()['summary'], 
+            doc.getAdditionalContentInfo()['summary'],
             very_long_content[0:SUMMARY_MAX_LEN] + '...')
 
 
@@ -127,27 +127,27 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         doc.edit()
 
         # Default value. Shouldn't it be '' ?
-        self.assertEquals(doc.file, None) 
+        self.assertEquals(doc.file, None)
 
         # edit file as string
         text = randomText()
         doc.edit(file=text)
-        self.assertEquals(doc.file, text) 
+        self.assertEquals(doc.file, text)
 
         self.assertEquals(doc.downloadFile('file'), text)
 
         response = DummyResponse()
         doc.downloadFile('file', response)
         self.assertEquals(response.data, text)
-        self.assertEquals(response.headers['Content-Type'], 
+        self.assertEquals(response.headers['Content-Type'],
             'application/octet-stream')
-        self.assertEquals(response.headers['Content-Length'], 
+        self.assertEquals(response.headers['Content-Length'],
             len(text))
         self.assertEquals(response.headers['Content-Disposition'],
             "inline; filename=file")
 
     if 0: # Don't know hown to do that
-        # edit 
+        # edit
         class FieldStorage:
             def __init__(self, **kw):
                 for k, v in kw.items():
@@ -156,7 +156,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         from ZPublisher.HTTPRequest import FileUpload
         text = randomText()
         file = StringIO(text)
-        fs = FieldStorage(file=file, headers={"Content-Type": "text/html"}, 
+        fs = FieldStorage(file=file, headers={"Content-Type": "text/html"},
             filename="filename")
         fileupload = FileUpload(fs)
 
@@ -165,9 +165,9 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         response = DummyResponse()
         doc.downloadFile('file', response)
         self.assertEquals(response.data, text)
-        self.assertEquals(response.headers['Content-Type'], 
+        self.assertEquals(response.headers['Content-Type'],
             'application/octet-stream')
-        self.assertEquals(response.headers['Content-Length'], 
+        self.assertEquals(response.headers['Content-Length'],
             len(text))
         self.assertEquals(response.headers['Content-Disposition'],
             "inline; filename=filename")
@@ -184,4 +184,3 @@ def test_suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(TestDocuments))
     return suite
-
