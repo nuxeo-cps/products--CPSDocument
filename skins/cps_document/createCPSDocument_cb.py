@@ -1,6 +1,7 @@
 ##parameters=type_name, datamodel
+# $Id$
 """
-Create an empty object with the context as a container.
+Callback to create an empty object with the context as a container.
 
 Datamodel may be examined to create a suitable id.
 

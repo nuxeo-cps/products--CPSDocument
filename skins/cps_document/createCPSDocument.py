@@ -1,4 +1,5 @@
 ##parameters=REQUEST
+# $Id$
 """
 Create a CPSDocument
 
