@@ -37,6 +37,9 @@ from Products.CMFCore.PortalFolder import PortalFolder
 from Products.CMFCore.interfaces.DublinCore import DublinCore as IDublinCore
 from Products.CMFCore.interfaces.Contentish import Contentish as IContentish
 from Products.CMFCore.interfaces.Dynamic import DynamicType as IDynamicType
+# XXX don't know why but unit test failed on personal calendar creation 
+# without the following import monkey patch ?
+from Products.CPSCore.CPSTypes import TypeConstructor
 
 
 SUMMARY_MAX_LEN = 418  # XXX: better get rid of magical constants
