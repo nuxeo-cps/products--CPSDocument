@@ -312,5 +312,3 @@ def addCPSDocument(container, id, REQUEST=None, **kw):
     ob = container._getOb(id)
     if REQUEST is not None:
         REQUEST.RESPONSE.redirect(ob.absolute_url()+'/manage_main')
-    else:
-        return ob
