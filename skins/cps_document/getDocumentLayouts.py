@@ -404,7 +404,7 @@ flexible_content_layout = {
             },
     },
     'layout': {
-        'flexible_widgets': ['textimage:4', 'link', 'attachedFile:3'],
+        'flexible_widgets': ['textimage:4', 'link', 'attachedFile:5'],
         'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
