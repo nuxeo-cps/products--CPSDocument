@@ -84,6 +84,8 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             # So I'm using this hack instead:
             self.assert_(myGetViewFor(proxy)())
 
+            self.assert_(self.isValidXML(doc.exportAsXML(proxy=proxy)))
+
         # Now testing global view for the container
         self.assert_(self.ws.folder_view())
 
@@ -273,13 +275,12 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         self.assertEquals(response.headers['Content-Disposition'],
             "inline; filename=filename")
 
-    # XXX: this one fails currently, I don't know the correct behavior but
-    # something is broken somewhere.
-    def _testFileCalledFile(self):
+    # XXX: is this correct ???
+    def testFileCalledFile(self):
         self.ws.invokeFactory('File', 'file')
         proxy = self.ws.file
         doc = proxy.getContent()
-        self.assertEquals(proxy['file'], '')
+        self.assertEquals(proxy['file'], None)
 
     def testFlexible(self):
         self.ws.invokeFactory('Flexible', 'flex')
