@@ -6,10 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- In FlexibleTypeInformation, not using _commitDM() for CPSDocument creation
-  anymore because the datamodel is already committed earlier in the creation
-  process. This extra commit was causing bugs in the creation callbacks.
-
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

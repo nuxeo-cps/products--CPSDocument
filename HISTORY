@@ -1,4 +1,23 @@
 *******************************************
+** CPSDocument V0.23.3 [R1 build 2004/08/04-12:38 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- In FlexibleTypeInformation, not using _commitDM() for CPSDocument creation
+  anymore because the datamodel is already committed earlier in the creation
+  process. This extra commit was causing bugs in the creation callbacks.
+
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.23.2 [R1 build 2004/07/28-15:40 by guillaum]
 
 Requires:
