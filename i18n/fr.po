@@ -391,6 +391,9 @@ msgstr ""
 msgid "label_portal_type"
 msgstr "Type de ressource"
 
+msgid "creation_footer_info ${action_metadata} label"
+msgstr "Une fois ce document créé, vous devrez cliquer sur le lien '${action_metadata}' dans la boite d'actions de l'objet afin de parfaire sa description."
+
 #~ msgid "button_create"
 #~ msgstr "Créer"
 

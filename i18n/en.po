@@ -385,6 +385,10 @@ msgstr "A reference (URL) to a related resource."
 msgid "label_portal_type"
 msgstr "Resource type"
 
+msgid "creation_footer_info ${action_metadata} label"
+msgstr "After this document create, you'll have to clic on '${action_metadata}' link in the action box of the object to improme its description."
+
+
 #~ msgid "button_create"
 #~ msgstr "Create"
 
