@@ -1,13 +1,6 @@
 <!-- a layout_lib macro -->
 <!-- $Id$ -->
 
-<!--
-&lt;!-- macro library for layouts --&gt;
-&lt;!-- $Id$ --&gt;
-
-&lt;!-- ============================================================ --&gt;
--->
-
 <metal:block define-macro="default_view"
   tal:define="layout options/layout">
 <table width="100%" cellpadding="2" cellspacing="2" border="0"

@@ -1,10 +1,6 @@
 <!-- a layout_lib macro -->
 <!-- $Id$ -->
 
-<!--
-&lt;!-- ============================================================ --&gt;
--->
-
 <metal:block define-macro="default_edit"
   tal:define="layout options/layout;
               ds options/datastructure;

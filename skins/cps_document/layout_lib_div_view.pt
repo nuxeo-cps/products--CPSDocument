@@ -1,9 +1,7 @@
 <!-- a layout_lib macro -->
 <!-- $Id$ -->
 
-<!--
-&lt;!-- this layout doesn't take care of cell layout =============== --&gt;
--->
+<!-- this layout doesn't take care of cell layout -->
 
 <metal:block define-macro="div_view"
   tal:define="layout options/layout">
