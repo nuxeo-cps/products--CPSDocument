@@ -77,9 +77,9 @@ faq_layout = {
             'data': {
                 'fields': ['title'],
                 'is_i18n': 1,
-                'label_edit': 'cpsdoc_faq_title_label_edit',
+                'label_edit': 'cpsdoc_title_label_edit',
                 'label': '',
-                'description': 'FAQ short question for section display',
+                'description': 'FAQ title',
                 'css_class': 'dtitle',
                 'is_required': 1,
                 'display_width': 40,
@@ -91,9 +91,9 @@ faq_layout = {
             'data': {
                 'fields': ['description'],
                 'is_i18n': 1,
-                'label_edit': 'cpsdoc_faq_description_label_edit',
+                'label_edit': 'cpsdoc_description_label_edit',
                 'label': '',
-                'description': 'FAQ long question',
+                'description': 'FAQ description',
                 'css_class': 'ddescription',
                 'width': 40,
                 'height': 5,
@@ -166,7 +166,7 @@ glossary_layout = {
             'data': {
                 'fields': ['title'],
                 'is_i18n': 1,
-                'label_edit': 'cpsdoc_glossary_title_label_edit',
+                'label_edit': 'cpsdoc_title_label_edit',
                 'label': '',
                 'description': 'Glossary title',
                 'css_class': 'dtitle',
@@ -180,7 +180,7 @@ glossary_layout = {
             'data': {
                 'fields': ['description'],
                 'is_i18n': 1,
-                'label_edit': 'cpsdoc_glossary_description_label_edit',
+                'label_edit': 'cpsdoc_description_label_edit',
                 'label': '',
                 'description': 'Glossary description',
                 'css_class': 'ddescription',
@@ -802,7 +802,7 @@ imagegallery_layout = {
             'data': {
                 'fields': ['title'],
                 'is_i18n': 1,
-                'label_edit': 'cpsdoc_imgallery_title_label_edit',
+                'label_edit': 'cpsdoc_title_label_edit',
                 'label': '',
                 'description': 'Image Gallery title',
                 'css_class': 'dtitle',
@@ -816,7 +816,7 @@ imagegallery_layout = {
             'data': {
                 'fields': ['description'],
                 'is_i18n': 1,
-                'label_edit': 'cpsdoc_imgallery_description_label_edit',
+                'label_edit': 'cpsdoc_description_label_edit',
                 'label': '',
                 'description': 'Image Gallery description',
                 'css_class': 'ddescription',
