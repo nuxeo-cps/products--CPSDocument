@@ -1,34 +1,7 @@
-<tal:block define="type_name request/type_name;
-                   ti here/portal_types/?type_name;
-                   validate python: request.has_key('cpsdocument_create_button');
-                   res python: ti.renderCreateObjectDetailed(
-                     container=here, request=request,
-                     validate=validate, layout_mode='create',
-                     create_callback='cpsdocument_create',
-                     created_callback='cpsdocument_created');
+<tal:block define="res python:here.createCPSDocument(REQUEST=request);
                    rendered_main python: res[0];
-                   rendered_ok python: res[1];
-                   portal_status_message python: validate and (rendered_ok and 'psm_content_created' or 'psm_content_error') or '';
-                ">
-<metal:block use-macro="here/content_lib/macros/master">
-  <metal:block fill-slot="css_slot">
-    <metal:block
-      use-macro="here/cpsdocument_edit_form/macros/widgets_javascript" />
-  </metal:block>
-
-  <metal:block fill-slot="header">
-    <h1 i18n:translate="">
-      Create a document of type
-      <span i18n:name="type_name"
-        tal:content="request/type_name">Type Name</span>
-    </h1>
-  </metal:block>
-
-  <metal:block fill-slot="main">
-    <div tal:replace="structure rendered_main">
-      (doc rendering)
-    </div>
-  </metal:block>
-
-</metal:block>
+                   portal_status_message python: res[1];
+                   creation python:1;
+  ">
+  <metal:block use-macro="here/cpsdocument_edit_form/macros/edit_form" />
 </tal:block>
