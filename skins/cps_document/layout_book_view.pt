@@ -3,6 +3,7 @@
                        book python:here.getContent();
                        nb_items python:int(getattr(book,'nb_items_per_summary_page',20));
                        has_search python:int(getattr(book,'has_search_box',0));
+                       display_mode python:int(getattr(book,'display_mode',0));
                        page_batch_start python:int(path('request/start | nothing') or 0);
                        page_batch python:modules['ZTUtils'].Batch(items,
                                                                   size=nb_items,
@@ -21,8 +22,15 @@
     <div tal:define="level python:item[0];
                    proxy python:item[2];
                    margin python:level*15">
-      <li class=summaryEntries tal:attributes="style string:margin-left:${level}em"><a
-        tal:content="proxy/Title" tal:attributes="href proxy/absolute_url"/></li>
+      <li class=summaryEntries tal:attributes="style string:margin-left:${level}em">
+      <tal:block condition="python: display_mode!=1 or proxy.portal_type not in ('Page')">
+        <a tal:content="proxy/Title" tal:attributes="href proxy/absolute_url"/>
+      </tal:block>
+      <tal:block condition="python: display_mode==1 and proxy.portal_type in ('Page')">
+        <a tal:content="proxy/Title" tal:attributes="href string:#${proxy/id}"/>
+      </tal:block>
+
+      </li>
   </div>
  
 </div>
@@ -60,31 +68,23 @@
   </div>
 </div>
 
-  <div tal:condition="has_search">
-  <tal:block define="SearchableText python:request.get('SearchableText','');
-                     utool nocall:here/portal_url;
-                     context_url python:utool.getRelativeUrl(proxy);
-                    ">
-    <div style="text-align:right;" class="group">
-      <form name="searchFormBottom" method="get" action="search_form"
-        onsubmit="return checkEmptySearch(this)">
-        <div class="label">
-          <label for="resultSearchText"
-                 i18n:translate="label_text_to_search">
-            Text to search
-          </label>
-        </div>
-        <input type="text" name="SearchableText" id="resultSearchText"
-               value="" class="focus" size="40"
-               tal:attributes="value SearchableText" />
-        <input class="standalone searchButton" type="submit" value="button_ok"
-               i18n:attributes="value" />
-        <br />
-        <input type="hidden" name="folder_prefix" id="folder_prefix" class="noborder"
-               tal:attributes="value context_url" />
 
-     </form>
-    </div>
-  </tal:block>
+  <div tal:condition="python: has_search and display_mode">
+    <metal:block use-macro="here/book_lib_search_box/macros/search_box" />
+  </div>
+
+  <div tal:condition="display_mode">
+    <tal:block repeat="item page_batch">
+      <tal:block tal:define="proxy python:item[2];
+                       no_header python: 1"
+                 tal:condition="python:proxy.portal_type in ('Page')">
+        <a tal:attributes="name proxy/id" />
+        <div tal:content="structure python: proxy.getContent().render(proxy=proxy)">content</div>
+      </tal:block>
+    </tal:block>
+  </div>
+
+  <div tal:condition="python: has_search and not display_mode">
+    <metal:block use-macro="here/book_lib_search_box/macros/search_box" />
   </div>
 </tal:block>

@@ -392,7 +392,11 @@ book_schema = {
                 'is_searchabletext': 0,
             },
         },
-
+    'display_mode': {
+        'type': 'CPS Int Field',
+        'data': {'is_searchabletext': 0,
+                 'default_expr': 'python:0',}
+        },
     }
 
 ###########################################################

@@ -1166,6 +1166,17 @@ book_layout = {
                 'display_false': 'No',
             },
         },
+        'display_mode': {
+            'type': 'Boolean Widget',
+            'data': {
+                'fields': ['display_mode'],
+                'is_i18n': 1,
+                'label': 'book_display',
+                'label_edit': 'book_display',
+                'label_false': 'book_display_pages',
+                'label_true': 'book_display_flat',
+            },
+        },
     },
     'layout': {
         'style_prefix': 'layout_book_',
@@ -1173,6 +1184,8 @@ book_layout = {
         'rows': [[{'widget_id': 'nb_items_per_summary_page'},
                   ],
                  [{'widget_id': 'has_search_box'},
+                  ],
+                 [{'widget_id': 'display_mode'},
                   ],
                  ],
         }
