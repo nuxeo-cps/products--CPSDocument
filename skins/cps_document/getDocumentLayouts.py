@@ -113,6 +113,117 @@ faq_layout = {
     }
 
 #########################################################
+# Glossary LAYOUT
+#########################################################
+
+glossaryitem_layout = {
+    'widgets': {
+        'title': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['title'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_glossary_term_label_edit',
+                'label': '',
+                'description': 'Glossary entry key',
+                'css_class': 'dtitle',
+                'is_required': 1,
+                'display_width': 40,
+                'size_max': 72,
+            },
+        },
+        'description': {
+            'type': 'TextArea Widget',
+            'data': {
+                'fields': ['description'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_glossary_expl_label_edit',
+                'label': '',
+                'description': 'Glossary entry explanation',
+                'css_class': 'ddescription',
+                'width': 40,
+                'height': 5,
+                'render_mode': 'stx',
+            },
+        },
+    },
+    'layout': {
+        'style_prefix': 'layout_default_',
+        'rows': [
+            [{'widget_id': 'title'},
+                ],
+            [{'widget_id': 'description'},
+                ],
+            ],
+        },
+    }
+
+
+glossary_layout = {
+    'widgets': {
+        'title': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['title'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_glossary_title_label_edit',
+                'label': '',
+                'description': 'Glossary title',
+                'css_class': 'dtitle',
+                'is_required': 1,
+                'display_width': 40,
+                'size_max': 72,
+            },
+        },
+        'description': {
+            'type': 'TextArea Widget',
+            'data': {
+                'fields': ['description'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_glossary_description_label_edit',
+                'label': '',
+                'description': 'Glossary description',
+                'css_class': 'ddescription',
+                'width': 40,
+                'height': 5,
+                'render_mode': 'stx',
+            },
+        },
+        'display_all': {
+            'type': 'Int Widget',
+            'data': {
+                'fields': ['display_all'],
+                'is_required': 0,
+                'is_i18n': 0,
+                'label_edit': 'cpsdoc_glossary_dispall_label_edit',
+                'label': '',
+                'hidden_view': 1,
+                'hidden_edit': 0,
+                'hidden_empty': 0,
+                'description': '',
+                'css_class': '',
+                'is_limited': 1,
+                'min_value': 0,
+                'max_value': 1,
+                'thousands_separator': '',
+            },
+        },
+    },
+    'layout': {
+        'style_prefix': 'layout_glossary_',
+        'rows': [
+            [{'widget_id': 'title'},
+                ],
+            [{'widget_id': 'description'},
+                ],
+            [{'widget_id': 'display_all'},
+                ],
+            ],
+        },
+    }
+
+
+#########################################################
 # NEWS LAYOUT
 #########################################################
 news_layout = {
@@ -877,6 +988,8 @@ layouts = {}
 
 layouts['faq'] = faq_layout
 layouts['faqitem'] = faqitem_layout
+layouts['glossary'] = glossary_layout
+layouts['glossaryitem'] = glossaryitem_layout
 layouts['news'] = news_layout
 layouts['file'] = file_layout
 layouts['event'] = event_layout
