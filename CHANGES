@@ -19,9 +19,11 @@ New features:
 - Defining a default subject vocabulary used in DublinCore Subject
 - DublinCore indexed by default: Title, Description, Subject, Rights, Contributors, Creator
 - common layout removing date and theme widget/schema
+- #236: editable layout integration (ala flexible document)
+- #104: Find how to deal with compound widgets
 Bug fixes:
 ~~~~~~~~~~
--
+- #234: Title not filled when creating a document
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - A document is fully initialized with initial values before being inserted
