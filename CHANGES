@@ -4,6 +4,7 @@ ZODB Requires:
 New features:
 ~~~~~~~~~~~~~
 - adding Link document
+- adding Image document
 Bug fixes:
 ~~~~~~~~~~
 -
