@@ -33,28 +33,38 @@ metadata_schema = {
     'Creator': {'type': 'CPS String Field',
                 'data': {'is_indexed': 1,
                          'write_ignore_storage': 1,}},
+    'Source': {'type': 'CPS String Field', 'data': {'is_indexed': 1}},
+    'Relation': {'type': 'CPS String Field', 'data': {'is_indexed': 1}},
+    'Coverage': {'type': 'CPS String Field', 'data': {'is_indexed': 1}},
     }
 
 
 # common schema
 common_schema = {
+    'allow_discussion': {
+        'type': 'CPS Int Field',
+        'data': {
+            'default_expression_str': 'python:0',
+            'is_indexed': 0,
+            },
+        },
     'preview': {
         'type': 'CPS Image Field',
         'data': {
-                'default_expression_str': 'nothing',
-                'is_indexed': 0,
+            'default_expression_str': 'nothing',
+            'is_indexed': 0,
             },
         },
     }
 
 # flexible content schema
 flexible_content_schema = {
+    # the schema will be created inside the document
     }
 
 #########################################################
 # FAQ SHEMA
 #########################################################
-
 faqitem_schema = {
     'content': {
         'type': 'CPS String Field',
@@ -65,16 +75,9 @@ faqitem_schema = {
         },
     }
 
-faq_schema = {
-    }
-
 #########################################################
 # Glossary SCHEMA
 #########################################################
-
-glossaryitem_schema = {
-    }
-
 glossary_schema = {
     'display_all': {
         'type': 'CPS Int Field',
@@ -85,25 +88,12 @@ glossary_schema = {
         },
     }
 
-########################################################
-# DUMMY FORM SCHEMA
-########################################################
-
-dummy_form_schema = {
-    }
 
 ########################################################
 # News SCHEMA
 ########################################################
 
 news_schema = {
-    'preview': {
-        'type': 'CPS Image Field',
-        'data': {
-                'default_expression_str': 'nothing',
-                'is_indexed': 0,
-            },
-        },
     'attachedFile': {
         'type': 'CPS File Field',
         'data': {
@@ -139,20 +129,6 @@ news_schema = {
         'data': {
                 'default_expression_str': 'nothing',
                 'is_indexed': 0,
-            },
-        },
-    'theme': {
-        'type': 'CPS String Field',
-        'data': {
-                'default_expression_str': 'string:',
-                'is_indexed': 1,
-            },
-        },
-    'longTitle': {
-        'type': 'CPS String Field',
-        'data': {
-                'default_expression_str': 'string:',
-                'is_indexed': 1,
             },
         },
     'content': {
@@ -265,17 +241,6 @@ link_schema = {
 ########################################################
 # Image SCHEMA
 ########################################################
-
-image_schema = {
-    'preview': {
-        'type': 'CPS Image Field',
-        'data': {
-                'default_expression_str': 'nothing',
-                'is_indexed': 0,
-            },
-        },
-    }
-
 imagegallery_schema = {
     'preview_width': {
         'type': 'CPS Int Field',
@@ -320,18 +285,13 @@ schemas = {}
 schemas['metadata'] = metadata_schema
 schemas['common'] = common_schema
 schemas['flexible_content'] = flexible_content_schema
-
-schemas['faq'] = faq_schema
 schemas['faqitem'] = faqitem_schema
 schemas['glossary'] = glossary_schema
-schemas['glossaryitem'] = glossaryitem_schema
 schemas['news'] = news_schema
 schemas['file'] = file_schema
 schemas['event'] = event_schema
 schemas['link'] = link_schema
-schemas['image'] = image_schema
 schemas['imagegallery'] = imagegallery_schema
-#schemas['dummy_form'] = dummy_form_schema
 
 cschemas = context.getCustomDocumentSchemas()
 

@@ -1,12 +1,19 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
--
+- update your getCustomDocumentType
+  schemas list should begin with 'metadata', 'common'
+- if your Layout start with Title and Description with the same label
+  than in the common Layout remove those 2 widgets from your layout
+  and define your layouts in the getCustomDocumentType using
+  the 'common' layout
 New features:
 ~~~~~~~~~~~~~
+- refactoring all document definition using common schema/layout
+- adding DublinCore Metadata: Coverage, Source and Relation
 - edition and metadata edition heading display portal type icon
 Bug fixes:
 ~~~~~~~~~~
--
+- no way to enable/disable discussion on a document
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- 
+-

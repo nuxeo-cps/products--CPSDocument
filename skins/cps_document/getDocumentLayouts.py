@@ -149,8 +149,64 @@ metadata_layout = {
                 'size_max': 50,
             },
         },
-
-    },
+        'Source': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Source'],
+                'is_i18n': 1,
+                'label_edit': 'label_source',
+                'label': 'label_source',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
+        'Coverage': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Coverage'],
+                'is_i18n': 1,
+                'label_edit': 'label_coverage',
+                'label': 'label_coverage',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
+        'Relation': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Relation'],
+                'is_i18n': 1,
+                'label_edit': 'label_relation',
+                'label': 'label_relation',
+                'display_width': 72,
+                'size_max': 100,
+            },
+        },
+        'preview': {
+            'type': 'Image Widget',
+            'data': {
+                'fields': ['preview'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_preview_label_edit',
+                'label': '',
+                'hidden_layout_modes': ['view'],
+                'deletable': 1,
+                'display_width': 64,
+                'display_height': 64,
+                'size_max': 1024*1024,
+                },
+            },
+        'allow_discussion': {
+            'type': 'Boolean Widget',
+            'data': {
+                'fields': ['allow_discussion'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_allow_discussion_label_edit',
+                'label': '',
+                'hidden_layout_modes': ['view'],
+                },
+            },
+        },
     'layout': {
         'style_prefix': 'layout_metadata_',
         'ncols': 2,
@@ -159,6 +215,9 @@ metadata_layout = {
             [{'ncols': 2, 'widget_id': 'Description'},],
             [{'widget_id': 'Subject'},
              {'widget_id': 'Rights'},],
+            [{'widget_id': 'Source'},
+             {'widget_id': 'Coverage'},],
+            [{'ncols': 2, 'widget_id': 'Relation'},],
             [{'widget_id': 'EffectiveDate'},
              {'widget_id': 'ExpirationDate'},],
             [{'widget_id': 'Contributors'},
@@ -167,6 +226,8 @@ metadata_layout = {
              {'widget_id': 'Language'},],
             [{'widget_id': 'CreationDate'},
              {'widget_id': 'ModificationDate'},],
+            [{'ncols': 2, 'widget_id': 'preview'},],
+            [{'ncols': 2, 'widget_id': 'allow_discussion'},],
             ],
         },
     }
@@ -202,21 +263,6 @@ common_layout = {
                 'render_format': 'text',
             },
         },
-        'preview': {
-            'type': 'Image Widget',
-            'data': {
-                'title': 'cpsdoc_preview_title',
-                'fields': ['preview'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_preview_label_edit',
-                'label': '',
-                'hidden_layout_modes': ['view'],
-                'deletable': 1,
-                'display_width': 64,
-                'display_height': 64,
-                'size_max': 1024*1024,
-            },
-        },
 
     },
     'layout': {
@@ -224,7 +270,6 @@ common_layout = {
         'rows': [
             [{'widget_id': 'Title'},],
             [{'widget_id': 'Description'},],
-            [{'widget_id': 'preview'},]
             ],
         },
     }
@@ -363,6 +408,13 @@ flexible_content_layout = {
 #########################################################
 # FAQ LAYOUT
 #########################################################
+faq_layout = {
+    'widgets': {},
+    'layout': {
+        'style_prefix': 'layout_faq_',
+        'rows': [[],],
+        }
+    }
 
 faqitem_layout = {
     'widgets': {
@@ -376,8 +428,8 @@ faqitem_layout = {
                 'description': 'FAQ short question for section display',
                 'css_class': 'dtitle',
                 'is_required': 1,
-                'display_width': 40,
-                'size_max': 72,
+                'display_width': 72,
+                'size_max': 100,
             },
         },
         'Description': {
@@ -389,7 +441,7 @@ faqitem_layout = {
                 'label': '',
                 'description': 'FAQ long question',
                 'css_class': 'ddescription',
-                'width': 40,
+                'width': 72,
                 'height': 5,
                 'render_mode': 'text',
             },
@@ -404,7 +456,7 @@ faqitem_layout = {
                 'description': 'FAQ answer',
                 'css_class': 'dcontent',
                 'is_required': 1,
-                'width': 40,
+                'width': 72,
                 'height': 5,
             },
         },
@@ -423,47 +475,6 @@ faqitem_layout = {
     }
 
 
-faq_layout = {
-    'widgets': {
-        'Title': {
-            'type': 'String Widget',
-            'data': {
-                'fields': ['Title'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_title_label_edit',
-                'label': '',
-                'description': 'FAQ title',
-                'css_class': 'dtitle',
-                'is_required': 1,
-                'display_width': 40,
-                'size_max': 72,
-            },
-        },
-        'Description': {
-            'type': 'TextArea Widget',
-            'data': {
-                'fields': ['Description'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_description_label_edit',
-                'label': '',
-                'description': 'FAQ description',
-                'css_class': 'ddescription',
-                'width': 40,
-                'height': 5,
-                'render_mode': 'text',
-            },
-        },
-    },
-    'layout': {
-        'style_prefix': 'layout_faq_',
-        'rows': [
-            [{'widget_id': 'Title'},
-                ],
-            [{'widget_id': 'Description'},
-                ],
-            ],
-        },
-    }
 
 #########################################################
 # Glossary LAYOUT
@@ -481,8 +492,8 @@ glossaryitem_layout = {
                 'description': 'Glossary entry key',
                 'css_class': 'dtitle',
                 'is_required': 1,
-                'display_width': 40,
-                'size_max': 72,
+                'display_width': 72,
+                'size_max': 100,
             },
         },
         'Description': {
@@ -494,7 +505,7 @@ glossaryitem_layout = {
                 'label': '',
                 'description': 'Glossary entry explanation',
                 'css_class': 'ddescription',
-                'width': 40,
+                'width': 72,
                 'height': 5,
                 'render_mode': 'text',
             },
@@ -524,8 +535,8 @@ glossary_layout = {
                 'description': 'Glossary title',
                 'css_class': 'dtitle',
                 'is_required': 1,
-                'display_width': 40,
-                'size_max': 72,
+                'display_width': 72,
+                'size_max': 100,
             },
         },
         'Description': {
@@ -537,7 +548,7 @@ glossary_layout = {
                 'label': '',
                 'description': 'Glossary description',
                 'css_class': 'ddescription',
-                'width': 40,
+                'width': 72,
                 'height': 5,
                 'render_mode': 'text',
             },
@@ -579,19 +590,15 @@ glossary_layout = {
 #########################################################
 news_layout = {
     'widgets': {
-        'preview': {
-            'type': 'Image Widget',
+        'Subject': {
+            'type': 'MultiSelect Widget',
             'data': {
-                'fields': ['preview'],
+                'fields': ['Subject'],
                 'is_i18n': 1,
-                'label_edit': 'cpsdoc_News_preview_label_edit',
-                'label': '',
-                'hidden_layout_modes': ['view'],
-                'description': 'cpsdoc_News_preview_description',
-                'deletable': 1,
-                'display_width': 200,
-                'display_height': 150,
-                'size_max': 1024*1024,
+                'label_edit': 'label_subject',
+                'label': 'label_subject',
+                'vocabulary': 'subject_voc',
+                'size': 5,
             },
         },
         'attachedFile': {
@@ -623,19 +630,6 @@ news_layout = {
                 'time_setting': 1,
             },
         },
-        'Title': {
-            'type': 'String Widget',
-            'data': {
-                'fields': ['Title'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_News_title_label_edit',
-                'label': '',
-                'description': 'cpsdoc_News_title_description',
-                'css_class': 'dtitle',
-                'display_width': 30,
-                'size_max': 72,
-            },
-        },
         'photo': {
             'type': 'Image Widget',
             'data': {
@@ -650,46 +644,6 @@ news_layout = {
                 'size_max': 2*1024*1024,
             },
         },
-        'Description': {
-            'type': 'TextArea Widget',
-            'data': {
-                'fields': ['Description'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_News_description_label_edit',
-                'label': '',
-                'description': 'cpsdoc_News_description_description',
-                'css_class': 'ddescription',
-                'width': 60,
-                'height': 5,
-                'render_mode': 'text',
-            },
-        },
-        'theme': {
-            'type': 'Select Widget',
-            'data': {
-                'fields': ['theme'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_theme_label_edit',
-                'label': '',
-                'hidden_layout_modes': ['view'],
-                'description': 'cpsdoc_theme_description',
-                'vocabulary': 'dummy_voc',
-            },
-        },
-        'longTitle': {
-            'type': 'String Widget',
-            'data': {
-                'fields': ['longTitle'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_News_longTitle_label_edit',
-                'label': '',
-                'description': 'cpsdoc_News_longTitle_description',
-                'css_class': 'dtitle2',
-                'is_required': 1,
-                'display_width': 72,
-                'size_max': 72,
-            },
-        },
         'content': {
             'type': 'Rich Text Editor Widget',
             'data': {
@@ -699,8 +653,8 @@ news_layout = {
                 'label': '',
                 'description': 'cpsdoc_News_content_description',
                 'css_class': 'dcontent',
-                'width': 40,
-                'height': 25,
+                'width': 72,
+                'height': 15,
             },
         },
     },
@@ -708,22 +662,11 @@ news_layout = {
         'style_prefix': 'layout_default_',
         'ncols': 2,
         'rows': [
-            [{'ncols': 1, 'widget_id': 'theme'},
-             ],
-            [{'ncols': 1, 'widget_id': 'Title'},
-             {'ncols': 1, 'widget_id': 'newsdate'},
-             ],
-            [{'ncols': 1, 'widget_id': 'longTitle'},
-             ],
-            [{'ncols': 1, 'widget_id': 'Description'},
-             ],
-            [{'ncols': 1, 'widget_id': 'photo'},
-             {'ncols': 1, 'widget_id': 'preview'},
-             ],
-            [{'ncols': 1, 'widget_id': 'content'},
-             ],
-            [{'ncols': 1, 'widget_id': 'attachedFile'},
-             ],
+            [{'widget_id': 'newsdate'},
+             {'widget_id': 'Subject'}],
+            [{'ncols': 2, 'widget_id': 'photo'},],
+            [{'ncols': 2, 'widget_id': 'content'},],
+            [{'ncols': 2, 'widget_id': 'attachedFile'},],
             ],
         },
     }
@@ -735,32 +678,6 @@ news_layout = {
 
 file_layout = {
     'widgets': {
-        'Title': {
-            'type': 'String Widget',
-            'data': {
-                'fields': ['Title'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_title_label_edit',
-                'css_class': 'dtitle',
-                'is_required': 1,
-                'display_width': 60,
-                'size_max': 72,
-            },
-        },
-        'Description': {
-            'type': 'TextArea Widget',
-            'data': {
-                'fields': ['Description'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_description_label_edit',
-                'description': '',
-                'css_class': 'ddescription',
-                'is_required': 0,
-                'width': 60,
-                'height': 5,
-                'render_mode': 'text',
-            },
-        },
         'file': {
             'type': 'AttachedFile Widget',
             'data': {
@@ -781,10 +698,6 @@ file_layout = {
         'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
-            [{'ncols': 1, 'widget_id': 'Title'},
-                ],
-            [{'ncols': 1, 'widget_id': 'Description'},
-                ],
             [{'ncols': 1, 'widget_id': 'file'},
                 ],
             ],
@@ -796,32 +709,6 @@ file_layout = {
 #########################################################
 event_layout = {
     'widgets': {
-        'Title': {
-            'type': 'String Widget',
-            'data': {
-                'fields': ['Title'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_title_label_edit',
-                'css_class': 'dtitle',
-                'is_required': 1,
-                'display_width': 60,
-                'size_max': 72,
-            },
-        },
-        'Description': {
-            'type': 'TextArea Widget',
-            'data': {
-                'fields': ['Description'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_description_label_edit',
-                'description': '',
-                'css_class': 'ddescription',
-                'is_required': 0,
-                'width': 60,
-                'height': 5,
-                'render_mode': 'text',
-            },
-        },
         'start': {
             'type': 'DateTime Widget',
             'data': {
@@ -857,8 +744,8 @@ event_layout = {
                 'label': '',
                 'description': 'cpsdoc_Event_content_description',
                 'css_class': 'dcontent',
-                'width': 40,
-                'height': 25,
+                'width': 72,
+                'height': 15,
             },
         },
         'attachedFile': {
@@ -881,8 +768,6 @@ event_layout = {
         'style_prefix': 'layout_event_',
         'ncols': 2,
         'rows': [
-            [{'ncols': 1, 'widget_id': 'Title'},],
-            [{'ncols': 1, 'widget_id': 'Description'},],
             [{'ncols': 1, 'widget_id': 'start'},
              {'ncols': 1, 'widget_id': 'end'},],
             [{'ncols': 1, 'widget_id': 'content'},],
@@ -956,32 +841,6 @@ link_layout = {
 
 image_layout = {
     'widgets': {
-        'Title': {
-            'type': 'String Widget',
-            'data': {
-                'fields': ['Title'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_title_label_edit',
-                'css_class': 'dtitle',
-                'is_required': 1,
-                'display_width': 60,
-                'size_max': 72,
-            },
-        },
-        'Description': {
-            'type': 'TextArea Widget',
-            'data': {
-                'fields': ['Description'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_description_label_edit',
-                'description': '',
-                'css_class': 'ddescription',
-                'is_required': 0,
-                'width': 60,
-                'height': 5,
-                'render_mode': 'text',
-            },
-        },
         'preview': {
             'type': 'Image Widget',
             'data': {
@@ -998,10 +857,6 @@ image_layout = {
     'layout': {
         'style_prefix': 'layout_default_',
         'rows': [
-            [{'widget_id': 'Title'},
-                ],
-            [{'widget_id': 'Description'},
-                ],
             [{'widget_id': 'preview'},
                 ],
             ],
@@ -1010,34 +865,6 @@ image_layout = {
 
 imagegallery_layout = {
     'widgets': {
-        'Title': {
-            'type': 'String Widget',
-            'data': {
-                'fields': ['Title'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_title_label_edit',
-                'label': '',
-                'description': 'Image Gallery title',
-                'css_class': 'dtitle',
-                'is_required': 1,
-                'display_width': 40,
-                'size_max': 72,
-            },
-        },
-        'Description': {
-            'type': 'TextArea Widget',
-            'data': {
-                'fields': ['Description'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_description_label_edit',
-                'label': '',
-                'description': 'Image Gallery description',
-                'css_class': 'ddescription',
-                'width': 40,
-                'height': 5,
-                'render_mode': 'text',
-            },
-        },
         'preview_width': {
             'type': 'Int Widget',
             'data': {
@@ -1111,10 +938,6 @@ imagegallery_layout = {
         'style_prefix': 'layout_imagegallery_',
         'ncols': 2,
         'rows': [
-            [{'widget_id': 'Title'},
-                ],
-            [{'widget_id': 'Description'},
-                ],
             [{'widget_id': 'preview_width'},
              { 'widget_id': 'preview_height'},
                 ],
@@ -1126,54 +949,6 @@ imagegallery_layout = {
     }
 
 
-
-#########################################################
-# DUMMY FORM LAYOUT
-#########################################################
-
-dummy_form_layout = {
-    'widgets': {
-        'Title': {
-            'type': 'String Widget',
-            'data': {
-                'fields': ['Title'],
-                'is_i18n': 0,
-                'label_edit': 'Dummy Form title field',
-                'label': '',
-                'description': 'Title for a dummy form',
-                'css_class': 'title',
-                'is_required': 0,
-                'display_width': 20,
-                'size_max': 0,
-            },
-        },
-        'Description': {
-            'type': 'TextArea Widget',
-            'data': {
-                'fields': ['Description'],
-                'is_i18n': 0,
-                'label_edit': 'Dummy Form Description field',
-                'label': '',
-                'description': 'Description field for a dummy form',
-                'css_class': 'description',
-                'is_required': 0,
-                'width': 60,
-                'height': 5,
-                'render_mode': 'text',
-            },
-        },
-    },
-    'layout': {
-        'style_prefix': 'layout_form_',
-        'ncols': 1,
-        'rows': [
-            [{'ncols': 1, 'widget_id': 'Title'},
-                ],
-            [{'ncols': 1, 'widget_id': 'Description'},
-                ],
-            ],
-        },
-    }
 
 ###########################################################
 # END OF LAYOUTS DEFINITIONS
@@ -1187,7 +962,6 @@ layouts = {}
 layouts['metadata'] = metadata_layout
 layouts['common'] = common_layout
 layouts['flexible_content'] = flexible_content_layout
-
 layouts['faq'] = faq_layout
 layouts['faqitem'] = faqitem_layout
 layouts['glossary'] = glossary_layout
@@ -1198,7 +972,6 @@ layouts['event'] = event_layout
 layouts['link'] = link_layout
 layouts['image'] = image_layout
 layouts['imagegallery'] = imagegallery_layout
-#layouts['dummy_form'] = dummy_form_layout
 
 clayouts = context.getCustomDocumentLayouts()
 
