@@ -143,10 +143,6 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
     _properties = (
         FactoryTypeInformation._properties + (
-        {'id':'cps_is_searchable', 'type': 'boolean', 'mode':'w',
-         'label':'CPS Searchable'},
-        {'id':'cps_proxy_type', 'type': 'selection', 'mode':'w',
-         'select_variable': 'getProxyTypesAllowed', 'label':'CPS Proxytype'},
         {'id': 'schemas', 'type': 'tokens', 'mode': 'w',
          'label': 'Schemas'},
         {'id': 'layouts', 'type': 'tokens', 'mode': 'w',
