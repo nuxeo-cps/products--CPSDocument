@@ -122,28 +122,22 @@ glossary_schema = {
 # News SCHEMA
 ########################################################
 
-news_schema = {
-    'attachedFile': {
-        'type': 'CPS File Field',
-        'data': {
-                'default_expr': 'nothing',
-                'is_searchabletext': 0,
-                'suffix_html': '_html',
-                'suffix_text': '_text',
-            },
-        },
-    'attachedFile_html': {
-        'type': 'CPS File Field',
-        'data': {
-                'default_expr': 'nothing',
-                'is_searchabletext': 0,
-            },
-        },
-    'attachedFile_text': {
+newsitem_schema = {
+    'content': {
         'type': 'CPS String Field',
         'data': {
                 'default_expr': 'string:',
                 'is_searchabletext': 1,
+            },
+        },
+    'content_position': {
+        'type': 'CPS String Field',
+        'data': {
+            },
+        },
+    'content_format': {
+        'type': 'CPS String Field',
+        'data': {
             },
         },
     'photo': {
@@ -170,23 +164,6 @@ news_schema = {
         'data': {
                 'default_expr': 'nothing',
                 'is_searchabletext': 0,
-            },
-        },
-    'content': {
-        'type': 'CPS String Field',
-        'data': {
-                'default_expr': 'string:',
-                'is_searchabletext': 1,
-            },
-        },
-    'content_position': {
-        'type': 'CPS String Field',
-        'data': {
-            },
-        },
-    'content_format': {
-        'type': 'CPS String Field',
-        'data': {
             },
         },
     }
@@ -397,7 +374,7 @@ schemas['flexible_content'] = flexible_content_schema
 schemas['folder'] = folder_schema
 schemas['faqitem'] = faqitem_schema
 schemas['glossary'] = glossary_schema
-schemas['news'] = news_schema
+schemas['newsitem'] = newsitem_schema
 schemas['file'] = file_schema
 schemas['event'] = event_schema
 schemas['imagegallery'] = imagegallery_schema

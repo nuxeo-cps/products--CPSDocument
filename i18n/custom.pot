@@ -139,38 +139,17 @@ msgstr ""
 msgid "portal_type_GlossaryItem_description"
 msgstr ""
 
-# News
-msgid "portal_type_News_title"
+# NewsItem
+msgid "portal_type_NewsItem_title"
 msgstr ""
 
-msgid "portal_type_News_description"
+msgid "portal_type_NewsItem_description"
 msgstr ""
 
-msgid "cpsdoc_News_newsdate_label_edit"
+msgid "cpsdoc_NewsItem_label_related_subjects"
 msgstr ""
 
-msgid "cpsdoc_News_title_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_description_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_longTitle_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_content_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_image_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_preview_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_attachedFile_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_attachedFile_label"
+msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr ""
 
 # Press Release
@@ -207,7 +186,7 @@ msgid "cpsdoc_Event_end_label_edit"
 msgstr ""
 
 msgid "cpsdoc_Event_content_label_edit"
-msgstr "" 
+msgstr ""
 
 # Link
 msgid "portal_type_Link_title"

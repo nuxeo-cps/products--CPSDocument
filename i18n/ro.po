@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2005-01-28 10:00default\n"
+"POT-Creation-Date: 2005-03-07 11:33default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -19,6 +19,11 @@ msgstr ""
 "Preferred-encodings: utf-8 latin1\n"
 "Domain: default\n"
 
+#.   <h1 condition="creation">
+#.         Create a document of type
+#.         ${type_name (tal content="type_info/Title" define="type_name request/type_name;
+#.                           type_info python:here.portal_types[type_name]")}
+#.       </h1>
 #.   <h1 condition="creation">
 #.         Create a document of type
 #.         ${type_name}
@@ -64,6 +69,11 @@ msgstr ""
 #: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr ""
+
+#.   <h2>Import ZIP File</h2>
+#: from ../skins/cps_document/cpsdocument_import_zip_form.pt
+msgid "cpsdoc_import_zip_title"
+msgstr "Import de documente din arhiva ZIP"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -127,19 +137,25 @@ msgstr ""
 msgid "i18_key-help_for_this_field"
 msgstr ""
 
-#.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
+#.   <block content="widget/label_edit" condition="widget/is_i18n">label</block>
 #.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
+#.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
+#: ../skins/cps_document/layout_newsitem_view.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_view.pt
-#: ../skins/cps_document_cmf/layout_lib_div_view.pt
-#: ../skins/cps_document_cmf/layout_metadata_view.pt
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt 1 more references
 msgid "label"
 msgstr ""
+
+#.   <block>ZIP File</block>
+#: from ../skins/cps_document/cpsdocument_import_zip_form.pt
+msgid "label_zip_file"
+msgstr "Fisier ZIP"
 
 #.   <a href="." attributes="href python:'/'+ 
 #.                                       itemList[pos + 1].absolute_url(relative=1) + 
@@ -286,38 +302,18 @@ msgstr ""
 msgid "portal_type_GlossaryItem_description"
 msgstr ""
 
-# News
-msgid "portal_type_News_title"
+# NewsItem
+msgid "portal_type_NewsItem_title"
 msgstr ""
 
-msgid "portal_type_News_description"
+msgid "portal_type_NewsItem_description"
 msgstr ""
 
-msgid "cpsdoc_News_newsdate_label_edit"
-msgstr ""
+#, fuzzy
+msgid "cpsdoc_NewsItem_label_related_subjects"
+msgstr "Box de cautare"
 
-msgid "cpsdoc_News_title_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_description_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_longTitle_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_content_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_image_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_preview_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_attachedFile_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_attachedFile_label"
+msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr ""
 
 # Press Release
@@ -461,8 +457,18 @@ msgstr ""
 msgid "label_portal_type"
 msgstr ""
 
-msgid "label_zip_file"
-msgstr "Fisier ZIP"
+#, fuzzy
+#~ msgid "cpsdoc_NewsItem_title_label_edit"
+#~ msgstr "Box de cautare"
 
-msgid "cpsdoc_import_zip_title"
-msgstr "Import de documente din arhiva ZIP"
+#, fuzzy
+#~ msgid "cpsdoc_NewsItem_description_label_edit"
+#~ msgstr "Box de cautare"
+
+#, fuzzy
+#~ msgid "cpsdoc_NewsItem_longTitle_label_edit"
+#~ msgstr "Box de cautare"
+
+#, fuzzy
+#~ msgid "cpsdoc_NewsItem_content_label_edit"
+#~ msgstr "Box de cautare"

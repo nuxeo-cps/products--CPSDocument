@@ -33,8 +33,18 @@ def upgradeNewsDocuments(self):
         proxy = brain.getObject()
         LOG(log_key, DEBUG, "checking %s..." % proxy.title_or_id)
         document = proxy.getEditableContent()
+
+        # Changing the newsdate field into the use of EffectiveDate instead
         newsdate = getattr(document, 'newsdate', None)
         if newsdate is not None:
             LOG(log_key, DEBUG, "updating -> %s <-" % proxy.title_or_id)
             document.edit(EffectiveDate = newsdate)
             delattr(document, 'newsdate')
+
+        # Changing the document type of the proxy and the object from "News" to
+        # "News "Item".
+        proxy.portal_type = 'News Item'
+        document.portal_type = 'News Item'
+
+    # Delete the old "News" document type
+    # XXX: TODO

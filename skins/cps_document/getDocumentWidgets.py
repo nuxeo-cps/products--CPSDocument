@@ -160,6 +160,10 @@ widgets = {
             'type': 'CPS Document Language Select Widget Type',
             'data': {},
             },
+        'Subject Widget': {
+            'type': 'CPS Subject Widget Type',
+            'data': {},
+            },
         'Search Widget': {
             'type': 'CPS Compound Widget Type',
             'data': {

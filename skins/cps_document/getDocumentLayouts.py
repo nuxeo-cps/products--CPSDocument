@@ -574,37 +574,8 @@ glossary_layout = {
 #########################################################
 # NEWS LAYOUT
 #########################################################
-news_start_layout = {
+newsitem_start_layout = {
     'widgets': {
-        'attachedFile': {
-            'type': 'AttachedFile Widget',
-            'data': {
-                'fields': ['attachedFile',
-                           'attachedFile_text',
-                           'attachedFile_html'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_News_attachedFile_label_edit',
-                'label': 'cpsdoc_News_attachedFile_label',
-                'hidden_empty': 1,
-                'description': 'cpsdoc_News_attachedFile_description',
-                'deletable': 1,
-                'size_max': 4*1024*1024,
-            },
-        },
-        'newsdate': {
-            'type': 'DateTime Widget',
-            'data': {
-                'fields': ['EffectiveDate'],
-                'is_i18n': 1,
-                'is_required': 1,
-                'label_edit': 'cpsdoc_News_newsdate_label_edit',
-                'label': '',
-                'description': 'cpsdoc_News_newsdate_description',
-                'css_class': 'newsdate',
-                'view_format': 'medium',
-                'time_setting': 1,
-            },
-        },
         'textimage': {
             'type': 'Text Image Widget',
             'data': {
@@ -649,15 +620,13 @@ news_start_layout = {
     'layout': {
         'style_prefix': 'layout_default_',
         'rows': [
-            [{'widget_id': 'newsdate'}],
             [{'widget_id': 'textimage'}],
-            [{'widget_id': 'attachedFile'}],
             ],
         },
     }
 
-# flexible part of the news
-news_flexible_layout = {
+# flexible part of a newsitem
+newsitem_flexible_layout = {
     'widgets': {
         'link': {
             'type': 'Link Widget',
@@ -701,9 +670,23 @@ news_flexible_layout = {
                 'height': 3,
             },
         },
+        'attachedFile': {
+            'type': 'AttachedFile Widget',
+            'data': {
+                'title': 'cpsdoc_flex_attachedFile_title',
+                'fields': ['?'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_flex_attachedFile_label_edit',
+                'label': 'cpsdoc_flex_attachedFile_label',
+                'css_class': 'ddefault',
+                'hidden_empty': 1,
+                'deletable': 1,
+                'size_max': 4*1024*1024,
+                },
+            },
     },
     'layout': {
-        'flexible_widgets': ['link'],
+        'flexible_widgets': ['link', 'attachedFile'],
         'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
@@ -712,17 +695,31 @@ news_flexible_layout = {
         },
     }
 
-news_end_layout = {
+newsitem_end_layout = {
     'widgets': {
         'Subject': {
-            'type': 'MultiSelect Widget',
+            'type': 'Subject Widget',
             'data': {
                 'fields': ['Subject'],
                 'is_i18n': 1,
-                'label_edit': 'label_subject',
-                'label': 'label_subject',
+                'label': 'cpsdoc_NewsItem_label_related_subjects',
+                'label_edit': 'cpsdoc_NewsItem_label_related_subjects',
                 'vocabulary': 'subject_voc',
                 'size': 5,
+                'hidden_empty': 1,
+            },
+        },
+        'publication_date': {
+            'type': 'DateTime Widget',
+            'data': {
+                'fields': ['EffectiveDate'],
+                'is_i18n': 1,
+                'is_required': 1,
+                'label_edit': 'cpsdoc_NewsItem_label_publication_date',
+                'label': '',
+                'css_class': 'publicationDate',
+                'view_format': 'medium',
+                'time_setting': 1,
             },
         },
     },
@@ -731,6 +728,7 @@ news_end_layout = {
         'ncols': 2,
         'rows': [
             [{'widget_id': 'Subject'}],
+            [{'widget_id': 'publication_date'}],
             ],
         },
     }
@@ -772,10 +770,10 @@ file_layout = {
                            'file_text',
                            'file_html'],
                 'is_i18n': 1,
-                'label_edit': 'cpsdoc_News_attachedFile_label_edit',
-                'label': 'cpsdoc_News_attachedFile_label',
+                'label_edit': 'cpsdoc_attachedFile_label_edit',
+                'label': 'cpsdoc_attachedFile_label',
                 'hidden_empty': 1,
-                'description': 'cpsdoc_News_attachedFile_description',
+                'description': 'cpsdoc_attachedFile_description',
                 'deletable': 1,
                 'size_max': 4*1024*1024,
             },
@@ -860,10 +858,10 @@ event_layout = {
                            'attachedFile_text',
                            'attachedFile_html'],
                 'is_i18n': 1,
-                'label_edit': 'cpsdoc_News_attachedFile_label_edit',
-                'label': 'cpsdoc_News_attachedFile_label',
+                'label_edit': 'cpsdoc_attachedFile_label_edit',
+                'label': 'cpsdoc_attachedFile_label',
                 'hidden_empty': 1,
-                'description': 'cpsdoc_News_attachedFile_description',
+                'description': 'cpsdoc_attachedFile_description',
                 'deletable': 1,
                 'size_max': 3*1024*1024,
             },
@@ -1268,9 +1266,9 @@ layouts['faq'] = faq_layout
 layouts['faqitem'] = faqitem_layout
 layouts['glossary'] = glossary_layout
 layouts['glossaryitem'] = glossaryitem_layout
-layouts['news_start'] = news_start_layout
-layouts['news_flexible'] = news_flexible_layout
-layouts['news_end'] = news_end_layout
+layouts['newsitem_start'] = newsitem_start_layout
+layouts['newsitem_flexible'] = newsitem_flexible_layout
+layouts['newsitem_end'] = newsitem_end_layout
 layouts['file'] = file_layout
 layouts['event'] = event_layout
 layouts['link'] = link_layout

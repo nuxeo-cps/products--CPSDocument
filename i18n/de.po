@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-28 10:00default\n"
+"POT-Creation-Date: 2005-03-07 11:33default\n"
 "PO-Revision-Date: 2004-07-12 18:00+0200\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@dhl.com>\n"
 "Language-Team: francais <rheinland@dzug.org>\n"
@@ -16,6 +16,11 @@ msgstr ""
 "Domain: default\n"
 "Language-Code: de\n"
 
+#.   <h1 condition="creation">
+#.         Create a document of type
+#.         ${type_name (tal content="type_info/Title" define="type_name request/type_name;
+#.                           type_info python:here.portal_types[type_name]")}
+#.       </h1>
 #.   <h1 condition="creation">
 #.         Create a document of type
 #.         ${type_name}
@@ -61,6 +66,11 @@ msgstr " - "
 #: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "Von  "
+
+#.   <h2>Import ZIP File</h2>
+#: from ../skins/cps_document/cpsdocument_import_zip_form.pt
+msgid "cpsdoc_import_zip_title"
+msgstr ""
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -125,19 +135,25 @@ msgstr ""
 msgid "i18_key-help_for_this_field"
 msgstr ""
 
-#.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
+#.   <block content="widget/label_edit" condition="widget/is_i18n">label</block>
 #.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
+#.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
+#: ../skins/cps_document/layout_newsitem_view.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_view.pt
-#: ../skins/cps_document_cmf/layout_lib_div_view.pt
-#: ../skins/cps_document_cmf/layout_metadata_view.pt
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt 1 more references
 msgid "label"
 msgstr "Label"
+
+#.   <block>ZIP File</block>
+#: from ../skins/cps_document/cpsdocument_import_zip_form.pt
+msgid "label_zip_file"
+msgstr ""
 
 #.   <a href="." attributes="href python:'/'+ 
 #.                                       itemList[pos + 1].absolute_url(relative=1) + 
@@ -289,39 +305,20 @@ msgstr "Glossar Eintrag"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Begriffdefinition (für Glossare)"
 
-msgid "portal_type_News_title"
+#, fuzzy
+msgid "portal_type_NewsItem_title"
 msgstr "Nachrichten oder Text Dokument"
 
-msgid "portal_type_News_description"
+#, fuzzy
+msgid "portal_type_NewsItem_description"
 msgstr "Ein normaler Text oder eine Nachricht"
 
-msgid "cpsdoc_News_newsdate_label_edit"
-msgstr "Datum:"
-
-msgid "cpsdoc_News_title_label_edit"
-msgstr "Kurz Titel: "
-
-msgid "cpsdoc_News_description_label_edit"
-msgstr "Beschreibung: "
-
-msgid "cpsdoc_News_longTitle_label_edit"
-msgstr "Lang Titel: "
-
-msgid "cpsdoc_News_content_label_edit"
-msgstr "Inhalt der Nachrichten: "
-
 #, fuzzy
-msgid "cpsdoc_News_image_label_edit"
+msgid "cpsdoc_NewsItem_label_related_subjects"
 msgstr "Kurz Titel: "
 
-msgid "cpsdoc_News_preview_label_edit"
-msgstr "Bild Vorabansicht: "
-
-msgid "cpsdoc_News_attachedFile_label_edit"
-msgstr "Anhaftende Datei: "
-
-msgid "cpsdoc_News_attachedFile_label"
-msgstr "Anhaftende Datei: "
+msgid "cpsdoc_NewsItem_label_publication_date"
+msgstr "Datum:"
 
 # default doc types
 #, fuzzy
@@ -472,11 +469,31 @@ msgstr "Beziehung zu einer verwandten Ressource."
 msgid "label_portal_type"
 msgstr "Ressourcen Typ"
 
-msgid "label_zip_file"
-msgstr ""
+#, fuzzy
+#~ msgid "cpsdoc_NewsItem_title_label_edit"
+#~ msgstr "Kurz Titel: "
 
-msgid "cpsdoc_import_zip_title"
-msgstr ""
+#, fuzzy
+#~ msgid "cpsdoc_NewsItem_description_label_edit"
+#~ msgstr "Beschreibung: "
+
+#, fuzzy
+#~ msgid "cpsdoc_NewsItem_longTitle_label_edit"
+#~ msgstr "Lang Titel: "
+
+#, fuzzy
+#~ msgid "cpsdoc_NewsItem_content_label_edit"
+#~ msgstr "Inhalt der Nachrichten: "
+
+#, fuzzy
+#~ msgid "cpsdoc_NewsItem_preview_label_edit"
+#~ msgstr "Bild Vorabansicht: "
+
+#~ msgid "cpsdoc_News_attachedFile_label_edit"
+#~ msgstr "Anhaftende Datei: "
+
+#~ msgid "cpsdoc_News_attachedFile_label"
+#~ msgstr "Anhaftende Datei: "
 
 #, fuzzy
 #~ msgid "cpsdoc_News_image_label"
