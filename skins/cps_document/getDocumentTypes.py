@@ -396,6 +396,11 @@ try:
     types.update(context.getCPSMailBoxerDocumentTypes())
 except AttributeError, e:
     pass
+try:
+    types.update(context.getCPSLocalFSDocumentTypes())
+except AttributeError, e:
+    pass
+
 
 if loadcustom:
     ctypes = context.getCustomDocumentTypes()
