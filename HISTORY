@@ -1,4 +1,26 @@
 *******************************************
+** CPSDocument V0.22.0 [R1 build 2004/06/28-13:14 by anahide]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- Modified the file schema to make it possible to have HTML previews with
+  images
+
+Bug fixes:
+~~~~~~~~~~
+- FlexibleTypeInformation.-flexibleDelSimpleWidgets()
+  In the flexible case : 
+  Delete from the object otherweise the same content appears
+  each time you wanna add the same kind of widget again.
+  Was the case with the attached file.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Add the translated attribute to *Select Widgets
+
+*******************************************
 ** CPSDocument V0.21.0 [R1 build 2004/06/14-07:59 by ben]
 
 Requires:
