@@ -872,6 +872,10 @@ image_layout = {
         },
     }
 
+#########################################################
+# IMAGE GALLERY LAYOUT
+#########################################################
+
 imagegallery_layout = {
     'widgets': {
         'preview_width': {
@@ -957,6 +961,53 @@ imagegallery_layout = {
         },
     }
 
+#########################################################
+# BOOK LAYOUT
+#########################################################
+
+book_layout = {
+    'widgets': {
+        'nb_items_per_summary_page': {
+            'type': 'Int Widget',
+            'data': {
+                'fields': ['nb_items_per_summary_page'],
+                'is_required': 1,
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_book_nb_summary_page_label_edit',
+                'label': '',
+                'hidden_layout_modes': ['view'],
+                'description': '',
+                'css_class': '',
+                'is_limited': 1,
+                'min_value': 0.0,
+                'max_value': 65536.0,
+                'thousands_separator': '',
+            },
+        },
+    },
+    'layout': {
+        'style_prefix': 'layout_book_',
+        'ncols': 1,
+        'rows': [[{'widget_id': 'nb_items_per_summary_page'},
+                  ],
+                 ],
+        }
+    }
+
+#########################################################
+# PAGE LAYOUT
+#########################################################
+
+page_layout = {
+    'widgets': {
+
+    },
+    'layout': {
+        'style_prefix': 'layout_page_',
+        'ncols': 1,
+        'rows': [],
+        }
+    }
 
 ###########################################################
 # END OF LAYOUTS DEFINITIONS
@@ -981,6 +1032,8 @@ layouts['event'] = event_layout
 layouts['link'] = link_layout
 layouts['image'] = image_layout
 layouts['imagegallery'] = imagegallery_layout
+layouts['book'] = book_layout
+layouts['page'] = page_layout
 
 # other products
 try:
