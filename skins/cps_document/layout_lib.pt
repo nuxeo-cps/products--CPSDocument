@@ -108,7 +108,7 @@
               tal:content="widget/help">This is the help for this field</span>
           </div>
           <tal:block condition="err">
-            <br><em style="color: red"
+            <br /><em style="color: red"
                   i18n:translate="" tal:content="err">err</em>
           </tal:block>
           <div style="float: right;" tal:condition="is_flexible">
@@ -153,7 +153,7 @@
    class="context"
    i18n:attributes="value">
 </div>
-<br><br>
+<br /><br />
 </tal:block>
 
 <tal:block condition="last_layout">
