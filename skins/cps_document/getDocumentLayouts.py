@@ -109,7 +109,7 @@ flexible_content_layout = {
                 'css_class': 'dcontent',
                 'width': 72,
                 'height': 15,
-                'render_mode': 'stx',
+                'render_format': 'stx',
                 'render_position': 'normal',
                 'configurable': 1,
                 },
