@@ -286,8 +286,8 @@ class CPSDocument(CPSDocumentMixin, PortalContent, PortalFolder,
     the schemas and layouts specified in the Types Tool.
     """
 
-    meta_type = "CPS Document"
-    portal_type = "CPS Document" # To ease testing.
+    meta_type = 'CPS Document'
+    portal_type = 'CPS Document' # To ease testing.
 
     __implements__ = (IDublinCore, IContentish, IDynamicType)
 
@@ -312,4 +312,5 @@ def addCPSDocument(container, id, REQUEST=None, **kw):
     ob = container._getOb(id)
     if REQUEST is not None:
         REQUEST.RESPONSE.redirect(ob.absolute_url()+'/manage_main')
-    return ob
+    else:
+        return ob
