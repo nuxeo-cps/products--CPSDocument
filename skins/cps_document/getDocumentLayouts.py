@@ -174,8 +174,8 @@ flexible_content_layout = {
         },
     },
     'layout': {
-        'allowed_widgets': ['content', 'link',
-                            'photo', 'attachedFile', 'preview'],
+        'allowed_widgets': ['content:4', 'link',
+                            'photo:3', 'attachedFile:4', 'preview:1'],
         'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
