@@ -1,4 +1,54 @@
 *******************************************
+** CPSDocument V0.5.0 [R1 build 2003/11/12-09:24 by ben]
+
+ZODB Requires:
+~~~~~~~~~~~~~~
+- updating getDocument* definition + run cpsdocument_installer
+  1/ Move 'layout_style_prefix' from getDocumentTypes.py:
+       ...
+     - 'layout_style_prefix': 'layout_XXX_',
+       ...
+     into: 'style_prefix' in getDocumentLayouts.py:
+       ...
+       'layout': {
+     +     'style_prefix': 'layout_XXX_',
+           'ncols': 1,
+       ...
+  2/ in getDocumentTypes.py, change:
+         'default_layout': 'xxx',
+     to:
+         'layouts': ['xxx'],
+
+  3/ in getDocumentLayouts.py, change:
+         'hidden_view': 1,
+     to:
+         'hidden_layout_modes': ['view'],
+  4/ in getDocumentLayout.py, replace:
+     render_mode with render_format
+New features:
+~~~~~~~~~~~~~
+- handle list of layouts vs single layout per ptype
+- no more editlayout mode, a layout is editable if flexible
+- Use refactored widgets with new hidden syntax.
+- New Flexible document
+- New folderish document faq, glossery, image gallery
+  XXX TOTO ep what's happen with previous faq doc ? how to upgrade ?
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Pass adapters to the datamodel, not schemas.
+- Renamed all layout-related modes to layout_mode.
+- Use new API for getLayoutData and pass it a chooser.
+- Simplified layout skin now that the layoutdata contains the rendered
+  widget and has hidden widgets removed.
+- Flexible documents can now have several layouts.
+- Style specification is now done on the layout itself.
+- Refactored to use correct validation and rendering.
+- no more layout_xxx_editlayout as editlayout is handle in edit mode
+
+*******************************************
 ** CPSDocument V0.4.1 [R1 build 2003-10/18-16:39 by anguenot]
 
 ZODB Requires:
