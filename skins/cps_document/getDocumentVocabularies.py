@@ -7,6 +7,7 @@ Please, follow the same pattern to add new ones.
 
 vocabularies = {
     'dummy_voc': {
+        'type': 'CPS Vocabulary',
         'data': {
             'dict': {
                 'news': "News",
