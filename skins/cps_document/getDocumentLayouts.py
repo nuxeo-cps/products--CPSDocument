@@ -122,6 +122,7 @@ flexible_content_layout = {
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_flex_attachedFile_label_edit',
                 'label': 'cpsdoc_flex_attachedFile_label',
+                'css_class': 'dnocol',
                 'hidden_empty': 1,
                 'deletable': 1,
                 'size_max': 3*1024*1024,
