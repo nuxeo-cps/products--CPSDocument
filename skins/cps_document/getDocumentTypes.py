@@ -60,7 +60,7 @@ faqitem_type = {
     'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
     'schemas': ['metadata', 'common', 'faqitem'],
-    'layouts': ['faqitem'],
+    'layouts': ['common', 'faqitem'],
     'flexible_layouts': [],
     'storage_methods': [],
     }
@@ -101,7 +101,7 @@ glossaryitem_type = {
     'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
     'schemas': ['metadata', 'common'],
-    'layouts': ['glossaryitem'],
+    'layouts': ['common', 'glossaryitem'],
     'flexible_layouts': [],
     'storage_methods': [],
     }

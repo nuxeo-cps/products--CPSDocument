@@ -10,7 +10,7 @@
   <tal:block tal:repeat="letter python:['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']">
     <a href="."
        tal:content="letter"
-       tal:attributes="href python:request.URL0+'?letter='+letter.lower()"></a>
+       tal:attributes="href python:'?letter='+letter.lower()"></a>
     <tal:block tal:condition="not: repeat/letter/end" tal:replace="string: | "/>
   </tal:block>
 </p>

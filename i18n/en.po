@@ -362,7 +362,7 @@ msgid "cpsdoc_imgallery_col_label_edit"
 msgstr "Number of Columns per Page"
 
 msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Display all entries if no letter is selected (0 or 1)"
+msgstr "Display all entries if no letter is selected"
 
 msgid "cpsdoc_glossary_term_label_edit"
 msgstr "Term"

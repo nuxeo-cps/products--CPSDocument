@@ -415,34 +415,6 @@ faq_layout = {
 
 faqitem_layout = {
     'widgets': {
-        'Title': {
-            'type': 'String Widget',
-            'data': {
-                'fields': ['Title'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_faq_question_label_edit',
-                'label': '',
-                'description': 'FAQ short question for section display',
-                'css_class': 'dtitle',
-                'is_required': 1,
-                'display_width': 72,
-                'size_max': 100,
-            },
-        },
-        'Description': {
-            'type': 'TextArea Widget',
-            'data': {
-                'fields': ['Description'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_faq_long_question_label_edit',
-                'label': '',
-                'description': 'FAQ long question',
-                'css_class': 'ddescription',
-                'width': 72,
-                'height': 5,
-                'render_mode': 'text',
-            },
-        },
         'content': {
             'type': 'TextArea Widget',
             'data': {
@@ -461,10 +433,6 @@ faqitem_layout = {
     'layout': {
         'style_prefix': 'layout_default_',
         'rows': [
-            [{'widget_id': 'Title'},
-                ],
-            [{'widget_id': 'Description'},
-                ],
             [{'widget_id': 'content'},
                 ],
             ],
@@ -479,79 +447,17 @@ faqitem_layout = {
 
 glossaryitem_layout = {
     'widgets': {
-        'Title': {
-            'type': 'String Widget',
-            'data': {
-                'fields': ['Title'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_glossary_term_label_edit',
-                'label': '',
-                'description': 'Glossary entry key',
-                'css_class': 'dtitle',
-                'is_required': 1,
-                'display_width': 72,
-                'size_max': 100,
-            },
         },
-        'Description': {
-            'type': 'TextArea Widget',
-            'data': {
-                'fields': ['Description'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_glossary_expl_label_edit',
-                'label': '',
-                'description': 'Glossary entry explanation',
-                'css_class': 'ddescription',
-                'width': 72,
-                'height': 5,
-                'render_mode': 'text',
-            },
-        },
-    },
     'layout': {
         'style_prefix': 'layout_default_',
-        'rows': [
-            [{'widget_id': 'Title'},
-                ],
-            [{'widget_id': 'Description'},
-                ],
-            ],
+        'rows': [[],],
         },
     }
 
-
 glossary_layout = {
     'widgets': {
-        'Title': {
-            'type': 'String Widget',
-            'data': {
-                'fields': ['Title'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_title_label_edit',
-                'label': '',
-                'description': 'Glossary title',
-                'css_class': 'dtitle',
-                'is_required': 1,
-                'display_width': 72,
-                'size_max': 100,
-            },
-        },
-        'Description': {
-            'type': 'TextArea Widget',
-            'data': {
-                'fields': ['Description'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_description_label_edit',
-                'label': '',
-                'description': 'Glossary description',
-                'css_class': 'ddescription',
-                'width': 72,
-                'height': 5,
-                'render_mode': 'text',
-            },
-        },
         'display_all': {
-            'type': 'Int Widget',
+            'type': 'Boolean Widget',
             'data': {
                 'fields': ['display_all'],
                 'is_required': 0,
@@ -561,20 +467,12 @@ glossary_layout = {
                 'hidden_layout_modes': ['view'],
                 'description': '',
                 'css_class': '',
-                'is_limited': 1,
-                'min_value': 0,
-                'max_value': 1,
-                'thousands_separator': '',
             },
         },
     },
     'layout': {
         'style_prefix': 'layout_glossary_',
         'rows': [
-            [{'widget_id': 'Title'},
-                ],
-            [{'widget_id': 'Description'},
-                ],
             [{'widget_id': 'display_all'},
                 ],
             ],

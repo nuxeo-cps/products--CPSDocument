@@ -9,6 +9,8 @@ New features:
 
 Bug fixes:
 ~~~~~~~~~~
+- Glossary and Glossary & FAQ items now fully use 'common' widgets and layout
+- Glossary's display_all option is now a Boolean Widget
 -
 
 New internal features:
