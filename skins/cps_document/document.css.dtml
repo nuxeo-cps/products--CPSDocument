@@ -59,11 +59,6 @@ div.dtitle6 {
 div.dcontent {
   font-size: 100%;
 }
-div.dcontent p:first-letter {
-  font-size: 2em;
-  padding: 0 0.5em 0 0;
-  float: left;
-}
 div.dcontent p {
   text-align: justify;
 }
