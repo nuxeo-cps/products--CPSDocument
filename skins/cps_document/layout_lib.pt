@@ -94,6 +94,7 @@
     </td>
   </tr>
 </table>
+<metal:block define-slot="additional_content" />
 <input type="submit" class="standalone" name="cpsdocument_edit_button"
   value="button_change" i18n:attributes="value">
 </form>
