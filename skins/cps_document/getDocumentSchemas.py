@@ -49,27 +49,6 @@ common_schema = {
 
 # flexible content schema
 flexible_content_schema = {
-    'content': {
-        'type': 'CPS String Field',
-        'data': {
-                'default_expression_str': 'string:',
-                'is_indexed': 1,
-            },
-        },
-    'content_format': {
-        'type': 'CPS String Field',
-        'data': {
-                'default_expression_str': 'string:',
-                'is_indexed': 0,
-            },
-        },
-    'content_position': {
-        'type': 'CPS String Field',
-        'data': {
-                'default_expression_str': 'string:',
-                'is_indexed': 0,
-            },
-        },
     }
 
 #########################################################
