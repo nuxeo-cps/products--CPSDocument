@@ -87,8 +87,22 @@
             <span tal:condition="not:widget/is_i18n"
               tal:content="widget/label_edit">label</span>
           </div>
+          <span class="tooltipControl"
+                tal:condition="widget/help"
+		tal:attributes="
+                onmouseover python:'toggleFormTooltip(true, \'%s\')' % (wid + '_help');
+                onmouseout python:'toggleFormTooltip(false, \'%s\')' % (wid + '_help');
+                "><img alt="" src="tooltip_icon.gif"></span>
           <div class="field">
             <div tal:replace="structure cell/widget_rendered"/>
+          </div>
+          <div class="tooltipArea"
+               tal:condition="widget/help"
+               tal:attributes="id python:wid + '_help'">
+            <span i18n:translate="" tal:condition="widget/is_i18n"
+              tal:content="widget/help">i18_key-help_for_this_field</span>
+            <span tal:condition="not:widget/is_i18n"
+              tal:content="widget/help">This is the help for this field</span>
           </div>
           <tal:block condition="err">
             <br><em style="color: red"
