@@ -231,6 +231,18 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         dm = kw.get('datamodel')
         if dm is None:
             dm = self.getDataModel(None, context=container)
+
+        # Initialize the dm with values within the kw. Take care : the values
+        # corresponding to arguments of functions such as container, id,
+        # type_name etc... won't work in here since they won't be taken within
+        # the kw.
+        # It is typically used this way :
+        # wftool.invokeFactoryFor(container, type_name, id, Title=xxx,
+        # Description=xxxx)
+        for k, v in kw.items():
+            if k in dm.keys():
+                dm.set(k, v)
+
         dm._setObject(ob) # proxy=None as we don't have it here
         dm._commit(check_perms=0)
 
