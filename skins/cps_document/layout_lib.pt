@@ -109,10 +109,10 @@
                id tooltip_id;
                onclick python:'showElement(false, \'%s\')' % tooltip_id;
             ">
-            <span i18n:translate="" tal:condition="widget/is_i18n"
-              tal:content="widget/help">i18_key-help_for_this_field</span>
-            <span tal:condition="not:widget/is_i18n"
-              tal:content="widget/help">This is the help for this field</span>
+            <tal:block i18n:translate="" tal:condition="widget/is_i18n"
+              tal:content="widget/help">i18_key-help_for_this_field</tal:block>
+            <tal:block tal:condition="not:widget/is_i18n"
+              tal:content="widget/help">This is the help for this field</tal:block>
           </div>
           <tal:block condition="err">
               <tal:block define="msg python:cpstrans(err, mapping=err_mapping)">
