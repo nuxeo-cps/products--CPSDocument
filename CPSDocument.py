@@ -145,8 +145,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
         dm = ti.getDataModel(self)
         strings = []
         # XXX uses internal knowledge of DataModel
-        for fieldid, field
-        in dm._fields.items():
+        for fieldid, field in dm._fields.items():
             if not field.is_searchabletext:
                 continue
             value = dm[fieldid]
