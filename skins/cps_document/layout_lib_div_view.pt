@@ -1,0 +1,27 @@
+<!-- a layout_lib macro -->
+<!-- $Id$ -->
+
+<!--
+&lt;!-- this layout doesn't take care of cell layout =============== --&gt;
+-->
+
+<metal:block define-macro="div_view"
+  tal:define="layout options/layout">
+  <tal:block repeat="row layout/rows">
+    <tal:block repeat="cell row">
+      <tal:block define="widget cell/widget">
+      <div tal:define="dm options/datastructure/getDataModel;"
+           tal:attributes="class cell/widget_css_class;
+                           id python:widget.widget_group_id or widget.getHtmlWidgetId()+'_widget';">
+        <tal:block condition="widget/label">
+          <span class="dlabel" i18n:translate="" tal:condition="widget/is_i18n"
+            tal:content="widget/label">label</span>
+          <span tal:condition="not:widget/is_i18n"
+            tal:content="widget/label">label</span>
+        </tal:block>
+        <tal:block replace="structure cell/widget_rendered" />
+      </div>
+      </tal:block>
+    </tal:block>
+  </tal:block>
+</metal:block>

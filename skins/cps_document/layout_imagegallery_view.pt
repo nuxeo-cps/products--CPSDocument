@@ -10,7 +10,7 @@
   </span>
   </a>
 </tal:block>
-<metal:block use-macro="here/layout_lib/macros/div_view" />
+<metal:block use-macro="here/layout_lib_div_view/macros/div_view" />
 <tal:block tal:define="proxy nocall:options/proxy;
                        items proxy/getFolderContents;
                        gallery python:here.getContent();
