@@ -5,6 +5,8 @@ Callback to create an empty object with the context as a container.
 
 Datamodel may be examined to create a suitable id.
 
+Call notifyCPSDocumentCreation script
+
 Returns the created object. In CPS, returns the proxy (which is
 the only thing the user sees).
 """
@@ -20,5 +22,7 @@ id = context.computeId(compute_from=id)
 
 context.invokeFactory(type_name, id, datamodel=datamodel)
 ob = getattr(context, id)
+
+context.notifyCPSDocumentCreation(ob=ob)
 
 return ob
