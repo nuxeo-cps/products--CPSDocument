@@ -22,6 +22,7 @@ from Products.CMFCore.DirectoryView import registerDirectory
 from Products.CMFCore.CMFCorePermissions import AddPortalContent
 
 import PatchTypesTool
+import FlexibleTypeInformation
 import CPSDocument
 
 contentClasses = (
@@ -44,3 +45,5 @@ def initialize(registrar):
         extra_constructors=contentConstructors,
         fti=fti,
     ).initialize(registrar)
+    utils.registerIcon(FlexibleTypeInformation.FlexibleTypeInformation,
+                       'flextypeinfo.png', globals())
