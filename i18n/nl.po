@@ -19,6 +19,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: KBabel 1.0.2\n"
+"Domain: default\n"
+"Language-Code: nl\n"
 
 #.   <h1 condition="creation">
 #.         Create a document of type
