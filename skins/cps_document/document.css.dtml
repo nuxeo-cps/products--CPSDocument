@@ -46,15 +46,28 @@ div.dflush {
 
 div.dcolleft {
   margin-right:51%;
+  display: inline;
   padding-bottom: 1em;
+  position: relative; /* IE peekaboo fix*/
 }
 
 div.dcolright {
   clear: right;
   float: right;
+  display: inline;
   width: 48%;
   padding-bottom: 1em;
 }
+* \*/
+* html div.dcolleft {
+	overflow: hidden;
+	o\verflow: visible;
+	width: 100%;
+	w\idth: auto;
+	he\ight: 1%;
+}
+/* */
+
 
 div.dtitle, div.dtitle2, div.dtitle3, div.dtitle4, div.dtitle5, div.dtitle6 {
   color: &dtml-headingFontColor;;
