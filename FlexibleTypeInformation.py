@@ -585,7 +585,7 @@ class FlexibleTypeInformation(TypeInformation):
     security.declarePrivate('editObject')
     def editObject(self, ob, mapping):
         """Modify the object's fields from a mapping."""
-        proxy = kw.get('proxy')
+        proxy = mapping.get('proxy') # XXX Use mapping to get it?
         dm = self.getDataModel(ob, proxy=proxy)
         for key, value in mapping.items():
             if dm.has_key(key):
