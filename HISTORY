@@ -1,4 +1,23 @@
 *******************************************
+** CPSDocument V0.19.0 [R1 build 2004/04/09-13:26 by ben]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- new portal types Book and Page
+- the language of a document is set to the UI locale
+  used by the creator
+- portal type displayed in metadata page
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- improve document.css
+
+*******************************************
 ** CPSDocument V0.18.1 [R1 build 2004/03/25-16:55 by ben]
 
 Requires:
