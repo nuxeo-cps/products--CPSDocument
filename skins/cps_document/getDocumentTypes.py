@@ -39,7 +39,7 @@ dummy_form_type = {
 
 types = {}
 
-types['FAQ '] = faq_type
+types['FAQ'] = faq_type
 types['News'] = news_type
 types['Dummy Form'] = dummy_form_type
 
