@@ -122,7 +122,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
         This method assumes that self really is editable, thus is not a
         frozen document.
         """
-        if REQUEST is not None:
+        if REQUEST:
             raise Unauthorized("Not accessible TTW.")
         kw.update(mapping)
         return self.getTypeInfo().editObject(self, kw, proxy=proxy)
@@ -205,7 +205,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
     security.declareProtected(View, 'getAdditionalContentInfo')
     def getAdditionalContentInfo(self, proxy):
-        """ Return a dictonary used in getContentInfo """
+        """Return a dictonary used in getContentInfo."""
         infos = {}
         doc = aq_base(self)
 
@@ -349,6 +349,6 @@ def addCPSDocument(container, id, REQUEST=None, **kw):
     """
     ob = CPSDocument(id, **kw)
     container._setObject(id, ob)
-    if REQUEST is not None:
+    if REQUEST:
         ob = container._getOb(id)
         REQUEST.RESPONSE.redirect(ob.absolute_url()+'/manage_main')

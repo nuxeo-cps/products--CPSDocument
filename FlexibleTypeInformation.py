@@ -179,7 +179,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
     security.declarePublic('getProxyRolesAllowed')
     def getProxyTypesAllowed(self):
-        """ return the list of allowed portal types strings """
+        """Return the list of allowed portal types strings."""
         return ['', 'document', 'folder', 'folderishdocument']
 
     #
@@ -493,8 +493,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         layout.setLayoutDefinition(layoutdef)
         return
 
-    security.declarePrivate('getSchemas')
-    def getSchemas(self, ob=None):
+    security.declarePrivate('_listSchemas')
+    def _listSchemas(self, ob=None):
         """Get the schemas for our type.
 
         Takes into account flexible schemas from ob.
@@ -521,7 +521,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     security.declarePrivate('getDataModel')
     def getDataModel(self, ob, proxy=None, context=None):
         """Get the datamodel for an object of our type."""
-        schemas = self.getSchemas(ob)
+        schemas = self._listSchemas(ob)
         adapters = []
         for schema in schemas:
             if schema.id == 'metadata':
@@ -552,8 +552,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                              % (layout_id, self.getId()))
         return layout
 
-    security.declarePrivate('getLayouts')
-    def getLayouts(self, layout_id=None, ob=None):
+    security.declarePrivate('_listLayouts')
+    def _listLayouts(self, layout_id=None, ob=None):
         """Get the layout list for our type.
 
         Takes into account flexible layouts from ob.
@@ -584,7 +584,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         Returns a list of layout_structures.
         """
-        layouts = self.getLayouts(layout_id=layout_id, ob=ob)
+        layouts = self._listLayouts(layout_id=layout_id, ob=ob)
         for layout in layouts:
             layout.prepareLayoutWidgets(datastructure)
         if request is not None:
