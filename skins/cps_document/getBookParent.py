@@ -5,10 +5,13 @@
 # or, who knows in the future, in a deeper hierarchy in a book
 
 def getParent(object):
-    if object.portal_type not in ('Book'):
-        return getParent(object.aq_parent)
-    else:
-        return object
+    try:
+        if object.portal_type not in ('Book'):
+	    return getParent(object.aq_parent)
+        else:
+	    return object
+    except:
+	return object
 
 
 parent = context.aq_inner
