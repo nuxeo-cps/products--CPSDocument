@@ -120,7 +120,7 @@ news_schema = {
             },
         },
     'theme': {
-        'type': 'CPS String List Field',
+        'type': 'CPS String Field',
         'data': {
                 'default': '',
                 'is_indexed': 1,
