@@ -206,7 +206,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
         for f in summary_fields:
             if hasattr(aq_base(self), f):
                 summary += getattr(self, f)
-                if len(summary) > max_len:
+                if len(summary) > SUMMARY_MAX_LEN:
                     summary = summary[:SUMMARY_MAX_LEN] + '...'
                     break
         if summary:
