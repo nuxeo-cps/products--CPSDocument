@@ -1,4 +1,22 @@
 *******************************************
+** CPSDocument V0.27.2 [R1 build 2004/10/06-11:51 by madarche]
+
+Requires:
+~~~~~~~~~
+- CPSSchemas >= 0.31.5
+- CPSInstaller >= 0.13.0
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- Fixed _compute_size() so that it can handle fields with Unicode value.
+- Fixed English translation consistency for several labels.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Added the "edit online" action for the File document type.
+
+*******************************************
 ** CPSDocument V0.27.1 [R1 build 2004/09/15-15:11 by madarche]
 
 Requires:

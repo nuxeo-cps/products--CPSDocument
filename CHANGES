@@ -6,8 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- Fixed _compute_size() so that it can handle fields with Unicode value.
-- Fixed English translation consistency for several labels.
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
