@@ -198,9 +198,9 @@ class CPSDocumentMixin(ExtensionClass.Base):
     # CPSDefault integration
     #
     security.declarePrivate('postCommitHook')
-    def postCommitHook(self):
+    def postCommitHook(self, datamodel=None):
         # this is called just after the dm commit
-        self._size = self._compute_size()
+        self._size = self._compute_size(datamodel=datamodel)
 
 
     security.declareProtected(View, 'getAdditionalContentInfo')
@@ -237,11 +237,14 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
 
     security.declarePrivate('_compute_size')
-    def _compute_size(self):
+    def _compute_size(self, datamodel=None):
         # XXX: this needs some explanations
         # For instance, what is the 'size' of an empty object ?
         size = 0
-        dm = self.getTypeInfo().getDataModel(self)
+        if datamodel is None:
+            dm = self.getTypeInfo().getDataModel(self)
+        else:
+            dm = datamodel
         # XXX uses internal knowledge of DataModel
         for fieldid, field in dm._fields.items():
             try:
@@ -336,5 +339,9 @@ def addCPSDocument(container, id, REQUEST=None, **kw):
     ob = CPSDocument(id, **kw)
     container._setObject(id, ob)
     ob = container._getOb(id)
+    datamodel = kw.get('datamodel')
+    if datamodel is not None:
+        datamodel._setObject(ob) # proxy=None as we don't have it here
+        datamodel._commit(check_perms=0)
     if REQUEST is not None:
         REQUEST.RESPONSE.redirect(ob.absolute_url()+'/manage_main')
