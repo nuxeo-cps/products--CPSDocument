@@ -4,6 +4,7 @@ ZODB Requires:
 New features:
 ~~~~~~~~~~~~~
 - New Metadata view using CPS Layout/Schema replacing ugly metadata_edit_form for CPSDocument
+  this fix #215 "metadata effective and expire should use date widget"
 - user with View permission on a document is now able to view document metadata
 - Document view display 'Created by xxx, last modified ....' at the end
 - Defining a default subject vocabulary used in DublinCore Subject
