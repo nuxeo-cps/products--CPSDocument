@@ -17,7 +17,6 @@ faq_layout = {
                     'data': {
                         'fields': ['title'],
                         'title': 'FAQ short question',
-                        'title_msgid': 'FAQ short question',
                         'description': 'FAQ short question for section display',
                         'css_class': 'title',
                         'display_width': 20,
@@ -29,7 +28,6 @@ faq_layout = {
                     'data': {
                         'fields': ['description'],
                         'title': 'FAQ answer resume',
-                        'title_msgid': 'FAQ answer resume',
                         'description': 'FAQ answer resume for section display',
                         'css_class': 'description',
                         'width': 40,
@@ -42,7 +40,6 @@ faq_layout = {
                     'data': {
                         'fields': ['question'],
                         'title': 'FAQ question',
-                        'title_msgid': 'FAQ question',
                         'description': 'FAQ full question',
                         'css_class': 'title',
                         'width': 40,
@@ -55,7 +52,6 @@ faq_layout = {
                     'data': {
                         'fields': ['answer'],
                         'title': 'FAQ answer',
-                        'title_msgid': 'FAQ answer',
                         'description': 'FAQ full answer',
                         'css_class': 'stx',
                         'width': 40,
@@ -89,7 +85,6 @@ dummy_form_layout = {
                     'data': {
                         'fields': ['title'],
                         'title': 'Dummy Form title field',
-                        'title_msgid': 'dummy_form_title_field',
                         'description': 'Title for a dummy form',
                         'css_class': 'title',
                         'display_width': 20,
@@ -101,7 +96,6 @@ dummy_form_layout = {
                     'data': {
                         'fields': ['description'],
                         'title': 'Dummy Form Description field',
-                        'title_msgid': 'dummy_form_description_field',
                         'description': 'Description field for a dummy form',
                         'css_class': 'description',
                         'width': 40,
@@ -132,7 +126,7 @@ news_layout = {
                     'data': {
                         'fields': ['title'],
                         'is_i18n': 1,
-                        'title': 'cpsdoc_News_title_title',
+                        'label_edit': 'cpsdoc_News_title_label_edit',
                         'description': 'cpsdoc_News_title_description',
                         'css_class': 'dtitle',
                         'display_width': 20,
@@ -144,12 +138,22 @@ news_layout = {
                     'data': {
                         'fields': ['longTitle'],
                         'is_i18n': 1,
-                        'title': 'cpsdoc_News_longTitle_title',
+                        'label_edit': 'cpsdoc_News_longTitle_label_edit',
                         'description': 'cpsdoc_News_longTitle_description',
                         'css_class': 'dtitle2',
                         'display_width': 50,
                         'display_maxwidth': 0,
-                        'allow_empty': 0,
+                        'is_required': 1,
+                        },
+                    },
+                'theme': {
+                    'type': 'Select Widget',
+                    'data': {
+                        'fields': ['theme'],
+                        'label_edit': 'Theme',
+                        'description': 'Theme desc',
+                        'css_class': '',
+                        'vocabulary': 'dummy_voc',
                         },
                     },
                 'description': {
@@ -157,7 +161,7 @@ news_layout = {
                     'data': {
                         'fields': ['description'],
                         'is_i18n': 1,
-                        'title': 'cpsdoc_News_description_title',
+                        'label_edit': 'cpsdoc_News_description_label_edit',
                         'description': 'cpsdoc_News_description_description',
                         'css_class': 'ddescription',
                         'width': 40,
@@ -170,11 +174,11 @@ news_layout = {
                     'data': {
                         'fields': ['newsdate'],
                         'is_i18n': 1,
-                        'title': 'cpsdoc_News_newsdate_title',
-                        'title_view': 'cpsdoc_News_newsdate_title_view',
+                        'label_edit': 'cpsdoc_News_newsdate_label_edit',
+                        'label': 'cpsdoc_News_newsdate_label',
                         'description': 'cpsdoc_News_newsdate_description',
                         'css_class': 'dtitle5 dright',
-                        'allow_none': 1,
+                        'is_required': 1,
                         'view_format': '%d/%m/%Y',
                         'view_format_none': '-',
 
@@ -185,7 +189,7 @@ news_layout = {
                     'data': {
                         'fields': ['content'],
                         'is_i18n': 1,
-                        'title': 'cpsdoc_News_content_title',
+                        'label_edit': 'cpsdoc_News_content_label_edit',
                         'description': 'cpsdoc_News_content_description',
                         'css_class': 'dcontent',
                         'width': 40,
@@ -198,7 +202,7 @@ news_layout = {
                     'data': {
                         'fields': ['photo'],
                         'is_i18n': 1,
-                        'title': 'cpsdoc_News_photo_title',
+                        'label_edit': 'cpsdoc_News_photo_label_edit',
                         'description': 'cpsdoc_News_photo_description',
                         'css_class': 'dleft',
                         'deletable': 1,
@@ -212,7 +216,7 @@ news_layout = {
                     'data': {
                         'fields': ['preview'],
                         'is_i18n': 1,
-                        'title': 'cpsdoc_News_preview_title',
+                        'label_edit': 'cpsdoc_News_preview_label_edit',
                         'description': 'cpsdoc_News_preview_description',
                         'css_class': '',
                         'deletable': 1,
@@ -227,14 +231,15 @@ news_layout = {
                     'data': {
                         'fields': ['attachedFile'],
                         'is_i18n': 1,
-                        'title': 'cpsdoc_News_attachedFile_title',
-                        'title_view': 'cpsdoc_News_attachedFile_title_view',
+                        'label_edit': 'cpsdoc_News_attachedFile_label_edit',
+                        'label': 'cpsdoc_News_attachedFile_label',
                         'description': 'cpsdoc_News_attachedFile_description',
                         'css_class': '',
                         'deletable': 1,
                         'display_width': 200,
                         'display_height': 150,
                         'maxsize': 1024*1024,
+                        'hidden_empty': 1,
                         },
                     },
                 },
@@ -243,6 +248,7 @@ news_layout = {
                 'rows': [[{'ncols': 1, 'widget_id': 'title'},
                           {'ncols': 1, 'widget_id': 'newsdate'},],
                          [{'ncols': 1, 'widget_id': 'longTitle'},],
+                         [{'ncols': 1, 'widget_id': 'theme'},],
                          [{'ncols': 1, 'widget_id': 'description'},],
                          [{'ncols': 1, 'widget_id': 'photo'},
                           {'ncols': 1, 'widget_id': 'preview'},],
