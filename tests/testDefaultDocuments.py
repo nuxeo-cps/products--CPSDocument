@@ -38,8 +38,17 @@ def randomText(max_len=10):
 
 class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     def afterSetUp(self):
-        self.login('root')
-        self.ws = self.portal.workspaces
+        try:
+            self.login('root')
+        except AttributeError:
+            # CMF
+            uf = self.portal.acl_users
+            uf._doAddUser('root', '', ['Manager'], [])
+            self.login('root')
+        try:
+            self.ws = self.portal.workspaces
+        except AttributeError:
+            self.ws = self.portal
         self.document_schemas = self.portal.getDocumentSchemas()
         self.document_types = self.portal.getDocumentTypes()
         # getFolderContents check SESSION to get user display choice
@@ -54,28 +63,41 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             if doc_type in ('Section',):
                 continue
             doc_id = doc_type.lower()
-            self.ws.invokeFactory(doc_type, doc_id)
-            proxy = getattr(self.ws, doc_id)
-            doc = proxy.getContent()
 
-            self._testInterfaces(doc)
-            self._testDefaultAttributes(doc)
+            try:
+                self.ws.invokeFactory(doc_type, doc_id)
+            except:
+                # Can't be caught properly in here.
+                # raise 'ValueError', 'No such content type: %s' % type_name
+                # from the TypesTool
+                # in the CMF version there's no Workspace content type
+                if doc_type == 'Workspace':
+                    break
+            else:
+                proxy = getattr(self.ws, doc_id)
+                try:
+                    doc = proxy.getContent()
+                except AttributeError:
+                    doc = proxy
 
-            # XXX: should be 0 for an empty object, right?
-            self.assert_(doc.get_size() >= 0)
+                self._testInterfaces(doc)
+                self._testDefaultAttributes(doc)
 
-            self.assertEquals(doc.getAdditionalContentInfo(proxy), {})
+                # XXX: should be 0 for an empty object, right?
+                self.assert_(doc.get_size() >= 0)
 
-            # Rendering / default view test (on the proxy)
-            self._testRendering(doc, proxy=proxy)
-            self._testMetadataRendering(doc, proxy=proxy)
-            self._testEditRendering(doc, proxy=proxy)
+                self.assertEquals(doc.getAdditionalContentInfo(proxy), {})
 
-            # Normal View
-            view = _getViewFor(proxy)
-            self.assert_(view())
+                # Rendering / default view test (on the proxy)
+                self._testRendering(doc, proxy=proxy)
+                self._testMetadataRendering(doc, proxy=proxy)
+                self._testEditRendering(doc, proxy=proxy)
 
-            self.assert_(self.isValidXML(doc.exportAsXML(proxy=proxy)))
+                # Normal View
+                view = _getViewFor(proxy)
+                self.assert_(view())
+
+                self.assert_(self.isValidXML(doc.exportAsXML(proxy=proxy)))
 
         # Now testing global view for the container
         self.assert_(self.ws.folder_view())
@@ -137,17 +159,25 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
 
     def testCreateDocumentsInWorkspacesRootThroughWFTool(self):
-        wft = self.portal.portal_workflow
-        for doc_type in self.document_types.keys():
-            if doc_type in ('Section', ):
-                continue
-            wft.invokeFactoryFor(self.ws, doc_type, doc_type.lower())
+        try:
+            wft = self.portal.portal_workflow
+            for doc_type in self.document_types.keys():
+                if doc_type in ('Section', ):
+                    continue
+                wft.invokeFactoryFor(self.ws, doc_type, doc_type.lower())
+        except AttributeError:
+            # CMF
+            pass
 
     def testMetadata(self):
         id = 'testMetadataNews'
         self.ws.invokeFactory('News', id)
         proxy = getattr(self.ws, id)
-        doc = proxy.getContent()
+        try:
+            doc = proxy.getContent()
+        except AttributeError:
+            doc = proxy
+
         metadata = ('Title', 'Description', 'Subject',
                     'Contributors', 'EffectiveDate', 'ExpirationDate',
                     'Rights', 'Relation', 'Source', 'Coverage')
@@ -186,7 +216,10 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         self.ws.invokeFactory('News', 'news')
         proxy = getattr(self.ws, 'news')
 
-        doc = self.ws.news.getContent()
+        try:
+            doc = self.ws.news.getContent()
+        except AttributeError:
+            doc = self.ws.news
 
         # Test doc has default values
         for prop_name in self.document_schemas['news'].keys():
@@ -213,7 +246,10 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         self.ws.invokeFactory('File', 'file1')
 
         proxy = self.ws.file1
-        doc = proxy.getContent()
+        try:
+            doc = proxy.getContent()
+        except AttributeError:
+            doc = proxy
 
         # Default value. Shouldn't it be '' ?
         self.assertEquals(doc.file, None)
@@ -270,12 +306,18 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     def testFileCalledFile(self):
         self.ws.invokeFactory('File', 'file')
         proxy = self.ws.file
-        doc = proxy.getContent()
+        try:
+            doc = proxy.getContent()
+        except AttributeError:
+            doc = proxy
         self.assertEquals(proxy['file'], None)
 
     def testFlexible(self):
         self.ws.invokeFactory('Flexible', 'flex')
-        doc = self.ws.flex.getContent()
+        try:
+            doc = self.ws.flex.getContent()
+        except AttributeError:
+            doc = self.ws.flex
         # XXX: now do something!
 
     def testDocumentSearch(self):
