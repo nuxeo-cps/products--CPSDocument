@@ -1,4 +1,20 @@
 *******************************************
+** CPSDocument V0.27.0 [R1 build 2004/09/10-09:35 by ben]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Big switch from GIF images to PNG images.
+
+*******************************************
 ** CPSDocument V0.26.0 [R1 build 2004/09/09-01:04 by anguenot]
 
 Requires:
