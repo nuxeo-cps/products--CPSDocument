@@ -1,4 +1,22 @@
 *******************************************
+** CPSDocument V0.20.1 [R1 build 2004/05/10-06:18 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- FAQ rendering and FAQ item schema and layout updated so that one can choose
+  between different render formats (e.g. text, html, etc.) for the answer of an
+  FAQ item. The FAQ Item now saves its content position and content format.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.20.0 [R1 build 2004/05/05-15:43 by madarche]
 
 Requires:
