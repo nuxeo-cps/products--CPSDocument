@@ -491,10 +491,6 @@ msgstr "Import massif de fichiers zip"
 #~ msgid "cpsdoc_News_newsdate_label"
 #~ msgstr "Date de parution : "
 
-#, fuzzy
-#~ msgid "cpsdoc_News_image_label"
-#~ msgstr "paru le "
-
 #~ msgid "cpsdoc_News_photo_label_edit"
 #~ msgstr "Photo : "
 
