@@ -30,18 +30,25 @@
 #         portal._setObject('cpsdocument_installer', cpsdocument_installer)
 #     pr(portal.cpsdocument_installer())
 
-from Products.CPSInstaller.CPSInstaller import CPSInstaller
+from Products.CPSInstaller.CPSInstaller import CPSInstaller, CMFInstaller
 
 SECTIONS_ID = 'sections'
 WORKSPACES_ID = 'workspaces'
-SKINS = { 'cps_document': 'Products/CPSDocument/skins/cps_document'}
+CPS_SKINS = { 'cps_document': 'Products/CPSDocument/skins/cps_document',
+              'cps_document_imgs':
+              'Products/CPSDocument/skins/cps_document_imgs'}
+CMF_SKINS = { 'cps_document': 'Products/CPSDocument/skins/cps_document_cmf',
+              'cps_utils_cmf': 'Products/CPSDocument/skins/cps_utils_cmf',
+              'cps_document_imgs':
+              'Products/CPSDocument/skins/cps_document_imgs'}
+
 
 class DocInstaller(CPSInstaller):
     product_name = 'CPSDocument'
 
     def install(self):
         self.log("Starting CPSDocument install")
-        self.verifySkins(SKINS)
+        self.verifySkins(CPS_SKINS)
         # This installer calls skins later, so we need to reset the skins now.
         self.resetSkinCache()
         self.installCPSSchemas()
@@ -137,22 +144,65 @@ class DocInstaller(CPSInstaller):
         self.verifyLayouts(self.portal.getDocumentLayouts())
         self.verifyVocabularies(self.portal.getDocumentVocabularies())
 
-
 class CMFInstaller(DocInstaller):
+    product_name = 'CPSDocument'
+
+    def install(self):
+        self.log("Starting CPSDocument install")
+        self.verifySkins(CMF_SKINS)
+        # This installer calls skins later, so we need to reset the skins now.
+        self.resetSkinCache()
+        self.setupLocalizer()
+        self.installCPSSchemas()
+        self.installDocumentSchemas()
+        self.setupPortalTypes()
+        self.checkLinkBackwardCompatibility()
+        self.setupTranslations()
+        self.finalize()
+        self.log("End of specific CPSDocument install")
+
     def setupPortalTypes(self):
         # setup portal_types
         self.log("Verifying portal types")
         self.flextypes = self.portal.getDocumentTypes()
+
+        # Rely on CPSDefault
+        del self.flextypes['Section']
+        del self.flextypes['Workspace']
         self.newptypes = self.flextypes.keys()
         self.ttool = self.portal.portal_types
+        self.verifyFlexibleTypes(self.flextypes)
 
-        #self.allowTypesInWorkspaces()
-        self.registerTypes()
-        #self.updatePortalTree()
-        #self.updateWorkflowAssociations()
+    def installDocumentSchemas(self):
+        self.verifyWidgets(self.portal.getDocumentWidgets())
+        self.verifySchemas(self.portal.getDocumentSchemas())
+        self.verifyLayouts(self.portal.getDocumentLayouts())
+        self.verifyVocabularies(self.portal.getDocumentVocabularies())
+
+    def setupLocalizer(self):
+        # Localizer
+        if not self.portalHas('Localizer'):
+            self.log(" Adding Localizer ")
+            languages = ('en',)
+            self.portal.manage_addProduct['Localizer'].manage_addLocalizer(
+                title='',
+                languages=languages)
+        self.verifyMessageCatalog('default','Default messages')
+
+        # translation_service
+        if not self.portalHas('translation_service'):
+            self.portal.manage_addProduct['TranslationService'].\
+                addPlacefulTranslationService(id='translation_service')
+            self.log("  translation_service tool added")
+            translation_service = self.portal.translation_service
+            translation_service.manage_setDomainInfo(path_0='Localizer/default')
+            self.log("   default domain set to Localizer/default")
 
 
-def install(self):
+###########################################################
+###########################################################
+
+def cpsinstall(self):
     installer = DocInstaller(self)
     installer.install()
     return installer.logResult()
@@ -161,3 +211,19 @@ def cmfinstall(self):
     installer = CMFInstaller(self)
     installer.install()
     return installer.logResult()
+
+def install(self):
+    """Dispatch to the good installer
+    CMF / CPS
+    """
+    is_cps3 = 0
+    try:
+        from Products.CPSDefault.Portal import CPSDefaultSite
+        is_cps3 = 1
+    except ImportError:
+        pass
+
+    if is_cps3:
+        return cpsinstall(self)
+    else:
+        return cmfinstall(self)
