@@ -5,6 +5,8 @@ edit layout and content if form submited
 
 return html renderer + psm
 """
+from Products.CMFCore.WorkflowCore import WorkflowException
+
 doc = context.getContent()
 
 do_notify = False
@@ -53,6 +55,11 @@ if do_notify:
 
     if in_workspace:
         pw = context.portal_workflow
-        pw.doActionFor(context, 'modify', comment='')
+        # try to fire 'modify' transition to add an entry in wf history
+        # if wf do not provide it, do nothing
+        try:
+            pw.doActionFor(context, 'modify', comment='')
+        except WorkflowException:
+            pass
 
 return res[0], psm
