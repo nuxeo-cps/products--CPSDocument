@@ -35,6 +35,9 @@ msgstr ""
 msgid "cpsdoc_preview_label_edit"
 msgstr ""
 
+msgid "cpsdoc_allow_discussion_label_edit"
+msgstr ""
+
 # flex content
 msgid "cpsdoc_flex_content_title"
 msgstr ""
