@@ -3,6 +3,10 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
+- Added script getDocumentRoots that specifies the document roots in the
+portal (like workspaces, sections). This script can be then passed as
+argument in CPSInstaller's verifyFlexibleTypes in order to automatically
+update local workflow associations at the time types are installed.
 - Made the documents use the 'metadata' cluster instead of the 'metadata'
   layout so that is easier to customize metadata page for a given portal type.
 - Portal type's export specify cps_workspace_wf and cps_sections_wf.
