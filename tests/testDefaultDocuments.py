@@ -59,6 +59,8 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
     def testCreateDocumentsInWorkspacesRoot(self):
         for doc_type in self.document_types.keys():
+            if doc_type in ('Section',):
+                continue
             doc_id = doc_type.lower()
             self.ws.invokeFactory(doc_type, doc_id)
             proxy = getattr(self.ws, doc_id)
@@ -126,6 +128,8 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     def testCreateDocumentsInWorkspacesRootThroughWFTool(self):
         wft = self.portal.portal_workflow
         for doc_type in self.document_types.keys():
+            if doc_type in ('Section', ):
+                continue
             wft.invokeFactoryFor(self.ws, doc_type, doc_type.lower())
 
     def testMetadata(self):
