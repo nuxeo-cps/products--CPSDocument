@@ -472,9 +472,8 @@ class FlexibleTypeInformation(TypeInformation):
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
         layout = layoutob.getLayoutData(ds)
-        # XXX datamodel=None is temporary backward compat.
         return self._renderLayoutStyle(ob, mode, layout=layout,
-                                       datastructure=ds, datamodel=None, **kw)
+                                       datastructure=ds, **kw)
 
     def _commitDM(self, dm):
         """Commits the dm.
@@ -521,10 +520,8 @@ class FlexibleTypeInformation(TypeInformation):
                 mode = errmode
         else:
             ok = 1
-        # XXX datamodel=None is temporary backward compat.
         return self._renderLayoutStyle(ob, mode, layout=layoutdata,
-                                       datastructure=ds, datamodel=None, ok=ok,
-                                       **kw)
+                                       datastructure=ds, ok=ok, **kw)
 
     security.declarePrivate('validateStoreRenderObject')
     def validateStoreRenderObject(self, ob, request=None, mode='edit',
@@ -572,9 +569,7 @@ class FlexibleTypeInformation(TypeInformation):
                     if method is None:
                         raise ValueError("No storage method %s" %
                                          method_name)
-                    # XXX datamodel=None is temporary backward compat.
-                    method(mode, layout=layoutdata,
-                           datastructure=ds, datamodel=None, **kw)
+                    method(mode, layout=layoutdata, datastructure=ds, **kw)
                 else:
                     ob = self._commitDM(dm)
                 mode = okmode
@@ -582,10 +577,8 @@ class FlexibleTypeInformation(TypeInformation):
                 mode = errmode
         else:
             ok = 1
-        # XXX datamodel=None is temporary backward compat.
         return self._renderLayoutStyle(ob, mode, layout=layoutdata,
-                                       datastructure=ds, datamodel=None, ok=ok,
-                                       **kw)
+                                       datastructure=ds, ok=ok, **kw)
 
     security.declarePrivate('editObject')
     def editObject(self, ob, mapping):
