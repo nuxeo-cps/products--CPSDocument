@@ -194,6 +194,8 @@ metadata_layout = {
                 'label': 'label_relation',
                 'display_width': 72,
                 'help': 'help_dc_relation',
+                # empty string to overload CPSUrlWidget default
+                'css_class': '',
             },
         },
         'preview': {
