@@ -11,3 +11,4 @@ Bug fixes:
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - splitting macros in progress
+- fix for #453 makes accessible javascript library
