@@ -614,11 +614,12 @@ class FlexibleTypeInformation(TypeInformation):
                 dm[key] = value
         self._commitDM(dm)
 
-    security.declarePublic('renderCreateObject')
-    def renderCreateObject(self, container, request=None, validate=1,
-                           mode='create', layout_id=None,
-                           create_callback=None, created_callback=None,
-                           **kw):
+    security.declarePublic('renderCreateObjectDetailed')
+    def renderCreateObjectDetailed(self, container, request=None, validate=1,
+                                   mode='create', layout_id=None,
+                                   create_callback=None,
+                                   created_callback=None,
+                                   **kw):
         """Render an object for creation, maybe create it.
 
         If validate is false, the object is rendered from default values
@@ -633,12 +634,18 @@ class FlexibleTypeInformation(TypeInformation):
             context of the container and with argument the type_name
             and the datamodel,
           - created_callback is called in the context of the object.
+
+        Returns (rendered, ok, datastructure):
+        - rendered is the rendered HTML (may also have redirected),
+        - ok is the result of the validation,
+        - datastructure is the resulting datastructure.
         """
         dm = self.getDataModel(None, context=container)
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id)
         # Prepare each widget, and so update the datastructure.
         layoutdata = layoutob.getLayoutData(ds)
+        rendered = None
         if not validate:
             # Initial display, datastructure contains defaults.
             if request is not None:
@@ -649,30 +656,42 @@ class FlexibleTypeInformation(TypeInformation):
             # Validate from request.
             ds.updateFromMapping(request.form)
             ok = layoutob.validateLayout(layoutdata, ds)
-            if ok:
-                create_func = getattr(container, create_callback, None)
-                if create_func is None:
-                    raise ValueError("Unknown create_callback %s" %
-                                     create_callback)
-                type_name = self.getId()
-                proxy = create_func(type_name, dm)
-                # XXX check proxy is accessible?
-                if hasattr(aq_base(proxy), 'getContent'):
-                    # Get CPS content object.
-                    ob = proxy.getContent()
-                else:
-                    ob = proxy
-                dm._setObject(ob, proxy=proxy)
-                self._commitDM(dm)
-                created_func = getattr(proxy, created_callback, None)
-                if created_func is None:
-                    raise ValueError("Unknown created_callback %s" %
-                                     created_callback)
-                return created_func() or ''
+        if validate and ok:
+            create_func = getattr(container, create_callback, None)
+            if create_func is None:
+                raise ValueError("Unknown create_callback %s" %
+                                 create_callback)
+            type_name = self.getId()
+            proxy = create_func(type_name, dm)
+            # XXX check proxy is accessible?
+            if hasattr(aq_base(proxy), 'getContent'):
+                # Get CPS content object.
+                ob = proxy.getContent()
+            else:
+                ob = proxy
+            dm._setObject(ob, proxy=proxy)
+            self._commitDM(dm)
+            created_func = getattr(proxy, created_callback, None)
+            if created_func is None:
+                raise ValueError("Unknown created_callback %s" %
+                                 created_callback)
+            rendered = created_func() or ''
+        else:
+            rendered = self._renderLayoutStyle(container, mode,
+                                               layout=layoutdata,
+                                               datastructure=ds, ok=ok,
+                                               **kw)
+        return rendered, ok, ds
 
-        return self._renderLayoutStyle(container, mode, layout=layoutdata,
-                                       datastructure=ds, ok=ok,
-                                       **kw)
+    security.declarePublic('renderCreateObject')
+    def renderCreateObject(self, *args, **kw):
+        """Render an object for creation, maybe create it.
 
+        Returns the rendered HTML.
+
+        See renderCreateObjectDetailed for more info.
+        """
+        rendered, ok, ds = self.renderCreateObjectDetailed(*args, **kw)
+        return rendered
 
 InitializeClass(FlexibleTypeInformation)
