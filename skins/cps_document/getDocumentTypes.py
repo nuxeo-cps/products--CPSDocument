@@ -348,6 +348,10 @@ try:
     types.update(context.getCPSCollectorTypes())
 except AttributeError:
     pass
+try:
+    types.update(context.getNuxMailBoxerDocumentTypes())
+except AttributeError, e:
+    pass
 
 if loadcustom:
     ctypes = context.getCustomDocumentTypes()
