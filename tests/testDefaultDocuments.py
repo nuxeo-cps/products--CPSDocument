@@ -1,3 +1,7 @@
+# TODO: 
+# - don't depend on getDocumentSchemas / getDocumentTypes but is there
+#   an API for that ?
+
 import os, sys
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
@@ -7,13 +11,10 @@ import unittest
 from Testing import ZopeTestCase
 import CPSDocumentTestCase
 
-#DEFAULT_DOCUMENT_TYPES = ['Flexible', 'FAQ', 'FAQitem', 'Glossary',
-#    'GlossaryItem', 'News', 'File', 'EventDoc', 'Link', 'Image',
-#    'ImageGallery']
-
 class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     def afterSetUp(self):
         self.login('root')
+        self.ws = self.portal.workspaces
         self.schemas = self.portal.getDocumentSchemas()
         self.types = self.portal.getDocumentTypes()
 
@@ -21,10 +22,9 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         self.logout()
 
     def testCreateDocumentsInWorkspacesRoot(self):
-        ws = self.portal.workspaces
         for doc_type in self.types.keys():
             doc_id = doc_type.lower()
-            ws.invokeFactory(doc_type, doc_id)
+            self.ws.invokeFactory(doc_type, doc_id)
             self._testDefaultAttributes(doc_id)
 
     def _testDefaultAttributes(self, doc_id):
@@ -37,6 +37,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         doc_type = doc.portal_type
         tt = self.portal.portal_types
         fti = tt[doc_type]
+
         for schema in fti.schemas:
             for prop_name in self.schemas[schema].keys():
                 self.assert_(hasattr(doc, prop_name))
@@ -44,17 +45,15 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     # XXX: this should work by fixing ZTC (add some methode to the
     # fake RESPONSE object)
     #def testCreateDocumentsInWorkspacesRootThroughWFTool(self):
-    #    ws = self.portal.workspaces
     #    wft = self.portal.portal_workflow
     #    for doc_type in DEFAULT_DOCUMENT_TYPES:
-    #        wft.invokeFactory(ws, doc_type, doc_type.lower())
+    #        wft.invokeFactory(self.ws, doc_type, doc_type.lower())
 
     def testNews(self):
-        ws = self.portal.workspaces
-        ws.invokeFactory('News', 'news')
+        self.ws.invokeFactory('News', 'news')
         # XXX: I don't get that part
 
-        doc = ws.news.getContent()
+        doc = self.ws.news.getContent()
         # XXX: you have to edit object before it has its default values.
         doc.edit()
 
@@ -63,6 +62,13 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             # XXX: Default values are not always as defined in
             # getDocumentSchemas(). I consider this as a bug.
             self.assert_(hasattr(doc, prop_name))
+
+    def testFlexible(self):
+        self.ws.invokeFactory('Flexible', 'flex')
+        doc = self.ws.flex.getContent()
+        doc.edit()
+
+        # XXX: what next?
 
 
 def test_suite():
