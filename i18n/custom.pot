@@ -125,5 +125,15 @@ msgstr ""
 msgid "cpsdoc_Link_label_edit"
 msgstr ""
 
+# Image
+msgid "portal_type_Image_title"
+msgstr ""
+
+msgid "portal_type_Image_description"
+msgstr ""
+
+msgid "cpsdoc_Image_label_edit"
+msgstr ""
+
 	
 

@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2003-10-07 10:49default\n"
-"PO-Revision-Date: 2003-10-07 10:50+0200\n"
+"POT-Creation-Date: 2003-10-07 15:10default\n"
+"PO-Revision-Date: 2003-10-07 15:12+0200\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -165,6 +165,16 @@ msgstr "An URL"
 
 msgid "cpsdoc_Link_label_edit"
 msgstr "Http link: "
+
+# default doc types
+msgid "portal_type_Image_title"
+msgstr "Image"
+
+msgid "portal_type_Image_description"
+msgstr "A picture"
+
+msgid "cpsdoc_Image_label_edit"
+msgstr "Image: "
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Theme"
