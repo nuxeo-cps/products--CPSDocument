@@ -76,6 +76,10 @@ widgets = {
             'type': 'CPS ExtendedSelect Widget Type',
             'data': {},
             },
+        'InternalLinks Widget': {
+            'type': 'CPS InternalLinks Widget Type',
+            'data': {},
+            },
         }
 
 cwidgets = context.getCustomDocumentWidgets()
