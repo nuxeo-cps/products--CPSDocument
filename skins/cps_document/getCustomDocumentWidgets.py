@@ -1,4 +1,3 @@
-## Script (Python) "getCustomDocumentWidgets"
 ##parameters=
 # $Id$
 """Return custom layouts types."""

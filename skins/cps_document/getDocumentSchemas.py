@@ -1,4 +1,3 @@
-## Script (Python) "getDocumentLayouts"
 ##parameters=
 #$Id$
 

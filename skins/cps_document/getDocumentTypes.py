@@ -1,4 +1,3 @@
-## Script (Python) "getDocumentTypes"
 ##parameters=
 #$Id$
 """
