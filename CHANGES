@@ -12,6 +12,6 @@ New internal features:
 - sf cosmit on document.css
 - Use faster and more readable condition on document actions.
 - updateWorkflowAssociations() now takes also into account the 'cps_section_wf'
-  attribute for updating .cps_workflow_configuration file in the sections folder.
-
-
+  attribute for updating .cps_workflow_configuration file in the sections
+  folder.
+- Use CPSDirectory instead of NuxMetaDirectories.
