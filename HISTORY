@@ -1,4 +1,45 @@
 *******************************************
+** CPSDocument V0.7.0 [R1 build 2003/12/10-17:20 by ben]
+
+ZODB Requires:
+~~~~~~~~~~~~~~
+- to update your custom documents:
+  in Schemas def:
+  	remove 'title' and 'description' fields, now they are define as Title and Description
+  	in the metadata schema
+  in the Layouts def:
+  	refer to Title and Description fields instead of title and description
+	rename all widgets named title to Title and description to Description
+  in the Types def:
+  	add 'metadata' schema to the schemas list for all your types
+  for example look at getDocument* 
+New features:
+~~~~~~~~~~~~~
+- New Metadata view using CPS Layout/Schema replacing ugly metadata_edit_form for CPSDocument
+  this fix #215 "metadata effective and expire should use date widget"
+- user with View permission on a document is now able to view document metadata
+- Document view display 'Created by xxx, last modified ....' at the end
+- Defining a default subject vocabulary used in DublinCore Subject
+- DublinCore indexed by default: Title, Description, Subject, Rights, Contributors, Creator
+- common layout removing date and theme widget/schema
+- #236: editable layout integration (ala flexible document)
+- #104: Find how to deal with compound widgets
+Bug fixes:
+~~~~~~~~~~
+- #234: Title not filled when creating a document
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- A document is fully initialized with initial values before being inserted
+  into the workflow.
+- no more title and description in schema def using metadata schema with Title and Description
+- refactoring cpsdocument_*.pt renaming few scripts like 
+  cpsdocument_create.py -> createCPSDocument
+- Link document rewrite using compound link widget same for Flexible doc
+  Link document is backward compatible but in Flexible Document old Link block
+  may be lost :(
+
+
+*******************************************
 ** CPSDocument V0.6.2 [R1 build 2003/11/27-22:43 by fermigier]
 
 Bug fixes:
