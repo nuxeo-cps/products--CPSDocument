@@ -287,32 +287,31 @@ class CPSDocumentMixin(ExtensionClass.Base):
                    escape(rpath),
                    xml))
 
-    # TODO: must be completed if we want to implement Florent's proposal
-    # XXX FG: we want to use this with any document type so we should
-    # probably patch Item instead. And ProxyBase must be changed too.
-    security.declareProtected(View, 'download')
-    def downloadFile(self, field_name, RESPONSE=None):
-        """Download File contained in attribute <field_name>"""
-        # XXX: add some checking here
-        file = getattr(self, field_name)
-        if file is None:
-            data = ''
-        else:
-            # XXX: it would be much more efficient not to retrieve 
-            # whole file in memory (for big files)
-            data = str(file)
-        if RESPONSE:
-            content_type = getattr(file, 'content_type', 
-                'application/octet-stream')
-            filename = getattr(file, '__name__', 'file')
-            # XXX: Need some escaping here.
-            RESPONSE.setHeader('Content-Type', content_type)
-            RESPONSE.setHeader('Content-Disposition',
-                               "inline; filename=%s" % filename)
-            RESPONSE.setHeader('Content-Length', len(data))
-            RESPONSE.write(data)
-        else:
-            return data
+##     # XXX FG: we want to use this with any document type so we should
+##     # probably patch Item instead. And ProxyBase must be changed too.
+##     security.declareProtected(View, 'downloadFile')
+##     def downloadFile(self, field_name, RESPONSE=None):
+##         """Download File contained in attribute <field_name>"""
+##         # XXX: add some checking here
+##         file = getattr(self, field_name)
+##         if file is None:
+##             data = ''
+##         else:
+##             # XXX: it would be much more efficient not to retrieve 
+##             # whole file in memory (for big files)
+##             data = str(file)
+##         if RESPONSE:
+##             content_type = getattr(file, 'content_type', 
+##                 'application/octet-stream')
+##             filename = getattr(file, '__name__', 'file')
+##             # XXX: Need some escaping here.
+##             RESPONSE.setHeader('Content-Type', content_type)
+##             RESPONSE.setHeader('Content-Disposition',
+##                                "inline; filename=%s" % filename)
+##             RESPONSE.setHeader('Content-Length', len(data))
+##             RESPONSE.write(data)
+##         else:
+##             return data
 
 
 InitializeClass(CPSDocumentMixin)
