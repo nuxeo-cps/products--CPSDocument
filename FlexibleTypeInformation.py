@@ -61,7 +61,7 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
     flexti.addAction('contents',
                      'action_folder_contents',
                      'folder_contents',
-                     "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type == 'folderishdocument'",
+                     "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type != 'document'",
                      ModifyPortalContent,
                      'object')
     flexti.addAction('edit',
@@ -85,7 +85,7 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
     flexti.addAction('localroles',
                      'action_local_roles',
                      'folder_localrole_form',
-                     "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type == 'folderishdocument'",
+                     http://cps3book.zopefr.org/"python: object.portal_types[object.getPortalTypeName()].cps_proxy_type != 'document'",
                      ChangePermissions,
                      'object')
 
