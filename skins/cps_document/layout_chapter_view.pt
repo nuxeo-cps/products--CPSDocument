@@ -1,8 +1,7 @@
 <tal:block tal:define="proxy nocall:options/proxy;
                        items proxy/getBookContents;
-                       parent proxy/getBookParent;
-                       parent_book python: parent.getContent();
-                       book python:here.getContent();
+                       parent_book proxy/getBookParent/getContent;
+                       book here/getContent;
                        nb_items python:int(getattr(book,'nb_items_per_summary_page',20));
                        has_search python:int(getattr(parent_book,'has_search_box',0));
                        page_batch_start python:int(path('request/start | nothing') or 0);
