@@ -19,9 +19,6 @@
     <script type="text/javascript" src="calendar-setup.js"
       tal:attributes="src string:${base_url}calendar-setup.js"></script>
 
-    <script type="text/javascript"
-      tal:attributes="src string:${base_url}functions.js"></script>
-
     <script type="text/javascript">
     <!--
      function popup_rte(input_id, label_edit) {
