@@ -71,21 +71,26 @@ div.dtitle {
 }
 div.dtitle2 {
   font-size: &dtml-headingSize2;;
+  border-bottom: 1px solid &dtml-mainTabBorderColor;;
   margin-bottom: 0.5em;
 }
 div.dtitle3 {
   font-size: &dtml-headingSize3;;
+  border-bottom: 1px solid &dtml-mainTabBorderColor;;
 }
 div.dtitle4 {
   font-size: &dtml-headingSize4;;
+  border-bottom: 1px solid &dtml-mainTabBorderColor;;
   font-weight: bold;
 }
 div.dtitle5 {
   font-size: &dtml-headingSize5;;
+  border-bottom: 1px solid &dtml-mainTabBorderColor;;
   font-weight: bold;
 }
 div.dtitle6 {
   font-size: &dtml-headingSize6;;
+  border-bottom: 1px solid &dtml-mainTabBorderColor;;
   font-weight: bold;
 }
 
