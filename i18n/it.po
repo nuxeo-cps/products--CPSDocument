@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
-"POT-Creation-Date: 2004-11-03 12:04default\n"
+"POT-Creation-Date: 2005-01-19 16:09default\n"
 "PO-Revision-Date: 2004-09-30 16:17+0100\n"
 "Last-Translator: Fabio Nosari <fabnos@fastwebnet.it>\n"
 "Language-Team: Fabio NOSARI <fabnos@fastwebnet.it>\n"
@@ -43,8 +43,8 @@ msgid "Page ${page}"
 msgstr "Pagina:<br>${page}"
 
 #.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
-#: from ../skins/cps_document/layout_lib.pt
-#: ../skins/cps_document_cmf/layout_lib.pt
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "Type"
 msgstr "nop"
 
@@ -101,6 +101,7 @@ msgstr "Indice:"
 msgid "description_up_to"
 msgstr "Ritorna a:   ${up_id}"
 
+#.   <block condition="metadata">heading_metadata_edit</block>
 #.   <span condition="metadata">heading_metadata_edit</span>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
@@ -114,17 +115,21 @@ msgid "heading_metadata_view"
 msgstr "Visualizza i metadati"
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
-#: from ../skins/cps_document/layout_lib.pt
-#: ../skins/cps_document_cmf/layout_lib.pt
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "i18_key-help_for_this_field"
 msgstr ""
 
-#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
+#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
-#: from ../skins/cps_document/layout_lib.pt
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document/layout_lib_default_view.pt
+#: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document_cmf/layout_lib.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_view.pt
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt
 #: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "etichetta"
@@ -302,6 +307,16 @@ msgstr "File allegato:"
 
 msgid "cpsdoc_News_attachedFile_label"
 msgstr "File allegato:"
+
+#, fuzzy
+msgid "portal_type_PressRelease_title"
+msgstr "Libro - Pagina"
+
+#, fuzzy
+msgid "portal_type_PressRelease_description"
+msgstr ""
+"Un documento flessibile presentato con l'aspetto di una pagina interna di un "
+"libro"
 
 # File
 msgid "portal_type_File_title"

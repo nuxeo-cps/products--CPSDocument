@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
-"POT-Creation-Date: 2004-11-03 12:04default\n"
+"POT-Creation-Date: 2005-01-19 16:09default\n"
 "PO-Revision-Date: 2004-09-01 12:09-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@curiango.ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
@@ -42,8 +42,8 @@ msgid "Page ${page}"
 msgstr "Página ${page}"
 
 #.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
-#: from ../skins/cps_document/layout_lib.pt
-#: ../skins/cps_document_cmf/layout_lib.pt
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "Type"
 msgstr "Tipo"
 
@@ -100,6 +100,7 @@ msgstr "Índice"
 msgid "description_up_to"
 msgstr "Subir para"
 
+#.   <block condition="metadata">heading_metadata_edit</block>
 #.   <span condition="metadata">heading_metadata_edit</span>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
@@ -113,17 +114,21 @@ msgid "heading_metadata_view"
 msgstr "Metadados"
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
-#: from ../skins/cps_document/layout_lib.pt
-#: ../skins/cps_document_cmf/layout_lib.pt
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "i18_key-help_for_this_field"
 msgstr "Tecla de ajuda i18 para este campo"
 
-#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
+#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
-#: from ../skins/cps_document/layout_lib.pt
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document/layout_lib_default_view.pt
+#: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document_cmf/layout_lib.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_view.pt
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt
 #: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "Rótulo"
@@ -303,6 +308,14 @@ msgstr "Arquivo anexado:"
 
 msgid "cpsdoc_News_attachedFile_label"
 msgstr "Arquivo anexado:"
+
+#, fuzzy
+msgid "portal_type_PressRelease_title"
+msgstr "Livro - Página"
+
+#, fuzzy
+msgid "portal_type_PressRelease_description"
+msgstr "Um documento flexível mostrado como uma página em um livro"
 
 # File
 msgid "portal_type_File_title"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-03 12:04default\n"
+"POT-Creation-Date: 2005-01-19 16:09default\n"
 "PO-Revision-Date: 2004-11-25 13:38+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -51,8 +51,8 @@ msgid "Page ${page}"
 msgstr "Pejy ${page}"
 
 #.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
-#: from ../skins/cps_document/layout_lib.pt
-#: ../skins/cps_document_cmf/layout_lib.pt
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "Type"
 msgstr "nop"
 
@@ -110,6 +110,7 @@ msgstr "Sommaire"
 msgid "description_up_to"
 msgstr "Mankany amin'ny ${up_id}"
 
+#.   <block condition="metadata">heading_metadata_edit</block>
 #.   <span condition="metadata">heading_metadata_edit</span>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
@@ -123,23 +124,27 @@ msgid "heading_metadata_view"
 msgstr "Méta-données-n'ny antotandahatsoratra"
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
-#: from ../skins/cps_document/layout_lib.pt
-#: ../skins/cps_document_cmf/layout_lib.pt
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "i18_key-help_for_this_field"
 msgstr ""
 
-#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
+#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
-#: from ../skins/cps_document/layout_lib.pt
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document/layout_lib_default_view.pt
+#: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document_cmf/layout_lib.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_view.pt
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt
 #: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "label"
 
-#.   <a href="." attributes="href python:'/'+
-#.                                       itemList[pos + 1].absolute_url(relative=1) +
+#.   <a href="." attributes="href python:'/'+ 
+#.                                       itemList[pos + 1].absolute_url(relative=1) + 
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -288,9 +293,6 @@ msgstr "Vaovao"
 msgid "cpsdoc_News_newsdate_label_edit"
 msgstr "Daty nivoahana : "
 
-msgid "cpsdoc_News_newsdate_label"
-msgstr "Daty nivoahana : "
-
 msgid "cpsdoc_News_title_label_edit"
 msgstr "Lohateny fohy : "
 
@@ -314,6 +316,14 @@ msgstr "Sary na antotandahatsoratra alefa : "
 
 msgid "cpsdoc_News_attachedFile_label"
 msgstr "Sary na antotandahatsoratra alefa :"
+
+#, fuzzy
+msgid "portal_type_PressRelease_title"
+msgstr "Pejy"
+
+#, fuzzy
+msgid "portal_type_PressRelease_description"
+msgstr "Antotandahatsoratra miendrika pejy ao anaty boky"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -411,10 +421,16 @@ msgid "label_relation"
 msgstr "Fifandraisana"
 
 msgid "cpsdoc_hidden_folder"
-msgstr "Aza aseho ity repertoara ity eo amin'ny fandehandehanana eo anivon'ny tranonkala"
+msgstr ""
+"Aza aseho ity repertoara ity eo amin'ny fandehandehanana eo anivon'ny "
+"tranonkala"
 
 msgid "cpsdoc_hidden_folder_help"
-msgstr "Tsy ho hita ity repertoara ity amin'ny fandehandehanana eo anivon'ny tranonkala amin'ny endriny voalohany (par défaut). Ho hita nefa izy ao amin'ny 'Mandrindra ny votoatiny'. Ampiasao ny 'Gérer les rôles locaux' raha tianao fehezina ny fandehanana ao amin'io repertoara io."
+msgstr ""
+"Tsy ho hita ity repertoara ity amin'ny fandehandehanana eo anivon'ny "
+"tranonkala amin'ny endriny voalohany (par défaut). Ho hita nefa izy ao "
+"amin'ny 'Mandrindra ny votoatiny'. Ampiasao ny 'Gérer les rôles locaux' raha "
+"tianao fehezina ny fandehanana ao amin'io repertoara io."
 
 msgid "help_dc_subject"
 msgstr "Ny mikasika ny votoatin'ny ressource."
@@ -423,7 +439,9 @@ msgid "help_dc_contirbutors"
 msgstr "Ireo olona izay niasa tamin'ny famoronana ny votoatin'ny ressource."
 
 msgid "help_dc_source"
-msgstr "Une référence à une ressource à partir de laquelle la ressource actuelle a été dérivée. "
+msgstr ""
+"Une référence à une ressource à partir de laquelle la ressource actuelle a "
+"été dérivée. "
 
 msgid "help_dc_coverage"
 msgstr "Ny fihelezan'ny ressource."
@@ -436,9 +454,11 @@ msgstr ""
 msgid "label_portal_type"
 msgstr "Karazana ressource"
 
-msgid "cpsdoc_News_photo_label_edit"
-msgstr "Sary : "
+#~ msgid "cpsdoc_News_newsdate_label"
+#~ msgstr "Daty nivoahana : "
 
-msgid "cpsdoc_News_photo_label"
-msgstr " "
+#~ msgid "cpsdoc_News_photo_label_edit"
+#~ msgstr "Sary : "
 
+#~ msgid "cpsdoc_News_photo_label"
+#~ msgstr " "

@@ -173,6 +173,13 @@ msgstr ""
 msgid "cpsdoc_News_attachedFile_label"
 msgstr ""
 
+# Press Release
+msgid "portal_type_PressRelease_title"
+msgstr ""
+
+msgid "portal_type_PressRelease_description"
+msgstr ""
+
 # File
 msgid "portal_type_File_title"
 msgstr ""

@@ -232,6 +232,27 @@ news_type = {
     'use_content_status_history': 1,
     }
 
+pressrelease_type = {
+    'title': 'portal_type_PressRelease_title',
+    'description': 'portal_type_PressRelease_description',
+    'content_icon': 'pressrelease_icon.png',
+    'content_meta_type': 'CPS Document',
+    'product': 'CPSDocument',
+    'factory': 'addCPSDocument',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': (),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'document',
+    'schemas': ['metadata', 'common', 'news', 'flexible_content'],
+    'layouts': ['common', 'news_start', 'news_flexible', 'news_end'],
+    'flexible_layouts': ['news_flexible:flexible_content'],
+    'storage_methods': [],
+    'use_content_status_history': 1,
+    }
+
 event_type = {
     'title': 'portal_type_Event_title',
     'description': 'portal_type_Event_description',
@@ -426,6 +447,7 @@ types['FAQitem'] = faqitem_type
 types['Glossary'] = glossary_type
 types['GlossaryItem'] = glossaryitem_type
 types['News'] = news_type
+types['PressRelease'] = pressrelease_type
 types['File'] = file_type
 types['EventDoc'] = event_type
 types['Link'] = link_type
