@@ -1,4 +1,4 @@
-# translation of fr.po to 
+# translation of fr.po to
 # translation of fr.po to
 # translation of fr.po to
 # translation of fr.po to Francais
@@ -8,17 +8,17 @@
 # Your Name <your@email>, Year
 # ben <ben@nuxeo.com>, 2003,2004.
 # emmanuel <epietriga@nuxeo.com>, 2003, 2004.
-# DARCHE <madarche@nuxeo.com>, 2003.
+# DARCHE <madarche@nuxeo.com>, 2003, 2004.
 #
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-13 11:03default\n"
-"PO-Revision-Date: 2004-08-06 15:50+0200\n"
-"Last-Translator: ben\n"
-"Language-Team:  <en@li.org>\n"
+"POT-Creation-Date: 2004-11-03 12:04default\n"
+"PO-Revision-Date: 2004-11-03 12:04+0100\n"
+"Last-Translator: DARCHE <madarche@nuxeo.com>\n"
+"Language-Team: Francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,59 +32,71 @@ msgstr ""
 #.         ${type_name}
 #.       </h1>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
 msgstr "Créer un document de type ${type_name}"
 
 #.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr "Modification de «${title}»"
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
+#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "Page ${page}"
 msgstr "Page ${page}"
 
 #.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
 #: from ../skins/cps_document/layout_lib.pt
+#: ../skins/cps_document_cmf/layout_lib.pt
 msgid "Type"
 msgstr "nop"
 
 #.   <block content="type_info/Title" define="type_name request/type_name;
 #.                           type_info python:here.portal_types[type_name]">Type Title</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
 msgstr ""
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
+#: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_end_label"
 msgstr " au "
 
 #.   <span>from</span>
 #: from ../skins/cps_document/layout_event_view.pt
+#: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "Du"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
+#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
 msgstr "Page suivante"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
+#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
 msgstr "Page précédente"
 
 # default doc types
 #.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
+#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_toc"
 msgstr "Sommaire"
 
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
 #: ../skins/cps_document/layout_chapter_view.pt
+#: ../skins/cps_document_cmf/layout_book_view.pt
+#: ../skins/cps_document_cmf/layout_chapter_view.pt
 msgid "cpsdoc_title_toc"
 msgstr "Sommaire"
 
@@ -92,26 +104,25 @@ msgstr "Sommaire"
 #.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #.     </span>
 #: from ../skins/cps_document/layout_imagegallery_view.pt
+#: ../skins/cps_document_cmf/layout_imagegallery_view.pt
 msgid "description_up_to"
 msgstr "vers ${up_id}"
 
-#.   <em style="color: red" content="err">err</em>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "err"
-msgstr "Erreur"
-
 #.   <span condition="metadata">heading_metadata_edit</span>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "heading_metadata_edit"
 msgstr "Modification des Méta-données"
 
 #.   <h1>heading_metadata_view</h1>
 #: from ../skins/cps_document/layout_metadata_view.pt
+#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "heading_metadata_view"
 msgstr "Méta-données du document"
 
-#.   <span content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</span>
+#.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib.pt
+#: ../skins/cps_document_cmf/layout_lib.pt
 msgid "i18_key-help_for_this_field"
 msgstr ""
 
@@ -120,13 +131,19 @@ msgstr ""
 #.   <strong content="widget/label">label</strong>
 #: from ../skins/cps_document/layout_lib.pt
 #: ../skins/cps_document/layout_metadata_view.pt
+#: ../skins/cps_document_cmf/layout_lib.pt
+#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "label"
 
+#.   <a href="." attributes="href python:'/'+ 
+#.                                       itemList[pos + 1].absolute_url(relative=1) + 
+#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #: from ../skins/cps_document/popup_image.pt
+#: ../skins/cps_document_cmf/popup_image.pt
 msgid "next"
 msgstr "Suivant"
 
@@ -134,6 +151,7 @@ msgstr "Suivant"
 #.                                       itemList[pos - 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
+#: ../skins/cps_document_cmf/popup_image.pt
 msgid "previous"
 msgstr "Précédent"
 
@@ -268,9 +286,6 @@ msgstr "Une nouvelle"
 msgid "cpsdoc_News_newsdate_label_edit"
 msgstr "Date de parution : "
 
-msgid "cpsdoc_News_newsdate_label"
-msgstr "paru le "
-
 msgid "cpsdoc_News_title_label_edit"
 msgstr "Titre court : "
 
@@ -283,11 +298,8 @@ msgstr "Titre long : "
 msgid "cpsdoc_News_content_label_edit"
 msgstr "Contenu de la nouvelle : "
 
-msgid "cpsdoc_News_photo_label_edit"
-msgstr "Photo : "
-
-msgid "cpsdoc_News_photo_label"
-msgstr " "
+msgid "cpsdoc_News_image_label_edit"
+msgstr "Image : "
 
 msgid "cpsdoc_News_preview_label_edit"
 msgstr "Vignette : "
@@ -367,7 +379,8 @@ msgid "portal_type_Book_title"
 msgstr "Livre"
 
 msgid "portal_type_Book_description"
-msgstr "Un dossier présentant les documents qu'il contient sous la forme de pages"
+msgstr ""
+"Un dossier présentant les documents qu'il contient sous la forme de pages"
 
 msgid "portal_type_Page_title"
 msgstr "Livre - Page"
@@ -407,7 +420,8 @@ msgid "help_dc_subject"
 msgstr "Le sujet du contenu de la ressource."
 
 msgid "help_dc_contirbutors"
-msgstr "Les entités qui ont contribué à la création du contenu de la ressource."
+msgstr ""
+"Les entités qui ont contribué à la création du contenu de la ressource."
 
 msgid "help_dc_source"
 msgstr ""
@@ -425,3 +439,15 @@ msgstr ""
 msgid "label_portal_type"
 msgstr "Type de ressource"
 
+#, fuzzy
+#~ msgid "cpsdoc_News_image_label"
+#~ msgstr "paru le "
+
+#~ msgid "cpsdoc_News_photo_label_edit"
+#~ msgstr "Photo : "
+
+#~ msgid "cpsdoc_News_photo_label"
+#~ msgstr " "
+
+#~ msgid "err"
+#~ msgstr "Erreur"

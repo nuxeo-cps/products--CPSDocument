@@ -149,9 +149,6 @@ msgstr ""
 msgid "cpsdoc_News_newsdate_label_edit"
 msgstr ""
 
-msgid "cpsdoc_News_newsdate_label"
-msgstr ""
-
 msgid "cpsdoc_News_title_label_edit"
 msgstr ""
 
@@ -164,10 +161,7 @@ msgstr ""
 msgid "cpsdoc_News_content_label_edit"
 msgstr ""
 
-msgid "cpsdoc_News_photo_label_edit"
-msgstr ""
-
-msgid "cpsdoc_News_photo_label"
+msgid "cpsdoc_News_image_label_edit"
 msgstr ""
 
 msgid "cpsdoc_News_preview_label_edit"

@@ -122,6 +122,10 @@ div.ddescription {
   font-weight: bold;
 }
 
+.newsdate {
+  color: #777777;
+  font-size: &dtml-headingSize5;;
+}
 /*
 </dtml-with>
 */

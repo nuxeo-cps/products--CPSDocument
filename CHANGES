@@ -12,6 +12,7 @@ Bug fixes:
   especially since CPS provides sorting on EffectiveDate. A method is provided
   to upgrade previous News documents to the new schema, that is to retrieve the
   old newsdate and set the EffectiveDate with it.
+- Improved News document rendering, but there is still work to do.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
