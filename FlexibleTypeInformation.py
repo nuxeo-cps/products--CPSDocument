@@ -240,7 +240,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         # wftool.invokeFactoryFor(container, type_name, id, Title=xxx,
         # Description=xxxx)
         for k, v in kw.items():
-            if k in dm.keys():
+            if dm.has_key(k):
                 dm.set(k, v)
 
         dm._setObject(ob) # proxy=None as we don't have it here
