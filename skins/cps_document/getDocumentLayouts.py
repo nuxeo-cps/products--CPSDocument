@@ -10,7 +10,7 @@ Please, follow the same pattern to add new layouts
 # FAQ LAYOUT
 #########################################################
 
-faq_layout = {
+faqitem_layout = {
     'widgets': {
         'title': {
             'type': 'String Widget',
@@ -65,6 +65,50 @@ faq_layout = {
             [{'ncols': 1, 'widget_id': 'description'},
                 ],
             [{'ncols': 1, 'widget_id': 'content'},
+                ],
+            ],
+        },
+    }
+
+
+faq_layout = {
+    'widgets': {
+        'title': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['title'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_faq_title_label_edit',
+                'label': '',
+                'description': 'FAQ short question for section display',
+                'css_class': 'dtitle',
+                'is_required': 1,
+                'display_width': 40,
+                'size_max': 72,
+            },
+        },
+        'description': {
+            'type': 'TextArea Widget',
+            'data': {
+                'fields': ['description'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_faq_description_label_edit',
+                'label': '',
+                'description': 'FAQ long question',
+                'css_class': 'ddescription',
+                'width': 40,
+                'height': 5,
+                'render_mode': 'stx',
+            },
+        },
+    },
+    'layout': {
+        'style_prefix': 'layout_faq_',
+        'ncols': 1,
+        'rows': [
+            [{'ncols': 1, 'widget_id': 'title'},
+                ],
+            [{'ncols': 1, 'widget_id': 'description'},
                 ],
             ],
         },
@@ -710,6 +754,7 @@ layouts = {}
 #
 
 layouts['faq'] = faq_layout
+layouts['faqitem'] = faqitem_layout
 layouts['news'] = news_layout
 layouts['file'] = file_layout
 layouts['event'] = event_layout

@@ -11,7 +11,7 @@ Please, follow the same pattern to add new schemas.
 # FAQ SHEMA
 #########################################################
 
-faq_schema = {
+faqitem_schema = {
     'title': {
         'type': 'CPS String Field',
         'data': {
@@ -27,6 +27,23 @@ faq_schema = {
             },
         },
     'content': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    }
+
+faq_schema = {
+    'title': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'description': {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
@@ -322,6 +339,7 @@ schemas = {}
 #
 
 schemas['faq'] = faq_schema
+schemas['faqitem'] = faqitem_schema
 schemas['news'] = news_schema
 schemas['file'] = file_schema
 schemas['event'] = event_schema

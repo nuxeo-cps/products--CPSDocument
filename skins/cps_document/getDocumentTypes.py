@@ -4,9 +4,30 @@
 """
 Here are defined list of portal type created with CPSDocument
 """
+
 faq_type = {
     'title': 'portal_type_FAQ_title',
     'description': 'portal_type_FAQ_description',
+    'content_icon': 'faqs_icon.gif',
+    'content_meta_type': 'CPS Document',
+    'permission': 'Add portal content',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': ('FAQitem',),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'folderishdocument',
+    'schemas': ['faq'],
+    'layouts': ['faq'],
+    'flexible_layouts': [],
+    'storage_methods': [],
+    'cps_workspace_wf': 'workspace_folderish_content_wf',
+    }
+
+faqitem_type = {
+    'title': 'portal_type_FAQitem_title',
+    'description': 'portal_type_FAQitem_description',
     'content_icon': 'faq_icon.gif',
     'content_meta_type': 'CPS Document',
     'permission': 'Add portal content',
@@ -17,8 +38,8 @@ faq_type = {
     'allow_discussion': 0,
     'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
-    'schemas': ['faq'],
-    'layouts': ['faq'],
+    'schemas': ['faqitem'],
+    'layouts': ['faqitem'],
     'flexible_layouts': [],
     'storage_methods': [],
     }
@@ -143,6 +164,7 @@ dummy_form_type = {
 types = {}
 
 types['FAQ'] = faq_type
+types['FAQitem'] = faqitem_type
 types['News'] = news_type
 types['File'] = file_type
 types['EventDoc'] = event_type
