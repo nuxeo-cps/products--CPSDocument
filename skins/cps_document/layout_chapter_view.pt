@@ -1,6 +1,6 @@
 <tal:block tal:define="proxy nocall:options/proxy;
                        items proxy/getBookContents;
-                       parent here/getBookParent;
+                       parent proxy/getBookParent;
                        parent_book python: parent.getContent();
                        book python:here.getContent();
                        nb_items python:int(getattr(book,'nb_items_per_summary_page',20));
