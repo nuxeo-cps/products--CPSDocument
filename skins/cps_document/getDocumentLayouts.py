@@ -155,7 +155,7 @@ flexible_content_layout = {
         },
     },
     'layout': {
-        'allowed_widgets': ['content:4', 'link',
+        'flexible_widgets': ['content:4', 'link',
                             'photo:2', 'attachedFile:4'],
         'style_prefix': 'layout_default_',
         'ncols': 1,
