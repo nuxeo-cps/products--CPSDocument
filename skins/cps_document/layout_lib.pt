@@ -115,7 +115,7 @@
               tal:content="widget/help">This is the help for this field</span>
           </div>
           <tal:block condition="err">
-              <tal:block define="msg python:cpstrans('default', err, mapping=err_mapping)">
+              <tal:block define="msg python:cpstrans(err, mapping=err_mapping)">
                 <br /><em style="color: red"
                   tal:content="msg">err</em>
               </tal:block>
