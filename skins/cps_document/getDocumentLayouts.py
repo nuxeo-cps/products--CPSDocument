@@ -26,7 +26,7 @@ common_layout = {
             },
         },
         'description': {
-            'type': 'TextArea Widget',
+            'type': 'Text Widget',
             'data': {
                 'fields': ['description'],
                 'is_i18n': 1,
@@ -38,7 +38,7 @@ common_layout = {
             },
         },
         'date': {
-            'type': 'Date Widget',
+            'type': 'DateTime Widget',
             'data': {
                 'fields': ['date'],
                 'is_i18n': 1,
@@ -99,7 +99,7 @@ common_layout = {
 flexible_content_layout = {
     'widgets': {
         'content': {
-            'type': 'TextArea Widget',
+            'type': 'Text Widget',
             'data': {
                 'title': 'cpsdoc_flex_content_title',
                 'fields': ['content', 'content_format', 'content_position'],
@@ -115,7 +115,7 @@ flexible_content_layout = {
                 },
             },
         'attachedFile': {
-            'type': 'File Widget',
+            'type': 'AttachedFile Widget',
             'data': {
                 'title': 'cpsdoc_flex_attachedFile_title',
                 'fields': ['?'],
