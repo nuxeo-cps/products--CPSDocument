@@ -26,22 +26,26 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         for doc_type in self.document_types.keys():
             doc_id = doc_type.lower()
             self.ws.invokeFactory(doc_type, doc_id)
-            self._testDefaultAttributes(doc_id)
-            self._testInterfaces(doc_id)
+            doc = getattr(self.ws, doc_id).getContent()
+            # Edit doc to set default values
+            doc.edit()
 
-    def _testDefaultAttributes(self, doc_id):
-        doc = getattr(self.ws, doc_id)
-        # Edit doc to set default values
-        doc = doc.getContent()
-        doc.edit()
+            self._testInterfaces(doc)
+            self._testDefaultAttributes(doc)
 
+            # XXX: should be 0 for an empty object, right?
+            self.assert_(doc.get_size() >= 0) 
+
+            self.assertEquals(doc.getAdditionalContentInfo(), {})
+
+    def _testDefaultAttributes(self, doc):
         type_info = doc.getTypeInfo()
 
         for schema in type_info.schemas:
             for prop_name in self.document_schemas[schema].keys():
                 self.assert_(hasattr(doc, prop_name))
 
-    def _testInterfaces(self, doc_id):
+    def _testInterfaces(self, doc):
         from Interface.Verify import verifyClass
         from Products.CMFCore.interfaces.Dynamic \
             import DynamicType as IDynamicType
@@ -50,7 +54,6 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         from Products.CMFCore.interfaces.DublinCore \
             import DublinCore as IDublinCore
 
-        doc = getattr(self.ws, doc_id).getContent()
         verifyClass(IDynamicType, doc.__class__)
         verifyClass(IContentish, doc.__class__)
         # XXX: CPSDocument inherits from DefaultDublinCoreImpl
