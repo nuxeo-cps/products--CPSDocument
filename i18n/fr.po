@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-10 15:06default\n"
-"PO-Revision-Date: 2003-11-10 11:56+0100\n"
+"POT-Creation-Date: 2003-11-17 15:53default\n"
+"PO-Revision-Date: 2003-11-17 15:58+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,6 @@ msgstr "Du"
 #.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #.     </span>
 #: from ../skins/cps_document/layout_imagegallery_view.pt
-#, fuzzy
 msgid "description_up_to"
 msgstr "vers ${up_id}"
 
@@ -187,10 +186,17 @@ msgstr "Enfin un document flexible"
 
 # default doc types
 msgid "portal_type_FAQ_title"
-msgstr "FAQ"
+msgstr "Foire aux questions (FAQ)"
 
 msgid "portal_type_FAQ_description"
-msgstr "Foire Au Question"
+msgstr "Ensemble de questions posées fréquemment"
+
+# default doc types
+msgid "portal_type_FAQitem_title"
+msgstr "Question posée fréquemment"
+
+msgid "portal_type_FAQitem_description"
+msgstr "Question / réponse"
 
 msgid "cpsdoc_faq_question_label_edit"
 msgstr "Question : "
@@ -203,6 +209,27 @@ msgstr "Réponse : "
 
 msgid "cpsdoc_faq_answer_label"
 msgstr "Réponse :  "
+
+# default doc types
+msgid "portal_type_ImageGallery_title"
+msgstr "Phototèque"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Bibliothèque d'images"
+
+# default doc types
+msgid "portal_type_Glossary_title"
+msgstr "Glossaire"
+
+msgid "portal_type_Glossary_description"
+msgstr "Ensemble de définitions de termes classés alphabètiquement"
+
+# default doc types
+msgid "portal_type_GlossaryItem_title"
+msgstr "Définition de terme"
+
+msgid "portal_type_GlossaryItem_description"
+msgstr "entrée de glossaire"
 
 msgid "portal_type_News_title"
 msgstr "Nouvelle"
@@ -299,8 +326,7 @@ msgid "cpsdoc_imgallery_col_label_edit"
 msgstr "Nombre de colonnes par page"
 
 msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr ""
-"Afficher toutes les entrées si aucune lettre n'est sélectionnée (0 ou 1)"
+msgstr "Afficher toutes les entrées si aucune lettre n'est sélectionnée (0 ou 1)"
 
 #~ msgid "cpsdoc_label_next"
 #~ msgstr "Suivant"
@@ -313,3 +339,4 @@ msgstr ""
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Thème du document"
+

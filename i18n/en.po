@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-10 15:06default\n"
-"PO-Revision-Date: 2003-11-10 11:55+0100\n"
+"POT-Creation-Date: 2003-11-17 15:53default\n"
+"PO-Revision-Date: 2003-11-17 15:55+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,6 @@ msgstr "From  "
 #.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #.     </span>
 #: from ../skins/cps_document/layout_imagegallery_view.pt
-#, fuzzy
 msgid "description_up_to"
 msgstr "Up to ${up_id}"
 
@@ -187,10 +186,17 @@ msgstr "Flexible document !"
 
 # default doc types
 msgid "portal_type_FAQ_title"
-msgstr "FAQ"
+msgstr "Frequently Asked Questions (FAQ)"
 
 msgid "portal_type_FAQ_description"
-msgstr "Frequently Asked Questions"
+msgstr "Set of Frequently Asked Questions"
+
+# default doc types
+msgid "portal_type_FAQitem_title"
+msgstr "FAQ item"
+
+msgid "portal_type_FAQitem_description"
+msgstr "Question / Answer"
 
 msgid "cpsdoc_faq_question_label_edit"
 msgstr "Question: "
@@ -203,6 +209,27 @@ msgstr "Answer: "
 
 msgid "cpsdoc_faq_answer_label"
 msgstr "Answer: "
+
+# default doc types
+msgid "portal_type_ImageGallery_title"
+msgstr "Image Gallery"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Set of pictures"
+
+# default doc types
+msgid "portal_type_Glossary_title"
+msgstr "Glossary"
+
+msgid "portal_type_Glossary_description"
+msgstr "Set of definitions grouped alphabetically"
+
+# default doc types
+msgid "portal_type_GlossaryItem_title"
+msgstr "Glossary Entry"
+
+msgid "portal_type_GlossaryItem_description"
+msgstr "Term definition (for glossaries)"
 
 msgid "portal_type_News_title"
 msgstr "News"
@@ -312,3 +339,4 @@ msgstr "Display all entries if no letter is selected (0 or 1)"
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Theme"
+

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-11-10 15:06default\n"
+"POT-Creation-Date: 2003-11-17 15:53default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -191,6 +191,12 @@ msgstr ""
 msgid "portal_type_FAQ_description"
 msgstr ""
 
+msgid "portal_type_FAQitem_title"
+msgstr ""
+
+msgid "portal_type_FAQitem_description"
+msgstr ""
+
 msgid "cpsdoc_faq_question_label_edit"
 msgstr ""
 
@@ -201,6 +207,26 @@ msgid "cpsdoc_faq_answer_label_edit"
 msgstr ""
 
 msgid "cpsdoc_faq_answer_label"
+msgstr ""
+
+# Images
+msgid "portal_type_ImageGallery_title"
+msgstr ""
+
+msgid "portal_type_ImageGallery_description"
+msgstr ""
+
+# Glossary
+msgid "portal_type_Glossary_title"
+msgstr ""
+
+msgid "portal_type_Glossary_description"
+msgstr ""
+
+msgid "portal_type_GlossaryItem_title"
+msgstr ""
+
+msgid "portal_type_GlossaryItem_description"
 msgstr ""
 
 # News

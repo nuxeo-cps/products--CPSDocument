@@ -78,6 +78,12 @@ msgstr ""
 msgid "portal_type_FAQ_description"
 msgstr ""
 
+msgid "portal_type_FAQitem_title"
+msgstr ""
+
+msgid "portal_type_FAQitem_description"
+msgstr ""
+
 msgid "cpsdoc_faq_question_label_edit"
 msgstr ""
 
@@ -88,6 +94,28 @@ msgid "cpsdoc_faq_answer_label_edit"
 msgstr ""
 
 msgid "cpsdoc_faq_answer_label"
+msgstr ""
+
+# Images
+
+msgid "portal_type_ImageGallery_title"
+msgstr ""
+
+msgid "portal_type_ImageGallery_description"
+msgstr ""
+
+# Glossary
+
+msgid "portal_type_Glossary_title"
+msgstr ""
+
+msgid "portal_type_Glossary_description"
+msgstr ""
+
+msgid "portal_type_GlossaryItem_title"
+msgstr ""
+
+msgid "portal_type_GlossaryItem_description"
 msgstr ""
 
 # News
