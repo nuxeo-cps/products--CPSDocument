@@ -246,7 +246,10 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
     security.declareProtected(View, 'get_size')
     def get_size(self):
-        """Return the size of the data."""
+        """Return the size of the data.
+
+        This is informative only, for display purposes.
+        """
         # XXX: what is exactly the 'size'?
         if self._size:
             return self._size
@@ -255,8 +258,11 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
     security.declarePrivate('_compute_size')
     def _compute_size(self, datamodel=None):
-        # XXX: this needs some explanations
-        # For instance, what is the 'size' of an empty object ?
+        """Compute the _size attribute.
+
+        The _size attribute is used by get_size, to return an
+        informative size about the object.
+        """
         size = 0
         if datamodel is None:
             dm = self.getTypeInfo().getDataModel(self)
