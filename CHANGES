@@ -1,6 +1,7 @@
 Requires:
 ~~~~~~~~~
 - CPSSchemas > 0.39
+- Now using CPSUtil.integration.isProductPresent method.
 New features:
 ~~~~~~~~~~~~~
 - adding search capability to the book document. The search box can be 

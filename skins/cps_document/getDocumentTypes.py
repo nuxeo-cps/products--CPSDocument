@@ -304,7 +304,7 @@ file_type = {
                      'action': 'python:portal.getExternalEditorPath(object, "file", "file")',
                      'condition': ('python:object is not None '
                                    'and object.getContent().file is not None '
-                                   'and modules["Products.CPSSchemas.utils"].isProductPresent("Products.ExternalEditor")'),
+                                   'and modules["Products.CPSUtil.integration"].isProductPresent("Products.ExternalEditor")'),
                      'permissions': ('Modify portal content',)},
                 ),
     }
