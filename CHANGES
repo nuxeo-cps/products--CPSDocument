@@ -1,6 +1,15 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
--
+- to update your custom document :
+  in Schemas def:
+  	remove 'title' and 'description' fields, now they are define as Title and Description
+  	in the metadata schemas
+  in the Layout def:
+  	refer to Title and Description field instead of title and description
+	rename all widget named title to Title and description to Description
+  in the Type def:
+  	add 'metadata' schema to the schemas list
+  for example look at getDocument* 
 New features:
 ~~~~~~~~~~~~~
 - New Metadata view using CPS Layout/Schema replacing ugly metadata_edit_form for CPSDocument
