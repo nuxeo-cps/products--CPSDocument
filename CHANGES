@@ -6,6 +6,9 @@ New features:
 - New Metadata view using CPS Layout/Schema replacing ugly metadata_edit_form for CPSDocument
 - user with View permission on a document is now able to view document metadata
 - Document view display 'Created by xxx, last modified ....' at the end
+- Defining a default subject vocabulary used in DublinCore Subject
+- DublinCore indexed by default: Title, Description, Subject, Rights, Contributors, Creator
+- common layout removing date and theme widget/schema
 Bug fixes:
 ~~~~~~~~~~
 -
