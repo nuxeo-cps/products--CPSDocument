@@ -50,3 +50,7 @@ Related projects and their status
     - http://www.masonbook.com/book/appendix-d.mhtml
 
     Not a Zope product. Does interesting stuff.
+
+  Archetypes
+
+    (XXX too be filled in)
