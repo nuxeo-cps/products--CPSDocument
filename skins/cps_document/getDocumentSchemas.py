@@ -40,11 +40,11 @@ common_schema = {
                 'is_indexed': 1,
             },
         },
-    'longTitle': {
-        'type': 'CPS String Field',
+    'preview': {
+        'type': 'CPS Image Field',
         'data': {
                 'default': '',
-                'is_indexed': 1,
+                'is_indexed': 0,
             },
         },
     }
@@ -56,6 +56,20 @@ flexible_content_schema = {
         'data': {
                 'default': '',
                 'is_indexed': 1,
+            },
+        },
+    'content_format': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 0,
+            },
+        },
+    'content_position': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 0,
             },
         },
     }
