@@ -317,9 +317,8 @@ msgstr "Term definition (for glossaries)"
 msgid "portal_type_NewsItem_title"
 msgstr "News item"
 
-#, fuzzy
 msgid "portal_type_NewsItem_description"
-msgstr "A news document"
+msgstr "A news item document"
 
 msgid "cpsdoc_NewsItem_label_related_subjects"
 msgstr "Related subjects:"

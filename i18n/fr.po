@@ -319,7 +319,6 @@ msgstr "Entrée de glossaire"
 msgid "portal_type_NewsItem_title"
 msgstr "Nouvelle"
 
-#, fuzzy
 msgid "portal_type_NewsItem_description"
 msgstr "Une nouvelle"
 
