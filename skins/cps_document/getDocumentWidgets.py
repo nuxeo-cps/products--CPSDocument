@@ -12,6 +12,10 @@ widgets = {
             'type': 'CPS Int Widget Type',
             'data': {},
             },
+        'Float Widget': {
+            'type': 'CPS Float Widget Type',
+            'data': {},
+            },
         'String Widget': {
             'type': 'CPS String Widget Type',
             'data': {},
@@ -55,6 +59,10 @@ widgets = {
                 'prepare_validate_method': 'widget_dummy_prepare_validate',
                 'render_method': 'widget_dummy_render',
                 },
+            },
+        'MultiSelect Widget': {
+            'type': 'CPS MultiSelect Widget Type',
+            'data': {},
             },
         }
 
