@@ -113,7 +113,8 @@ class CPSInstaller(BaseInstaller):
                                  a['action'],
                                  a.get('condition', ''),
                                  a['permissions'][0],
-                                 'object')
+                                 'object',
+                                 visible=a.get('visible',1))
             self.log("   Installation")
 
         # register ptypes to portal_calendar
