@@ -1,0 +1,33 @@
+<metal:block define-macro="search_box">
+<tal:block tal:define="has_search python:int(getattr(here.getBookParent().getContent(),'has_search_box',0));">
+
+<div tal:condition="has_search">
+  <tal:block define="SearchableText python:request.get('SearchableText','');
+                     utool nocall:here/portal_url;
+                     context_url python:utool.getRelativeUrl(proxy.getBookParent());
+                    ">
+    <div style="text-align:right;" class="group">
+      <form name="searchFormBottom" method="get" action="search_form"
+        onsubmit="return checkEmptySearch(this)">
+        <div class="label">
+          <label for="resultSearchText"
+                 i18n:translate="label_text_to_search">
+            Text to search
+          </label>
+        </div>
+        <input type="text" name="SearchableText" id="resultSearchText"
+               value="" class="focus" size="40"
+               tal:attributes="value SearchableText" />
+        <input class="standalone searchButton" type="submit" value="button_ok"
+               i18n:attributes="value" />
+        <br />
+        <input type="hidden" name="folder_prefix" id="folder_prefix" class="noborder"
+               tal:attributes="value context_url" />
+
+     </form>
+    </div>
+  </tal:block>
+</div>
+
+</tal:block>
+</metal:block>

@@ -13,6 +13,11 @@
   <metal:block fill-slot="main">
     <tal:block tal:content="structure rendered_main|python:doc.render(proxy=here)" />
 
+    <tal:block tal:define="book python: here.getBookParent().getContent();"
+               tal:condition="python:doc.portal_type in ('Page') and hasattr(book,'has_search_box')">
+      <metal:block use-macro="here/book_lib_search_box/macros/search_box" />
+    </tal:block>
+
     <tal:block tal:condition="python:hasattr(here,'portal_discussion') and
       hasattr(here.portal_discussion, 'isCommentingAllowedFor')">
       <tal:block tal:define="comments_allowed
