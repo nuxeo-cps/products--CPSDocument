@@ -3,10 +3,12 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- compute/validate LayoutStructures handle backup/restore of datastructure items 
+  into session, this enable to keep uploaded files while processing invalid
+  layout
 Bug fixes:
 ~~~~~~~~~~
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- FlexibleTypeInformation._validateLayoutStructures new parameter: request
