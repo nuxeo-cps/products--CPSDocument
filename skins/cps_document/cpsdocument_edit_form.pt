@@ -28,7 +28,6 @@
   </metal:block>
 
   <metal:block fill-slot="main">
-    <div class="message" tal:condition="editlayoutmsg" tal:content="editlayoutmsg" />
     <div tal:replace="structure rendered_main" />
   </metal:block>
 
