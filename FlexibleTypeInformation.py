@@ -123,6 +123,7 @@ factory_type_information = (
                  {'id': 'metadata',
                   'name': 'Metadata',
                   'action': 'metadata_edit_form',
+                  'condition': 'not:portal/portal_membership/isAnonymousUser',
                   'permissions': (ModifyPortalContent,),
                   },
                  ),
