@@ -213,30 +213,34 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         except AttributeError:
             doc = proxy
 
-        metadata = ('Title', 'Description', 'Subject',
-                    'Contributors', 'EffectiveDate', 'ExpirationDate',
-                    'Rights', 'Relation', 'Source', 'Coverage')
+        metadata = ('Title', 'Description', 'Subject', 'Contributors', 
+                    'CreationDate', 'ModificationDate',
+                    # We get into trouble because 
+                    # EffectiveDate == ExpirationDate below
+                    #'EffectiveDate', 'ExpirationDate',
+                    'Format', 'Rights', 'Creator', 'Source', 'Relation',
+                    'Coverage')
         data = {}
         form = {}
-        for d in metadata:
-            if d == 'Relation':
+        for name in metadata:
+            if name == 'Relation':
                 v = 'http://www.nuxeo.com'
-            elif d in ('EffectiveDate', 'ExpirationDate'):
-                date = '01/01/2004'
+            elif name.endswith('Date'):
+                date = '2004/01/01'
                 hour = '23'
                 minute = '59'
                 v = DateTime('%s %s:%s' % (date, hour, minute))
-                form[widgetname(d + '_date')] = date
-                form[widgetname(d + '_hour')] = hour
-                form[widgetname(d + '_minute')] = minute
-            elif d == 'Contributors':
-                v = ['The %s' % d]
-            elif d in ('Subject',):
+                form[widgetname(name + '_d')] = date
+                form[widgetname(name + '_h')] = hour
+                form[widgetname(name + '_m')] = minute
+            elif name == 'Contributors':
+                v = ['The %s' % name]
+            elif name in ('Subject',):
                 v = []
             else:
-                v = 'The %s' % d
-            data[d] = v
-            form[widgetname(d)] = v
+                v = 'The %s' % name
+            data[name] = v
+            form[widgetname(name)] = v
 
         request = self.portal.REQUEST
         request.form = form
