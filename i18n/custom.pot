@@ -115,6 +115,15 @@ msgstr ""
 msgid "cpsdoc_Event_content_label_edit"
 msgstr "" 
 
+# Link
+msgid "portal_type_Link_title"
+msgstr ""
+
+msgid "portal_type_Link_description"
+msgstr ""
+
+msgid "cpsdoc_Link_label_edit"
+msgstr ""
 
 	
 

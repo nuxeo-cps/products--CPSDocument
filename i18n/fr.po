@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-02 17:46default\n"
-"PO-Revision-Date: 2003-10-02 17:49+0200\n"
+"POT-Creation-Date: 2003-10-07 10:49default\n"
+"PO-Revision-Date: 2003-10-07 10:50+0200\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -38,6 +38,16 @@ msgstr "Ajouter"
 #: ../skins/cps_document/layout_lib.pt
 msgid "button_change"
 msgstr "Modifier"
+
+#.   <span>to</span>
+#: from ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_end_label"
+msgstr " au "
+
+#.   <span>from</span>
+#: from ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_start_label"
+msgstr "Du"
 
 #.   <span>Form error.</span>
 #: from ../skins/cps_document/layout_lib.pt
@@ -136,12 +146,6 @@ msgstr "Evénement"
 msgid "portal_type_Event_description"
 msgstr "Un évenement"
 
-msgid "cpsdoc_Event_start_label"
-msgstr "Du"
-
-msgid "cpsdoc_Event_end_label"
-msgstr " au "
-
 msgid "cpsdoc_Event_start_label_edit"
 msgstr "Début : "
 
@@ -150,6 +154,16 @@ msgstr "Fin : "
 
 msgid "cpsdoc_Event_content_label_edit"
 msgstr "Contenu de l'évenement : "
+
+# default doc types
+msgid "portal_type_Link_title"
+msgstr "Lien"
+
+msgid "portal_type_Link_description"
+msgstr "Une URL"
+
+msgid "cpsdoc_Link_label_edit"
+msgstr "Lien http :"
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Thème du document"

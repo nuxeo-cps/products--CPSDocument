@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-10-02 17:46default\n"
+"POT-Creation-Date: 2003-10-07 10:49default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -38,6 +38,16 @@ msgstr ""
 #: ../skins/cps_document/layout_form_edit.pt
 #: ../skins/cps_document/layout_lib.pt
 msgid "button_change"
+msgstr ""
+
+#.   <span>to</span>
+#: from ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_end_label"
+msgstr ""
+
+#.   <span>from</span>
+#: from ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_start_label"
 msgstr ""
 
 #.   <span>Form error.</span>
@@ -139,12 +149,6 @@ msgstr ""
 msgid "portal_type_Event_description"
 msgstr ""
 
-msgid "cpsdoc_Event_start_label"
-msgstr ""
-
-msgid "cpsdoc_Event_end_label"
-msgstr ""
-
 msgid "cpsdoc_Event_start_label_edit"
 msgstr ""
 
@@ -152,4 +156,14 @@ msgid "cpsdoc_Event_end_label_edit"
 msgstr ""
 
 msgid "cpsdoc_Event_content_label_edit"
+msgstr ""
+
+# Link
+msgid "portal_type_Link_title"
+msgstr ""
+
+msgid "portal_type_Link_description"
+msgstr ""
+
+msgid "cpsdoc_Link_label_edit"
 msgstr ""
