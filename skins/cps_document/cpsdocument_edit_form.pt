@@ -41,18 +41,18 @@
                 metadata metadata|nothing">
     <h1 tal:condition="creation" i18n:translate="">
       Create a document of type
-      <span i18n:name="type_name"><tal:block i18n:translate=""
+      <tal:block i18n:name="type_name"><tal:block i18n:translate=""
             tal:define="type_name request/type_name;
                         type_info python:here.portal_types[type_name]"
-            tal:content="type_info/Title">Type Title</tal:block></span>
+            tal:content="type_info/Title">Type Title</tal:block></tal:block>
     </h1>
     <h1 tal:condition="not:creation">
       <img tal:replace="structure python:here.getImgTag('/'+here.getIcon(), base_url='')">
       <tal:block condition="edition"
         i18n:translate="">Edit <span i18n:name="title"
         tal:content="here/title_or_id">Page Title</span></tal:block>
-      <span tal:condition="metadata"
-        i18n:translate="">heading_metadata_edit</span>
+      <tal:block tal:condition="metadata"
+        i18n:translate="">heading_metadata_edit</tal:block>
     </h1>
   </metal:block>
 
