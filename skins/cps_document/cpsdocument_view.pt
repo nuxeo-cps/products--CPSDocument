@@ -7,9 +7,23 @@
       tal:attributes="href string:${base_url}document.css">
   </metal:block>
 
-  <metal:block fill-slot="main"
-    tal:content="structure python:doc.render(proxy=here)">
+  <metal:block fill-slot="main">
+    <tal:block tal:content="structure python:doc.render(proxy=here)">
       Body
+    </tal:block>
+    <tal:block tal:condition="python:hasattr(here,'portal_comment')">
+      <tal:block tal:define="comments_allowed
+                               python:here.portal_comment.isCommentingAllowedFor(
+                                                                          here);"
+                 tal:condition="comments_allowed">
+        <tal:block tal:define="forum python:here.portal_comment.getDiscussionFor(here)">
+          <tal:block tal:condition="forum">
+            <h4 i18n:translate="cpsdoc_label_comments">Comments</h4>
+            <metal:block use-macro="here/forum_comment_view/macros/view_comments_inline" />
+          </tal:block>
+        </tal:block>
+      </tal:block>
+    </tal:block>
   </metal:block>
 
 </metal:block>
