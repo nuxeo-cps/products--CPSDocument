@@ -277,6 +277,19 @@ imagegallery_schema = {
         },
     }
 
+########################################################
+# Book SCHEMA
+########################################################
+
+book_schema = {
+    'nb_items_per_summary_page': {
+        'type': 'CPS Int Field',
+        'data': {
+                'default_expr': 'python:20',
+                'is_searchabletext': 0,
+            },
+        },
+    }
 
 ###########################################################
 # END OF SCHEMAS DEFINITIONS
@@ -297,6 +310,7 @@ schemas['news'] = news_schema
 schemas['file'] = file_schema
 schemas['event'] = event_schema
 schemas['imagegallery'] = imagegallery_schema
+schemas['book'] = book_schema
 
 # other products
 try:
