@@ -1,14 +1,14 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
-- to update your custom document :
+- to update your custom documents:
   in Schemas def:
   	remove 'title' and 'description' fields, now they are define as Title and Description
-  	in the metadata schemas
-  in the Layout def:
-  	refer to Title and Description field instead of title and description
-	rename all widget named title to Title and description to Description
-  in the Type def:
-  	add 'metadata' schema to the schemas list
+  	in the metadata schema
+  in the Layouts def:
+  	refer to Title and Description fields instead of title and description
+	rename all widgets named title to Title and description to Description
+  in the Types def:
+  	add 'metadata' schema to the schemas list for all your types
   for example look at getDocument* 
 New features:
 ~~~~~~~~~~~~~
