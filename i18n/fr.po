@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-02-16 15:32default\n"
-"PO-Revision-Date: 2004-02-16 15:39+0100\n"
+"PO-Revision-Date: 2004-02-17 17:29+0100\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -145,7 +145,7 @@ msgstr "Image : "
 
 # default doc types
 msgid "cpsdoc_flex_link_title"
-msgstr "Titre du lien : "
+msgstr "Un lien (URL)"
 
 # FIXME: this msg is not used anywhere
 msgid "cpdoc_flex_link_label_edit"
