@@ -4,7 +4,7 @@
 """
 Here are defined list of portal type created with CPSDocument
 """
-types = {
+faq_type = {
     'FAQ': {'title': 'portal_type_FAQ_title',
             'description': 'portal_type_FAQ_description',
             'content_icon': 'faq_icon.gif',
@@ -14,6 +14,8 @@ types = {
             'layout_style_prefix': 'layout_dummy_',
             'cps_proxy_type': 'document',
              },
+        }
+news_type = {
     'News': {'title': 'portal_type_News_title',
              'description': 'portal_type_News_description',
              'content_icon': 'news_icon.gif',
@@ -23,6 +25,8 @@ types = {
              'layout_style_prefix': 'layout_default_',
              'cps_proxy_type': 'document',
              },
+        }
+dummy_form_type = {
     'Dummy Form': {'title': 'portal_type_Dummy_Form',
                    'description': 'portal_type_Dummy_description',
                    'content_icon': 'document_icon.gif',
@@ -31,8 +35,14 @@ types = {
                    'default_layout': 'dummy_form',
                    'layout_style_prefix': 'layout_form_',
                    'cps_proxy_type': 'document',
-                   }
+                   },
     }
+
+types = {}
+
+types['faq'] = faq_type
+types['news'] = news_type
+types['dummy_form'] = dummy_form_type
 
 ctypes = context.getCustomDocumentTypes()
 
