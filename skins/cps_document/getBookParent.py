@@ -7,11 +7,11 @@
 def getParent(object):
     try:
         if object.portal_type not in ('Book'):
-	    return getParent(object.aq_parent)
+            return getParent(object.aq_parent)
         else:
-	    return object
+            return object
     except:
-	return object
+        return object
 
 
 parent = context.aq_inner
