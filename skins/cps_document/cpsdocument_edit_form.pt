@@ -1,5 +1,6 @@
 <tal:block define="doc here/getContent;
-                   validate python: request.has_key('cpsdocument_edit_button');
+                   global editlayoutmsg python:here.cpsdocument_editlayout(REQUEST=request);
+                   validate python:request.has_key('cpsdocument_edit_button') or editlayoutmsg;
                    edit_request python: validate and request or nothing;
                    res python: doc.renderEditDetailed(request=edit_request, proxy=here);
                    global rendered_main python: res[0];
@@ -27,6 +28,7 @@
   </metal:block>
 
   <metal:block fill-slot="main">
+    <div class="message" tal:condition="editlayoutmsg" tal:content="editlayoutmsg" />
     <div tal:replace="structure rendered_main" />
   </metal:block>
 
