@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument-de CPS-3.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-27 20:03default\n"
+"POT-Creation-Date: 2005-04-06 10:30default\n"
 "PO-Revision-Date: 2005-03-14 10:49+0100\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@dhl.com>\n"
 "Language-Team: de <rheinland@dzug.org>\n"
@@ -251,6 +251,61 @@ msgstr "Beziehung zu einer verwandten Ressource."
 
 msgid "label_portal_type"
 msgstr "Ressourcen Typ"
+
+#, fuzzy
+msgid "label_subject_Arts"
+msgstr "Der Themenbereich des Inhalts dieser Ressource."
+
+msgid "label_subject_Business"
+msgstr ""
+
+msgid "label_subject_Computers"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_Games"
+msgstr "Quelle"
+
+#, fuzzy
+msgid "label_subject_Health"
+msgstr "Quelle"
+
+#, fuzzy
+msgid "label_subject_Home"
+msgstr "Quelle"
+
+msgid "label_subject_Kids and Teens"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_News"
+msgstr "Quelle"
+
+#, fuzzy
+msgid "label_subject_Recreation"
+msgstr "Beziehung"
+
+#, fuzzy
+msgid "label_subject_Reference"
+msgstr "Quelle"
+
+#, fuzzy
+msgid "label_subject_Regional"
+msgstr "Beziehung"
+
+#, fuzzy
+msgid "label_subject_Science"
+msgstr "Quelle"
+
+msgid "label_subject_Shopping"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_Society"
+msgstr "Quelle"
+
+msgid "label_subject_Sports"
+msgstr ""
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Text: "

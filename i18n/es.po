@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: es-CPSDocument\n"
-"POT-Creation-Date: 2005-03-27 20:03default\n"
+"POT-Creation-Date: 2005-04-06 10:30default\n"
 "PO-Revision-Date: 2004-03-27 20:48+0100\n"
 "Last-Translator: Álvaro Tejero Cantero <alvaro@antalia.com>\n"
 "Language-Team:  EspaÃ±ol <es@li.org>\n"
@@ -280,6 +280,61 @@ msgstr "Una referencia (URL) a otro recurso que tiene relación con éste."
 #, fuzzy
 msgid "label_portal_type"
 msgstr "Cobertura"
+
+#, fuzzy
+msgid "label_subject_Arts"
+msgstr "El tema del contenido"
+
+msgid "label_subject_Business"
+msgstr ""
+
+msgid "label_subject_Computers"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_Games"
+msgstr "Fuente"
+
+#, fuzzy
+msgid "label_subject_Health"
+msgstr "Fuente"
+
+#, fuzzy
+msgid "label_subject_Home"
+msgstr "Fuente"
+
+msgid "label_subject_Kids and Teens"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_News"
+msgstr "Fuente"
+
+#, fuzzy
+msgid "label_subject_Recreation"
+msgstr "Relación"
+
+#, fuzzy
+msgid "label_subject_Reference"
+msgstr "Fuente"
+
+#, fuzzy
+msgid "label_subject_Regional"
+msgstr "Relación"
+
+#, fuzzy
+msgid "label_subject_Science"
+msgstr "Fuente"
+
+msgid "label_subject_Shopping"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_Society"
+msgstr "Fuente"
+
+msgid "label_subject_Sports"
+msgstr ""
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Bloque de texto"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-27 20:03default\n"
+"POT-Creation-Date: 2005-04-06 10:30default\n"
 "PO-Revision-Date: 2004-11-25 13:38+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -269,6 +269,61 @@ msgstr ""
 
 msgid "label_portal_type"
 msgstr "Karazana ressource"
+
+#, fuzzy
+msgid "label_subject_Arts"
+msgstr "Ny mikasika ny votoatin'ny ressource."
+
+msgid "label_subject_Business"
+msgstr ""
+
+msgid "label_subject_Computers"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_Games"
+msgstr "Fototra"
+
+#, fuzzy
+msgid "label_subject_Health"
+msgstr "Fototra"
+
+#, fuzzy
+msgid "label_subject_Home"
+msgstr "Fototra"
+
+msgid "label_subject_Kids and Teens"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_News"
+msgstr "Fototra"
+
+#, fuzzy
+msgid "label_subject_Recreation"
+msgstr "Fifandraisana"
+
+#, fuzzy
+msgid "label_subject_Reference"
+msgstr "Fototra"
+
+#, fuzzy
+msgid "label_subject_Regional"
+msgstr "Fifandraisana"
+
+#, fuzzy
+msgid "label_subject_Science"
+msgstr "Fototra"
+
+msgid "label_subject_Shopping"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_Society"
+msgstr "Fototra"
+
+msgid "label_subject_Sports"
+msgstr ""
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Vondrona lahatsoratra"

@@ -148,7 +148,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2005-03-27 20:03default\n"
+"POT-Creation-Date: 2005-04-06 10:30default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -272,7 +272,10 @@ msgstr "Metadata "
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
-msgstr "In acest camp poti indica motivul modificarilor pe care le faci acestui document. Comentariile pot fi folosite pentru a anunta alti utilizatori de modificarile tale."
+msgstr ""
+"In acest camp poti indica motivul modificarilor pe care le faci acestui "
+"document. Comentariile pot fi folosite pentru a anunta alti utilizatori de "
+"modificarile tale."
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
@@ -295,13 +298,14 @@ msgstr ""
 msgid "label"
 msgstr "eticheta"
 
-#.   <a href="." attributes="href python:'/'+
-#.                                       itemList[pos + 1].absolute_url(relative=1) +
 #.   <block>ZIP File</block>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
 msgid "label_zip_file"
 msgstr "Fisier ZIP"
 
+#.   <a href="." attributes="href python:'/'+ 
+#.                                       itemList[pos + 1].absolute_url(relative=1) + 
+#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
@@ -372,7 +376,11 @@ msgid "cpsdoc_hidden_folder"
 msgstr "Ascunde acest dosar in navigare"
 
 msgid "cpsdoc_hidden_folder_help"
-msgstr "Dosarul nu va putea fi vizibil in navigarea initiala, totusi este inca accesibil atat in vizualizarea prin 'Afisarea continutului' cat si prin publicare. Pentru a proteja accesul la dosar trebuie utilizata 'Adaugarea de drepturi locale'."
+msgstr ""
+"Dosarul nu va putea fi vizibil in navigarea initiala, totusi este inca "
+"accesibil atat in vizualizarea prin 'Afisarea continutului' cat si prin "
+"publicare. Pentru a proteja accesul la dosar trebuie utilizata 'Adaugarea de "
+"drepturi locale'."
 
 msgid "help_dc_subject"
 msgstr "Subiectul continutului resursei."
@@ -387,10 +395,74 @@ msgid "help_dc_coverage"
 msgstr "Intinderea si domeniul continutului resursei."
 
 msgid "help_dc_relation"
-msgstr "O referinta (URL) catre o alta resursa care are un anumit raport cu aceasta resursa."
+msgstr ""
+"O referinta (URL) catre o alta resursa care are un anumit raport cu aceasta "
+"resursa."
 
 msgid "label_portal_type"
 msgstr "Tipul resursei"
+
+#, fuzzy
+msgid "label_subject_Arts"
+msgstr "Subiectul continutului resursei."
+
+msgid "label_subject_Business"
+msgstr ""
+
+msgid "label_subject_Computers"
+msgstr ""
+
+# metadata
+#, fuzzy
+msgid "label_subject_Games"
+msgstr "Sursa"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Health"
+msgstr "Sursa"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Home"
+msgstr "Sursa"
+
+msgid "label_subject_Kids and Teens"
+msgstr ""
+
+# metadata
+#, fuzzy
+msgid "label_subject_News"
+msgstr "Sursa"
+
+#, fuzzy
+msgid "label_subject_Recreation"
+msgstr "Relatie"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Reference"
+msgstr "Sursa"
+
+#, fuzzy
+msgid "label_subject_Regional"
+msgstr "Relatie"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Science"
+msgstr "Sursa"
+
+msgid "label_subject_Shopping"
+msgstr ""
+
+# metadata
+#, fuzzy
+msgid "label_subject_Society"
+msgstr "Sursa"
+
+msgid "label_subject_Sports"
+msgstr ""
 
 # flex content
 msgid "cpsdoc_flex_content_title"
@@ -509,7 +581,9 @@ msgid "portal_type_PressRelease_title"
 msgstr "Comunicat de presa"
 
 msgid "portal_type_PressRelease_description"
-msgstr "Un comunicat de presa este o stire speciala destinata presei cu caracter oficial"
+msgstr ""
+"Un comunicat de presa este o stire speciala destinata presei cu caracter "
+"oficial"
 
 # File
 msgid "portal_type_File_title"
@@ -617,4 +691,3 @@ msgstr "Pe pagini"
 
 msgid "cpsdoc_book_display_flat"
 msgstr "Intr-o singura pagina"
-

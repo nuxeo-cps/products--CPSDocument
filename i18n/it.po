@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
-"POT-Creation-Date: 2005-03-27 20:03default\n"
+"POT-Creation-Date: 2005-04-06 10:30default\n"
 "PO-Revision-Date: 2004-09-30 16:17+0100\n"
 "Last-Translator: Fabio Nosari <fabnos@fastwebnet.it>\n"
 "Language-Team: Fabio NOSARI <fabnos@fastwebnet.it>\n"
@@ -258,6 +258,68 @@ msgstr "Un collegamento (URL) ad una risorsa analoga."
 
 msgid "label_portal_type"
 msgstr "Tipo di risorsa:"
+
+#, fuzzy
+msgid "label_subject_Arts"
+msgstr "L'argomento del contenuto della risorsa."
+
+msgid "label_subject_Business"
+msgstr ""
+
+msgid "label_subject_Computers"
+msgstr ""
+
+# metadata
+#, fuzzy
+msgid "label_subject_Games"
+msgstr "Origine:"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Health"
+msgstr "Origine:"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Home"
+msgstr "Origine:"
+
+msgid "label_subject_Kids and Teens"
+msgstr ""
+
+# metadata
+#, fuzzy
+msgid "label_subject_News"
+msgstr "Origine:"
+
+#, fuzzy
+msgid "label_subject_Recreation"
+msgstr "Correlazioni:"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Reference"
+msgstr "Origine:"
+
+#, fuzzy
+msgid "label_subject_Regional"
+msgstr "Correlazioni:"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Science"
+msgstr "Origine:"
+
+msgid "label_subject_Shopping"
+msgstr ""
+
+# metadata
+#, fuzzy
+msgid "label_subject_Society"
+msgstr "Origine:"
+
+msgid "label_subject_Sports"
+msgstr ""
 
 # flex content
 msgid "cpsdoc_flex_content_title"

@@ -91,6 +91,52 @@ msgstr ""
 msgid "cpsdoc_import_zip_title"
 msgstr ""
 
+# subject vocabulary
+msgid "label_subject_Arts"
+msgstr ""
+
+msgid "label_subject_Business"
+msgstr ""
+
+msgid "label_subject_Computers"
+msgstr ""
+
+msgid "label_subject_Games"
+msgstr ""
+
+msgid "label_subject_Health"
+msgstr ""
+
+msgid "label_subject_Home"
+msgstr ""
+
+msgid "label_subject_Kids and Teens"
+msgstr ""
+
+msgid "label_subject_News"
+msgstr ""
+
+msgid "label_subject_Recreation"
+msgstr ""
+
+msgid "label_subject_Reference"
+msgstr ""
+
+msgid "label_subject_Regional"
+msgstr ""
+
+msgid "label_subject_Science"
+msgstr ""
+
+msgid "label_subject_Shopping"
+msgstr ""
+
+msgid "label_subject_Society"
+msgstr ""
+
+msgid "label_subject_Sports"
+msgstr ""
+
 
 # Flexible content
 msgid "cpsdoc_flex_content_title"

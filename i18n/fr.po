@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-27 20:03default\n"
+"POT-Creation-Date: 2005-04-06 10:30default\n"
 "PO-Revision-Date: 2005-03-14 12:15+0100\n"
 "Last-Translator: DARCHE <madarche@nuxeo.com>\n"
 "Language-Team: Francais <fr@li.org>\n"
@@ -268,6 +268,51 @@ msgstr ""
 
 msgid "label_portal_type"
 msgstr "Type de ressource"
+
+msgid "label_subject_Arts"
+msgstr "Arts"
+
+msgid "label_subject_Business"
+msgstr "Commerce et économie"
+
+msgid "label_subject_Computers"
+msgstr "Informatique"
+
+msgid "label_subject_Games"
+msgstr "Jeux"
+
+msgid "label_subject_Health"
+msgstr "Santé"
+
+msgid "label_subject_Home"
+msgstr "Maison"
+
+msgid "label_subject_Kids and Teens"
+msgstr "Enfants et ados"
+
+msgid "label_subject_News"
+msgstr "Actualité"
+
+msgid "label_subject_Recreation"
+msgstr "Loisirs"
+
+msgid "label_subject_Reference"
+msgstr "Référence"
+
+msgid "label_subject_Regional"
+msgstr "Régional"
+
+msgid "label_subject_Science"
+msgstr "Sciences"
+
+msgid "label_subject_Shopping"
+msgstr "Achats & Boutiques en ligne"
+
+msgid "label_subject_Society"
+msgstr "Société"
+
+msgid "label_subject_Sports"
+msgstr "Sports"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Bloc de texte"

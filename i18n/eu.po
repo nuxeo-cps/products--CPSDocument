@@ -17,7 +17,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument_en\n"
-"POT-Creation-Date: 2005-03-27 20:03default\n"
+"POT-Creation-Date: 2005-04-06 10:30default\n"
 "PO-Revision-Date: 2004-10-04 16:55+0100\n"
 "Last-Translator:  <>\n"
 "Language-Team: Euskara <eu@li.org>\n"
@@ -263,6 +263,61 @@ msgstr ""
 
 msgid "label_portal_type"
 msgstr "Baliabide mota"
+
+#, fuzzy
+msgid "label_subject_Arts"
+msgstr "Iturria"
+
+msgid "label_subject_Business"
+msgstr ""
+
+msgid "label_subject_Computers"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_Games"
+msgstr "Iturria"
+
+#, fuzzy
+msgid "label_subject_Health"
+msgstr "Iturria"
+
+#, fuzzy
+msgid "label_subject_Home"
+msgstr "Iturria"
+
+msgid "label_subject_Kids and Teens"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_News"
+msgstr "Iturria"
+
+#, fuzzy
+msgid "label_subject_Recreation"
+msgstr "Iturria"
+
+#, fuzzy
+msgid "label_subject_Reference"
+msgstr "Iturria"
+
+#, fuzzy
+msgid "label_subject_Regional"
+msgstr "Iturria"
+
+#, fuzzy
+msgid "label_subject_Science"
+msgstr "Iturria"
+
+msgid "label_subject_Shopping"
+msgstr ""
+
+#, fuzzy
+msgid "label_subject_Society"
+msgstr "Iturria"
+
+msgid "label_subject_Sports"
+msgstr ""
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Testua: "

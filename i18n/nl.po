@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-27 20:03default\n"
+"POT-Creation-Date: 2005-04-06 10:30default\n"
 "PO-Revision-Date: 2004-02-16 14:14+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -260,6 +260,52 @@ msgid "help_dc_relation"
 msgstr ""
 
 msgid "label_portal_type"
+msgstr ""
+
+# subject vocabulary
+msgid "label_subject_Arts"
+msgstr ""
+
+msgid "label_subject_Business"
+msgstr ""
+
+msgid "label_subject_Computers"
+msgstr ""
+
+msgid "label_subject_Games"
+msgstr ""
+
+msgid "label_subject_Health"
+msgstr ""
+
+msgid "label_subject_Home"
+msgstr ""
+
+msgid "label_subject_Kids and Teens"
+msgstr ""
+
+msgid "label_subject_News"
+msgstr ""
+
+msgid "label_subject_Recreation"
+msgstr ""
+
+msgid "label_subject_Reference"
+msgstr ""
+
+msgid "label_subject_Regional"
+msgstr ""
+
+msgid "label_subject_Science"
+msgstr ""
+
+msgid "label_subject_Shopping"
+msgstr ""
+
+msgid "label_subject_Society"
+msgstr ""
+
+msgid "label_subject_Sports"
 msgstr ""
 
 #, fuzzy

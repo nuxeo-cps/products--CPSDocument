@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
-"POT-Creation-Date: 2005-03-27 20:03default\n"
+"POT-Creation-Date: 2005-04-06 10:30default\n"
 "PO-Revision-Date: 2004-09-01 12:09-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@curiango.ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
@@ -254,6 +254,68 @@ msgstr "Uma referência (URL) a um recurso relacionado."
 
 msgid "label_portal_type"
 msgstr "Tipo do Recurso"
+
+#, fuzzy
+msgid "label_subject_Arts"
+msgstr "Um tópico do conteúdo do recurso."
+
+msgid "label_subject_Business"
+msgstr ""
+
+msgid "label_subject_Computers"
+msgstr ""
+
+# metadata
+#, fuzzy
+msgid "label_subject_Games"
+msgstr "Origem"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Health"
+msgstr "Origem"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Home"
+msgstr "Origem"
+
+msgid "label_subject_Kids and Teens"
+msgstr ""
+
+# metadata
+#, fuzzy
+msgid "label_subject_News"
+msgstr "Origem"
+
+#, fuzzy
+msgid "label_subject_Recreation"
+msgstr "Relação"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Reference"
+msgstr "Origem"
+
+#, fuzzy
+msgid "label_subject_Regional"
+msgstr "Relação"
+
+# metadata
+#, fuzzy
+msgid "label_subject_Science"
+msgstr "Origem"
+
+msgid "label_subject_Shopping"
+msgstr ""
+
+# metadata
+#, fuzzy
+msgid "label_subject_Society"
+msgstr "Origem"
+
+msgid "label_subject_Sports"
+msgstr ""
 
 # flex content
 msgid "cpsdoc_flex_content_title"
