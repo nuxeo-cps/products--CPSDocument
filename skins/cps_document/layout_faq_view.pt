@@ -2,19 +2,30 @@
 <tal:block tal:define="proxy nocall:options/proxy;
                        items proxy/getFolderContents;">
 <p tal:repeat="item items">
-<img tal:replace="structure 
-                    python:
-                      here.getImgTag(here.portal_types[item.portal_type].getIcon(),
-                                     base_url=here.portal_url.getPortalPath()+'/')">
-  <a href="." tal:content="item/Title"
-     tal:attributes="href string:${request/URL}#q${repeat/item/number}" />
+  <img tal:replace="structure python:
+    here.getImgTag(here.portal_types[item.portal_type].getIcon(),
+                   base_url=here.portal_url.getPortalPath()+'/')">
+  <a tal:define="doc item/getContent"
+     tal:attributes="href string:${request/URL}#q${repeat/item/number};
+                     title doc/description|nothing;"
+     tal:content="item/Title"/>
 </p>
-<hr>
-<p tal:repeat="item items">
-  <tal:block tal:define="doc item/getContent">
-    <a tal:attributes="name string:q${repeat/item/number}"></a>
-    <em tal:content="python:doc['title']" /><br>
-    <tal:block tal:content="python:doc['content']" />
-  </tal:block>
-</p>
+<hr style="margin:2em">
+<tal:block repeat="item items">
+  <div tal:attributes="id string:q${repeat/item/number}">
+    <div style="padding-top:1em;"
+      tal:define="doc item/getContent">
+      <img tal:replace="structure python:
+        here.getImgTag(here.portal_types[item.portal_type].getIcon(),
+                       base_url=here.portal_url.getPortalPath()+'/')">
+      <strong tal:content="doc/title" /><br>
+      <em tal:content="doc/description" />
+      <p tal:content="doc/content" />
+    </div>
+  </div>
+  <p style="text-align:center">
+    <a href="javascript:history.back()" i18n:translate="button_back">back</a>
+  </p>
+</tal:block>
+
 </tal:block>

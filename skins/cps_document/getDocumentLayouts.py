@@ -440,6 +440,32 @@ faq_layout = {
 
 faqitem_layout = {
     'widgets': {
+        'Title': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Title'],
+                'is_i18n': 1,
+                'is_required': 1,
+                'label_edit': 'cpsdoc_faq_question_label_edit',
+                'label': '',
+                'css_class': 'dtitle',
+                'display_width': 72,
+                'size_max': 100,
+            },
+        },
+        'Description': {
+            'type': 'Text Widget',
+            'data': {
+                'fields': ['Description'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_faq_long_question_label_edit',
+                'label': '',
+                'css_class': 'ddescription',
+                'width': 72,
+                'height': 5,
+                'render_format': 'text',
+            },
+        },
         'content': {
             'type': 'TextArea Widget',
             'data': {
@@ -458,8 +484,9 @@ faqitem_layout = {
     'layout': {
         'style_prefix': 'layout_default_',
         'rows': [
-            [{'widget_id': 'content'},
-                ],
+            [{'widget_id': 'Title'},],
+            [{'widget_id': 'Description'},],
+            [{'widget_id': 'content'},],
             ],
         },
     }

@@ -157,7 +157,7 @@ faqitem_type = {
     'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
     'schemas': ['metadata', 'common', 'faqitem'],
-    'layouts': ['common', 'faqitem'],
+    'layouts': ['faqitem'],
     'flexible_layouts': [],
     'storage_methods': [],
     }
