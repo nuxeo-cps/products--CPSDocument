@@ -666,6 +666,62 @@ news_layout = {
         },
     }
 
+# flexible part of the news
+news_flexible_layout = {
+    'widgets': {
+        'link': {
+            'type': 'Link Widget',
+            'data': {
+                'title': 'cpsdoc_flex_link_title',
+                'fields': ['?'],
+                'is_i18n': 1,
+                'css_class': 'ddefault',
+                'label_edit': 'cpsdoc_Link_label_edit',
+                'widget_ids': ['link_href',
+                               'link_title',
+                               'link_description'],
+            },
+        },
+        'link_href': {
+            'type': 'URL Widget',
+            'data': {
+                'fields': ['?'],
+                'is_i18n': 1,
+                'label_edit': 'cpsschemas_label_link_href',
+                'display_width': 60,
+            },
+        },
+        'link_title': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['?'],
+                'is_i18n': 1,
+                'label_edit': 'cpsschemas_label_link_content',
+                'display_width': 60,
+                'size_max': 100,
+            },
+        },
+        'link_description': {
+            'type': 'TextArea Widget',
+            'data': {
+                'fields': ['?'],
+                'is_i18n': 1,
+                'label_edit': 'cpsschemas_label_link_title',
+                'width': 60,
+                'height': 3,
+            },
+        },
+    },
+    'layout': {
+        'flexible_widgets': ['link'],
+        'style_prefix': 'layout_default_',
+        'ncols': 1,
+        'rows': [
+            [],
+            ],
+        },
+    }
+
 
 #########################################################
 # FILE LAYOUT
@@ -1169,6 +1225,7 @@ layouts['faqitem'] = faqitem_layout
 layouts['glossary'] = glossary_layout
 layouts['glossaryitem'] = glossaryitem_layout
 layouts['news'] = news_layout
+layouts['news_flexible'] = news_flexible_layout
 layouts['file'] = file_layout
 layouts['event'] = event_layout
 layouts['link'] = link_layout

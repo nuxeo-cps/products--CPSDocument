@@ -225,9 +225,9 @@ news_type = {
     'allow_discussion': 0,
     'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
-    'schemas': ['metadata', 'common', 'news'],
-    'layouts': ['common', 'news'],
-    'flexible_layouts': [],
+    'schemas': ['metadata', 'common', 'news', 'flexible_content'],
+    'layouts': ['common', 'news', 'news_flexible'],
+    'flexible_layouts': ['news_flexible:flexible_content'],
     'storage_methods': [],
     'use_content_status_history': 1,
     }
