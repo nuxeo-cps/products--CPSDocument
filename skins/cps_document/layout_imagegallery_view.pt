@@ -17,20 +17,6 @@
                        th_height python:getattr(gallery,'preview_height','64');
                        nb_rows_in_current_batch python:test(mod == 0,div,div + 1)">
 
-<p style="text-align:center">
-  <a href="." tal:condition="previous_page"
-     tal:attributes="href string:${request/URL0}?start:int=0">&lt;&lt;</a>
-  <a href="." tal:condition="previous_page"
-     tal:attributes="href string:${request/URL0}?start:int=${previous_page/first}"
-     i18n:translate="">cpsdoc_label_previous</a>
-  <tal:block tal:condition="python:previous_page and next_page" tal:replace="string:|" />
-  <a href="." tal:condition="next_page"
-     tal:attributes="href string:${request/URL0}?start:int=${next_page/first}"
-     i18n:translate="">cpsdoc_label_next</a>
-  <a href="." tal:condition="next_page"
-     tal:attributes="href python:request.URL0+'?start:int='+str(len(items) - (len(items) % nb_items))">&gt;&gt;</a>
-</p>
-
 <table style="text-align:center;width:100%">
   <tr tal:repeat="row python:range(nb_rows_in_current_batch)">
   <tal:block tal:define="batch python:modules['ZTUtils'].Batch(page_batch,
@@ -51,4 +37,36 @@
   </tal:block>
   </tr>
 </table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+       condition="python:previous_page or next_page">
+  <tr class="even">
+    <td align="center" width="100%"
+        tal:define="mq nocall:modules/ZTUtils/make_query;">
+      <a href="." tal:condition="previous_page"
+         tal:attributes="href python:'%s?%s'%(request['URL'],
+                                              mq(request.form,
+                                                 start=0))">«</a>
+      <a tal:condition="previous_page"
+         tal:attributes="href python:'%s?%s'%(request['URL'],
+                                              mq(request.form,
+                                                 start=previous_page.first))"
+         i18n:translate="batch_previous">Previous</a>
+      <a tal:condition="next_page"
+         tal:attributes="href python:'%s?%s'%(request['URL'],
+                                            mq(request.form, start=next_page.first))"
+         i18n:translate="batch_next">Next</a>
+      <a href="." tal:condition="next_page"
+         tal:attributes="href python:'%s?%s'%(request['URL'],
+                                              mq(request.form,
+                                                 start=len(items) - (len(items) % nb_items)))">
+        »</a>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
 </tal:block>
