@@ -3,12 +3,7 @@
                    portal_status_message python: res[1];
                    edition python:1;
   ">
-<metal:block define-macro="edit_form" 
-  tal:define="creation creation|nothing;
-              metadata metadata|nothing;
-              type_name request/type_name;
-              type_info python:here.portal_types[type_name];
-">
+<metal:block define-macro="edit_form">
 <metal:block use-macro="here/content_lib/macros/master">
   <metal:block fill-slot="css_slot">
     <metal:block define-macro="widgets_javascript">
@@ -40,15 +35,20 @@
    </metal:block>
   </metal:block>
 
-  <metal:block fill-slot="header">
-    <h1 tal:condition="creation|nothing" i18n:translate="">
+  <metal:block fill-slot="header"
+    tal:define="creation creation|nothing;
+                edition edition|nothing;
+                metadata metadata|nothing">
+    <h1 tal:condition="creation" i18n:translate="">
       Create a document of type
       <span i18n:name="type_name"><tal:block i18n:translate=""
+            tal:define="type_name request/type_name;
+                        type_info python:here.portal_types[type_name]"
             tal:content="type_info/Title">Type Title</tal:block></span>
     </h1>
-    <h1 tal:condition="not:creation|nothing">
+    <h1 tal:condition="not:creation">
       <img tal:replace="structure python:here.getImgTag('/'+here.getIcon(), base_url='')">
-      <tal:block condition="edition|nothing"
+      <tal:block condition="edition"
         i18n:translate="">Edit <span i18n:name="title"
         tal:content="here/title_or_id">Page Title</span></tal:block>
       <span tal:condition="metadata"
@@ -58,10 +58,6 @@
 
   <metal:block fill-slot="main">
     <div tal:replace="structure rendered_main" />
-    <div tal:condition="creation|nothing" i18n:translate="">
-      creation_footer_info <span i18n:name="action_metadata"><tal:block
-       i18n:translate="action_metadata">Meta data</tal:block></span> label
-    </div>
   </metal:block>
 
 </metal:block>
