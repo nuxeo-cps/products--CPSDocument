@@ -16,9 +16,11 @@ folder = context
 id = datamodel.get('Title')
 if not id:
     id = 'my ' + type_name
-    
-language = datamodel.get('Language') or None
-    
+
+language = datamodel.get('Language')
+if not language:
+    language = context.Localizer.get_selected_language()
+
 id = context.computeId(compute_from=id)
 
 # datamodel is passed so that flexti can initialize the object.
