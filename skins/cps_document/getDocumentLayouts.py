@@ -1,4 +1,4 @@
-##parameters=
+##parameters=loadcustom=1
 # $Id$
 """
 Here are defined the list of layouts to be registred
@@ -678,6 +678,30 @@ news_layout = {
 
 file_layout = {
     'widgets': {
+        'Source': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Source'],
+                'hidden_layout_modes': ['view'],
+                'is_i18n': 1,
+                'label_edit': 'label_source',
+                'label': '',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
+        'Rights': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Rights'],
+                'hidden_layout_modes': ['view'],
+                'is_i18n': 1,
+                'label_edit': 'label_rights',
+                'label': '',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
         'file': {
             'type': 'AttachedFile Widget',
             'data': {
@@ -696,8 +720,10 @@ file_layout = {
     },
     'layout': {
         'style_prefix': 'layout_default_',
-        'ncols': 1,
+        'ncols': 2,
         'rows': [
+            [{'ncols': 1, 'widget_id': 'Source'},
+             {'ncols': 1, 'widget_id': 'Rights'},],
             [{'ncols': 1, 'widget_id': 'file'},
                 ],
             ],
@@ -735,6 +761,18 @@ event_layout = {
                 'time_setting': 1,
             },
         },
+        'Coverage': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Coverage'],
+                'hidden_layout_modes': ['view'],
+                'is_i18n': 1,
+                'label_edit': 'label_coverage',
+                'label': '',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
         'content': {
             'type': 'Rich Text Editor Widget',
             'data': {
@@ -770,6 +808,7 @@ event_layout = {
         'rows': [
             [{'ncols': 1, 'widget_id': 'start'},
              {'ncols': 1, 'widget_id': 'end'},],
+            [{'ncols': 1, 'widget_id': 'Coverage'},],
             [{'ncols': 1, 'widget_id': 'content'},],
             [{'ncols': 1, 'widget_id': 'attachedFile'},],
             ],
@@ -841,6 +880,30 @@ link_layout = {
 
 image_layout = {
     'widgets': {
+        'Source': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Source'],
+                'hidden_layout_modes': ['view'],
+                'is_i18n': 1,
+                'label_edit': 'label_source',
+                'label': '',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
+        'Rights': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Rights'],
+                'hidden_layout_modes': ['view'],
+                'is_i18n': 1,
+                'label_edit': 'label_rights',
+                'label': '',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
         'preview': {
             'type': 'Image Widget',
             'data': {
@@ -856,9 +919,11 @@ image_layout = {
     },
     'layout': {
         'style_prefix': 'layout_default_',
+        'ncols': 2,
         'rows': [
-            [{'widget_id': 'preview'},
-                ],
+            [{'widget_id': 'Source'},
+             {'widget_id': 'Rights'},],
+            [{'ncols': 2, 'widget_id': 'preview'},],
             ],
         },
     }
@@ -973,8 +1038,8 @@ layouts['link'] = link_layout
 layouts['image'] = image_layout
 layouts['imagegallery'] = imagegallery_layout
 
-clayouts = context.getCustomDocumentLayouts()
-
-layouts.update(clayouts)
+if loadcustom:
+    clayouts = context.getCustomDocumentLayouts()
+    layouts.update(clayouts)
 
 return layouts

@@ -1,4 +1,4 @@
-##parameters=
+##parameters=loadcustom=1
 #$Id$
 
 """
@@ -296,8 +296,8 @@ schemas['event'] = event_schema
 schemas['link'] = link_schema
 schemas['imagegallery'] = imagegallery_schema
 
-cschemas = context.getCustomDocumentSchemas()
-
-schemas.update(cschemas)
+if loadcustom:
+    cschemas = context.getCustomDocumentSchemas()
+    schemas.update(cschemas)
 
 return schemas
