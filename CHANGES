@@ -18,6 +18,9 @@ New features:
 - edition and metadata edition heading display portal type icon
 - Link Document store href using Relation metadata instead of href attribute
   backward compatibility is done using cpsdocument_installer
+- Implementation of a tooltip mechanism : an help button toggles the appearence
+  of tooltips, and clicking on tooltips dismisses them
+ 
 Bug fixes:
 ~~~~~~~~~~
 - no way to enable/disable discussion on a document
