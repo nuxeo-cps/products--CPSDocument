@@ -1,4 +1,44 @@
 *******************************************
+** CPSDocument V0.9.0 [R1 build 2003/12/23-10:04 by ben]
+
+ZODB Requires:
+~~~~~~~~~~~~~~
+- update your getCustomDocumentType
+  schemas list should begin with 'metadata', 'common'
+- if your Layout start with Title and Description with the same label
+  than in the common Layout remove those 2 widgets from your layout
+  and define your layouts in the getCustomDocumentType using
+  the 'common' layout
+- in getCustomDocument* properties renaming
+  _expression_str -> _expr
+  _str -> ''  
+  ex: default_expression_str -> default_expr
+      acl_write_permission_str -> acl_write_permission
+New features:
+~~~~~~~~~~~~~
+- refactoring all documents definition using common schema/layout
+  WARNING News document schema is updated and not using anymore longTitle
+  so data may be lost
+- Metadata that make sense are duplicated in edition
+  ex Source and Rights for Image and File
+- #254: DublinCore full implementation with Coverage, Source and Relation
+- Metadata Contributors is computed automaticly by adding editors
+- edition and metadata edition heading display portal type icon
+- Link Document store href using Relation metadata instead of href attribute
+  backward compatibility is done using cpsdocument_installer
+- Implementation of a tooltip mechanism : an help button toggles the appearence
+  of tooltips, and clicking on tooltips dismisses them
+Bug fixes:
+~~~~~~~~~~
+- no way to enable/disable discussion on a document
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- new getAdditionalContentInfo proxy param
+- renaming properties '*_str' and used '*_c' for computed attribute
+  foo_expression_str -> foo_expr, foo_expression -> foo_expr_c
+  foo_str -> foo, foo -> foo_c
+
+*******************************************
 ** CPSDocument V0.8.0 [R1 build 2003/12/15-09:05 by ben]
 
 ZODB Requires:
