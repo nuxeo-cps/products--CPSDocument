@@ -5,6 +5,8 @@ ZODB Requires:
 New features:
 ~~~~~~~~~~~~~
 - P1 #187: Create documents without creating empty object.
+- P2 #152: Missing psm on doc modification and creation.
+- P2 #155: Title is wrong for first redisplay after an edit of the title.
 
 Bug fixes:
 ~~~~~~~~~~
