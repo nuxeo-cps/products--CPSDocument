@@ -95,6 +95,21 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             very_long_content[0:SUMMARY_MAX_LEN] + '...')
 
 
+    def testFile(self):
+        self.ws.invokeFactory('File', 'file')
+
+        doc = self.ws.file.getContent()
+        # you have to edit object before it has its default values.
+        doc.edit()
+
+        # Default value. Shouldn't it be '' ?
+        self.assertEquals(doc.file, None) 
+
+        # edit file as string
+        doc.edit(file="toto")
+        self.assertEquals(doc.file, "toto") 
+
+
     def testFlexible(self):
         self.ws.invokeFactory('Flexible', 'flex')
         doc = self.ws.flex.getContent()
