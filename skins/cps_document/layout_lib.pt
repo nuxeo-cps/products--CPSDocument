@@ -57,14 +57,10 @@
 <metal:block define-macro="default_edit"
   tal:define="layout options/layout;
               ds options/datastructure;
-              ok options/ok|python:1;
               creation creation|nothing;
               formaction python: test(creation, 'cpsdocument_create_form',
                                                 'cpsdocument_edit_form');
              ">
-<div class="message" tal:condition="not:ok">
-  <span i18n:translate="cpsdoc_form_error">Form error.</span>
-</div>
 <div class="group">
 <form action="." method="POST" name="form" enctype="multipart/form-data"
   tal:attributes="action formaction">
