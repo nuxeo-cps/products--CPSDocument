@@ -36,6 +36,10 @@ widgets = {
             'type': 'CPS TextArea Widget Type',
             'data': {},
             },
+        'Text Widget': {
+            'type': 'CPS TextArea Widget Type',
+            'data': {},
+            },
         'Lines Widget': {
             'type': 'CPS Lines Widget Type',
             'data': {},
@@ -44,8 +48,16 @@ widgets = {
             'type': 'CPS Date Widget Type',
             'data': {},
             },
+        'DateTime Widget': {
+            'type': 'CPS DateTime Widget Type',
+            'data': {},
+            },
         'File Widget': {
             'type': 'CPS File Widget Type',
+            'data': {},
+            },
+        'AttachedFile Widget': {
+            'type': 'CPS AttachedFile Widget Type',
             'data': {},
             },
         'Image Widget': {
