@@ -1,5 +1,5 @@
 <tal:block define="rev python:here.REQUEST.get('rev', None);
-                   doc python:rev and here.getContent(revision=rev) or here.getContent();
+                   doc python:here.getContent(rev=rev);
                    rendered_main python: doc.render(proxy=here);
   ">
 <metal:block define-macro="view">
