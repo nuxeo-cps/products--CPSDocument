@@ -460,3 +460,9 @@ msgstr ""
 
 msgid "label_portal_type"
 msgstr ""
+
+msgid "label_zip_file"
+msgstr "Fisier ZIP"
+
+msgid "cpsdoc_import_zip_title"
+msgstr "Import de documente din arhiva ZIP"

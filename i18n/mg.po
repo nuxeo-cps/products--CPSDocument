@@ -481,6 +481,12 @@ msgstr ""
 msgid "label_portal_type"
 msgstr "Karazana ressource"
 
+msgid "label_zip_file"
+msgstr ""
+
+msgid "cpsdoc_import_zip_title"
+msgstr ""
+
 #~ msgid "cpsdoc_News_newsdate_label"
 #~ msgstr "Daty nivoahana : "
 

@@ -474,6 +474,12 @@ msgstr "A reference (URL) to a related resource."
 msgid "label_portal_type"
 msgstr "Resource type"
 
+msgid "label_zip_file"
+msgstr "ZIP File"
+
+msgid "cpsdoc_import_zip_title"
+msgstr "Import documents from ZIP File"
+
 #~ msgid "cpsdoc_News_newsdate_label"
 #~ msgstr "Publishing date:"
 

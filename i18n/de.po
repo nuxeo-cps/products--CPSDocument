@@ -472,6 +472,12 @@ msgstr "Beziehung zu einer verwandten Ressource."
 msgid "label_portal_type"
 msgstr "Ressourcen Typ"
 
+msgid "label_zip_file"
+msgstr ""
+
+msgid "cpsdoc_import_zip_title"
+msgstr ""
+
 #, fuzzy
 #~ msgid "cpsdoc_News_image_label"
 #~ msgstr " "

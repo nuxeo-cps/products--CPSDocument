@@ -469,6 +469,12 @@ msgstr "Uma referência (URL) a um recurso relacionado."
 msgid "label_portal_type"
 msgstr "Tipo do Recurso"
 
+msgid "label_zip_file"
+msgstr ""
+
+msgid "cpsdoc_import_zip_title"
+msgstr ""
+
 #, fuzzy
 #~ msgid "cpsdoc_News_image_label"
 #~ msgstr "ocorrido em"

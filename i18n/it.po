@@ -480,6 +480,12 @@ msgstr "Un collegamento (URL) ad una risorsa analoga."
 msgid "label_portal_type"
 msgstr "Tipo di risorsa:"
 
+msgid "label_zip_file"
+msgstr ""
+
+msgid "cpsdoc_import_zip_title"
+msgstr ""
+
 #, fuzzy
 #~ msgid "cpsdoc_News_image_label"
 #~ msgstr "pubblicato il:"
