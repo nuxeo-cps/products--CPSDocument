@@ -25,6 +25,8 @@ type information should look like.</p>
     '<dtml-var sequence-key>': <dtml-var sequence-item>,
 </dtml-if>
 </dtml-in>
+    'cps_workspace_wf': <dtml-var "portal_workflow.getChainFor(id, workspaces)">,
+    'cps_section_wf': <dtml-var "portal_workflow.getChainFor(id, sections)">,
 <dtml-in listActions>
 <dtml-if "getId() == 'status_history'">
     'use_content_status_history': <dtml-var "1 == 1">,
