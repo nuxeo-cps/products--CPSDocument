@@ -1,6 +1,5 @@
 <!-- a layout_lib macro -->
 <!-- $Id$ -->
-
 <metal:block define-macro="default_edit"
   tal:define="layout options/layout;
               ds options/datastructure;
@@ -23,14 +22,14 @@
 <tal:block condition="first_layout">
   <tal:block
   content="structure string:<form action='${formaction}' method='post'
-  name='form' enctype='multipart/form-data' class='workflow'>
+  enctype='multipart/form-data' class='workflow'>
   <div class='group'><div class='documentFields'>" />
   <input type="hidden" name="type_name" value="."
     tal:condition="creation" tal:attributes="value request/type_name" />
 </tal:block>
 
 <table width="100%" cellpadding="2" cellspacing="2" border="0"
-  summary="form layout">
+  summary="Form layout">
   <tr tal:repeat="row layout/rows" valign="top">
     <td tal:repeat="cell row"
       tal:attributes="colspan cell/ncols">
