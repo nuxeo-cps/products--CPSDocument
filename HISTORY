@@ -1,4 +1,20 @@
 *******************************************
+** CPSDocument V0.27.1 [R1 build 2004/09/15-15:11 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Renamed "cps_document_imgs" skin into "cps_document_images".
+
+*******************************************
 ** CPSDocument V0.27.0 [R1 build 2004/09/10-09:35 by ben]
 
 Requires:
