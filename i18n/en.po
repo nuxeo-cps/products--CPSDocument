@@ -274,7 +274,7 @@ msgstr "Content of the event: "
 
 # default doc types
 msgid "portal_type_Link_title"
-msgstr "Link title"
+msgstr "Link"
 
 msgid "portal_type_Link_description"
 msgstr "An URL"
