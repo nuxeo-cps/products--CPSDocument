@@ -1,7 +1,7 @@
-/* Nuxeo CPS Document CSS 1
-** $Id$
-** CSS 1 for NS4.77|IE|mozilla ...
-*/
+<dtml-comment>
+Nuxeo CPSDocument CSS
+$Id$
+</dtml-comment>
 
 /* DTML instructions to set caching headers.
 <dtml-let last_modified="_.DateTime()-14" expires="_.DateTime()+1" >
@@ -45,12 +45,9 @@ div.dflush {
 }
 
 div.dcolleft {
-  margin-right:51%;
+  margin-right:50%;
   padding-bottom: 1em;
 }
-
-/* IE6 hack */
-* html div.dcolleft {position: relative}
 
 div.dcolright {
   clear: right;
@@ -110,9 +107,6 @@ div.ddescription {
   font-size: 100%;
 }
 
-/* IE6 hack */
-* html div.ddescription {position: relative}
-
 .dlabel {
   font-weight: bold;
   font-size: 100%;
@@ -128,6 +122,12 @@ div.ddescription {
   font-weight: bold;
   font-size: &dtml-headingSize5;;
 }
+
+/* hack for IE6 bugs */
+/* Hides from IE5-mac \*/
+* html div.dleft {height: 1%}
+/* End hide from IE-mac */
+
 /*
 </dtml-with>
 */
