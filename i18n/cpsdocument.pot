@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-09-23 10:42default\n"
+"POT-Creation-Date: 2003-10-02 12:36default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -50,26 +50,48 @@ msgstr ""
 msgid "err"
 msgstr ""
 
-#.   <span condition="widget/is_i18n" content="widget/label">label</span>
+#.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
 #.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "label"
 msgstr ""
 
-# default doc types
+# generic names
+msgid "cpsdoc_title_label_edit"
+msgstr ""
+
+msgid "cpsdoc_description_label_edit"
+msgstr ""
+
+msgid "cpsdoc_theme_label_edit"
+msgstr ""
+
+# Faq
 msgid "portal_type_FAQ_title"
 msgstr ""
 
 msgid "portal_type_FAQ_description"
 msgstr ""
 
+msgid "cpsdoc_faq_question_label_edit"
+msgstr ""
+
+msgid "cpsdoc_faq_long_question_label_edit"
+msgstr ""
+
+msgid "cpsdoc_faq_answer_label_edit"
+msgstr ""
+
+msgid "cpsdoc_faq_answer_label"
+msgstr ""
+
+# News
 msgid "portal_type_News_title"
 msgstr ""
 
 msgid "portal_type_News_description"
 msgstr ""
 
-# News demo
 msgid "cpsdoc_News_newsdate_label_edit"
 msgstr ""
 
@@ -103,8 +125,9 @@ msgstr ""
 msgid "cpsdoc_News_attachedFile_label"
 msgstr ""
 
-msgid "cpsdoc_News_theme_label_edit"
+# File
+msgid "portal_type_File_title"
 msgstr ""
 
-msgid "cpsdoc_theme"
+msgid "portal_type_File_description"
 msgstr ""

@@ -16,21 +16,43 @@ msgstr ""
 "Preferred-encodings: utf-8 latin1\n"
 "Domain: default\n"
 
-# default doc types
+# generic names
+msgid "cpsdoc_title_label_edit"
+msgstr ""
+
+msgid "cpsdoc_description_label_edit"
+msgstr ""
+
+msgid "cpsdoc_theme_label_edit"
+msgstr ""
+
+
+# Faq
 msgid "portal_type_FAQ_title"
 msgstr ""
 
 msgid "portal_type_FAQ_description"
 msgstr ""
 
+msgid "cpsdoc_faq_question_label_edit"
+msgstr ""
+
+msgid "cpsdoc_faq_long_question_label_edit"
+msgstr ""
+
+msgid "cpsdoc_faq_answer_label_edit"
+msgstr ""
+
+msgid "cpsdoc_faq_answer_label"
+msgstr ""
+
+# News
 msgid "portal_type_News_title"
 msgstr ""
 
 msgid "portal_type_News_description"
 msgstr ""
 
-
-# News demo
 msgid "cpsdoc_News_newsdate_label_edit"
 msgstr ""
 
@@ -64,10 +86,10 @@ msgstr ""
 msgid "cpsdoc_News_attachedFile_label"
 msgstr ""
 
-msgid "cpsdoc_News_theme_label_edit"
+# File
+msgid "portal_type_File_title"
 msgstr ""
 
-msgid "cpsdoc_theme"
+msgid "portal_type_File_description"
 msgstr ""
-
 

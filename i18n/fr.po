@@ -2,20 +2,21 @@
 # Gettext Message File for default.
 # Your Name <your@email>, Year
 # ben <ben@nuxeo.com>, 2003
-# 
-# 
+#
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-23 10:42default\n"
-"PO-Revision-Date: 2003-09-23 13:44+0200\n"
+"POT-Creation-Date: 2003-10-02 12:36default\n"
+"PO-Revision-Date: 2003-10-02 12:38+0200\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: KBabel 1.0.1\n"
 
 #.   <h1>Edit ${title (tal content="here/title_or_id")}</h1>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
@@ -48,11 +49,20 @@ msgstr "Entrée invalide, veuillez corriger les erreurs:"
 msgid "err"
 msgstr "Erreur"
 
-#.   <span condition="widget/is_i18n" content="widget/label">label</span>
+#.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
 #.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "label"
 msgstr "label"
+
+msgid "cpsdoc_title_label_edit"
+msgstr "Titre : "
+
+msgid "cpsdoc_description_label_edit"
+msgstr "Description : "
+
+msgid "cpsdoc_theme_label_edit"
+msgstr "Thème : "
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -60,6 +70,18 @@ msgstr "FAQ"
 
 msgid "portal_type_FAQ_description"
 msgstr "Foire Au Question"
+
+msgid "cpsdoc_faq_question_label_edit"
+msgstr "Question : "
+
+msgid "cpsdoc_faq_long_question_label_edit"
+msgstr "Complément de question : "
+
+msgid "cpsdoc_faq_answer_label_edit"
+msgstr "Réponse : "
+
+msgid "cpsdoc_faq_answer_label"
+msgstr "Réponse :  "
 
 msgid "portal_type_News_title"
 msgstr "Nouvelle"
@@ -100,9 +122,13 @@ msgstr "Fichier attaché au document : "
 msgid "cpsdoc_News_attachedFile_label"
 msgstr "Fichier attaché : "
 
-msgid "cpsdoc_News_theme_label_edit"
-msgstr "Thème : "
+# default doc types
+msgid "portal_type_File_title"
+msgstr "Fichier"
 
-msgid "cpsdoc_theme"
-msgstr "Thème du document"
+msgid "portal_type_File_description"
+msgstr "Attacher un fichier."
+
+#~ msgid "cpsdoc_theme"
+#~ msgstr "Thème du document"
 

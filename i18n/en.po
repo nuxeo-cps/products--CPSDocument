@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2003-09-23 10:42default\n"
-"PO-Revision-Date: 2003-09-23 10:43+0200\n"
+"POT-Creation-Date: 2003-10-02 12:36default\n"
+"PO-Revision-Date: 2003-10-02 12:39+0200\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -50,11 +50,20 @@ msgstr "Invalid form submit:"
 msgid "err"
 msgstr "Error"
 
-#.   <span condition="widget/is_i18n" content="widget/label">label</span>
+#.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
 #.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "label"
 msgstr "label"
+
+msgid "cpsdoc_title_label_edit"
+msgstr "Title: "
+
+msgid "cpsdoc_description_label_edit"
+msgstr "Description: "
+
+msgid "cpsdoc_theme_label_edit"
+msgstr "Theme: "
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -62,6 +71,18 @@ msgstr "FAQ"
 
 msgid "portal_type_FAQ_description"
 msgstr "Frequently Asked Questions"
+
+msgid "cpsdoc_faq_question_label_edit"
+msgstr "Question: "
+
+msgid "cpsdoc_faq_long_question_label_edit"
+msgstr "Question comments: "
+
+msgid "cpsdoc_faq_answer_label_edit"
+msgstr "Answer: "
+
+msgid "cpsdoc_faq_answer_label"
+msgstr "Answer: "
 
 msgid "portal_type_News_title"
 msgstr "News"
@@ -102,9 +123,13 @@ msgstr "Attached file: "
 msgid "cpsdoc_News_attachedFile_label"
 msgstr "Attached file: "
 
-msgid "cpsdoc_News_theme_label_edit"
-msgstr "Theme: "
+# default doc types
+msgid "portal_type_File_title"
+msgstr "File"
 
-msgid "cpsdoc_theme"
-msgstr "Theme"
+msgid "portal_type_File_description"
+msgstr "Indexed attached file."
+
+#~ msgid "cpsdoc_theme"
+#~ msgstr "Theme"
 
