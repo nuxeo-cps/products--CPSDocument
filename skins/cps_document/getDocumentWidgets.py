@@ -156,6 +156,12 @@ widgets = {
             'type': 'CPS Range List Widget Type',
             'data': {},
             },
+        'Search Widget': {
+            'type': 'CPS Compound Widget Type',
+            'data': {
+                'render_method': 'widget_search_render',
+                },
+            },
         }
 
 if loadcustom:
