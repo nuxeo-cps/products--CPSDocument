@@ -221,13 +221,6 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         id = m(*args, **kw) or id  # allow factory to munge ID
         ob = container._getOb( id )
-
-        # Init from datamodel, if present.
-        datamodel = kw.get('datamodel')
-        if datamodel is not None:
-            datamodel._setObject(ob) # proxy=None as we don't have it here
-            datamodel._commit(check_perms=0)
-
         return ob
 
     security.declarePrivate('_getFactoryMethodNoSec')
@@ -288,6 +281,10 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             if not hasattr(aq_base(layouts), layout_id):
                 obj = ltool._getOb(layout_id)
                 self._copyPasteObject(obj, layouts)
+            # remove template widget
+            layout = layouts[layout_id]
+            widget2del = [w.getId() for k, w in layout.items() if w.isHidden()]
+            layout.manage_delObjects(widget2del)
 
     def _getFlexibleInfo(self, n=None):
         flex = []
@@ -321,33 +318,69 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         schema = ob._getOb('.cps_schemas')._getOb(schema_id)
         return (layout, schema)
 
+
     security.declareProtected(ModifyPortalContent, 'flexibleAddWidget')
     def flexibleAddWidget(self, ob, layout_id, wtid, **kw):
         """Add a new widget to the flexible part of a document.
 
+        Take care of compound widget.
+
         Returns the widget id.
         """
+        ltool = getToolByName(self, 'portal_layouts')
+        layout_ob = ltool._getOb(layout_id)
+        tpl_widget = layout_ob[wtid]
+        if tpl_widget.meta_type != 'CPS Compound Widget':
+            return self.flexibleAddSimpleWidget(ob, layout_id, wtid, **kw)
+
+        # Compound widget - creating sub widgets
+        new_widget_ids = []
+        for widget_id in tpl_widget.widget_ids:
+            id = self.flexibleAddSimpleWidget(ob, layout_id, widget_id,
+                                              layout_register=0, **kw)
+            new_widget_ids.append(id)
+
+        # creating the compound widget
+        widget_id = self.flexibleAddSimpleWidget(ob, layout_id, wtid, **kw)
+        layout, schema = self._getFlexibleLayoutAndSchemaFor(ob, layout_id)
+        widget = layout[widget_id]
+
+        # set sub widget ids
+        widget.widget_ids = new_widget_ids
+
+        return widget_id
+
+
+    security.declareProtected(ModifyPortalContent, 'flexibleAddSimpleWidget')
+    def flexibleAddSimpleWidget(self, ob, layout_id, wtid,
+                                layout_register = 1, **kw):
+        """Add a new widget to the flexible part of a document.
+
+        Returns the widget id.
+        """
+        ltool = getToolByName(self, 'portal_layouts')
+        layout_global = ltool._getOb(layout_id)
+
         self._makeObjectFlexible(ob)
         layout, schema = self._getFlexibleLayoutAndSchemaFor(ob, layout_id)
 
-        tpl_widget = layout[wtid]
-        widget_id = wtid
-
-        if layout[wtid].isHidden():
-            # use hidden widget
-            widget = tpl_widget
+        if layout_global.has_key(wtid):
+            tpl_widget = layout_global[wtid]
         else:
-            widget_id = wtid
-            widget_ids = layout.keys()
-            n = 0
-            while widget_id in widget_ids:
-                n += 1
-                widget_id = '%s_%d' % (wtid, n)
-            LOG('FlexibleAddWidget', DEBUG, 'adding widget_id %s' % widget_id)
-            prefixed_widget_id = '%s_%d' % (tpl_widget.getId(), n)
-            self._copyPasteObject(tpl_widget, layout,
-                                  dst_id=prefixed_widget_id)
-            widget = layout[widget_id]
+            tpl_widget = layout[wtid]
+
+        widget_id = wtid
+        widget_ids = layout.keys()
+        n = 0
+        while widget_id in widget_ids:
+            n += 1
+            widget_id = '%s_%d' % (wtid, n)
+
+        LOG('FlexibleAddWidget', DEBUG, 'adding widget_id %s' % widget_id)
+        self._copyPasteObject(tpl_widget, layout,
+                              dst_id=layout.prefix + widget_id)
+
+        widget = layout[widget_id]
 
         # Create the needed fields.
         field_types = widget.getFieldTypes()
@@ -376,15 +409,33 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         # Set the fields used by the widget.
         widget.fields = fields
+        if layout_register:
+            # Add the widget to the end of the layout definition.
+            layoutdef = layout.getLayoutDefinition()
+            layoutdef['rows'].append([{'widget_id': widget_id}])
+            layout.setLayoutDefinition(layoutdef)
 
-        # Add the widget to the end of the layout definition.
-        layoutdef = layout.getLayoutDefinition()
-        layoutdef['rows'].append([{'widget_id': widget_id}])
-        layout.setLayoutDefinition(layoutdef)
-        return widget_id
+        return widget.getWidgetId()
 
     security.declareProtected(ModifyPortalContent, 'flexibleDelWidgets')
     def flexibleDelWidgets(self, ob, layout_id, widget_ids):
+        """Delete widgets from the flexible part of a document.
+
+        Take care of Compound widget.
+        """
+        self._makeObjectFlexible(ob)
+        layout, schema = self._getFlexibleLayoutAndSchemaFor(ob, layout_id)
+        new_widget_ids = []
+        for widget_id in widget_ids:
+            widget = layout[widget_id]
+            if widget.meta_type == 'CPS Compound Widget':
+                new_widget_ids.extend(widget.widget_ids)
+            new_widget_ids.append(widget_id)
+
+        return self.flexibleDelSimpleWidgets(ob, layout_id, new_widget_ids)
+
+    security.declareProtected(ModifyPortalContent, 'flexibleDelSimpleWidgets')
+    def flexibleDelSimpleWidgets(self, ob, layout_id, widget_ids):
         """Delete widgets from the flexible part of a document.
         """
         self._makeObjectFlexible(ob)
