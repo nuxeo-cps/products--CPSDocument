@@ -1,4 +1,21 @@
 *******************************************
+** CPSDocument V0.23.0 [R1 build 2004/07/07-09:13 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- Chapter Content Type for Book is added to create subsections in Book folderish document 
+- The images from a image gallery can now be browsed in a "popup mode"
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.22.0 [R1 build 2004/06/28-13:14 by anahide]
 
 Requires:
