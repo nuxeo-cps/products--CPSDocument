@@ -11,7 +11,8 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - News's theme field type is string and not string list.
-
+- Adding the layout_event_create.pt that was missing for the creation of an event 
+  document type.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Cosmetic cleanup
