@@ -241,6 +241,25 @@ msgstr ""
 msgid "cpsdoc_glossary_expl_label_edit"
 msgstr ""
 
+# Book and page
+
+msgid "portal_type_Book_title"
+msgstr ""
+
+msgid "portal_type_Book_description"
+msgstr ""
+
+msgid "portal_type_Page_title"
+msgstr ""
+
+msgid "portal_type_Page_description"
+msgstr ""
+
+msgid "cpsdoc_book_nb_summary_page_label_edit"
+msgstr ""
+
+# metadata
+
 msgid "label_source"
 msgstr ""
 

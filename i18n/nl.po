@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-04 14:06default\n"
+"POT-Creation-Date: 2004-03-26 07:59default\n"
 "PO-Revision-Date: 2004-02-16 14:14+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -33,6 +33,11 @@ msgstr "Een document creëren van type ${type_name}"
 msgid "Edit ${title}"
 msgstr "Bewerken van «${title}»"
 
+#.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
+#: from ../skins/cps_document/layout_page_view.pt
+msgid "Page ${page}"
+msgstr ""
+
 #.   <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "Type"
@@ -53,6 +58,31 @@ msgstr " tot "
 #: from ../skins/cps_document/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "Van"
+
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
+#: from ../skins/cps_document/layout_page_view.pt
+#, fuzzy
+msgid "cpsdoc_link_next_page"
+msgstr "Visualisering : "
+
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
+#: from ../skins/cps_document/layout_page_view.pt
+#, fuzzy
+msgid "cpsdoc_link_previous_page"
+msgstr "Visualisering : "
+
+# default doc types
+#.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
+#: from ../skins/cps_document/layout_page_view.pt
+#, fuzzy
+msgid "cpsdoc_link_toc"
+msgstr "Link"
+
+#.   <h3>cpsdoc_title_toc</h3>
+#: from ../skins/cps_document/layout_book_view.pt
+#, fuzzy
+msgid "cpsdoc_title_toc"
+msgstr "Titel : "
 
 #.   <span>
 #.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
@@ -336,6 +366,28 @@ msgstr "Thema : "
 
 #, fuzzy
 msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Afbeelding : "
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Book_title"
+msgstr "Link"
+
+#, fuzzy
+msgid "portal_type_Book_description"
+msgstr "Een URL"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Page_title"
+msgstr "Afbeelding"
+
+#, fuzzy
+msgid "portal_type_Page_description"
+msgstr "Een afbeelding"
+
+#, fuzzy
+msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Afbeelding : "
 
 msgid "label_source"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-03-04 14:06default\n"
+"POT-Creation-Date: 2004-03-26 07:59default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -32,6 +32,11 @@ msgstr ""
 msgid "Edit ${title}"
 msgstr ""
 
+#.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
+#: from ../skins/cps_document/layout_page_view.pt
+msgid "Page ${page}"
+msgstr ""
+
 #.   <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "Type"
@@ -51,6 +56,26 @@ msgstr ""
 #.   <span>from</span>
 #: from ../skins/cps_document/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
+msgstr ""
+
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
+#: from ../skins/cps_document/layout_page_view.pt
+msgid "cpsdoc_link_next_page"
+msgstr ""
+
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
+#: from ../skins/cps_document/layout_page_view.pt
+msgid "cpsdoc_link_previous_page"
+msgstr ""
+
+#.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
+#: from ../skins/cps_document/layout_page_view.pt
+msgid "cpsdoc_link_toc"
+msgstr ""
+
+#.   <h3>cpsdoc_title_toc</h3>
+#: from ../skins/cps_document/layout_book_view.pt
+msgid "cpsdoc_title_toc"
 msgstr ""
 
 #.   <span>
@@ -305,6 +330,23 @@ msgstr ""
 msgid "cpsdoc_glossary_expl_label_edit"
 msgstr ""
 
+# Book and page
+msgid "portal_type_Book_title"
+msgstr ""
+
+msgid "portal_type_Book_description"
+msgstr ""
+
+msgid "portal_type_Page_title"
+msgstr ""
+
+msgid "portal_type_Page_description"
+msgstr ""
+
+msgid "cpsdoc_book_nb_summary_page_label_edit"
+msgstr ""
+
+# metadata
 msgid "label_source"
 msgstr ""
 
