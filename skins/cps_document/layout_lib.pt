@@ -56,7 +56,6 @@
               first_layout options/first_layout|python:0;
               last_layout options/last_layout|python:0;
               is_flexible options/is_flexible;
-              proxy nocall:options/proxy|here;
               cpsmcat nocall:here/Localizer/default;
              ">
 <tal:block condition="first_layout">
