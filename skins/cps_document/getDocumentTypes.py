@@ -1,4 +1,4 @@
-##parameters=
+##parameters=loadcustom=1
 #$Id$
 """
 Here are defined list of portal type created with CPSDocument
@@ -243,8 +243,8 @@ types['Link'] = link_type
 types['Image'] = image_type
 types['ImageGallery'] = imagegallery_type
 
-ctypes = context.getCustomDocumentTypes()
-
-types.update(ctypes)
+if loadcustom:
+    ctypes = context.getCustomDocumentTypes()
+    types.update(ctypes)
 
 return types
