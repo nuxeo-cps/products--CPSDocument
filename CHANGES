@@ -28,6 +28,7 @@ Bug fixes:
 - Made the News Item document use the new SubjectWidget to link to related
   subjects.
 - Made the News Item have unlimited attached files through its flexible layout.
+- Changed title size limitation from 100 characters to 200.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Changed method name verifyMetaDatas -> verifyMetaData since this is the

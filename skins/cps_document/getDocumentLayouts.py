@@ -21,7 +21,7 @@ metadata_layout = {
                 'label_edit': 'label_title',
                 'label': 'label_title',
                 'display_width': 72,
-                'size_max': 100,
+                'size_max': 200,
             },
         },
         'Description': {
@@ -269,7 +269,7 @@ common_layout = {
                 'is_required': 1,
                 'label_edit': 'cpsdoc_title_label_edit',
                 'display_width': 72,
-                'size_max': 100,
+                'size_max': 200,
             },
         },
         'Description': {
@@ -489,7 +489,7 @@ faqitem_layout = {
                 'is_required': 1,
                 'label_edit': 'cpsdoc_faq_question_label_edit',
                 'display_width': 72,
-                'size_max': 100,
+                'size_max': 200,
             },
         },
         'Description': {
@@ -903,7 +903,7 @@ link_layout = {
                 'is_i18n': 1,
                 'label_edit': 'cpsschemas_label_link_content',
                 'display_width': 60,
-                'size_max': 100,
+                'size_max': 200,
             },
         },
         'Description': {
