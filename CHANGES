@@ -1,16 +1,13 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
--
+- Must delete portal_schemas, portal_layouts, portal_widgets and
+  portal_vocabularies and let the updater recreate them.
 New features:
 ~~~~~~~~~~~~~
-- Select Widget (displays a menu to choose one string)
-- CheckBox Widget (displays a checkbox to choose true/false)
-- MultiSelect Widget (display a select multiple to choose a list of strings)
-- First RTE (Epoz) integration. Only one per page right now. (unstable)
+-
 Bug fixes:
 ~~~~~~~~~~
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- sf code cleaning
-- Vocabularies are now used for all "choice" widgets.
+- Split CPSSchemas into a separate package.

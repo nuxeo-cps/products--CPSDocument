@@ -99,96 +99,11 @@ def install(self):
         portal._v_skindata = None
         portal.setupCurrentSkin()
 
-    if portalhas('portal_schemas'):
-        prok()
-    else:
-        pr(" Creating portal_schemas")
-        portal.manage_addProduct["CPSDocument"].manage_addTool(
-            'CPS Schemas Tool')
-    if portalhas('portal_widgets'):
-        prok()
-    else:
-        pr(" Creating portal_widgets")
-        portal.manage_addProduct["CPSDocument"].manage_addTool(
-            'CPS Widgets Tool')
-    if portalhas('portal_layouts'):
-        prok()
-    else:
-        pr(" Creating portal_layouts")
-        portal.manage_addProduct["CPSDocument"].manage_addTool(
-            'CPS Layouts Tool')
-    if portalhas('portal_vocabularies'):
-        prok()
-    else:
-        pr(" Creating portal_vocabularies")
-        portal.manage_addProduct["CPSDocument"].manage_addTool(
-            'CPS Vocabularies Tool')
-
-
-    # widgets
-    pr("Verifiying widgets")
-    widgets = self.getDocumentWidgets()
-
-    wtool = portal.portal_widgets
-    for id, info in widgets.items():
-        pr(" Widget %s" % id)
-        if id in wtool.objectIds():
-            pr("  Deleting.")
-            wtool.manage_delObjects([id])
-        pr("  Installing.")
-        widget = wtool.manage_addCPSWidgetType(id, info['type'])
-        widget.manage_changeProperties(**info['data'])
-
-    # schemas
-    pr("Verifiying schemas")
-    schemas = self.getDocumentSchemas()
-
-    stool = portal.portal_schemas
-    for id, info in schemas.items():
-        pr(" Schema %s" % id)
-        if id in stool.objectIds():
-            pr("  Deleting.")
-            stool.manage_delObjects([id])
-        pr("  Installing.")
-        schema = stool.manage_addCPSSchema(id)
-        for field_id, fieldinfo in info.items():
-            pr("   Field %s." % field_id)
-            schema.manage_addField(field_id, fieldinfo['type'],
-                                   **fieldinfo['data'])
-
-    # layouts
-    pr("Verifiying layouts")
-    layouts = self.getDocumentLayouts()
-
-    ltool = portal.portal_layouts
-    for id, info in layouts.items():
-        pr(" Layout %s" % id)
-        if id in ltool.objectIds():
-            pr("  Deleting.")
-            ltool.manage_delObjects([id])
-        pr("  Installing.")
-        layout = ltool.manage_addCPSLayout(id)
-        for widget_id, widgetinfo in info['widgets'].items():
-            pr("   Widget %s" % widget_id)
-            widget = layout.manage_addCPSWidget(widget_id, widgetinfo['type'],
-                                                **widgetinfo['data'])
-        layout.setLayoutDefinition(info['layout'])
-
-    # vocabularies
-    pr("Verifiying vocabularies")
-    vocabularies = self.getDocumentVocabularies()
-
-    vtool = portal.portal_vocabularies
-    for id, info in vocabularies.items():
-        pr(" Vocabulary %s" % id)
-        if id in vtool.objectIds():
-            pr("  Deleting.")
-            vtool.manage_delObjects([id])
-        pr("  Installing.")
-        ddict = info['data']['dict']
-        dlist = info['data']['list']
-        vtool.manage_addCPSVocabulary(id, dict=ddict, list=dlist)
-
+    # call cpsschemas install
+    from Products.CPSSchemas.Extensions.install import install as \
+         cpschemas_install
+    res = cpschemas_install(self)
+    pr(res)
 
     # setup portal_type
     pr("Verifying portal types")

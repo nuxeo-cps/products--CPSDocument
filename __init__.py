@@ -22,32 +22,7 @@ from Products.CMFCore.DirectoryView import registerDirectory
 from Products.CMFCore.CMFCorePermissions import AddPortalContent, ManagePortal
 
 import PatchTypesTool
-
-import Vocabulary
-import Field
-import Schema
-import Layout
-
-import VocabulariesTool
-import SchemasTool
-import LayoutsTool
-import WidgetsTool
-
-import BasicFields
-import BasicWidgets
-
 import CPSDocument
-
-tools = (
-    VocabulariesTool.VocabulariesTool,
-    SchemasTool.SchemasTool,
-    LayoutsTool.LayoutsTool,
-    WidgetsTool.WidgetsTool,
-    )
-
-
-#from FieldsTypes import FieldsTypes
-
 
 contentClasses = (
     CPSDocument.CPSDocument,
@@ -57,37 +32,11 @@ contentConstructors = (
     CPSDocument.addCPSDocument,
 )
 
-fti = (
-#    CPSDocument.factory_type_information +
-#    ()
-)
+fti = ()
 
 registerDirectory('skins/cps_document', globals())
 
 def initialize(registrar):
-    #FieldsTypes.registerFieldType('string', StringField())
-    #FieldsTypes.registerFieldType('int', IntField())
-
-    registrar.registerClass(
-        Vocabulary.CPSVocabulary,
-        permission=ManagePortal,
-        constructors=(Vocabulary.addCPSVocabularyForm,
-                      Vocabulary.addCPSVocabulary,),
-        )
-    registrar.registerClass(
-        Schema.CPSSchema,
-        permission=ManagePortal,
-        constructors=(Schema.addCPSSchemaForm,
-                      Schema.addCPSSchema,),
-        )
-
-    utils.ToolInit(
-        'CPS Document Tools',
-        tools = tools,
-        product_name = 'CPSDocument',
-        icon = 'tool.gif',
-        ).initialize(registrar)
-
     utils.ContentInit(
         'CPS Document Types',
         content_types = contentClasses,

@@ -33,11 +33,12 @@ from Products.CMFCore.utils import _checkPermission
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.TypesTool import TypeInformation
 
-from Products.CPSDocument.Schema import SchemaContainer
-from Products.CPSDocument.Layout import LayoutContainer
+from Products.CPSSchemas.Schema import SchemaContainer
+from Products.CPSSchemas.Layout import LayoutContainer
+from Products.CPSSchemas.DataModel import DataModel
+from Products.CPSSchemas.DataStructure import DataStructure
+
 from Products.CPSDocument.CPSDocument import addCPSDocument
-from Products.CPSDocument.DataModel import DataModel
-from Products.CPSDocument.DataStructure import DataStructure
 
 
 # inserted into TypesTool by PatchTypesTool
@@ -195,23 +196,6 @@ class FlexibleTypeInformation(TypeInformation):
     def getProxyTypesAllowed(self):
         """ return the list of allowed portal types strings """
         return ['','document','folder','folderishdocument']
-
-    #
-    # ZMI
-    #
-
-##     manage_options = (
-##         TypeInformation.manage_options[:2] + # Properties, Actions
-##         ({'label':'Schemas', 'action':'manage_schemas'},
-##          {'label':'Layouts', 'action':'manage_layouts'},
-##          ) +
-##         TypeInformation.manage_options[2:])
-
-##     security.declareProtected(ManagePortal, 'flexti_schemas')
-##     manage_schemas = DTMLFile('zmi/flexti_schemas', globals())
-
-##     security.declareProtected(ManagePortal, 'flexti_layouts')
-##     manage_layouts = DTMLFile('zmi/flexti_layouts', globals())
 
     #
     # Agent methods
