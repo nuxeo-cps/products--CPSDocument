@@ -35,6 +35,7 @@ common_layout = {
                 'css_class': 'ddescription',
                 'width': 72,
                 'height': 5,
+                'render_format': 'text',
             },
         },
         'date': {
@@ -109,9 +110,9 @@ flexible_content_layout = {
                 'css_class': 'dcontent',
                 'width': 72,
                 'height': 15,
-                'render_format': 'stx',
+                'render_format': 'html',
                 'render_position': 'normal',
-                'configurable': 1,
+                'configurable': 'position',
                 },
             },
         'attachedFile': {
