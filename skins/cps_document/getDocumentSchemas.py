@@ -16,9 +16,9 @@ metadata_schema = {
     'Description': {'type': 'CPS String Field',
                     'data': {'is_searchabletext': 1}},
     'Subject': {'type': 'CPS String List Field',
-                'data': {'is_searchabletext': 1}},
+                'data': {'is_searchabletext': 0}},
     'Contributors': {'type': 'CPS String List Field',
-                     'data': {'is_searchabletext': 1,
+                     'data': {'is_searchabletext': 0,
                               'write_process_expr':
                               'python: portal.computeContributors(user, value)'
                               },},
@@ -32,13 +32,13 @@ metadata_schema = {
                'data': {'write_ignore_storage': 1,}},
     'Language': {'type': 'CPS String Field',
                  'data': {'write_ignore_storage': 1,}},
-    'Rights': {'type': 'CPS String Field', 'data': {'is_searchabletext': 1}},
+    'Rights': {'type': 'CPS String Field', 'data': {'is_searchabletext': 0}},
     'Creator': {'type': 'CPS String Field',
-                'data': {'is_searchabletext': 1,
+                'data': {'is_searchabletext': 0,
                          'write_ignore_storage': 1,}},
-    'Source': {'type': 'CPS String Field', 'data': {'is_searchabletext': 1}},
-    'Relation': {'type': 'CPS String Field', 'data': {'is_searchabletext': 1}},
-    'Coverage': {'type': 'CPS String Field', 'data': {'is_searchabletext': 1}},
+    'Source': {'type': 'CPS String Field', 'data': {'is_searchabletext': 0}},
+    'Relation': {'type': 'CPS String Field', 'data': {'is_searchabletext': 0}},
+    'Coverage': {'type': 'CPS String Field', 'data': {'is_searchabletext': 0}},
     }
 
 
