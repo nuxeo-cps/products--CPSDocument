@@ -55,6 +55,7 @@ metadata_layout = {
                 'label': 'label_subject',
                 'vocabulary': 'subject_voc',
                 'help': 'help_dc_subject',
+                'translated': 1,
                 'size': 5,
             },
         },
