@@ -1,4 +1,4 @@
-<tal:block define="global edit_request python:request.has_key('cpsdocument_create_button') and request or nothing;" />
+<tal:block define="global validate python:request.has_key('cpsdocument_create_button');" />
 <metal:block use-macro="here/content_lib/macros/master">
   <metal:block fill-slot="css_slot">
     <style type="text/css"
@@ -25,7 +25,8 @@
     <div tal:define="type_name request/type_name;
                      ti here/portal_types/?type_name"
          tal:replace="structure python: ti.renderCreateObject(
-             container=here, request=edit_request, mode='create',
+             container=here, request=request,
+             validate=validate, mode='create',
              create_function='cpsdocument_create',
              redirect_action='metadata_edit_form')">
       (doc rendering)
