@@ -490,10 +490,12 @@ class FlexibleTypeInformation(TypeInformation):
             evtool.notify('sys_modify_object', ob, {})
         return ob
 
-    security.declarePrivate('renderEditObject')
-    def renderEditObject(self, ob, request=None, mode='edit', errmode='edit',
-                         layout_id=None, **kw):
-        """Modify the object from request, and renders to new mode.
+    security.declarePrivate('renderEditObjectDetailed')
+    def renderEditObjectDetailed(self, ob, request=None,
+                                 mode='edit', errmode='edit',
+                                 layout_id=None, **kw):
+        """Modify the object from request, returns detailed information
+        about the rendering.
 
         If request is None, the object is not modified and is rendered
         in the specified mode.
@@ -505,6 +507,11 @@ class FlexibleTypeInformation(TypeInformation):
         An optional 'proxy' arg can be given, it will be passed to the
         layouts and used for getEditableContent if the object is
         modified.
+
+        Returns (rendered, ok, datastructure):
+        - rendered is the rendered HTML,
+        - ok is the result of the validation,
+        - datastructure is the resulting datastructure.
         """
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
@@ -520,8 +527,25 @@ class FlexibleTypeInformation(TypeInformation):
                 mode = errmode
         else:
             ok = 1
-        return self._renderLayoutStyle(ob, mode, layout=layoutdata,
-                                       datastructure=ds, ok=ok, **kw)
+        rendered = self._renderLayoutStyle(ob, mode, layout=layoutdata,
+                                           datastructure=ds, ok=ok, **kw)
+        return rendered, ok, ds
+
+    security.declarePrivate('renderEditObject')
+    def renderEditObject(self, ob, request=None, mode='edit', errmode='edit',
+                         layout_id=None, **kw):
+        """Modify the object from request, and renders to new mode.
+
+        Returns the rendered HTML.
+
+        See renderEditObjectDetailed for more.
+        """
+        rendered, ok, ds = self.renderEditObjectDetailed(ob, request=request,
+                                                         mode=mode,
+                                                         errmode=errmode,
+                                                         layout_id=layout_id,
+                                                         **kw)
+        return rendered
 
     security.declarePrivate('validateStoreRenderObject')
     def validateStoreRenderObject(self, ob, request=None, mode='edit',

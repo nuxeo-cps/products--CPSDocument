@@ -54,11 +54,11 @@ class CPSDocumentMixin(ExtensionClass.Base):
     # may be frozen, and will only be unfrozen just before committing.
     # The security check on ModifyPortalContent is now done by DataModel
     # just before commit.
-    security.declareProtected(View, 'renderEdit')
-    def renderEdit(self, request=None, mode='edit', errmode='edit',
-                   layout_id=None, **kw):
+    security.declareProtected(View, 'renderEditDetailed')
+    def renderEditDetailed(self, request=None, mode='edit', errmode='edit',
+                           layout_id=None, **kw):
         """Modify the object from the request (if present), and return
-        the rendering.
+        the HTML rendering and some detailed information.
 
         Renders the mode, or the errmode if a validation error occurred.
 
@@ -66,7 +66,22 @@ class CPSDocumentMixin(ExtensionClass.Base):
         layouts and the backend.
         """
         ti = self.getTypeInfo()
-        return ti.renderEditObject(self, request, mode=mode, errmode=errmode,
+        return ti.renderEditObjectDetailed(self, request,
+                                           mode=mode, errmode=errmode,
+                                           layout_id=layout_id, **kw)
+
+    # See remark about security above.
+    security.declareProtected(View, 'renderEdit')
+    def renderEdit(self, request=None, mode='edit', errmode='edit',
+                   layout_id=None, **kw):
+        """Modify the object from the request (if present), and return
+        the HTML rendering.
+
+        See renderEditDetailed for more.
+        """
+        ti = self.getTypeInfo()
+        return ti.renderEditObject(self, request,
+                                   mode=mode, errmode=errmode,
                                    layout_id=layout_id, **kw)
 
     # See remark about security above.
