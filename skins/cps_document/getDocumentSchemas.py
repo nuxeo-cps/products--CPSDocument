@@ -9,6 +9,23 @@ Please, follow the same pattern to add new schemas.
 #########################################################
 # SHARED SCHEMAS
 #########################################################
+#metadata schema
+metadata_schema = {
+    'Title': {'type': 'CPS String Field', 'data': {}},
+    'Description': {'type': 'CPS String Field', 'data': {}},
+    'Subject': {'type': 'CPS String List Field', 'data': {}},
+    'Contributors': {'type': 'CPS String List Field', 'data': {}},
+    'CreationDate': {'type': 'CPS DateTime Field', 'data': {}},
+    'ModificationDate': {'type': 'CPS DateTime Field', 'data': {}},
+    'EffectiveDate': {'type': 'CPS DateTime Field', 'data': {}},
+    'ExpirationDate': {'type': 'CPS DateTime Field', 'data': {}},
+    'Format': {'type': 'CPS String Field', 'data': {}},
+    'Language': {'type': 'CPS String Field', 'data': {}},
+    'Rights': {'type': 'CPS String Field', 'data': {}},
+    'Creator': {'type': 'CPS String Field', 'data': {}},
+    }
+
+
 # common schema
 common_schema = {
     'date': {
@@ -16,20 +33,6 @@ common_schema = {
         'data': {
                 'default': '',
                 'is_indexed': 0,
-            },
-        },
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
             },
         },
     'theme': {
@@ -493,6 +496,7 @@ schemas = {}
 #
 # Building the dictionnary of schemas for the installer
 #
+schemas['metadata'] = metadata_schema
 schemas['common'] = common_schema
 schemas['flexible_content'] = flexible_content_schema
 
