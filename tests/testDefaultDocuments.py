@@ -39,12 +39,12 @@ def randomText(max_len=10):
 class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     def afterSetUp(self):
         try:
-            self.login('root')
+            self.login('manager')
         except AttributeError:
             # CMF
             uf = self.portal.acl_users
-            uf._doAddUser('root', '', ['Manager'], [])
-            self.login('root')
+            uf._doAddUser('manager', '', ['Manager'], [])
+            self.login('manager')
         try:
             self.ws = self.portal.workspaces
         except AttributeError:

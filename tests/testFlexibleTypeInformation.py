@@ -12,12 +12,6 @@ from Products.CPSDocument.FlexibleTypeInformation \
 
 
 class TestFlexibleTypeInformation(CPSDocumentTestCase.CPSDocumentTestCase):
-    #def afterSetUp(self):
-    #    self.login('root')
-
-    #def beforeTearDown(self):
-    #    self.logout()
-
     def testInterfaces(self):
         from Interface.Verify import verifyClass
         from Products.CMFCore.interfaces.portal_types \
