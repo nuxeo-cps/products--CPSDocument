@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-07-02 17:07default\n"
+"POT-Creation-Date: 2004-07-13 11:03default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -75,6 +75,7 @@ msgstr ""
 
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
+#: ../skins/cps_document/layout_chapter_view.pt
 msgid "cpsdoc_title_toc"
 msgstr ""
 
@@ -364,6 +365,12 @@ msgid "portal_type_Page_title"
 msgstr ""
 
 msgid "portal_type_Page_description"
+msgstr ""
+
+msgid "portal_type_Chapter_title"
+msgstr ""
+
+msgid "portal_type_Chapter_description"
 msgstr ""
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"

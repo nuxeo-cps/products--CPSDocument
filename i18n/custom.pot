@@ -265,6 +265,12 @@ msgstr ""
 msgid "portal_type_Page_description"
 msgstr ""
 
+msgid "portal_type_Chapter_title"
+msgstr ""
+
+msgid "portal_type_Chapter_description"
+msgstr ""
+
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr ""
 

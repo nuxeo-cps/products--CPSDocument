@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
-"POT-Creation-Date: 2004-07-02 17:07default\n"
+"POT-Creation-Date: 2004-07-13 11:03default\n"
 "PO-Revision-Date: 2004-05-10 12:37+0100\n"
 "Last-Translator: Paolo Dina <paolo@php3.it>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -84,6 +84,7 @@ msgstr "Indice"
 #    <h3>cpsdoc_title_toc</h3>
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
+#: ../skins/cps_document/layout_chapter_view.pt
 msgid "cpsdoc_title_toc"
 msgstr "Indice"
 
@@ -384,6 +385,15 @@ msgid "portal_type_Page_title"
 msgstr "Pagina"
 
 msgid "portal_type_Page_description"
+msgstr "Un documento flessibile visualizzato come una pagina in un libro"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Chapter_title"
+msgstr "Pagina"
+
+#, fuzzy
+msgid "portal_type_Chapter_description"
 msgstr "Un documento flessibile visualizzato come una pagina in un libro"
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: es-CPSDocument\n"
-"POT-Creation-Date: 2004-07-02 17:07default\n"
+"POT-Creation-Date: 2004-07-13 11:03default\n"
 "PO-Revision-Date: 2004-03-27 20:48+0100\n"
 "Last-Translator: ¡lvaro Tejero Cantero <alvaro@antalia.com>\n"
 "Language-Team:  Espa√±ol <es@li.org>\n"
@@ -86,6 +86,7 @@ msgstr "Un enlace (URL)"
 
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
+#: ../skins/cps_document/layout_chapter_view.pt
 #, fuzzy
 msgid "cpsdoc_title_toc"
 msgstr "TÌtulo: "
@@ -393,6 +394,15 @@ msgstr "Imagen"
 
 #, fuzzy
 msgid "portal_type_Page_description"
+msgstr "Una imagen"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Chapter_title"
+msgstr "Imagen"
+
+#, fuzzy
+msgid "portal_type_Chapter_description"
 msgstr "Una imagen"
 
 #, fuzzy

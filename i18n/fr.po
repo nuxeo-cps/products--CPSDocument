@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-02 17:07default\n"
+"POT-Creation-Date: 2004-07-13 11:03default\n"
 "PO-Revision-Date: 2004-07-02 17:07+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -81,6 +81,7 @@ msgstr "Sommaire"
 
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
+#: ../skins/cps_document/layout_chapter_view.pt
 msgid "cpsdoc_title_toc"
 msgstr "Sommaire"
 
@@ -119,8 +120,8 @@ msgstr ""
 msgid "label"
 msgstr "label"
 
-#.   <a href="." attributes="href python:'/'+
-#.                                       itemList[pos + 1].absolute_url(relative=1) +
+#.   <a href="." attributes="href python:'/'+ 
+#.                                       itemList[pos + 1].absolute_url(relative=1) + 
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "next"
@@ -363,14 +364,20 @@ msgid "portal_type_Book_title"
 msgstr "Livre"
 
 msgid "portal_type_Book_description"
-msgstr "Un dossier présentant les documents qu'il contient sous la forme de pages"
+msgstr ""
+"Un dossier présentant les documents qu'il contient sous la forme de pages"
 
-# default doc types
 msgid "portal_type_Page_title"
 msgstr "Page"
 
 msgid "portal_type_Page_description"
 msgstr "Document flexible présenté sous la forme d'une page dans un livre"
+
+msgid "portal_type_Chapter_title"
+msgstr "Chapitre"
+
+msgid "portal_type_Chapter_description"
+msgstr "Document flexible présenté sous la forme d'un chapitre dans un livre"
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Nombre d'entrées du sommaire présentées sur une même page"
@@ -398,7 +405,8 @@ msgid "help_dc_subject"
 msgstr "Le sujet du contenu de la ressource."
 
 msgid "help_dc_contirbutors"
-msgstr "Les entités qui ont contribué à la création du contenu de la ressource."
+msgstr ""
+"Les entités qui ont contribué à la création du contenu de la ressource."
 
 msgid "help_dc_source"
 msgstr ""
@@ -415,4 +423,3 @@ msgstr ""
 
 msgid "label_portal_type"
 msgstr "Type de ressource"
-

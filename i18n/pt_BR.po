@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
-"POT-Creation-Date: 2004-07-02 17:07default\n"
+"POT-Creation-Date: 2004-07-13 11:03default\n"
 "PO-Revision-Date: 2004-06-08 13:48-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@curiango.ipen.br>\n"
 "Language-Team: Português do Brasil <pt@li.org>\n"
@@ -74,6 +74,7 @@ msgstr "Índice"
 
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
+#: ../skins/cps_document/layout_chapter_view.pt
 msgid "cpsdoc_title_toc"
 msgstr "Índice"
 
@@ -368,6 +369,14 @@ msgid "portal_type_Page_title"
 msgstr "Página"
 
 msgid "portal_type_Page_description"
+msgstr "Descrição da página"
+
+#, fuzzy
+msgid "portal_type_Chapter_title"
+msgstr "Página"
+
+#, fuzzy
+msgid "portal_type_Chapter_description"
 msgstr "Descrição da página"
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
