@@ -523,13 +523,33 @@ class FlexibleTypeInformation(TypeInformation):
         """
         layout_mode = kw['layout_mode']
         all_rendered = ''
+        nb_layouts = len(layout_structures)
+        i = 0
+        flexible_layouts = self._getFlexibleLayouts()
         for layout_structure in layout_structures:
+            # find if is the first/last layout
+            i += 1
+            if i == 1:
+                first_layout = 1
+            else:
+                first_layout = 0
+            if i == nb_layouts:
+                last_layout = 1
+            else:
+                last_layout = 0
+            is_flexible = layout_mode != 'create' and \
+                          layout_structure['layout_id'] in \
+                          flexible_layouts
             # Render layout structure.
             layout = layout_structure['layout']
             layout.renderLayoutStructure(layout_structure, datastructure, **kw)
             # Apply layout style.
             rendered = layout.renderLayoutStyle(layout_structure,
-                                                datastructure, ob, **kw)
+                                                datastructure, ob,
+                                                first_layout=first_layout,
+                                                last_layout=last_layout,
+                                                is_flexible=is_flexible,
+                                                **kw)
             all_rendered += rendered
         return all_rendered
 
