@@ -154,6 +154,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
                 value = (value,)
             for v in value:
                 strings.append(str(v)) # XXX Use ustr ?
+        # XXX Deal with fields that use a vocabulary, and add the
+        #     translated value to the searchable text, not the key.
         # XXX Deal with Unicode properly...
         return ' '.join(strings)
 
