@@ -3,13 +3,10 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- install Quiz and Collector as CPSDocument
+-
 Bug fixes:
 ~~~~~~~~~~
-- 
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- changing class declaration inherit first from PortalFolder then PortalContent
-  this enable to have folder document
-- Don't implement parts of Dublin Core into CPSDocument, fix unit tests
-  instead.
+-

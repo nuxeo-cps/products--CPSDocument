@@ -1,4 +1,23 @@
 *******************************************
+** CPSDocument V0.13.0 [R1 build 2004/02/11-14:24 by ben]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- install Quiz and Collector as CPSDocument
+Bug fixes:
+~~~~~~~~~~
+- 
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- changing class declaration inherit first from PortalFolder then PortalContent
+  this enable to have folder document
+- Don't implement parts of Dublin Core into CPSDocument, fix unit tests
+  instead.
+
+*******************************************
 ** CPSDocument V0.12.1 [R1 build 2004/02/08-12:37 by fermigier]
 
 Requires:
