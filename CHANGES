@@ -20,11 +20,15 @@ ZODB Requires:
          'hidden_view': 1,
      to:
          'hidden_layout_modes': ['view'],
+  4/ in getDocumentLayout.py, replace:
+     render_mode with render_format
 New features:
 ~~~~~~~~~~~~~
 - handle list of layouts vs single layout per ptype
 - no more editlayout mode, a layout is editable if flexible
 - Use refactored widgets with new hidden syntax.
+- new TextArea widget with format and position option
+- New Flexible document
 Bug fixes:
 ~~~~~~~~~~
 -
