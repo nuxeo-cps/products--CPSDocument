@@ -6,7 +6,8 @@ New features:
 - new LanguageSelector in the common Layout
 Bug fixes:
 ~~~~~~~~~~
--
+- fix #430: TextImage widget (and flexibleDocument) broken under IE
+  missing left column due to peekaboo bug
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
