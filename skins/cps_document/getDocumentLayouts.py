@@ -16,7 +16,7 @@ faq_layout = {
                     'type': 'String Widget',
                     'data': {
                         'fields': ['title'],
-                        'title': 'FAQ short question',
+                        'label_edit': 'FAQ short question',
                         'description': 'FAQ short question for section display',
                         'css_class': 'title',
                         'display_width': 20,
@@ -27,7 +27,7 @@ faq_layout = {
                     'type': 'TextArea Widget',
                     'data': {
                         'fields': ['description'],
-                        'title': 'FAQ answer resume',
+                        'label_edit': 'FAQ answer resume',
                         'description': 'FAQ answer resume for section display',
                         'css_class': 'description',
                         'width': 40,
@@ -39,7 +39,7 @@ faq_layout = {
                     'type': 'TextArea Widget',
                     'data': {
                         'fields': ['question'],
-                        'title': 'FAQ question',
+                        'label_edit': 'FAQ question',
                         'description': 'FAQ full question',
                         'css_class': 'title',
                         'width': 40,
@@ -51,7 +51,7 @@ faq_layout = {
                     'type': 'TextArea Widget',
                     'data': {
                         'fields': ['answer'],
-                        'title': 'FAQ answer',
+                        'label_edit': 'FAQ answer',
                         'description': 'FAQ full answer',
                         'css_class': 'stx',
                         'width': 40,
@@ -84,7 +84,7 @@ dummy_form_layout = {
                     'type': 'String Widget',
                     'data': {
                         'fields': ['title'],
-                        'title': 'Dummy Form title field',
+                        'label_edit': 'Dummy Form title field',
                         'description': 'Title for a dummy form',
                         'css_class': 'title',
                         'display_width': 20,
@@ -95,7 +95,7 @@ dummy_form_layout = {
                     'type': 'TextArea Widget',
                     'data': {
                         'fields': ['description'],
-                        'title': 'Dummy Form Description field',
+                        'label_edit': 'Dummy Form Description field',
                         'description': 'Description field for a dummy form',
                         'css_class': 'description',
                         'width': 40,
