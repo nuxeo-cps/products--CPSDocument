@@ -15,7 +15,7 @@ type information should look like.</p>
     '<dtml-var sequence-key>': <dtml-var sequence-item>,
 </dtml-if>
 </dtml-in>
-    }
+}
 </pre>
 
 <dtml-var manage_page_footer>
