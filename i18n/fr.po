@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-02 12:36default\n"
-"PO-Revision-Date: 2003-10-02 13:00+0200\n"
+"POT-Creation-Date: 2003-10-02 17:46default\n"
+"PO-Revision-Date: 2003-10-02 17:49+0200\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -128,6 +128,28 @@ msgstr "Fichier"
 
 msgid "portal_type_File_description"
 msgstr "Attacher un fichier"
+
+# default doc types
+msgid "portal_type_Event_title"
+msgstr "Evénement"
+
+msgid "portal_type_Event_description"
+msgstr "Un évenement"
+
+msgid "cpsdoc_Event_start_label"
+msgstr "Du"
+
+msgid "cpsdoc_Event_end_label"
+msgstr " au "
+
+msgid "cpsdoc_Event_start_label_edit"
+msgstr "Début : "
+
+msgid "cpsdoc_Event_end_label_edit"
+msgstr "Fin : "
+
+msgid "cpsdoc_Event_content_label_edit"
+msgstr "Contenu de l'évenement : "
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Thème du document"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-10-02 12:36default\n"
+"POT-Creation-Date: 2003-10-02 17:46default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -130,4 +130,26 @@ msgid "portal_type_File_title"
 msgstr ""
 
 msgid "portal_type_File_description"
+msgstr ""
+
+# Event
+msgid "portal_type_Event_title"
+msgstr ""
+
+msgid "portal_type_Event_description"
+msgstr ""
+
+msgid "cpsdoc_Event_start_label"
+msgstr ""
+
+msgid "cpsdoc_Event_end_label"
+msgstr ""
+
+msgid "cpsdoc_Event_start_label_edit"
+msgstr ""
+
+msgid "cpsdoc_Event_end_label_edit"
+msgstr ""
+
+msgid "cpsdoc_Event_content_label_edit"
 msgstr ""

@@ -93,3 +93,28 @@ msgstr ""
 msgid "portal_type_File_description"
 msgstr ""
 
+# Event
+msgid "portal_type_Event_title"
+msgstr ""
+
+msgid "portal_type_Event_description"
+msgstr ""
+
+msgid "cpsdoc_Event_start_label"
+msgstr ""
+
+msgid "cpsdoc_Event_end_label"
+msgstr ""
+
+msgid "cpsdoc_Event_start_label_edit"
+msgstr ""
+
+msgid "cpsdoc_Event_end_label_edit"
+msgstr ""
+
+msgid "cpsdoc_Event_content_label_edit"
+msgstr "" 
+
+
+	
+

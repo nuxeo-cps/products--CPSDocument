@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2003-10-02 12:36default\n"
-"PO-Revision-Date: 2003-10-02 13:00+0200\n"
+"POT-Creation-Date: 2003-10-02 17:46default\n"
+"PO-Revision-Date: 2003-10-02 17:51+0200\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -129,6 +129,28 @@ msgstr "File"
 
 msgid "portal_type_File_description"
 msgstr "Indexed attached file"
+
+# default doc types
+msgid "portal_type_Event_title"
+msgstr "Event"
+
+msgid "portal_type_Event_description"
+msgstr "An event"
+
+msgid "cpsdoc_Event_start_label"
+msgstr "From  "
+
+msgid "cpsdoc_Event_end_label"
+msgstr " to  "
+
+msgid "cpsdoc_Event_start_label_edit"
+msgstr "From : "
+
+msgid "cpsdoc_Event_end_label_edit"
+msgstr "To : "
+
+msgid "cpsdoc_Event_content_label_edit"
+msgstr "Content of the event: "
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Theme"
