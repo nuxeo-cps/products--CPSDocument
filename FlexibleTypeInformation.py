@@ -157,7 +157,9 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         {'id': 'layout_clusters', 'type': 'tokens', 'mode': 'w',
          'label': 'Layout clusters'},
         # Layout clusters: sequence of tokens of the form
-        #  clusterid:layoutid,layoutid,layoutid...
+        #  clusterid:layoutid_1,layoutid_2,layoutid_3...
+        # Layout ids do not need to be listed in the 'layouts' property. This
+        # list of layouts can be considered as the default cluster.
         {'id': 'flexible_layouts', 'type': 'tokens', 'mode': 'w',
          'label': 'Flexible layouts'}, # XXX layout1:schema1 layout2:schema2
         {'id': 'storage_methods', 'type': 'tokens', 'mode': 'w',
