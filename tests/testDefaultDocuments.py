@@ -7,21 +7,22 @@ import unittest
 from Testing import ZopeTestCase
 import CPSDocumentTestCase
 
-DEFAULT_DOCUMENT_TYPES = ['Flexible', 'FAQ', 'FAQitem', 'Glossary',
-    'GlossaryItem', 'News', 'File', 'EventDoc', 'Link', 'Image',
-    'ImageGallery']
+#DEFAULT_DOCUMENT_TYPES = ['Flexible', 'FAQ', 'FAQitem', 'Glossary',
+#    'GlossaryItem', 'News', 'File', 'EventDoc', 'Link', 'Image',
+#    'ImageGallery']
 
 class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     def afterSetUp(self):
         self.login('root')
         self.schemas = self.portal.getDocumentSchemas()
+        self.types = self.portal.getDocumentTypes()
 
     def beforeTearDown(self):
         self.logout()
 
     def testCreateDocumentsInWorkspacesRoot(self):
         ws = self.portal.workspaces
-        for doc_type in DEFAULT_DOCUMENT_TYPES:
+        for doc_type in self.types.keys():
             doc_id = doc_type.lower()
             ws.invokeFactory(doc_type, doc_id)
             self._testDefaultAttributes(doc_id)
