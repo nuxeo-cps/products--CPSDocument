@@ -166,8 +166,10 @@ news_schema = {
             },
         },
     'photo_original': {
-        'type': 'CPS String Field',
+        'type': 'CPS Image Field',
         'data': {
+                'default_expr': 'nothing',
+                'is_searchabletext': 0,
             },
         },
     'content': {
