@@ -1,4 +1,23 @@
 *******************************************
+** CPSDocument V0.31.0 [R1 build 2004/12/21-09:18 by ben]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- News document use textimage widget enable 2 columns layout and photo
+  subtitle
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- FlexibleTypeInformation._constructInstance() take into account the kw
+given as argument to initialize the data model. Check the comment out within
+the method
+
+*******************************************
 ** CPSDocument V0.30.1 [R1 build 2004/12/13-21:01 by edegoute]
 
 Requires:
