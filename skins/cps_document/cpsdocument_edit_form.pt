@@ -1,4 +1,11 @@
-<tal:block define="global edit_request python:request.has_key('cpsdocument_edit_button') and request or nothing;" />
+<tal:block define="doc here/getContent;
+                   validate python: request.has_key('cpsdocument_edit_button');
+                   edit_request python: validate and request or nothing;
+                   res python: doc.renderEditDetailed(request=edit_request, proxy=here);
+                   global rendered_main python: res[0];
+                   rendered_ok python: res[1];
+                   global portal_status_message python: validate and (rendered_ok and 'psm_content_changed' or 'psm_content_error') or '';
+                " />
 <metal:block use-macro="here/content_lib/macros/master">
   <metal:block fill-slot="css_slot">
     <style type="text/css"
@@ -20,8 +27,7 @@
   </metal:block>
 
   <metal:block fill-slot="main">
-    <div tal:replace="structure
-      python:doc.renderEdit(request=edit_request, proxy=here)" />
+    <div tal:replace="structure rendered_main" />
   </metal:block>
 
 </metal:block>
