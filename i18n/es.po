@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: es-CPSDocument\n"
-"POT-Creation-Date: 2005-03-26 13:55default\n"
+"POT-Creation-Date: 2005-03-27 20:03default\n"
 "PO-Revision-Date: 2004-03-27 20:48+0100\n"
 "Last-Translator: ¡lvaro Tejero Cantero <alvaro@antalia.com>\n"
 "Language-Team:  Espa√±ol <es@li.org>\n"
@@ -416,6 +416,19 @@ msgstr "Fichero"
 
 msgid "portal_type_File_description"
 msgstr "Adjuntar un fichero"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_ZippedHtml_title"
+msgstr "Fichero"
+
+#, fuzzy
+msgid "portal_type_ZippedHtml_description"
+msgstr "Adjuntar un fichero"
+
+#, fuzzy
+msgid "cpsdoc_zippedhtml_label"
+msgstr "El "
 
 # default doc types
 msgid "portal_type_Event_title"

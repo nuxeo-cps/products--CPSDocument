@@ -17,7 +17,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument_en\n"
-"POT-Creation-Date: 2005-03-26 13:55default\n"
+"POT-Creation-Date: 2005-03-27 20:03default\n"
 "PO-Revision-Date: 2004-10-04 16:55+0100\n"
 "Last-Translator:  <>\n"
 "Language-Team: Euskara <eu@li.org>\n"
@@ -401,6 +401,19 @@ msgstr "Fitxategia"
 
 msgid "portal_type_File_description"
 msgstr "Indexatutako fitxategi erantsia"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_ZippedHtml_title"
+msgstr "Fitxategia"
+
+#, fuzzy
+msgid "portal_type_ZippedHtml_description"
+msgstr "Indexatutako fitxategi erantsia"
+
+#, fuzzy
+msgid "cpsdoc_zippedhtml_label"
+msgstr " "
 
 # default doc types
 msgid "portal_type_Event_title"

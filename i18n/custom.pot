@@ -224,6 +224,16 @@ msgstr ""
 msgid "portal_type_File_description"
 msgstr ""
 
+# ZippedHtml
+msgid "portal_type_ZippedHtml_title"
+msgstr ""
+
+msgid "portal_type_ZippedHtml_description"
+msgstr ""
+
+msgid "cpsdoc_zippedhtml_label"
+msgstr ""
+
 
 # Event
 msgid "portal_type_Event_title"

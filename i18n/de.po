@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument-de CPS-3.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-26 13:55default\n"
+"POT-Creation-Date: 2005-03-27 20:03default\n"
 "PO-Revision-Date: 2005-03-14 10:49+0100\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@dhl.com>\n"
 "Language-Team: de <rheinland@dzug.org>\n"
@@ -385,6 +385,19 @@ msgstr "Datei"
 
 msgid "portal_type_File_description"
 msgstr "beliebige indizierbare Dateien, zB pdf-Dokumente"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_ZippedHtml_title"
+msgstr "Datei"
+
+#, fuzzy
+msgid "portal_type_ZippedHtml_description"
+msgstr "beliebige indizierbare Dateien, zB pdf-Dokumente"
+
+#, fuzzy
+msgid "cpsdoc_zippedhtml_label"
+msgstr "Datum Label"
 
 # default doc types
 msgid "portal_type_Event_title"

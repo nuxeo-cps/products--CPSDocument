@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2005-03-26 13:55default\n"
+"POT-Creation-Date: 2005-03-27 20:03default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -373,6 +373,16 @@ msgid "portal_type_File_title"
 msgstr ""
 
 msgid "portal_type_File_description"
+msgstr ""
+
+# ZippedHtml
+msgid "portal_type_ZippedHtml_title"
+msgstr ""
+
+msgid "portal_type_ZippedHtml_description"
+msgstr ""
+
+msgid "cpsdoc_zippedhtml_label"
 msgstr ""
 
 # Event

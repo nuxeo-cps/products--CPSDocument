@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-26 13:55default\n"
+"POT-Creation-Date: 2005-03-27 20:03default\n"
 "PO-Revision-Date: 2005-03-14 12:15+0100\n"
 "Last-Translator: DARCHE <madarche@nuxeo.com>\n"
 "Language-Team: Francais <fr@li.org>\n"
@@ -389,6 +389,16 @@ msgstr "File"
 
 msgid "portal_type_File_description"
 msgstr "Indexed attached file"
+
+# default doc types
+msgid "portal_type_ZippedHtml_title"
+msgstr "Zipped Html File"
+
+msgid "portal_type_ZippedHtml_description"
+msgstr "A zip archive that contain html, that can be preview online"
+
+msgid "cpsdoc_zippedhtml_label"
+msgstr "Html zip archive" 
 
 # default doc types
 msgid "portal_type_Event_title"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-26 13:55default\n"
+"POT-Creation-Date: 2005-03-27 20:03default\n"
 "PO-Revision-Date: 2004-11-25 13:38+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -403,6 +403,19 @@ msgstr "Antontadahatsoratra"
 
 msgid "portal_type_File_description"
 msgstr "Mandefa antontadahatsoratra na sary"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_ZippedHtml_title"
+msgstr "Antontadahatsoratra"
+
+#, fuzzy
+msgid "portal_type_ZippedHtml_description"
+msgstr "Mandefa antontadahatsoratra na sary"
+
+#, fuzzy
+msgid "cpsdoc_zippedhtml_label"
+msgstr "Ny "
 
 # default doc types
 msgid "portal_type_Event_title"

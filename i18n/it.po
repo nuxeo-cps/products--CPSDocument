@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
-"POT-Creation-Date: 2005-03-26 13:55default\n"
+"POT-Creation-Date: 2005-03-27 20:03default\n"
 "PO-Revision-Date: 2004-09-30 16:17+0100\n"
 "Last-Translator: Fabio Nosari <fabnos@fastwebnet.it>\n"
 "Language-Team: Fabio NOSARI <fabnos@fastwebnet.it>\n"
@@ -392,6 +392,19 @@ msgstr "File"
 
 msgid "portal_type_File_description"
 msgstr "File allegato e indicizzabile"
+
+# File
+#, fuzzy
+msgid "portal_type_ZippedHtml_title"
+msgstr "File"
+
+#, fuzzy
+msgid "portal_type_ZippedHtml_description"
+msgstr "File allegato e indicizzabile"
+
+#, fuzzy
+msgid "cpsdoc_zippedhtml_label"
+msgstr "Data"
 
 # Event
 msgid "portal_type_Event_title"

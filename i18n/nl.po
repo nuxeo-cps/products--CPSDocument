@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-26 13:55default\n"
+"POT-Creation-Date: 2005-03-27 20:03default\n"
 "PO-Revision-Date: 2004-02-16 14:14+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -419,6 +419,19 @@ msgstr "Dossier"
 
 msgid "portal_type_File_description"
 msgstr "Geheel van documenten"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_ZippedHtml_title"
+msgstr "Dossier"
+
+#, fuzzy
+msgid "portal_type_ZippedHtml_description"
+msgstr "Geheel van documenten"
+
+#, fuzzy
+msgid "cpsdoc_zippedhtml_label"
+msgstr "Datum : "
 
 # default doc types
 msgid "portal_type_Event_title"
