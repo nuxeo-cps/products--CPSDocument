@@ -10,7 +10,6 @@ Call notifyCPSDocumentCreation script
 Returns the created object. In CPS, returns the proxy (which is
 the only thing the user sees).
 """
-# $Id$
 
 folder = context
 
@@ -20,6 +19,7 @@ if not id:
 
 id = context.computeId(compute_from=id)
 
+# datamodel is passed so that flexti can initialize the object.
 context.invokeFactory(type_name, id, datamodel=datamodel)
 ob = getattr(context, id)
 
