@@ -248,7 +248,7 @@ msgstr "Réponse :  "
 
 # default doc types
 msgid "portal_type_ImageGallery_title"
-msgstr "Phototèque"
+msgstr "Photothèque"
 
 msgid "portal_type_ImageGallery_description"
 msgstr "Bibliothèque d'images"
