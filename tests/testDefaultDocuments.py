@@ -90,12 +90,34 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         # Now testing global view for the container
         self.assert_(self.ws.folder_view())
 
+    # Standard conversion to attributes for special metadata schema.
+    field_to_attr = {
+        'Creator': None,
+        'CreationDate': 'creation_date',
+        'Title': 'title',
+        'Subject': 'subject',
+        'Description': 'description',
+        'Contributors': 'contributors',
+        'ModificationDate': 'modification_date',
+        'EffectiveDate': 'effective_date',
+        'ExpirationDate': 'expiration_date',
+        'Format': 'format',
+        'Language': 'language',
+        'Rights': 'rights',
+        'Coverage': 'coverage',
+        'Source': 'source',
+        'Relation': 'relation',
+        }
 
     def _testDefaultAttributes(self, doc):
         type_info = doc.getTypeInfo()
         for schema in type_info.schemas:
             for prop_name in self.document_schemas[schema].keys():
-                self.assert_(hasattr(doc, prop_name))
+                attr_name = self.field_to_attr.get(prop_name, prop_name)
+                if attr_name is None:
+                    # Not expected to be an attribute at all.
+                    continue
+                self.assert_(hasattr(doc, attr_name))
 
     def _testInterfaces(self, doc):
         from Interface.Verify import verifyObject
