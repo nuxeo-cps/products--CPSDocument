@@ -266,6 +266,20 @@ event_schema = {
                 'is_searchabletext': 1,
             },
         },
+    'content_position': {
+        'type': 'CPS String Field',
+        'data': {
+                'default_expr': 'string:',
+                'is_searchabletext': 1,
+            },
+        },
+    'content_format': {
+        'type': 'CPS String Field',
+        'data': {
+                'default_expr': 'string:',
+                'is_searchabletext': 1,
+            },
+        },
     'attachedFile': {
         'type': 'CPS File Field',
         'data': {

@@ -836,7 +836,7 @@ event_layout = {
             },
         },
         'content': {
-            'type': 'Rich Text Editor Widget',
+            'type': 'Text Widget',
             'data': {
                 'fields': ['content'],
                 'is_i18n': 1,
@@ -846,6 +846,8 @@ event_layout = {
                 'css_class': 'dcontent',
                 'width': 72,
                 'height': 15,
+                'render_format': 'text',
+                'configurable': 'format',
             },
         },
         'attachedFile': {
