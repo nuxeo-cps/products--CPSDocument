@@ -230,11 +230,15 @@ class FlexibleTypeInformation(TypeInformation):
     # Flexible behavior
     #
 
-    def _copyPasteObject(self, obj, dst):
-        id = obj.getId()
+    def _copyPasteObject(self, obj, dst, dst_id=None):
+        if dst_id:
+            id = dst_id
+        else:
+            id = obj.getId()
         container = aq_parent(aq_inner(obj))
         obj = obj._getCopy(container)
         dst._setObject(id, obj)
+        obj._setId(id)
         return dst._getOb(id)
 
     def _makeObjectFlexible(self, ob):
@@ -324,7 +328,8 @@ class FlexibleTypeInformation(TypeInformation):
                 widget_id = '%s_%d' % (wtid, n)
             LOG('FlexibleAddWidget', DEBUG, 'adding widget_id %s' % widget_id)
             prefixed_widget_id = '%s_%d' % (tpl_widget.getId(), n)
-            layout.manage_clone(tpl_widget, prefixed_widget_id)
+            self._copyPasteObject(tpl_widget, layout,
+                                  dst_id=prefixed_widget_id)
             widget = layout[widget_id]
 
         # Create the needed fields.
