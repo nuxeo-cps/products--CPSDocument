@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-16 15:32default\n"
+"POT-Creation-Date: 2004-03-04 14:06default\n"
 "PO-Revision-Date: 2004-02-17 17:29+0100\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
@@ -45,13 +45,6 @@ msgstr "nop"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Type Title"
 msgstr ""
-
-#.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
-#.     <block content="structure string:</div></form>" />
-#.   </input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_create"
-msgstr "Créer"
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -337,16 +330,24 @@ msgid "help_dc_subject"
 msgstr "Le sujet du contenu de la ressource."
 
 msgid "help_dc_contirbutors"
-msgstr "Les entités qui ont contribué à la création du contenu de la ressource."
+msgstr ""
+"Les entités qui ont contribué à la création du contenu de la ressource."
 
 msgid "help_dc_source"
-msgstr "Une référence à une ressource à partir de laquelle la ressource actuelle a été dérivée."
+msgstr ""
+"Une référence à une ressource à partir de laquelle la ressource actuelle a "
+"été dérivée."
 
 msgid "help_dc_coverage"
 msgstr "La portée ou la couverture spatio-temporelle de la ressource."
 
 msgid "help_dc_relation"
-msgstr "Une référence (URL) à une autre ressource qui a un rapport avec cette ressource."
+msgstr ""
+"Une référence (URL) à une autre ressource qui a un rapport avec cette "
+"ressource."
+
+#~ msgid "button_create"
+#~ msgstr "Créer"
 
 #~ msgid "batch_next"
 #~ msgstr "Suivants"
@@ -383,4 +384,3 @@ msgstr "Une référence (URL) à une autre ressource qui a un rapport avec cette re
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Thème du document"
-

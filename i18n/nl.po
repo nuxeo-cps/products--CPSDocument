@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-16 15:32default\n"
+"POT-Creation-Date: 2004-03-04 14:06default\n"
 "PO-Revision-Date: 2004-02-16 14:14+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -43,13 +43,6 @@ msgstr ""
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Type Title"
 msgstr ""
-
-#.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
-#.     <block content="structure string:</div></form>" />
-#.   </input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_create"
-msgstr "Aanmaken"
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -376,6 +369,9 @@ msgstr ""
 
 msgid "help_dc_relation"
 msgstr ""
+
+#~ msgid "button_create"
+#~ msgstr "Aanmaken"
 
 #~ msgid "button_add"
 #~ msgstr "Toevoegen"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-02-16 15:32default\n"
+"POT-Creation-Date: 2004-03-04 14:06default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -41,13 +41,6 @@ msgstr ""
 #.                           type_info python:here.portal_types[type_name]" content="type_info/Title">Type Title</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Type Title"
-msgstr ""
-
-#.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
-#.     <block content="structure string:</div></form>" />
-#.   </input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_create"
 msgstr ""
 
 #.   <span>to</span>

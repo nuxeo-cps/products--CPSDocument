@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-16 15:32default\n"
+"POT-Creation-Date: 2004-03-04 14:06default\n"
 "PO-Revision-Date: 2004-02-17 17:30+0100\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
@@ -45,13 +45,6 @@ msgstr "nop"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Type Title"
 msgstr ""
-
-#.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
-#.     <block content="structure string:</div></form>" />
-#.   </input>
-#: from ../skins/cps_document/layout_lib.pt
-msgid "button_create"
-msgstr "Create"
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -336,8 +329,7 @@ msgstr "A topic of the content of the resource."
 
 msgid "help_dc_contirbutors"
 msgstr ""
-"Entities responsible for making contributions to the content of the "
-"resource."
+"Entities responsible for making contributions to the content of the resource."
 
 msgid "help_dc_source"
 msgstr "A Reference to a resource from which the present resource is derived."
@@ -347,6 +339,9 @@ msgstr "The extent or scope of the content of the resource."
 
 msgid "help_dc_relation"
 msgstr "A reference (URL) to a related resource."
+
+#~ msgid "button_create"
+#~ msgstr "Create"
 
 #~ msgid "batch_next"
 #~ msgstr "Next"
@@ -383,4 +378,3 @@ msgstr "A reference (URL) to a related resource."
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Theme"
-
