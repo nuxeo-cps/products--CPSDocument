@@ -44,7 +44,7 @@ div.dflush {
 }
 
 div.dcolleft {
-  margin-right:50%;
+  margin-right: 50%;
   padding-bottom: 1em;
 }
 
@@ -57,7 +57,7 @@ div.dcolright {
 
 
 div.dtitle, div.dtitle2, div.dtitle3, div.dtitle4, div.dtitle5, div.dtitle6 {
-  color: &dtml-headingFontColor;;
+  color: <dtml-var headingFontColor>;
   background-color: transparent;
   font: <dtml-var headingFont>;
   margin: 0;
@@ -65,32 +65,32 @@ div.dtitle, div.dtitle2, div.dtitle3, div.dtitle4, div.dtitle5, div.dtitle6 {
 }
 
 div.dtitle {
-  font-size: &dtml-headingSize1;;
-  border-bottom: 1px solid &dtml-mainTabBorderColor;;
+  font-size: <dtml-var headingSize1>;
+  border-bottom: 1px solid <dtml-var mainTabBorderColor>;
   margin-bottom: 0.5em;
 }
 div.dtitle2 {
-  font-size: &dtml-headingSize2;;
-  border-bottom: 1px solid &dtml-mainTabBorderColor;;
+  font-size: <dtml-var headingSize2>;
+  border-bottom: 1px solid <dtml-var mainTabBorderColor>;
   margin-bottom: 0.5em;
 }
 div.dtitle3 {
-  font-size: &dtml-headingSize3;;
-  border-bottom: 1px solid &dtml-mainTabBorderColor;;
+  font-size: <dtml-var headingSize3>;
+  border-bottom: 1px solid <dtml-var mainTabBorderColor>;
 }
 div.dtitle4 {
-  font-size: &dtml-headingSize4;;
-  border-bottom: 1px solid &dtml-mainTabBorderColor;;
+  font-size: <dtml-var headingSize4>;
+  border-bottom: 1px solid <dtml-var mainTabBorderColor>;
   font-weight: bold;
 }
 div.dtitle5 {
-  font-size: &dtml-headingSize5;;
-  border-bottom: 1px solid &dtml-mainTabBorderColor;;
+  font-size: <dtml-var headingSize5>;
+  border-bottom: 1px solid <dtml-var mainTabBorderColor>;
   font-weight: bold;
 }
 div.dtitle6 {
-  font-size: &dtml-headingSize6;;
-  border-bottom: 1px solid &dtml-mainTabBorderColor;;
+  font-size: <dtml-var headingSize6>;
+  border-bottom: 1px solid <dtml-var mainTabBorderColor>;
   font-weight: bold;
 }
 
@@ -119,7 +119,7 @@ div.ddescription {
   margin: -1em 0 1em 0;
   color: #777777;
   font-weight: bold;
-  font-size: &dtml-headingSize5;;
+  font-size: <dtml-var headingSize5>;
 }
 
 /* hack for IE6 bugs */

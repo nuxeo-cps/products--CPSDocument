@@ -14,4 +14,4 @@ Bug fixes:
 - Removed "float: center;" invalid CSS property for "dcenter" class.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Normalized the CSS files.
