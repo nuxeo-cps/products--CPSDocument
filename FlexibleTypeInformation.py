@@ -436,15 +436,13 @@ class FlexibleTypeInformation(TypeInformation):
         return dm
 
     security.declarePrivate('getLayout')
-    def getLayout(self, layout_id=None, ob=None):
+    def getLayout(self, layout_id, ob=None):
         """Get the layout for our type.
 
         Takes into account flexible layouts from ob.
         """
         ltool = getToolByName(self, 'portal_layouts')
         flexible_layouts = self._getFlexibleLayouts()
-        if not layout_id:
-            layout_id = self.layouts[0]
         layout = None
         if layout_id in flexible_layouts and ob is not None:
             lc = ob._getOb('.cps_layouts', None)
@@ -465,60 +463,76 @@ class FlexibleTypeInformation(TypeInformation):
 
         Returns a sequence of Layout objects.
         """
+        only_layout_id = layout_id
         layouts = []
         for layout_id in self.layouts:
+            if only_layout_id and only_layout_id != layout_id:
+                continue
             layouts.append(self.getLayout(layout_id, ob))
-
         return layouts
 
-    security.declarePrivate('_prepareDataStructure')
-    def _prepareDataStructure(self, ds, ob=None, layout_id=None):
-        """Init ds according to the layouts"""
-        # XXX todo if layout_id check that it exists
-        layouts = self.getLayouts(ob=ob, layout_id=layout_id)
-        for layout in layouts:
-            layout.prepareLayoutWidgets(ds)
+    security.declarePrivate('_computeLayoutStructures')
+    def _computeLayoutStructures(self, datastructure, layout_mode,
+                                 layout_id=None, ob=None, request=None):
+        """Initialize the datastructure and compute the layout.
 
-    security.declarePrivate('_renderLayouts')
-    def _renderLayouts(self, ob, layout_mode, layout_id=None, **kw):
-        """get html rendering of all layouts according to the layout_mode
+        Datastructure is initialized according to the widgets and the
+        request.
 
-        Uses context as a rendering context.
+        Computes the layout structure.
+
+        Returns a list of layout_structures.
         """
-        # XXX todo if layout_id check that it exists
-        rendered = ''
-        ds = kw['datastructure']
-        layouts = self.getLayouts(ob=ob, layout_id=layout_id)
+        layouts = self.getLayouts(layout_id=layout_id, ob=ob)
         for layout in layouts:
-            mode_chooser = layout.getStandardWidgetModeChooser(layout_mode, ds)
-            layout_data = layout.computeLayout(ds, mode_chooser)
-            layout_meth = layout_data['style_prefix'] + layout_mode
-            layout_style = getattr(ob, layout_meth, None)
-            if layout_style is None:
-                raise RuntimeError("No layout method '%s'" % layout_meth)
-            rendered += layout_style(layout_mode=layout_mode,
-                                     layout=layout_data, **kw)
-
-        return rendered
-
-    security.declarePrivate('_validateLayouts')
-    def _validateLayouts(self, datastructure, ob, layout_mode, layout_id=None):
-        """Validate all layouts
-        """
-        # XXX todo if layout_id check that it exists
-        is_valid = 1
-        layouts = self.getLayouts(ob=ob, layout_id=layout_id)
+            layout.prepareLayoutWidgets(datastructure)
+        if request is not None:
+            datastructure.updateFromMapping(request.form)
+        layout_structures = []
         for layout in layouts:
-            if layout_id and layout.getId() != layout_id:
-                continue
             mode_chooser = layout.getStandardWidgetModeChooser(
                 layout_mode, datastructure)
-            layout_data = layout.computeLayout(datastructure, mode_chooser)
-            if not layout.validateLayout(layout_data, datastructure):
-                is_valid = 0
-                break
+            layout_structure = layout.computeLayoutStructure(datastructure,
+                                                             mode_chooser)
+            layout_structures.append(layout_structure)
+        return layout_structures
 
+    security.declarePrivate('_validateLayoutStructures')
+    def _validateLayoutStructures(self, layout_structures,
+                                  datastructure, **kw):
+        """Validate all layout structures.
+
+        Returns a boolean is_valid.
+        """
+        is_valid = 1
+        for layout_structure in layout_structures:
+            layout = layout_structure['layout']
+            ok = layout.validateLayoutStructure(layout_structure,
+                                                datastructure, **kw)
+            is_valid = is_valid and ok
         return is_valid
+
+    security.declarePrivate('_renderLayouts')
+    def _renderLayouts(self, layout_structures, datastructure, ob, **kw):
+        """Get HTML rendering of all layouts.
+
+        Uses ob as a rendering context.
+        """
+        layout_mode = kw['layout_mode']
+        all_rendered = ''
+        for layout_structure in layout_structures:
+            # Render layout structure.
+            layout = layout_structure['layout']
+            layout.renderLayoutStructure(layout_structure, datastructure, **kw)
+            # Apply layout style.
+            rendered = layout.renderLayoutStyle(layout_structure,
+                                                datastructure, ob, **kw)
+            all_rendered += rendered
+        return all_rendered
+
+    #
+    # API
+    #
 
     security.declarePrivate('renderObject')
     def renderObject(self, ob, layout_mode='view', layout_id=None, **kw):
@@ -526,10 +540,12 @@ class FlexibleTypeInformation(TypeInformation):
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
-        self._prepareDataStructure(ds)
 
-        return self._renderLayouts(ob, layout_mode,
-                                   datastructure=ds, **kw)
+        layout_structures = self._computeLayoutStructures(
+            ds, layout_mode, layout_id=layout_id, ob=ob, request=None)
+
+        return self._renderLayouts(layout_structures, ds, ob,
+                                   layout_mode=layout_mode, **kw)
 
     def _commitDM(self, dm):
         """Commits the dm.
@@ -574,19 +590,23 @@ class FlexibleTypeInformation(TypeInformation):
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
-        self._prepareDataStructure(ds)
 
-        is_valid = 1
-        if request:
-            ds.updateFromMapping(request.form)
-            is_valid = self._validateLayouts(ds, ob, layout_mode, layout_id)
+        layout_structures = self._computeLayoutStructures(
+            ds, layout_mode, layout_id=layout_id, ob=ob, request=request)
+
+        if request is None:
+            is_valid = 1
+        else:
+            is_valid = self._validateLayoutStructures(layout_structures, ds,
+                                                      layout_mode=layout_mode)
             if is_valid:
                 ob = self._commitDM(dm)
             else:
                 layout_mode = layout_mode_err
 
-        rendered = self._renderLayouts(ob, layout_mode,
-                                       ok=is_valid, datastructure=ds, **kw)
+        rendered = self._renderLayouts(layout_structures, ds, ob,
+                                       layout_mode=layout_mode, ok=is_valid,
+                                       **kw)
         return rendered, is_valid, ds
 
     security.declarePrivate('renderEditObject')
@@ -627,13 +647,14 @@ class FlexibleTypeInformation(TypeInformation):
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
-        self._prepareDataStructure(ds)
 
-        rendered = None
+        layout_structures = self._computeLayoutStructures(
+            ds, layout_mode, layout_id=layout_id, ob=ob, request=request)
+
         is_valid = 1
-        if request:
-            ds.updateFromMapping(request.form)
-            is_valid = self._validateLayouts(ds, ob, layout_mode, layout_id)
+        if request is not None:
+            is_valid = self._validateLayoutStructures(layout_structures, ds,
+                                                      layout_mode=layout_mode)
             if not is_valid:
                 layout_mode = layout_mode_err
             else:
@@ -655,11 +676,11 @@ class FlexibleTypeInformation(TypeInformation):
                     if method is None:
                         raise ValueError("No storage method %s" %
                                          method_name)
-                    method(layout_mode, layout=layoutdata, datastructure=ds,
-                           **kw)
+                    method(layout_mode, datastructure=ds, **kw)
 
-        return self._renderLayouts(ob, layout_mode,
-                                   ok=is_valid, datastructure=ds, **kw)
+        return self._renderLayouts(layout_structures, ds, ob,
+                                   layout_mode=layout_mode, ok=is_valid,
+                                   **kw)
 
     security.declarePrivate('editObject')
     def editObject(self, ob, mapping):
@@ -699,19 +720,18 @@ class FlexibleTypeInformation(TypeInformation):
         """
         dm = self.getDataModel(None, context=container)
         ds = DataStructure(datamodel=dm)
-        self._prepareDataStructure(ds)
 
-        if request:
-            ds.updateFromMapping(request.form)
-        rendered = None
+        layout_structures = self._computeLayoutStructures(
+            ds, layout_mode, layout_id=layout_id, ob=None, request=request)
+
         is_valid = 1
         if validate:
-            is_valid = self._validateLayouts(ds, None, layout_mode,
-                                             layout_id)
+            is_valid = self._validateLayoutStructures(layout_structures, ds,
+                                                      layout_mode=layout_mode)
         if not validate or not is_valid:
-            rendered = self._renderLayouts(container, layout_mode,
-                                           ok=is_valid, datastructure=ds,
-                                           **kw)
+            rendered = self._renderLayouts(layout_structures, ds, container,
+                                           layout_mode=layout_mode,
+                                           ok=is_valid, **kw)
         else:
             # creation
             create_func = getattr(container, create_callback, None)
