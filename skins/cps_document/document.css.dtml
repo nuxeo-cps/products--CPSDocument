@@ -69,6 +69,10 @@ div.ddescription {
   font-size: 120%;
 }
 
+.dlabel {
+  font-weight: bold;
+  font-size: 120%;
+}
 
 /*
 </dtml-with>
