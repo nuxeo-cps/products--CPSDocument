@@ -327,7 +327,9 @@ class FlexibleTypeInformation(TypeInformation):
 
         # Create the needed fields.
         field_types = widget.getFieldTypes()
+        field_inits = widget.getFieldInits()
         fields = []
+        i = 0
         for field_type in field_types:
             # Find free field id (based on the field type name).
             field_id = widget_id
@@ -338,8 +340,14 @@ class FlexibleTypeInformation(TypeInformation):
                 field_id = '%s_f%d' % (widget_id, n)
 
             # Create the field.
-            schema.addField(field_id, field_type) # Use default parameters.
-            LOG('FlexibleAddWidget', DEBUG, 'adding field_id %s' % field_id)
+            if field_inits:
+                kw = field_inits[i]
+            else:
+                kw = {}
+            i += 1
+            schema.addField(field_id, field_type, **kw)
+            LOG('FlexibleAddWidget', DEBUG, 'adding field_id %s init %s'
+                % (field_id, str(kw)))
             fields.append(field_id)
 
         # Set the fields used by the widget.
