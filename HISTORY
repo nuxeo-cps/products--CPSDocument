@@ -3,6 +3,7 @@
 
 ZODB Requires:
 ~~~~~~~~~~~~~~
+- CPSSchemas V0.6.0
 - updating getDocument* definition + run cpsdocument_installer
   1/ Move 'layout_style_prefix' from getDocumentTypes.py:
        ...
