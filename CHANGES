@@ -1,12 +1,16 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
 -
+
 New features:
 ~~~~~~~~~~~~~
 -
+
 Bug fixes:
 ~~~~~~~~~~
 - fixing Event document
+- Fixed an unwanted sharing of a default dictionnary in edit().
+
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
