@@ -1,4 +1,22 @@
 *******************************************
+** CPSDocument V0.20.0 [R1 build 2004/05/05-15:43 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- The FlexibleTypeInformation export now exports actions as well.
+- #312: refactor export tab to use smart writing. Now detects quotes used and
+  put stronger quotes.
+Bug fixes:
+~~~~~~~~~~
+- Specifying that the FaqItem answer render format is text
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.19.0 [R1 build 2004/04/09-13:26 by ben]
 
 Requires:

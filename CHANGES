@@ -3,12 +3,10 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- The FlexibleTypeInformation export now exports actions as well.
-- #312: refactor export tab to use smart writing. Now detects quotes used and
-  put stronger quotes.
+-
 Bug fixes:
 ~~~~~~~~~~
-- Specifying that the FaqItem answer render format is text
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
