@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-17 15:53default\n"
-"PO-Revision-Date: 2003-11-17 15:55+0100\n"
-"Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
-"Language-Team: francais <fr@li.org>\n"
+"POT-Creation-Date: 2003-12-03 16:08default\n"
+"PO-Revision-Date: 2003-12-03 16:09+0100\n"
+"Last-Translator: ben <ben@nuxeo.com>\n"
+"Language-Team: ben\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;X-Generator: KBabel 1.0.2\n"
-"X-Generator: KBabel 1.0.2\n"
+"X-Generator: KBabel 1.0.1\n"
 
 #.   <h1>
 #.         Create a document of type
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Create a document of type ${type_name}"
 msgstr "Create a document of type ${type_name}"
 
-#.   <h1>Edit ${title (tal content="here/title_or_id")}</h1>
+#.   <h1 condition="not:metadata">Edit ${title (tal content="here/title_or_id")}</h1>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr "Edit \"${title}\""
@@ -124,6 +124,11 @@ msgstr "Up to ${up_id}"
 #: from ../skins/cps_document/layout_lib.pt
 msgid "err"
 msgstr "Error"
+
+#.   <h1 condition="metadata">heading_metadata_edit</h1>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "heading_metadata_edit"
+msgstr "Metadata edition"
 
 #.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
 #.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>

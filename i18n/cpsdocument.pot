@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-11-17 15:53default\n"
+"POT-Creation-Date: 2003-12-03 16:08default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -27,7 +27,7 @@ msgstr ""
 msgid "Create a document of type ${type_name}"
 msgstr ""
 
-#.   <h1>Edit ${title (tal content="here/title_or_id")}</h1>
+#.   <h1 condition="not:metadata">Edit ${title (tal content="here/title_or_id")}</h1>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr ""
@@ -122,6 +122,11 @@ msgstr ""
 #.   <em content="err" style="color: red">err</em>
 #: from ../skins/cps_document/layout_lib.pt
 msgid "err"
+msgstr ""
+
+#.   <h1 condition="metadata">heading_metadata_edit</h1>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "heading_metadata_edit"
 msgstr ""
 
 #.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
