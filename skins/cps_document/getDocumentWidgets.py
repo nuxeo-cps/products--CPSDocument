@@ -144,6 +144,14 @@ widgets = {
             'type': 'CPS Unordered List Widget Type',
             'data': {},
             },
+        'Generic Select Widget': {
+            'type': 'CPS Generic Select Widget Type',
+            'data': {},
+            },
+        'Generic MultiSelect Widget': {
+            'type': 'CPS Generic MultiSelect Widget Type',
+            'data': {},
+            },
         }
 
 if loadcustom:
