@@ -19,7 +19,7 @@ metadata_schema = {
                 'data': {'is_indexed': 1}},
     'Contributors': {'type': 'CPS String List Field',
                      'data': {'is_indexed': 1,
-                              'write_process_expression_str':
+                              'write_process_expr':
                               'python: portal.computeContributors(user, value)'
                               },},
     'CreationDate': {'type': 'CPS DateTime Field',
@@ -47,14 +47,14 @@ common_schema = {
     'allow_discussion': {
         'type': 'CPS Int Field',
         'data': {
-            'default_expression_str': 'python:0',
+            'default_expr': 'python:0',
             'is_indexed': 0,
             },
         },
     'preview': {
         'type': 'CPS Image Field',
         'data': {
-            'default_expression_str': 'nothing',
+            'default_expr': 'nothing',
             'is_indexed': 0,
             },
         },
@@ -72,7 +72,7 @@ faqitem_schema = {
     'content': {
         'type': 'CPS String Field',
         'data': {
-                'default_expression_str': 'string:',
+                'default_expr': 'string:',
                 'is_indexed': 1,
             },
         },
@@ -85,7 +85,7 @@ glossary_schema = {
     'display_all': {
         'type': 'CPS Int Field',
         'data': {
-                'default_expression_str': 'python:0',
+                'default_expr': 'python:0',
                 'is_indexed': 0,
             },
         },
@@ -100,7 +100,7 @@ news_schema = {
     'attachedFile': {
         'type': 'CPS File Field',
         'data': {
-                'default_expression_str': 'nothing',
+                'default_expr': 'nothing',
                 'is_indexed': 0,
                 'suffix_html': '_html',
                 'suffix_text': '_text',
@@ -109,35 +109,35 @@ news_schema = {
     'attachedFile_html': {
         'type': 'CPS File Field',
         'data': {
-                'default_expression_str': 'nothing',
+                'default_expr': 'nothing',
                 'is_indexed': 0,
             },
         },
     'attachedFile_text': {
         'type': 'CPS String Field',
         'data': {
-                'default_expression_str': 'string:',
+                'default_expr': 'string:',
                 'is_indexed': 1,
             },
         },
     'newsdate': {
         'type': 'CPS DateTime Field',
         'data': {
-                'default_expression_str': 'nothing',
+                'default_expr': 'nothing',
                 'is_indexed': 0,
             },
         },
     'photo': {
         'type': 'CPS Image Field',
         'data': {
-                'default_expression_str': 'nothing',
+                'default_expr': 'nothing',
                 'is_indexed': 0,
             },
         },
     'content': {
         'type': 'CPS String Field',
         'data': {
-                'default_expression_str': 'string:',
+                'default_expr': 'string:',
                 'is_indexed': 1,
             },
         },
@@ -151,7 +151,7 @@ file_schema = {
     'file': {
         'type': 'CPS File Field',
         'data': {
-                'default_expression_str': 'nothing',
+                'default_expr': 'nothing',
                 'is_indexed': 0,
                 'suffix_html': '_html',
                 'suffix_text': '_text',
@@ -160,14 +160,14 @@ file_schema = {
     'file_html': {
         'type': 'CPS File Field',
         'data': {
-                'default_expression_str': 'nothing',
+                'default_expr': 'nothing',
                 'is_indexed': 0,
             },
         },
     'file_text': {
         'type': 'CPS String Field',
         'data': {
-                'default_expression_str': 'string:',
+                'default_expr': 'string:',
                 'is_indexed': 1,
             },
         },
@@ -182,28 +182,28 @@ event_schema = {
     'start': {
         'type': 'CPS DateTime Field',
         'data': {
-                'default_expression_str': 'nothing',
+                'default_expr': 'nothing',
                 'is_indexed': 0,
             },
         },
     'end': {
         'type': 'CPS DateTime Field',
         'data': {
-                'default_expression_str': 'nothing',
+                'default_expr': 'nothing',
                 'is_indexed': 0,
             },
         },
     'content': {
         'type': 'CPS String Field',
         'data': {
-                'default_expression_str': 'string:',
+                'default_expr': 'string:',
                 'is_indexed': 1,
             },
         },
     'attachedFile': {
         'type': 'CPS File Field',
         'data': {
-                'default_expression_str': 'nothing',
+                'default_expr': 'nothing',
                 'is_indexed': 0,
                 'suffix_html': '_html',
                 'suffix_text': '_text',
@@ -212,14 +212,14 @@ event_schema = {
     'attachedFile_html': {
         'type': 'CPS File Field',
         'data': {
-                'default_expression_str': 'nothing',
+                'default_expr': 'nothing',
                 'is_indexed': 0,
             },
         },
     'attachedFile_text': {
         'type': 'CPS String Field',
         'data': {
-                'default_expression_str': 'string:',
+                'default_expr': 'string:',
                 'is_indexed': 1,
             },
         },
@@ -238,28 +238,28 @@ imagegallery_schema = {
     'preview_width': {
         'type': 'CPS Int Field',
         'data': {
-                'default_expression_str': 'python:64',
+                'default_expr': 'python:64',
                 'is_indexed': 0,
             },
         },
     'preview_height': {
         'type': 'CPS Int Field',
         'data': {
-                'default_expression_str': 'python:64',
+                'default_expr': 'python:64',
                 'is_indexed': 0,
             },
         },
     'nb_cols': {
         'type': 'CPS Int Field',
         'data': {
-                'default_expression_str': 'python:3',
+                'default_expr': 'python:3',
                 'is_indexed': 0,
             },
         },
     'nb_items': {
         'type': 'CPS Int Field',
         'data': {
-                'default_expression_str': 'python:9',
+                'default_expr': 'python:9',
                 'is_indexed': 0,
             },
         },
