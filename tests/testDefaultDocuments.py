@@ -1,3 +1,4 @@
+# $Id$
 # TODO:
 # - don't depend on getDocumentSchemas / getDocumentTypes but is there
 #   an API for that ?
@@ -83,7 +84,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         verifyObject(IDublinCore, doc)
 
     def _testRendering(self, doc, proxy):
-        doc.render( proxy=proxy )
+        doc.render(proxy=proxy)
 
     def testCreateDocumentsInWorkspacesRootThroughWFTool(self):
         wft = self.portal.portal_workflow
