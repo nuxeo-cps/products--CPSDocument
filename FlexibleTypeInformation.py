@@ -697,7 +697,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         note that for the moment we only support File object."""
         skey = '%s_%s' % (SESSION_ITEM_KEY, item_id)
-        if type(item) is File or Image:
+        if type(item) in (File, Image):
             # file obj must be cloned otherwhise we run into:
             # "Attempt to store an object from a foreign database
             # connection" error which means that a same (persistant) object
@@ -716,7 +716,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         skey = '%s_%s' % (SESSION_ITEM_KEY, item_id)
         item_session = request.SESSION.get(skey)
         if item_session is not None:
-            if type(item_session) is File or Image:
+            if type(item_session) in (File, Image):
                 # file obj must be cloned otherwhise we run into:
                 # "Attempt to store an object from a foreign database
                 # connection" error which means that a same (persistant) object
