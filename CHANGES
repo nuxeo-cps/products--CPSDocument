@@ -6,6 +6,7 @@ ZODB Requires:
 - require CPSSchema > 0.2.0
 New features:
 ~~~~~~~~~~~~~
+- coding clean Faq, File and News document
 - Required fields are displayed with a mark
 Bug fixes:
 ~~~~~~~~~~
