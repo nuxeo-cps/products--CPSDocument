@@ -1,4 +1,22 @@
 *******************************************
+** CPSDocument V0.24.1 [R1 build 2004/08/23-05:51 by fermigier]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- Use more semantical HTML markup
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Added an optional 'loadcustom' parameter to the getDocumentVocabularies.py
+  method.
+- Flexible document can handle up to 5 attached files instead of 3
+
+*******************************************
 ** CPSDocument V0.24.0 [R1 build 2004/08/16-15:24 by ben]
 
 Requires:
