@@ -66,9 +66,6 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             proxy = getattr(self.ws, doc_id)
             doc = proxy.getContent()
 
-            # Edit doc to set default values
-            doc.edit()
-
             self._testInterfaces(doc)
             self._testDefaultAttributes(doc)
 
@@ -197,8 +194,6 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         proxy = getattr(self.ws, 'news')
 
         doc = self.ws.news.getContent()
-        # you have to edit object before it has its default values.
-        doc.edit()
 
         # Test doc has default values
         for prop_name in self.document_schemas['news'].keys():
@@ -226,8 +221,6 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         proxy = self.ws.file1
         doc = proxy.getContent()
-        # You have to edit object before it has its default values.
-        doc.edit()
 
         # Default value. Shouldn't it be '' ?
         self.assertEquals(doc.file, None)
@@ -285,14 +278,11 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         self.ws.invokeFactory('File', 'file')
         proxy = self.ws.file
         doc = proxy.getContent()
-        doc.edit()
         self.assertEquals(proxy['file'], '')
 
     def testFlexible(self):
         self.ws.invokeFactory('Flexible', 'flex')
         doc = self.ws.flex.getContent()
-        doc.edit()
-
         # XXX: now do something!
 
     def testDocumentSearch(self):
