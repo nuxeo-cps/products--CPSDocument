@@ -3,10 +3,10 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- Adding Metadata Dublin Core helpers
+-
 Bug fixes:
 ~~~~~~~~~~
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- Correct manage_options for ZMI view of CPS documents.
+-
