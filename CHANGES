@@ -1,11 +1,3 @@
-ZODB Requires:
-~~~~~~~~~~~~~~
--
-
-New features:
-~~~~~~~~~~~~~
--
-
 Bug fixes:
 ~~~~~~~~~~
 - fixing Event document
