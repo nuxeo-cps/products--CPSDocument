@@ -69,6 +69,23 @@ div.ddescription {
   font-size: 120%;
 }
 
+div.dnocol {
+  clear: both;
+  padding-bottom: 1em;
+}
+
+div.dcolright {
+  float: right;
+  width: 48%;
+  padding-bottom: 1em;
+}
+
+div.dcolleft {
+  float: left;
+  width: 48%;
+  padding-bottom: 1em;
+}
+
 .dlabel {
   font-weight: bold;
   font-size: 120%;
