@@ -1,5 +1,6 @@
 # translation of en.po to 
 # translation of en.po to
+# translation of en.po to
 # translation of en.po to Francais
 # translation of en.po to francais
 # translation of en.po to ben
@@ -15,9 +16,9 @@ msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-07-13 11:03default\n"
-"PO-Revision-Date: 2004-07-02 17:08+0200\n"
-"Last-Translator: \n"
-"Language-Team:  <fr@li.org>\n"
+"PO-Revision-Date: 2004-08-06 15:48+0200\n"
+"Last-Translator: ben\n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -120,8 +121,8 @@ msgstr ""
 msgid "label"
 msgstr "label"
 
-#.   <a href="." attributes="href python:'/'+ 
-#.                                       itemList[pos + 1].absolute_url(relative=1) + 
+#.   <a href="." attributes="href python:'/'+
+#.                                       itemList[pos + 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "next"
@@ -366,13 +367,13 @@ msgid "portal_type_Book_description"
 msgstr "A folder that displays the documents it contains as pages"
 
 msgid "portal_type_Page_title"
-msgstr "Page"
+msgstr "Book - Page"
 
 msgid "portal_type_Page_description"
 msgstr "A flexible document displayed as a page in a book"
 
 msgid "portal_type_Chapter_title"
-msgstr "Chapter"
+msgstr "Book - Chapter"
 
 msgid "portal_type_Chapter_description"
 msgstr "A Chapter contain Pages"
@@ -402,8 +403,7 @@ msgid "help_dc_subject"
 msgstr "A topic of the content of the resource."
 
 msgid "help_dc_contirbutors"
-msgstr ""
-"Entities responsible for making contributions to the content of the resource."
+msgstr "Entities responsible for making contributions to the content of the resource."
 
 msgid "help_dc_source"
 msgstr "A Reference to a resource from which the present resource is derived."
@@ -416,3 +416,4 @@ msgstr "A reference (URL) to a related resource."
 
 msgid "label_portal_type"
 msgstr "Resource type"
+
