@@ -39,8 +39,6 @@
         </tal:block>
         <tal:block replace="structure cell/widget_rendered" />
       </div>
-      <div class="dflush"
-        tal:condition="python: widget.css_class.find('dright')>=0"></div>
       </tal:block>
     </tal:block>
   </tal:block>
