@@ -8,6 +8,59 @@ Please, follow the same pattern to add new schemas.
 """
 
 #########################################################
+# SHARED SCHEMAS
+#########################################################
+# common schema
+common_schema = {
+    'date': {
+        'type': 'CPS DateTime Field',
+        'data': {
+                'default': '',
+                'is_indexed': 0,
+            },
+        },
+    'title': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'description': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'theme': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'longTitle': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    }
+
+# flexible content schema
+flexible_content_schema = {
+    'content': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    }
+
+#########################################################
 # FAQ SHEMA
 #########################################################
 
@@ -427,6 +480,8 @@ schemas = {}
 #
 # Building the dictionnary of schemas for the installer
 #
+schemas['common'] = common_schema
+schemas['flexible_content'] = flexible_content_schema
 
 schemas['faq'] = faq_schema
 schemas['faqitem'] = faqitem_schema
