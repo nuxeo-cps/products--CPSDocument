@@ -4,16 +4,16 @@ Requires:
   CPSDocument/Extensions/util.py to upgrade existing News documents.
 New features:
 ~~~~~~~~~~~~~
-- compute/validate LayoutStructures handle backup/restore of datastructure items
-  for images too (and not only files)
+- Improved News document rendering, but there is still work to do.
 Bug fixes:
 ~~~~~~~~~~
+- fix #175: File/Image widgets lose attached files when modifying after errors
+  compute/validate LayoutStructures handle backup/restore of datastructure items
+  for images too (and not only files)
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
 - News documents now store their publication date as the EffectiveDate from the
   metadata. This is more consistent with the Dublin Core and the rest of CPS,
   especially since CPS provides sorting on EffectiveDate. A method is provided
   to upgrade previous News documents to the new schema, that is to retrieve the
   old newsdate and set the EffectiveDate with it.
-- Improved News document rendering, but there is still work to do.
-New internal features:
-~~~~~~~~~~~~~~~~~~~~~~
--
