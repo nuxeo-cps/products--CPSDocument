@@ -38,6 +38,7 @@ from Products.CPSSchemas.Schema import SchemaContainer
 from Products.CPSSchemas.Layout import LayoutContainer
 from Products.CPSSchemas.DataModel import DataModel
 from Products.CPSSchemas.DataStructure import DataStructure
+from Products.CPSSchemas.StorageAdapter import AttributeStorageAdapter
 
 from Products.CPSDocument.CPSDocument import addCPSDocument
 
@@ -425,7 +426,9 @@ class FlexibleTypeInformation(TypeInformation):
     def getDataModel(self, ob, proxy=None, context=None):
         """Get the datamodel for an object of our type."""
         schemas = self.getSchemas(ob)
-        dm = DataModel(ob, schemas, proxy=proxy, context=context)
+        adapters = [AttributeStorageAdapter(schema, ob)
+                    for schema in schemas]
+        dm = DataModel(ob, adapters, proxy=proxy, context=context)
         dm._fetch()
         return dm
 
