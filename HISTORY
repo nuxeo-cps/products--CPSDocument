@@ -1,4 +1,20 @@
 *******************************************
+** CPSDocument V0.16.0 [R1 build 2004/02/25-08:45 by ben]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- cpsdocument_view display comments
+
+*******************************************
 ** CPSDocument V0.15.0 [R1 build 2004/02/20-17:00 by ben]
 
 Requires:
