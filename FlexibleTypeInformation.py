@@ -452,9 +452,14 @@ class FlexibleTypeInformation(TypeInformation):
         return layout
 
     security.declarePrivate('_renderLayoutStyle')
-    def _renderLayoutStyle(self, ob, mode, **kw):
+    def _renderLayoutStyle(self, context, mode, **kw):
+        """Render a layout according to the style defined in
+        the FlexTI and the mode.
+
+        Uses context as a rendering context.
+        """
         layout_meth = self.layout_style_prefix + mode
-        layout_style = getattr(ob, layout_meth, None)
+        layout_style = getattr(context, layout_meth, None)
         if layout_style is None:
             raise RuntimeError("No layout method '%s'" % layout_meth)
         return layout_style(mode=mode, **kw)
@@ -591,5 +596,61 @@ class FlexibleTypeInformation(TypeInformation):
             if dm.has_key(key):
                 dm[key] = value
         self._commitDM(dm)
+
+    security.declarePublic('renderCreateObject')
+    def renderCreateObject(self, container,
+                           request=None, mode='create', layout_id=None,
+                           create_function=None, redirect_action=None,
+                           **kw):
+        """Render an object for creation, maybe create it.
+
+        If request is None, the object is rendered from default values
+        in the specified mode.
+
+        If request is not None:
+        - the parameters are validated.
+        - if there is a validation error:
+          - the object is rendered in mode mode;
+        - if there is no validation error:
+          - the object is created by calling create_function in the
+            context of the container and with argument the type_name
+            and the datamodel,
+          - a redirect is done to redirect_action on the object.
+        """
+        dm = self.getDataModel(None)
+        ds = DataStructure(datamodel=dm)
+        layoutob = self.getLayout(layout_id)
+        # Prepare each widget, and so update the datastructure.
+        layoutdata = layoutob.getLayoutData(ds)
+        if request is None:
+            # Initial display, datastructure contains defaults.
+            ok = 1
+        else:
+            # Validate from request.
+            ds.updateFromMapping(request.form)
+            ok = layoutob.validateLayout(layoutdata, ds)
+            if ok:
+                func = getattr(container, create_function, None)
+                if func is None:
+                    raise ValueError("Unknown create_function %s" %
+                                     create_function)
+                type_name = self.getId()
+                proxy = func(type_name, dm)
+                # XXX check proxy is accessible?
+                if hasattr(aq_base(proxy), 'getContent'):
+                    # Get CPS content object.
+                    ob = proxy.getContent()
+                else:
+                    ob = proxy
+                dm._setObject(ob, proxy=proxy)
+                self._commitDM(dm)
+                url = proxy.absolute_url()+'/'+redirect_action
+                self.REQUEST.RESPONSE.redirect(url)
+                return ' '
+
+        return self._renderLayoutStyle(container, mode, layout=layoutdata,
+                                       datastructure=ds, ok=ok,
+                                       **kw)
+
 
 InitializeClass(FlexibleTypeInformation)

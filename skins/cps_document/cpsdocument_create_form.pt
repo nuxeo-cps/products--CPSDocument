@@ -1,0 +1,35 @@
+<tal:block define="global edit_request python:request.has_key('cpsdocument_create_button') and request or nothing;" />
+<metal:block use-macro="here/content_lib/macros/master">
+  <metal:block fill-slot="css_slot">
+    <style type="text/css"
+      tal:content="string:@import url(${base_url}calendar-win2k-1.css);"></style>
+    <script type="text/javascript" src="calendar.js"
+      tal:attributes="src string:${base_url}calendar.js"></script>
+
+    <script type="text/javascript" src="lang/calendar-en.js"
+      tal:define="local cpsmcat/get_selected_language"
+      tal:attributes="src string:${base_url}lang/calendar-${local}.js"></script>
+    <script type="text/javascript" src="calendar-setup.js"
+      tal:attributes="src string:${base_url}calendar-setup.js"></script>
+  </metal:block>
+
+  <metal:block fill-slot="header">
+    <h1 i18n:translate="">
+      Create a document of type
+      <span i18n:name="type_name"
+        tal:content="request/type_name">Type Name</span>
+    </h1>
+  </metal:block>
+
+  <metal:block fill-slot="main">
+    <div tal:define="type_name request/type_name;
+                     ti here/portal_types/?type_name"
+         tal:replace="structure python: ti.renderCreateObject(
+             container=here, request=edit_request, mode='create',
+             create_function='cpsdocument_create',
+             redirect_action='metadata_edit_form')">
+      (doc rendering)
+    </div>
+  </metal:block>
+
+</metal:block>

@@ -57,13 +57,19 @@
 <metal:block define-macro="default_edit"
   tal:define="layout options/layout;
               ds options/datastructure;
-              ok options/ok|python:1;">
+              ok options/ok|python:1;
+              creation creation|nothing;
+              formaction python: test(creation, 'cpsdocument_create_form',
+                                                'cpsdocument_edit_form');
+             ">
 <div class="message" tal:condition="not:ok">
   <span i18n:translate="cpsdoc_form_error">Form error.</span>
 </div>
 <div class="group">
 <form action="." method="POST" name="form" enctype="multipart/form-data"
-  tal:attributes="action string:cpsdocument_edit_form">
+  tal:attributes="action formaction">
+<input type="hidden" name="type_name" value="." tal:condition="creation"
+  tal:attributes="value request/type_name">
 <table width="100%" cellpadding="2" cellspacing="2" border="0">
   <tr tal:repeat="row layout/rows" valign="top">
     <td tal:repeat="cell row"
@@ -96,7 +102,9 @@
 </table>
 <metal:block define-slot="additional_content" />
 <input type="submit" class="standalone" name="cpsdocument_edit_button"
-  value="button_change" i18n:attributes="value">
+  value="button_change" i18n:attributes="value" tal:condition="not:creation">
+<input type="submit" class="standalone" name="cpsdocument_create_button"
+  value="button_create" i18n:attributes="value" tal:condition="creation">
 </form>
 </div>
 </metal:block>
