@@ -255,6 +255,48 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         doc = self.ws.flex.getContent()
         doc.edit()
 
+    def testDocumentSearch(self):
+        # The aim of this test is first to assert that documents can be queried.
+        # But the true aim of this test is to assert that one discovered bug is
+        # truly fixed and for good. The bug in question was that tuples couldn't
+        # be used as portal_type query parameters.
+        # So this test assert that text, list and tuple can equally be used as
+        # portal_type query parameter.
+        #
+        # XXX : This test is not relevent at the moment as the search script
+        # does not run the same way during unit tests and during real life
+        # exploitation. A note on the matter has been added in
+        # CPSDefault/skins/cps_default/search.py
+
+        document_types = self.document_types.keys()
+
+        # Search done with the catalog
+        catalog = self.portal.portal_catalog
+        query={'SearchableText': ''}
+        proxies = catalog(**query)
+        #print "proxies count = %s" % len(proxies)
+
+        # Subsequent searches done with the search script
+        proxies = self.ws.search(query={'SearchableText': ''})
+        #print "proxies count = %s" % len(proxies)
+
+        proxies = self.ws.search(query={'portal_type': document_types[0],
+                                        })
+        #print "proxies count = %s" % len(proxies)
+
+        proxies = self.ws.search(query={'portal_type': [document_types[0],
+                                                        document_types[1],
+                                                        document_types[2]]
+                                        })
+        #print "proxies count = %s" % len(proxies)
+
+        proxies = self.ws.search(query={'portal_type': (document_types[0],
+                                                        document_types[1],
+                                                        document_types[2])
+                                        })
+        #print "proxies count = %s" % len(proxies)
+
+
         # XXX: what next?
 
 
