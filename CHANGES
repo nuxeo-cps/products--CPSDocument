@@ -5,6 +5,8 @@ New features:
 ~~~~~~~~~~~~~
 - adding Link document
 - adding Image document
+- added instructions to display comments associated with documents
+
 Bug fixes:
 ~~~~~~~~~~
 - Event document display attached file
