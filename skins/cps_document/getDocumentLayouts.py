@@ -20,7 +20,6 @@ metadata_layout = {
                 'is_required': 1,
                 'label_edit': 'label_title',
                 'label': 'label_title',
-                'css_class': 'dtitle',
                 'display_width': 72,
                 'size_max': 100,
             },
@@ -242,14 +241,13 @@ metadata_layout = {
 common_layout = {
     'widgets': {
         'Title': {
-            'type': 'String Widget',
+            'type': 'Heading Widget',
             'data': {
                 'fields': ['Title'],
+                'level': 1,
                 'is_i18n': 1,
                 'is_required': 1,
                 'label_edit': 'cpsdoc_title_label_edit',
-                'label': '',
-                'css_class': 'dtitle',
                 'display_width': 72,
                 'size_max': 100,
             },
@@ -441,14 +439,13 @@ faq_layout = {
 faqitem_layout = {
     'widgets': {
         'Title': {
-            'type': 'String Widget',
+            'type': 'Heading Widget',
             'data': {
                 'fields': ['Title'],
+                'level': 1,
                 'is_i18n': 1,
                 'is_required': 1,
                 'label_edit': 'cpsdoc_faq_question_label_edit',
-                'label': '',
-                'css_class': 'dtitle',
                 'display_width': 72,
                 'size_max': 100,
             },

@@ -39,6 +39,10 @@ widgets = {
             'type': 'CPS Identifier Widget Type',
             'data': {},
             },
+        'Heading Widget': {
+            'type': 'CPS Heading Widget Type',
+            'data': {},
+            },
         'Password Widget': {
             'type': 'CPS Password Widget Type',
             'data': {},
