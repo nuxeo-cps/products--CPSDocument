@@ -762,7 +762,7 @@ layouts['link'] = link_layout
 layouts['image'] = image_layout
 #layouts['dummy_form'] = dummy_form_layout
 # test
-layouts['news1'] = news2_layout
+layouts['news1'] = news1_layout
 layouts['news2'] = news2_layout
 
 clayouts = context.getCustomDocumentLayouts()
