@@ -153,6 +153,18 @@ news_schema = {
                 'is_searchabletext': 0,
             },
         },
+    'photo_subtitle': {
+        'type': 'CPS String Field',
+        'data': {
+                'default_expr': 'string:',
+                'is_searchabletext': 1,
+            },
+        },
+    'photo_position': {
+        'type': 'CPS String Field',
+        'data': {
+            },
+        },
     'content': {
         'type': 'CPS String Field',
         'data': {
@@ -166,6 +178,23 @@ news_schema = {
             },
         },
     'content_format': {
+        'type': 'CPS String Field',
+        'data': {
+            },
+        },
+    'content_right': {
+        'type': 'CPS String Field',
+        'data': {
+                'default_expr': 'string:',
+                'is_searchabletext': 1,
+            },
+        },
+    'content_right_position': {
+        'type': 'CPS String Field',
+        'data': {
+            },
+        },
+    'content_right_format': {
         'type': 'CPS String Field',
         'data': {
             },
