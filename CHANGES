@@ -23,4 +23,4 @@ Bug fixes:
 - no way to enable/disable discussion on a document
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- new getAdditionalContentInfo proxy param
