@@ -3,7 +3,8 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- Made the documents use the 'metadata' cluster instead of the 'metadata'
+  layout so that is easier to customize metadata page for a given portal type.
 Bug fixes:
 ~~~~~~~~~~
 - Made the upgradeDocuments() method in the upgrade module more generic.
