@@ -7,6 +7,7 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - P1 Flexible document unauthorize when adding blocks if non manager
+- P2 Remove html tag in summary
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
