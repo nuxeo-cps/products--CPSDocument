@@ -691,11 +691,14 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         # Update the object from dm.
         ob = dm._commit(check_perms=check_perms)
         # CMF/CPS stuff.
+        ob = self._notifyModification(ob, dm.getProxy())
+        return ob
+
+    def _notifyModification(self, ob, proxy):
         ob.reindexObject()
         evtool = getToolByName(self, 'portal_eventservice', None)
         if evtool is not None:
             evtool.notify('sys_modify_object', ob, {})
-            proxy = dm.getProxy()
             if proxy is not None:
                 # XXX Should be done by the proxy tool or something.
                 evtool.notify('sys_modify_object', proxy, {})
@@ -878,15 +881,11 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                                  create_callback)
             type_name = self.getId()
             proxy = create_func(type_name, dm)
-            # XXX check proxy is accessible?
             if hasattr(aq_base(proxy), 'getContent'):
                 ob = proxy.getContent()
             else:
                 ob = proxy
-            dm._setObject(ob, proxy=proxy)
-            # XXX commit is probably not needed now that the factory
-            # can initialize the object before any CMF finalization.
-            self._commitDM(dm, check_perms=0) # XXX
+            self._notifyModification(ob, proxy)
             created_func = getattr(proxy, created_callback, None)
             if created_func is None:
                 raise ValueError("Unknown created_callback %s" %
