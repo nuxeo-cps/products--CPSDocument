@@ -110,7 +110,7 @@ flexible_content_layout = {
                 'width': 72,
                 'height': 15,
                 'render_mode': 'stx',
-                'render_disp': 'normal',
+                'render_position': 'normal',
                 'configurable': 1,
                 },
             },
