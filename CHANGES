@@ -9,6 +9,7 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - P1 #144: Versioning is not incremental while editing the document
+- P2 #176: offer export of a document's layout and schema
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Split CPSSchemas into a separate package.
