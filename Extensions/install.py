@@ -152,7 +152,7 @@ def install(self):
     trtool[workspaces_id].manage_changeProperties(
         type_names=list(trtool[workspaces_id].type_names) + ['FAQ', 'ImageGallery', 'Glossary']
         )
-    trtool[sections_id].manage_rebuild()
+    trtool[workspaces_id].manage_rebuild()
     trtool[sections_id].manage_changeProperties(
         type_names=list(trtool[sections_id].type_names) + ['FAQ', 'ImageGallery', 'Glossary']
         )
