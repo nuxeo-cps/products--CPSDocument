@@ -1,4 +1,9 @@
-<tal:block define="doc here/getContent">
+<tal:block define="doc here/getContent;
+                   layout options/layout;
+                   widgets options/layout/widgets;
+                   ds options/datastructure;
+                  ">
+
 <div class="dtitle" tal:content="doc/title" />
 <div class="ddescription" tal:content="doc/description|nothing" />
 <br>
@@ -9,5 +14,13 @@
   <tal:block content="python:here.getDateStr(doc.end, 'medium')" />
 </div>
 <br>
+
 <div class="dcontent" tal:content="structure doc/content" />
+
+<tal:block
+  define="file_render python:widgets['attachedFile'].render('view', ds);"
+  condition="python: file_render and len(file_render.strip())">
+  <span i18n:translate="" tal:content="python:widgets['attachedFile'].label" />
+  <span tal:replace="structure file_render" />
+</tal:block>
 </tal:block>
