@@ -25,6 +25,8 @@ from zLOG import LOG, DEBUG
 from Acquisition import aq_base, aq_parent, aq_inner
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
+from OFS.Image import File
+from ZPublisher.HTTPRequest import FileUpload
 
 from Products.CMFCore.CMFCorePermissions import View
 from Products.CMFCore.CMFCorePermissions import ModifyPortalContent
@@ -35,6 +37,7 @@ from Products.CMFCore.TypesTool import FactoryTypeInformation
 from Products.CMFCore.interfaces.portal_types \
     import ContentTypeInformation as ITypeInformation
 
+from Products.CPSSchemas.utils import copyFile
 from Products.CPSSchemas.Schema import SchemaContainer
 from Products.CPSSchemas.Layout import LayoutContainer
 from Products.CPSSchemas.DataModel import DataModel
@@ -45,7 +48,8 @@ from Products.CPSSchemas.StorageAdapter import AttributeStorageAdapter, \
 from Products.CPSDocument.CPSDocument import addCPSDocument
 from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget, _isinstance
 
-
+SESSION_ITEM_KEY = 'CPS_FLEXIBLETYPEINFO_FILE'
+SESSION_ITEM_IDS_KEY = 'CPS_FLEXIBLETYPEINFO_FILES'
 
 # inserted into TypesTool by PatchTypesTool
 addFlexibleTypeInformationForm = DTMLFile('zmi/addflextiform', globals())
@@ -603,6 +607,9 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             layout.prepareLayoutWidgets(datastructure)
         if request is not None:
             datastructure.updateFromMapping(request.form)
+            # we update the ds with items previously backuped after
+            # an invalid layout
+            self._restoreDataStructureItemsFromSession(datastructure, request)
         layout_structures = []
         datamodel = datastructure.getDataModel()
         for layout in layouts:
@@ -614,7 +621,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
     security.declarePrivate('_validateLayoutStructures')
     def _validateLayoutStructures(self, layout_structures,
-                                  datastructure, **kw):
+                                  datastructure, request=None, **kw):
         """Validate all layout structures.
 
         Returns a boolean is_valid.
@@ -625,7 +632,110 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             ok = layout.validateLayoutStructure(layout_structure,
                                                 datastructure, **kw)
             is_valid = is_valid and ok
+        if not is_valid:
+            # in case of error a widget can ask to backup a value
+            # into the session by setting a 'backup_items' into the ds
+            # like this:
+            # if not datastructure.has_key('backup_items'):
+            #    datastructure['backup_items'] = {}
+            # datastructure['backup_items'][widget_id] = field_id
+            self._backupDataStructureItemsIntoSession(datastructure, request)
+        else:
+            self._deleteSessionItems(request)
         return is_valid
+
+
+    ### session stuff
+    security.declarePrivate('_backupDataStructureItemsIntoSession')
+    def _backupDataStructureItemsIntoSession(self, datastructure, request):
+        """Save datastructure values for field listed in backup_items."""
+        if request is None:
+            return
+        item_ids= []
+        if datastructure.has_key('backup_items'):
+            datamodel = datastructure.getDataModel()
+            for widget_id, field_id in datastructure['backup_items'].items():
+                value = datamodel.get(field_id)
+                self._addSessionItem(widget_id, value, request)
+                item_ids.append(widget_id)
+        request.SESSION[SESSION_ITEM_IDS_KEY] = item_ids
+
+    security.declarePrivate('_restoreDataStructureItemsFromSession')
+    def _restoreDataStructureItemsFromSession(self, datastructure, request):
+        """Restore files from session into datastructure.
+
+        datastructure['restored_items'] contains the list of restored
+        widget_ids.
+        """
+        if request is None:
+            return
+        item_ids = request.SESSION.get(SESSION_ITEM_IDS_KEY)
+        if not item_ids:
+            return
+        restored_items = []
+        for item_id in item_ids:
+            if datastructure.has_key(item_id):
+                datastructure[item_id] = self._getSessionItem(item_id, request)
+                restored_items.append(item_id)
+        datastructure['restored_items'] = restored_items
+
+    security.declarePrivate('_deleteSessionItems')
+    def _deleteSessionItems(self, request):
+        """Remove any backuped files."""
+        if request is None:
+            return
+        item_ids = request.SESSION.get(SESSION_ITEM_IDS_KEY)
+        if not item_ids:
+            return
+        for item_id in item_ids:
+            self._deleteSessionItem(item_id, request)
+        del request.SESSION[SESSION_ITEM_IDS_KEY]
+
+    security.declarePrivate('_addSessionItem')
+    def _addSessionItem(self, item_id, item, request):
+        """Backup an item into the session.
+
+        note that for the moment we only support File object."""
+        skey = '%s_%s' % (SESSION_ITEM_KEY, item_id)
+        if type(item) is File:
+            # file obj must be cloned otherwhise we run into:
+            # "Attempt to store an object from a foreign database
+            # connection" error which means that a same (persistant) object
+            # can not be stored into the zodb and into a session
+            request.SESSION[skey] = copyFile(item)
+            LOG('FlexibleTypeInformation._addSessionItem', DEBUG,
+                'Saving file into SESSION %s: %s' % (skey, item.title))
+
+    security.declarePrivate('_getSessionItem')
+    def _getSessionItem(self, item_id, request):
+        """Return an item stored by backupSessionItem."""
+        item = None
+        skey = '%s_%s' % (SESSION_ITEM_KEY, item_id)
+        item_session = request.SESSION.get(skey)
+        if item_session is not None:
+            if type(item_session) is File:
+                # file obj must be cloned otherwhise we run into:
+                # "Attempt to store an object from a foreign database
+                # connection" error which means that a same (persistant) object
+                # can not be stored into the zodb and into a session
+                item = copyFile(item_session)
+                LOG('FlexibleTypeInformation._getSessionItem', DEBUG,
+                    'Restore file from SESSION %s=%s' %
+                    (skey, item.title))
+        return item
+
+    security.declarePrivate('_deleteSessionItem')
+    def _deleteSessionItem(self, item_id, request):
+        """Try to remove an item from the session."""
+        skey = '%s_%s' % (SESSION_ITEM_KEY, item_id)
+        try:
+            del request.SESSION[skey]
+            LOG('FlexibleTypeInformation._removeSessionItem', DEBUG,
+                'Removing session item: %s' % (skey))
+        except KeyError:
+            pass
+
+    ### end of session stuff
 
     security.declarePrivate('_renderLayouts')
     def _renderLayouts(self, layout_structures, datastructure, ob, **kw):
@@ -740,7 +850,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             is_valid = 1
         else:
             is_valid = self._validateLayoutStructures(layout_structures, ds,
-                                                      layout_mode=layout_mode)
+                                                      layout_mode=layout_mode,
+                                                      request=request)
             if is_valid:
                 ob = self._commitDM(dm)
             else:
@@ -796,7 +907,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         is_valid = 1
         if request is not None:
             is_valid = self._validateLayoutStructures(layout_structures, ds,
-                                                      layout_mode=layout_mode)
+                                                      layout_mode=layout_mode,
+                                                      request=request)
             if not is_valid:
                 layout_mode = layout_mode_err
             else:
@@ -868,7 +980,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         is_valid = 1
         if validate:
             is_valid = self._validateLayoutStructures(layout_structures, ds,
-                                                      layout_mode=layout_mode)
+                                                      layout_mode=layout_mode,
+                                                      request=request)
         if not validate or not is_valid:
             rendered = self._renderLayouts(layout_structures, ds, container,
                                            layout_mode=layout_mode,
