@@ -56,6 +56,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
     security = ClassSecurityInfo()
     _size = 0
 
+    _has_generic_edit_method = 1 # Used by WebDAV in ProxyBase
+
     security.declareProtected(View, 'render')
     def render(self, **kw):
         """Render the object according to a layout mode.
