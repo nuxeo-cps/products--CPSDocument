@@ -1,4 +1,21 @@
 *******************************************
+** CPSDocument V0.4.0 [R1 build 2003-10/08-14:58 by ben]
+
+ZODB Requires:
+~~~~~~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- adding Link document
+- adding Image document
+Bug fixes:
+~~~~~~~~~~
+- Event document display attached file
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- adding layout_default_tab_* for table view, vs layout_default which is a div view
+- added instructions to display comments associated with documents
+*******************************************
 ** CPSDocument V0.3.0 [R1 build 2003-10/03-15:04 by ben]
 
 ZODB Requires:
