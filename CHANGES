@@ -4,7 +4,8 @@ Requires:
   CPSDocument/Extensions/util.py to upgrade existing News documents.
 New features:
 ~~~~~~~~~~~~~
--
+- compute/validate LayoutStructures handle backup/restore of datastructure items
+  for images too (and not only files)
 Bug fixes:
 ~~~~~~~~~~
 - News documents now store their publication date as the EffectiveDate from the
