@@ -142,25 +142,36 @@
 </table>
 
 <tal:block condition="is_flexible">
-<div style="float: right;">
+<div style="float: right;" 
+    tal:define="flexible_widgets options/flexible_widgets">
   <input type="hidden" name="layout_id" value="."
     tal:attributes="value layout/layout_id" />
-  <select name="widget_type">
-    <tal:block repeat="widget options/flexible_widgets">
-    <option value="."
-      tal:condition="widget/is_i18n"
-      i18n:translate=""
-      tal:attributes="value widget/getWidgetId"
-      tal:content="widget/title_or_id">Type</option>
-    <option value="."
-      tal:condition="not:widget/is_i18n"
-      tal:attributes="value widget/getWidgetId"
-      tal:content="widget/title_or_id">Type</option>
-    </tal:block>
-  </select>
-  <input type="submit" name="addwidget_button" value="button_add"
-   class="context"
-   i18n:attributes="value" />
+  <tal:select condition="python:len(flexible_widgets)>1">
+    <select name="widget_type">
+      <tal:block repeat="widget options/flexible_widgets">
+      <option value="."
+        tal:condition="widget/is_i18n"
+        i18n:translate=""
+        tal:attributes="value widget/getWidgetId"
+        tal:content="widget/title_or_id">Type</option>
+      <option value="."
+        tal:condition="not:widget/is_i18n"
+        tal:attributes="value widget/getWidgetId"
+        tal:content="widget/title_or_id">Type</option>
+      </tal:block>
+    </select>
+    <input type="submit" name="addwidget_button" value="button_add"
+     class="context"
+     i18n:attributes="value" />
+  </tal:select>
+  <tal:button condition="python:len(flexible_widgets) == 1"
+    tal:define="widget python:flexible_widgets[0]">
+    <input type="submit" name="addwidget_button" 
+      tal:define="button_add python:cpsmcat('button_add');
+        widget_title python:cpsmcat(widget.title_or_id())"
+      tal:attributes="value string:${button_add} ${widget_title}"
+      class="context" />
+  </tal:button>
 </div>
 <br /><br />
 </tal:block>
