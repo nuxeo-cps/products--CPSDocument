@@ -16,12 +16,12 @@
   </div>
   <div class="bookPageNavigation"
        tal:define="book_url python:'/'+book.absolute_url(relative=1)">
-    <tal:block tal:condition="not:is_first">
-      <a href="." tal:attributes="href python:book_url+'/'+page_ids[page_index-1]"
-         i18n:translate="">cpsdoc_link_previous_page</a> - 
-    </tal:block>
     <a href="." tal:attributes="href book_url"
        i18n:translate="">cpsdoc_link_toc</a>
+    <tal:block tal:condition="not:is_first">
+      - <a href="." tal:attributes="href python:book_url+'/'+page_ids[page_index-1]"
+           i18n:translate="">cpsdoc_link_previous_page</a>
+    </tal:block>
     <tal:block tal:condition="not:is_last">
       - <a href="." tal:attributes="href python:book_url+'/'+page_ids[page_index+1]"
            i18n:translate="">cpsdoc_link_next_page</a>
