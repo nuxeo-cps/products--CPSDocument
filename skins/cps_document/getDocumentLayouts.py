@@ -399,7 +399,7 @@ news_layout = {
             },
         },
         'attachedFile': {
-            'type': 'File Widget',
+            'type': 'AttachedFile Widget',
             'data': {
                 'fields': ['attachedFile',
                            'attachedFile_text',
@@ -414,7 +414,7 @@ news_layout = {
             },
         },
         'newsdate': {
-            'type': 'Date Widget',
+            'type': 'DateTime Widget',
             'data': {
                 'fields': ['newsdate'],
                 'is_i18n': 1,
@@ -564,7 +564,7 @@ file_layout = {
             },
         },
         'file': {
-            'type': 'File Widget',
+            'type': 'AttachedFile Widget',
             'data': {
                 'fields': ['file',
                            'file_text',
@@ -624,7 +624,7 @@ event_layout = {
             },
         },
         'start': {
-            'type': 'Date Widget',
+            'type': 'DateTime Widget',
             'data': {
                 'fields': ['start'],
                 'is_i18n': 1,
@@ -637,7 +637,7 @@ event_layout = {
             },
         },
         'end': {
-            'type': 'Date Widget',
+            'type': 'DateTime Widget',
             'data': {
                 'fields': ['end'],
                 'is_i18n': 1,
@@ -663,7 +663,7 @@ event_layout = {
             },
         },
         'attachedFile': {
-            'type': 'File Widget',
+            'type': 'AttachedFile Widget',
             'data': {
                 'fields': ['attachedFile',
                            'attachedFile_text',
