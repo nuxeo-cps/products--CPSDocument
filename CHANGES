@@ -10,3 +10,4 @@ Bug fixes:
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - sf cosmit on document.css
+- Use faster and more readable condition on document actions.
