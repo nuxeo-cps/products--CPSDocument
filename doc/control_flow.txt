@@ -1,3 +1,7 @@
+THIS DOCUMENT IS NOT UP TO DATE
+
+MANY DETAILS ARE WRONG
+
 This document describes the "flow" in the NuxCPS3Document for the
 complicated cases, namely data retrieval, document rendering and data
 editing. It will describe it step by step as it happens, in the order of

@@ -1,5 +1,9 @@
 CPS 3 Document objects
 
+  THIS DOCUMENT IS NOT UP TO DATE
+
+  MANY DETAILS ARE WRONG
+
   This is an overview of the basic object structure used in NuxCPS3Document.
 
   This list of classes and groups of classes will start with the ones that
