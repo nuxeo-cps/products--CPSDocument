@@ -1,0 +1,385 @@
+# Gettext Message File for default.
+# Paolo Dina <paolo@php3.it>, 2004.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: it\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-12-19 11:06default\n"
+"PO-Revision-Date: 2004-01-07 12:10+0100\n"
+"Last-Translator: Paolo Dina <paolo@php3.it>\n"
+"Language-Team: Italian <it@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#.   <h1 condition="creation">
+#.         Create a document of type
+#.         ${type_name (tal content="request/type_name")}
+#.       </h1>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Create a document of type ${type_name}"
+msgstr "Crea un documento di tipo ${type_name}"
+
+#.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Edit ${title}"
+msgstr "Modifica ${title}"
+
+#.   <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "Type"
+msgstr "Tipo"
+
+#.   <a condition="next_page" attributes="href python:'%s?%s'%(request['URL'],
+#.                                               mq(request.form, start=next_page.first))">Next</a>
+#: from ../skins/cps_document/layout_imagegallery_view.pt
+msgid "batch_next"
+msgstr "avanti"
+
+#.   <a condition="previous_page" attributes="href python:'%s?%s'%(request['URL'],
+#.                                                 mq(request.form,
+#.                                                    start=previous_page.first))">Previous</a>
+#: from ../skins/cps_document/layout_imagegallery_view.pt
+msgid "batch_previous"
+msgstr "indietro"
+
+#.   <input value="button_add" class="context" name="addwidget_button" type="submit">
+#.   </input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_add"
+msgstr "Aggiungi"
+
+#.   <input value="button_change" name="cpsdocument_edit_button" type="submit" />
+#.   <input condition="not:creation" value="button_change" class="standalone" name="cpsdocument_edit_button" type="submit">
+#.     <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#.     <block content="structure string:</div></form>" />
+#.   </input></input>
+#: from ../skins/cps_document/layout_dummy_edit.pt
+#: ../skins/cps_document/layout_fancy_edit.pt
+#: ../skins/cps_document/layout_form_edit.pt
+#: ../skins/cps_document/layout_lib.pt
+msgid "button_change"
+msgstr "Modifica"
+
+#.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#.     <block content="structure string:</div></form>" />
+#.   </input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_create"
+msgstr "Crea"
+
+#.   <input attributes="name string:deleterow_${repeat/row/index};
+#.                                 onclick python:'return window.confirm(\'%s\')' %
+#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
+#.             </input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_delete"
+msgstr "Elimina"
+
+#.   <button condition="widget/help" attributes="onclick python:'toggleFormTooltip(\'%s\')' % tooltip_id;" class="tooltipControl" type="button">button_help</button>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_help"
+msgstr "Aiuto"
+
+#.   <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
+#.               <input attributes="name string:deleterow_${repeat/row/index};
+#.                                 onclick python:'return window.confirm(\'%s\')' %
+#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
+#.             </input></input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_move_down"
+msgstr "Sposta in basso"
+
+#.   <input condition="not:repeat/row/start" attributes="name string:uprow_${repeat/row/index}" value="button_move_up" class="context moveUp" type="submit">
+#.               <input condition="not:repeat/row/end" attributes="name string:downrow_${repeat/row/index}" value="button_move_down" class="context moveDown" type="submit">
+#.               <input attributes="name string:deleterow_${repeat/row/index};
+#.                                 onclick python:'return window.confirm(\'%s\')' %
+#.                                   (cpsmcat('description_confirm_delete'), )" value="button_delete" class="destructive" type="submit">
+#.             </input></input></input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_move_up"
+msgstr "Sposta in alto"
+
+#.   <span>to</span>
+#: from ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_end_label"
+msgstr " a "
+
+#.   <span>from</span>
+#: from ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_start_label"
+msgstr "Da "
+
+#.   <span>
+#.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
+#.     </span>
+#: from ../skins/cps_document/layout_imagegallery_view.pt
+msgid "description_up_to"
+msgstr "Fino a ${up_id}"
+
+#.   <em content="err" style="color: red">err</em>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "err"
+msgstr "Errore "
+
+#.   <span condition="metadata">heading_metadata_edit</span>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "heading_metadata_edit"
+msgstr "Modifica dei metadati"
+
+#.   <h1>heading_metadata_view</h1>
+#: from ../skins/cps_document/layout_metadata_view.pt
+msgid "heading_metadata_view"
+msgstr "Mostra metadati"
+
+#.   <span condition="widget/is_i18n" content="widget/help">i18_key-help_for_this_field</span>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "i18_key-help_for_this_field"
+msgstr ""
+
+#.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
+#.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>
+#.   <strong content="widget/label">label</strong>
+#: from ../skins/cps_document/layout_lib.pt
+#: ../skins/cps_document/layout_metadata_view.pt
+msgid "label"
+msgstr "etichetta"
+
+msgid "cpsdoc_title_label_edit"
+msgstr "Titolo: "
+
+msgid "cpsdoc_description_label_edit"
+msgstr "Descrizione: "
+
+msgid "cpsdoc_theme_label_edit"
+msgstr "Tema: "
+
+msgid "cpsdoc_date_label_edit"
+msgstr "Data: "
+
+msgid "cpsdoc_date_label"
+msgstr "Il "
+
+msgid "cpsdoc_preview_label_edit"
+msgstr "Icona: "
+
+msgid "cpsdoc_allow_discussion_label_edit"
+msgstr "Attiva i commenti:"
+
+msgid "cpsdoc_flex_content_title"
+msgstr "Blocco di testo"
+
+msgid "cpsdoc_flex_content_label_edit"
+msgstr "Testo: "
+
+msgid "cpsdoc_flex_content_right_label_edit"
+msgstr "Testo della colonna di destra(opzionale): "
+
+msgid "cpsdoc_flex_attachedFile_title"
+msgstr "File allegato"
+
+msgid "cpsdoc_flex_attachedFile_label_edit"
+msgstr "File allegato: "
+
+msgid "cpsdoc_flex_attachedFile_label"
+msgstr "File allegato: "
+
+msgid "cpsdoc_flex_photo_title"
+msgstr "Immagine "
+
+msgid "cpsdoc_flex_photo_label_edit"
+msgstr "Immagine: "
+
+# default doc types
+msgid "cpsdoc_flex_link_title"
+msgstr "Titolo del collegamento: "
+
+# FIXME: this msg is not used anywhere
+msgid "cpdoc_flex_link_label_edit"
+msgstr "Indirizzo del collegamento: "
+
+msgid "cpsdoc_flex_textimage_title"
+msgstr "Blocco di testo ed immagine"
+
+msgid "cpsdoc_flex_textimage_label_edit"
+msgstr "Blocco di testo ed immagine: "
+
+# default doc types
+msgid "portal_type_Flexible_title"
+msgstr "Documento flessibile"
+
+msgid "portal_type_Flexible_description"
+msgstr "Documento in cui la struttura può essere modificata"
+
+# default doc types
+msgid "portal_type_FAQ_title"
+msgstr "Domanda posta frequentemente (FAQ)"
+
+msgid "portal_type_FAQ_description"
+msgstr "Insieme di domande poste frequentemente"
+
+# default doc types
+msgid "portal_type_FAQitem_title"
+msgstr "Domanda posta frequentemente"
+
+msgid "portal_type_FAQitem_description"
+msgstr "Domanda posta frequentemente e relativa risposta"
+
+msgid "cpsdoc_faq_question_label_edit"
+msgstr "Domanda: "
+
+msgid "cpsdoc_faq_long_question_label_edit"
+msgstr "Commenti aggiuntivi alla domanda: "
+
+msgid "cpsdoc_faq_answer_label_edit"
+msgstr "Risposta: "
+
+msgid "cpsdoc_faq_answer_label"
+msgstr "Risposta:  "
+
+# default doc types
+msgid "portal_type_ImageGallery_title"
+msgstr "Album fotografico"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Biblioteca di immagini"
+
+# default doc types
+msgid "portal_type_Glossary_title"
+msgstr "Glossario"
+
+msgid "portal_type_Glossary_description"
+msgstr "Insieme di definizioni di termini classificati alfabeticamente"
+
+# default doc types
+msgid "portal_type_GlossaryItem_title"
+msgstr "Elemento di glossario"
+
+msgid "portal_type_GlossaryItem_description"
+msgstr "Definizione di un termine"
+
+msgid "portal_type_News_title"
+msgstr "Notizia"
+
+msgid "portal_type_News_description"
+msgstr "Un documento per la descrizione di notizie"
+
+msgid "cpsdoc_News_newsdate_label_edit"
+msgstr "Data di pubblicazione: "
+
+msgid "cpsdoc_News_newsdate_label"
+msgstr "pubblicato il "
+
+msgid "cpsdoc_News_title_label_edit"
+msgstr "Titolo riassuntivo: "
+
+msgid "cpsdoc_News_description_label_edit"
+msgstr "Descrizione: "
+
+msgid "cpsdoc_News_longTitle_label_edit"
+msgstr "Titolo completo: "
+
+msgid "cpsdoc_News_content_label_edit"
+msgstr "Contenuto della notizia: "
+
+msgid "cpsdoc_News_photo_label_edit"
+msgstr "Fotografia: "
+
+msgid "cpsdoc_News_photo_label"
+msgstr " "
+
+msgid "cpsdoc_News_preview_label_edit"
+msgstr "Icona: "
+
+msgid "cpsdoc_News_attachedFile_label_edit"
+msgstr "File allegato: "
+
+msgid "cpsdoc_News_attachedFile_label"
+msgstr "File allegato: "
+
+# default doc types
+msgid "portal_type_File_title"
+msgstr "File"
+
+msgid "portal_type_File_description"
+msgstr "File in allegato"
+
+# default doc types
+msgid "portal_type_Event_title"
+msgstr "Evento"
+
+msgid "portal_type_Event_description"
+msgstr "Un evento"
+
+msgid "cpsdoc_Event_start_label_edit"
+msgstr "Inizio: "
+
+msgid "cpsdoc_Event_end_label_edit"
+msgstr "Fine: "
+
+msgid "cpsdoc_Event_content_label_edit"
+msgstr "Contenuto dell'evento: "
+
+# default doc types
+msgid "portal_type_Link_title"
+msgstr "Collegamento"
+
+msgid "portal_type_Link_description"
+msgstr "Collegamento ipertestuale"
+
+msgid "cpsdoc_Link_label_edit"
+msgstr "Informazioni relative al collegamento  "
+
+# default doc types
+msgid "portal_type_Image_title"
+msgstr "Immagine"
+
+msgid "portal_type_Image_description"
+msgstr "Un'immagine"
+
+msgid "cpsdoc_Image_label_edit"
+msgstr "Immagine: "
+
+msgid "cpsdoc_imgallery_width_label_edit"
+msgstr "Larghezza delle miniature"
+
+msgid "cpsdoc_imgallery_height_label_edit"
+msgstr "Altezza delle miniature"
+
+msgid "cpsdoc_imgallery_items_label_edit"
+msgstr "Numero di miniature per pagina"
+
+msgid "cpsdoc_imgallery_col_label_edit"
+msgstr "Numero di colonne per pagina"
+
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr "Visualizza tutti gli elementi se non è stata selezionata nessuna lettera:"
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr "Termine"
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Definizione"
+
+msgid "label_source"
+msgstr "Sorgente"
+
+msgid "label_coverage"
+msgstr "Riempimento"
+
+msgid "label_relation"
+msgstr "Relazione"
+
+#~ msgid "cpsdoc_label_next"
+#~ msgstr "avanti"
+
+#~ msgid "cpsdoc_label_previous"
+#~ msgstr "indietro"
+
+#~ msgid "cpsdoc_form_error"
+#~ msgstr "Elemento non valido, sei pregato di correggere l'errore:"
+
+#~ msgid "cpsdoc_theme"
+#~ msgstr "Tema del documento"
