@@ -6,7 +6,7 @@ New features:
 - Section and Workspace are CPSDocument
 Bug fixes:
 ~~~~~~~~~~
--
+- Make computeContributors work if the user is defined outside the portal.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - you can define action for CPSDocument using the same syntax that actions in a fti
