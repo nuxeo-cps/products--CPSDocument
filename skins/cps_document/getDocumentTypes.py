@@ -328,6 +328,48 @@ image_type = {
     'storage_methods': [],
     }
 
+book_type = {
+    'title': 'portal_type_Book_title',
+    'description': 'portal_type_Book_description',
+    'content_icon': 'book_icon.gif',
+    'content_meta_type': 'CPS Document',
+    'product': 'CPSDocument',
+    'factory': 'addCPSDocument',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': ('Page',),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'folderishdocument',
+    'schemas': ['metadata', 'common', 'book'],
+    'layouts': ['common', 'book'],
+    'flexible_layouts': [],
+    'storage_methods': [],
+    'cps_workspace_wf': 'workspace_folderish_content_wf',
+    'cps_display_as_document_in_listing': 0,
+    }
+
+page_type = {
+    'title': 'portal_type_Page_title',
+    'description': 'portal_type_Page_description',
+    'content_icon': 'page_icon.gif',
+    'content_meta_type': 'CPS Document',
+    'product': 'CPSDocument',
+    'factory': 'addCPSDocument',
+    'immediate_view': 'cpsdocument_edit_form',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': (),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'document',
+    'schemas': ['metadata', 'common', 'flexible_content'],
+    'layouts': ['page', 'common', 'flexible_content'],
+    'flexible_layouts': ['flexible_content:flexible_content'],
+    'storage_methods': [],
+    }
+
 types = {}
 types['Section'] = section_type
 types['Workspace'] = workspace_type
@@ -342,6 +384,8 @@ types['EventDoc'] = event_type
 types['Link'] = link_type
 types['Image'] = image_type
 types['ImageGallery'] = imagegallery_type
+types['Book'] = book_type
+types['Page'] = page_type
 
 # other products
 try:
