@@ -93,7 +93,6 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
     def _testDefaultAttributes(self, doc):
         type_info = doc.getTypeInfo()
-
         for schema in type_info.schemas:
             for prop_name in self.document_schemas[schema].keys():
                 self.assert_(hasattr(doc, prop_name))
