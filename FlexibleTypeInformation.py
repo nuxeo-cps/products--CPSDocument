@@ -422,10 +422,10 @@ class FlexibleTypeInformation(TypeInformation):
         return schemas
 
     security.declarePrivate('getDataModel')
-    def getDataModel(self, ob, proxy=None):
+    def getDataModel(self, ob, proxy=None, context=None):
         """Get the datamodel for an object of our type."""
         schemas = self.getSchemas(ob)
-        dm = DataModel(ob, schemas, proxy=proxy)
+        dm = DataModel(ob, schemas, proxy=proxy, context=context)
         dm._fetch()
         return dm
 
@@ -610,7 +610,7 @@ class FlexibleTypeInformation(TypeInformation):
             and the datamodel,
           - created_callback is called in the context of the object.
         """
-        dm = self.getDataModel(None)
+        dm = self.getDataModel(None, context=container)
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id)
         # Prepare each widget, and so update the datastructure.
