@@ -399,13 +399,12 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         # XXX: what next?
 
-    def testObjectCreationWithDefaultValuesForDataModel(self):
+    def testObjectCreationWithMetadataForDataModel(self):
 
         #
         # Test passing kw to invokeFactory to initialize data model.
+        # Test standard working case with key values included within the dm
         #
-
-        # 1 - Test standard working case with key values included within the dm
 
         doc_type = 'File'
         doc_id = doc_type.lower()
@@ -423,7 +422,12 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         self.assert_(doc_id not in self.ws.objectIds())
 
-        # 2 - Non working case with key values not included within the dm
+    def testObjectCreationWithNonValideValuesForDataModel(self):
+
+        # Non working case with key values not included within the dm
+
+        doc_type = 'File'
+        doc_id = doc_type.lower()
 
         self.ws.invokeFactory(doc_type, doc_id, xx='title', yy='description')
 
@@ -437,7 +441,12 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         self.assert_(doc_id not in self.ws.objectIds())
 
-        # 3 - Non special metadata case working
+    def testObjectCreationWithNonMetadataValuesForDataModel(self):
+
+        # Non special metadata case working
+
+        doc_type = 'File'
+        doc_id = doc_type.lower()
 
         file_instance = File('x', 'x', 'xx')
         self.ws.invokeFactory(doc_type, doc_id, file=file_instance)
