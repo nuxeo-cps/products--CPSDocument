@@ -64,6 +64,10 @@ widgets = {
             'type': 'CPS Image Widget Type',
             'data': {},
             },
+        'Photo Widget': {
+            'type': 'CPS Photo Widget Type',
+            'data': {},
+            },
         'Html Widget': {
             'type': 'CPS Html Widget Type',
             'data': {},
