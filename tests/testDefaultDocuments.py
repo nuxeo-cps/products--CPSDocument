@@ -73,7 +73,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             # XXX: should be 0 for an empty object, right?
             self.assert_(doc.get_size() >= 0)
 
-            self.assertEquals(doc.getAdditionalContentInfo(), {})
+            self.assertEquals(doc.getAdditionalContentInfo(proxy), {})
 
             # Rendering / default view test (on the proxy)
             self._testRendering(doc, proxy=proxy)
@@ -129,8 +129,10 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             wft.invokeFactoryFor(self.ws, doc_type, doc_type.lower())
 
     def testMetadata(self):
-        self.ws.invokeFactory('News', 'news')
-        doc = self.ws.news.getContent()
+        id = 'testMetadataNews'
+        self.ws.invokeFactory('News', id)
+        proxy = getattr(self.ws, id)
+        doc = proxy.getContent()
         metadata = ('Title', 'Description', 'Subject',
                     'Contributors', 'EffectiveDate', 'ExpirationDate',
                     'Rights', 'Relation', 'Source', 'Coverage')
@@ -167,6 +169,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
     def testNews(self):
         self.ws.invokeFactory('News', 'news')
+        proxy = getattr(self.ws, 'news')
 
         doc = self.ws.news.getContent()
         # you have to edit object before it has its default values.
@@ -184,13 +187,13 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         doc.edit(content='The content')
         self.assertEquals(doc.content, 'The content')
         self.assertEquals(
-            doc.getAdditionalContentInfo()['summary'], 'The content')
+            doc.getAdditionalContentInfo(proxy)['summary'], 'The content')
 
         from Products.CPSDocument.CPSDocument import SUMMARY_MAX_LEN
         very_long_content = 'A very long content' * 100
         doc.edit(content=very_long_content)
         self.assertEquals(
-            doc.getAdditionalContentInfo()['summary'],
+            doc.getAdditionalContentInfo(proxy)['summary'],
             very_long_content[0:SUMMARY_MAX_LEN] + '...')
 
 
