@@ -7,7 +7,7 @@ Here are defined list of portal type created with CPSDocument
 section_type = {
     'title': 'portal_type_Section_title',
     'description': 'portal_type_Section_description',
-    'content_icon': 'section_icon.gif',
+    'content_icon': 'section_icon.png',
     'content_meta_type': 'Folder',
     'product': 'CPSDefault',
     'factory': 'addFolder',
@@ -56,7 +56,7 @@ section_type = {
 workspace_type = {
     'title': 'portal_type_Workspace_title',
     'description': 'portal_type_Workspace_description',
-    'content_icon': 'workspace_icon.gif',
+    'content_icon': 'workspace_icon.png',
     'content_meta_type': 'Folder',
     'product': 'CPSDefault',
     'factory': 'addFolder',
@@ -105,7 +105,7 @@ workspace_type = {
 flexible_type = {
     'title': 'portal_type_Flexible_title',
     'description': 'portal_type_Flexible_description',
-    'content_icon': 'flexible_icon.gif',
+    'content_icon': 'flexible_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -126,7 +126,7 @@ flexible_type = {
 faq_type = {
     'title': 'portal_type_FAQ_title',
     'description': 'portal_type_FAQ_description',
-    'content_icon': 'faqs_icon.gif',
+    'content_icon': 'faqs_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -149,7 +149,7 @@ faq_type = {
 faqitem_type = {
     'title': 'portal_type_FAQitem_title',
     'description': 'portal_type_FAQitem_description',
-    'content_icon': 'faq_icon.gif',
+    'content_icon': 'faq_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -170,7 +170,7 @@ faqitem_type = {
 glossary_type = {
     'title': 'portal_type_Glossary_title',
     'description': 'portal_type_Glossary_description',
-    'content_icon': 'glossaries_icon.gif',
+    'content_icon': 'glossaries_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -193,7 +193,7 @@ glossary_type = {
 glossaryitem_type = {
     'title': 'portal_type_GlossaryItem_title',
     'description': 'portal_type_GlossaryItem_description',
-    'content_icon': 'glossary_icon.gif',
+    'content_icon': 'glossary_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -214,7 +214,7 @@ glossaryitem_type = {
 news_type = {
     'title': 'portal_type_News_title',
     'description': 'portal_type_News_description',
-    'content_icon': 'news_icon.gif',
+    'content_icon': 'news_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -235,7 +235,7 @@ news_type = {
 event_type = {
     'title': 'portal_type_Event_title',
     'description': 'portal_type_Event_description',
-    'content_icon': 'event_icon.gif',
+    'content_icon': 'event_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -257,7 +257,7 @@ event_type = {
 file_type = {
     'title': 'portal_type_File_title',
     'description': 'portal_type_File_description',
-    'content_icon': 'attachedfile_icon.gif',
+    'content_icon': 'attachedfile_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -278,7 +278,7 @@ file_type = {
 link_type = {
     'title': 'portal_type_Link_title',
     'description': 'portal_type_Link_description',
-    'content_icon': 'link_icon.gif',
+    'content_icon': 'link_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -300,7 +300,7 @@ link_type = {
 imagegallery_type = {
     'title': 'portal_type_ImageGallery_title',
     'description': 'portal_type_ImageGallery_description',
-    'content_icon': 'imgallery_icon.gif',
+    'content_icon': 'imgallery_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -323,7 +323,7 @@ imagegallery_type = {
 image_type = {
     'title': 'portal_type_Image_title',
     'description': 'portal_type_Image_description',
-    'content_icon': 'image_icon.gif',
+    'content_icon': 'image_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -344,7 +344,7 @@ image_type = {
 book_type = {
     'title': 'portal_type_Book_title',
     'description': 'portal_type_Book_description',
-    'content_icon': 'book_icon.gif',
+    'content_icon': 'book_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -367,7 +367,7 @@ book_type = {
 chapter_type = {
     'title': 'portal_type_Chapter_title',
     'description': 'portal_type_Chapter_description',
-    'content_icon': 'book_icon.gif',
+    'content_icon': 'book_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',
@@ -391,7 +391,7 @@ chapter_type = {
 page_type = {
     'title': 'portal_type_Page_title',
     'description': 'portal_type_Page_description',
-    'content_icon': 'page_icon.gif',
+    'content_icon': 'page_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',
     'factory': 'addCPSDocument',

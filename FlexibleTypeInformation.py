@@ -104,7 +104,7 @@ factory_type_information = (
     {'id': 'CPS Document',
      'title': "CPS Document",
      'description': "A base CPS document.",
-     'icon': 'cpsdocument_icon.gif',
+     'icon': 'cpsdocument_icon.png',
      'immediate_view': 'metadata_edit_form',
      #'product': 'CPSDocument',
      #'factory': 'addCPSDocument',
