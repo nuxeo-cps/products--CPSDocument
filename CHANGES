@@ -12,4 +12,5 @@ Bug fixes:
 
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- A document is fully initialized with initial values before being inserted
+  into the workflow.
