@@ -902,7 +902,7 @@ link_layout = {
                 'is_i18n': 1,
                 'label_edit': 'cpsschemas_label_link_content',
                 'display_width': 60,
-                'size_max': 200,
+                'size_max': 250,
             },
         },
         'Description': {
