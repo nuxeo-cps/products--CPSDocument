@@ -687,7 +687,6 @@ newsitem_flexible_layout = {
     },
     'layout': {
         'flexible_widgets': ['link', 'attachedFile'],
-        'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
             [],
