@@ -166,7 +166,7 @@ flexible_content_layout = {
                 'title': 'cpsdoc_flex_link_title',
                 'fields': ['?'],
                 'is_i18n': 1,
-                'is_required': 1,
+                'is_required': 0,
                 'label_edit': 'cpsdoc_Link_label_edit',
                 'hidden_empty': 1,
                 'deletable': 1,
