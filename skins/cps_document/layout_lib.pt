@@ -51,8 +51,10 @@
   tal:define="layout options/layout;
               ds options/datastructure;
               creation creation|nothing;
+              metadata metadata|nothing;
               formaction python: test(creation, 'cpsdocument_create_form',
-                                                'cpsdocument_edit_form');
+                              test(metadata, 'cpsdocument_metadata_edit_form',
+                                   'cpsdocument_edit_form'));
               first_layout options/first_layout|python:0;
               last_layout options/last_layout|python:0;
               is_flexible options/is_flexible;
