@@ -20,11 +20,13 @@
 
 from zLOG import LOG, DEBUG, ERROR
 from types import ListType, TupleType
+from cgi import escape
 import ExtensionClass
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_base
 
+from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.CMFCorePermissions import View
 from Products.CMFCore.CMFCorePermissions import ModifyPortalContent
 from Products.CMFCore.PortalContent import PortalContent
@@ -224,7 +226,19 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
         return s
 
-
+    security.declareProtected(View, 'exportAsXML')
+    def exportAsXML(self, proxy=None):
+        """Export as XML."""
+        utool = getToolByName(self, 'portal_url')
+        if proxy is None:
+            proxy = self
+        rpath = utool.getRelativeUrl(proxy)
+        dm = self.getTypeInfo().getDataModel(self)
+        xml = dm._exportAsXML()
+        return ('<document type="%s" rpath="%s">\n%s\n</document>'
+                % (escape(self.getPortalTypeName()),
+                   escape(rpath),
+                   xml))
 
 InitializeClass(CPSDocumentMixin)
 
