@@ -220,6 +220,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
             if hasattr(doc, f):
                 try:
                     summary += tag_pattern.sub('', getattr(self, f))
+                    # filtering &nbsp; characters
+                    summary = summary.replace('&nbsp;', ' ')
                 except TypeError:
                     pass
                 if len(summary) > SUMMARY_MAX_LEN:
