@@ -35,12 +35,12 @@ from Products.CPSInstaller.CPSInstaller import CPSInstaller, CMFInstaller
 SECTIONS_ID = 'sections'
 WORKSPACES_ID = 'workspaces'
 CPS_SKINS = { 'cps_document': 'Products/CPSDocument/skins/cps_document',
-              'cps_document_imgs':
-              'Products/CPSDocument/skins/cps_document_imgs'}
+              'cps_document_images':
+              'Products/CPSDocument/skins/cps_document_images'}
 CMF_SKINS = { 'cps_document': 'Products/CPSDocument/skins/cps_document_cmf',
               'cps_utils_cmf': 'Products/CPSDocument/skins/cps_utils_cmf',
-              'cps_document_imgs':
-              'Products/CPSDocument/skins/cps_document_imgs'}
+              'cps_document_images':
+              'Products/CPSDocument/skins/cps_document_images'}
 
 
 class DocInstaller(CPSInstaller):
