@@ -50,21 +50,32 @@
               creation creation|nothing;
               formaction python: test(creation, 'cpsdocument_create_form',
                                                 'cpsdocument_edit_form');
+              first_layout options/first_layout|python:0;
+              last_layout options/last_layout|python:0;
+              is_flexible options/is_flexible;
+              proxy nocall:options/proxy|here;
              ">
-<div class="group">
-<form action="." method="POST" name="form" enctype="multipart/form-data"
-  tal:attributes="action formaction">
-<input type="hidden" name="type_name" value="." tal:condition="creation"
-  tal:attributes="value request/type_name">
+<tal:block condition="first_layout">
+  <tal:block
+  content="structure string:<form action='${formaction}' method='POST'
+  name='form' enctype='multipart/form-data'>
+  <div class='group'>" />
+  <input type="hidden" name="type_name" value="."
+    tal:condition="creation" tal:attributes="value request/type_name">
+</tal:block>
+
 <table width="100%" cellpadding="2" cellspacing="2" border="0">
   <tr tal:repeat="row layout/rows" valign="top">
+
     <td tal:repeat="cell row"
       tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget;
                          wid widget/getWidgetId;
                          err python:ds.getError(wid);
-                         is_required widget/is_required|nothing">
-        <div tal:attributes="class python:test(err, 'row error', 'row')">
+                         is_required widget/is_required|nothing;
+                         css_class python:test(err, 'row error',
+                                           test(is_flexible, 'group', 'row'))">
+      <div tal:attributes="class css_class">
           <div class="label" tal:condition="widget/label_edit"
             tal:attributes="class python:test(is_required, 'label required',
                                               'label')">
@@ -80,16 +91,51 @@
             <br><em style="color: red"
                   i18n:translate="" tal:content="err">err</em>
           </tal:block>
+      <div style="float: right;" tal:condition="is_flexible">
+
+      <input type="submit" value="button_move_up"
+        tal:condition="not:repeat/row/start"
+        tal:attributes="name string:uprow_${repeat/row/index}"
+        class="context moveUp" i18n:attributes="value">
+      <input type="submit" value="button_move_down"
+        tal:condition="not:repeat/row/end"
+        tal:attributes="name string:downrow_${repeat/row/index}"
+        class="context moveDown" i18n:attributes="value">
+      <input type="submit" value="button_delete"
+        tal:attributes="name string:deleterow_${repeat/row/index}"
+        class="destructive" i18n:attributes="value">
+      </div>
+
         </div>
       </tal:block>
     </td>
   </tr>
 </table>
+
+<tal:block condition="is_flexible">
+<br><br>
+<div style="float: right;">
+  <input type="hidden" name="layout_id" value="."
+    tal:attributes="value layout/layout_id">
+  <select name="widget_type">
+    <option value="."
+      tal:repeat="wtid proxy/portal_widget_types/objectIds"
+      tal:attributes="value wtid"
+      tal:content="wtid">Type</option>
+  </select>
+  <input type="submit" name="addwidget_button" value="button_add"
+   class="context"
+   i18n:attributes="value">
+</div>
+</tal:block>
+
+<tal:block condition="last_layout">
 <metal:block define-slot="additional_content" />
 <input type="submit" class="standalone" name="cpsdocument_edit_button"
   value="button_change" i18n:attributes="value" tal:condition="not:creation">
 <input type="submit" class="standalone" name="cpsdocument_create_button"
   value="button_create" i18n:attributes="value" tal:condition="creation">
-</form>
-</div>
+<tal:block content="structure string:</div></form>" />
+</tal:block>
+
 </metal:block>
