@@ -3,7 +3,8 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--The images from a image gallery can now be browsed in a "popup mode"
+- Chapter Content Type for Book is added to create subsections in Book folderish document 
+- The images from a image gallery can now be browsed in a "popup mode"
 Bug fixes:
 ~~~~~~~~~~
 -
