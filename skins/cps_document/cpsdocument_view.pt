@@ -1,4 +1,5 @@
-<tal:block define="doc here/getContent;
+<tal:block define="rev python:here.REQUEST.get('rev', None);
+                   doc python:rev and here.getContent(revision=rev) or here.getContent();
                    rendered_main python: doc.render(proxy=here);
   ">
 <metal:block define-macro="view">
@@ -12,6 +13,7 @@
   </metal:block>
 
   <metal:block fill-slot="main">
+
     <tal:block tal:content="structure rendered_main" />
     <div style="clear:both; text-align:right; border-top: solid 1px; margin-top: 2em;">
       <small>
