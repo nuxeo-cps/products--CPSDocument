@@ -1040,6 +1040,10 @@ try:
     layouts.update(context.getCPSMailBoxerDocumentLayouts())
 except AttributeError,e:
     pass
+try:
+    layouts.update(context.getCPSLocalFSDocumentLayouts())
+except AttributeError,e:
+    pass
 
 if loadcustom:
     clayouts = context.getCustomDocumentLayouts()
