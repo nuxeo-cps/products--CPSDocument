@@ -33,6 +33,7 @@ vocabularies = {
             ('it', 'Italiano', 'label_language_it'),
             ('nl', 'Nederlands', 'label_language_nl'),
             ('pt_BR', 'Portugueses(Brasileiro)', 'label_language_pt_BR'),
+	    ('mg', 'Malagasy', 'label_language_mg'),
             )},
         },
     'search_sort_results_by': {
