@@ -4,7 +4,7 @@ ZODB Requires:
   portal_vocabularies and let the updater recreate them.
 New features:
 ~~~~~~~~~~~~~
--
+- Required fields are displayed with a mark
 Bug fixes:
 ~~~~~~~~~~
 -
