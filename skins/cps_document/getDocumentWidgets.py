@@ -68,6 +68,10 @@ widgets = {
             'type': 'CPS Html Widget Type',
             'data': {},
             },
+         'Method Widget': {
+            'type': 'CPS Method Widget Type',
+            'data': {},
+            },
         'Rich Text Editor Widget': {
             'type': 'CPS Rich Text Editor Widget Type',
             'data': {},
