@@ -33,6 +33,7 @@ from Products.CMFCore.CMFCorePermissions import ModifyPortalContent
 from Products.CMFCore.PortalContent import PortalContent
 from Products.CMFCore.PortalFolder import PortalFolder
 
+SUMMARY_MAX_LEN = 418  # XXX: better get rid of magical constants
 
 class CPSDocumentMixin(ExtensionClass.Base):
     """Mixin giving CPS Document behaviour.
@@ -200,17 +201,16 @@ class CPSDocumentMixin(ExtensionClass.Base):
     def getAdditionalContentInfo(self):
         """ Return a dictonary used in getContentInfo """
         infos = {}
-        max_len = 418
         summary_fields = ['body', 'content']
-        sum = ''
+        summary = ''
         for f in summary_fields:
             if hasattr(aq_base(self), f):
-                sum += getattr(self, f)
-                if len(sum) > max_len:
-                    sum = sum[:max_len] + '...'
+                summary += getattr(self, f)
+                if len(summary) > max_len:
+                    summary = summary[:SUMMARY_MAX_LEN] + '...'
                     break
-        if sum:
-            infos['summary'] = sum
+        if summary:
+            infos['summary'] = summary
 
         if hasattr(aq_base(self), 'preview') and self.preview:
             infos['preview'] = self.absolute_url(1) + '/preview'
@@ -219,7 +219,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
     security.declareProtected(View, 'get_size')
     def get_size(self):
-        """ return the size of the data """
+        """Return the size of the data."""
+        # XXX: what is exactly the 'size'?
         if self._size:
             return self._size
         return self._compute_size()
@@ -227,22 +228,24 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
     security.declarePrivate('_compute_size')
     def _compute_size(self):
-        s = 0
+        # XXX: this needs some explanations
+        # For instance, what is the 'size' of an empty object ?
+        size = 0
         dm = self.getTypeInfo().getDataModel(self)
         # XXX uses internal knowledge of DataModel
         for fieldid, field in dm._fields.items():
             try:
                 if hasattr(aq_base(dm[fieldid]), 'get_size'):
-                    s += dm[fieldid].get_size()
+                    size += dm[fieldid].get_size()
                 else:
-                    s  += len(str(dm[fieldid]))
+                    size += len(str(dm[fieldid]))
             except KeyError:
                 pass
 
         for item in self.propdict().keys():
-            s += len(str(getattr(self, item, '')))
+            size += len(str(getattr(self, item, '')))
 
-        return s
+        return size
 
     security.declareProtected(View, 'exportAsXML')
     def exportAsXML(self, proxy=None):
