@@ -11,9 +11,9 @@
     <tal:block tal:content="structure python:doc.render(proxy=here)">
       Body
     </tal:block>
-    <tal:block tal:condition="python:hasattr(here,'portal_comment')">
+    <tal:block tal:condition="python:hasattr(here,'portal_discussion')">
       <tal:block tal:define="comments_allowed
-                               python:here.portal_comment.isCommentingAllowedFor(
+                               python:here.portal_discussion.isCommentingAllowedFor(
                                                                           here);"
                  tal:condition="comments_allowed">
         <metal:block 
