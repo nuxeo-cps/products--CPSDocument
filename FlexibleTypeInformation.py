@@ -83,7 +83,7 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
     flexti.addAction('metadata',
                      'action_metadata',
                      'string:${object_url}/cpsdocument_metadata',
-                     '',
+                     'not:portal/portal_membership/isAnonymousUser',
                      View,
                      'object')
     flexti.addAction('localroles',

@@ -6,7 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Metadata are not shown for anonymous people anymore
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Set _has_generic_edit_method flag for CPSDocumentMixin (Used by WebDAV
