@@ -29,7 +29,8 @@
                        th_height python:getattr(gallery,'preview_height','64');
                        nb_rows_in_current_batch python:test(mod == 0,div,div + 1)">
 
-<table style="text-align:center;width:100%">
+<table style="text-align:center;width:100%"
+  summary="gallery layout">
   <tr tal:repeat="row python:range(nb_rows_in_current_batch)">
   <tal:block tal:define="batch python:modules['ZTUtils'].Batch(page_batch,
                                                                size=nb_cols,
@@ -51,7 +52,8 @@
 </table>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0"
-       condition="python:previous_page or next_page">
+  summary="batch layout"
+  condition="python:previous_page or next_page">
   <tr class="even">
     <td align="center" width="100%"
         tal:define="mq nocall:modules/ZTUtils/make_query;">
