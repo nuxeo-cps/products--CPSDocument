@@ -20,7 +20,7 @@
       tal:attributes="src string:${base_url}calendar-setup.js"></script>
 
     <script type="text/javascript"
-      tal:attributes="src string:${base_url}tooltip.js"></script>
+      tal:attributes="src string:${base_url}functions.js"></script>
 
     <script type="text/javascript">
     <!--
