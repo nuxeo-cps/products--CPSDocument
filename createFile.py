@@ -38,10 +38,10 @@ def createFile(context, zip_file):
 
     context.portal_eventservice.notifyEvent('modify_object', context, {})
 
-    if hasattr(zip_file,'filename'):
-        filename=zip_file.filename
+    if hasattr(zip_file, 'filename'):
+        filename = zip_file.filename
     else:
-        filename=zip_file.name
+        filename = zip_file.name
 
     try:
         temp_file = File(filename, '', file=zip_file)
@@ -88,7 +88,7 @@ def createFile(context, zip_file):
                 content_type=mimetype.normalized())
 
         kw = {'Title': path_filename,
-          'Description': 'Imported File (original archive: %s)'%filename,
+          'Description': 'Imported File (original archive: %s)' % filename,
           'file': file_to_attach}
 
         file_obj.edit(**kw)
