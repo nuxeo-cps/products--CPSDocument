@@ -124,8 +124,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
         """
         if REQUEST is not None:
             raise Unauthorized("Not accessible TTW.")
-        mapping.update(kw)
-        return self.getTypeInfo().editObject(self, mapping, proxy=proxy)
+        kw.update(mapping)
+        return self.getTypeInfo().editObject(self, kw, proxy=proxy)
 
 
     security.declareProtected(View, 'SearchableText')
