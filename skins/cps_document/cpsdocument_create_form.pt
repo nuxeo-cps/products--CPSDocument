@@ -6,10 +6,10 @@
                      validate=validate, layout_mode='create',
                      create_callback='cpsdocument_create',
                      created_callback='cpsdocument_created');
-                   global rendered_main python: res[0];
+                   rendered_main python: res[0];
                    rendered_ok python: res[1];
-                   global portal_status_message python: validate and (rendered_ok and 'psm_content_created' or 'psm_content_error') or '';
-                " />
+                   portal_status_message python: validate and (rendered_ok and 'psm_content_created' or 'psm_content_error') or '';
+                ">
 <metal:block use-macro="here/content_lib/macros/master">
   <metal:block fill-slot="css_slot">
     <metal:block
@@ -31,3 +31,4 @@
   </metal:block>
 
 </metal:block>
+</tal:block>
