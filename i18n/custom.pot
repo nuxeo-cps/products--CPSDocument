@@ -232,3 +232,9 @@ msgstr ""
 msgid "cpsdoc_glossary_dispall_label_edit"
 msgstr ""
 
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr ""
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr ""
+

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-12-12 16:36default\n"
+"POT-Creation-Date: 2003-12-15 16:29default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -348,4 +348,10 @@ msgstr ""
 
 # Glossary
 msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr ""
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr ""
+
+msgid "cpsdoc_glossary_expl_label_edit"
 msgstr ""
