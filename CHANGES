@@ -10,4 +10,6 @@ Bug fixes:
   same style as those in CPSDefault.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Added a "documentFields" class to group together the fields pertaining to a
+  document. This is a stricter grouping scheme than the one defined by the
+  "group" class.
