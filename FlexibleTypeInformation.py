@@ -593,11 +593,10 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         if request is not None:
             datastructure.updateFromMapping(request.form)
         layout_structures = []
+        datamodel = datastructure.getDataModel()
         for layout in layouts:
-            mode_chooser = layout.getStandardWidgetModeChooser(
-                layout_mode, datastructure)
-            layout_structure = layout.computeLayoutStructure(datastructure,
-                                                             mode_chooser)
+            layout_structure = layout.computeLayoutStructure(layout_mode,
+                                                             datamodel)
             layout_structures.append(layout_structure)
 
         return layout_structures
