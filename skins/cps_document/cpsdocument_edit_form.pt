@@ -41,11 +41,13 @@
   <metal:block fill-slot="header"
     tal:define="creation creation|nothing;
                 edition edition|nothing;
-                metadata metadata|nothing;">
+                metadata metadata|nothing;
+                type_info python:here.portal_types[request['type_name']];
+               ">
     <h1 tal:condition="creation" i18n:translate="">
       Create a document of type
-      <span i18n:name="type_name"
-        tal:content="request/type_name">Type Name</span>
+      <span i18n:name="type_name"><tal:block i18n:translate=""
+            tal:content="type_info/Title">Type Title</tal:block></span>
     </h1>
     <h1 tal:condition="not:creation">
       <img tal:replace="structure python:here.getImgTag('/'+here.getIcon(), base_url='')">
