@@ -327,7 +327,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     def flexibleAddWidget(self, ob, layout_id, wtid, **kw):
         """Add a new widget to the flexible part of a document.
 
-        Take care of compound widget.
+        Takes care of compound widget.
 
         Returns the widget id.
         """
@@ -335,17 +335,17 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         layout_ob = ltool._getOb(layout_id)
         tpl_widget = layout_ob[wtid]
         if tpl_widget.meta_type != 'CPS Compound Widget':
-            return self.flexibleAddSimpleWidget(ob, layout_id, wtid, **kw)
+            return self._flexibleAddSimpleWidget(ob, layout_id, wtid, **kw)
 
         # Compound widget - creating sub widgets
         new_widget_ids = []
         for widget_id in tpl_widget.widget_ids:
-            id = self.flexibleAddSimpleWidget(ob, layout_id, widget_id,
+            id = self._flexibleAddSimpleWidget(ob, layout_id, widget_id,
                                               layout_register=0, **kw)
             new_widget_ids.append(id)
 
         # creating the compound widget
-        widget_id = self.flexibleAddSimpleWidget(ob, layout_id, wtid, **kw)
+        widget_id = self._flexibleAddSimpleWidget(ob, layout_id, wtid, **kw)
         layout, schema = self._getFlexibleLayoutAndSchemaFor(ob, layout_id)
         widget = layout[widget_id]
 
@@ -355,8 +355,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         return widget_id
 
 
-    security.declareProtected(ModifyPortalContent, 'flexibleAddSimpleWidget')
-    def flexibleAddSimpleWidget(self, ob, layout_id, wtid,
+    security.declarePrivate('_flexibleAddSimpleWidget')
+    def _flexibleAddSimpleWidget(self, ob, layout_id, wtid,
                                 layout_register = 1, **kw):
         """Add a new widget to the flexible part of a document.
 
@@ -425,7 +425,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     def flexibleDelWidgets(self, ob, layout_id, widget_ids):
         """Delete widgets from the flexible part of a document.
 
-        Take care of Compound widget.
+        Takes care of Compound widget.
         """
         self._makeObjectFlexible(ob)
         layout, schema = self._getFlexibleLayoutAndSchemaFor(ob, layout_id)
@@ -436,10 +436,10 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                 new_widget_ids.extend(widget.widget_ids)
             new_widget_ids.append(widget_id)
 
-        return self.flexibleDelSimpleWidgets(ob, layout_id, new_widget_ids)
+        return self._flexibleDelSimpleWidgets(ob, layout_id, new_widget_ids)
 
-    security.declareProtected(ModifyPortalContent, 'flexibleDelSimpleWidgets')
-    def flexibleDelSimpleWidgets(self, ob, layout_id, widget_ids):
+    security.declarePrivate('_flexibleDelSimpleWidgets')
+    def _flexibleDelSimpleWidgets(self, ob, layout_id, widget_ids):
         """Delete widgets from the flexible part of a document.
         """
         self._makeObjectFlexible(ob)
@@ -499,7 +499,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         Takes into account flexible schemas from ob.
 
-        Returns a sequence of Schema objects.
+        Returns a list of Schema objects.
         """
         stool = getToolByName(self, 'portal_schemas')
         flexible_schemas = self._getFlexibleSchemas()
@@ -558,7 +558,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         Takes into account flexible layouts from ob.
 
-        Returns a sequence of Layout objects.
+        Returns a list of Layout objects.
         """
         layouts = []
         type_layouts = self.layouts
