@@ -26,9 +26,10 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFDefault.File import File
 from zLOG import LOG, DEBUG, INFO
 from AccessControl import ModuleSecurityInfo
-from zipfile import ZipFile
+from zipfile import ZipFile, BadZipfile
 from StringIO import StringIO
 from zExceptions import BadRequest
+
 
 ModuleSecurityInfo('Products.CPSDocument.createFile').declarePublic('createFile')
 
@@ -42,8 +43,18 @@ def createFile(context, zip_file):
     else:
         filename=zip_file.name
 
-    temp_file = File(filename, '', file=zip_file)
-    zipfile = ZipFile(StringIO(str(temp_file)))
+    try:
+        temp_file = File(filename, '', file=zip_file)
+    except ValueError:
+        LOG('createFile', INFO,
+                'Inexistent uploaded ZIP file')
+        return 0
+    try:
+        zipfile = ZipFile(StringIO(str(temp_file)))
+    except BadZipfile:
+        LOG('createFile', INFO,
+                'Bad Zip File')
+        return 0
     infolist = zipfile.infolist()
     # browsing the ZIP file
     for info in infolist:
