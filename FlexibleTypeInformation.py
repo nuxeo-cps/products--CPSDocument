@@ -255,7 +255,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             if dm.has_key(k):
                 dm.set(k, v)
 
-        dm._setObject(ob) # proxy=None as we don't have it here
+        dm._setObject(ob, proxy=dm.getProxy())
         dm._commit(check_perms=0)
 
         return ob
