@@ -443,11 +443,11 @@ msgstr "Type de ressource"
 #~ msgid "cpsdoc_News_image_label"
 #~ msgstr "paru le "
 
-#~ msgid "cpsdoc_News_photo_label_edit"
-#~ msgstr "Photo : "
+msgid "cpsdoc_News_photo_label_edit"
+msgstr "Photo : "
 
-#~ msgid "cpsdoc_News_photo_label"
-#~ msgstr " "
+msgid "cpsdoc_News_photo_label"
+msgstr " "
 
 #~ msgid "err"
 #~ msgstr "Erreur"

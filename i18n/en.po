@@ -435,8 +435,8 @@ msgstr "Resource type"
 #~ msgid "cpsdoc_News_image_label"
 #~ msgstr "Dated "
 
-#~ msgid "cpsdoc_News_photo_label_edit"
-#~ msgstr "Photograph: "
+msgid "cpsdoc_News_photo_label_edit"
+msgstr "Picture: "
 
 #~ msgid "err"
 #~ msgstr "Error"
