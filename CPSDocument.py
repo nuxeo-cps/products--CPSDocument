@@ -136,10 +136,17 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
         Indexes all fields marked as indexable.
         """
+        ti = self.getTypeInfo()
+
+        # CMF object not fully created
+        if ti is None:
+            return ''
+
+        dm = ti.getDataModel(self)
         strings = []
-        dm = self.getTypeInfo().getDataModel(self)
         # XXX uses internal knowledge of DataModel
-        for fieldid, field in dm._fields.items():
+        for fieldid, field
+        in dm._fields.items():
             if not field.is_searchabletext:
                 continue
             value = dm[fieldid]
@@ -303,11 +310,11 @@ class CPSDocumentMixin(ExtensionClass.Base):
 ##         if file is None:
 ##             data = ''
 ##         else:
-##             # XXX: it would be much more efficient not to retrieve 
+##             # XXX: it would be much more efficient not to retrieve
 ##             # whole file in memory (for big files)
 ##             data = str(file)
 ##         if RESPONSE:
-##             content_type = getattr(file, 'content_type', 
+##             content_type = getattr(file, 'content_type',
 ##                 'application/octet-stream')
 ##             filename = getattr(file, '__name__', 'file')
 ##             # XXX: Need some escaping here.
