@@ -382,9 +382,9 @@ faqitem_layout = {
     'layout': {
         'style_prefix': 'layout_default_',
         'rows': [
-            [{'widget_id': 'title'},
+            [{'widget_id': 'Title'},
                 ],
-            [{'widget_id': 'description'},
+            [{'widget_id': 'Description'},
                 ],
             [{'widget_id': 'content'},
                 ],
@@ -427,9 +427,9 @@ faq_layout = {
     'layout': {
         'style_prefix': 'layout_faq_',
         'rows': [
-            [{'widget_id': 'title'},
+            [{'widget_id': 'Title'},
                 ],
-            [{'widget_id': 'description'},
+            [{'widget_id': 'Description'},
                 ],
             ],
         },
@@ -473,9 +473,9 @@ glossaryitem_layout = {
     'layout': {
         'style_prefix': 'layout_default_',
         'rows': [
-            [{'widget_id': 'title'},
+            [{'widget_id': 'Title'},
                 ],
-            [{'widget_id': 'description'},
+            [{'widget_id': 'Description'},
                 ],
             ],
         },
@@ -533,9 +533,9 @@ glossary_layout = {
     'layout': {
         'style_prefix': 'layout_glossary_',
         'rows': [
-            [{'widget_id': 'title'},
+            [{'widget_id': 'Title'},
                 ],
-            [{'widget_id': 'description'},
+            [{'widget_id': 'Description'},
                 ],
             [{'widget_id': 'display_all'},
                 ],
@@ -680,12 +680,12 @@ news_layout = {
         'rows': [
             [{'ncols': 1, 'widget_id': 'theme'},
              ],
-            [{'ncols': 1, 'widget_id': 'title'},
+            [{'ncols': 1, 'widget_id': 'Title'},
              {'ncols': 1, 'widget_id': 'newsdate'},
              ],
             [{'ncols': 1, 'widget_id': 'longTitle'},
              ],
-            [{'ncols': 1, 'widget_id': 'description'},
+            [{'ncols': 1, 'widget_id': 'Description'},
              ],
             [{'ncols': 1, 'widget_id': 'photo'},
              {'ncols': 1, 'widget_id': 'preview'},
@@ -751,9 +751,9 @@ file_layout = {
         'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
-            [{'ncols': 1, 'widget_id': 'title'},
+            [{'ncols': 1, 'widget_id': 'Title'},
                 ],
-            [{'ncols': 1, 'widget_id': 'description'},
+            [{'ncols': 1, 'widget_id': 'Description'},
                 ],
             [{'ncols': 1, 'widget_id': 'file'},
                 ],
@@ -851,8 +851,8 @@ event_layout = {
         'style_prefix': 'layout_event_',
         'ncols': 2,
         'rows': [
-            [{'ncols': 1, 'widget_id': 'title'},],
-            [{'ncols': 1, 'widget_id': 'description'},],
+            [{'ncols': 1, 'widget_id': 'Title'},],
+            [{'ncols': 1, 'widget_id': 'Description'},],
             [{'ncols': 1, 'widget_id': 'start'},
              {'ncols': 1, 'widget_id': 'end'},],
             [{'ncols': 1, 'widget_id': 'content'},],
@@ -940,9 +940,9 @@ image_layout = {
     'layout': {
         'style_prefix': 'layout_default_',
         'rows': [
-            [{'widget_id': 'title'},
+            [{'widget_id': 'Title'},
                 ],
-            [{'widget_id': 'description'},
+            [{'widget_id': 'Description'},
                 ],
             [{'widget_id': 'preview'},
                 ],
@@ -1053,9 +1053,9 @@ imagegallery_layout = {
         'style_prefix': 'layout_imagegallery_',
         'ncols': 2,
         'rows': [
-            [{'widget_id': 'title'},
+            [{'widget_id': 'Title'},
                 ],
-            [{'widget_id': 'description'},
+            [{'widget_id': 'Description'},
                 ],
             [{'widget_id': 'preview_width'},
              { 'widget_id': 'preview_height'},
@@ -1109,9 +1109,9 @@ dummy_form_layout = {
         'style_prefix': 'layout_form_',
         'ncols': 1,
         'rows': [
-            [{'ncols': 1, 'widget_id': 'title'},
+            [{'ncols': 1, 'widget_id': 'Title'},
                 ],
-            [{'ncols': 1, 'widget_id': 'description'},
+            [{'ncols': 1, 'widget_id': 'Description'},
                 ],
             ],
         },
