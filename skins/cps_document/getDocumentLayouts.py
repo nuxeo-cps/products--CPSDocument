@@ -197,8 +197,8 @@ news_layout = {
                 'label': 'cpsdoc_News_newsdate_label',
                 'description': 'cpsdoc_News_newsdate_description',
                 'css_class': 'dtitle5 dright',
-                'view_format': '%d/%m/%Y',
-                'view_format_none': '-',
+                'view_format': 'medium',
+                'time_setting': 1,
             },
         },
         'title': {
