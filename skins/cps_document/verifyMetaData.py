@@ -1,5 +1,8 @@
 ##parameters=datastructure, layout
 # verifying dates integrity
+
+# $Id$
+
 import DateTime
 effective_date = datastructure['EffectiveDate']
 expiration_date = datastructure['ExpirationDate']

@@ -225,7 +225,7 @@ metadata_layout = {
         },
     'layout': {
         'style_prefix': 'layout_metadata_',
-        'validate_values_expr' : 'python:portal.verifyMetaDatas(datastructure, layout)',
+        'validate_values_expr' : 'python:portal.verifyMetaData(datastructure, layout)',
         'ncols': 2,
         'rows': [
             [{'ncols': 2, 'widget_id': 'Title'},],

@@ -18,4 +18,5 @@ Bug fixes:
 - Removed some needless <span> elements used for i18n.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Changed method name verifyMetaDatas -> verifyMetaData since this is the
+  correct spelling.
