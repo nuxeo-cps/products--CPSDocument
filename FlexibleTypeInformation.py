@@ -428,7 +428,7 @@ class FlexibleTypeInformation(TypeInformation):
     def getDataModel(self, ob):
         """Get the datamodel for an object of our type."""
         schemas = self.getSchemas(ob)
-        dm = DataModel(ob, schemas)
+        dm = DataModel(ob, schemas, context=self)
         dm._fetch()
         return dm
 
