@@ -8,7 +8,11 @@ New features:
 
 Bug fixes:
 ~~~~~~~~~~
--
+- FlexibleTypeInformation.-flexibleDelSimpleWidgets()
+  In the flexible case : 
+  Delete from the object otherweise the same content appears
+  each time you wanna add the same kind of widget again.
+  Was the case with the attached file.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
