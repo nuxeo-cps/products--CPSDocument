@@ -31,7 +31,7 @@ type information should look like.</p>
           'name': <dtml-var "_.repr(Title())">,
           'action': <dtml-var "_.repr(getActionExpression())">,
           'condition': <dtml-var "_.repr(getCondition())">,
-          'permissions': <dtml-var "_.repr(getPermissions())">,
+          'permission': <dtml-var "_.repr(getPermissions())">,
           'category': <dtml-var "_.repr(getCategory())">,
           'visible': <dtml-var "_.repr(getVisibility())">,},
 </dtml-in>    )
