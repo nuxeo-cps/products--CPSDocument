@@ -453,7 +453,7 @@ faqitem_layout = {
             'type': 'Heading Widget',
             'data': {
                 'fields': ['Title'],
-                'level': 1,
+                'level': 2,
                 'is_i18n': 1,
                 'is_required': 1,
                 'label_edit': 'cpsdoc_faq_question_label_edit',
@@ -475,9 +475,9 @@ faqitem_layout = {
             },
         },
         'content': {
-            'type': 'TextArea Widget',
+            'type': 'Text Widget',
             'data': {
-                'fields': ['content'],
+                'fields': ['content', 'content_position', 'content_format'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_faq_answer_label_edit',
                 'label': 'cpsdoc_faq_answer_label',

@@ -6,7 +6,9 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- FAQ rendering and FAQ item schema and layout updated so that one can choose
+  between different render formats (e.g. text, html, etc.) for the answer of an
+  FAQ item. The FAQ Item now saves its content position and content format.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

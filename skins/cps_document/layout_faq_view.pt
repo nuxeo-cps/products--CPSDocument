@@ -17,19 +17,8 @@
   <hr style="margin:2em"/>
   <tal:block repeat="item items">
     <div style="padding-top:1em;"
-      tal:attributes="id string:a${repeat/item/number}"
-      tal:define="doc item/getContent">
-      <h2>
-        <img tal:replace="structure python:here.getImgTag(here.portal_types[item.portal_type].getIcon(),
-          base_url=here.portal_url.getPortalPath()+'/')" />
-        <span tal:replace="doc/title">The Title</span>
-      </h2>
-      <p tal:content="doc/description">
-        The Description
-      </p>
-      <p tal:content="doc/content">
-        The Content
-      </p>
+      tal:attributes="id string:a${repeat/item/number}">
+      <tal:block tal:replace="structure python:item.getContent().render(proxy=item)" />
     </div>
     <p style="text-align:center">
       <a tal:attributes="href string:${request/URL}#q${repeat/item/number}"
