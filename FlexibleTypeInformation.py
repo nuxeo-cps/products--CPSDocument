@@ -467,6 +467,10 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                 # Delete the field.
                 schema.delSubObject(field_id)
             if widget_id in flexible_widgets:
+                # Delete from the object otherweise the same content appears
+                # each time you wanna add the same kind of widget again.
+                # Was the case with the attached file.
+                setattr(ob, widget_id, None)
                 # Hide the widget as we may need it to create new widget.
                 widget.hide()
             else:
