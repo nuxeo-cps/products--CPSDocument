@@ -10,7 +10,7 @@
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget">
       <div tal:define="dm options/datastructure/getDataModel;"
-           tal:attributes="class widget/widget_display_expr;
+           tal:attributes="class cell/widget_css_class;
                            id python:widget.widget_group_id or widget.getHtmlWidgetId()+'_widget';">
         <tal:block condition="widget/label">
           <span class="dlabel" i18n:translate="" tal:condition="widget/is_i18n"
@@ -33,7 +33,7 @@
     <tal:block repeat="cell row">
       <tal:block define="widget cell/widget">
       <div tal:define="dm options/datastructure/getDataModel;"
-           tal:attributes="class widget/widget_display_expr;
+           tal:attributes="class cell/widget_css_class;
                            id python:widget.widget_group_id or widget.getHtmlWidgetId()+'_widget';">
         <tal:block condition="widget/label">
           <span class="dlabel" i18n:translate="" tal:condition="widget/is_i18n"
@@ -90,8 +90,8 @@
                          is_required widget/is_required|nothing;
                          tooltip_id python:wid + '_help';
                          css_class python:test(err, 'row error',
-                                           test(is_flexible, 'group', 'row'))">
-        <div tal:attributes="class widget/widget_display_expr;
+                                               test(is_flexible, 'group', 'row'))">
+        <div tal:attributes="class cell/widget_css_class;
                              id python:widget.widget_group_id or widget.getHtmlWidgetId()+'_widget';">
           <div class="label" tal:condition="widget/label_edit"
             tal:attributes="class python:test(is_required, 'label required',
