@@ -1,6 +1,6 @@
 <tal:block define="doc here/getContent;
                    layout options/layout;
-                   widgets options/layout/widgets;
+                   widgets layout/widgets;
                    ds options/datastructure;
                   ">
 <br>
