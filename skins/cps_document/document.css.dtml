@@ -40,6 +40,24 @@
 }
 
 
+div.dflush {
+  clear: both;
+}
+
+div.dcolleft {
+  width: 48%;
+  padding-bottom: 1em;
+}
+
+div.dcolright {
+  clear: right;
+  float: right;
+  width: 48%;
+  padding-bottom: 1em;
+}
+
+
+
 div.dtitle, div.dtitle2, div.dtitle3, div.dtitle4, div.dtitle5, div.dtitle6 {
   color: &dtml-headingFontColor;;
   background-color: transparent;
@@ -81,22 +99,6 @@ div.ddescription {
   font-family: Times, "Times New Roman", serif;
   font-style: italic;
   font-size: 120%;
-}
-
-div.dflush {
-  clear: both;
-}
-
-div.dcolright {
-  float: right;
-  width: 48%;
-  padding-bottom: 1em;
-}
-
-div.dcolleft {
-  float: left;
-  width: 48%;
-  padding-bottom: 1em;
 }
 
 .dlabel {
