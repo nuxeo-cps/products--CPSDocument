@@ -574,7 +574,7 @@ news_layout = {
         'newsdate': {
             'type': 'DateTime Widget',
             'data': {
-                'fields': ['newsdate'],
+                'fields': ['EffectiveDate'],
                 'is_i18n': 1,
                 'is_required': 1,
                 'label_edit': 'cpsdoc_News_newsdate_label_edit',

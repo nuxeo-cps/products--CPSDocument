@@ -146,13 +146,6 @@ news_schema = {
                 'is_searchabletext': 1,
             },
         },
-    'newsdate': {
-        'type': 'CPS DateTime Field',
-        'data': {
-                'default_expr': 'nothing',
-                'is_searchabletext': 0,
-            },
-        },
     'photo': {
         'type': 'CPS Image Field',
         'data': {

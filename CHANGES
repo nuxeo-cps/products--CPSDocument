@@ -1,12 +1,16 @@
 Requires:
 ~~~~~~~~~
--
+- Launch upgradeNewsSchema to upgrade existing News document.
 New features:
 ~~~~~~~~~~~~~
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- News documents now store their publication date as the EffectiveDate from the
+  metadata. This is more consistent with DublinCore and the rest of CPS,
+  especially since CPS provides sorting on EffectiveDate. A method is provided
+  to upgrade previous News documents to the new schema, that is to retrieve the
+  old newsdate and set the EffectiveDate with it.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
