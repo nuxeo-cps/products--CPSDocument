@@ -1,4 +1,21 @@
 *******************************************
+** CPSDocument V0.25.0 [R1 build 2004/09/03-13:35 by ben]
+
+Requires:
+~~~~~~~~~
+- TranslationService >= 0.5.1
+New features:
+~~~~~~~~~~~~~
+- Error messages in layout_lib can now be rendered with error mapping so that
+  the error messages are more complete and user friendly.
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.24.1 [R1 build 2004/08/23-05:51 by fermigier]
 
 Requires:
