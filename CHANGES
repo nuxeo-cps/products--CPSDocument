@@ -8,6 +8,7 @@ Bug fixes:
 ~~~~~~~~~~
 - fix #454: Invalid widget css class in edition. This css class was hardcoded in
   CPSUrlWidget.
+- fix popup_rte size bug: now popup window is resizable
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - splitting macros in progress
