@@ -5,6 +5,25 @@
 Here are defined list of portal type created with CPSDocument
 """
 
+flexible_type = {
+    'title': 'portal_type_Flexible_title',
+    'description': 'portal_type_Flexible_description',
+    'content_icon': 'flexible_icon.gif',
+    'content_meta_type': 'CPS Document',
+    'permission': 'Add portal content',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': (),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'document',
+    'schemas': ['common', 'flexible_content'],
+    'layouts': ['common', 'flexible_content'],
+    'flexible_layouts': ['flexible_content:flexible_content'],
+    'storage_methods': [],
+    }
+
 faq_type = {
     'title': 'portal_type_FAQ_title',
     'description': 'portal_type_FAQ_description',
@@ -98,8 +117,7 @@ news_type = {
     'cps_proxy_type': 'document',
     'schemas': ['news'],
     'layouts': ['news'],
-#    'layouts': ['news1', 'news2'],
-#    'flexible_layouts': ['news2:news2'],
+    'flexible_layouts': [],
     'storage_methods': [],
     }
 
@@ -222,6 +240,7 @@ dummy_form_type = {
 
 types = {}
 
+types['Flexible'] = flexible_type
 types['FAQ'] = faq_type
 types['FAQitem'] = faqitem_type
 types['Glossary'] = glossary_type
