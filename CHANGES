@@ -1,5 +1,6 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
+- CPSSchemas product
 - Must delete portal_schemas, portal_layouts, portal_widgets and
   portal_vocabularies and let the updater recreate them.
 New features:
