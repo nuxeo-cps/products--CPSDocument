@@ -46,15 +46,15 @@ div.dflush {
 
 div.dcolleft {
   margin-right:51%;
-  display: inline;
   padding-bottom: 1em;
-  position: relative; /* IE peekaboo fix*/
 }
+
+/* IE6 hack */
+* html div.dcolleft {position: relative}
 
 div.dcolright {
   clear: right;
   float: right;
-  display: inline;
   width: 48%;
   padding-bottom: 1em;
 }
@@ -108,8 +108,10 @@ div.dcontent p {
 div.ddescription {
   font-style: italic;
   font-size: 100%;
-  position: relative; /* IE peekaboo fix*/
 }
+
+/* IE6 hack */
+* html div.ddescription {position: relative}
 
 .dlabel {
   font-weight: bold;
