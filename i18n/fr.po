@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-07 16:36default\n"
-"PO-Revision-Date: 2003-11-07 16:37+0100\n"
+"POT-Creation-Date: 2003-11-07 16:56default\n"
+"PO-Revision-Date: 2003-11-07 16:56+0100\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -157,9 +157,15 @@ msgstr "Fichier attaché : "
 msgid "cpsdoc_flex_photo_title"
 msgstr "Image "
 
+msgid "cpsdoc_flex_photo_label_edit"
+msgstr "Image : "
+
 # default doc types
 msgid "cpsdoc_flex_link_title"
 msgstr "Lien"
+
+msgid "cpdoc_flex_link_label_edit"
+msgstr "Lien http :"
 
 # default doc types
 msgid "portal_type_Flexible_title"

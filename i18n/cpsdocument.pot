@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-11-07 16:36default\n"
+"POT-Creation-Date: 2003-11-07 16:56default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -158,7 +158,13 @@ msgstr ""
 msgid "cpsdoc_flex_photo_title"
 msgstr ""
 
+msgid "cpsdoc_flex_photo_label_edit"
+msgstr ""
+
 msgid "cpsdoc_flex_link_title"
+msgstr ""
+
+msgid "cpdoc_flex_link_label_edit"
 msgstr ""
 
 # Flexible
