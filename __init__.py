@@ -35,7 +35,7 @@ contentConstructors = (
 
 fti = ()
 
-registerDirectory('skins/cps_document', globals())
+registerDirectory('skins', globals())
 
 def initialize(registrar):
     utils.ContentInit(
