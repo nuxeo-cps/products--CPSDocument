@@ -18,7 +18,7 @@ flexible_type = {
     'allow_discussion': 0,
     'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
-    'schemas': ['common', 'flexible_content'],
+    'schemas': ['metadata', 'common', 'flexible_content'],
     'layouts': ['common', 'flexible_content'],
     'flexible_layouts': ['flexible_content:flexible_content'],
     'storage_methods': [],
