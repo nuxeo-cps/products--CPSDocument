@@ -102,6 +102,7 @@ widgets = {
         'Link Widget': {
             'type': 'CPS Compound Widget Type',
             'data': {
+                'prepare_validate_method': 'widget_link_prepare_validate',
                 'render_method': 'widget_link_render',
                 },
             },
