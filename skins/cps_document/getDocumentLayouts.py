@@ -8,13 +8,176 @@ Please, follow the same pattern to add new layouts
 #########################################################
 # SHARED LAYOUTS
 #########################################################
+# metadata layout
+metadata_layout = {
+    'widgets': {
+        'Title': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Title'],
+                'is_i18n': 1,
+                'is_required': 1,
+                'label_edit': 'label_title',
+                'label': 'label_title',
+                'css_class': 'dtitle',
+                'display_width': 72,
+                'size_max': 100,
+            },
+        },
+        'Description': {
+            'type': 'Text Widget',
+            'data': {
+                'fields': ['Description'],
+                'is_i18n': 1,
+                'label_edit': 'label_description',
+                'label': 'label_description',
+                'css_class': 'ddescription',
+                'width': 72,
+                'height': 5,
+                'render_format': 'text',
+            },
+        },
+        'Subject': {
+            'type': 'Lines Widget',
+            'data': {
+                'fields': ['Subject'],
+                'is_i18n': 1,
+                'label_edit': 'label_subject',
+                'label': 'label_subject',
+            },
+        },
+        'Contributors': {
+            'type': 'Lines Widget',
+            'data': {
+                'fields': ['Contributors'],
+                'is_i18n': 1,
+                'label_edit': 'label_contributors',
+                'label': 'label_contributors',
+            },
+        },
+        'CreationDate': {
+            'type': 'DateTime Widget',
+            'data': {
+                'fields': ['CreationDate'],
+                'is_i18n': 1,
+                'label_edit': 'time_creation_date',
+                'label': 'time_creation_date',
+                'view_format': 'long',
+                'readonly_layout_modes': ['create', 'edit'],
+                'hidden_layout_modes': ['create'],
+            },
+        },
+        'ModificationDate': {
+            'type': 'DateTime Widget',
+            'data': {
+                'fields': ['ModificationDate'],
+                'is_i18n': 1,
+                'label_edit': 'time_last_modified',
+                'label': 'time_last_modified',
+                'view_format': 'long',
+                'readonly_layout_modes': ['create', 'edit'],
+                'hidden_layout_modes': ['create'],
+            },
+        },
+        'EffectiveDate': {
+            'type': 'DateTime Widget',
+            'data': {
+                'fields': ['EffectiveDate'],
+                'is_i18n': 1,
+                'label_edit': 'time_effective_date',
+                'label': 'time_effective_date',
+                'view_format': 'long',
+            },
+        },
+        'ExpirationDate': {
+            'type': 'DateTime Widget',
+            'data': {
+                'fields': ['ExpirationDate'],
+                'is_i18n': 1,
+                'label_edit': 'time_expiration_date',
+                'label': 'time_expiration_date',
+                'view_format': 'long',
+                'time_setting': 0,
+            },
+        },
+        'Format': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Format'],
+                'is_i18n': 1,
+                'label_edit': 'label_format',
+                'label': 'label_format',
+                'readonly_layout_modes': ['create', 'edit'],
+                'display_width': 30,
+                'size_max': 40,
+            },
+        },
+        'Language': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Language'],
+                'is_i18n': 1,
+                'label_edit': 'label_language',
+                'label': 'label_language',
+                'readonly_layout_modes': ['create', 'edit'],
+                'display_width': 4,
+                'size_max': 4,
+            },
+        },
+        'Rights': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Rights'],
+                'is_i18n': 1,
+                'label_edit': 'label_rights',
+                'label': 'label_rights',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
+        'Creator': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Creator'],
+                'is_i18n': 1,
+                'label_edit': 'label_creator',
+                'label': 'label_creator',
+                'readonly_layout_modes': ['create', 'edit'],
+                'display_width': 40,
+                'size_max': 50,
+            },
+        },
+
+    },
+    'layout': {
+        'style_prefix': 'layout_metadata_',
+        'ncols': 2,
+        'rows': [
+            [{'ncols': 2, 'widget_id': 'Title'},],
+            [{'ncols': 2, 'widget_id': 'Description'},],
+            [{'widget_id': 'Subject'},
+             {'widget_id': 'Rights'},],
+            [{'widget_id': 'EffectiveDate'},
+             {'widget_id': 'ExpirationDate'},],
+            [{'widget_id': 'Contributors'},
+             {'widget_id': 'Creator'},],
+            [{'widget_id': 'Format'},
+             {'widget_id': 'Language'},],
+            [{'widget_id': 'CreationDate'},
+             {'widget_id': 'ModificationDate'},],
+            ],
+        },
+    }
+
+
+
 # example of a common header layout
 common_layout = {
     'widgets': {
-        'title': {
+        'Title': {
             'type': 'String Widget',
             'data': {
-                'fields': ['title'],
+                'fields': ['Title'],
                 'is_i18n': 1,
                 'is_required': 1,
                 'label_edit': 'cpsdoc_title_label_edit',
@@ -24,10 +187,10 @@ common_layout = {
                 'size_max': 100,
             },
         },
-        'description': {
+        'Description': {
             'type': 'Text Widget',
             'data': {
-                'fields': ['description'],
+                'fields': ['Description'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_description_label_edit',
                 'label': '',
@@ -83,9 +246,9 @@ common_layout = {
         'style_prefix': 'layout_default_',
         'ncols': 3,
         'rows': [
-            [{'ncols': 3, 'widget_id': 'title'},
+            [{'ncols': 3, 'widget_id': 'Title'},
              ],
-            [{'ncols': 3, 'widget_id': 'description'},
+            [{'ncols': 3, 'widget_id': 'Description'},
              ],
             [{'ncols': 1, 'widget_id': 'preview'},
              {'ncols': 1, 'widget_id': 'theme'},
@@ -963,8 +1126,9 @@ layouts = {}
 #
 # Building the dictionnary of layouts for the installer
 #
-layouts['flexible_content'] = flexible_content_layout
+layouts['metadata'] = metadata_layout
 layouts['common'] = common_layout
+layouts['flexible_content'] = flexible_content_layout
 
 layouts['faq'] = faq_layout
 layouts['faqitem'] = faqitem_layout
