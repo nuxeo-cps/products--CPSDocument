@@ -1,0 +1,20 @@
+<metal:block use-macro="here/layout_lib/macros/div_view" />
+<tal:block tal:define="proxy nocall:options/proxy;
+                       items proxy/getFolderContents;">
+<p tal:repeat="item items">
+<img tal:replace="structure 
+                    python:
+                      here.getImgTag(here.portal_types[item.portal_type].getIcon(),
+                                     base_url=here.portal_url.getPortalPath()+'/')">
+  <a href="." tal:content="item/Title"
+     tal:attributes="href string:#q${repeat/item/number}" />
+</p>
+<hr>
+<p tal:repeat="item items">
+  <tal:block tal:define="doc item/getContent">
+    <a tal:attributes="name string:q${repeat/item/number}"></a>
+    <em tal:content="python:doc['title']" /><br>
+    <tal:block tal:content="python:doc['content']" />
+  </tal:block>
+</p>
+</tal:block>
