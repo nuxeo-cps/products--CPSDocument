@@ -42,7 +42,7 @@
                          tooltip_id python:wid + '_help';
                          css_class python:test(err, 'row error',
                                                test(is_flexible, 'group', 'row'))">
-        <div tal:attributes="class cell/css_class|nothing">
+        <div tal:attributes="class cell/widget_css_class|nothing">
           <div class="label" tal:condition="widget/label_edit"
             tal:attributes="class python:test(is_required, 'label required',
                                               'label')">

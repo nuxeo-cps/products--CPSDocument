@@ -9,7 +9,7 @@
     <tal:block repeat="cell row">
       <tal:block define="widget cell/widget">
       <div tal:define="dm options/datastructure/getDataModel;"
-           tal:attributes="class cell/css_class|nothing">
+           tal:attributes="class cell/widget_css_class|nothing">
         <tal:block condition="widget/label">
           <span class="dlabel" i18n:translate="" tal:condition="widget/is_i18n"
             tal:content="widget/label">label</span>
