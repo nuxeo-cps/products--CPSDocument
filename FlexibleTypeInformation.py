@@ -803,7 +803,9 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             else:
                 ob = proxy
             dm._setObject(ob, proxy=proxy)
-            self._commitDM(dm)
+            # XXX commit is probably not needed now that the factory
+            # can initialize the object before any CMF finalization.
+            self._commitDM(dm) # XXX
             created_func = getattr(proxy, created_callback, None)
             if created_func is None:
                 raise ValueError("Unknown created_callback %s" %
