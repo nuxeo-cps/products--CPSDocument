@@ -9,7 +9,9 @@
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget">
       <div tal:define="dm options/datastructure/getDataModel;"
-           tal:attributes="class cell/widget_css_class|nothing">
+           tal:attributes="class cell/widget_css_class|nothing;
+                           id python:widget.getHtmlWidgetId()+'_widget';
+                          ">
         <tal:block condition="widget/label">
           <span class="dlabel" i18n:translate="" tal:condition="widget/is_i18n"
                 tal:content="widget/label">label</span>
