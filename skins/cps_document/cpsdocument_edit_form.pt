@@ -41,10 +41,11 @@
   <metal:block fill-slot="header"
     tal:define="creation creation|nothing;
                 edition edition|nothing;
-                metadata metadata|nothing;
-                type_info python:here.portal_types[request['type_name']];
-               ">
-    <h1 tal:condition="creation" i18n:translate="">
+                metadata metadata|nothing">
+    <h1 tal:condition="creation"
+        tal:define="type_name request/type_name;
+                    type_info python:here.portal_types[type_name]"
+        i18n:translate="">
       Create a document of type
       <span i18n:name="type_name"><tal:block i18n:translate=""
             tal:content="type_info/Title">Type Title</tal:block></span>
