@@ -97,7 +97,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             # getDocumentSchemas(). I consider this as a bug.
             self.assert_(hasattr(doc, prop_name))
 
-        doc.edit(title='The title')
+        doc.edit(Title='The title')
         self.assertEquals(doc.Title(), 'The title')
 
         doc.edit(content='The content')
