@@ -117,10 +117,17 @@
   <input type="hidden" name="layout_id" value="."
     tal:attributes="value layout/layout_id">
   <select name="widget_type">
+    <tal:block repeat="widget options/allowed_widgets">
     <option value="."
-      tal:repeat="widget options/allowed_widgets"
+      tal:condition="widget/is_i18n"
+      i18n:translate=""
       tal:attributes="value widget/getWidgetId"
       tal:content="widget/title_or_id">Type</option>
+    <option value="."
+      tal:condition="not:widget/is_i18n"
+      tal:attributes="value widget/getWidgetId"
+      tal:content="widget/title_or_id">Type</option>
+    </tal:block>
   </select>
   <input type="submit" name="addwidget_button" value="button_add"
    class="context"
