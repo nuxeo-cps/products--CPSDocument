@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Translated the "label_language_pt_BR" msgid into the shorter translated
+  accordingly "Brazilian" word.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

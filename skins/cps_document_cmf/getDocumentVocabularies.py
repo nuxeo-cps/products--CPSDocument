@@ -32,8 +32,24 @@ vocabularies = {
             ('de', 'Deutsch', 'label_language_de'),
             ('it', 'Italiano', 'label_language_it'),
             ('nl', 'Nederlands', 'label_language_nl'),
-            ('pt_BR', 'Portugueses(Brasileiro)', 'label_language_pt_BR'),
+            ('pt_BR', 'Brasileiro', 'label_language_pt_BR'),
+            ('mg', 'Malagasy', 'label_language_mg'),
+            ('ro', 'Romana', 'label_language_ro'),
+            ('eu', 'Euskara', 'label_language_eu'),
             )},
+        },
+    'search_sort_results_by': {
+        'type': 'CPS Vocabulary',
+        'data': {'tuples': (('', "No sort", "label_sort_by"),
+                            ('title_asc', "Title ascending", "label_title_asc"),
+                            ('title_desc', "Title descending", "label_title_desc"),
+                            ('date_asc', "Date ascending", "label_date_asc"),
+                            ('date_desc', "Date descending", "label_date_desc"),
+                            ('status_asc', "Status ascending", "label_status_asc"),
+                            ('status_desc', "Status descending", "label_status_desc"),
+                            ('author_asc', "Author ascending", "label_author_asc"),
+                            ('author_desc', "Author descending", "label_author_desc"),)
+                 },
         },
     }
 
