@@ -156,6 +156,10 @@ widgets = {
             'type': 'CPS Range List Widget Type',
             'data': {},
             },
+        'Document Language Select Widget': {
+            'type': 'CPS Document Language Select Widget Type',
+            'data': {},
+            },
         'Search Widget': {
             'type': 'CPS Compound Widget Type',
             'data': {
