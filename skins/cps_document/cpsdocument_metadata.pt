@@ -1,14 +1,16 @@
-<tal:block condition="python: not(here.portal_membership.checkPermission('Modify portal content', here))">
+<tal:block define="global edit_metadata python:here.portal_membership.checkPermission('Modify portal content', here)" />
+<tal:block condition="not: edit_metadata">
   <tal:block define="doc here/getContent;
     rendered_main python: doc.render(proxy=here, layout_id='metadata');">
     <metal:block use-macro="here/cpsdocument_view/macros/view" />
   </tal:block>
 </tal:block>
-<tal:block condition="python: here.portal_membership.checkPermission('Modify portal content', here)">
+<tal:block condition="edit_metadata">
   <tal:block define="res python:here.editCPSDocument(REQUEST=request,
                                                      layout_id='metadata');
                      rendered_main python: res[0];
                      portal_status_message python: res[1];
+                     metadata python:1;
     ">
     <metal:block use-macro="here/cpsdocument_edit_form/macros/edit_form" />
   </tal:block>
