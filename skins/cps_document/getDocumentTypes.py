@@ -39,9 +39,9 @@ dummy_form_type = {
 
 types = {}
 
-types['faq'] = faq_type
-types['news'] = news_type
-types['dummy_form'] = dummy_form_type
+types['FAQ '] = faq_type
+types['News'] = news_type
+types['Dummy Form'] = dummy_form_type
 
 ctypes = context.getCustomDocumentTypes()
 
