@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-05 17:41default\n"
+"POT-Creation-Date: 2004-02-06 09:38default\n"
 "PO-Revision-Date: 2003-11-04 11:36+0200\n"
 "Last-Translator: Koen Adriaensen <koen.adriaensen@cgey.be>\n"
 "Language-Team: Christian Czerwinski <christian.czerwinski@cgey.be>\n"
@@ -352,11 +352,13 @@ msgstr ""
 msgid "label_relation"
 msgstr ""
 
-msgid "cpsdoc_hidden_in_folder_view"
-msgstr ""
+#, fuzzy
+msgid "cpsdoc_hidden_folder"
+msgstr "Datum van publicatie"
 
-msgid "cpsdo_hidden_in_folder_view_help"
-msgstr ""
+#, fuzzy
+msgid "cpsdoc_hidden_folder_help"
+msgstr "Datum van publicatie"
 
 #~ msgid "button_add"
 #~ msgstr "Toevoegen"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-05 17:41default\n"
+"POT-Creation-Date: 2004-02-06 09:38default\n"
 "PO-Revision-Date: 2004-01-07 12:10+0100\n"
 "Last-Translator: Paolo Dina <paolo@php3.it>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -316,11 +316,13 @@ msgstr "Riempimento"
 msgid "label_relation"
 msgstr "Relazione"
 
-msgid "cpsdoc_hidden_in_folder_view"
-msgstr ""
+#, fuzzy
+msgid "cpsdoc_hidden_folder"
+msgstr "Il "
 
-msgid "cpsdo_hidden_in_folder_view_help"
-msgstr ""
+#, fuzzy
+msgid "cpsdoc_hidden_folder_help"
+msgstr "Il "
 
 #~ msgid "batch_next"
 #~ msgstr "avanti"
