@@ -1,1 +1,22 @@
-<metal:block use-macro="here/layout_lib/macros/div_view" />
+<tal:block define="doc here/getContent;
+                   layout options/layout;
+                   widgets options/layout/widgets;
+                   ds options/datastructure;
+                  ">
+<h1 i18n:translate="">heading_metadata_view</h1>
+<br>
+<table width="100%" cellpadding="2" cellspacing="2" border="0">
+  <tr tal:repeat="row layout/rows"
+    tal:attributes="class python:test(repeat['row'].even(),'odd','even')">
+    <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
+      <tal:block define="widget cell/widget">
+        <tal:block condition="python:widget.label">
+          <strong tal:content="widget/label" i18n:translate="">label</strong>:
+          <div tal:replace="structure python:widget.render('view', ds)" />
+      </tal:block>
+      </tal:block>
+    </td>
+  </tr>
+</table>
+<br>
+</tal:block>
