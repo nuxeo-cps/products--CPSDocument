@@ -21,5 +21,13 @@ res = doc.renderEditDetailed(request=request, proxy=context,
 
 if not res[1]:
     psm = 'psm_content_error'
+else:
+    # XXX
+    # Has to be handled in here since the workflow doesn't take care
+    # of that yet.
+    context.portal_eventservice.notifyEvent('workflow_modify',
+                                            context,
+                                            {})
+
 
 return res[0], psm
