@@ -174,6 +174,7 @@ news_layout = {
                 'maxsize': 1048576,
                 'display_width': 200,
                 'display_height': 150,
+                'size_max': 1024*1024,
             },
         },
         'attachedFile': {
@@ -189,6 +190,7 @@ news_layout = {
                 'description': 'cpsdoc_News_attachedFile_description',
                 'css_class': '',
                 'deletable': 1,
+                'size_max': 3*1024*1024,
             },
         },
         'newsdate': {
@@ -241,6 +243,7 @@ news_layout = {
                 'maxsize': 1048576,
                 'display_width': 250,
                 'display_height': 150,
+                'size_max': 2*1024*1024,
             },
         },
         'description': {
