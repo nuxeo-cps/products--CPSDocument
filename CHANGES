@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- #283: Title of a cpsdocument must use H1
 Bug fixes:
 ~~~~~~~~~~
 -
@@ -11,4 +11,4 @@ New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - register Identifier Widget
 - register NuxMailBoxer document types (if present)
-
+- register Heading Widget
