@@ -5,6 +5,7 @@ New features:
 ~~~~~~~~~~~~~
 - first implementation of Metadata view using Layout/Schema
 - user with View permission on a document can view his metadata
+- Document view display 'Created by xxx, last modified ....' at the end
 Bug fixes:
 ~~~~~~~~~~
 -
