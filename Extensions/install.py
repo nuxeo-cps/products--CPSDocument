@@ -149,10 +149,9 @@ def install(self):
     for ptype in newptypes:
         pr("  Add %s chain to portal type %s in %s of %s" %('workspace_content_wf',
              ptype, '.cps_workflow_configuration', workspaces_id))
-        if 'cps_proxy_type' in flextypes[ptype].keys() and \
-           flextypes[ptype]['cps_proxy_type'] == 'folderishdocument':
+        if 'cps_workspace_wf' in flextypes[ptype].keys():
             wfc.manage_addChain(portal_type=ptype,
-                                chain='workspace_folderish_content_wf')
+                                chain=flextypes[ptype]['cps_workspace_wf'])
         else:
             wfc.manage_addChain(portal_type=ptype,
                                 chain='workspace_content_wf')
