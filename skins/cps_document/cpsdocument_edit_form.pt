@@ -1,5 +1,5 @@
 <tal:block define="doc here/getContent;
-                   global editlayoutmsg python:here.cpsdocument_editlayout(REQUEST=request);
+                   global editlayoutmsg python:here.editLayouts(REQUEST=request);
                    validate python:request.has_key('cpsdocument_edit_button') or editlayoutmsg;
                    edit_request python: validate and request or nothing;
                    res python: doc.renderEditDetailed(request=edit_request, proxy=here);
