@@ -29,6 +29,7 @@ except ImportError:
 import PatchTypesTool
 import FlexibleTypeInformation
 import CPSDocument
+import createFile
 
 contentClasses = (
     CPSDocument.CPSDocument,
