@@ -286,6 +286,9 @@ msgstr "Une nouvelle"
 msgid "cpsdoc_News_newsdate_label_edit"
 msgstr "Date de parution : "
 
+msgid "cpsdoc_News_newsdate_label"
+msgstr "Date de parution : "
+
 msgid "cpsdoc_News_title_label_edit"
 msgstr "Titre court : "
 

@@ -285,6 +285,9 @@ msgstr "A news document"
 msgid "cpsdoc_News_newsdate_label_edit"
 msgstr "Publishing date:"
 
+msgid "cpsdoc_News_newsdate_label"
+msgstr "Publishing date:"
+
 msgid "cpsdoc_News_title_label_edit"
 msgstr "Short Title: "
 
