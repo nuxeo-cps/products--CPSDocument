@@ -152,6 +152,10 @@ widgets = {
             'type': 'CPS Generic MultiSelect Widget Type',
             'data': {},
             },
+        'Range List Widget': {
+            'type': 'CPS Range List Widget Type',
+            'data': {},
+            },
         }
 
 if loadcustom:
