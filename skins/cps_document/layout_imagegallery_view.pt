@@ -32,7 +32,6 @@
                        popup_width python:getattr(gallery, 'popup_width', 300);
                        popup_height python:getattr(gallery, 'popup_height', 300);
                        ">
-<div tal:replace="page_batch_start"></div>
 <table style="text-align:center;width:100%"
   summary="gallery layout">
   <tr tal:repeat="row python:range(nb_rows_in_current_batch)">
