@@ -1,12 +1,15 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
 -
+
 New features:
 ~~~~~~~~~~~~~
-- Italian translation.
+-
+
 Bug fixes:
 ~~~~~~~~~~
-- New document form now displays and translates type's title.
+-
+
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- new document icons
+-
