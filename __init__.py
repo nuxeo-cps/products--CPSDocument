@@ -21,6 +21,11 @@ from Products.CMFCore import utils
 from Products.CMFCore.DirectoryView import registerDirectory
 from Products.CMFCore.CMFCorePermissions import AddPortalContent
 
+try:
+    from Products.CPSDefault.Portal import CPSDefaultSite
+except ImportError:
+    import CPSDocumentPatchForCMF
+
 import PatchTypesTool
 import FlexibleTypeInformation
 import CPSDocument
