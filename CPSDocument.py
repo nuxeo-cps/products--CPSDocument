@@ -274,6 +274,11 @@ class CPSDocument(CPSDocumentMixin, PortalContent, PortalFolder,
 
     security = ClassSecurityInfo()
 
+    def __init__(self, id, **kw):
+        self.id = id
+        DefaultDublinCoreImpl.__init__(self)
+
+
 InitializeClass(CPSDocument)
 
 
