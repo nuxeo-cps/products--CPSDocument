@@ -400,6 +400,28 @@ flexible_content_layout = {
     }
 
 
+
+#########################################################
+# folder LAYOUT used by section and workspace
+#########################################################
+folder_layout = {
+    'widgets': {
+        'hidden_folder': {
+            'type': 'Boolean Widget',
+            'data': {
+                'fields': ['hidden_folder'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_hidden_folder',
+                'help': 'cpsdoc_hidden_folder_help',
+                'hidden_layout_modes': ['view'],
+                },
+            },
+        },
+    'layout': {
+        'style_prefix': 'layout_default_',
+        'rows': [[{'widget_id': 'hidden_folder'}, ], ],
+        }
+}
 #########################################################
 # FAQ LAYOUT
 #########################################################
@@ -919,6 +941,7 @@ layouts = {}
 layouts['metadata'] = metadata_layout
 layouts['common'] = common_layout
 layouts['flexible_content'] = flexible_content_layout
+layouts['folder'] = folder_layout
 layouts['faq'] = faq_layout
 layouts['faqitem'] = faqitem_layout
 layouts['glossary'] = glossary_layout

@@ -66,6 +66,18 @@ flexible_content_schema = {
     }
 
 #########################################################
+# Folder
+#########################################################
+folder_schema = {
+    'hidden_folder': {
+        'type': 'CPS Int Field',
+        'data': {'default_expr': 'python:0',
+                 'is_searchabletext': 0,
+                 },
+        },
+    }
+
+#########################################################
 # FAQ SHEMA
 #########################################################
 faqitem_schema = {
@@ -278,6 +290,7 @@ schemas = {}
 schemas['metadata'] = metadata_schema
 schemas['common'] = common_schema
 schemas['flexible_content'] = flexible_content_schema
+schemas['folder'] = folder_schema
 schemas['faqitem'] = faqitem_schema
 schemas['glossary'] = glossary_schema
 schemas['news'] = news_schema
