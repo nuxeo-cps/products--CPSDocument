@@ -15,7 +15,7 @@
                            (not widget.hidden_empty or wrender.strip())">
       <div tal:attributes="class widget/css_class|nothing">
         <tal:block condition="widget/label">
-          <span i18n:translate="" tal:condition="widget/is_i18n"
+          <span class="dlabel" i18n:translate="" tal:condition="widget/is_i18n"
             tal:content="widget/label">label</span>
           <span tal:condition="not:widget/is_i18n"
             tal:content="widget/label">label</span>
@@ -41,7 +41,7 @@
                            (not widget.hidden_empty or wrender.strip())">
       <div tal:attributes="class widget/css_class|nothing">
         <tal:block condition="widget/label">
-          <span i18n:translate="" tal:condition="widget/is_i18n"
+          <span class="dlabel" i18n:translate="" tal:condition="widget/is_i18n"
             tal:content="widget/label">label</span>
           <span tal:condition="not:widget/is_i18n"
             tal:content="widget/label">label</span>
