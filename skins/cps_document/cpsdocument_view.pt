@@ -16,12 +16,8 @@
                                python:here.portal_comment.isCommentingAllowedFor(
                                                                           here);"
                  tal:condition="comments_allowed">
-        <tal:block tal:define="forum python:here.portal_comment.getDiscussionFor(here)">
-          <tal:block tal:condition="forum">
-            <h4 i18n:translate="cpsdoc_label_comments">Comments</h4>
-            <metal:block use-macro="here/forum_comment_view/macros/view_comments_inline" />
-          </tal:block>
-        </tal:block>
+        <metal:block 
+             use-macro="here/forum_comment_lib/macros/view_comments_inline" />
       </tal:block>
     </tal:block>
   </metal:block>
