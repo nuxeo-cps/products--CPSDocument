@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "POT-Creation-Date: 2004-02-16 15:32default\n"
-"PO-Revision-Date: 2004-02-18 11:15+0100\n"
+"PO-Revision-Date: 2004-02-27 15:25+0100\n"
 "Last-Translator: Paolo Dina <paolo@php3.it>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #    <h1 condition="creation">
@@ -28,7 +28,7 @@ msgstr "Crea un documento di tipo ${type_name}"
 msgid "Edit ${title}"
 msgstr "Modifica ${title}"
 
-#.   <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
+#    <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
 #: from
 #: ../skins/cps_document/layout_lib.pt
 msgid "Type"
@@ -41,9 +41,9 @@ msgstr "Tipo"
 msgid "Type Title"
 msgstr ""
 
-#.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
-#.     <block content="structure string:</div></form>" />
-#.   </input>
+#    <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#      <block content="structure string:</div></form>" />
+#    </input>
 #: from
 #: ../skins/cps_document/layout_lib.pt
 msgid "button_create"
@@ -61,13 +61,13 @@ msgstr " a "
 msgid "cpsdoc_Event_start_label"
 msgstr "Da "
 
-#.   <span>
-#.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
-#.     </span>
+#    <span>
+#        ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
+#      </span>
 #: from
 #: ../skins/cps_document/layout_imagegallery_view.pt
 msgid "description_up_to"
-msgstr "Fino a ${up_id}"
+msgstr "Risali a ${up_id}"
 
 #.   <em content="err" style="color: red">err</em>
 #: from
@@ -81,7 +81,7 @@ msgstr "Errore "
 msgid "heading_metadata_edit"
 msgstr "Modifica dei metadati"
 
-#.   <h1>heading_metadata_view</h1>
+#    <h1>heading_metadata_view</h1>
 #: from
 #: ../skins/cps_document/layout_metadata_view.pt
 msgid "heading_metadata_view"
@@ -149,7 +149,7 @@ msgstr "Immagine: "
 
 # default doc types
 msgid "cpsdoc_flex_link_title"
-msgstr "Titolo del collegamento: "
+msgstr "Collegamento (URL)"
 
 # FIXME: this msg is not used anywhere
 msgid "cpdoc_flex_link_label_edit"
@@ -173,7 +173,7 @@ msgid "portal_type_FAQ_title"
 msgstr "Domanda posta frequentemente (FAQ)"
 
 msgid "portal_type_FAQ_description"
-msgstr "Insieme di domande poste frequentemente"
+msgstr "Raccoglitore di domande poste frequentemente"
 
 # default doc types
 msgid "portal_type_FAQitem_title"
@@ -199,14 +199,14 @@ msgid "portal_type_ImageGallery_title"
 msgstr "Album fotografico"
 
 msgid "portal_type_ImageGallery_description"
-msgstr "Biblioteca di immagini"
+msgstr "Raccoglitore di immagini"
 
 # default doc types
 msgid "portal_type_Glossary_title"
 msgstr "Glossario"
 
 msgid "portal_type_Glossary_description"
-msgstr "Insieme di definizioni di termini classificati alfabeticamente"
+msgstr "Raccoglitore di definizioni di termini classificati alfabeticamente"
 
 # default doc types
 msgid "portal_type_GlossaryItem_title"
@@ -219,7 +219,7 @@ msgid "portal_type_News_title"
 msgstr "Notizia"
 
 msgid "portal_type_News_description"
-msgstr "Un documento per la descrizione di notizie"
+msgstr "Documento per la descrizione di notizie"
 
 msgid "cpsdoc_News_newsdate_label_edit"
 msgstr "Data di pubblicazione: "
@@ -322,28 +322,28 @@ msgid "label_source"
 msgstr "Sorgente"
 
 msgid "label_coverage"
-msgstr "Riempimento"
+msgstr "Copertura"
 
 msgid "label_relation"
 msgstr "Relazione"
 
 msgid "cpsdoc_hidden_folder"
-msgstr "Nascondi questa folder nella navigazione"
+msgstr "Nascondi questa cartella nella navigazione"
 
 msgid "cpsdoc_hidden_folder_help"
-msgstr "Questa cartella verrà nascosta nella modalità di visualizzazione, puoi ancoravisualizzare/accedere ad essa utilizzando 'Contenuti della cartella' o almomento di scegliere una sezione per la pubblicazione.Utilizza 'Ruoli locali' per assicurare l'accesso alla cartella."
+msgstr "Questa cartella risulterà nascosta nella modalità di visualizzazione, benché sia possibile ancora visualizzare e accedere ad essa utilizzando 'Contenuti della cartella' e quando si deve scegliere una sezione per la pubblicazione. Utilizza 'Ruoli locali' per consentire l'accesso alla cartella."
 
 msgid "help_dc_subject"
-msgstr "Un argomento del contenuto della risorsa."
+msgstr "L'argomento del contenuto della risorsa."
 
 msgid "help_dc_contirbutors"
-msgstr "Entità responsabili per contribuire al contenuto della risorsa."
+msgstr "Entità responsabili della produzione di un contributo al contenuto della risorsa."
 
 msgid "help_dc_source"
-msgstr "Un riferimento alla risorsa da cui la risorsa attuale è derivata."
+msgstr "Riferimento a una risorsa dalla quale è derivata la risorsa in oggetto"
 
 msgid "help_dc_coverage"
-msgstr "Il dominio del contenuto della risorsa."
+msgstr "L'estensione o scopo del contenuto della risorsa"
 
 msgid "help_dc_relation"
 msgstr "Un riferimento (URL) ad una risorsa affine."
