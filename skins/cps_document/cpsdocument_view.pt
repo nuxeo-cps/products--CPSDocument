@@ -11,15 +11,17 @@
     <tal:block tal:content="structure python:doc.render(proxy=here)">
       Body
     </tal:block>
+<!--
     <tal:block tal:condition="python:hasattr(here,'portal_discussion')">
-      <tal:block tal:define="comments_allowed
+    <tal:block tal:define="comments_allowed
                                python:here.portal_discussion.isCommentingAllowedFor(
                                                                           here);"
                  tal:condition="comments_allowed">
-        <metal:block 
+        <metal:block
              use-macro="here/forum_comment_lib/macros/view_comments_inline" />
       </tal:block>
     </tal:block>
+-->
   </metal:block>
 
 </metal:block>
