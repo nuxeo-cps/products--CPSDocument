@@ -1,4 +1,24 @@
 *******************************************
+** CPSDocument V0.23.1 [R1 build 2004/07/19-11:59 by anahide]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- Fixed action syntax (TALES).
+- Fixed layout lib to correclty use actions.
+- Fixed comments (forum) layout problems (inline display)
+- &nbsp; characters were not filtered in the summary of a document
+
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Remove hardcoded cpsdocument templates references
+
+*******************************************
 ** CPSDocument V0.23.0 [R1 build 2004/07/07-09:13 by madarche]
 
 Requires:
