@@ -50,72 +50,43 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
     flexti = FlexibleTypeInformation(id)
     container._setObject(id, flexti)
     flexti = container._getOb(id)
-    errorType = 'addAction() takes at least 7 arguments (6 given)'
 
-    try:
-        # CMF 1.4 compatible
-        flexti.addAction('view',
-                         'action_view',
-                         'cpsdocument_view',
-                         '', # condition: only for CMF 1.4 and above
-                         View,
-                         'object')
-        flexti.addAction('contents',
-                         'action_folder_contents',
-                         'folder_contents',
-                         "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type == 'folderishdocument'",
-                         ModifyPortalContent,
-                         'object')
-        flexti.addAction('edit',
-                         'action_edit',
-                         'cpsdocument_edit_form',
-                         '', # condition: only for CMF 1.4 and above
-                         ModifyPortalContent,
-                         'object')
-        flexti.addAction('edit_layout',
-                         'action_edit_layout',
-                         'cpsdocument_editlayout_form',
-                         'python: object.portal_types[object.getPortalTypeName()].flexible_layouts', # condition: only for CMF 1.4 and above
-                         ModifyPortalContent,
-                         'object')
-        flexti.addAction('metadata',
-                         'action_metadata',
-                         'metadata_edit_form',
-                         '', # condition: only for CMF 1.4 and above
-                         ModifyPortalContent,
-                         'object')
-        flexti.addAction('localroles',
-                         'action_local_roles',
-                         'folder_localrole_form',
-                         "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type == 'folderishdocument'",
-                         ChangePermissions,
-                         'object')
-
-    except TypeError, errorType:
-        flexti.addAction('view',
-                         'action_view',
-                         'cpsdocument_view',
-                         # condition: only for CMF 1.4 and above
-                         View,
-                         'object')
-        flexti.addAction('edit',
-                         'action_edit',
-                         'cpsdocument_edit_form',
-                         # condition: only for CMF 1.4 and above
-                         ModifyPortalContent,
-                         'object')
-        flexti.addAction('edit_layout',
-                         'action_edit_layout',
-                         'cpsdocument_editlayout_form',
-                         # condition: only for CMF 1.4 and above
-                         ModifyPortalContent,
-                         'object')
-        flexti.addAction('metadata',
-                         'action_metadata',
-                         'metadata_edit_form',
-                         # condition: only for CMF 1.4 and above
-                         ModifyPortalContent,
-                         'object')
+    flexti.addAction('view',
+                     'action_view',
+                     'cpsdocument_view',
+                     '',
+                     View,
+                     'object')
+    flexti.addAction('contents',
+                     'action_folder_contents',
+                     'folder_contents',
+                     "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type == 'folderishdocument'",
+                     ModifyPortalContent,
+                     'object')
+    flexti.addAction('edit',
+                     'action_edit',
+                     'cpsdocument_edit_form',
+                     '',
+                     ModifyPortalContent,
+                     'object')
+    flexti.addAction('edit_layout',
+                     'action_edit_layout',
+                     'cpsdocument_editlayout_form',
+                     'python: object.portal_types[object.getPortalTypeName()].flexible_layouts', # condition: only for CMF 1.4 and above
+                     ModifyPortalContent,
+                     'object')
+    flexti.addAction('metadata',
+                     'action_metadata',
+                     'metadata_edit_form',
+                     '',
+                     ModifyPortalContent,
+                     'object')
+    flexti.addAction('localroles',
+                     'action_local_roles',
+                     'folder_localrole_form',
+                     "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type == 'folderishdocument'",
+                     ChangePermissions,
+                     'object')
 
     if REQUEST is not None:
         REQUEST.RESPONSE.redirect(container.absolute_url() + "/manage_main")
@@ -150,8 +121,6 @@ factory_type_information = (
                   'permissions': (ModifyPortalContent,),
                   },
                  ),
-##     'cps_is_searchable': 1,
-##     'cps_proxy_type': 'document',
      },
     )
 
@@ -177,8 +146,8 @@ class FlexibleTypeInformation(TypeInformation):
         (
          {'id':'cps_is_searchable', 'type': 'boolean', 'mode':'w',
           'label':'CPS Searchable'},
-        {'id':'cps_proxy_type', 'type': 'selection', 'mode':'w',
-         'select_variable': 'getProxyTypesAllowed', 'label':'CPS Proxytype'},
+         {'id':'cps_proxy_type', 'type': 'selection', 'mode':'w',
+          'select_variable': 'getProxyTypesAllowed', 'label':'CPS Proxytype'},
          {'id': 'schemas', 'type': 'tokens', 'mode': 'w',
           'label': 'Schemas'},
          {'id': 'default_layout', 'type': 'string', 'mode': 'w',
