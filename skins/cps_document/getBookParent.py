@@ -6,11 +6,11 @@
 
 def getParent(object):
     try:
-        if object.portal_type not in ('Book'):
+        if object.portal_type1 not in ('Book'):
             return getParent(object.aq_parent)
         else:
             return object
-    except:
+    except AttributeError:
         return object
 
 
