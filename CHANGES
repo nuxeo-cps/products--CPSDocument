@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Added the "workflow" class to the document edit form so that comments have the
+  same style as those in CPSDefault.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

@@ -23,7 +23,7 @@
 <tal:block condition="first_layout">
   <tal:block
   content="structure string:<form action='${formaction}' method='post'
-  name='form' enctype='multipart/form-data'>
+  name='form' enctype='multipart/form-data' class='workflow'>
   <div class='group'>" />
   <input type="hidden" name="type_name" value="."
     tal:condition="creation" tal:attributes="value request/type_name" />
