@@ -18,5 +18,5 @@ class DocumentTests(unittest.TestCase):
 def test_suite():
     return unittest.makeSuite(DocumentTests)
 
-if __name__=="__main__":
+if __name__ == "__main__":
     unittest.main(defaultTest)
