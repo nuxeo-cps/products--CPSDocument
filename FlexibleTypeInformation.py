@@ -668,14 +668,14 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         return self._renderLayouts(layout_structures, ds, ob,
                                    layout_mode=layout_mode, **kw)
 
-    def _commitDM(self, dm):
+    def _commitDM(self, dm, check_perms=1):
         """Commits the dm.
 
         Returns the object. Does all the CMF/CPS indexing and
         notification needed.
         """
         # Update the object from dm.
-        ob = dm._commit()
+        ob = dm._commit(check_perms=check_perms)
         # CMF/CPS stuff.
         ob.reindexObject()
         evtool = getToolByName(self, 'portal_eventservice', None)
@@ -872,7 +872,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             dm._setObject(ob, proxy=proxy)
             # XXX commit is probably not needed now that the factory
             # can initialize the object before any CMF finalization.
-            self._commitDM(dm) # XXX
+            self._commitDM(dm, check_perms=0) # XXX
             created_func = getattr(proxy, created_callback, None)
             if created_func is None:
                 raise ValueError("Unknown created_callback %s" %
