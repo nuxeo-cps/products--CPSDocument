@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-12-03 16:08default\n"
+"POT-Creation-Date: 2003-12-03 16:30default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -129,9 +129,16 @@ msgstr ""
 msgid "heading_metadata_edit"
 msgstr ""
 
+#.   <h1>heading_metadata_view</h1>
+#: from ../skins/cps_document/layout_metadata_view.pt
+msgid "heading_metadata_view"
+msgstr ""
+
 #.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
 #.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>
+#.   <strong content="widget/label">label</strong>
 #: from ../skins/cps_document/layout_lib.pt
+#: ../skins/cps_document/layout_metadata_view.pt
 msgid "label"
 msgstr ""
 

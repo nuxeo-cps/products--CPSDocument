@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-03 16:08default\n"
-"PO-Revision-Date: 2003-12-03 16:09+0100\n"
+"POT-Creation-Date: 2003-12-03 16:30default\n"
+"PO-Revision-Date: 2003-12-03 16:30+0100\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -130,9 +130,16 @@ msgstr "Erreur"
 msgid "heading_metadata_edit"
 msgstr "Edition des Méta-données"
 
+#.   <h1>heading_metadata_view</h1>
+#: from ../skins/cps_document/layout_metadata_view.pt
+msgid "heading_metadata_view"
+msgstr "Méta-données du document"
+
 #.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
 #.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>
+#.   <strong content="widget/label">label</strong>
 #: from ../skins/cps_document/layout_lib.pt
+#: ../skins/cps_document/layout_metadata_view.pt
 msgid "label"
 msgstr "label"
 
