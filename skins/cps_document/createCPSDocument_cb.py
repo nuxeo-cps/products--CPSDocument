@@ -17,7 +17,7 @@ if not id:
 
 id = context.computeId(compute_from=id)
 
-context.invokeFactory(type_name, id)
+context.invokeFactory(type_name, id, datamodel=datamodel)
 ob = getattr(context, id)
 
 return ob
