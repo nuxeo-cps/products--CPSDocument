@@ -1,4 +1,26 @@
 *******************************************
+** CPSDocument V0.30.0 [R1 build 2004/12/13-09:01 by edegoute]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- new LanguageSelector in the common Layout
+- Add an HTML id for each widget: it can be widget id ar group id between
+  several widget. Use it for javascript work.
+- Malagasy language
+Bug fixes:
+~~~~~~~~~~
+- fix #430: TextImage widget (and flexibleDocument) broken under IE
+  missing left column due to peekaboo bug
+- Removed "float: center;" invalid CSS property for "dcenter" class.
+- fix #442: chapters not registered as folderish documents
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Normalized the CSS files.
+
+*******************************************
 ** CPSDocument V0.29.0 [R1 build 2004/11/08-09:58 by ben]
 
 Requires:
