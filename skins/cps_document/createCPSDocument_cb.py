@@ -16,11 +16,13 @@ folder = context
 id = datamodel.get('Title')
 if not id:
     id = 'my ' + type_name
-
+    
+language = datamodel.get('Language') or None
+    
 id = context.computeId(compute_from=id)
 
 # datamodel is passed so that flexti can initialize the object.
-context.invokeFactory(type_name, id, datamodel=datamodel)
+context.invokeFactory(type_name, id, datamodel=datamodel, language=language)
 ob = getattr(context, id)
 
 context.notifyCPSDocumentCreation(ob=ob)
