@@ -103,17 +103,20 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
     # XXX make this a WorkflowMethod
     security.declareProtected(ModifyPortalContent, 'edit')
-    def edit(self, REQUEST=None, **kw):
+    def edit(self, proxy=None, REQUEST=None, **kw):
         """Edit the document.
 
         The keyword arguments describes fields, not widgets.
+
+        An optional 'proxy' arg can be given, it will be passed to the
+        layouts and the backend.
 
         This method assumes that self really is editable, thus is not a
         frozen document.
         """
         if REQUEST is not None:
             raise Unauthorized("Not accessible TTW.")
-        return self.getTypeInfo().editObject(self, kw)
+        return self.getTypeInfo().editObject(self, kw, proxy=proxy)
 
 
     security.declareProtected(View, 'SearchableText')
