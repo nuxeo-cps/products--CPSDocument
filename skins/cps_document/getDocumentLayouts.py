@@ -38,12 +38,14 @@ metadata_layout = {
             },
         },
         'Subject': {
-            'type': 'Lines Widget',
+            'type': 'MultiSelect Widget',
             'data': {
                 'fields': ['Subject'],
                 'is_i18n': 1,
                 'label_edit': 'label_subject',
                 'label': 'label_subject',
+                'vocabulary': 'subject_voc',
+                'size': 5,
             },
         },
         'Contributors': {
@@ -200,31 +202,6 @@ common_layout = {
                 'render_format': 'text',
             },
         },
-        'date': {
-            'type': 'DateTime Widget',
-            'data': {
-                'fields': ['date'],
-                'is_i18n': 1,
-                'is_required': 1,
-                'label_edit': 'cpsdoc_date_label_edit',
-                'label': 'cpsdoc_date_label',
-                'css_class': 'dtitle5 dright dflush',
-                'view_format': 'short',
-                'time_setting': 0,
-            },
-        },
-        'theme': {
-            'type': 'Select Widget',
-            'data': {
-                'fields': ['theme'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_theme_label_edit',
-                'label': '',
-                'hidden_layout_modes': ['view'],
-                'description': 'cpsdoc_theme_description',
-                'vocabulary': 'dummy_voc',
-            },
-        },
         'preview': {
             'type': 'Image Widget',
             'data': {
@@ -244,16 +221,10 @@ common_layout = {
     },
     'layout': {
         'style_prefix': 'layout_default_',
-        'ncols': 3,
         'rows': [
-            [{'ncols': 3, 'widget_id': 'Title'},
-             ],
-            [{'ncols': 3, 'widget_id': 'Description'},
-             ],
-            [{'ncols': 1, 'widget_id': 'preview'},
-             {'ncols': 1, 'widget_id': 'theme'},
-             {'ncols': 1, 'widget_id': 'date'},
-             ],
+            [{'widget_id': 'Title'},],
+            [{'widget_id': 'Description'},],
+            [{'widget_id': 'preview'},]
             ],
         },
     }
