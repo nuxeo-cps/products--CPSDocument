@@ -104,9 +104,9 @@ class DocInstaller(CPSInstaller):
         # register folderish document types in portal_tree
         self.log("Registering folderish document types in portal_tree")
         self.verifyTreeCacheTypes(WORKSPACES_ID,
-                                  ['FAQ', 'ImageGallery', 'Glossary', 'Book'])
+                                  ['FAQ', 'ImageGallery', 'Glossary', 'Book', 'Chapter'])
         self.verifyTreeCacheTypes(SECTIONS_ID,
-                                  ['FAQ', 'ImageGallery', 'Glossary', 'Book'])
+                                  ['FAQ', 'ImageGallery', 'Glossary', 'Book', 'Chapter'])
 
     def checkLinkBackwardCompatibility(self):
         # now Link document use Metadata Relation to store href
