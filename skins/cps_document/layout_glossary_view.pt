@@ -16,7 +16,7 @@
 </p>
 
 <p style="font-size:200%">
-  <b tal:content="structure python:request.form.get('letter','').upper()" />
+  <strong tal:content="structure python:request.form.get('letter','').upper()" />
 </p>
 <p tal:repeat="item items">
   <a href="." tal:content="item/Title"
@@ -26,7 +26,7 @@
 <p tal:repeat="item items">
   <tal:block tal:define="doc item/getContent">
     <a tal:attributes="name string:q${repeat/item/number}"></a>
-    <b tal:content="python:doc['title']" /><br />
+    <strong tal:content="python:doc['title']" /><br />
     <tal:block tal:content="python:doc['description']" />
   </tal:block>
 </p>

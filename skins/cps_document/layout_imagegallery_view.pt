@@ -5,8 +5,8 @@
   <img tal:replace="structure python:here.getImgTag('UpFolder_icon.gif',
     base_url=here.portal_url.getPortalPath()+'/')">
   <span i18n:translate="description_up_to">
-    <b i18n:name="up_id" tal:content="python:options['proxy'].aq_parent.title_or_id()">
-      Up ID</b>
+    <strong i18n:name="up_id" tal:content="python:options['proxy'].aq_parent.title_or_id()">
+      Up ID</strong>
   </span>
   </a>
 </tal:block>
