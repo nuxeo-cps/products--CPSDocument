@@ -6,7 +6,7 @@ ZODB Requires:
 - require CPSSchema > 0.2.0
 New features:
 ~~~~~~~~~~~~~
-- coding clean Faq, File and News document
+- coding clean Faq, File, News and EventDoc document
 - Required fields are displayed with a mark
 Bug fixes:
 ~~~~~~~~~~
@@ -18,3 +18,4 @@ New internal features:
 - renaming widget properties 'title' into 'label_edit' and 'title_view' into 'label'
 - Don't pass both datastructure and datamodel around.
 - loading jscalendar css and js to use datewidget
+- ptype can register to portal_calendar
