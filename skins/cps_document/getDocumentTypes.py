@@ -217,8 +217,8 @@ glossaryitem_type = {
     }
 
 newsitem_type = {
-    'title': 'portal_type_News_title',
-    'description': 'portal_type_News_description',
+    'title': 'portal_type_NewsItem_title',
+    'description': 'portal_type_NewsItem_description',
     'content_icon': 'newsitem_icon.png',
     'content_meta_type': 'CPS Document',
     'product': 'CPSDocument',

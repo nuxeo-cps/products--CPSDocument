@@ -316,7 +316,6 @@ msgstr "Glossaire - définition de terme"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Entrée de glossaire"
 
-#, fuzzy
 msgid "portal_type_NewsItem_title"
 msgstr "Nouvelle"
 

@@ -206,7 +206,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
     def testMetadata(self):
         id = 'testMetadataNews'
-        self.ws.invokeFactory('News', id)
+        self.ws.invokeFactory('News Item', id)
         proxy = getattr(self.ws, id)
         try:
             doc = proxy.getContent()
@@ -252,7 +252,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             self.assertEquals(ds[k], v)
 
     def testNews(self):
-        self.ws.invokeFactory('News', 'news')
+        self.ws.invokeFactory('News Item', 'news')
         proxy = getattr(self.ws, 'news')
 
         try:
@@ -261,7 +261,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             doc = self.ws.news
 
         # Test doc has default values
-        for prop_name in self.document_schemas['news'].keys():
+        for prop_name in self.document_schemas['newsitem'].keys():
             # XXX: Default values are not always as defined in
             # getDocumentSchemas(). I consider this as a bug.
             self.assert_(hasattr(doc, prop_name))

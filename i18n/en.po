@@ -314,9 +314,8 @@ msgstr "Glossary Entry"
 msgid "portal_type_GlossaryItem_description"
 msgstr "Term definition (for glossaries)"
 
-#, fuzzy
 msgid "portal_type_NewsItem_title"
-msgstr "News"
+msgstr "News item"
 
 #, fuzzy
 msgid "portal_type_NewsItem_description"
