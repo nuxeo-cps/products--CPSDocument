@@ -1,3 +1,7 @@
+<tal:block define="doc here/getContent;
+                   rendered_main python: doc.render(proxy=here);
+  ">
+<metal:block define-macro="view">
 <metal:block use-macro="here/content_lib/macros/master">
   <metal:block fill-slot="header">
   </metal:block>
@@ -8,9 +12,9 @@
   </metal:block>
 
   <metal:block fill-slot="main">
-    <tal:block tal:content="structure python:doc.render(proxy=here)">
-      Body
-    </tal:block>
+    <tal:block tal:content="structure rendered_main" />
   </metal:block>
 
 </metal:block>
+</metal:block>
+</tal:block>

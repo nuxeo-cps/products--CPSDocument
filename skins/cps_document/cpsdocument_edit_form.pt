@@ -1,13 +1,8 @@
-<tal:block define="doc here/getContent;
-  layout_changed python: here.editLayouts(REQUEST=request);
-  need_validation python: request.has_key('cpsdocument_edit_button') or
-    layout_changed;
-  edit_request python: test(need_validation, request, nothing);
-  res python: doc.renderEditDetailed(request=edit_request, proxy=here);
-  global rendered_main python: res[0];
-  global portal_status_message python: test(need_validation, (
-    test(res[1], 'psm_content_changed', 'psm_content_error')), '');
-  " />
+<tal:block define="res python:here.editCPSDocument(REQUEST=request);
+                   rendered_main python: res[0];
+                   portal_status_message python: res[1];
+  ">
+<metal:block define-macro="edit_form">
 <metal:block use-macro="here/content_lib/macros/master">
   <metal:block fill-slot="css_slot">
     <metal:block define-macro="widgets_javascript">
@@ -50,3 +45,5 @@
   </metal:block>
 
 </metal:block>
+</metal:block>
+</tal:block>
