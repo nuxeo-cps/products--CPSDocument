@@ -300,7 +300,7 @@ flexible_content_layout = {
                 'css_class': 'ddefault',
                 'hidden_empty': 1,
                 'deletable': 1,
-                'size_max': 3*1024*1024,
+                'size_max': 4*1024*1024,
                 },
             },
         'link': {
@@ -568,7 +568,7 @@ news_layout = {
                 'hidden_empty': 1,
                 'description': 'cpsdoc_News_attachedFile_description',
                 'deletable': 1,
-                'size_max': 3*1024*1024,
+                'size_max': 4*1024*1024,
             },
         },
         'newsdate': {
@@ -669,7 +669,7 @@ file_layout = {
                 'hidden_empty': 1,
                 'description': 'cpsdoc_News_attachedFile_description',
                 'deletable': 1,
-                'size_max': 3*1024*1024,
+                'size_max': 4*1024*1024,
             },
         },
     },

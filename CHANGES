@@ -9,4 +9,5 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Harmonization: Changed file widgets for documents to have a max size of 4Mb,
+  which is the default in the AttachedFileWidget class.
