@@ -565,7 +565,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         if layout_id is None:
             for layout_id in type_layouts:
                 layouts.append(self.getLayout(layout_id, ob))
-        elif layout_id in type_layouts  + ['metadata']:
+        elif layout_id in tuple(type_layouts) + ('metadata',):
             layouts.append(self.getLayout(layout_id, ob))
         else:
             raise ValueError("No layout '%s' in portal_type '%s'"
