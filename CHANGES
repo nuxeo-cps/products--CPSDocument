@@ -13,6 +13,7 @@ New features:
   so data may be lost
 - adding DublinCore Metadata: Coverage, Source and Relation
 - edition and metadata edition heading display portal type icon
+- Metadata Contributors is computed automaticly by adding editors
 Bug fixes:
 ~~~~~~~~~~
 - no way to enable/disable discussion on a document

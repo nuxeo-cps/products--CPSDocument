@@ -18,7 +18,10 @@ metadata_schema = {
     'Subject': {'type': 'CPS String List Field',
                 'data': {'is_indexed': 1}},
     'Contributors': {'type': 'CPS String List Field',
-                     'data': {'is_indexed': 1}},
+                     'data': {'is_indexed': 1,
+                              'write_process_expression_str':
+                              'python: here.computeContributors(user, value)'},
+                     },
     'CreationDate': {'type': 'CPS DateTime Field',
                      'data': {'write_ignore_storage': 1,}},
     'ModificationDate': {'type': 'CPS DateTime Field',
