@@ -91,7 +91,7 @@
           </div>
           <button type="button" class="tooltipControl"
                 tal:condition="widget/help"
-		tal:attributes="onclick python:'toggleFormTooltip(\'%s\')' % tooltip_id;"
+		tal:attributes="onclick python:'toggleElementVisibility(\'%s\')' % tooltip_id;"
           > ? </button>
           <div class="field">
             <div tal:replace="structure cell/widget_rendered"/>
@@ -100,7 +100,7 @@
                tal:condition="widget/help"
                tal:attributes="
                id tooltip_id;
-               onclick python:'showFormTooltip(false, \'%s\')' % tooltip_id;
+               onclick python:'showElement(false, \'%s\')' % tooltip_id;
             ">
             <span i18n:translate="" tal:condition="widget/is_i18n"
               tal:content="widget/help">i18_key-help_for_this_field</span>
