@@ -19,7 +19,7 @@
 # $Id$
 
 from zLOG import LOG, DEBUG, ERROR
-from types import ListType, TupleType
+from types import ListType, TupleType, UnicodeType
 from cgi import escape
 import ExtensionClass
 import re
@@ -275,6 +275,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
             try:
                 if hasattr(aq_base(dm[fieldid]), 'get_size'):
                     size += dm[fieldid].get_size()
+                if isinstance(dm[fieldid], UnicodeType):
+                    size += len(dm[fieldid])
                 else:
                     size += len(str(dm[fieldid]))
             except KeyError:
