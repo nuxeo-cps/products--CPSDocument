@@ -3,7 +3,8 @@ ZODB Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- [may be unstable] first implementation of Metadata view using Layout/Schema
+- first implementation of Metadata view using Layout/Schema
+- user with View permission on a document can view his metadata
 Bug fixes:
 ~~~~~~~~~~
 -
