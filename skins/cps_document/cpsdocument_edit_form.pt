@@ -1,5 +1,17 @@
 <tal:block define="global edit_request python:request.has_key('cpsdocument_edit_button') and request or nothing;" />
 <metal:block use-macro="here/content_lib/macros/master">
+  <metal:block fill-slot="css_slot">
+    <style type="text/css"
+      tal:content="string:@import url(${base_url}calendar-win2k-1.css);"></style>
+    <script type="text/javascript" src="calendar.js"
+      tal:attributes="src string:${base_url}calendar.js"></script>
+
+    <script type="text/javascript" src="lang/calendar-en.js"
+      tal:define="local cpsmcat/get_selected_language"
+      tal:attributes="src string:${base_url}lang/calendar-${local}.js"></script>
+    <script type="text/javascript" src="calendar-setup.js"
+      tal:attributes="src string:${base_url}calendar-setup.js"></script>
+  </metal:block>
 
   <metal:block fill-slot="header">
     <h1 i18n:translate="">Edit <span i18n:name="title"
