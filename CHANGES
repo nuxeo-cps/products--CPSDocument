@@ -4,10 +4,9 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - new portal types Book and Page
-
 Bug fixes:
 ~~~~~~~~~~
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- improve document.css
