@@ -269,7 +269,6 @@ flexible_content_layout = {
                 'fields': ['?'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_flex_photo_label_edit',
-                'label': '',
                 'configurable': 'position',
                 'size_max': 2*1024*1024,
             },
@@ -280,12 +279,44 @@ flexible_content_layout = {
                 'title': 'cpsdoc_flex_link_title',
                 'fields': ['?'],
                 'is_i18n': 1,
-                'is_required': 0,
-                'label_edit': 'cpsdoc_flex_link_label_edit',
-                'hidden_empty': 1,
-                'deletable': 1,
+                'label_edit': 'cpsdoc_Link_label_edit',
+                'widget_ids': ['link_href',
+                               'link_title',
+                               'link_description'],
             },
         },
+        'link_href': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['?'],
+                'is_i18n': 1,
+                'is_required': 1,
+                'label_edit': 'cpsschemas_label_link_href',
+                'display_width': 60,
+                'size_max': 256,
+            },
+        },
+        'link_title': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['?'],
+                'is_i18n': 1,
+                'label_edit': 'cpsschemas_label_link_content',
+                'display_width': 60,
+                'size_max': 100,
+            },
+        },
+        'link_description': {
+            'type': 'TextArea Widget',
+            'data': {
+                'fields': ['?'],
+                'is_i18n': 1,
+                'label_edit': 'cpsschemas_label_link_title',
+                'width': 60,
+                'height': 3,
+            },
+        },
+
     },
     'layout': {
         'flexible_widgets': ['content:4', 'link',
@@ -842,16 +873,44 @@ link_layout = {
         'link': {
             'type': 'Link Widget',
             'data': {
-                'fields': ['href',
-                           'Title',
-                           'Description'],
-                'is_i18n': 1,
-                'is_required': 1,
                 'label_edit': 'cpsdoc_Link_label_edit',
-                'hidden_empty': 1,
-                'deletable': 1,
+                'is_i18n': 1,
+                'fields': [],
+                'widget_ids': [ 'href', 'Title', 'Description'],
             },
         },
+        'Title': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Title'],
+                'is_i18n': 1,
+                'label_edit': 'cpsschemas_label_link_content',
+                'display_width': 60,
+                'size_max': 100,
+            },
+        },
+        'Description': {
+            'type': 'TextArea Widget',
+            'data': {
+                'fields': ['Description'],
+                'is_i18n': 1,
+                'label_edit': 'cpsschemas_label_link_title',
+                'width': 60,
+                'height': 3,
+            },
+        },
+        'href': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['href'],
+                'is_i18n': 1,
+                'is_required': 1,
+                'label_edit': 'cpsschemas_label_link_href',
+                'display_width': 60,
+                'size_max': 256,
+            },
+        },
+
     },
     'layout': {
         'style_prefix': 'layout_default_',
