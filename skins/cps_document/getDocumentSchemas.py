@@ -115,7 +115,7 @@ news_schema = {
     'description': {
         'type': 'CPS String Field',
         'data': {
-                'default': 'resume',
+                'default': '',
                 'is_indexed': 1,
             },
         },
