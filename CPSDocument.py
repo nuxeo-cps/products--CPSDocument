@@ -265,6 +265,7 @@ InitializeClass(CPSDocumentMixin)
 
 
 # XXX remove later
+# XXX: please explain why
 from Products.CMFDefault.DublinCore import DefaultDublinCoreImpl
 
 class CPSDocument(CPSDocumentMixin, PortalContent, PortalFolder,
