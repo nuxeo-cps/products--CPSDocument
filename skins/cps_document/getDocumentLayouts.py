@@ -226,8 +226,8 @@ metadata_layout = {
              {'widget_id': 'Language'},],
             [{'widget_id': 'CreationDate'},
              {'widget_id': 'ModificationDate'},],
-            [{'ncols': 2, 'widget_id': 'preview'},],
-            [{'ncols': 2, 'widget_id': 'allow_discussion'},],
+            [{'widget_id': 'preview'},
+             {'widget_id': 'allow_discussion'},],
             ],
         },
     }
