@@ -335,6 +335,12 @@ class CPSDocument(CPSDocumentMixin, CMFCatalogAware, PortalFolder,
 
     __implements__ = (IDublinCore, IContentish, IDynamicType)
 
+    manage_options = (
+        PortalContent.manage_options[:1] + # Dublin Core
+        PortalFolder.manage_options[0:1] + # Contents
+        PortalContent.manage_options[1:]   # View, Workflows...
+        )
+
     security = ClassSecurityInfo()
 
     def __init__(self, id, **kw):
