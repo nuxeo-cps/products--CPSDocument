@@ -3,11 +3,10 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- Added notification for document modification in editCPSDocument.py
+-
 Bug fixes:
 ~~~~~~~~~~
-- Fixed a typo in the type export. The addActions Method expects the 
-  parameter to be "permission", not "permissions".
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

@@ -1,4 +1,21 @@
 *******************************************
+** CPSDocument V0.20.2 [R1 build 2004/05/26-15:11 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- Added notification for document modification in editCPSDocument.py
+Bug fixes:
+~~~~~~~~~~
+- Fixed a typo in the type export. The addActions Method expects the 
+  parameter to be "permission", not "permissions".
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.20.1 [R1 build 2004/05/10-06:18 by madarche]
 
 Requires:
