@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: es-CPSDocument\n"
-"POT-Creation-Date: 2004-03-04 14:06default\n"
+"POT-Creation-Date: 2004-04-08 16:28default\n"
 "PO-Revision-Date: 2004-03-27 20:48+0100\n"
 "Last-Translator: Álvaro Tejero Cantero <alvaro@antalia.com>\n"
 "Language-Team:  EspaÃ±ol <es@li.org>\n"
@@ -12,86 +12,124 @@ msgstr ""
 "Language-code: es\n"
 "Language-name: Español\n"
 "Preferred-encodings: utf-8 latin1\n"
-"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-sv es-gt es-"
+"hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
 "X-Generator: KBabel 1.0.2\n"
 
 #    <h1 condition="creation">
 #          Create a document of type
 #          ${type_name}
 #        </h1>
-#: from
-#: ../skins/cps_document/cpsdocument_edit_form.pt
+#.   <h1 condition="creation">
+#.         Create a document of type
+#.         ${type_name}
+#.       </h1>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
 msgstr "Crear un documento tipo ${type_name}"
 
 #    <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
-#: from
-#: ../skins/cps_document/cpsdocument_edit_form.pt
+#.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr "Modificar «${title}»"
 
+#.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
+#: from ../skins/cps_document/layout_page_view.pt
+msgid "Page ${page}"
+msgstr ""
+
 #    <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
-#: from
-#: ../skins/cps_document/layout_lib.pt
+#.   <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
+#: from ../skins/cps_document/layout_lib.pt
 msgid "Type"
 msgstr "Tipo"
 
 #    <block define="type_name request/type_name;
 #                            type_info python:here.portal_types[type_name]" content="type_info/Title">Type Title</block>
-#: from
-#: ../skins/cps_document/cpsdocument_edit_form.pt
+#.   <block define="type_name request/type_name;
+#.                           type_info python:here.portal_types[type_name]" content="type_info/Title">Type Title</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Type Title"
 msgstr "Título del tipo"
 
 #    <span>to</span>
-#: from
-#: ../skins/cps_document/layout_event_view.pt
+#.   <span>to</span>
+#: from ../skins/cps_document/layout_event_view.pt
 msgid "cpsdoc_Event_end_label"
 msgstr " al "
 
 #.   <span>from</span>
-#: from
-#: ../skins/cps_document/layout_event_view.pt
+#: from ../skins/cps_document/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "Del"
+
+# default doc types
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
+#: from ../skins/cps_document/layout_page_view.pt
+#, fuzzy
+msgid "cpsdoc_link_next_page"
+msgstr "Un enlace (URL)"
+
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
+#: from ../skins/cps_document/layout_page_view.pt
+#, fuzzy
+msgid "cpsdoc_link_previous_page"
+msgstr "Icono:"
+
+# default doc types
+#.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
+#: from ../skins/cps_document/layout_page_view.pt
+#, fuzzy
+msgid "cpsdoc_link_toc"
+msgstr "Un enlace (URL)"
+
+#.   <h3>cpsdoc_title_toc</h3>
+#: from ../skins/cps_document/layout_book_view.pt
+#, fuzzy
+msgid "cpsdoc_title_toc"
+msgstr "Título: "
 
 #    <span>
 #        ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #      </span>
-#: from
-#: ../skins/cps_document/layout_imagegallery_view.pt
+#.   <span>
+#.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
+#.     </span>
+#: from ../skins/cps_document/layout_imagegallery_view.pt
 msgid "description_up_to"
 msgstr "hacia ${up_id}"
 
 #.   <em content="err" style="color: red">err</em>
-#: from
-#: ../skins/cps_document/layout_lib.pt
+#: from ../skins/cps_document/layout_lib.pt
 msgid "err"
 msgstr "Error"
 
 #    <span condition="metadata">heading_metadata_edit</span>
-#: from
-#: ../skins/cps_document/cpsdocument_edit_form.pt
+#.   <span condition="metadata">heading_metadata_edit</span>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "heading_metadata_edit"
 msgstr "Modificar los metadatos"
 
 #    <h1>heading_metadata_view</h1>
-#: from
-#: ../skins/cps_document/layout_metadata_view.pt
+#.   <h1>heading_metadata_view</h1>
+#: from ../skins/cps_document/layout_metadata_view.pt
 msgid "heading_metadata_view"
 msgstr "Metadatos del documento"
 
 #    <span condition="widget/is_i18n" content="widget/help">i18_key-help_for_this_field</span>
-#: from
-#: ../skins/cps_document/layout_lib.pt
+#.   <span condition="widget/is_i18n" content="widget/help">i18_key-help_for_this_field</span>
+#: from ../skins/cps_document/layout_lib.pt
 msgid "i18_key-help_for_this_field"
 msgstr "i18_key-help_for_this_field"
 
 #    <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
 #    <span condition="widget/is_i18n" content="widget/label_edit">label</span>
 #    <strong content="widget/label">label</strong>
-#: from
-#: ../skins/cps_document/layout_lib.pt
+#.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
+#.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>
+#.   <strong content="widget/label">label</strong>
+#: from ../skins/cps_document/layout_lib.pt
 #: ../skins/cps_document/layout_metadata_view.pt
 msgid "label"
 msgstr "etiqueta"
@@ -167,7 +205,8 @@ msgid "portal_type_FAQ_title"
 msgstr "FAQ (preguntas planteadas con frecuencia)"
 
 msgid "portal_type_FAQ_description"
-msgstr "Carpeta que contiene un conjunto de preguntas planteadas con frecuencia"
+msgstr ""
+"Carpeta que contiene un conjunto de preguntas planteadas con frecuencia"
 
 # default doc types
 msgid "portal_type_FAQitem_title"
@@ -312,6 +351,28 @@ msgstr "Término"
 msgid "cpsdoc_glossary_expl_label_edit"
 msgstr "Definición"
 
+# default doc types
+#, fuzzy
+msgid "portal_type_Book_title"
+msgstr "Enlace"
+
+#, fuzzy
+msgid "portal_type_Book_description"
+msgstr "Una URL"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Page_title"
+msgstr "Imagen"
+
+#, fuzzy
+msgid "portal_type_Page_description"
+msgstr "Una imagen"
+
+#, fuzzy
+msgid "cpsdoc_book_nb_summary_page_label_edit"
+msgstr "Definición"
+
 msgid "label_source"
 msgstr "Fuente"
 
@@ -325,7 +386,11 @@ msgid "cpsdoc_hidden_folder"
 msgstr "Ocultar esta carpeta en la navegación"
 
 msgid "cpsdoc_hidden_folder_help"
-msgstr "La carpeta no será ya visible en la navegación por defecto, sin embargo seguirá siendo accesible en la vista 'Gestionar contenido' así como para la publicación. Para proteger el acceso a la carpeta hay que utilizar 'Gestionar roles locales'."
+msgstr ""
+"La carpeta no será ya visible en la navegación por defecto, sin embargo "
+"seguirá siendo accesible en la vista 'Gestionar contenido' así como para la "
+"publicación. Para proteger el acceso a la carpeta hay que utilizar "
+"'Gestionar roles locales'."
 
 msgid "help_dc_subject"
 msgstr "El tema del contenido"
@@ -334,7 +399,8 @@ msgid "help_dc_contirbutors"
 msgstr "Las entidades que han contribuído a la creación del contenido."
 
 msgid "help_dc_source"
-msgstr "Una referencia a un recurso a partir del que se deriva el recurso actual."
+msgstr ""
+"Una referencia a un recurso a partir del que se deriva el recurso actual."
 
 msgid "help_dc_coverage"
 msgstr "El alcance o la cobertura espacio-temporal del recurso."
@@ -342,3 +408,6 @@ msgstr "El alcance o la cobertura espacio-temporal del recurso."
 msgid "help_dc_relation"
 msgstr "Una referencia (URL) a otro recurso que tiene relación con éste."
 
+#, fuzzy
+msgid "label_portal_type"
+msgstr "Cobertura"

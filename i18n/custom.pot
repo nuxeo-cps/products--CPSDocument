@@ -290,3 +290,6 @@ msgstr ""
 msgid "help_dc_relation"
 msgstr ""
 
+msgid "label_portal_type"
+msgstr ""
+

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-03-26 07:59default\n"
+"POT-Creation-Date: 2004-04-08 16:28default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -375,4 +375,7 @@ msgid "help_dc_coverage"
 msgstr ""
 
 msgid "help_dc_relation"
+msgstr ""
+
+msgid "label_portal_type"
 msgstr ""
