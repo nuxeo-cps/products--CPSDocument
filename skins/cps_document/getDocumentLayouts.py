@@ -486,6 +486,7 @@ faqitem_layout = {
                 'is_required': 1,
                 'width': 72,
                 'height': 5,
+                'render_format': 'text',
             },
         },
     },

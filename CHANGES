@@ -8,7 +8,7 @@ New features:
   put stronger quotes.
 Bug fixes:
 ~~~~~~~~~~
--
+- Specifying that the FaqItem answer render format is text
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
