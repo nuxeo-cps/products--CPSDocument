@@ -34,7 +34,7 @@ vocabularies = {
             ('nl', 'Nederlands', 'label_language_nl'),
             ('pt_BR', 'Portugueses(Brasileiro)', 'label_language_pt_BR'),
 	    ('mg', 'Malagasy', 'label_language_mg'),
-            ('ro_RO', 'Romana', 'label_language_ro_RO'),	    
+            ('ro', 'Romana', 'label_language_ro'),
             )},
         },
     'search_sort_results_by': {
