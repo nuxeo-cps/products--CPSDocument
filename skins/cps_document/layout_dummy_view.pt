@@ -8,7 +8,7 @@
         <tal:block condition="widget/label">
           <strong tal:content="widget/label">label</strong>:
         </tal:block>
-        <div tal:replace="structure python:widget.render('view', ds)" />
+        <div tal:replace="structure python:widget.render('view', ds, layout_mode='view')" />
       </tal:block>
     </td>
   </tr>
