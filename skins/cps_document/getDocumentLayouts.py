@@ -48,7 +48,7 @@ metadata_layout = {
             },
         },
         'Subject': {
-            'type': 'MultiSelect Widget',
+            'type': 'Subject Widget',
             'data': {
                 'fields': ['Subject'],
                 'is_i18n': 1,
