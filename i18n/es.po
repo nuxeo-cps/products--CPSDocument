@@ -1,0 +1,344 @@
+# Álvaro Tejero Cantero <alvaro@antalia.com>, 2004.
+msgid ""
+msgstr ""
+"Project-Id-Version: es-CPSDocument\n"
+"POT-Creation-Date: 2004-03-04 14:06default\n"
+"PO-Revision-Date: 2004-03-27 20:48+0100\n"
+"Last-Translator: Álvaro Tejero Cantero <alvaro@antalia.com>\n"
+"Language-Team:  EspaÃ±ol <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-code: es\n"
+"Language-name: Español\n"
+"Preferred-encodings: utf-8 latin1\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Generator: KBabel 1.0.2\n"
+
+#    <h1 condition="creation">
+#          Create a document of type
+#          ${type_name}
+#        </h1>
+#: from
+#: ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Create a document of type ${type_name}"
+msgstr "Crear un documento tipo ${type_name}"
+
+#    <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
+#: from
+#: ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Edit ${title}"
+msgstr "Modificar «${title}»"
+
+#    <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
+#: from
+#: ../skins/cps_document/layout_lib.pt
+msgid "Type"
+msgstr "Tipo"
+
+#    <block define="type_name request/type_name;
+#                            type_info python:here.portal_types[type_name]" content="type_info/Title">Type Title</block>
+#: from
+#: ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Type Title"
+msgstr "Título del tipo"
+
+#    <span>to</span>
+#: from
+#: ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_end_label"
+msgstr " al "
+
+#.   <span>from</span>
+#: from
+#: ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_start_label"
+msgstr "Del"
+
+#    <span>
+#        ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
+#      </span>
+#: from
+#: ../skins/cps_document/layout_imagegallery_view.pt
+msgid "description_up_to"
+msgstr "hacia ${up_id}"
+
+#.   <em content="err" style="color: red">err</em>
+#: from
+#: ../skins/cps_document/layout_lib.pt
+msgid "err"
+msgstr "Error"
+
+#    <span condition="metadata">heading_metadata_edit</span>
+#: from
+#: ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "heading_metadata_edit"
+msgstr "Modificar los metadatos"
+
+#    <h1>heading_metadata_view</h1>
+#: from
+#: ../skins/cps_document/layout_metadata_view.pt
+msgid "heading_metadata_view"
+msgstr "Metadatos del documento"
+
+#    <span condition="widget/is_i18n" content="widget/help">i18_key-help_for_this_field</span>
+#: from
+#: ../skins/cps_document/layout_lib.pt
+msgid "i18_key-help_for_this_field"
+msgstr "i18_key-help_for_this_field"
+
+#    <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
+#    <span condition="widget/is_i18n" content="widget/label_edit">label</span>
+#    <strong content="widget/label">label</strong>
+#: from
+#: ../skins/cps_document/layout_lib.pt
+#: ../skins/cps_document/layout_metadata_view.pt
+msgid "label"
+msgstr "etiqueta"
+
+msgid "cpsdoc_title_label_edit"
+msgstr "Título: "
+
+msgid "cpsdoc_description_label_edit"
+msgstr "Descripción:"
+
+msgid "cpsdoc_theme_label_edit"
+msgstr "Tema:"
+
+msgid "cpsdoc_date_label_edit"
+msgstr "Fecha:"
+
+msgid "cpsdoc_date_label"
+msgstr "El "
+
+msgid "cpsdoc_preview_label_edit"
+msgstr "Icono:"
+
+msgid "cpsdoc_allow_discussion_label_edit"
+msgstr "Activar comentarios:"
+
+msgid "cpsdoc_flex_content_title"
+msgstr "Bloque de texto"
+
+msgid "cpsdoc_flex_content_label_edit"
+msgstr "Texto:"
+
+msgid "cpsdoc_flex_content_right_label_edit"
+msgstr "Texto de la columna de la derecha (opcional):"
+
+msgid "cpsdoc_flex_attachedFile_title"
+msgstr "Fichero adjunto:"
+
+msgid "cpsdoc_flex_attachedFile_label_edit"
+msgstr "Fichero adjunto:"
+
+msgid "cpsdoc_flex_attachedFile_label"
+msgstr "Fichero adjunto:"
+
+msgid "cpsdoc_flex_photo_title"
+msgstr "Imagen "
+
+msgid "cpsdoc_flex_photo_label_edit"
+msgstr "Imagen: "
+
+# default doc types
+msgid "cpsdoc_flex_link_title"
+msgstr "Un enlace (URL)"
+
+# FIXME: this msg is not used anywhere
+msgid "cpdoc_flex_link_label_edit"
+msgstr "Dirección del enlace:"
+
+msgid "cpsdoc_flex_textimage_title"
+msgstr "Bloque de texto e imagen:"
+
+msgid "cpsdoc_flex_textimage_label_edit"
+msgstr "Bloque de texto e imagen:"
+
+# default doc types
+msgid "portal_type_Flexible_title"
+msgstr "Documento flexible:"
+
+msgid "portal_type_Flexible_description"
+msgstr "Un documento cuya estructura puede ser modificada"
+
+# default doc types
+msgid "portal_type_FAQ_title"
+msgstr "FAQ (preguntas planteadas con frecuencia)"
+
+msgid "portal_type_FAQ_description"
+msgstr "Carpeta que contiene un conjunto de preguntas planteadas con frecuencia"
+
+# default doc types
+msgid "portal_type_FAQitem_title"
+msgstr "FAQ - Pregunta planteada con frecuencia."
+
+msgid "portal_type_FAQitem_description"
+msgstr "Pregunta / respuesta."
+
+msgid "cpsdoc_faq_question_label_edit"
+msgstr "Pregunta: "
+
+msgid "cpsdoc_faq_long_question_label_edit"
+msgstr "Información complementaria a la pregunta:"
+
+msgid "cpsdoc_faq_answer_label_edit"
+msgstr "Respuesta: "
+
+msgid "cpsdoc_faq_answer_label"
+msgstr "Respuesta: "
+
+# default doc types
+msgid "portal_type_ImageGallery_title"
+msgstr "Fototeca"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Biblioteca de imágenes"
+
+# default doc types
+msgid "portal_type_Glossary_title"
+msgstr "Glosario"
+
+msgid "portal_type_Glossary_description"
+msgstr "Conjunto de definiciones de términos ordenadas alfabéticamente"
+
+# default doc types
+msgid "portal_type_GlossaryItem_title"
+msgstr "Glosario - definiciones de términos"
+
+msgid "portal_type_GlossaryItem_description"
+msgstr "Entrada de glosario"
+
+msgid "portal_type_News_title"
+msgstr "Noticia"
+
+msgid "portal_type_News_description"
+msgstr "Una noticia"
+
+msgid "cpsdoc_News_newsdate_label_edit"
+msgstr "Fecha de aparición: "
+
+msgid "cpsdoc_News_newsdate_label"
+msgstr "aparecido el "
+
+msgid "cpsdoc_News_title_label_edit"
+msgstr "Título corto:"
+
+msgid "cpsdoc_News_description_label_edit"
+msgstr "Descripción: "
+
+msgid "cpsdoc_News_longTitle_label_edit"
+msgstr "Título largo: "
+
+msgid "cpsdoc_News_content_label_edit"
+msgstr "Contenido de la noticia:"
+
+msgid "cpsdoc_News_photo_label_edit"
+msgstr "Foto: "
+
+msgid "cpsdoc_News_photo_label"
+msgstr " Foto: "
+
+msgid "cpsdoc_News_preview_label_edit"
+msgstr "Icono: "
+
+msgid "cpsdoc_News_attachedFile_label_edit"
+msgstr "Fichero adjunto: "
+
+msgid "cpsdoc_News_attachedFile_label"
+msgstr "Fichero adjunto: "
+
+# default doc types
+msgid "portal_type_File_title"
+msgstr "Fichero"
+
+msgid "portal_type_File_description"
+msgstr "Adjuntar un fichero"
+
+# default doc types
+msgid "portal_type_Event_title"
+msgstr "Evento"
+
+msgid "portal_type_Event_description"
+msgstr "Un evento"
+
+msgid "cpsdoc_Event_start_label_edit"
+msgstr "Comienzo: "
+
+msgid "cpsdoc_Event_end_label_edit"
+msgstr "Fin: "
+
+msgid "cpsdoc_Event_content_label_edit"
+msgstr "Contenido del evento: "
+
+# default doc types
+msgid "portal_type_Link_title"
+msgstr "Enlace"
+
+msgid "portal_type_Link_description"
+msgstr "Una URL"
+
+msgid "cpsdoc_Link_label_edit"
+msgstr "Enlace:"
+
+# default doc types
+msgid "portal_type_Image_title"
+msgstr "Imagen"
+
+msgid "portal_type_Image_description"
+msgstr "Una imagen"
+
+msgid "cpsdoc_Image_label_edit"
+msgstr "Imagen: "
+
+msgid "cpsdoc_imgallery_width_label_edit"
+msgstr "Tamaño de las miniaturas"
+
+msgid "cpsdoc_imgallery_height_label_edit"
+msgstr "Altura de las miniaturas"
+
+msgid "cpsdoc_imgallery_items_label_edit"
+msgstr "Número de miniaturas por página"
+
+msgid "cpsdoc_imgallery_col_label_edit"
+msgstr "Número de columnas por página"
+
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr "Mostrar todas las entradas si no se selecciona ninguna letra"
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr "Término"
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Definición"
+
+msgid "label_source"
+msgstr "Fuente"
+
+msgid "label_coverage"
+msgstr "Cobertura"
+
+msgid "label_relation"
+msgstr "Relación"
+
+msgid "cpsdoc_hidden_folder"
+msgstr "Ocultar esta carpeta en la navegación"
+
+msgid "cpsdoc_hidden_folder_help"
+msgstr "La carpeta no será ya visible en la navegación por defecto, sin embargo seguirá siendo accesible en la vista 'Gestionar contenido' así como para la publicación. Para proteger el acceso a la carpeta hay que utilizar 'Gestionar roles locales'."
+
+msgid "help_dc_subject"
+msgstr "El tema del contenido"
+
+msgid "help_dc_contirbutors"
+msgstr "Las entidades que han contribuído a la creación del contenido."
+
+msgid "help_dc_source"
+msgstr "Una referencia a un recurso a partir del que se deriva el recurso actual."
+
+msgid "help_dc_coverage"
+msgstr "El alcance o la cobertura espacio-temporal del recurso."
+
+msgid "help_dc_relation"
+msgstr "Una referencia (URL) a otro recurso que tiene relación con éste."
+
