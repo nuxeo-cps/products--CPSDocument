@@ -233,8 +233,7 @@ metadata_layout = {
     }
 
 
-
-# example of a common header layout
+# common header layout
 common_layout = {
     'widgets': {
         'Title': {
@@ -274,7 +273,7 @@ common_layout = {
         },
     }
 
-# a flexible content
+# flexible content
 flexible_content_layout = {
     'widgets': {
         'attachedFile': {
