@@ -232,22 +232,6 @@ common_layout = {
 # a flexible content
 flexible_content_layout = {
     'widgets': {
-        'content': {
-            'type': 'Text Widget',
-            'data': {
-                'title': 'cpsdoc_flex_content_title',
-                'fields': ['content', 'content_format', 'content_position'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_flex_content_label_edit',
-                'label': '',
-                'css_class': 'dcontent',
-                'width': 72,
-                'height': 15,
-                'render_format': 'html',
-                'render_position': 'normal',
-                'configurable': 'position and format',
-                },
-            },
         'attachedFile': {
             'type': 'AttachedFile Widget',
             'data': {
@@ -256,29 +240,19 @@ flexible_content_layout = {
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_flex_attachedFile_label_edit',
                 'label': 'cpsdoc_flex_attachedFile_label',
-                'css_class': 'dflush',
+                'css_class': 'ddefault',
                 'hidden_empty': 1,
                 'deletable': 1,
                 'size_max': 3*1024*1024,
                 },
             },
-        'photo': {
-            'type': 'Photo Widget',
-            'data': {
-                'title': 'cpsdoc_flex_photo_title',
-                'fields': ['?'],
-                'is_i18n': 1,
-                'label_edit': 'cpsdoc_flex_photo_label_edit',
-                'configurable': 'position',
-                'size_max': 2*1024*1024,
-            },
-        },
         'link': {
             'type': 'Link Widget',
             'data': {
                 'title': 'cpsdoc_flex_link_title',
                 'fields': ['?'],
                 'is_i18n': 1,
+                'css_class': 'ddefault',
                 'label_edit': 'cpsdoc_Link_label_edit',
                 'widget_ids': ['link_href',
                                'link_title',
@@ -290,7 +264,6 @@ flexible_content_layout = {
             'data': {
                 'fields': ['?'],
                 'is_i18n': 1,
-                'is_required': 1,
                 'label_edit': 'cpsschemas_label_link_href',
                 'display_width': 60,
                 'size_max': 256,
@@ -316,16 +289,71 @@ flexible_content_layout = {
                 'height': 3,
             },
         },
-
+        'textimage': {
+            'type': 'Text Image Widget',
+            'data': {
+                'title': 'cpsdoc_flex_textimage_title',
+                'fields': ['?'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_flex_textimage_label_edit',
+                'widget_ids': ['photo',
+                               'content',
+                               'content_right',
+                               ],
+            },
+        },
+        'photo': {
+            'type': 'Photo Widget',
+            'data': {
+                'title': 'cpsdoc_flex_photo_title',
+                'fields': ['?'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_flex_photo_label_edit',
+                'configurable': 'position',
+                'display_width': 320,
+                'display_height': 200,
+                'size_max': 2*1024*1024,
+                'allow_resize': 1,
+            },
+        },
+        'content': {
+            'type': 'Text Widget',
+            'data': {
+                'fields': ['?'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_flex_content_label_edit',
+                'label': '',
+                'css_class': 'dcontent',
+                'width': 72,
+                'height': 10,
+                'render_format': 'html',
+                'render_position': 'normal',
+                'configurable': 'format',
+                },
+            },
+        'content_right': {
+            'type': 'Text Widget',
+            'data': {
+                'fields': ['?'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_flex_content_right_label_edit',
+                'label': '',
+                'css_class': 'dcontent',
+                'width': 72,
+                'height': 10,
+                'render_format': 'html',
+                'render_position': 'normal',
+                'configurable': 'format',
+                },
+            },
     },
     'layout': {
-        'flexible_widgets': ['content:4', 'link',
-                            'photo:2', 'attachedFile:4'],
+        'flexible_widgets': ['textimage:4', 'link',
+                            'attachedFile:3'],
         'style_prefix': 'layout_default_',
         'ncols': 1,
         'rows': [
-            [{'widget_id': 'content'},
-             ],
+            [ ],
             ],
         },
     }
