@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-11-10 11:46default\n"
+"POT-Creation-Date: 2003-11-10 15:06default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -112,11 +112,11 @@ msgstr ""
 msgid "cpsdoc_Event_start_label"
 msgstr ""
 
-#.   <span>description_up_to
-#.       ${up_id (tal content="python:here.aq_parent.title_or_id()")}
+#.   <span>
+#.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #.     </span>
-#: from ../skins/cps_document/layout_faq_view.pt
-msgid "description_up_to ${up_id}"
+#: from ../skins/cps_document/layout_imagegallery_view.pt
+msgid "description_up_to"
 msgstr ""
 
 #.   <em content="err" style="color: red">err</em>
