@@ -321,6 +321,10 @@ try:
     schemas.update(context.getCPSMailBoxerDocumentSchemas())
 except AttributeError,e:
     pass
+try:
+    schemas.update(context.getCPSLocalFSDocumentSchemas())
+except AttributeError,e:
+    pass
 
 
 if loadcustom:
