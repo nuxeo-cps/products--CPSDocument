@@ -3,7 +3,12 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- adding search capability to the book document. The apparition of the search
+  form can be configured independently for each book.
+- implementing a flat view of the book document, with the book displayed in
+  one single page. The flat/with pages behaviour can be configured for each
+  book.
+with anchors
 Bug fixes:
 ~~~~~~~~~~
 -

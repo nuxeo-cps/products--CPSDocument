@@ -428,6 +428,15 @@ msgstr "Number of table of content items displayed per page"
 msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr "Search Box"
 
+msgid "cpsdoc_book_display"
+msgstr "Display mode"
+
+msgid "cpsdoc_book_display_pages"
+msgstr "With separate pages"
+
+msgid "cpsdoc_book_display_flat"
+msgstr "Flat view"
+
 msgid "label_source"
 msgstr "Source"
 

@@ -431,6 +431,15 @@ msgstr "Nombre d'entrées du sommaire présentées sur une même page"
 msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr "Rechercher boite"
 
+msgid "cpsdoc_book_display"
+msgstr "Affichage"
+
+msgid "cpsdoc_book_display_pages"
+msgstr "par page"
+
+msgid "cpsdoc_book_display_flat"
+msgstr "à plat"
+
 msgid "label_source"
 msgstr "Source"
 

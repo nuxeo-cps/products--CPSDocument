@@ -423,6 +423,15 @@ msgstr "Número de entradas do índice mostrados por página"
 msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr ""
 
+msgid "cpsdoc_book_display"
+msgstr ""
+
+msgid "cpsdoc_book_display_pages"
+msgstr ""
+
+msgid "cpsdoc_book_display_flat"
+msgstr ""
+
 # metadata
 msgid "label_source"
 msgstr "Origem"

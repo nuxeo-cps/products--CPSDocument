@@ -418,6 +418,15 @@ msgstr ""
 msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr "Box de cautare"
 
+msgid "cpsdoc_book_display"
+msgstr "Mod de afisare"
+
+msgid "cpsdoc_book_display_pages"
+msgstr "Pe pagini"
+
+msgid "cpsdoc_book_display_flat"
+msgstr "Intr-o singura pagina"
+
 # metadata
 msgid "label_source"
 msgstr ""

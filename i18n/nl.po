@@ -473,6 +473,15 @@ msgstr "Afbeelding : "
 msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr ""
 
+msgid "cpsdoc_book_display"
+msgstr ""
+
+msgid "cpsdoc_book_display_pages"
+msgstr ""
+
+msgid "cpsdoc_book_display_flat"
+msgstr ""
+
 msgid "label_source"
 msgstr ""
 
