@@ -72,8 +72,8 @@ class CPSInstaller(BaseInstaller):
         self.newptypes = self.flextypes.keys()
         self.ttool = self.portal.portal_types
 
-        self.allowTypesInWorkspaces()
         self.registerTypes()
+        self.allowTypesInWorkspaces()
         self.updatePortalTree()
         self.updateWorkflowAssociations()
 
@@ -83,7 +83,7 @@ class CPSInstaller(BaseInstaller):
         else:
             raise "DependanceError", 'Workspace'
         for ptype in self.newptypes:
-            if ptype not in workspace_act:
+            if ptype not in workspace_act and ptype not in ('Section',):
                 workspace_act.append(ptype)
         self.ttool['Workspace'].allowed_content_types = workspace_act
 
@@ -100,6 +100,20 @@ class CPSInstaller(BaseInstaller):
                 display_in_cmf_calendar.append(ptype)
                 del data['display_in_cmf_calendar']
             ti.manage_changeProperties(**data)
+
+            if data.has_key('actions'):
+                self.log("    Setting actions")
+                # delete all actions
+                nb_action = len(ti.listActions())
+                ti.deleteActions(selections=range(nb_action))
+                # and set the new ones
+                for a in data['actions']:
+                    ti.addAction(a['id'],
+                                 a['name'],
+                                 a['action'],
+                                 a.get('condition', ''),
+                                 a['permissions'][0],
+                                 'object')
             self.log("   Installation")
 
         # register ptypes to portal_calendar
@@ -114,32 +128,34 @@ class CPSInstaller(BaseInstaller):
         workspaces = self.portal[WORKSPACES_ID]
 
         if not '.cps_workflow_configuration' in workspaces.objectIds():
-            raise "DependanceError", 'no .cps_workflow_configuration in Workspace'
+            raise "DependanceError", \
+                  'no .cps_workflow_configuration in Workspace'
         else:
-            wfc = getattr(workspaces, '.cps_workflow_configuration')
-
-        for ptype in self.newptypes:
-            if 'cps_workspace_wf' in self.flextypes[ptype].keys():
-                wwf = self.flextypes[ptype]['cps_workspace_wf']
-            else:
-                wwf = 'workspace_content_wf'
-            self.log("  Add %s chain to portal type %s in %s of %s" % (
-                wwf, ptype, '.cps_workflow_configuration', WORKSPACES_ID))
-            wfc.manage_addChain(portal_type=ptype, chain=wwf)
+            workspace_wfc = getattr(workspaces, '.cps_workflow_configuration')
 
         if not '.cps_workflow_configuration' in sections.objectIds():
-            raise "DependanceError", 'no .cps_workflow_configuration in Section'
+            raise "DependanceError", \
+                  'no .cps_workflow_configuration in Section'
         else:
-            wfc = getattr(sections, '.cps_workflow_configuration')
+            section_wfc = getattr(sections, '.cps_workflow_configuration')
 
         for ptype in self.newptypes:
-            if 'cps_section_wf' in self.flextypes[ptype].keys():
+            if self.flextypes[ptype].has_key('cps_workspace_wf'):
+                wwf = self.flextypes[ptype]['cps_workspace_wf']
+                workspace_wfc.manage_addChain(portal_type=ptype, chain=wwf)
+                self.log("  Add %s chain to portal type %s in %s of %s" % (
+                    wwf, ptype, '.cps_workflow_configuration', WORKSPACES_ID))
+            elif self.flextypes[ptype].has_key('cps_section_wf'):
                 wwf = self.flextypes[ptype]['cps_section_wf']
+                section_wfc.manage_addChain(portal_type=ptype, chain=wwf)
+                wwf = 'workspace_content_wf'
+                self.log("  Add %s chain to portal type %s in %s of %s" % (
+                    wwf, ptype, '.cps_workflow_configuration', SECTIONS_ID))
             else:
-                wwf = 'section_content_wf'
-            self.log("  Add %s chain to portal type %s in %s of %s" % (
-                wwf, ptype, '.cps_workflow_configuration', SECTIONS_ID))
-            wfc.manage_addChain(portal_type=ptype, chain=wwf)
+                section_wfc.manage_addChain(portal_type=ptype,
+                                            chain='section_content_wf')
+                workspace_wfc.manage_addChain(portal_type=ptype,
+                                              chain='workspace_content_wf')
 
     def updatePortalTree(self):
         # register folderish document types in portal_tree
