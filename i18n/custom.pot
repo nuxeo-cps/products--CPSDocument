@@ -42,6 +42,9 @@ msgstr ""
 msgid "cpsdoc_flex_content_label_edit"
 msgstr ""
 
+msgid "cpsdoc_flex_content_right_label_edit"
+msgstr ""
+
 msgid "cpsdoc_flex_attachedFile_title"
 msgstr ""
 
@@ -63,6 +66,11 @@ msgstr ""
 msgid "cpdoc_flex_link_label_edit"
 msgstr ""
 
+msgid "cpsdoc_flex_textimage_title"
+msgstr ""
+
+msgid "cpsdoc_flex_textimage_label_edit"
+msgstr ""
 
 # Flexible
 msgid "portal_type_Flexible_title"

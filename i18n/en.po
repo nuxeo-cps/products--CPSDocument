@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-03 16:30default\n"
-"PO-Revision-Date: 2003-12-03 16:31+0100\n"
+"POT-Creation-Date: 2003-12-12 16:36default\n"
+"PO-Revision-Date: 2003-12-12 16:44+0100\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -20,15 +20,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;X-Generator: KBabel 1.0.2\n"
 "X-Generator: KBabel 1.0.1\n"
 
-#.   <h1>
+#.   <h1 condition="creation">
 #.         Create a document of type
 #.         ${type_name (tal content="request/type_name")}
 #.       </h1>
-#: from ../skins/cps_document/cpsdocument_create_form.pt
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
 msgstr "Create a document of type ${type_name}"
 
-#.   <h1 condition="not:metadata">Edit ${title (tal content="here/title_or_id")}</h1>
+#.   <h1 condition="edition">Edit ${title (tal content="here/title_or_id")}</h1>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr "Edit \"${title}\""
@@ -162,10 +162,13 @@ msgid "cpsdoc_preview_label_edit"
 msgstr "Icon: "
 
 msgid "cpsdoc_flex_content_title"
-msgstr "Text block"
+msgstr "Text: "
 
 msgid "cpsdoc_flex_content_label_edit"
 msgstr "Text block: "
+
+msgid "cpsdoc_flex_content_right_label_edit"
+msgstr "Rigth column text: "
 
 msgid "cpsdoc_flex_attachedFile_title"
 msgstr "Attached file"
@@ -188,6 +191,12 @@ msgstr "Link"
 
 msgid "cpdoc_flex_link_label_edit"
 msgstr "Http link: "
+
+msgid "cpsdoc_flex_textimage_title"
+msgstr "Image and Text block"
+
+msgid "cpsdoc_flex_textimage_label_edit"
+msgstr "Text and image block: "
 
 # default doc types
 msgid "portal_type_Flexible_title"
