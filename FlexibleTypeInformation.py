@@ -219,11 +219,13 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         id = m(*args, **kw) or id  # allow factory to munge ID
         ob = container._getOb( id )
 
-        # Init from datamodel, if present.
-        datamodel = kw.get('datamodel')
-        if datamodel is not None:
-            datamodel._setObject(ob) # proxy=None as we don't have it here
-            datamodel._commit(check_perms=0)
+        # Init from datamodel if present, or from an empty one
+        # to get default values.
+        dm = kw.get('datamodel')
+        if dm is None:
+            dm = self.getDataModel(None, context=container)
+        dm._setObject(ob) # proxy=None as we don't have it here
+        dm._commit(check_perms=0)
 
         return ob
 
