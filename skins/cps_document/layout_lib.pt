@@ -65,7 +65,7 @@
   name='form' enctype='multipart/form-data'>
   <div class='group'>" />
   <input type="hidden" name="type_name" value="."
-    tal:condition="creation" tal:attributes="value request/type_name">
+    tal:condition="creation" tal:attributes="value request/type_name" />
 </tal:block>
 
 <table width="100%" cellpadding="2" cellspacing="2" border="0"
@@ -115,16 +115,16 @@
             <input type="submit" value="button_move_up"
               tal:condition="not:repeat/row/start"
               tal:attributes="name string:uprow_${repeat/row/index}"
-              class="context moveUp" i18n:attributes="value">
+              class="context moveUp" i18n:attributes="value" />
             <input type="submit" value="button_move_down"
               tal:condition="not:repeat/row/end"
               tal:attributes="name string:downrow_${repeat/row/index}"
-              class="context moveDown" i18n:attributes="value">
+              class="context moveDown" i18n:attributes="value" />
             <input type="submit" value="button_delete"
               class="destructive" i18n:attributes="value"
               tal:attributes="name string:deleterow_${repeat/row/index};
                               onclick python:'return window.confirm(\'%s\')' %
-                                (cpsmcat('description_confirm_delete'), )">
+                                (cpsmcat('description_confirm_delete'), )" />
           </div>
         </div>
       </tal:block>
@@ -135,7 +135,7 @@
 <tal:block condition="is_flexible">
 <div style="float: right;">
   <input type="hidden" name="layout_id" value="."
-    tal:attributes="value layout/layout_id">
+    tal:attributes="value layout/layout_id" />
   <select name="widget_type">
     <tal:block repeat="widget options/flexible_widgets">
     <option value="."
@@ -151,7 +151,7 @@
   </select>
   <input type="submit" name="addwidget_button" value="button_add"
    class="context"
-   i18n:attributes="value">
+   i18n:attributes="value" />
 </div>
 <br /><br />
 </tal:block>
@@ -159,9 +159,10 @@
 <tal:block condition="last_layout">
   <metal:block define-slot="additional_content" />
   <input type="submit" class="standalone" name="cpsdocument_edit_button"
-    value="button_change" i18n:attributes="value" tal:condition="not:creation">
+    value="button_change" i18n:attributes="value"
+    tal:condition="not:creation" />
   <input type="submit" class="standalone" name="cpsdocument_create_button"
-    value="button_create" i18n:attributes="value" tal:condition="creation">
+    value="button_create" i18n:attributes="value" tal:condition="creation" />
   <tal:block content="structure string:</div></form>" />
 </tal:block>
 
