@@ -29,3 +29,4 @@ New internal features:
 - no more title and description in schema def using metadata schema with Title and Description
 - refactoring cpsdocument_*.pt renaming few scripts like 
   cpsdocument_create.py -> createCPSDocument
+- Link document rewrite using compound link widget same for Flexible doc
