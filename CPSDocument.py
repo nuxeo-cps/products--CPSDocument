@@ -254,11 +254,12 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
         This is informative only, for display purposes. It's used
         by the ZMI for instance, and also by CPS folder listing.
+
+        NB: get_size() is part of the Zope and CMF API.
         """
         if self._size:
             return self._size
         return self._compute_size()
-
 
     security.declarePrivate('_compute_size')
     def _compute_size(self, datamodel=None):
