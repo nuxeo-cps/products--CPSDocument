@@ -160,7 +160,7 @@ class Installer:
             self.log("   Installation")
 
         # register ptypes to portal_calendar
-        if display_in_cmf_calendar:
+        if display_in_cmf_calendar and hasattr(self.portal, 'portal_calendar'):
             self.portal.portal_calendar.calendar_types = display_in_cmf_calendar
 
     def updateWorkflowAssociations(self):
@@ -259,7 +259,7 @@ def install(self):
     return installer.logResult()
 
 def cmfinstall(self):
-    installer = Installer(self)
+    installer = CMFInstaller(self)
     installer.install()
     return installer.logResult()
 
