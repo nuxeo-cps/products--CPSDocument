@@ -349,7 +349,7 @@ book_type = {
     'immediate_view': 'cpsdocument_view',
     'global_allow': 1,
     'filter_content_types': 1,
-    'allowed_content_types': ('Page',),
+    'allowed_content_types': ('Page','Chapter'),
     'allow_discussion': 0,
     'cps_is_searchable': 1,
     'cps_proxy_type': 'folderishdocument',
