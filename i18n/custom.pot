@@ -38,6 +38,16 @@ msgstr ""
 msgid "cpsdoc_allow_discussion_label_edit"
 msgstr ""
 
+msgid "cpsdoc_popup_mode_label_edit"
+msgstr ""
+
+msgid "cpsdoc_popup_width_label_edit"
+msgstr ""
+
+msgid "cpsdoc_popup_height_label_edit"
+msgstr ""
+
+
 # flex content
 msgid "cpsdoc_flex_content_title"
 msgstr ""

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
-"POT-Creation-Date: 2004-04-08 16:28default\n"
+"POT-Creation-Date: 2004-07-02 17:07default\n"
 "PO-Revision-Date: 2004-05-10 12:37+0100\n"
 "Last-Translator: Paolo Dina <paolo@php3.it>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -21,27 +21,24 @@ msgstr ""
 #.         Create a document of type
 #.         ${type_name}
 #.       </h1>
-#: from
-#: ../skins/cps_document/cpsdocument_edit_form.pt
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
 msgstr "Crea un documento di tipo ${type_name}"
 
 #.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
-#: from
-#: ../skins/cps_document/cpsdocument_edit_form.pt
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr "Modifica ${title}"
 
 #    <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
-#: from
-#: ../skins/cps_document/layout_page_view.pt
+#.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
+#: from ../skins/cps_document/layout_page_view.pt
 msgid "Page ${page}"
 msgstr "Pagina ${page}"
 
 #    <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
-#.   <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
-#: from
-#: ../skins/cps_document/layout_lib.pt
+#.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
+#: from ../skins/cps_document/layout_lib.pt
 msgid "Type"
 msgstr "Tipo"
 
@@ -49,45 +46,44 @@ msgstr "Tipo"
 #                            type_info python:here.portal_types[type_name]" content="type_info/Title">Type Title</block>
 #    <block define="type_name request/type_name;
 #                            type_info python:here.portal_types[type_name]" content="type_info/Title">Type Title</block>
-#: from
-#: ../skins/cps_document/cpsdocument_edit_form.pt
+#.   <block content="type_info/Title" define="type_name request/type_name;
+#.                           type_info python:here.portal_types[type_name]">Type Title</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Type Title"
 msgstr ""
 
 #.   <span>to</span>
-#: from
-#: ../skins/cps_document/layout_event_view.pt
+#: from ../skins/cps_document/layout_event_view.pt
 msgid "cpsdoc_Event_end_label"
 msgstr " a "
 
 #.   <span>from</span>
-#: from
-#: ../skins/cps_document/layout_event_view.pt
+#: from ../skins/cps_document/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "Da "
 
 #    <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
-#: from
-#: ../skins/cps_document/layout_page_view.pt
+#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
+#: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
 msgstr "Pagina successiva"
 
 #    <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
-#: from
-#: ../skins/cps_document/layout_page_view.pt
+#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
+#: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
 msgstr "Pagina precedente"
 
 # default doc types
 #    <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
-#: from
-#: ../skins/cps_document/layout_page_view.pt
+#.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
+#: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_toc"
 msgstr "Indice"
 
 #    <h3>cpsdoc_title_toc</h3>
-#: from
-#: ../skins/cps_document/layout_book_view.pt
+#.   <h3>cpsdoc_title_toc</h3>
+#: from ../skins/cps_document/layout_book_view.pt
 msgid "cpsdoc_title_toc"
 msgstr "Indice"
 
@@ -97,45 +93,55 @@ msgstr "Indice"
 #.   <span>
 #.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #.     </span>
-#: from
-#: ../skins/cps_document/layout_imagegallery_view.pt
+#: from ../skins/cps_document/layout_imagegallery_view.pt
 msgid "description_up_to"
 msgstr "Risali a ${up_id}"
 
-#.   <em content="err" style="color: red">err</em>
-#: from
-#: ../skins/cps_document/layout_lib.pt
+#.   <em style="color: red" content="err">err</em>
+#: from ../skins/cps_document/layout_lib.pt
 msgid "err"
 msgstr "Errore "
 
 #    <span condition="metadata">heading_metadata_edit</span>
-#: from
-#: ../skins/cps_document/cpsdocument_edit_form.pt
+#.   <span condition="metadata">heading_metadata_edit</span>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "heading_metadata_edit"
 msgstr "Modifica dei metadati"
 
 #    <h1>heading_metadata_view</h1>
 #.   <h1>heading_metadata_view</h1>
-#: from
-#: ../skins/cps_document/layout_metadata_view.pt
+#: from ../skins/cps_document/layout_metadata_view.pt
 msgid "heading_metadata_view"
 msgstr "Mostra metadati"
 
 #    <span condition="widget/is_i18n" content="widget/help">i18_key-help_for_this_field</span>
 #    <span condition="widget/is_i18n" content="widget/help">i18_key-help_for_this_field</span>
-#: from
-#: ../skins/cps_document/layout_lib.pt
+#.   <span content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</span>
+#: from ../skins/cps_document/layout_lib.pt
 msgid "i18_key-help_for_this_field"
 msgstr ""
 
-#.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
-#.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>
+#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
+#.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
-#: from
-#: ../skins/cps_document/layout_lib.pt
+#: from ../skins/cps_document/layout_lib.pt
 #: ../skins/cps_document/layout_metadata_view.pt
 msgid "label"
 msgstr "etichetta"
+
+#.   <a href="." attributes="href python:'/'+ 
+#.                                       itemList[pos + 1].absolute_url(relative=1) + 
+#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#: from ../skins/cps_document/popup_image.pt
+msgid "next"
+msgstr ""
+
+#.   <a href="." attributes="href python:'/'+
+#.                                       itemList[pos - 1].absolute_url(relative=1) +
+#.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
+#: from ../skins/cps_document/popup_image.pt
+msgid "previous"
+msgstr ""
 
 msgid "cpsdoc_title_label_edit"
 msgstr "Titolo: "
@@ -157,6 +163,18 @@ msgstr "Icona: "
 
 msgid "cpsdoc_allow_discussion_label_edit"
 msgstr "Attiva i commenti:"
+
+#, fuzzy
+msgid "cpsdoc_popup_mode_label_edit"
+msgstr "Data: "
+
+#, fuzzy
+msgid "cpsdoc_popup_width_label_edit"
+msgstr "Data: "
+
+#, fuzzy
+msgid "cpsdoc_popup_height_label_edit"
+msgstr "Altezza delle miniature"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Blocco di testo"
@@ -345,7 +363,8 @@ msgid "cpsdoc_imgallery_col_label_edit"
 msgstr "Numero di colonne per pagina"
 
 msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Visualizza tutti gli elementi se non è stata selezionata nessuna lettera:"
+msgstr ""
+"Visualizza tutti gli elementi se non è stata selezionata nessuna lettera:"
 
 msgid "cpsdoc_glossary_term_label_edit"
 msgstr "Termine"
@@ -383,13 +402,19 @@ msgid "cpsdoc_hidden_folder"
 msgstr "Nascondi questa cartella nella navigazione"
 
 msgid "cpsdoc_hidden_folder_help"
-msgstr "Questa cartella risulterà nascosta nella modalità di visualizzazione, benché sia possibile ancora visualizzare e accedere ad essa utilizzando 'Contenuti della cartella' e quando si deve scegliere una sezione per la pubblicazione. Utilizza 'Ruoli locali' per consentire l'accesso alla cartella."
+msgstr ""
+"Questa cartella risulterà nascosta nella modalità di visualizzazione, benché "
+"sia possibile ancora visualizzare e accedere ad essa utilizzando 'Contenuti "
+"della cartella' e quando si deve scegliere una sezione per la pubblicazione. "
+"Utilizza 'Ruoli locali' per consentire l'accesso alla cartella."
 
 msgid "help_dc_subject"
 msgstr "L'argomento del contenuto della risorsa."
 
 msgid "help_dc_contirbutors"
-msgstr "Entità responsabili della produzione di un contributo al contenuto della risorsa."
+msgstr ""
+"Entità responsabili della produzione di un contributo al contenuto della "
+"risorsa."
 
 msgid "help_dc_source"
 msgstr "Riferimento a una risorsa dalla quale è derivata la risorsa in oggetto"
@@ -402,4 +427,3 @@ msgstr "Un riferimento (URL) ad una risorsa affine."
 
 msgid "label_portal_type"
 msgstr "Tipo di risorsa"
-
