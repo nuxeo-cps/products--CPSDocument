@@ -1,13 +1,15 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
 -
+
 New features:
 ~~~~~~~~~~~~~
-- Flexible use Photo block instead of Image Block
+-
+
 Bug fixes:
 ~~~~~~~~~~
-- P1 Flexible document unauthorize when adding blocks if non manager
-- P2 Remove html tag in summary
+-
+
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

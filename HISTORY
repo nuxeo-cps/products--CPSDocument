@@ -1,4 +1,21 @@
 *******************************************
+** CPSDocument V0.6.1 [R1 build 2003/11/19-17:49 by ben]
+
+ZODB Requires:
+~~~~~~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- Flexible use Photo block instead of Image Block
+Bug fixes:
+~~~~~~~~~~
+- P1 Flexible document unauthorize when adding blocks if non manager
+- P2 Remove html tag in summary
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.6.0 [R1 build 2003/11/17-15:28 by ben]
 
 ZODB Requires:
