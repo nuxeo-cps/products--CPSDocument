@@ -19,6 +19,7 @@ ZODB Requires:
 New features:
 ~~~~~~~~~~~~~
 - handle list of layouts vs single layout per ptype
+- no more editlayout mode, a layout is editable if flexible
 Bug fixes:
 ~~~~~~~~~~
 -
@@ -32,3 +33,4 @@ New internal features:
 - Flexible documents can now have several layouts.
 - Style specification is now done on the layout itself.
 - Refactored to use correct validation and rendering.
+- no more layout_xxx_editlayout as editlayout is handle in edit mode
