@@ -221,7 +221,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         id = m(*args, **kw) or id  # allow factory to munge ID
         ob = container._getOb( id )
-        return self._finishConstruction(ob)
+        return ob
 
     security.declarePrivate('_getFactoryMethodNoSec')
     def _getFactoryMethodNoSec(self, container):
