@@ -1,10 +1,5 @@
 <!-- a layout_lib macro -->
 <!-- $Id$ -->
-
-<!--
-&lt;!-- ============================================================ --&gt;
--->
-
 <metal:block define-macro="default_edit"
   tal:define="layout options/layout;
               ds options/datastructure;
@@ -27,14 +22,14 @@
 <tal:block condition="first_layout">
   <tal:block
   content="structure string:<form action='${formaction}' method='post'
-  name='form' enctype='multipart/form-data'>
-  <div class='group'>" />
+  enctype='multipart/form-data' class='workflow'>
+  <div class='group'><div class='documentFields'>" />
   <input type="hidden" name="type_name" value="."
     tal:condition="creation" tal:attributes="value request/type_name" />
 </tal:block>
 
 <table width="100%" cellpadding="2" cellspacing="2" border="0"
-  summary="form layout">
+  summary="Form layout">
   <tr tal:repeat="row layout/rows" valign="top">
     <td tal:repeat="cell row"
       tal:attributes="colspan cell/ncols">
@@ -121,11 +116,34 @@
    class="context"
    i18n:attributes="value" />
 </div>
-<br /><br />
 </tal:block>
 
 <tal:block condition="last_layout">
+  <tal:block content="structure string:</div>" />
   <metal:block define-slot="additional_content" />
+
+  <tal:block condition="not:creation">
+    <div class="tooltipArea" style="visibility: hidden;"
+      id="transition_comments_help"
+      onclick="showElement(false, 'transition_comments_help')"
+      i18n:translate="help_transition_comments_modification">
+      In this filed you can give the reason of the modification that you are doing on this document.
+      Your comments may be used to notify other users.
+    </div>
+    <dl>
+      <dt><label for="comments"
+          i18n:translate="transition_comments_modification">Reason of the modification</label>
+        <button type="button" class="tooltipControl"
+          onclick="toggleElementVisibility('transition_comments_help')"> ? </button>
+      </dt>
+      <dd>
+        <textarea name="comments" id="comments" cols="60" rows="5"
+          tal:content="nothing">
+        </textarea>
+      </dd>
+    </dl>
+  </tal:block>
+
   <input type="submit" class="standalone" name="cpsdocument_edit_button"
     value="button_change" i18n:attributes="value"
     tal:condition="not:creation" />
