@@ -27,8 +27,8 @@
          tal:replace="structure python: ti.renderCreateObject(
              container=here, request=request,
              validate=validate, mode='create',
-             create_function='cpsdocument_create',
-             redirect_action='metadata_edit_form')">
+             create_callback='cpsdocument_create',
+             created_callback='cpsdocument_created')">
       (doc rendering)
     </div>
   </metal:block>

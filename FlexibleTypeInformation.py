@@ -600,7 +600,7 @@ class FlexibleTypeInformation(TypeInformation):
     security.declarePublic('renderCreateObject')
     def renderCreateObject(self, container, request=None, validate=1,
                            mode='create', layout_id=None,
-                           create_function=None, redirect_action=None,
+                           create_callback=None, created_callback=None,
                            **kw):
         """Render an object for creation, maybe create it.
 
@@ -612,10 +612,10 @@ class FlexibleTypeInformation(TypeInformation):
         - if there is a validation error:
           - the object is rendered in mode mode,
         - if there is no validation error:
-          - the object is created by calling create_function in the
+          - the object is created by calling create_callback in the
             context of the container and with argument the type_name
             and the datamodel,
-          - a redirect is done to redirect_action on the object.
+          - created_callback is called in the context of the object.
         """
         dm = self.getDataModel(None)
         ds = DataStructure(datamodel=dm)
@@ -633,12 +633,12 @@ class FlexibleTypeInformation(TypeInformation):
             ds.updateFromMapping(request.form)
             ok = layoutob.validateLayout(layoutdata, ds)
             if ok:
-                func = getattr(container, create_function, None)
-                if func is None:
-                    raise ValueError("Unknown create_function %s" %
-                                     create_function)
+                create_func = getattr(container, create_callback, None)
+                if create_func is None:
+                    raise ValueError("Unknown create_callback %s" %
+                                     create_callback)
                 type_name = self.getId()
-                proxy = func(type_name, dm)
+                proxy = create_func(type_name, dm)
                 # XXX check proxy is accessible?
                 if hasattr(aq_base(proxy), 'getContent'):
                     # Get CPS content object.
@@ -647,9 +647,11 @@ class FlexibleTypeInformation(TypeInformation):
                     ob = proxy
                 dm._setObject(ob, proxy=proxy)
                 self._commitDM(dm)
-                url = proxy.absolute_url()+'/'+redirect_action
-                self.REQUEST.RESPONSE.redirect(url)
-                return ' '
+                created_func = getattr(proxy, created_callback, None)
+                if created_func is None:
+                    raise ValueError("Unknown created_callback %s" %
+                                     created_callback)
+                return created_func() or ''
 
         return self._renderLayoutStyle(container, mode, layout=layoutdata,
                                        datastructure=ds, ok=ok,
