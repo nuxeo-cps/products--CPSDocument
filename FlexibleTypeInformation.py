@@ -157,7 +157,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         {'id': 'layout_clusters', 'type': 'tokens', 'mode': 'w',
          'label': 'Layout clusters'},
         # Layout clusters: sequence of tokens of the form
-        #  clusterid:layoutid,-layoutid,layoutid...
+        #  clusterid:layoutid,layoutid,layoutid...
         {'id': 'flexible_layouts', 'type': 'tokens', 'mode': 'w',
          'label': 'Flexible layouts'}, # XXX layout1:schema1 layout2:schema2
         {'id': 'storage_methods', 'type': 'tokens', 'mode': 'w',
@@ -600,6 +600,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         Returns a list of layout ids.
         """
+        layout_ids = None
         if layout_id is not None:
             if isinstance(layout_id, str):
                 layout_ids = [layout_id]
@@ -609,41 +610,24 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                 raise ValueError("Invalid layout id %s in portal_type '%s'"
                                  % (`layout_id`, self.getId()))
         elif cluster is not None:
-            # parse cluster definitions
-            base = None
-            default = None
-            cldef = []
             for s in self.layout_clusters:
                 try:
                     cl, v = s.split(':')
-                    v = v.split(',')
+                    if v:
+                        v = v.split(',')
+                    else:
+                        v = []
                 except ValueError:
                     LOG('getLayoutIds', PROBLEM,
                         "Invalid layout cluster %s in portal_type '%s'"
                         %(`s`, self.getId()))
                     continue
-                if cl == 'default':
-                    default = v
-                if cl == cluster:
-                    cldef = v
-                    break
-            # parse cluster def
-            if not cldef or cldef[0].startswith('-'):
-                if default is not None:
-                    cldef = default + cldef
-            if not cldef or cldef[0].startswith('-'):
-                layout_ids = list(self.layouts)
-            else:
-                layout_ids = []
-            for lid in cldef:
-                if lid.startswith('-'):
-                    lid = lid[1:]
-                    if lid in layout_ids:
-                        layout_ids.remove(lid)
-                else:
-                    if lid not in layout_ids:
-                        layout_ids.append(lid)
-        else:
+                if cl != cluster:
+                    continue
+                layout_ids = v
+                break
+
+        if layout_ids is None:
             layout_ids = list(self.layouts)
 
         return layout_ids

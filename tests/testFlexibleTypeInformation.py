@@ -34,37 +34,33 @@ from Products.CPSDocument.FlexibleTypeInformation \
 
 class TestFlexibleTypeInformation(unittest.TestCase):
 
-    def testInterfaces(self):
+    def test_Interfaces(self):
         verifyClass(IContentTypeInformation, FlexibleTypeInformation)
 
     def test_getLayoutIds(self):
-        ti = FlexibleTypeInformation('myti')
-        ti.layouts = ['foo', 'bar', 'baz']
-        basic = ['foo', 'bar', 'baz']
+        default = ['foo', 'bar', 'baz']
+        ti = FlexibleTypeInformation('myti', layouts=default)
         func = ti.getLayoutIds
 
         ti.layout_clusters = ['']
-        self.assertEquals(func(), basic)
-        self.assertEquals(func(cluster='view'), basic)
+        self.assertEquals(func(), default)
+        self.assertEquals(func(cluster='view'), default)
+        self.assertEquals(func(cluster='babar'), default)
 
-        ti.layout_clusters = ['view:blob']
-        self.assertEquals(func(cluster='view'), ['blob'])
+        ti.layout_clusters = ['view:']
+        self.assertEquals(func(), default)
+        self.assertEquals(func(cluster='view'), [])
+        self.assertEquals(func(cluster='babar'), default)
 
-        ti.layout_clusters = ['view:-bar']
-        self.assertEquals(func(cluster='view'), ['foo', 'baz'])
+        ti.layout_clusters = ['view:goldorak']
+        self.assertEquals(func(), default)
+        self.assertEquals(func(cluster='view'), ['goldorak'])
+        self.assertEquals(func(cluster='babar'), default)
 
-        ti.layout_clusters = ['default:hum,ham']
-        self.assertEquals(func(cluster='view'), ['hum', 'ham'])
-
-        ti.layout_clusters = ['default:-bar,h']
-        self.assertEquals(func(cluster='view'), ['foo', 'baz', 'h'])
-
-        ti.layout_clusters = ['default:be,bop,b', 'view:-bop,arf']
-        self.assertEquals(func(cluster='view'), ['be', 'b', 'arf'])
-
-        ti.layout_clusters = ['default:-bar,h', 'view:-baz,i']
-        self.assertEquals(func(cluster='view'), ['foo', 'h', 'i'])
-
+        ti.layout_clusters = ['view:blob,mickey']
+        self.assertEquals(func(), default)
+        self.assertEquals(func(cluster='view'), ['blob', 'mickey'])
+        self.assertEquals(func(cluster='babar'), default)
 
 def test_suite():
     return unittest.TestSuite((

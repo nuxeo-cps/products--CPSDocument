@@ -15,4 +15,5 @@ New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - splitting macros in progress
 - fix for #453 makes accessible JavaScript library
-- Experimental support for layout clusters in portal types.
+- Support for layout clusters in flexible type informations; used by
+  calling doc.render(..., cluster='foo') (or renderEdit or others).
