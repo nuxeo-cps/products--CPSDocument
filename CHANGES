@@ -3,7 +3,9 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- Modified the file schema to make it possible to have HTML previews with
+  images
+
 Bug fixes:
 ~~~~~~~~~~
 -

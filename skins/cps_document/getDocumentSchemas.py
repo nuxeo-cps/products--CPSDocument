@@ -179,8 +179,16 @@ file_schema = {
         'data': {
                 'default_expr': 'nothing',
                 'is_searchabletext': 0,
-                'suffix_html': '_html',
                 'suffix_text': '_text',
+                'suffix_html': '_html',
+                'suffix_html_subfiles': '_html_subfiles',
+            },
+        },
+    'file_text': {
+        'type': 'CPS String Field',
+        'data': {
+                'default_expr': 'string:',
+                'is_searchabletext': 1,
             },
         },
     'file_html': {
@@ -190,11 +198,11 @@ file_schema = {
                 'is_searchabletext': 0,
             },
         },
-    'file_text': {
-        'type': 'CPS String Field',
+    'file_html_subfiles': {
+        'type': 'CPS SubObjects Field',
         'data': {
-                'default_expr': 'string:',
-                'is_searchabletext': 1,
+                'default_expr': 'nothing',
+                'is_searchabletext': 0,
             },
         },
     }
