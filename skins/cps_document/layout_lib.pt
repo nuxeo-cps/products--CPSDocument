@@ -9,8 +9,10 @@
 <table width="100%" cellpadding="2" cellspacing="2" border="0">
   <tr tal:repeat="row layout/rows">
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
-      <tal:block define="widget cell/widget"
-        condition="not:widget/hidden_view">
+      <tal:block define="widget cell/widget;
+        wrender python:widget.render('view', ds, dm)"
+        condition="python: not widget.hidden_view and
+                           (not widget.hidden_empty or wrender.strip())">
       <div tal:attributes="class widget/css_class|nothing">
         <tal:block condition="widget/label">
           <span i18n:translate="" tal:condition="widget/is_i18n"
@@ -18,7 +20,7 @@
           <span tal:condition="not:widget/is_i18n"
             tal:content="widget/label">label</span>
         </tal:block>
-        <tal:block replace="structure python:widget.render('view', ds, dm)" />
+        <tal:block replace="structure wrender" />
       </div>
       </tal:block>
     </td>
@@ -33,8 +35,10 @@
               dm options/datamodel;">
   <tal:block repeat="row layout/rows">
     <tal:block repeat="cell row">
-      <tal:block define="widget cell/widget"
-        condition="not:widget/hidden_view">
+      <tal:block define="widget cell/widget;
+        wrender python:widget.render('view', ds, dm)"
+        condition="python: not widget.hidden_view and
+                           (not widget.hidden_empty or wrender.strip())">
       <div tal:attributes="class widget/css_class|nothing">
         <tal:block condition="widget/label">
           <span i18n:translate="" tal:condition="widget/is_i18n"
@@ -42,7 +46,7 @@
           <span tal:condition="not:widget/is_i18n"
             tal:content="widget/label">label</span>
         </tal:block>
-        <tal:block replace="structure python:widget.render('view', ds, dm)" />
+        <tal:block replace="structure wrender" />
       </div>
       </tal:block>
     </tal:block>
