@@ -1,6 +1,7 @@
 <tal:block define="res python:here.editCPSDocument(REQUEST=request);
                    rendered_main python: res[0];
                    portal_status_message python: res[1];
+                   edition python:1;
   ">
 <metal:block define-macro="edit_form">
 <metal:block use-macro="here/content_lib/macros/master">
@@ -35,12 +36,17 @@
   </metal:block>
 
   <metal:block fill-slot="header"
-    tal:define="metadata metadata|nothing">
-    <h1 tal:condition="metadata"
-      i18n:translate="">heading_metadata_edit</h1>
-    <h1 tal:condition="not:metadata"
-      i18n:translate="">Edit <span i18n:name="title"
+    tal:define="creation creation|nothing;
+                edition edition|nothing;
+                metadata metadata|nothing;">
+    <h1 tal:condition="creation" i18n:translate="">
+      Create a document of type
+      <span i18n:name="type_name"
+        tal:content="request/type_name">Type Name</span>
+    </h1>
+    <h1 tal:condition="edition" i18n:translate="">Edit <span i18n:name="title"
       tal:content="here/title_or_id">Page Title</span></h1>
+    <h1 tal:condition="metadata" i18n:translate="">heading_metadata_edit</h1>
   </metal:block>
 
   <metal:block fill-slot="main">
