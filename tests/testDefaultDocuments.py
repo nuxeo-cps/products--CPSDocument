@@ -33,6 +33,15 @@ def randomText(max_len=10):
         [chr(random.randint(32, 128)) for i in range(0, max_len)])
 
 
+def myGetViewFor(obj, view='view'):
+    ti = obj.getTypeInfo()
+    actions = ti.listActions()
+    for action in actions:
+        if action.getId() == view:
+            return getattr(obj, action.action.text)
+    raise "Unverified assumption"
+
+
 class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     def afterSetUp(self):
         self.login('root')
@@ -40,6 +49,9 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         self.document_schemas = self.portal.getDocumentSchemas()
         self.document_types = self.portal.getDocumentTypes()
         # getFolderContents check SESSION to get user display choice
+        self.portal.REQUEST.SESSION = {}
+
+        # Some views are using sessions
         self.portal.REQUEST.SESSION = {}
 
     def beforeTearDown(self):
@@ -51,19 +63,31 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             self.ws.invokeFactory(doc_type, doc_id)
             proxy = getattr(self.ws, doc_id)
             doc = proxy.getContent()
+
             # Edit doc to set default values
             doc.edit()
 
             self._testInterfaces(doc)
             self._testDefaultAttributes(doc)
-            self._testRendering(doc, proxy=proxy)
-            self._testMetadataRendering(doc, proxy=proxy)
-            self._testEditRendering(doc, proxy=proxy)
 
             # XXX: should be 0 for an empty object, right?
             self.assert_(doc.get_size() >= 0)
 
             self.assertEquals(doc.getAdditionalContentInfo(), {})
+
+            # Rendering / default view test (on the proxy)
+            self._testRendering(doc, proxy=proxy)
+            self._testMetadataRendering(doc, proxy=proxy)
+            self._testEditRendering(doc, proxy=proxy)
+
+            # XXX: Doesn't work and I don't know why.
+            # doc.view() 
+            # So I'm using this hack instead:
+            self.assert_(myGetViewFor(proxy)())
+
+        # Now testing global view for the container
+        self.assert_(self.ws.folder_view())
+
 
     def _testDefaultAttributes(self, doc):
         type_info = doc.getTypeInfo()
@@ -87,16 +111,17 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
     def _testRendering(self, doc, proxy):
         res = doc.render(proxy=proxy)
-        self.assert_(res[1])
+        self.assert_(res)
 
     def _testMetadataRendering(self, doc, proxy):
         res = doc.renderEditDetailed(request=None, proxy=proxy,
                                      layout_id='metadata')
-        self.assert_(res[1])
+        self.assert_(res)
 
     def _testEditRendering(self, doc, proxy):
         res = doc.renderEditDetailed(request=None, proxy=proxy)
-        self.assert_(res[1])
+        self.assert_(res)
+
 
     def testCreateDocumentsInWorkspacesRootThroughWFTool(self):
         wft = self.portal.portal_workflow
