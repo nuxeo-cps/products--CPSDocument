@@ -16,6 +16,7 @@ update local workflow associations at the time types are installed.
   can be preview online
 - Made the layouts of Document, News Item, and Flexible content take advantage
   of the new "file_uploader" option of the Text Widget.
+- Subject vocabulary is now i18n
 Bug fixes:
 ~~~~~~~~~~
 - Made the upgradeDocuments() method in the upgrade module more generic.
