@@ -59,9 +59,10 @@ event_type = {
     'cps_proxy_type': 'document',
     'schemas': ['event'],
     'default_layout': 'event',
-    'layout_style_prefix': 'layout_default_',
+    'layout_style_prefix': 'layout_event_',
     'flexible_layouts': [],
     'storage_methods': [],
+    'display_in_cmf_calendar': 1,
     }
 
 file_type = {
@@ -109,7 +110,7 @@ types = {}
 types['FAQ'] = faq_type
 types['News'] = news_type
 types['File'] = file_type
-types['Event'] = event_type
+types['EventDoc'] = event_type
 #types['Dummy Form'] = dummy_form_type
 
 ctypes = context.getCustomDocumentTypes()

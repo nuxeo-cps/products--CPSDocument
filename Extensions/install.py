@@ -125,16 +125,23 @@ def install(self):
     ttool['Workspace'].allowed_content_types = allowed_content_type['Workspace']
 
     ptypes_installed = ttool.objectIds()
-
+    display_in_cmf_calendar = []
     for ptype, data in flextypes.items():
         pr("  Type '%s'" % ptype)
         if ptype in ptypes_installed:
             ttool.manage_delObjects([ptype])
             pr("   Deleted")
         ti = ttool.addFlexibleTypeInformation(id=ptype)
+        if data.get('display_in_cmf_calendar'):
+            display_in_cmf_calendar.append(ptype)
+            del data['display_in_cmf_calendar']
         ti.manage_changeProperties(**data)
         pr("   Installation")
 
+    # register ptypes to portal_calendar
+    if len(display_in_cmf_calendar):
+        portal.portal_calendar.calendar_types = display_in_cmf_calendar
+        
     # check site and workspaces proxies
     sections_id = 'sections'
     workspaces_id = 'workspaces'
@@ -166,7 +173,6 @@ def install(self):
              ptype, '.cps_workflow_configuration', sections_id))
         wfc.manage_addChain(portal_type=ptype,
                             chain='section_content_wf')
-
 
     # importing .po files
     mcat = portal['Localizer']['default']
