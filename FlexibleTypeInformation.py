@@ -474,6 +474,10 @@ class FlexibleTypeInformation(TypeInformation):
         If request is not None, the parameters are validated and the
         object modified, and rendered in the specified mode. If there is
         a validation error, the object is rendered in mode errmode.
+
+        An optional 'proxy' arg can be given, it will be passed to the
+        layouts and used for getEditableContent if the object is
+        modified.
         """
         dm = self.getDataModel(ob)
         ds = DataStructure()
@@ -484,7 +488,7 @@ class FlexibleTypeInformation(TypeInformation):
             ok = layoutob.validateLayout(layoutdata, ds, dm)
             if ok:
                 # Update the object from dm.
-                dm._commit()
+                ob = dm._commit(proxy=kw.get('proxy'))
                 # CMF/CPS stuff.
                 ob.reindexObject()
                 evtool = getToolByName(self, 'portal_eventservice', None)
@@ -513,6 +517,10 @@ class FlexibleTypeInformation(TypeInformation):
         - if there is no validation error:
           - the object is modified, or a storage method is called,
           - the object is renderd in mode okmode.
+
+        An optional 'proxy' arg can be given, it will be passed to the
+        layouts and used for getEditableContent if the object is
+        modified.
         """
         dm = self.getDataModel(ob)
         ds = DataStructure()
@@ -543,7 +551,7 @@ class FlexibleTypeInformation(TypeInformation):
                            datastructure=ds, datamodel=dm, **kw)
                 else:
                     # Do storage by committing the dm.
-                    dm._commit()
+                    ob = dm._commit(proxy=kw.get('proxy'))
                     # CMF/CPS stuff.
                     ob.reindexObject()
                     evtool = getToolByName(self, 'portal_eventservice', None)
@@ -565,6 +573,7 @@ class FlexibleTypeInformation(TypeInformation):
         for key, value in mapping.items():
             if dm.has_key(key):
                 dm[key] = value
+        # No proxy passed, assume ob is already editable.
         dm._commit()
         # CMF/CPS stuff.
         ob.reindexObject()
