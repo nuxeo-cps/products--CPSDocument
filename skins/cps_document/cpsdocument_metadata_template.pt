@@ -2,7 +2,7 @@
 
 <tal:block condition="not: edit_metadata">
   <tal:block define="doc here/getContent;
-    rendered_main python: doc.render(proxy=here, layout_id='metadata');">
+    rendered_main python: doc.render(proxy=here, cluster='metadata');">
     <metal:block use-macro="here/cpsdocument_view/macros/view" />
   </tal:block>
 </tal:block>
