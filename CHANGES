@@ -14,6 +14,8 @@ update local workflow associations at the time types are installed.
   that can be used to create HTML pages.
 - Added the "Zipped HTML" document type, A zip archive that contain html, that 
   can be preview online
+- Made the layouts of Document, News Item, and Flexible content take advantage
+  of the new "file_uploader" option of the Text Widget.
 Bug fixes:
 ~~~~~~~~~~
 - Made the upgradeDocuments() method in the upgrade module more generic.
