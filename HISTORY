@@ -1,4 +1,25 @@
 *******************************************
+** CPSDocument V0.12.0 [R1 build 2004/02/05-15:20 by ben]
+
+ZODB Requires:
+~~~~~~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- sf cosmit on document.css
+- Use faster and more readable condition on document actions.
+- updateWorkflowAssociations() now takes also into account the 'cps_section_wf'
+  attribute for updating .cps_workflow_configuration file in the sections
+  folder.
+- Use CPSDirectory instead of NuxMetaDirectories.
+
+*******************************************
 ** CPSDocument V0.11.0 [R1 build 2004/01/21-10:42 by ben]
 
 ZODB Requires:
