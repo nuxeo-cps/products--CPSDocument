@@ -43,6 +43,7 @@ faq_type = {
     'flexible_layouts': [],
     'storage_methods': [],
     'cps_workspace_wf': 'workspace_folderish_content_wf',
+    'cps_display_as_document_in_listing': 1,
     }
 
 faqitem_type = {
@@ -84,6 +85,7 @@ glossary_type = {
     'flexible_layouts': [],
     'storage_methods': [],
     'cps_workspace_wf': 'workspace_folderish_content_wf',
+    'cps_display_as_document_in_listing': 1,
     }
 
 glossaryitem_type = {
@@ -207,6 +209,7 @@ imagegallery_type = {
     'flexible_layouts': [],
     'storage_methods': [],
     'cps_workspace_wf': 'workspace_folderish_content_wf',
+    'cps_display_as_document_in_listing': 1,
     }
 
 image_type = {
