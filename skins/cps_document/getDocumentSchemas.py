@@ -282,6 +282,35 @@ link_schema = {
 
 
 
+########################################################
+# Image SCHEMA
+########################################################
+
+image_schema = {
+    'title': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'description': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'preview': {
+        'type': 'CPS Image Field',
+        'data': {
+                'default': '',
+                'is_indexed': 0,
+            },
+        },
+    }
+
+
 ###########################################################
 # END OF SCHEMAS DEFINITIONS
 ###########################################################
@@ -293,11 +322,12 @@ schemas = {}
 #
 
 schemas['faq'] = faq_schema
-#schemas['dummy_form'] = dummy_form_schema
 schemas['news'] = news_schema
 schemas['file'] = file_schema
 schemas['event'] = event_schema
 schemas['link'] = link_schema
+schemas['image'] = image_schema
+#schemas['dummy_form'] = dummy_form_schema
 
 cschemas = context.getCustomDocumentSchemas()
 

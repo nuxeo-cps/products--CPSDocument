@@ -415,6 +415,65 @@ link_layout = {
         },
     }
 
+#########################################################
+# IMAGE LAYOUT
+#########################################################
+
+image_layout = {
+    'widgets': {
+        'title': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['title'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_title_label_edit',
+                'css_class': 'dtitle',
+                'is_required': 1,
+                'display_width': 60,
+                'size_max': 72,
+            },
+        },
+        'description': {
+            'type': 'TextArea Widget',
+            'data': {
+                'fields': ['description'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_description_label_edit',
+                'description': '',
+                'css_class': 'ddescription',
+                'is_required': 0,
+                'width': 40,
+                'height': 5,
+                'render_mode': 'stx',
+            },
+        },
+        'preview': {
+            'type': 'Image Widget',
+            'data': {
+                'fields': ['preview'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_Image_label_edit',
+                'label': '',
+                'display_width': 640,
+                'display_height': 600,
+                'size_max': 3*1024*1024,
+            },
+        },
+    },
+    'layout': {
+        'ncols': 1,
+        'rows': [
+            [{'ncols': 1, 'widget_id': 'title'},
+                ],
+            [{'ncols': 1, 'widget_id': 'description'},
+                ],
+            [{'ncols': 1, 'widget_id': 'preview'},
+                ],
+            ],
+        },
+    }
+
+
 
 #########################################################
 # DUMMY FORM LAYOUT
@@ -480,11 +539,12 @@ layouts = {}
 #
 
 layouts['faq'] = faq_layout
-#layouts['dummy_form'] = dummy_form_layout
 layouts['news'] = news_layout
 layouts['file'] = file_layout
 layouts['event'] = event_layout
 layouts['link'] = link_layout
+layouts['image'] = image_layout
+#layouts['dummy_form'] = dummy_form_layout
 
 clayouts = context.getCustomDocumentLayouts()
 
