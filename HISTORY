@@ -1,4 +1,25 @@
 *******************************************
+** CPSDocument V0.4.1 [R1 build 2003-10/18-16:39 by anguenot]
+
+ZODB Requires:
+~~~~~~~~~~~~~~
+-
+
+New features:
+~~~~~~~~~~~~~
+- P1 #187: Create documents without creating empty object.
+- P2 #152: Missing psm on doc modification and creation.
+- P2 #155: Title is wrong for first redisplay after an edit of the title.
+
+Bug fixes:
+~~~~~~~~~~
+- News's theme field type is string and not string list.
+- Adding the layout_event_create.pt that was missing for the creation of an event 
+  document type.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Cosmetic cleanup
+*******************************************
 ** CPSDocument V0.4.0 [R1 build 2003-10/08-14:58 by ben]
 
 ZODB Requires:
