@@ -1,26 +1,20 @@
 # translation of en.po to German
-# Georg Hennemann <georg.hennemann@dhl.com>, 2004.
+# Georg Hennemann <georg.hennemann@dhl.com>, 2005.
+# 
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: de\n"
+"Project-Id-Version: CPSDocument-de CPS-3.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-14 12:14default\n"
-"PO-Revision-Date: 2004-07-12 18:00+0200\n"
+"POT-Creation-Date: 2004-11-03 12:04default\n"
+"PO-Revision-Date: 2005-03-14 10:49+0100\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@dhl.com>\n"
-"Language-Team: francais <rheinland@dzug.org>\n"
+"Language-Team: de <rheinland@dzug.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;X-Generator: KBabel 1.0.2\n"
-"X-Generator: KBabel 1.3.1\n"
-"Domain: default\n"
-"Language-Code: de\n"
+"Plural-Forms: nplurals=1; plural=0;X-Generator: KBabel 1.0.2"
 
-#.   <h1 condition="creation">
-#.         Create a document of type
-#.         ${type_name (tal content="type_info/Title" define="type_name request/type_name;
-#.                           type_info python:here.portal_types[type_name]")}
-#.       </h1>
 #.   <h1 condition="creation">
 #.         Create a document of type
 #.         ${type_name}
@@ -43,8 +37,8 @@ msgid "Page ${page}"
 msgstr "Seite ${page}"
 
 #.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
-#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+#: from ../skins/cps_document/layout_lib.pt
+#: ../skins/cps_document_cmf/layout_lib.pt
 msgid "Type"
 msgstr "nop"
 
@@ -53,24 +47,19 @@ msgstr "nop"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
-msgstr ""
+msgstr "Typ Titel"
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
 #: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_end_label"
-msgstr " - "
+msgstr "Ende Label"
 
 #.   <span>from</span>
 #: from ../skins/cps_document/layout_event_view.pt
 #: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "Von  "
-
-#.   <h2>Import ZIP File</h2>
-#: from ../skins/cps_document/cpsdocument_import_zip_form.pt
-msgid "cpsdoc_import_zip_title"
-msgstr ""
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -97,7 +86,7 @@ msgstr "Inhalt"
 #: ../skins/cps_document_cmf/layout_book_view.pt
 #: ../skins/cps_document_cmf/layout_chapter_view.pt
 msgid "cpsdoc_title_toc"
-msgstr "Inhalt"
+msgstr "Inhaltsverzeichnis"
 
 #.   <span>
 #.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
@@ -107,7 +96,6 @@ msgstr "Inhalt"
 msgid "description_up_to"
 msgstr "Zurück zu ${up_id}"
 
-#.   <block condition="metadata">heading_metadata_edit</block>
 #.   <span condition="metadata">heading_metadata_edit</span>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
@@ -120,40 +108,21 @@ msgstr "Metadaten Bearbeiten "
 msgid "heading_metadata_view"
 msgstr "Metadaten"
 
-#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
-#.         In this filed you can give the reason of the modification that you are doing on this document.
-#.         Your comments may be used to notify other users.
-#.       </div>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
-#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
-msgid "help_transition_comments_modification"
-msgstr ""
-
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
-#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+#: from ../skins/cps_document/layout_lib.pt
+#: ../skins/cps_document_cmf/layout_lib.pt
 msgid "i18_key-help_for_this_field"
-msgstr ""
+msgstr "Hilfe für dieses feld"
 
-#.   <block content="widget/label_edit" condition="widget/is_i18n">label</block>
 #.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
-#.   <strong content="widget/label">label</strong>
 #.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
-#: ../skins/cps_document/layout_lib_default_view.pt
-#: ../skins/cps_document/layout_lib_div_view.pt
+#.   <strong content="widget/label">label</strong>
+#: from ../skins/cps_document/layout_lib.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
-#: ../skins/cps_document_cmf/layout_lib_default_view.pt
-#: ../skins/cps_document_cmf/layout_lib_div_view.pt
+#: ../skins/cps_document_cmf/layout_lib.pt
 #: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "Label"
-
-#.   <block>ZIP File</block>
-#: from ../skins/cps_document/cpsdocument_import_zip_form.pt
-msgid "label_zip_file"
-msgstr ""
 
 #.   <a href="." attributes="href python:'/'+ 
 #.                                       itemList[pos + 1].absolute_url(relative=1) + 
@@ -164,7 +133,7 @@ msgstr ""
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "next"
-msgstr ""
+msgstr "nächste"
 
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos - 1].absolute_url(relative=1) +
@@ -172,13 +141,7 @@ msgstr ""
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "previous"
-msgstr ""
-
-#.   <label for="comments">Reason of the modification</label>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
-#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
-msgid "transition_comments_modification"
-msgstr ""
+msgstr "vorherige"
 
 msgid "cpsdoc_title_label_edit"
 msgstr "Titel: "
@@ -193,11 +156,7 @@ msgid "cpsdoc_date_label_edit"
 msgstr "Datum: "
 
 msgid "cpsdoc_date_label"
-msgstr " "
-
-#, fuzzy
-msgid "cpsdoc_attachedFile_label"
-msgstr "Anhaftende Datei: "
+msgstr "Datum Label"
 
 msgid "cpsdoc_preview_label_edit"
 msgstr "Icon: "
@@ -205,17 +164,226 @@ msgstr "Icon: "
 msgid "cpsdoc_allow_discussion_label_edit"
 msgstr "Erlaube Diskussion: "
 
-#, fuzzy
 msgid "cpsdoc_popup_mode_label_edit"
-msgstr "Datum: "
+msgstr "Datum:"
 
-#, fuzzy
 msgid "cpsdoc_popup_width_label_edit"
-msgstr "Datum: "
+msgstr "Breite:"
 
-#, fuzzy
 msgid "cpsdoc_popup_height_label_edit"
+msgstr "Höhe:"
+
+msgid "cpsdoc_flex_content_title"
+msgstr "Text: "
+
+msgid "cpsdoc_flex_content_label_edit"
+msgstr "Text Block: "
+
+msgid "cpsdoc_flex_content_right_label_edit"
+msgstr "Rechte Spalte Text: "
+
+msgid "cpsdoc_flex_attachedFile_title"
+msgstr "anhaftende Datei"
+
+msgid "cpsdoc_flex_attachedFile_label_edit"
+msgstr "Anhaftende Datei: "
+
+msgid "cpsdoc_flex_attachedFile_label"
+msgstr "Anhaftende Datei: "
+
+msgid "cpsdoc_flex_photo_title"
+msgstr "Foto"
+
+msgid "cpsdoc_flex_photo_label_edit"
+msgstr "Foto: "
+
+# default doc types
+msgid "cpsdoc_flex_link_title"
+msgstr "Link (URL)"
+
+msgid "cpdoc_flex_link_label_edit"
+msgstr "Link Adresse: "
+
+msgid "cpsdoc_flex_textimage_title"
+msgstr "Text und Bild Block"
+
+msgid "cpsdoc_flex_textimage_label_edit"
+msgstr "Text und Bild Block: "
+
+# default doc types
+msgid "portal_type_Flexible_title"
+msgstr "Layout Dokument"
+
+msgid "portal_type_Flexible_description"
+msgstr "Dokument mit flexiblem Layout"
+
+# default doc types
+msgid "portal_type_FAQ_title"
+msgstr "FAQ's (Oft gestellte Fragen und Antworten)"
+
+msgid "portal_type_FAQ_description"
+msgstr "Eine Sammlung von FAQs"
+
+# default doc types
+msgid "portal_type_FAQitem_title"
+msgstr "FAQ Titel"
+
+msgid "portal_type_FAQitem_description"
+msgstr "FAQ Frage & Antwort"
+
+msgid "cpsdoc_faq_question_label_edit"
+msgstr "Frage: "
+
+msgid "cpsdoc_faq_long_question_label_edit"
+msgstr "Frage vollständig: "
+
+msgid "cpsdoc_faq_answer_label_edit"
+msgstr "Antwort: "
+
+msgid "cpsdoc_faq_answer_label"
+msgstr "Antwort vollständig: "
+
+# default doc types
+msgid "portal_type_ImageGallery_title"
+msgstr "Bilder Gallerie"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Eine Sammlung von Bildern oder Fotos"
+
+# default doc types
+msgid "portal_type_Glossary_title"
+msgstr "Glossar"
+
+msgid "portal_type_Glossary_description"
+msgstr "Eine Sammlung alphabetisch geordneter Begriffsdefinitionen"
+
+# default doc types
+msgid "portal_type_GlossaryItem_title"
+msgstr "Glossar Eintrag"
+
+msgid "portal_type_GlossaryItem_description"
+msgstr "Begriffdefinition (für Glossare)"
+
+msgid "portal_type_News_title"
+msgstr "Nachrichten oder Text Dokument"
+
+msgid "portal_type_News_description"
+msgstr "Ein normaler Text oder eine Nachricht"
+
+msgid "cpsdoc_News_newsdate_label_edit"
+msgstr "Datum:"
+
+msgid "cpsdoc_News_title_label_edit"
+msgstr "Kurz Titel: "
+
+msgid "cpsdoc_News_description_label_edit"
+msgstr "Beschreibung: "
+
+msgid "cpsdoc_News_longTitle_label_edit"
+msgstr "Titel lang: "
+
+msgid "cpsdoc_News_content_label_edit"
+msgstr "Inhalt der Nachrichten: "
+
+msgid "cpsdoc_News_image_label_edit"
+msgstr "Bild Label:"
+
+msgid "cpsdoc_News_preview_label_edit"
+msgstr "Bild Vorabansicht: "
+
+msgid "cpsdoc_News_attachedFile_label_edit"
+msgstr "Bearbeiten anhaftende Datei: "
+
+msgid "cpsdoc_News_attachedFile_label"
+msgstr "Anhaftende Datei: "
+
+# default doc types
+msgid "portal_type_File_title"
+msgstr "Datei"
+
+msgid "portal_type_File_description"
+msgstr "beliebige indizierbare Dateien, zB pdf-Dokumente"
+
+# default doc types
+msgid "portal_type_Event_title"
+msgstr "Event"
+
+msgid "portal_type_Event_description"
+msgstr "Ereignisse portalweit ankündigen"
+
+msgid "cpsdoc_Event_start_label_edit"
+msgstr "Von: "
+
+msgid "cpsdoc_Event_end_label_edit"
+msgstr "Bis: "
+
+msgid "cpsdoc_Event_content_label_edit"
+msgstr "Inhalt dieses Events: "
+
+# default doc types
+msgid "portal_type_Link_title"
+msgstr "Link"
+
+msgid "portal_type_Link_description"
+msgstr "Ein Verweis (URL) zu einer Ressource"
+
+msgid "cpsdoc_Link_label_edit"
+msgstr "Link Adresse: "
+
+# default doc types
+msgid "portal_type_Image_title"
+msgstr "Bild"
+
+msgid "portal_type_Image_description"
+msgstr "ein Bild oder ein Foto"
+
+msgid "cpsdoc_Image_label_edit"
+msgstr "Bild: "
+
+msgid "cpsdoc_imgallery_width_label_edit"
+msgstr "Minibild Weite"
+
+msgid "cpsdoc_imgallery_height_label_edit"
 msgstr "Minibild Höhe"
+
+msgid "cpsdoc_imgallery_items_label_edit"
+msgstr "Anzahl der Minibilder pro Seite"
+
+msgid "cpsdoc_imgallery_col_label_edit"
+msgstr "Anzahl der Spalten pro Seite"
+
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr "Zeige alle Einträge wenn kein Buchstabe ausgewählt wurde"
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr "Eintrag"
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Definition"
+
+# default doc types
+msgid "portal_type_Book_title"
+msgstr "Buch"
+
+msgid "portal_type_Book_description"
+msgstr "Ein spezieller Folder der Layout Dokumente seitenweise anzeigt"
+
+# default doc types
+msgid "portal_type_Page_title"
+msgstr "Buchseite"
+
+msgid "portal_type_Page_description"
+msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
+
+# default doc types
+msgid "portal_type_Chapter_title"
+msgstr "Buch Kapitel oder Rubrik"
+
+msgid "portal_type_Chapter_description"
+msgstr "Ein Buch Kapitel oder eine Rubrik"
+
+msgid "cpsdoc_book_nb_summary_page_label_edit"
+msgstr "Anzahl der Einträge im Inhaltsverzeichnis pro Seite"
 
 msgid "label_source"
 msgstr "Quelle"
@@ -255,220 +423,48 @@ msgstr "Beziehung zu einer verwandten Ressource."
 msgid "label_portal_type"
 msgstr "Ressourcen Typ"
 
-msgid "cpsdoc_flex_content_title"
-msgstr "Text: "
-
-msgid "cpsdoc_flex_content_label_edit"
-msgstr "Text Block: "
-
-msgid "cpsdoc_flex_content_right_label_edit"
-msgstr "Rechte Spalte Text: "
-
-msgid "cpsdoc_flex_attachedFile_title"
-msgstr "anhaftende Datei"
-
-msgid "cpsdoc_flex_attachedFile_label_edit"
-msgstr "Anhaftende Datei: "
-
-msgid "cpsdoc_flex_attachedFile_label"
-msgstr "Anhaftende Datei: "
-
-msgid "cpsdoc_flex_photo_title"
-msgstr "Foto"
-
-msgid "cpsdoc_flex_photo_label_edit"
-msgstr "Foto: "
-
-# default doc types
-msgid "cpsdoc_flex_link_title"
-msgstr "Link (URL)"
-
-msgid "cpdoc_flex_link_label_edit"
-msgstr "Link Adresse: "
-
-msgid "cpsdoc_flex_textimage_title"
-msgstr "Bild und Text Block"
-
-msgid "cpsdoc_flex_textimage_label_edit"
-msgstr "Text und Bild Block: "
-
-# default doc types
-msgid "portal_type_Flexible_title"
-msgstr "Layout Dokument"
-
-msgid "portal_type_Flexible_description"
-msgstr "Dokument mit flexiblem Layout"
-
-# default doc types
-msgid "portal_type_FAQ_title"
-msgstr "FAQ's (Oft gestellte Fragen und Antworten)"
-
-msgid "portal_type_FAQ_description"
-msgstr "Eine Sammlung von FAQs"
-
-# default doc types
-msgid "portal_type_FAQitem_title"
-msgstr "FAQ Titel"
-
-msgid "portal_type_FAQitem_description"
-msgstr "FAQ Frage & Antwort"
-
-msgid "cpsdoc_faq_question_label_edit"
-msgstr "Frage: "
-
-msgid "cpsdoc_faq_long_question_label_edit"
-msgstr "Frage vollständig: "
-
-msgid "cpsdoc_faq_answer_label_edit"
-msgstr "Antwort: "
-
-msgid "cpsdoc_faq_answer_label"
-msgstr "Antwort vollständig: "
-
-# default doc types
-msgid "portal_type_Glossary_title"
-msgstr "Glossar"
-
-msgid "portal_type_Glossary_description"
-msgstr "Eine Sammlung alphabetisch geordneter Begriffsdefinitionen"
-
-# default doc types
-msgid "portal_type_GlossaryItem_title"
-msgstr "Glossar Eintrag"
-
-msgid "portal_type_GlossaryItem_description"
-msgstr "Begriffdefinition (für Glossare)"
-
-msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Zeige alle Einträge wenn kein Buchstabe ausgewählt wurde"
-
-msgid "cpsdoc_glossary_term_label_edit"
-msgstr "Eintrag"
-
-msgid "cpsdoc_glossary_expl_label_edit"
-msgstr "Definition"
-
-# default doc types
 #, fuzzy
-msgid "portal_type_NewsItem_title"
-msgstr "FAQ Titel"
+#~ msgid "cpsdoc_News_image_label"
+#~ msgstr " "
 
-#, fuzzy
-msgid "portal_type_NewsItem_description"
-msgstr "FAQ Frage & Antwort"
+#~ msgid "cpsdoc_News_photo_label_edit"
+#~ msgstr "Foto: "
 
-#, fuzzy
-msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Datum:"
+#~ msgid "cpsdoc_News_photo_label"
+#~ msgstr "Bild zur Nachricht: "
 
-msgid "cpsdoc_NewsItem_label_publication_date"
-msgstr "Datum:"
+#~ msgid "err"
+#~ msgstr "Fehler"
 
-# default doc types
-#, fuzzy
-msgid "portal_type_PressRelease_title"
-msgstr "Buchseite"
+#~ msgid "button_create"
+#~ msgstr "Erstellen"
 
-#, fuzzy
-msgid "portal_type_PressRelease_description"
-msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
+#~ msgid "batch_next"
+#~ msgstr "NÃ¤chster"
 
-# default doc types
-msgid "portal_type_File_title"
-msgstr "Datei"
+#~ msgid "button_add"
+#~ msgstr "Neu"
 
-msgid "portal_type_File_description"
-msgstr "beliebige indizierbare Dateien, zB pdf-Dokumente"
+#~ msgid "button_change"
+#~ msgstr "Sichern Ã„nderungen"
 
-# default doc types
-msgid "portal_type_Event_title"
-msgstr "Event"
+#~ msgid "button_delete"
+#~ msgstr "LÃ¶schen"
 
-msgid "portal_type_Event_description"
-msgstr "... Ereignisse portalweit ankündigen"
+#~ msgid "button_help"
+#~ msgstr "Hilfe"
 
-msgid "cpsdoc_Event_start_label_edit"
-msgstr "Von: "
+#~ msgid "button_move_down"
+#~ msgstr "Runter"
 
-msgid "cpsdoc_Event_end_label_edit"
-msgstr "Bis: "
+#~ msgid "button_move_up"
+#~ msgstr "Hoch"
 
-msgid "cpsdoc_Event_content_label_edit"
-msgstr "Inhalt dieses Events: "
+#~ msgid "cpsdoc_label_next"
+#~ msgstr "NÃ¤chste"
 
-# default doc types
-msgid "portal_type_Link_title"
-msgstr "Link"
+#~ msgid "cpsdoc_form_error"
+#~ msgstr "UngÃ¼ltige Eingabe:"
 
-msgid "portal_type_Link_description"
-msgstr "Ein Verweis (URL) zu einer Ressource"
-
-msgid "cpsdoc_Link_label_edit"
-msgstr "Link Adresse: "
-
-# default doc types
-msgid "portal_type_Image_title"
-msgstr "Bild"
-
-msgid "portal_type_Image_description"
-msgstr "ein Bild oder ein Foto"
-
-msgid "cpsdoc_Image_label_edit"
-msgstr "Bild: "
-
-# default doc types
-msgid "portal_type_ImageGallery_title"
-msgstr "Bilder Gallerie"
-
-msgid "portal_type_ImageGallery_description"
-msgstr "Eine Sammlung von Bildern oder Fotos"
-
-msgid "cpsdoc_imgallery_width_label_edit"
-msgstr "Minibild Weite"
-
-msgid "cpsdoc_imgallery_height_label_edit"
-msgstr "Minibild Höhe"
-
-msgid "cpsdoc_imgallery_items_label_edit"
-msgstr "Anzahl der Minibilder pro Seite"
-
-msgid "cpsdoc_imgallery_col_label_edit"
-msgstr "Anzahl der Spalten pro Seite"
-
-# default doc types
-msgid "portal_type_Book_title"
-msgstr "Buch"
-
-msgid "portal_type_Book_description"
-msgstr "Ein spezieller Folder der Layout Dokumente seitenweise anzeigt"
-
-# default doc types
-msgid "portal_type_Page_title"
-msgstr "Buchseite"
-
-msgid "portal_type_Page_description"
-msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
-
-# default doc types
-#, fuzzy
-msgid "portal_type_Chapter_title"
-msgstr "Buchseite"
-
-#, fuzzy
-msgid "portal_type_Chapter_description"
-msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
-
-msgid "cpsdoc_book_nb_summary_page_label_edit"
-msgstr "Anzahl der Einträge im Inhaltsverzeichnis pro Seite"
-
-msgid "cpsdoc_book_has_search_box_label_edit"
-msgstr ""
-
-msgid "cpsdoc_book_display"
-msgstr ""
-
-msgid "cpsdoc_book_display_pages"
-msgstr ""
-
-msgid "cpsdoc_book_display_flat"
-msgstr ""
+#~ msgid "cpsdoc_theme"
+#~ msgstr "Thema"
