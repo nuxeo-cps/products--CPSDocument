@@ -27,6 +27,10 @@ widgets = {
             'type': 'CPS Password Widget Type',
             'data': {},
             },
+        'CheckBox Widget': {
+            'type': 'CPS CheckBox Widget Type',
+            'data': {},
+            },
         'TextArea Widget': {
             'type': 'CPS TextArea Widget Type',
             'data': {},
