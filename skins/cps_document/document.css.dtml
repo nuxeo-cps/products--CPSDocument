@@ -74,6 +74,10 @@ div.ddescription {
   font-size: 120%;
 }
 
+.dbold {
+  font-weight: bold;
+}
+
 /*
 </dtml-with>
 */
