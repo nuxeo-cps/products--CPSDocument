@@ -4,6 +4,8 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - new portal types Book and Page
+- the default locale for a document is the one selected by
+  the user for his ui
 Bug fixes:
 ~~~~~~~~~~
 -
