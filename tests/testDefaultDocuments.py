@@ -87,22 +87,25 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
                     doc = proxy
 
                 self._validateDocument(proxy, doc)
+                self._testAttributeValues(doc)
+
                 # testing edition
                 # contributors is not expected to change during edition
-                expected_invariable = self.attr_values_1
+                expected_invariable = {}
                 expected_invariable['Contributors'] = doc.contributors
                 expected_invariable['Creator'] = doc.Creator()
                 doc.edit(**self.attr_values_1)
-                self._validateDocument(proxy, doc, expected_invariable)
+                self._validateDocument(proxy, doc)
+                self._testAttributeValues(doc, self.attr_values_1)
+                self._testAttributeValues(doc, expected_invariable)
 
         # Now testing global view for the container
         self.assert_(self.ws.folder_view())
 
 
-    def _validateDocument(self, proxy, doc, attr_expected=None):
+    def _validateDocument(self, proxy, doc):
         self._testInterfaces(doc)
         self._testDefaultAttributes(doc)
-        self._testDefaultAttributeValues(doc, attr_expected)
         self.assertEquals(doc.getAdditionalContentInfo(proxy), {})
         # Rendering / default view test (on the proxy)
         self._testRendering(doc, proxy=proxy)
@@ -142,7 +145,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
                     continue
                 self.assert_(hasattr(doc, attr_name))
 
-    def _testDefaultAttributeValues(self, doc, attr_expected):
+    def _testAttributeValues(self, doc, attr_expected=None):
         # size of the document must be > 0
         self.assert_(doc.get_size() > 0)
         if attr_expected is not None:
