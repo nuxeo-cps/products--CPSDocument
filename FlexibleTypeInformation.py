@@ -39,7 +39,8 @@ from Products.CPSSchemas.Schema import SchemaContainer
 from Products.CPSSchemas.Layout import LayoutContainer
 from Products.CPSSchemas.DataModel import DataModel
 from Products.CPSSchemas.DataStructure import DataStructure
-from Products.CPSSchemas.StorageAdapter import AttributeStorageAdapter
+from Products.CPSSchemas.StorageAdapter import AttributeStorageAdapter, \
+     MetaDataStorageAdapter
 
 from Products.CPSDocument.CPSDocument import addCPSDocument
 
@@ -79,7 +80,7 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
                      'object')
     flexti.addAction('metadata',
                      'action_metadata',
-                     'metadata_edit_form',
+                     'cpsdocument_metadata_edit_form',
                      '',
                      ModifyPortalContent,
                      'object')
@@ -459,8 +460,12 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     def getDataModel(self, ob, proxy=None, context=None):
         """Get the datamodel for an object of our type."""
         schemas = self.getSchemas(ob)
-        adapters = [AttributeStorageAdapter(schema, ob)
-                    for schema in schemas]
+        adapters = []
+        for schema in schemas:
+            if schema.id == 'metadata':
+                adapters.append(MetaDataStorageAdapter(schema, ob))
+            else:
+                adapters.append(AttributeStorageAdapter(schema, ob))
         dm = DataModel(ob, adapters, proxy=proxy, context=context)
         dm._fetch()
         return dm
@@ -494,10 +499,11 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         Returns a sequence of Layout objects.
         """
         layouts = []
+        type_layouts = self.layouts
         if layout_id is None:
-            for layout_id in self.layouts:
+            for layout_id in type_layouts:
                 layouts.append(self.getLayout(layout_id, ob))
-        elif layout_id in self.layouts:
+        elif layout_id in type_layouts  + ['metadata']:
             layouts.append(self.getLayout(layout_id, ob))
         else:
             raise ValueError("No layout '%s' in portal_type '%s'"
@@ -528,6 +534,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             layout_structure = layout.computeLayoutStructure(datastructure,
                                                              mode_chooser)
             layout_structures.append(layout_structure)
+
         return layout_structures
 
     security.declarePrivate('_validateLayoutStructures')
