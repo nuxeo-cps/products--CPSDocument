@@ -56,8 +56,6 @@ div.dcolright {
   padding-bottom: 1em;
 }
 
-
-
 div.dtitle, div.dtitle2, div.dtitle3, div.dtitle4, div.dtitle5, div.dtitle6 {
   color: &dtml-headingFontColor;;
   background-color: transparent;
@@ -65,12 +63,15 @@ div.dtitle, div.dtitle2, div.dtitle3, div.dtitle4, div.dtitle5, div.dtitle6 {
   margin: 0;
   padding-top: 0.5em;
 }
+
 div.dtitle {
   font-size: &dtml-headingSize1;;
   border-bottom: 1px solid &dtml-mainTabBorderColor;;
+  margin-bottom: 0.5em;
 }
 div.dtitle2 {
   font-size: &dtml-headingSize2;;
+  margin-bottom: 0.5em;
 }
 div.dtitle3 {
   font-size: &dtml-headingSize3;;
