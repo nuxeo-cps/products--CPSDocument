@@ -13,13 +13,7 @@
   </metal:block>
 
   <metal:block fill-slot="main">
-
     <tal:block tal:content="structure rendered_main" />
-    <div style="clear:both; text-align:right; border-top: solid 1px; margin-top: 2em;">
-      <small>
-        <div metal:use-macro="here/content_lib/macros/byline">By Me</div>
-      </small>
-    </div>
   </metal:block>
 
 </metal:block>
