@@ -1,4 +1,20 @@
 *******************************************
+** CPSDocument V0.6.0 [R1 build 2003/11/17-15:28 by ben]
+
+ZODB Requires:
+~~~~~~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- ready for RTE popup
+Bug fixes:
+~~~~~~~~~~
+- After an edit, correctly notify that the proxy may have changed.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.5.0 [R1 build 2003/11/12-09:24 by ben]
 
 ZODB Requires:

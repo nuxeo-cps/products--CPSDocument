@@ -1,12 +1,15 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
 -
+
 New features:
 ~~~~~~~~~~~~~
-- ready for RTE popup
+-
+
 Bug fixes:
 ~~~~~~~~~~
-- After an edit, correctly notify that the proxy may have changed.
+-
+
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
