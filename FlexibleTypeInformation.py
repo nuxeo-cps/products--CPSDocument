@@ -197,10 +197,7 @@ class FlexibleTypeInformation(TypeInformation):
         """Does the current user have the permission required in
         order to construct an instance in the container?
         """
-        ok = _checkPermission(self.permission, container)
-        LOG('FlexibleTypeInformation', DEBUG, 'isConstructionAllowed in %s: %s'
-            % ('/'.join(container.getPhysicalPath()), ok))
-        return ok
+        return _checkPermission(self.permission, container)
 
     security.declarePublic('constructInstance')
     def constructInstance(self, container, id, *args, **kw):
