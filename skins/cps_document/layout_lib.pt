@@ -166,6 +166,8 @@
   </tal:select>
   <tal:button condition="python:len(flexible_widgets) == 1"
     tal:define="widget python:flexible_widgets[0]">
+    <input type="hidden" name="widget_type" 
+      tal:attributes="value widget/getWidgetId">
     <input type="submit" name="addwidget_button" 
       tal:define="button_add python:cpsmcat('button_add');
         widget_title python:cpsmcat(widget.title_or_id())"
