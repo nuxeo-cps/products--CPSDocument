@@ -1,0 +1,194 @@
+# translation of nl.po to ccz
+# Gettext Message File for default.
+# Your Name <your@email>, Year
+# Christian Czerwinski <christian.czerwinski@cgey.be>, 2003
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: nl\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-11-04 11:26default\n"
+"PO-Revision-Date: 2003-11-04 11:36+0200\n"
+"Last-Translator: Koen Adriaensen <koen.adriaensen@cgey.be>\n"
+"Language-Team: Christian Czerwinski <christian.czerwinski@cgey.be>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;"
+
+#.   <h1>
+#.         Create a document of type
+#.         ${type_name (tal content="request/type_name")}
+#.       </h1>
+#: from ../skins/cps_document/cpsdocument_create_form.pt
+msgid "Create a document of type ${type_name}"
+msgstr "Een document creëren van type ${type_name}"
+
+#.   <h1>Edit ${title (tal content="here/title_or_id")}</h1>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Edit ${title}"
+msgstr "Bewerken van «${title}»"
+
+#.   <input value="button_add" name="addwidget_button" type="submit" />
+#: from ../skins/cps_document/layout_dummy_editlayout.pt
+#: ../skins/cps_document/layout_fancy_editlayout.pt
+#: ../skins/cps_document/layout_form_editlayout.pt
+msgid "button_add"
+msgstr "Toevoegen"
+
+#.   <input value="button_change" name="cpsdocument_edit_button" type="submit" />
+#.   <input condition="not:creation" value="button_change" class="standalone" name="cpsdocument_edit_button" type="submit">
+#.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#.   </input></input>
+#: from ../skins/cps_document/layout_dummy_edit.pt
+#: ../skins/cps_document/layout_fancy_edit.pt
+#: ../skins/cps_document/layout_form_edit.pt
+#: ../skins/cps_document/layout_lib.pt
+msgid "button_change"
+msgstr "Wijzigen"
+
+#.   <input condition="creation" value="button_create" class="standalone" name="cpsdocument_create_button" type="submit">
+#.   </input>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "button_create"
+msgstr "Aanmaken"
+
+#.   <span>to</span>
+#: from ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_end_label"
+msgstr " tot "
+
+#.   <span>from</span>
+#: from ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_start_label"
+msgstr "Van"
+
+#.   <span>Form error.</span>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "cpsdoc_form_error"
+msgstr "Ongeldige invoer, gelieve de fouten te corrigeren:"
+
+#.   <em content="err" style="color: red">err</em>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "err"
+msgstr "error"
+
+#.   <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
+#.   <span condition="widget/is_i18n" content="widget/label_edit">label</span>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "label"
+msgstr "label"
+
+msgid "cpsdoc_title_label_edit"
+msgstr "Titel : "
+
+msgid "cpsdoc_description_label_edit"
+msgstr "Beschrijving : "
+
+msgid "cpsdoc_theme_label_edit"
+msgstr "Thema : "
+
+# default doc types
+msgid "portal_type_FAQ_title"
+msgstr "FAQ"
+
+msgid "portal_type_FAQ_description"
+msgstr "Overzicht van de meest gestelde vragen"
+
+msgid "cpsdoc_faq_question_label_edit"
+msgstr "Vraag : "
+
+msgid "cpsdoc_faq_long_question_label_edit"
+msgstr "Uitgebreide vraag : "
+
+msgid "cpsdoc_faq_answer_label_edit"
+msgstr "Antwoord : "
+
+msgid "cpsdoc_faq_answer_label"
+msgstr "Antwoord :  "
+
+msgid "portal_type_News_title"
+msgstr "Nieuws"
+
+msgid "portal_type_News_description"
+msgstr "Een nieuwsbericht"
+
+msgid "cpsdoc_News_newsdate_label_edit"
+msgstr "Datum van publicatie : "
+
+msgid "cpsdoc_News_newsdate_label"
+msgstr "Datum van publicatie"
+
+msgid "cpsdoc_News_title_label_edit"
+msgstr "Titel : "
+
+msgid "cpsdoc_News_description_label_edit"
+msgstr "Beschrijving : "
+
+msgid "cpsdoc_News_longTitle_label_edit"
+msgstr "Ondertitel : "
+
+msgid "cpsdoc_News_content_label_edit"
+msgstr "Inhoud : "
+
+msgid "cpsdoc_News_photo_label_edit"
+msgstr "Afbeelding : "
+
+msgid "cpsdoc_News_photo_label"
+msgstr " "
+
+msgid "cpsdoc_News_preview_label_edit"
+msgstr "Visualisering : "
+
+msgid "cpsdoc_News_attachedFile_label_edit"
+msgstr "Bijlage : "
+
+msgid "cpsdoc_News_attachedFile_label"
+msgstr "Bijlage : "
+
+# default doc types
+msgid "portal_type_File_title"
+msgstr "Dossier"
+
+msgid "portal_type_File_description"
+msgstr "Geheel van documenten"
+
+# default doc types
+msgid "portal_type_Event_title"
+msgstr "Evenement"
+
+msgid "portal_type_Event_description"
+msgstr "Een evenement"
+
+msgid "cpsdoc_Event_start_label_edit"
+msgstr "Begin : "
+
+msgid "cpsdoc_Event_end_label_edit"
+msgstr "Einde : "
+
+msgid "cpsdoc_Event_content_label_edit"
+msgstr "Inhoud : "
+
+# default doc types
+msgid "portal_type_Link_title"
+msgstr "Link"
+
+msgid "portal_type_Link_description"
+msgstr "Een URL"
+
+msgid "cpsdoc_Link_label_edit"
+msgstr "Connectie http :"
+
+# default doc types
+msgid "portal_type_Image_title"
+msgstr "Afbeelding"
+
+msgid "portal_type_Image_description"
+msgstr "Een afbeelding"
+
+msgid "cpsdoc_Image_label_edit"
+msgstr "Afbeelding : "
+
+#~ msgid "cpsdoc_theme"
+#~ msgstr "Thema"
