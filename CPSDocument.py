@@ -23,6 +23,7 @@ from types import ListType, TupleType
 from cgi import escape
 import ExtensionClass
 from Globals import InitializeClass
+from AccessControl import Unauthorized
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_base
 
@@ -102,7 +103,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
     # XXX make this a WorkflowMethod
     security.declareProtected(ModifyPortalContent, 'edit')
-    def edit(self, **kw):
+    def edit(self, REQUEST=None, **kw):
         """Edit the document.
 
         The keyword arguments describes fields, not widgets.
@@ -110,6 +111,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
         This method assumes that self really is editable, thus is not a
         frozen document.
         """
+        if REQUEST is not None:
+            raise Unauthorized("Not accessible TTW.")
         return self.getTypeInfo().editObject(self, kw)
 
 
