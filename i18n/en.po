@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-16 11:06default\n"
-"PO-Revision-Date: 2003-12-16 11:08+0100\n"
+"POT-Creation-Date: 2003-12-16 11:35default\n"
+"PO-Revision-Date: 2003-12-16 11:34+0100\n"
 "Last-Translator: ben <ben@nuxeo.com>\n"
 "Language-Team: ben\n"
 "MIME-Version: 1.0\n"
@@ -358,6 +358,15 @@ msgstr "Term"
 msgid "cpsdoc_glossary_expl_label_edit"
 msgstr "Definition"
 
+msgid "label_source"
+msgstr "Source"
+
+msgid "label_coverage"
+msgstr "Coverage"
+
+msgid "label_relation"
+msgstr "Relation"
+
 #~ msgid "cpsdoc_label_next"
 #~ msgstr "Next"
 
@@ -369,4 +378,3 @@ msgstr "Definition"
 
 #~ msgid "cpsdoc_theme"
 #~ msgstr "Theme"
-
