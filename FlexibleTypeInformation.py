@@ -482,7 +482,8 @@ class FlexibleTypeInformation(TypeInformation):
         layoutob = self.getLayout(layout_id, ob)
         # XXX Make mode_chooser passable by the caller?
         mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
-        layoutdata = layoutob.getLayoutData(ds, mode_chooser)
+        layoutob.prepareLayoutWidgets(ds)
+        layoutdata = layoutob.computeLayout(ds, mode_chooser)
         return self._renderLayoutStyle(ob, layout_mode, layout=layoutdata,
                                        datastructure=ds, **kw)
 
@@ -531,9 +532,10 @@ class FlexibleTypeInformation(TypeInformation):
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
         mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
-        layoutdata = layoutob.getLayoutData(ds, mode_chooser)
+        layoutob.prepareLayoutWidgets(ds)
         if request is not None:
             ds.updateFromMapping(request.form)
+            layoutdata = layoutob.computeLayout(ds, mode_chooser)
             ok = layoutob.validateLayout(layoutdata, ds)
             if ok:
                 ob = self._commitDM(dm)
@@ -541,6 +543,7 @@ class FlexibleTypeInformation(TypeInformation):
                 layout_mode = layout_mode_err
         else:
             ok = 1
+            layoutdata = layoutob.computeLayout(ds, mode_chooser)
         rendered = self._renderLayoutStyle(ob, layout_mode, layout=layoutdata,
                                            datastructure=ds, ok=ok, **kw)
         return rendered, ok, ds
@@ -585,10 +588,11 @@ class FlexibleTypeInformation(TypeInformation):
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
         mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
-        layoutdata = layoutob.getLayoutData(ds, mode_chooser)
+        layoutob.prepareLayoutWidgets(ds)
         if request is not None:
             # Validate from request.
             ds.updateFromMapping(request.form)
+            layoutdata = layoutob.computeLayout(ds, mode_chooser)
             ok = layoutob.validateLayout(layoutdata, ds)
             if ok:
                 method_name = None
@@ -615,6 +619,7 @@ class FlexibleTypeInformation(TypeInformation):
                 layout_mode = layout_mode_err
         else:
             ok = 1
+            layoutdata = layoutob.computeLayout(ds, mode_chooser)
         return self._renderLayoutStyle(ob, layout_mode, layout=layoutdata,
                                        datastructure=ds, ok=ok, **kw)
 
@@ -658,17 +663,19 @@ class FlexibleTypeInformation(TypeInformation):
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id)
         mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
-        layoutdata = layoutob.getLayoutData(ds, mode_chooser)
+        layoutob.prepareLayoutWidgets(ds)
         rendered = None
         if not validate:
             # Initial display, datastructure contains defaults.
             if request is not None:
                 # Update with initial data from request
                 ds.updateFromMapping(request.form)
+                layoutdata = layoutob.computeLayout(ds, mode_chooser)
             ok = 1
         else:
             # Validate from request.
             ds.updateFromMapping(request.form)
+            layoutdata = layoutob.computeLayout(ds, mode_chooser)
             ok = layoutob.validateLayout(layoutdata, ds)
         if validate and ok:
             create_func = getattr(container, create_callback, None)
