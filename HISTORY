@@ -1,4 +1,20 @@
 *******************************************
+** CPSDocument V0.24.0 [R1 build 2004/08/16-15:24 by ben]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- i18n: grouping book types name ie 'Chapter -> Book - Chapter'
+
+*******************************************
 ** CPSDocument V0.23.3 [R1 build 2004/08/04-12:38 by madarche]
 
 Requires:
