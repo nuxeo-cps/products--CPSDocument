@@ -708,9 +708,9 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         modified.
 
         Returns (rendered, ok, datastructure):
-        - rendered is the rendered HTML,
-        - ok is the result of the validation,
-        - datastructure is the resulting datastructure.
+          - rendered is the rendered HTML,
+          - ok is the result of the validation,
+          - datastructure is the resulting datastructure.
         """
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
@@ -758,12 +758,12 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         layout_mode.
 
         If request is not None:
-        - the parameters are validated.
-        - if there is a validation error:
-          - the object is rendered in layout_mode_err.
-        - if there is no validation error:
-          - the object is modified, or a storage method is called,
-          - the object is renderd in layout_mode_ok.
+          - the parameters are validated.
+          - if there is a validation error:
+            - the object is rendered in layout_mode_err.
+          - if there is no validation error:
+            - the object is modified, or a storage method is called,
+            - the object is renderd in layout_mode_ok.
 
         An optional 'proxy' arg can be given, it will be passed to the
         layouts and used for getEditableContent if the object is
@@ -828,19 +828,19 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         or the ones in request, in the specified layout mode.
 
         If validate is true:
-        - the parameters from request are validated,
-        - if there is a validation error:
-          - the object is rendered in layout_mode,
-        - if there is no validation error:
-          - the object is created by calling create_callback in the
-            context of the container and with argument the type_name
-            and the datamodel,
-          - created_callback is called in the context of the object.
+          - the parameters from request are validated,
+          - if there is a validation error:
+            - the object is rendered in layout_mode,
+          - if there is no validation error:
+            - the object is created by calling create_callback in the
+              context of the container and with argument the type_name
+              and the datamodel,
+            - created_callback is called in the context of the object.
 
         Returns (rendered, is_valid, datastructure):
-        - rendered is the rendered HTML (may also have redirected),
-        - is_valid is the result of the validation,
-        - datastructure is the resulting datastructure.
+          - rendered is the rendered HTML (may also have redirected),
+          - is_valid is the result of the validation,
+          - datastructure is the resulting datastructure.
         """
         dm = self.getDataModel(None, context=container)
         ds = DataStructure(datamodel=dm)
