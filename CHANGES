@@ -3,7 +3,8 @@ Requires:
 - TranslationService >= 0.5.0
 New features:
 ~~~~~~~~~~~~~
--
+- Error messages in layout_lib can now be rendered with error mapping so that
+  the error messages are more complete and user friendly.
 Bug fixes:
 ~~~~~~~~~~
 -
