@@ -231,6 +231,45 @@ file_schema = {
         },
     }
 
+
+########################################################
+# ZippedHtml
+########################################################
+zippedhtml_schema = {
+    'file': {
+        'type': 'CPS File Field',
+        'data': {
+                'default_expr': 'nothing',
+                'is_searchabletext': 0,
+                'suffix_text': '_text',
+                'suffix_html': '_html',
+                'suffix_html_subfiles': '_html_subfiles',
+            },
+        },
+    'file_text': {
+        'type': 'CPS String Field',
+        'data': {
+                'default_expr': 'string:',
+                'is_searchabletext': 1,
+            },
+        },
+    'file_html': {
+        'type': 'CPS File Field',
+        'data': {
+                'default_expr': 'nothing',
+                'is_searchabletext': 0,
+            },
+        },
+    'file_html_subfiles': {
+        'type': 'CPS SubObjects Field',
+        'data': {
+                'default_expr': 'nothing',
+                'is_searchabletext': 0,
+            },
+        },
+    }
+
+
 ########################################################
 # Event
 ########################################################
@@ -395,6 +434,7 @@ schemas['faqitem'] = faqitem_schema
 schemas['glossary'] = glossary_schema
 schemas['newsitem'] = newsitem_schema
 schemas['file'] = file_schema
+schemas['zippedhtml'] = zippedhtml_schema
 schemas['event'] = event_schema
 schemas['imagegallery'] = imagegallery_schema
 schemas['book'] = book_schema

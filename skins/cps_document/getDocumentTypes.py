@@ -342,6 +342,29 @@ file_type = {
                 ),
     }
 
+zippedhtml_type = {
+    'title': 'portal_type_ZippedHtml_title',
+    'description': 'portal_type_ZippedHtml_description',
+    'content_icon': 'zippedhtml_icon.png',
+    'content_meta_type': 'CPS Document',
+    'product': 'CPSDocument',
+    'factory': 'addCPSDocument',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': (),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'document',
+    'schemas': ['metadata', 'common', 'zippedhtml'],
+    'layouts': ['common', 'zippedhtml'],
+    'layout_clusters': ['metadata:metadata'],
+    'flexible_layouts': [],
+    'storage_methods': [],
+    'display_in_cmf_calendar': 1,
+    'use_content_status_history': 1,
+    }
+
 link_type = {
     'title': 'portal_type_Link_title',
     'description': 'portal_type_Link_description',
@@ -494,6 +517,7 @@ types['FAQitem'] = faqitem_type
 types['Glossary'] = glossary_type
 types['GlossaryItem'] = glossaryitem_type
 types['File'] = file_type
+types['ZippedHtml'] = zippedhtml_type
 types['EventDoc'] = event_type
 types['Link'] = link_type
 types['Image'] = image_type

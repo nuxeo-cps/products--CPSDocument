@@ -813,6 +813,66 @@ file_layout = {
         },
     }
 
+
+#########################################################
+# ZIPPEDHTML LAYOUT
+#########################################################
+zippedhtml_layout = {
+    'widgets': {
+        'Source': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Source'],
+                'hidden_layout_modes': ['view'],
+                'is_i18n': 1,
+                'label_edit': 'label_source',
+                'label': '',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
+        'Rights': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Rights'],
+                'hidden_layout_modes': ['view'],
+                'is_i18n': 1,
+                'label_edit': 'label_rights',
+                'label': '',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
+        'file': {
+            'type': 'ZippedHtml Widget',
+            'data': {
+                'fields': ['file',
+                           'file_text',
+                           'file_html'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_zippedhtml_label',
+                'label': 'cpsdoc_zippedhtml_label',
+                'hidden_empty': 1,
+                'description': 'cpsdoc_zippedhtml_description',
+                'deletable': 1,
+                # for performence reason size of zipped should be small !
+                'size_max': 1*1024*1024,
+            },
+        },
+    },
+    'layout': {
+        'style_prefix': 'layout_default_',
+        'ncols': 2,
+        'rows': [
+            [{'ncols': 1, 'widget_id': 'Source'},
+             {'ncols': 1, 'widget_id': 'Rights'},],
+            [{'ncols': 1, 'widget_id': 'file'},
+                ],
+            ],
+        },
+    }
+
+
 #########################################################
 # EVENT LAYOUT
 #########################################################
@@ -1283,6 +1343,7 @@ layouts['newsitem_start'] = newsitem_start_layout
 layouts['newsitem_flexible'] = newsitem_flexible_layout
 layouts['newsitem_end'] = newsitem_end_layout
 layouts['file'] = file_layout
+layouts['zippedhtml'] = zippedhtml_layout
 layouts['event'] = event_layout
 layouts['link'] = link_layout
 layouts['image'] = image_layout
