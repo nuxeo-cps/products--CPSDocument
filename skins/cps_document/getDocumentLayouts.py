@@ -353,7 +353,7 @@ glossary_layout = {
             'data': {
                 'fields': ['display_all'],
                 'is_required': 0,
-                'is_i18n': 0,
+                'is_i18n': 1,
                 'label_edit': 'cpsdoc_glossary_dispall_label_edit',
                 'label': '',
                 'hidden_layout_modes': ['view'],
@@ -816,7 +816,7 @@ imagegallery_layout = {
             'data': {
                 'fields': ['preview_width'],
                 'is_required': 0,
-                'is_i18n': 0,
+                'is_i18n': 1,
                 'label_edit': 'cpsdoc_imgallery_width_label_edit',
                 'label': '',
                 'hidden_layout_modes': ['view'],
@@ -833,7 +833,7 @@ imagegallery_layout = {
             'data': {
                 'fields': ['preview_height'],
                 'is_required': 0,
-                'is_i18n': 0,
+                'is_i18n': 1,
                 'label_edit': 'cpsdoc_imgallery_height_label_edit',
                 'label': '',
                 'hidden_layout_modes': ['view'],
@@ -850,7 +850,7 @@ imagegallery_layout = {
             'data': {
                 'fields': ['nb_items'],
                 'is_required': 0,
-                'is_i18n': 0,
+                'is_i18n': 1,
                 'label_edit': 'cpsdoc_imgallery_items_label_edit',
                 'label': '',
                 'hidden_layout_modes': ['view'],
@@ -867,7 +867,7 @@ imagegallery_layout = {
             'data': {
                 'fields': ['nb_cols'],
                 'is_required': 0,
-                'is_i18n': 0,
+                'is_i18n': 1,
                 'label_edit': 'cpsdoc_imgallery_col_label_edit',
                 'label': '',
                 'hidden_layout_modes': ['view'],
