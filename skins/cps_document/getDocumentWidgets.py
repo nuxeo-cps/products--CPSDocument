@@ -1,4 +1,4 @@
-##parameters=
+##parameters=loadcustom=1
 #$Id$
 
 """
@@ -146,8 +146,8 @@ widgets = {
             },
         }
 
-cwidgets = context.getCustomDocumentWidgets()
-
-widgets.update(cwidgets)
+if loadcustom:
+    cwidgets = context.getCustomDocumentWidgets()
+    widgets.update(cwidgets)
 
 return widgets
