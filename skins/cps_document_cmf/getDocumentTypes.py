@@ -81,6 +81,7 @@ workspace_type = {
                 {'id': 'import_documents',
                  'name': 'action_import_documents',
                  'action': 'cpsdocument_import_zip_form',
+                 'visible': 0,
                  'permissions': ('Modify portal content',)},
                 {'id': 'contents',
                  'name': 'action_folder_contents',
