@@ -526,7 +526,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         schemas = self._listSchemas(ob)
         adapters = []
         for schema in schemas:
-            if schema.id == 'metadata':
+            if schema.id.startswith('metadata'):
                 adapters.append(MetaDataStorageAdapter(schema, ob))
             else:
                 adapters.append(AttributeStorageAdapter(schema, ob))

@@ -9,4 +9,4 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Made any schema that starts with 'metadata' use the MetaDataStorageAdapter.
