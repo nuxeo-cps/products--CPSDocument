@@ -52,6 +52,51 @@ faq_schema = {
         },
     }
 
+#########################################################
+# Glossary SCHEMA
+#########################################################
+
+glossaryitem_schema = {
+    'title': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'description': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    }
+
+glossary_schema = {
+    'title': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'description': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'display_all': {
+        'type': 'CPS Int Field',
+        'data': {
+                'default': 0,
+                'is_indexed': 0,
+            },
+        },
+    }
+
 ########################################################
 # DUMMY FORM SCHEMA
 ########################################################
@@ -385,6 +430,8 @@ schemas = {}
 
 schemas['faq'] = faq_schema
 schemas['faqitem'] = faqitem_schema
+schemas['glossary'] = glossary_schema
+schemas['glossaryitem'] = glossaryitem_schema
 schemas['news'] = news_schema
 schemas['file'] = file_schema
 schemas['event'] = event_schema
