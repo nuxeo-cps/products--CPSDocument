@@ -25,6 +25,11 @@ type information should look like.</p>
     '<dtml-var sequence-key>': <dtml-var sequence-item>,
 </dtml-if>
 </dtml-in>
+<dtml-in listActions>
+<dtml-if "getId() == 'status_history'">
+    'use_content_status_history': <dtml-var "1 == 1">,
+</dtml-if>
+</dtml-in>
     'actions': (
 <dtml-in listActions>
          {'id': <dtml-var "_.repr(getId())">,

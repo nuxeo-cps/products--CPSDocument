@@ -10,4 +10,5 @@ Bug fixes:
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Added key 'use_content_status_history' for types needing a link to
-  content_status_history page.
+  content_status_history page. This key is put back when exporting type having
+  the 'status_history' action.
