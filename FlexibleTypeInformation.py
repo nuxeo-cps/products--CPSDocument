@@ -63,13 +63,13 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
     flexti.addAction('new_content',
                      'action_new_content',
                      'folder_factories',
-                     "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type != 'document'",
+                     "python:object.getTypeInfo().cps_proxy_type != 'document'",
                      ModifyPortalContent,
                      'object')
     flexti.addAction('contents',
                      'action_folder_contents',
                      'folder_contents',
-                     "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type != 'document'",
+                     "python:object.getTypeInfo().cps_proxy_type != 'document'",
                      ModifyPortalContent,
                      'object')
     flexti.addAction('edit',
@@ -87,7 +87,7 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
     flexti.addAction('localroles',
                      'action_local_roles',
                      'folder_localrole_form',
-                     "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type != 'document'",
+                     "python:object.getTypeInfo().cps_proxy_type != 'document'",
                      ChangePermissions,
                      'object')
 
