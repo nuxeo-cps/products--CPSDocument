@@ -1,6 +1,5 @@
 <tal:block define="layout options/layout;
                    ds options/datastructure;
-                   dm options/datamodel;
                    proxy nocall:options/proxy|here;
                   ">
 <form action="." method="POST" enctype="multipart/form-data"
@@ -28,7 +27,7 @@
           <b style="color: red" tal:content="err">err</b>
         </div>
         <span tal:replace="widget/label_edit">label</span>:
-        <div tal:replace="structure python:widget.render('view', ds, dm)" />
+        <div tal:replace="structure python:widget.render('view', ds)" />
       </tal:block>
     </td>
   </tr>

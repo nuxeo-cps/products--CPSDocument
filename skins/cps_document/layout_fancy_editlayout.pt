@@ -1,6 +1,5 @@
 <tal:block define="layout options/layout;
                    ds options/datastructure;
-                   dm options/datamodel;
                   ">
 <form action="." method="POST" enctype="multipart/form-data"
   tal:attributes="action string:${options/proxy/absolute_url}/cpsdocument_editlayout">
@@ -27,7 +26,7 @@
           <b style="color: red" tal:content="err">err</b>
         </div>
         <span tal:replace="widget/label_label_edit">label</span>:
-        <div tal:replace="structure python:widget.render('view', ds, dm)" />
+        <div tal:replace="structure python:widget.render('view', ds)" />
       </tal:block>
     </td>
   </tr>

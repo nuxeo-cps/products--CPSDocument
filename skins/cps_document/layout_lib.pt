@@ -5,12 +5,12 @@
 <metal:block define-macro="default_view"
   tal:define="layout options/layout;
               ds options/datastructure;
-              dm options/datamodel;">
+              ">
 <table width="100%" cellpadding="2" cellspacing="2" border="0">
   <tr tal:repeat="row layout/rows">
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget;
-        wrender python:widget.render('view', ds, dm)"
+        wrender python:widget.render('view', ds)"
         condition="python: not widget.hidden_view and
                            (not widget.hidden_empty or wrender.strip())">
       <div tal:attributes="class widget/css_class|nothing">
@@ -32,11 +32,11 @@
 <metal:block define-macro="div_view"
   tal:define="layout options/layout;
               ds options/datastructure;
-              dm options/datamodel;">
+              ">
   <tal:block repeat="row layout/rows">
     <tal:block repeat="cell row">
       <tal:block define="widget cell/widget;
-        wrender python:widget.render('view', ds, dm)"
+        wrender python:widget.render('view', ds)"
         condition="python: not widget.hidden_view and
                            (not widget.hidden_empty or wrender.strip())">
       <div tal:attributes="class widget/css_class|nothing">
@@ -57,7 +57,6 @@
 <metal:block define-macro="default_edit"
   tal:define="layout options/layout;
               ds options/datastructure;
-              dm options/datamodel;
               ok options/ok|python:1;">
 <div class="message" tal:condition="not:ok">
   <span i18n:translate="cpsdoc_form_error">Form error.</span>
@@ -84,7 +83,7 @@
               tal:content="widget/label_edit">label</span>
           </div>
           <div class="field">
-            <div tal:replace="structure python:widget.render('edit', ds, dm)"/>
+            <div tal:replace="structure python:widget.render('edit', ds)"/>
           </div>
           <tal:block condition="err">
             <br><em style="color: red"

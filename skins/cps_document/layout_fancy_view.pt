@@ -1,7 +1,6 @@
 <tal:block define="layout options/layout;
                    widgets options/layout/widgets;
                    ds options/datastructure;
-                   dm options/datamodel;
                    fixed_layouts python:['title'];
                   ">
 
@@ -15,7 +14,7 @@
       </strong>
    </td>
    <td>
-     <div tal:replace="structure python:widgets['title'].render('view', ds, dm)" />
+     <div tal:replace="structure python:widgets['title'].render('view', ds)" />
    </td>
   </tr>
 </table>
@@ -29,7 +28,7 @@
       <tal:block define="widget cell/widget">
         <tal:block condition="python:widget.label and widget.id[3:] not in fixed_layouts ">
           <strong tal:content="widget/label">label</strong>:
-          <div tal:replace="structure python:widget.render('view', ds, dm)" />
+          <div tal:replace="structure python:widget.render('view', ds)" />
       </tal:block>
       </tal:block>
     </td>
