@@ -44,7 +44,7 @@
       <span i18n:name="type_name"
         tal:content="request/type_name">Type Name</span>
     </h1>
-    <h1>
+    <h1 tal:condition="not:creation">
       <img tal:replace="structure python:here.getImgTag('/'+here.getIcon(), base_url='')">
       <tal:block condition="edition"
         i18n:translate="">Edit <span i18n:name="title"
