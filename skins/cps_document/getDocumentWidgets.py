@@ -36,6 +36,10 @@ widgets = {
             'type': 'CPS TextArea Widget Type',
             'data': {},
             },
+        'Lines Widget': {
+            'type': 'CPS Lines Widget Type',
+            'data': {},
+            },
         'Date Widget': {
             'type': 'CPS Date Widget Type',
             'data': {},
