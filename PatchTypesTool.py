@@ -24,7 +24,6 @@ from Products.CMFCore.CMFCorePermissions import ManagePortal
 
 from OFS.PropertyManager import PropertyManager
 from Products.CMFCore.TypesTool import TypeInformation
-from Products.CMFCore.TypesTool import FactoryTypeInformation as FTI
 from Products.CMFCore.CMFCorePermissions import ManageProperties
 
 from Products.CPSDocument.FlexibleTypeInformation import FlexibleTypeInformation
