@@ -31,6 +31,8 @@
 #     pr(portal.cpsdocument_installer())
 
 from Products.CPSInstaller.CPSInstaller import CPSInstaller, CMFInstaller
+from types import StringType
+from zLOG import LOG, INFO
 
 SECTIONS_ID = 'sections'
 WORKSPACES_ID = 'workspaces'
@@ -88,15 +90,27 @@ class DocInstaller(CPSInstaller):
         ws_chain = {}
         se_chain = {}
         for ptype in self.newptypes:
-            ws_chain[ptype] = 'workspace_content_wf'
-            se_chain[ptype] = 'section_content_wf'
+            ws_chain[ptype] = ('workspace_content_wf',)
+            se_chain[ptype] = ('section_content_wf',)
         for ptype in self.newptypes:
             wf = self.flextypes[ptype].get('cps_workspace_wf',
-                                           'workspace_content_wf')
-            ws_chain[ptype] = wf
+                                           ('workspace_content_wf',))
+            # Backwards compatibility
+            if isinstance(wf, StringType):
+                LOG("CSPInstaller.updateWorkflowAssociations", INFO,
+                    "This is a backward compatibility feature: "
+                    "use Tuple instead of String to update %s workflow chains." % ptype)
+                wf = (wf,)
+            ws_chain[ptype] = ','.join(wf)
             wf = self.flextypes[ptype].get('cps_section_wf',
-                                           'section_content_wf')
-            se_chain[ptype] = wf
+                                           ('section_content_wf',))
+            # Backwards compatibility
+            if isinstance(wf, StringType):
+                LOG("CSPInstaller.updateWorkflowAssociations", INFO,
+                    "This is a backward compatibility feature: "
+                    "use Tuple instead of String to update %s workflow chains." % ptype)
+                wf = (wf,)
+            se_chain[ptype] = ','.join(wf)
         self.verifyLocalWorkflowChains(self.portal[WORKSPACES_ID], ws_chain)
         self.verifyLocalWorkflowChains(self.portal[SECTIONS_ID], se_chain)
 
