@@ -1,4 +1,19 @@
 *******************************************
+** CPSDocument V0.6.2 [R1 build 2003/11/27-22:43 by fermigier]
+
+Bug fixes:
+~~~~~~~~~~
+- fixing Event document
+- Fixed an unwanted sharing of a default dictionnary in edit().
+
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- FlexibleTypeInformation is now a subclass of FactoryTypeInformation,
+  which means that the factory method can be changed. So subclasses
+  of CPSDocument can be created.
+- Refactoring of installer
+
+*******************************************
 ** CPSDocument V0.6.1 [R1 build 2003/11/19-17:49 by ben]
 
 ZODB Requires:
