@@ -68,10 +68,9 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
     def testNews(self):
         self.ws.invokeFactory('News', 'news')
-        # XXX: I don't get that part
 
         doc = self.ws.news.getContent()
-        # XXX: you have to edit object before it has its default values.
+        # you have to edit object before it has its default values.
         doc.edit()
 
         # Test doc has default values
@@ -79,6 +78,22 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             # XXX: Default values are not always as defined in
             # getDocumentSchemas(). I consider this as a bug.
             self.assert_(hasattr(doc, prop_name))
+
+        doc.edit(title='The title')
+        self.assertEquals(doc.Title(), 'The title')
+
+        doc.edit(content='The content')
+        self.assertEquals(doc.content, 'The content')
+        self.assertEquals(
+            doc.getAdditionalContentInfo()['summary'], 'The content')
+
+        from Products.CPSDocument.CPSDocument import SUMMARY_MAX_LEN
+        very_long_content = 'A very long content' * 100
+        doc.edit(content=very_long_content)
+        self.assertEquals(
+            doc.getAdditionalContentInfo()['summary'], 
+            very_long_content[0:SUMMARY_MAX_LEN] + '...')
+
 
     def testFlexible(self):
         self.ws.invokeFactory('Flexible', 'flex')
