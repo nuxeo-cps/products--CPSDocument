@@ -553,19 +553,8 @@ glossary_layout = {
 #########################################################
 # NEWS LAYOUT
 #########################################################
-news_layout = {
+news_start_layout = {
     'widgets': {
-        'Subject': {
-            'type': 'MultiSelect Widget',
-            'data': {
-                'fields': ['Subject'],
-                'is_i18n': 1,
-                'label_edit': 'label_subject',
-                'label': 'label_subject',
-                'vocabulary': 'subject_voc',
-                'size': 5,
-            },
-        },
         'attachedFile': {
             'type': 'AttachedFile Widget',
             'data': {
@@ -656,12 +645,10 @@ news_layout = {
         },
     'layout': {
         'style_prefix': 'layout_default_',
-        'ncols': 2,
         'rows': [
-            [{'ncols': 2, 'widget_id': 'newsdate'}],
-            [{'ncols': 2, 'widget_id': 'textimage'}],
-            [{'ncols': 2, 'widget_id': 'attachedFile'}],
-            [{'ncols': 2, 'widget_id': 'Subject'}],
+            [{'widget_id': 'newsdate'}],
+            [{'widget_id': 'textimage'}],
+            [{'widget_id': 'attachedFile'}],
             ],
         },
     }
@@ -722,6 +709,28 @@ news_flexible_layout = {
         },
     }
 
+news_end_layout = {
+    'widgets': {
+        'Subject': {
+            'type': 'MultiSelect Widget',
+            'data': {
+                'fields': ['Subject'],
+                'is_i18n': 1,
+                'label_edit': 'label_subject',
+                'label': 'label_subject',
+                'vocabulary': 'subject_voc',
+                'size': 5,
+            },
+        },
+    },
+    'layout': {
+        'style_prefix': 'layout_default_',
+        'ncols': 2,
+        'rows': [
+            [{'widget_id': 'Subject'}],
+            ],
+        },
+    }
 
 #########################################################
 # FILE LAYOUT
@@ -1224,8 +1233,9 @@ layouts['faq'] = faq_layout
 layouts['faqitem'] = faqitem_layout
 layouts['glossary'] = glossary_layout
 layouts['glossaryitem'] = glossaryitem_layout
-layouts['news'] = news_layout
+layouts['news_start'] = news_start_layout
 layouts['news_flexible'] = news_flexible_layout
+layouts['news_end'] = news_end_layout
 layouts['file'] = file_layout
 layouts['event'] = event_layout
 layouts['link'] = link_layout

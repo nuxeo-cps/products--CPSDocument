@@ -226,7 +226,7 @@ news_type = {
     'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
     'schemas': ['metadata', 'common', 'news', 'flexible_content'],
-    'layouts': ['common', 'news', 'news_flexible'],
+    'layouts': ['common', 'news_start', 'news_flexible', 'news_end'],
     'flexible_layouts': ['news_flexible:flexible_content'],
     'storage_methods': [],
     'use_content_status_history': 1,
