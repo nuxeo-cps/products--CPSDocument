@@ -11,3 +11,4 @@ New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Added an optional 'loadcustom' parameter to the getDocumentVocabularies.py
   method.
+- Flexible document can handle up to 5 attached files instead of 3
