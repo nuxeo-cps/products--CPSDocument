@@ -422,10 +422,10 @@ class FlexibleTypeInformation(TypeInformation):
         return schemas
 
     security.declarePrivate('getDataModel')
-    def getDataModel(self, ob):
+    def getDataModel(self, ob, proxy=None):
         """Get the datamodel for an object of our type."""
         schemas = self.getSchemas(ob)
-        dm = DataModel(ob, schemas, context=self)
+        dm = DataModel(ob, schemas, proxy=proxy)
         dm._fetch()
         return dm
 
@@ -462,13 +462,29 @@ class FlexibleTypeInformation(TypeInformation):
     security.declarePrivate('renderObject')
     def renderObject(self, ob, mode='view', layout_id=None, **kw):
         """Render the object."""
-        dm = self.getDataModel(ob)
+        proxy = kw.get('proxy')
+        dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
         layout = layoutob.getLayoutData(ds)
         # XXX datamodel=None is temporary backward compat.
         return self._renderLayoutStyle(ob, mode, layout=layout,
                                        datastructure=ds, datamodel=None, **kw)
+
+    def _commitDM(self, dm):
+        """Commits the dm.
+
+        Returns the object. Does all the CMF/CPS indexing and
+        notification needed.
+        """
+        # Update the object from dm.
+        ob = dm._commit()
+        # CMF/CPS stuff.
+        ob.reindexObject()
+        evtool = getToolByName(self, 'portal_eventservice', None)
+        if evtool is not None:
+            evtool.notify('sys_modify_object', ob, {})
+        return ob
 
     security.declarePrivate('renderEditObject')
     def renderEditObject(self, ob, request=None, mode='edit', errmode='edit',
@@ -486,7 +502,8 @@ class FlexibleTypeInformation(TypeInformation):
         layouts and used for getEditableContent if the object is
         modified.
         """
-        dm = self.getDataModel(ob)
+        proxy = kw.get('proxy')
+        dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
         layoutdata = layoutob.getLayoutData(ds)
@@ -494,13 +511,7 @@ class FlexibleTypeInformation(TypeInformation):
             ds.updateFromMapping(request.form)
             ok = layoutob.validateLayout(layoutdata, ds)
             if ok:
-                # Update the object from dm.
-                ob = dm._commit(proxy=kw.get('proxy'))
-                # CMF/CPS stuff.
-                ob.reindexObject()
-                evtool = getToolByName(self, 'portal_eventservice', None)
-                if evtool is not None:
-                    evtool.notify('sys_modify_object', ob, {})
+                ob = self._commitDM(dm)
             else:
                 mode = errmode
         else:
@@ -530,7 +541,8 @@ class FlexibleTypeInformation(TypeInformation):
         layouts and used for getEditableContent if the object is
         modified.
         """
-        dm = self.getDataModel(ob)
+        proxy = kw.get('proxy')
+        dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
         # Prepare each widget, and so update the datastructure.
@@ -559,13 +571,7 @@ class FlexibleTypeInformation(TypeInformation):
                     method(mode, layout=layoutdata,
                            datastructure=ds, datamodel=None, **kw)
                 else:
-                    # Do storage by committing the dm.
-                    ob = dm._commit(proxy=kw.get('proxy'))
-                    # CMF/CPS stuff.
-                    ob.reindexObject()
-                    evtool = getToolByName(self, 'portal_eventservice', None)
-                    if evtool is not None:
-                        evtool.notify('sys_modify_object', ob, {})
+                    ob = self._commitDM(dm)
                 mode = okmode
             else:
                 mode = errmode
@@ -579,16 +585,11 @@ class FlexibleTypeInformation(TypeInformation):
     security.declarePrivate('editObject')
     def editObject(self, ob, mapping):
         """Modify the object's fields from a mapping."""
-        dm = self.getDataModel(ob)
+        proxy = kw.get('proxy')
+        dm = self.getDataModel(ob, proxy=proxy)
         for key, value in mapping.items():
             if dm.has_key(key):
                 dm[key] = value
-        # No proxy passed, assume ob is already editable.
-        dm._commit()
-        # CMF/CPS stuff.
-        ob.reindexObject()
-        evtool = getToolByName(self, 'portal_eventservice', None)
-        if evtool is not None:
-            evtool.notify('sys_modify_object', ob, {})
+        self._commitDM(dm)
 
 InitializeClass(FlexibleTypeInformation)
