@@ -27,6 +27,14 @@ widgets = {
             'type': 'CPS String Widget Type',
             'data': {},
             },
+        'URL Widget': {
+            'type': 'CPS URL Widget Type',
+            'data': {},
+            },
+        'Email Widget': {
+            'type': 'CPS Email Widget Type',
+            'data': {},
+            },
         'Password Widget': {
             'type': 'CPS Password Widget Type',
             'data': {},
@@ -110,7 +118,6 @@ widgets = {
         'Link Widget': {
             'type': 'CPS Compound Widget Type',
             'data': {
-                'prepare_validate_method': 'widget_link_prepare_validate',
                 'render_method': 'widget_link_render',
                 },
             },
