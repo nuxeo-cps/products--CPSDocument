@@ -1,0 +1,13 @@
+<tal:block define="doc here/getContent">
+<div class="dtitle" tal:content="doc/title" />
+<div class="ddescription" tal:content="doc/description|nothing" />
+<br>
+<div class="dbold">
+  <span i18n:translate="cpsdoc_Event_start_label">from</span>
+  <tal:block content="python:here.getDateStr(doc.start, 'medium')" />
+  <span i18n:translate="cpsdoc_Event_end_label">to</span>
+  <tal:block content="python:here.getDateStr(doc.end, 'medium')" />
+</div>
+<br>
+<div class="dcontent" tal:content="structure doc/content" />
+</tal:block>
