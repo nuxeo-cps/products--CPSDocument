@@ -131,7 +131,7 @@ div.ddescription {
 }
 
 .newsdate {
-  margin: -1em 0 1em 0;
+  margin: -0.5em 0 1em 0;
   color: #777777;
   font-weight: bold;
   font-size: <dtml-var headingSize5>;
