@@ -64,3 +64,10 @@ msgstr ""
 msgid "cpsdoc_News_attachedFile_label"
 msgstr ""
 
+msgid "cpsdoc_News_theme_label_edit"
+msgstr ""
+
+msgid "cpsdoc_theme"
+msgstr ""
+
+
