@@ -2,6 +2,7 @@
                        items proxy/getBookContents;
                        book python:here.getContent();
                        nb_items python:int(getattr(book,'nb_items_per_summary_page',20));
+                       has_search python:int(getattr(book,'has_search_box',0));
                        page_batch_start python:int(path('request/start | nothing') or 0);
                        page_batch python:modules['ZTUtils'].Batch(items,
                                                                   size=nb_items,
@@ -10,7 +11,6 @@
                        next_page python:page_batch.next;
                        nb_items_in_current_batch python:len(page_batch);
                        mq nocall:modules/ZTUtils/make_query">
-
 
 <div class="bookSummary"
      tal:define="prev_or_next python:previous_page or next_page">
@@ -60,4 +60,31 @@
   </div>
 </div>
 
+  <div tal:condition="has_search">
+  <tal:block define="SearchableText python:request.get('SearchableText','');
+                     utool nocall:here/portal_url;
+                     context_url python:utool.getRelativeUrl(proxy);
+                    ">
+    <div style="text-align:right;" class="group">
+      <form name="searchFormBottom" method="get" action="search_form"
+        onsubmit="return checkEmptySearch(this)">
+        <div class="label">
+          <label for="resultSearchText"
+                 i18n:translate="label_text_to_search">
+            Text to search
+          </label>
+        </div>
+        <input type="text" name="SearchableText" id="resultSearchText"
+               value="" class="focus" size="40"
+               tal:attributes="value SearchableText" />
+        <input class="standalone searchButton" type="submit" value="button_ok"
+               i18n:attributes="value" />
+        <br />
+        <input type="hidden" name="folder_prefix" id="folder_prefix" class="noborder"
+               tal:attributes="value context_url" />
+
+     </form>
+    </div>
+  </tal:block>
+  </div>
 </tal:block>

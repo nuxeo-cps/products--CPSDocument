@@ -1151,11 +1151,28 @@ book_layout = {
                 'thousands_separator': '',
             },
         },
+        'has_search_box': {
+            'type': 'CheckBox Widget',
+            'data': {
+                'fields': ['has_search_box'],
+                'is_required': 1,
+                'is_i18n': True,
+                'label_edit': 'cpsdoc_book_has_search_box_label_edit',
+                'label': '',
+                'hidden_layout_modes': ['view'],
+                'description': '',
+                'css_class': '',
+                'display_true': 'Yes',
+                'display_false': 'No',
+            },
+        },
     },
     'layout': {
         'style_prefix': 'layout_book_',
         'ncols': 1,
         'rows': [[{'widget_id': 'nb_items_per_summary_page'},
+                  ],
+                 [{'widget_id': 'has_search_box'},
                   ],
                  ],
         }

@@ -165,6 +165,11 @@ news_schema = {
         'data': {
             },
         },
+    'photo_original': {
+        'type': 'CPS String Field',
+        'data': {
+            },
+        },
     'content': {
         'type': 'CPS String Field',
         'data': {
@@ -378,6 +383,14 @@ book_schema = {
                 'is_searchabletext': 0,
             },
         },
+    'has_search_box': {
+        'type': 'CPS Int Field',
+        'data': {
+                'default_expr': 'python:0',
+                'is_searchabletext': 0,
+            },
+        },
+
     }
 
 ###########################################################
