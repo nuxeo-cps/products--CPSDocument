@@ -1,9 +1,25 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
--
+- updating getDocument* definition + run cpsdocument_installer
+  1/ Move 'layout_style_prefix' from getDocumentTypes.py:
+    ...
+  -   'layout_style_prefix': 'layout_XXX_',
+    ...
+  into: 'style_prefix' in getDocumentLayouts.py:
+      ...
+      'layout': {
+  +         'style_prefix': 'layout_XXX_',
+            'ncols': 1,
+      ...
+  2/ in getDocumentTypes.py
+   change:
+         'default_layout': 'xxx',
+   to:
+         'layouts': ['news'],
+
 New features:
 ~~~~~~~~~~~~~
--
+- handle list of layouts vs single layout per ptype
 Bug fixes:
 ~~~~~~~~~~
 -
