@@ -12,6 +12,10 @@ widgets = {
             'type': 'CPS Int Widget Type',
             'data': {},
             },
+        'Long Widget': {
+            'type': 'CPS Long Widget Type',
+            'data': {},
+            },
         'Float Widget': {
             'type': 'CPS Float Widget Type',
             'data': {},
