@@ -79,6 +79,10 @@ widgets = {
             'type': 'CPS AttachedFile Widget Type',
             'data': {},
             },
+        'ZippedHtml Widget': {
+            'type': 'CPS ZippedHtml Widget Type',
+            'data': {},
+            },
         'Image Widget': {
             'type': 'CPS Image Widget Type',
             'data': {},
