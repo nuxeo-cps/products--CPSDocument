@@ -198,6 +198,7 @@ faqitem_layout = {
                 'css_class': 'ddescription',
                 'width': 40,
                 'height': 5,
+                'render_mode': 'text',
             },
         },
         'content': {
@@ -256,6 +257,7 @@ faq_layout = {
                 'css_class': 'ddescription',
                 'width': 40,
                 'height': 5,
+                'render_mode': 'text',
             },
         },
     },
@@ -301,6 +303,7 @@ glossaryitem_layout = {
                 'css_class': 'ddescription',
                 'width': 40,
                 'height': 5,
+                'render_mode': 'text',
             },
         },
     },
@@ -343,6 +346,7 @@ glossary_layout = {
                 'css_class': 'ddescription',
                 'width': 40,
                 'height': 5,
+                'render_mode': 'text',
             },
         },
         'display_all': {
@@ -464,6 +468,7 @@ news_layout = {
                 'css_class': 'ddescription',
                 'width': 60,
                 'height': 5,
+                'render_mode': 'text',
             },
         },
         'theme': {
@@ -560,6 +565,7 @@ file_layout = {
                 'is_required': 0,
                 'width': 60,
                 'height': 5,
+                'render_mode': 'text',
             },
         },
         'file': {
@@ -620,6 +626,7 @@ event_layout = {
                 'is_required': 0,
                 'width': 60,
                 'height': 5,
+                'render_mode': 'text',
             },
         },
         'start': {
@@ -751,6 +758,7 @@ image_layout = {
                 'is_required': 0,
                 'width': 60,
                 'height': 5,
+                'render_mode': 'text',
             },
         },
         'preview': {
@@ -806,6 +814,7 @@ imagegallery_layout = {
                 'css_class': 'ddescription',
                 'width': 40,
                 'height': 5,
+                'render_mode': 'text',
             },
         },
         'preview_width': {
@@ -929,6 +938,7 @@ dummy_form_layout = {
                 'is_required': 0,
                 'width': 60,
                 'height': 5,
+                'render_mode': 'text',
             },
         },
     },
