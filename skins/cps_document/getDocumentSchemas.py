@@ -41,7 +41,7 @@ common_schema = {
     'preview': {
         'type': 'CPS Image Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
             },
         },
@@ -52,21 +52,21 @@ flexible_content_schema = {
     'content': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 1,
             },
         },
     'content_format': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 0,
             },
         },
     'content_position': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 0,
             },
         },
@@ -80,7 +80,7 @@ faqitem_schema = {
     'content': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 1,
             },
         },
@@ -100,7 +100,7 @@ glossary_schema = {
     'display_all': {
         'type': 'CPS Int Field',
         'data': {
-                'default': 0,
+                'default_expression_str': 'python:0',
                 'is_indexed': 0,
             },
         },
@@ -121,14 +121,14 @@ news_schema = {
     'preview': {
         'type': 'CPS Image Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
             },
         },
     'attachedFile': {
         'type': 'CPS File Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
                 'suffix_html': '_html',
                 'suffix_text': '_text',
@@ -137,49 +137,49 @@ news_schema = {
     'attachedFile_html': {
         'type': 'CPS File Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
             },
         },
     'attachedFile_text': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 1,
             },
         },
     'newsdate': {
         'type': 'CPS DateTime Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
             },
         },
     'photo': {
         'type': 'CPS Image Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
             },
         },
     'theme': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 1,
             },
         },
     'longTitle': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 1,
             },
         },
     'content': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 1,
             },
         },
@@ -193,7 +193,7 @@ file_schema = {
     'file': {
         'type': 'CPS File Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
                 'suffix_html': '_html',
                 'suffix_text': '_text',
@@ -202,14 +202,14 @@ file_schema = {
     'file_html': {
         'type': 'CPS File Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
             },
         },
     'file_text': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 1,
             },
         },
@@ -224,28 +224,28 @@ event_schema = {
     'start': {
         'type': 'CPS DateTime Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
             },
         },
     'end': {
         'type': 'CPS DateTime Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
             },
         },
     'content': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 1,
             },
         },
     'attachedFile': {
         'type': 'CPS File Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
                 'suffix_html': '_html',
                 'suffix_text': '_text',
@@ -254,14 +254,14 @@ event_schema = {
     'attachedFile_html': {
         'type': 'CPS File Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
             },
         },
     'attachedFile_text': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 1,
             },
         },
@@ -275,7 +275,7 @@ link_schema = {
     'href': {
         'type': 'CPS String Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'string:',
                 'is_indexed': 1,
             },
         },
@@ -291,7 +291,7 @@ image_schema = {
     'preview': {
         'type': 'CPS Image Field',
         'data': {
-                'default': '',
+                'default_expression_str': 'nothing',
                 'is_indexed': 0,
             },
         },
@@ -301,28 +301,28 @@ imagegallery_schema = {
     'preview_width': {
         'type': 'CPS Int Field',
         'data': {
-                'default': 64,
+                'default_expression_str': 'python:64',
                 'is_indexed': 0,
             },
         },
     'preview_height': {
         'type': 'CPS Int Field',
         'data': {
-                'default': 64,
+                'default_expression_str': 'python:64',
                 'is_indexed': 0,
             },
         },
     'nb_cols': {
         'type': 'CPS Int Field',
         'data': {
-                'default': 3,
+                'default_expression_str': 'python:3',
                 'is_indexed': 0,
             },
         },
     'nb_items': {
         'type': 'CPS Int Field',
         'data': {
-                'default': 9,
+                'default_expression_str': 'python:9',
                 'is_indexed': 0,
             },
         },
