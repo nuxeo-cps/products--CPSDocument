@@ -160,6 +160,16 @@ news_schema = {
                 'is_searchabletext': 1,
             },
         },
+    'content_position': {
+        'type': 'CPS String Field',
+        'data': {
+            },
+        },
+    'content_format': {
+        'type': 'CPS String Field',
+        'data': {
+            },
+        },
     }
 
 ########################################################

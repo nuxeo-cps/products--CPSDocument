@@ -603,7 +603,7 @@ news_layout = {
         'content': {
             'type': 'Text Widget',
             'data': {
-                'fields': ['content'],
+                'fields': ['content', 'content_position', 'content_format'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_News_content_label_edit',
                 'label': '',
