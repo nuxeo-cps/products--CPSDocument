@@ -174,6 +174,18 @@ widgets = {
                 'render_method': 'widget_search_render',
                 },
             },
+        'Search ZCText Widget': {
+            'type': 'CPS Search ZCText Widget Type',
+            'data': {},
+            },
+        'Search Modified Widget': {
+            'type': 'CPS Search Modified Widget Type',
+            'data': {},
+            },
+        'Search Language Widget': {
+            'type': 'CPS Search Language Widget Type',
+            'data': {},
+            },
         }
 
 if loadcustom:
