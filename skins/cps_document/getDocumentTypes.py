@@ -12,6 +12,7 @@ types = {
             'schemas': ['faq'],
             'default_layout': 'faq',
             'layout_style_prefix': 'layout_dummy_',
+            'cps_proxy_type': 'document',
              },
     'News': {'title': 'portal_type_News_title',
              'description': 'portal_type_News_description',
@@ -20,6 +21,7 @@ types = {
              'schemas': ['news'],
              'default_layout': 'news',
              'layout_style_prefix': 'layout_default_',
+             'cps_proxy_type': 'document',
              },
     'Dummy Form': {'title': 'portal_type_Dummy_Form',
                    'description': 'portal_type_Dummy_description',
@@ -28,6 +30,7 @@ types = {
                    'schemas': ['dummy_form'],
                    'default_layout': 'dummy_form',
                    'layout_style_prefix': 'layout_form_',
+                   'cps_proxy_type': 'document',
                    }
     }
 

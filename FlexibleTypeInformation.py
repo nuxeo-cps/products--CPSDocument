@@ -28,6 +28,7 @@ from AccessControl import ClassSecurityInfo, Unauthorized
 
 from Products.CMFCore.CMFCorePermissions import View
 from Products.CMFCore.CMFCorePermissions import ModifyPortalContent
+from Products.CMFCore.CMFCorePermissions import ChangePermissions
 from Products.CMFCore.CMFCorePermissions import ManagePortal
 from Products.CMFCore.utils import _checkPermission
 from Products.CMFCore.utils import getToolByName
@@ -59,6 +60,12 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
                          '', # condition: only for CMF 1.4 and above
                          View,
                          'object')
+        flexti.addAction('contents',
+                         'action_folder_contents',
+                         'folder_contents',
+                         "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type == 'folderishdocument'",
+                         ModifyPortalContent,
+                         'object')
         flexti.addAction('edit',
                          'action_edit',
                          'cpsdocument_edit_form',
@@ -77,13 +84,12 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
                          '', # condition: only for CMF 1.4 and above
                          ModifyPortalContent,
                          'object')
-        flexti.addAction('contents',
-                         'action_folder_contents',
-                         'folder_contents',
+        flexti.addAction('localroles',
+                         'action_local_roles',
+                         'folder_localrole_form',
                          "python: object.portal_types[object.getPortalTypeName()].cps_proxy_type == 'folderishdocument'",
-                         ModifyPortalContent,
+                         ChangePermissions,
                          'object')
-
 
     except TypeError, errorType:
         flexti.addAction('view',
