@@ -316,13 +316,15 @@ msgstr "Riempimento"
 msgid "label_relation"
 msgstr "Relazione"
 
-#, fuzzy
 msgid "cpsdoc_hidden_folder"
-msgstr "Il "
+msgstr "Nascondi questa folder nella navigazione"
 
-#, fuzzy
 msgid "cpsdoc_hidden_folder_help"
-msgstr "Il "
+msgstr ""
+"Questa cartella verrà nascosta nella modalità di visualizzazione, puoi ancora"
+"visualizzare/accedere ad essa utilizzando 'Contenuti della cartella' o al"
+"momento di scegliere una sezione per la pubblicazione."
+"Utilizza 'Ruoli locali' per assicurare l'accesso alla cartella."
 
 #~ msgid "batch_next"
 #~ msgstr "avanti"
