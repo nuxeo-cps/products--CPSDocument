@@ -872,8 +872,8 @@ link_layout = {
             'type': 'Link Widget',
             'data': {
                 'fields': ['href',
-                           'title',
-                           'description'],
+                           'Title',
+                           'Description'],
                 'is_i18n': 1,
                 'is_required': 1,
                 'label_edit': 'cpsdoc_Link_label_edit',
