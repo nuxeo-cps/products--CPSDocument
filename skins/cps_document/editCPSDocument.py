@@ -27,7 +27,7 @@ else:
     # of that yet.
     context.portal_eventservice.notifyEvent('workflow_modify',
                                             context,
-                                            {})
+                                            {'comments': REQUEST.get('comments')})
 
 
 return res[0], psm

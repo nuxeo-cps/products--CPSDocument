@@ -4,6 +4,8 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - News Document have a flexible part to handle multiple links
+- Added an input to enter comments when modifying a document and sending the
+  comments to the event service.
 Bug fixes:
 ~~~~~~~~~~
 - fix #454: Invalid widget css class in edition. This css class was hardcoded in
