@@ -26,6 +26,43 @@ msgstr ""
 msgid "cpsdoc_theme_label_edit"
 msgstr ""
 
+msgid "cpsdoc_date_label_edit"
+msgstr ""
+
+msgid "cpsdoc_date_label"
+msgstr ""
+
+msgid "cpsdoc_preview_label_edit"
+msgstr ""
+
+# flex content
+msgid "cpsdoc_flex_content_title"
+msgstr ""
+
+msgid "cpsdoc_flex_content_label_edit"
+msgstr ""
+
+msgid "cpsdoc_flex_attachedFile_title"
+msgstr ""
+
+msgid "cpsdoc_flex_attachedFile_label_edit"
+msgstr ""
+
+msgid "cpsdoc_flex_attachedFile_label"
+msgstr ""
+
+msgid "cpsdoc_flex_photo_title"
+msgstr ""
+
+msgid "cpsdoc_flex_link_title"
+msgstr ""
+
+# Flexible
+msgid "portal_type_Flexible_title"
+msgstr ""
+
+msgid "portal_type_Flexible_description"
+msgstr ""
 
 # Faq
 msgid "portal_type_FAQ_title"

@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-06 15:23default\n"
-"PO-Revision-Date: 2003-11-06 15:26+0100\n"
-"Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
-"Language-Team: francais <fr@li.org>\n"
+"POT-Creation-Date: 2003-11-07 16:36default\n"
+"PO-Revision-Date: 2003-11-07 16:37+0100\n"
+"Last-Translator: ben <ben@nuxeo.com>\n"
+"Language-Team: ben\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;X-Generator: KBabel 1.0.2\n"
-"X-Generator: KBabel 1.0.2\n"
+"X-Generator: KBabel 1.0.1\n"
 
 #.   <h1>
 #.         Create a document of type
@@ -32,6 +32,11 @@ msgstr "Créer un document de type ${type_name}"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr "Edition de «${title}»"
+
+#.   <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "Type"
+msgstr "nop"
 
 #.   <input value="button_add" class="context" name="addwidget_button" type="submit">
 #.   </input>
@@ -124,6 +129,44 @@ msgstr "Description : "
 
 msgid "cpsdoc_theme_label_edit"
 msgstr "Thème : "
+
+msgid "cpsdoc_date_label_edit"
+msgstr "Date : "
+
+msgid "cpsdoc_date_label"
+msgstr "Le "
+
+msgid "cpsdoc_preview_label_edit"
+msgstr "Vignette : "
+
+msgid "cpsdoc_flex_content_title"
+msgstr "Bloc de texte"
+
+msgid "cpsdoc_flex_content_label_edit"
+msgstr "Bloc de texte : "
+
+msgid "cpsdoc_flex_attachedFile_title"
+msgstr "Fichier attaché"
+
+msgid "cpsdoc_flex_attachedFile_label_edit"
+msgstr "Fichier attaché : "
+
+msgid "cpsdoc_flex_attachedFile_label"
+msgstr "Fichier attaché : "
+
+msgid "cpsdoc_flex_photo_title"
+msgstr "Image "
+
+# default doc types
+msgid "cpsdoc_flex_link_title"
+msgstr "Lien"
+
+# default doc types
+msgid "portal_type_Flexible_title"
+msgstr "Document flexible"
+
+msgid "portal_type_Flexible_description"
+msgstr "Enfin un document flexible"
 
 # default doc types
 msgid "portal_type_FAQ_title"

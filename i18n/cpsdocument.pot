@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2003-11-06 15:23default\n"
+"POT-Creation-Date: 2003-11-07 16:36default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -30,6 +30,11 @@ msgstr ""
 #.   <h1>Edit ${title (tal content="here/title_or_id")}</h1>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
+msgstr ""
+
+#.   <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
+#: from ../skins/cps_document/layout_lib.pt
+msgid "Type"
 msgstr ""
 
 #.   <input value="button_add" class="context" name="addwidget_button" type="submit">
@@ -123,6 +128,44 @@ msgid "cpsdoc_description_label_edit"
 msgstr ""
 
 msgid "cpsdoc_theme_label_edit"
+msgstr ""
+
+msgid "cpsdoc_date_label_edit"
+msgstr ""
+
+msgid "cpsdoc_date_label"
+msgstr ""
+
+msgid "cpsdoc_preview_label_edit"
+msgstr ""
+
+# flex content
+msgid "cpsdoc_flex_content_title"
+msgstr ""
+
+msgid "cpsdoc_flex_content_label_edit"
+msgstr ""
+
+msgid "cpsdoc_flex_attachedFile_title"
+msgstr ""
+
+msgid "cpsdoc_flex_attachedFile_label_edit"
+msgstr ""
+
+msgid "cpsdoc_flex_attachedFile_label"
+msgstr ""
+
+msgid "cpsdoc_flex_photo_title"
+msgstr ""
+
+msgid "cpsdoc_flex_link_title"
+msgstr ""
+
+# Flexible
+msgid "portal_type_Flexible_title"
+msgstr ""
+
+msgid "portal_type_Flexible_description"
 msgstr ""
 
 # Faq
