@@ -22,6 +22,9 @@ class DummyResponse:
     def write(self, data):
         self.data += data
 
+    def redirect(self, url):
+        self.redirect_url = url
+
 
 class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     def afterSetUp(self):
@@ -37,12 +40,14 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         for doc_type in self.document_types.keys():
             doc_id = doc_type.lower()
             self.ws.invokeFactory(doc_type, doc_id)
-            doc = getattr(self.ws, doc_id).getContent()
+            proxy = getattr(self.ws, doc_id)
+            doc = proxy.getContent()
             # Edit doc to set default values
             doc.edit()
 
             self._testInterfaces(doc)
             self._testDefaultAttributes(doc)
+            self._testRendering(doc)
 
             # XXX: should be 0 for an empty object, right?
             self.assert_(doc.get_size() >= 0) 
@@ -69,13 +74,15 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         verifyObject(IContentish, doc)
         verifyObject(IDublinCore, doc)
 
+    def _testRendering(self, doc):
+        # It doesn't work with those 3 types. Why ?
+        if doc.portal_type not in ('ImageGallery', 'FAQ', 'Glossary'):
+            doc.render()
 
-    # XXX: this should work by fixing ZTC (add some methode to the
-    # fake RESPONSE object)
-    #def testCreateDocumentsInWorkspacesRootThroughWFTool(self):
-    #    wft = self.portal.portal_workflow
-    #    for doc_type in DEFAULT_DOCUMENT_TYPES:
-    #        wft.invokeFactory(self.ws, doc_type, doc_type.lower())
+    def testCreateDocumentsInWorkspacesRootThroughWFTool(self):
+        wft = self.portal.portal_workflow
+        for doc_type in self.document_types.keys():
+            wft.invokeFactoryFor(self.ws, doc_type, doc_type.lower())
 
     def testNews(self):
         self.ws.invokeFactory('News', 'news')
@@ -122,16 +129,41 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         self.assertEquals(doc.downloadFile('file'), "toto")
 
-        reponse = DummyResponse()
-        doc.downloadFile('file', reponse)
-        self.assertEquals(reponse.data, "toto")
-        self.assertEquals(reponse.headers['Content-Type'], 
+        response = DummyResponse()
+        doc.downloadFile('file', response)
+        self.assertEquals(response.data, "toto")
+        self.assertEquals(response.headers['Content-Type'], 
             'application/octet-stream')
-        self.assertEquals(reponse.headers['Content-Length'], 
+        self.assertEquals(response.headers['Content-Length'], 
             len("toto"))
-        self.assertEquals(reponse.headers['Content-Disposition'],
+        self.assertEquals(response.headers['Content-Disposition'],
             "inline; filename=file")
 
+    # To be finished (maybe)
+    if 0:
+        # edit 
+        class FieldStorage:
+            def __init__(self, **kw):
+                for k, v in kw.items():
+                    setattr(self, k, v)
+        from StringIO import StringIO
+        from ZPublisher.HTTPRequest import FileUpload
+        file = StringIO("titi")
+        fs = FieldStorage(file=file, headers={"Content-Type": "text/html"}, 
+            filename="filename")
+        fileupload = FileUpload(fs)
+
+        doc.edit(file=fileupload)
+
+        response = DummyResponse()
+        doc.downloadFile('file', response)
+        self.assertEquals(response.data, "titi")
+        self.assertEquals(response.headers['Content-Type'], 
+            'application/octet-stream')
+        self.assertEquals(response.headers['Content-Length'], 
+            len("titi"))
+        self.assertEquals(response.headers['Content-Disposition'],
+            "inline; filename=filename")
 
     def testFlexible(self):
         self.ws.invokeFactory('Flexible', 'flex')
