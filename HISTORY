@@ -1,4 +1,21 @@
 *******************************************
+** CPSDocument V0.23.2 [R1 build 2004/07/28-15:40 by guillaum]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- Metadata are not shown for anonymous people anymore
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Set _has_generic_edit_method flag for CPSDocumentMixin (Used by WebDAV
+  in ProxyBase).
+
+*******************************************
 ** CPSDocument V0.23.1 [R1 build 2004/07/19-11:59 by anahide]
 
 Requires:
