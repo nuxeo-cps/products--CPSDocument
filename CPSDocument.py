@@ -340,19 +340,6 @@ class CPSDocument(CPSDocumentMixin, PortalFolder, PortalContent,
         self.id = id
         DefaultDublinCoreImpl.__init__(self)
 
-    # These methods should be in DefaultDublinCoreImpl, but they are not
-    def Relation(self):
-        return self.relation
-
-    def Coverage(self):
-        return self.coverage
-
-    def Source(self):
-        return self.source
-
-    # XXX: should we add setRelation(), selfCoverage() and setSource() too ?
-
-
 InitializeClass(CPSDocument)
 
 
