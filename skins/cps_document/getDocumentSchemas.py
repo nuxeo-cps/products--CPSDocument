@@ -186,6 +186,73 @@ file_schema = {
         },
     }
 
+
+########################################################
+# Event SCHEMA
+########################################################
+
+event_schema = {
+    'title': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'description': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'start': {
+        'type': 'CPS DateTime Field',
+        'data': {
+                'default': '',
+                'is_indexed': 0,
+            },
+        },
+    'end': {
+        'type': 'CPS DateTime Field',
+        'data': {
+                'default': '',
+                'is_indexed': 0,
+            },
+        },
+    'content': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'attachedFile': {
+        'type': 'CPS File Field',
+        'data': {
+                'default': '',
+                'is_indexed': 0,
+                'suffix_html': '_html',
+                'suffix_text': '_text',
+            },
+        },
+    'attachedFile_html': {
+        'type': 'CPS File Field',
+        'data': {
+                'default': '',
+                'is_indexed': 0,
+            },
+        },
+    'attachedFile_text': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    }
+
+
 ###########################################################
 # END OF SCHEMAS DEFINITIONS
 ###########################################################
@@ -200,6 +267,7 @@ schemas['faq'] = faq_schema
 #schemas['dummy_form'] = dummy_form_schema
 schemas['news'] = news_schema
 schemas['file'] = file_schema
+schemas['event'] = event_schema
 
 cschemas = context.getCustomDocumentSchemas()
 

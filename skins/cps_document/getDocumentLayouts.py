@@ -286,6 +286,107 @@ file_layout = {
     }
 
 #########################################################
+# EVENT LAYOUT
+#########################################################
+event_layout = {
+    'widgets': {
+        'title': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['title'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_title_label_edit',
+                'css_class': 'dtitle',
+                'is_required': 1,
+                'display_width': 60,
+                'size_max': 72,
+            },
+        },
+        'description': {
+            'type': 'TextArea Widget',
+            'data': {
+                'fields': ['description'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_description_label_edit',
+                'description': '',
+                'css_class': 'ddescription',
+                'is_required': 0,
+                'width': 40,
+                'height': 5,
+                'render_mode': 'stx',
+            },
+        },
+        'start': {
+            'type': 'Date Widget',
+            'data': {
+                'fields': ['start'],
+                'is_i18n': 1,
+                'is_required': 1,
+                'label_edit': 'cpsdoc_Event_start_label_edit',
+                'label': 'cpsdoc_Event_start_label',
+                'css_class': 'dlabel',
+                'view_format': 'medium',
+                'time_setting': 1,
+            },
+        },
+        'end': {
+            'type': 'Date Widget',
+            'data': {
+                'fields': ['end'],
+                'is_i18n': 1,
+                'is_required': 1,
+                'label_edit': 'cpsdoc_Event_start_label_edit',
+                'label': 'cpsdoc_Event_start_label',
+                'css_class': 'dlabel dright',
+                'view_format': 'medium',
+                'time_setting': 1,
+            },
+        },
+        'content': {
+            'type': 'Rich Text Editor Widget',
+            'data': {
+                'fields': ['content'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_Event_content_label_edit',
+                'label': '',
+                'description': 'cpsdoc_Event_content_description',
+                'css_class': 'dcontent',
+                'width': 40,
+                'height': 25,
+                'render_mode': 'stx',
+            },
+        },
+        'attachedFile': {
+            'type': 'File Widget',
+            'data': {
+                'fields': ['attachedFile',
+                           'attachedFile_text',
+                           'attachedFile_html'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_Event_attachedFile_label_edit',
+                'label': 'cpsdoc_Event_attachedFile_label',
+                'hidden_empty': 1,
+                'description': 'cpsdoc_Event_attachedFile_description',
+                'deletable': 1,
+                'size_max': 3*1024*1024,
+            },
+        },
+    },
+    'layout': {
+        'ncols': 2,
+        'rows': [
+            [{'ncols': 1, 'widget_id': 'title'},],
+            [{'ncols': 1, 'widget_id': 'description'},],
+            [{'ncols': 1, 'widget_id': 'start'},
+             {'ncols': 1, 'widget_id': 'end'},],
+            [{'ncols': 1, 'widget_id': 'content'},],
+            [{'ncols': 1, 'widget_id': 'attachedFile'},],
+            ],
+        },
+    }
+
+
+#########################################################
 # DUMMY FORM LAYOUT
 #########################################################
 
@@ -352,6 +453,7 @@ layouts['faq'] = faq_layout
 #layouts['dummy_form'] = dummy_form_layout
 layouts['news'] = news_layout
 layouts['file'] = file_layout
+layouts['event'] = event_layout
 
 clayouts = context.getCustomDocumentLayouts()
 
