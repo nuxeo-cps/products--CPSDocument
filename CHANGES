@@ -13,3 +13,4 @@ New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Split CPSSchemas into a separate package.
 - renaming widget properties 'title' into 'label_edit' and 'title_view' into 'label'
+- Don't pass both datastructure and datamodel around.
