@@ -455,27 +455,29 @@ class FlexibleTypeInformation(TypeInformation):
         return layout
 
     security.declarePrivate('_renderLayoutStyle')
-    def _renderLayoutStyle(self, context, mode, **kw):
+    def _renderLayoutStyle(self, context, layout_mode, **kw):
         """Render a layout according to the style defined in
-        the FlexTI and the mode.
+        the FlexTI and the layout_mode.
 
         Uses context as a rendering context.
         """
-        layout_meth = self.layout_style_prefix + mode
+        layout_meth = self.layout_style_prefix + layout_mode
         layout_style = getattr(context, layout_meth, None)
         if layout_style is None:
             raise RuntimeError("No layout method '%s'" % layout_meth)
-        return layout_style(mode=mode, **kw)
+        return layout_style(layout_mode=layout_mode, **kw)
 
     security.declarePrivate('renderObject')
-    def renderObject(self, ob, mode='view', layout_id=None, **kw):
+    def renderObject(self, ob, layout_mode='view', layout_id=None, **kw):
         """Render the object."""
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
-        layout = layoutob.getLayoutData(ds)
-        return self._renderLayoutStyle(ob, mode, layout=layout,
+        # XXX Make mode_chooser passable by the caller?
+        mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
+        layoutdata = layoutob.getLayoutData(ds, mode_chooser)
+        return self._renderLayoutStyle(ob, layout_mode, layout=layoutdata,
                                        datastructure=ds, **kw)
 
     def _commitDM(self, dm):
@@ -495,17 +497,19 @@ class FlexibleTypeInformation(TypeInformation):
 
     security.declarePrivate('renderEditObjectDetailed')
     def renderEditObjectDetailed(self, ob, request=None,
-                                 mode='edit', errmode='edit',
+                                 layout_mode='edit',
+                                 layout_mode_err='edit',
                                  layout_id=None, **kw):
         """Modify the object from request, returns detailed information
         about the rendering.
 
         If request is None, the object is not modified and is rendered
-        in the specified mode.
+        in the specified layout_mode.
 
         If request is not None, the parameters are validated and the
-        object modified, and rendered in the specified mode. If there is
-        a validation error, the object is rendered in mode errmode.
+        object modified, and rendered in the specified layout_mode. If
+        there is a validation error, the object is rendered in
+        layout_mode_err.
 
         An optional 'proxy' arg can be given, it will be passed to the
         layouts and used for getEditableContent if the object is
@@ -520,51 +524,51 @@ class FlexibleTypeInformation(TypeInformation):
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
-        layoutdata = layoutob.getLayoutData(ds)
+        mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
+        layoutdata = layoutob.getLayoutData(ds, mode_chooser)
         if request is not None:
             ds.updateFromMapping(request.form)
             ok = layoutob.validateLayout(layoutdata, ds)
             if ok:
                 ob = self._commitDM(dm)
             else:
-                mode = errmode
+                layout_mode = layout_mode_err
         else:
             ok = 1
-        rendered = self._renderLayoutStyle(ob, mode, layout=layoutdata,
+        rendered = self._renderLayoutStyle(ob, layout_mode, layout=layoutdata,
                                            datastructure=ds, ok=ok, **kw)
         return rendered, ok, ds
 
     security.declarePrivate('renderEditObject')
-    def renderEditObject(self, ob, request=None, mode='edit', errmode='edit',
-                         layout_id=None, **kw):
-        """Modify the object from request, and renders to new mode.
+    def renderEditObject(self, *args, **kw):
+        """Modify the object from request, and renders to new layout mode.
 
         Returns the rendered HTML.
 
         See renderEditObjectDetailed for more.
         """
-        rendered, ok, ds = self.renderEditObjectDetailed(ob, request=request,
-                                                         mode=mode,
-                                                         errmode=errmode,
-                                                         layout_id=layout_id,
-                                                         **kw)
+        rendered, ok, ds = self.renderEditObjectDetailed(*args, **kw)
         return rendered
 
     security.declarePrivate('validateStoreRenderObject')
-    def validateStoreRenderObject(self, ob, request=None, mode='edit',
-                                  okmode='edit', errmode='edit',
+    def validateStoreRenderObject(self, ob, request=None,
+                                  layout_mode='edit',
+                                  layout_mode_ok='edit',
+                                  layout_mode_err='edit',
                                   layout_id=None, **kw):
-        """Modify the object from request, store data, and renders to new mode.
+        """Modify the object from request, store data, and renders to
+        new layout mode.
 
-        If request is None, the object is rendered in the specified mode.
+        If request is None, the object is rendered in the specified
+        layout_mode.
 
         If request is not None:
         - the parameters are validated.
         - if there is a validation error:
-          - the object is rendered in mode errmode;
+          - the object is rendered in layout_mode_err.
         - if there is no validation error:
           - the object is modified, or a storage method is called,
-          - the object is renderd in mode okmode.
+          - the object is renderd in layout_mode_ok.
 
         An optional 'proxy' arg can be given, it will be passed to the
         layouts and used for getEditableContent if the object is
@@ -574,8 +578,8 @@ class FlexibleTypeInformation(TypeInformation):
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id, ob)
-        # Prepare each widget, and so update the datastructure.
-        layoutdata = layoutob.getLayoutData(ds)
+        mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
+        layoutdata = layoutob.getLayoutData(ds, mode_chooser)
         if request is not None:
             # Validate from request.
             ds.updateFromMapping(request.form)
@@ -586,7 +590,7 @@ class FlexibleTypeInformation(TypeInformation):
                     v = sm.split(':')
                     if len(v) != 2:
                         raise ValueError("Bad syntax in storage_methods")
-                    if v[0] != mode:
+                    if v[0] != layout_mode:
                         continue
                     method_name = v[1]
                     break
@@ -596,15 +600,16 @@ class FlexibleTypeInformation(TypeInformation):
                     if method is None:
                         raise ValueError("No storage method %s" %
                                          method_name)
-                    method(mode, layout=layoutdata, datastructure=ds, **kw)
+                    method(layout_mode, layout=layoutdata, datastructure=ds,
+                           **kw)
                 else:
                     ob = self._commitDM(dm)
-                mode = okmode
+                layout_mode = layout_mode_ok
             else:
-                mode = errmode
+                layout_mode = layout_mode_err
         else:
             ok = 1
-        return self._renderLayoutStyle(ob, mode, layout=layoutdata,
+        return self._renderLayoutStyle(ob, layout_mode, layout=layoutdata,
                                        datastructure=ds, ok=ok, **kw)
 
     security.declarePrivate('editObject')
@@ -619,19 +624,19 @@ class FlexibleTypeInformation(TypeInformation):
 
     security.declarePublic('renderCreateObjectDetailed')
     def renderCreateObjectDetailed(self, container, request=None, validate=1,
-                                   mode='create', layout_id=None,
+                                   layout_mode='create', layout_id=None,
                                    create_callback=None,
                                    created_callback=None,
                                    **kw):
         """Render an object for creation, maybe create it.
 
         If validate is false, the object is rendered from default values
-        or the ones in request, in the specified mode.
+        or the ones in request, in the specified layout mode.
 
         If validate is true:
         - the parameters from request are validated,
         - if there is a validation error:
-          - the object is rendered in mode mode,
+          - the object is rendered in layout_mode,
         - if there is no validation error:
           - the object is created by calling create_callback in the
             context of the container and with argument the type_name
@@ -646,8 +651,8 @@ class FlexibleTypeInformation(TypeInformation):
         dm = self.getDataModel(None, context=container)
         ds = DataStructure(datamodel=dm)
         layoutob = self.getLayout(layout_id)
-        # Prepare each widget, and so update the datastructure.
-        layoutdata = layoutob.getLayoutData(ds)
+        mode_chooser = layoutob.getStandardWidgetModeChooser(layout_mode, ds)
+        layoutdata = layoutob.getLayoutData(ds, mode_chooser)
         rendered = None
         if not validate:
             # Initial display, datastructure contains defaults.
@@ -680,7 +685,7 @@ class FlexibleTypeInformation(TypeInformation):
                                  created_callback)
             rendered = created_func() or ''
         else:
-            rendered = self._renderLayoutStyle(container, mode,
+            rendered = self._renderLayoutStyle(container, layout_mode,
                                                layout=layoutdata,
                                                datastructure=ds, ok=ok,
                                                **kw)

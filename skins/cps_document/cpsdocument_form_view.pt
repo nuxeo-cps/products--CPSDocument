@@ -3,7 +3,7 @@
   <body>
 
     <div metal:fill-slot="main">
-      <div tal:replace="structure python:doc.validateStoreRender(request=edit_request, mode='view', okmode='store', errmode='view')" />
+      <div tal:replace="structure python:doc.validateStoreRender(request=edit_request, layout_mode='view', layout_mode_ok='store', layout_mode_err='view')" />
     </div>
 
   <body>

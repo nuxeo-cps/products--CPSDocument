@@ -9,4 +9,8 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- Pass adapters to the datamodel, not schemas. FlexibleTypeInformation : getDataModel()
+- Pass adapters to the datamodel, not schemas.
+- Renamed all layout-related modes to layout_mode.
+- Use new API for getLayoutData and pass it a chooser.
+- Simplified layout skin now that the layoutdata contains the rendered
+  widget and has hidden widgets removed.

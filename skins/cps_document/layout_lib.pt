@@ -3,16 +3,11 @@
 
 <!-- ============================================================ -->
 <metal:block define-macro="default_view"
-  tal:define="layout options/layout;
-              ds options/datastructure;
-              ">
+  tal:define="layout options/layout">
 <table width="100%" cellpadding="2" cellspacing="2" border="0">
   <tr tal:repeat="row layout/rows">
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
-      <tal:block define="widget cell/widget;
-                         wrender python:widget.render('view', ds)"
-        condition="python: not widget.hidden_view and
-                           (not widget.hidden_empty or wrender.strip())">
+      <tal:block define="widget cell/widget">
       <div tal:attributes="class widget/css_class|nothing">
         <tal:block condition="widget/label">
           <span class="dlabel" i18n:translate="" tal:condition="widget/is_i18n"
@@ -20,7 +15,7 @@
           <span class="dlabel" tal:condition="not:widget/is_i18n"
             tal:content="widget/label">label</span>
         </tal:block>
-        <tal:block replace="structure wrender" />
+        <tal:block replace="structure cell/widget_rendered" />
       </div>
       </tal:block>
     </td>
@@ -30,15 +25,10 @@
 
 <!-- this layout doesn't take care of cell layout =============== -->
 <metal:block define-macro="div_view"
-  tal:define="layout options/layout;
-              ds options/datastructure;
-              ">
+  tal:define="layout options/layout">
   <tal:block repeat="row layout/rows">
     <tal:block repeat="cell row">
-      <tal:block define="widget cell/widget;
-                         wrender python:widget.render('view', ds)"
-        condition="python: not widget.hidden_view and
-                           (not widget.hidden_empty or wrender.strip())">
+      <tal:block define="widget cell/widget">
       <div tal:attributes="class widget/css_class|nothing">
         <tal:block condition="widget/label">
           <span class="dlabel" i18n:translate="" tal:condition="widget/is_i18n"
@@ -46,7 +36,7 @@
           <span tal:condition="not:widget/is_i18n"
             tal:content="widget/label">label</span>
         </tal:block>
-        <tal:block replace="structure wrender" />
+        <tal:block replace="structure cell/widget_rendered" />
       </div>
       </tal:block>
     </tal:block>
@@ -73,8 +63,7 @@
       <tal:block define="widget cell/widget;
                          wid widget/getWidgetId;
                          err python:ds.getError(wid);
-                         is_required widget/is_required|nothing"
-        condition="not:widget/hidden_edit">
+                         is_required widget/is_required|nothing">
         <div tal:attributes="class python:test(err, 'row error', 'row')">
           <div class="label" tal:condition="widget/label_edit"
             tal:attributes="class python:test(is_required, 'label required',
@@ -85,7 +74,7 @@
               tal:content="widget/label_edit">label</span>
           </div>
           <div class="field">
-            <div tal:replace="structure python:widget.render('edit', ds)"/>
+            <div tal:replace="structure cell/widget_rendered"/>
           </div>
           <tal:block condition="err">
             <br><em style="color: red"
