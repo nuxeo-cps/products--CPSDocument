@@ -11,31 +11,19 @@
                        nb_items_in_current_batch python:len(page_batch);
                        mq nocall:modules/ZTUtils/make_query">
 
-
 <div class="bookSummary"
      tal:define="prev_or_next python:previous_page or next_page">
   <h3 i18n:translate="">cpsdoc_title_toc</h3>
 
   <ul>
-  <div tal:repeat="item page_batch">
-    <div tal:define="level python:item[0];
+    <div tal:repeat="item page_batch">
+      <div tal:define="level python:item[0];
                    proxy python:item[2];
                    margin python:level*15">
-      <li class=summaryEntries tal:attributes="style string:margin-left:${level}em"><a
-        tal:content="proxy/Title" tal:attributes="href proxy/absolute_url"/></li>
-  </div>
- 
-</div>
-<tal:block condition="nothing">
-    <li tal:repeat="item page_batch"
-         class=summaryEntries>
-      <a href="."
-         tal:attributes="href python:'%s/%s'%(proxy.absolute_url(),
-                                              item.id)"
-         tal:content="item/Title">
-      </a>
-    </li>
-</tal:block>
+        <li class=summaryEntries tal:attributes="style string:margin-left:${level}em"><a
+          tal:content="proxy/Title" tal:attributes="href proxy/absolute_url"/></li>
+      </div>
+    </div>
   </ul>
 
   <div tal:condition="prev_or_next"

@@ -1055,6 +1055,48 @@ book_layout = {
     }
 
 #########################################################
+# CHAPTER LAYOUT
+#########################################################
+
+chapter_layout = {
+    'widgets': {
+        'nb_items_per_summary_page': {
+            'type': 'Int Widget',
+            'data': {
+                'title': '',
+                'fields': ('nb_items_per_summary_page',),
+                'is_required': 1,
+                'label': '',
+                'label_edit': 'cpsdoc_book_nb_summary_page_label_edit',
+                'description': '',
+                'help': '',
+                'is_i18n': 1,
+                'readonly_layout_modes': [],
+                'hidden_layout_modes': ('view',),
+                'hidden_readonly_layout_modes': [],
+                'hidden_empty': 0,
+                'hidden_if_expr': '',
+                'css_class': '',
+                'widget_mode_expr': '',
+                'is_limited': 1,
+                'min_value': 0.0,
+                'max_value': 65536.0,
+                'thousands_separator': '',
+            },
+        },
+    },
+    'layout': {
+        'style_prefix': 'layout_chapter_',
+        'flexible_widgets': (),
+        'ncols': 1,
+        'rows': [
+            [{'widget_id': 'nb_items_per_summary_page', 'ncols': 1},
+            ],
+        ],
+    },
+}
+
+#########################################################
 # PAGE LAYOUT
 #########################################################
 
@@ -1093,6 +1135,7 @@ layouts['link'] = link_layout
 layouts['image'] = image_layout
 layouts['imagegallery'] = imagegallery_layout
 layouts['book'] = book_layout
+layouts['chapter'] = chapter_layout
 layouts['page'] = page_layout
 
 # other products

@@ -362,6 +362,29 @@ book_type = {
     'use_content_status_history': 1,
     }
 
+chapter_type = {
+    'title': 'portal_type_Chapter_title',
+    'description': 'portal_type_Chapter_description',
+    'content_icon': 'book_icon.gif',
+    'content_meta_type': 'CPS Document',
+    'product': 'CPSDocument',
+    'factory': 'addCPSDocument',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': True,
+    'filter_content_types': True,
+    'allowed_content_types': ('Chapter', 'Page'),
+    'allow_discussion': False,
+    'cps_is_searchable': True,
+    'cps_proxy_type': 'folderishdocument',
+    'cps_display_as_document_in_listing': False,
+    'schemas': ['metadata', 'common', 'book'],
+    'layouts': ['common', 'chapter'],
+    'flexible_layouts': (),
+    'storage_methods': (),
+    'cps_display_as_document_in_listing': 1,
+    'use_content_status_history': 1,
+}
+
 page_type = {
     'title': 'portal_type_Page_title',
     'description': 'portal_type_Page_description',
@@ -398,6 +421,7 @@ types['Link'] = link_type
 types['Image'] = image_type
 types['ImageGallery'] = imagegallery_type
 types['Book'] = book_type
+types['Chapter'] = chapter_type
 types['Page'] = page_type
 
 # other products
