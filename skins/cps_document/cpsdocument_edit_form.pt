@@ -43,10 +43,10 @@
                 metadata metadata|nothing">
     <h1 tal:condition="creation" i18n:translate="">
       Create a document of type
-      <tal:block i18n:name="type_name"><tal:block i18n:translate=""
+      <tal:block i18n:name="type_name" i18n:translate=""
             tal:define="type_name request/type_name;
                         type_info python:here.portal_types[type_name]"
-            tal:content="type_info/Title">Type Title</tal:block></tal:block>
+            tal:content="type_info/Title">Type Title</tal:block>
     </h1>
     <h1 tal:condition="not:creation">
       <img tal:replace="structure python:here.getImgTag('/'+here.getIcon(), base_url='')">
