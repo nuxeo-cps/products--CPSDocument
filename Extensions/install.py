@@ -113,7 +113,7 @@ def install(self):
     if 'Workspace' in ttool.objectIds():
         workspaceACT = list(ttool['Workspace'].allowed_content_types)
     else:
-        raise DependanceError, 'Workspace'
+        raise "DependanceError", 'Workspace'
     for ptype in newptypes:
         if ptype not in  workspaceACT:
             workspaceACT.append(ptype)
@@ -142,7 +142,7 @@ def install(self):
     # check workflow association
     pr("Verifying local workflow association")
     if not '.cps_workflow_configuration' in portal[workspaces_id].objectIds():
-        raise DependanceError, 'no .cps_workflow_configuration in Workspace'
+        raise "DependanceError", 'no .cps_workflow_configuration in Workspace'
     else:
         wfc = getattr(portal[workspaces_id], '.cps_workflow_configuration')
 
@@ -157,7 +157,7 @@ def install(self):
                                 chain='workspace_content_wf')
 
     if not '.cps_workflow_configuration' in portal[sections_id].objectIds():
-        raise DependanceError, 'no .cps_workflow_configuration in Section'
+        raise "DependanceError", 'no .cps_workflow_configuration in Section'
     else:
         wfc = getattr(portal[sections_id], '.cps_workflow_configuration')
 
