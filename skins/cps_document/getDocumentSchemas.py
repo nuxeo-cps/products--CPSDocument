@@ -229,17 +229,7 @@ event_schema = {
 # Link SCHEMA
 ########################################################
 
-link_schema = {
-    'href': {
-        'type': 'CPS String Field',
-        'data': {
-                'default_expression_str': 'string:',
-                'is_indexed': 1,
-            },
-        },
-    }
-
-
+# store href using Relation metadata
 
 ########################################################
 # Image SCHEMA
@@ -293,7 +283,6 @@ schemas['glossary'] = glossary_schema
 schemas['news'] = news_schema
 schemas['file'] = file_schema
 schemas['event'] = event_schema
-schemas['link'] = link_schema
 schemas['imagegallery'] = imagegallery_schema
 
 if loadcustom:

@@ -181,7 +181,7 @@ link_type = {
     'allow_discussion': 0,
     'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
-    'schemas': ['metadata', 'common', 'link'],
+    'schemas': ['metadata', 'common'],
     'layouts': ['link'],
     'flexible_layouts': [],
     'storage_methods': [],

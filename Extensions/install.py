@@ -48,6 +48,7 @@ class CPSInstaller(BaseInstaller):
     def install(self):
         self.log("Starting CPSDocument install")
         self.setupSkins(SKINS)
+        self.checkLinkBackwardCompatibility()
         self.installCPSSchemas()
         self.setupPortalTypes()
         self.setupTranslations()
@@ -143,14 +144,43 @@ class CPSInstaller(BaseInstaller):
         self.log("Registering folderish document types in portal_tree")
         trtool = self.portal.portal_trees
         trtool[WORKSPACES_ID].manage_changeProperties(
-            type_names=list(trtool[WORKSPACES_ID].type_names) 
+            type_names=list(trtool[WORKSPACES_ID].type_names)
                 + ['FAQ', 'ImageGallery', 'Glossary'])
         trtool[WORKSPACES_ID].manage_rebuild()
         trtool[SECTIONS_ID].manage_changeProperties(
-            type_names=list(trtool[SECTIONS_ID].type_names) 
+            type_names=list(trtool[SECTIONS_ID].type_names)
                 + ['FAQ', 'ImageGallery', 'Glossary'])
         trtool[SECTIONS_ID].manage_rebuild()
 
+
+    def checkLinkBackwardCompatibility(self):
+        # now Link document use Metadata Relation to store href
+        # previous definition use a deprecated href attribute
+        self.log("Checking Backward Compatibility for Link Document")
+        do_check = 0
+        try:
+            if 'link' in self.portal.portal_types['Link'].schemas and \
+                   self.portal.portal_schemas['link']['href']:
+                do_check = 1
+        except AttributeError:
+            pass
+
+        if not do_check:
+            self.log("  not needed.")
+            return
+
+        query = {}
+        root = self.portal.portal_url.getPortalPath()
+        query['path'] = root + '/portal_repository/'
+        query['portal_type'] = ['Link']
+        self.log("  Searching for %s" % str(query))
+        for brain in self.portal.portal_catalog(**query):
+            ob = brain.getObject()
+            if hasattr(ob, 'href'):
+                href = getattr(ob, 'href')
+                if href and not getattr(ob, 'Relation', None):
+                    setattr(ob, 'Relation', href)
+                    self.log("  Setting Relation = href for doc %s" % ob.getId())
 
 class CMFInstaller(CPSInstaller):
     def setupPortalTypes(self):
@@ -175,4 +205,3 @@ def cmfinstall(self):
     installer = CMFInstaller(self)
     installer.install()
     return installer.logResult()
-

@@ -825,7 +825,7 @@ link_layout = {
                 'label_edit': 'cpsdoc_Link_label_edit',
                 'is_i18n': 1,
                 'fields': [],
-                'widget_ids': [ 'href', 'Title', 'Description'],
+                'widget_ids': [ 'Relation', 'Title', 'Description'],
             },
         },
         'Title': {
@@ -848,10 +848,10 @@ link_layout = {
                 'height': 3,
             },
         },
-        'href': {
+        'Relation': {
             'type': 'URL Widget',
             'data': {
-                'fields': ['href'],
+                'fields': ['Relation'],
                 'is_i18n': 1,
                 'is_required': 1,
                 'label_edit': 'cpsschemas_label_link_href',
