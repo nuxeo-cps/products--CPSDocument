@@ -19,7 +19,7 @@ faq_type = {
     'cps_proxy_type': 'document',
     'schemas': ['faq'],
     'default_layout': 'faq',
-    'layout_style_prefix': 'layout_dummy_',
+    'layout_style_prefix': 'layout_default_',
     'flexible_layouts': [],
     'storage_methods': [],
     }
@@ -63,11 +63,11 @@ dummy_form_type = {
     'flexible_layouts': [],
     'storage_methods': [],
     }
-    
-breve_type = {
-    'title': 'Brève',
-    'description': '',
-    'content_icon': 'news_item.gif',
+
+file_type = {
+    'title': 'portal_type_File',
+    'description': 'portal_type_File_description',
+    'content_icon': 'attachedfile_icon.gif',
     'content_meta_type': 'CPS Document',
     'permission': 'Add portal content',
     'immediate_view': 'cpsdocument_edit_form',
@@ -77,28 +77,8 @@ breve_type = {
     'allow_discussion': 0,
     'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
-    'schemas': ['breve'],
-    'default_layout': 'breve',
-    'layout_style_prefix': 'layout_default_',
-    'flexible_layouts': [],
-    'storage_methods': [],
-    }
-
-fichier_type = {
-    'title': 'Fichier',
-    'description': '',
-    'content_icon': '',
-    'content_meta_type': 'CPS Document',
-    'permission': 'Add portal content',
-    'immediate_view': 'cpsdocument_edit_form',
-    'global_allow': 1,
-    'filter_content_types': 1,
-    'allowed_content_types': [],
-    'allow_discussion': 0,
-    'cps_is_searchable': 1,
-    'cps_proxy_type': 'folderishdocument',
-    'schemas': ['fichier'],
-    'default_layout': 'fichier',
+    'schemas': ['file'],
+    'default_layout': 'file',
     'layout_style_prefix': 'layout_default_',
     'flexible_layouts': [],
     'storage_methods': [],
@@ -108,9 +88,8 @@ types = {}
 
 types['FAQ'] = faq_type
 types['News'] = news_type
-types['Dummy Form'] = dummy_form_type
-types['Breve'] = breve_type
-types['Fichier'] = fichier_type
+#types['Dummy Form'] = dummy_form_type
+types['File'] = file_type
 
 ctypes = context.getCustomDocumentTypes()
 

@@ -26,18 +26,11 @@ faq_schema = {
                 'is_indexed': 1,
             },
         },
-    'question': {
+    'content': {
         'type': 'CPS String Field',
         'data': {
                 'default': '',
-                'is_indexed': 0,
-            },
-        },
-    'answer': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 0,
+                'is_indexed': 1,
             },
         },
     }
@@ -150,10 +143,10 @@ news_schema = {
     }
 
 ########################################################
-# Breve SCHEMA
+# File SCHEMA
 ########################################################
 
-breve_schema = {
+file_schema = {
     'title': {
         'type': 'CPS String Field',
         'data': {
@@ -166,61 +159,33 @@ breve_schema = {
         'data': {
                 'default': '',
                 'is_indexed': 1,
-            },
-        },
-    'date': {
-        'type': 'CPS DateTime Field',
-        'data': {
-                'default': '',
-                'is_indexed': 0,
-            },
-        },
-    'image': {
-        'type': 'CPS Image Field',
-        'data': {
-                'default': '',
-                'is_indexed': 0,
-            },
-        },
-    'body': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 1,
-            },
-        },
-    }
-
-########################################################
-# Breve SCHEMA
-########################################################
-
-fichier_schema = {
-    'title': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 0,
-            },
-        },
-    'description': {
-        'type': 'CPS String Field',
-        'data': {
-                'default': '',
-                'is_indexed': 0,
             },
         },
     'file': {
         'type': 'CPS File Field',
         'data': {
                 'default': '',
+                'is_indexed': 0,
+                'suffix_html': '_html',
+                'suffix_text': '_text',
+            },
+        },
+    'file_html': {
+        'type': 'CPS File Field',
+        'data': {
+                'default': '',
+                'is_indexed': 0,
+            },
+        },
+    'file_text': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
                 'is_indexed': 1,
-                'suffix_html': '.html',
-                'suffix_text': '.txt',
             },
         },
     }
-    
+
 ###########################################################
 # END OF SCHEMAS DEFINITIONS
 ###########################################################
@@ -232,10 +197,9 @@ schemas = {}
 #
 
 schemas['faq'] = faq_schema
-schemas['dummy_form'] = dummy_form_schema
+#schemas['dummy_form'] = dummy_form_schema
 schemas['news'] = news_schema
-schemas['breve'] = breve_schema
-schemas['fichier'] = fichier_schema
+schemas['file'] = file_schema
 
 cschemas = context.getCustomDocumentSchemas()
 
