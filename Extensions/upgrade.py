@@ -15,12 +15,12 @@ def upgradeNewsDocuments(self):
     - Log into the ZMI as manager
     - Go to your CPS root directory
     - Create an External Method with the following parameters:
-    
+
     id            : upgradeNewsDocuments
     title         : Use this method if you upgrade an instance older than CPS 3.2.1
     Module Name   : CPSDocument.upgrade
     Function Name : upgradeNewsDocuments
-    
+
     - save it
     - then click on the test tab of this external method
     """
