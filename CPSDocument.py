@@ -340,10 +340,6 @@ def addCPSDocument(container, id, REQUEST=None, **kw):
     """
     ob = CPSDocument(id, **kw)
     container._setObject(id, ob)
-    ob = container._getOb(id)
-    datamodel = kw.get('datamodel')
-    if datamodel is not None:
-        datamodel._setObject(ob) # proxy=None as we don't have it here
-        datamodel._commit(check_perms=0)
     if REQUEST is not None:
+        ob = container._getOb(id)
         REQUEST.RESPONSE.redirect(ob.absolute_url()+'/manage_main')
