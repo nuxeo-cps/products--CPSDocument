@@ -186,7 +186,7 @@ class FlexibleTypeInformation(TypeInformation):
 
     security.declareProtected(ManagePortal, 'manage_export')
     manage_export = DTMLFile('zmi/type_export', globals())
-
+		
     security.declarePublic('getProxyRolesAllowed')
     def getProxyTypesAllowed(self):
         """ return the list of allowed portal types strings """
@@ -456,20 +456,6 @@ class FlexibleTypeInformation(TypeInformation):
             raise ValueError("No layout '%s' in portal_type '%s'"
                              % (layout_id, self.getId()))
         return layout
-
-    security.declarePrivate('getLayouts')
-    def getLayouts(self, layout_id=None, ob=None):
-        """Get the layout list for our type.
-
-        Takes into account flexible layouts from ob.
-
-        Returns a sequence of Layout objects.
-        """
-        layouts = []
-        for layout_id in self.layouts:
-            layouts.append(self.getLayout(layout_id, ob))
-
-        return layouts
 
     security.declarePrivate('getLayouts')
     def getLayouts(self, layout_id=None, ob=None):
