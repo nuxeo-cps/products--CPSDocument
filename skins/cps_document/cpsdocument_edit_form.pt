@@ -44,9 +44,14 @@
       <span i18n:name="type_name"
         tal:content="request/type_name">Type Name</span>
     </h1>
-    <h1 tal:condition="edition" i18n:translate="">Edit <span i18n:name="title"
-      tal:content="here/title_or_id">Page Title</span></h1>
-    <h1 tal:condition="metadata" i18n:translate="">heading_metadata_edit</h1>
+    <h1>
+      <img tal:replace="structure python:here.getImgTag('/'+here.getIcon(), base_url='')">
+      <tal:block condition="edition"
+        i18n:translate="">Edit <span i18n:name="title"
+        tal:content="here/title_or_id">Page Title</span></tal:block>
+      <span tal:condition="metadata"
+        i18n:translate="">heading_metadata_edit</span>
+    </h1>
   </metal:block>
 
   <metal:block fill-slot="main">
