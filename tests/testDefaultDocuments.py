@@ -81,9 +81,6 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         verifyObject(IDublinCore, doc)
 
     def _testRendering(self, doc):
-        # XXX: this test doesn't work at all. Something is fishy.
-        return
-
         # It doesn't work with those 3 types. Why ?
         if doc.portal_type not in ('ImageGallery', 'FAQ', 'Glossary'):
             doc.render()
