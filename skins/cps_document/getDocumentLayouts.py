@@ -168,7 +168,6 @@ news_layout = {
                 'hidden_view': 1,
                 'description': 'cpsdoc_News_preview_description',
                 'deletable': 1,
-                'maxsize': 1048576,
                 'display_width': 200,
                 'display_height': 150,
                 'size_max': 1024*1024,
@@ -177,7 +176,9 @@ news_layout = {
         'attachedFile': {
             'type': 'File Widget',
             'data': {
-                'fields': ['attachedFile'],
+                'fields': ['attachedFile',
+                           'attachedFile_text',
+                           'attachedFile_html'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_News_attachedFile_label_edit',
                 'label': 'cpsdoc_News_attachedFile_label',
@@ -269,7 +270,7 @@ news_layout = {
             },
         },
         'content': {
-            'type': 'TextArea Widget',
+            'type': 'Rich Text Editor Widget',
             'data': {
                 'fields': ['content'],
                 'is_i18n': 1,
