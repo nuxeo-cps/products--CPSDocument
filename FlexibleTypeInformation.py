@@ -309,8 +309,8 @@ class FlexibleTypeInformation(TypeInformation):
         widget_id = wtid
         widget_type = tpl_widget.meta_type
 
-        if layout[wtid].isTemplate():
-            # first widget use the template
+        if layout[wtid].isHidden():
+            # use hidden widget
             widget = tpl_widget
         else:
             widget_id = wtid
@@ -383,8 +383,8 @@ class FlexibleTypeInformation(TypeInformation):
                 # Delete the field.
                 schema.delSubObject(field_id)
             if widget_id in flexible_widgets:
-                # turn widget into a template widget
-                widget.setTemplate()
+                # Hide the widget as we may need it to create new widget.
+                widget.hide()
             else:
                 # Delete the widget.
                 layout.delSubObject(widget_id)
