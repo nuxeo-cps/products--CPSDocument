@@ -10,4 +10,4 @@ Bug fixes:
 - Event document display attached file
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- adding layout_default_tab_* for table view, vs layout_default which is a div view
