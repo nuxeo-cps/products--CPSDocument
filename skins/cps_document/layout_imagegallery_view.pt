@@ -1,0 +1,52 @@
+<metal:block use-macro="here/layout_lib/macros/div_view" />
+<tal:block tal:define="proxy nocall:options/proxy;
+                       items proxy/getFolderContents;
+                       gallery python:here.getContent();
+                       nb_cols python:getattr(gallery,'nb_cols','3');
+                       nb_items python:int(getattr(gallery,'nb_items',9));
+                       page_batch_start python:int(path('request/start | nothing') or 0);
+                       page_batch python:modules['ZTUtils'].Batch(items,
+                                                                  size=nb_items,
+                                                                  start=page_batch_start);
+                       previous_page python:page_batch.previous;
+                       next_page python:page_batch.next;
+                       nb_items_in_current_batch python:len(page_batch);
+                       mod python:nb_items_in_current_batch % nb_cols;
+                       div python:nb_items_in_current_batch / nb_cols;
+                       th_width python:getattr(gallery,'preview_width','64');
+                       th_height python:getattr(gallery,'preview_height','64');
+                       nb_rows_in_current_batch python:test(mod == 0,div,div + 1)">
+
+<p style="text-align:center">
+  <a href="." tal:condition="previous_page"
+     tal:attributes="href string:${request/URL0}?start:int=0">&lt;&lt;</a>
+  <a href="." tal:condition="previous_page"
+     tal:attributes="href string:${request/URL0}?start:int=${previous_page/first}">Previous</a>
+  <tal:block tal:condition="python:previous_page and next_page" tal:replace="string:|" />
+  <a href="." tal:condition="next_page"
+     tal:attributes="href string:${request/URL0}?start:int=${next_page/first}">Next</a>
+  <a href="." tal:condition="next_page"
+     tal:attributes="href python:request.URL0+'?start:int='+str(len(items) - (len(items) % nb_items))">&gt;&gt;</a>
+</p>
+
+<table style="text-align:center;width:100%">
+  <tr tal:repeat="row python:range(nb_rows_in_current_batch)">
+  <tal:block tal:define="batch python:modules['ZTUtils'].Batch(page_batch,
+                                                               size=nb_cols,
+                                                               start=row*nb_cols)">
+    <td tal:repeat="item batch">
+      <a href="."
+         tal:attributes="href python:'/'+item.absolute_url(relative=1)">
+        <img tal:replace="structure 
+                           python:here.getImgTag(
+                             item.getContent().absolute_url(relative=1)+'/preview',
+                             base_url='',width=th_width,height=th_height,
+                             keep_ratio=1)">
+        <br>
+        <p tal:replace="item/Title"></p>
+      </a>
+    </td>
+  </tal:block>
+  </tr>
+</table>
+</tal:block>
