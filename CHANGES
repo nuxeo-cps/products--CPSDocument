@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- 
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- changing class declaration inherit first from PortalFolder then PortalContent
+  this enable to have folder document
