@@ -1,4 +1,4 @@
 # $Id$
 
 # CPS --------------------
-CPSSchemas
+CPSSchemas > 0.39
