@@ -85,6 +85,27 @@ file_type = {
     'storage_methods': [],
     }
 
+link_type = {
+    'title': 'portal_type_Link_title',
+    'description': 'portal_type_Link_description',
+    'content_icon': 'link_icon.gif',
+    'content_meta_type': 'CPS Document',
+    'permission': 'Add portal content',
+    'immediate_view': 'cpsdocument_edit_form',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': (),
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'document',
+    'schemas': ['link'],
+    'default_layout': 'link',
+    'layout_style_prefix': 'layout_default_',
+    'flexible_layouts': [],
+    'storage_methods': [],
+    'display_in_cmf_calendar': 1,
+    }
+
 dummy_form_type = {
     'title': 'portal_type_Dummy_Form',
     'description': 'portal_type_Dummy_description',
@@ -111,6 +132,7 @@ types['FAQ'] = faq_type
 types['News'] = news_type
 types['File'] = file_type
 types['EventDoc'] = event_type
+types['Link'] = link_type
 #types['Dummy Form'] = dummy_form_type
 
 ctypes = context.getCustomDocumentTypes()

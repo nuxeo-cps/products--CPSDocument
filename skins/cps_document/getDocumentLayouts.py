@@ -387,6 +387,36 @@ event_layout = {
 
 
 #########################################################
+# LINK LAYOUT
+#########################################################
+
+link_layout = {
+    'widgets': {
+        'link': {
+            'type': 'Link Widget',
+            'data': {
+                'fields': ['href',
+                           'title',
+                           'description'],
+                'is_i18n': 1,
+                'is_required': 1,
+                'label_edit': 'cpsdoc_Link_label_edit',
+                'hidden_empty': 1,
+                'deletable': 1,
+            },
+        },
+    },
+    'layout': {
+        'ncols': 1,
+        'rows': [
+            [{'ncols': 1, 'widget_id': 'link'},
+                ],
+            ],
+        },
+    }
+
+
+#########################################################
 # DUMMY FORM LAYOUT
 #########################################################
 
@@ -454,6 +484,7 @@ layouts['faq'] = faq_layout
 layouts['news'] = news_layout
 layouts['file'] = file_layout
 layouts['event'] = event_layout
+layouts['link'] = link_layout
 
 clayouts = context.getCustomDocumentLayouts()
 

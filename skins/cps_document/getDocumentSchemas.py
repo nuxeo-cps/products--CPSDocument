@@ -252,6 +252,35 @@ event_schema = {
         },
     }
 
+########################################################
+# Link SCHEMA
+########################################################
+
+link_schema = {
+    'title': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'description': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    'href': {
+        'type': 'CPS String Field',
+        'data': {
+                'default': '',
+                'is_indexed': 1,
+            },
+        },
+    }
+
+
 
 ###########################################################
 # END OF SCHEMAS DEFINITIONS
@@ -268,6 +297,7 @@ schemas['faq'] = faq_schema
 schemas['news'] = news_schema
 schemas['file'] = file_schema
 schemas['event'] = event_schema
+schemas['link'] = link_schema
 
 cschemas = context.getCustomDocumentSchemas()
 
