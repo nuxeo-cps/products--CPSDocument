@@ -56,7 +56,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
         Renders the mode, or the errmode if a validation error occurred.
 
-        An optional 'proxy' arg can be passed, it will be passed to the
+        An optional 'proxy' arg can be given, it will be passed to the
         layouts and the backend.
         """
         ti = self.getTypeInfo()
@@ -73,6 +73,9 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
         If request was passed, renders okmode, or errmode if validation
         failed.
+
+        An optional 'proxy' arg can be given, it will be passed to the
+        layouts and the backend.
         """
         ti = self.getTypeInfo()
         return ti.validateStoreRenderObject(self, request, mode=mode,
