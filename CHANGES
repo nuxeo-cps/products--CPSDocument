@@ -10,3 +10,5 @@ Bug fixes:
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - register Identifier Widget
+- register NuxMailBoxer document types (if present)
+
