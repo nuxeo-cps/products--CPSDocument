@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: es-CPSDocument\n"
-"POT-Creation-Date: 2005-01-25 18:15default\n"
+"POT-Creation-Date: 2005-01-28 10:00default\n"
 "PO-Revision-Date: 2004-03-27 20:48+0100\n"
 "Last-Translator: Álvaro Tejero Cantero <alvaro@antalia.com>\n"
 "Language-Team:  EspaÃ±ol <es@li.org>\n"
@@ -136,6 +136,7 @@ msgstr "Metadatos del documento"
 #.         Your comments may be used to notify other users.
 #.       </div>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
 
@@ -184,6 +185,7 @@ msgstr ""
 
 #.   <label for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
 msgstr ""
 
@@ -450,6 +452,9 @@ msgstr "Una imagen"
 #, fuzzy
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Definición"
+
+msgid "cpsdoc_book_has_search_box_label_edit"
+msgstr ""
 
 msgid "label_source"
 msgstr "Fuente"

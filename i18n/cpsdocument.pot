@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2005-01-25 18:15default\n"
+"POT-Creation-Date: 2005-01-28 10:00default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -117,6 +117,7 @@ msgstr ""
 #.         Your comments may be used to notify other users.
 #.       </div>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
 
@@ -161,6 +162,7 @@ msgstr ""
 
 #.   <label for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
 msgstr ""
 
@@ -411,6 +413,9 @@ msgid "portal_type_Chapter_description"
 msgstr ""
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
+msgstr ""
+
+msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr ""
 
 # metadata

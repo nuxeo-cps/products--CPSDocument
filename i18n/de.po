@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-25 18:15default\n"
+"POT-Creation-Date: 2005-01-28 10:00default\n"
 "PO-Revision-Date: 2004-07-12 18:00+0200\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@dhl.com>\n"
 "Language-Team: francais <rheinland@dzug.org>\n"
@@ -115,6 +115,7 @@ msgstr "Metadaten"
 #.         Your comments may be used to notify other users.
 #.       </div>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
 
@@ -160,6 +161,7 @@ msgstr "Vorheriger"
 
 #.   <label for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
 msgstr ""
 
@@ -419,6 +421,9 @@ msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Anzahl der Einträge im Inhaltsverzeichnis pro Seite"
+
+msgid "cpsdoc_book_has_search_box_label_edit"
+msgstr ""
 
 msgid "label_source"
 msgstr "Quelle"

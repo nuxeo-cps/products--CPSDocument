@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
-"POT-Creation-Date: 2005-01-25 18:15default\n"
+"POT-Creation-Date: 2005-01-28 10:00default\n"
 "PO-Revision-Date: 2004-09-01 12:09-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@curiango.ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
@@ -118,6 +118,7 @@ msgstr "Metadados"
 #.         Your comments may be used to notify other users.
 #.       </div>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
 
@@ -162,6 +163,7 @@ msgstr "Anterior"
 
 #.   <label for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
 msgstr ""
 
@@ -417,6 +419,9 @@ msgstr "Um Capítulo contém Páginas"
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Número de entradas do índice mostrados por página"
+
+msgid "cpsdoc_book_has_search_box_label_edit"
+msgstr ""
 
 # metadata
 msgid "label_source"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-25 18:15default\n"
+"POT-Creation-Date: 2005-01-28 10:00default\n"
 "PO-Revision-Date: 2005-01-25 18:01+0100\n"
 "Last-Translator: DARCHE <madarche@nuxeo.com>\n"
 "Language-Team: Francais <fr@li.org>\n"
@@ -126,6 +126,7 @@ msgstr "Méta-données du document"
 #.         Your comments may be used to notify other users.
 #.       </div>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
 "Dans ce champs vous pouvez donner la raison de la modification que vous "
@@ -173,6 +174,7 @@ msgstr "Précédent"
 
 #.   <label for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
 msgstr "Raison de la modification"
 
@@ -425,6 +427,9 @@ msgstr "Document flexible présenté sous la forme d'un chapitre dans un livre"
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Nombre d'entrées du sommaire présentées sur une même page"
+
+msgid "cpsdoc_book_has_search_box_label_edit"
+msgstr "Rechercher boite"
 
 msgid "label_source"
 msgstr "Source"

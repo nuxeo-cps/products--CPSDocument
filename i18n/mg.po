@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-25 18:15default\n"
+"POT-Creation-Date: 2005-01-28 10:00default\n"
 "PO-Revision-Date: 2004-11-25 13:38+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -128,6 +128,7 @@ msgstr "Méta-données-n'ny antotandahatsoratra"
 #.         Your comments may be used to notify other users.
 #.       </div>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
 
@@ -172,6 +173,7 @@ msgstr "Teo aloha"
 
 #.   <label for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
 msgstr ""
 
@@ -423,6 +425,9 @@ msgstr "Antotandahatsoratra azo ovaina miendrika Lohateny lehibe ao anaty boky"
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Isan'ny nampidirina ao amin'ny sommaire aseho amin'ny pejy iray"
+
+msgid "cpsdoc_book_has_search_box_label_edit"
+msgstr ""
 
 msgid "label_source"
 msgstr "Fototra"

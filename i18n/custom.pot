@@ -275,6 +275,9 @@ msgstr ""
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr ""
 
+msgid "cpsdoc_book_has_search_box_label_edit"
+msgstr ""
+
 # metadata
 
 msgid "label_source"
