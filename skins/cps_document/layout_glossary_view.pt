@@ -26,7 +26,7 @@
 <p tal:repeat="item items">
   <tal:block tal:define="doc item/getContent">
     <a tal:attributes="name string:q${repeat/item/number}"></a>
-    <b tal:content="python:doc['title']" /><br>
+    <b tal:content="python:doc['title']" /><br />
     <tal:block tal:content="python:doc['description']" />
   </tal:block>
 </p>

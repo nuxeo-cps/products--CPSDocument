@@ -43,7 +43,7 @@
                              item.getContent().absolute_url(relative=1)+'/preview',
                              base_url='',width=th_width,height=th_height,
                              keep_ratio=1)">
-        <br>
+        <br />
         <p tal:replace="item/Title"></p>
       </a>
     </td>

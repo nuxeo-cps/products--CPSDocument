@@ -61,7 +61,7 @@
              ">
 <tal:block condition="first_layout">
   <tal:block
-  content="structure string:<form action='${formaction}' method='POST'
+  content="structure string:<form action='${formaction}' method='post'
   name='form' enctype='multipart/form-data'>
   <div class='group'>" />
   <input type="hidden" name="type_name" value="."

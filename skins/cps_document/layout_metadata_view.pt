@@ -4,7 +4,7 @@
                    ds options/datastructure;
                   ">
 <h1 i18n:translate="">heading_metadata_view</h1>
-<br>
+<br />
 <table width="100%" cellpadding="2" cellspacing="2" border="0"
   summary="form layout">
   <tr tal:repeat="row layout/rows"
