@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- News Document have a flexible part to handle multiple links
 Bug fixes:
 ~~~~~~~~~~
 - fix #454: Invalid widget css class in edition. This css class was hardcoded in
