@@ -186,6 +186,14 @@ widgets = {
             'type': 'CPS Search Language Widget Type',
             'data': {},
             },
+        'Search Location Widget': {
+            'type': 'CPS Customizable Widget Type',
+            'data': {
+                'field_types': ['CPS String Field'],
+                'prepare_validate_method': 'widget_searchlocation_prepare_validate',
+                'render_method': 'widget_searchlocation_render',
+                },
+            },
         }
 
 if loadcustom:
