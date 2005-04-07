@@ -32,3 +32,4 @@ Bug fixes:
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - register ZippedHtmlWidget
+- register SearchWidgets
