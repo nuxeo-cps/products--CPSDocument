@@ -191,7 +191,7 @@ msgstr "Previous"
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
-msgstr "Reason of the modification"
+msgstr "Reason for the modification"
 
 msgid "cpsdoc_title_label_edit"
 msgstr "Title: "
