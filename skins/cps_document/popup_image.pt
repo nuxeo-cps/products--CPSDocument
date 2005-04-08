@@ -1,50 +1,75 @@
 <metal:html tal:define="emptybody python:1;
-                        proxy nocall:here; 
-                        doc python:here.getContent();
-                        req proxy/REQUEST;
-                        pos python:int(req['pos']);
-                        info python:here.getContentInfo();
-                        parent python: proxy.getParentNode();
-                        itemList python: parent.getFolderContents();
-                        totalItems python: len(itemList);
-                        ">
-    <metal:body use-macro="here/main_template/macros/master">
-        <metal:main fill-slot="javascript_head_slot">
-            <!-- make sure that the document css rules won't affect the window inner dimensions -->
-            <style type="text/css" media=screen>
-            <!--
-              body  { width: auto; height: auto;}
-             -->
-             </style>
-        </metal:main>
-        <metal:main fill-slot="body">
-            <div class="popupImg">
-                <img tal:replace="structure python:here.getImgTag(info['rpath']+'/preview',
-                             base_url='')" />
-            </div>
-            <div style="text-align: center">
-            <tal:block tal:condition="pos">
-                <a href="."
-                    tal:attributes="href python:'/'+
-                                    itemList[0].absolute_url(relative=1) +
-                                    '/popup_image?pos=0'">&lt;&lt;</a>
-                <a i18n:translate="previous" href="."
-                    tal:attributes="href python:'/'+
-                                    itemList[pos - 1].absolute_url(relative=1) +
-                                    '/popup_image?pos=%s' % (pos - 1)">Previous</a> |
-            </tal:block>
-            <span tal:content="info/title">Title</span>
-            <tal:block tal:condition="python: pos < totalItems - 1">
-                | <a href="." i18n:translate="next"
-                    tal:attributes="href python:'/'+ 
-                                    itemList[pos + 1].absolute_url(relative=1) + 
-                                    '/popup_image?pos=%s' % (pos + 1)">Next</a>
-                <a href="."
-                    tal:attributes="href python:'/'+
-                                    itemList[totalItems - 1].absolute_url(relative=1) + 
-                                    '/popup_image?pos=%s' % (totalItems - 1)">&gt;&gt;</a>
-            </tal:block>
-            </div>
-        </metal:main>
-    </metal:body>
+            proxy nocall:here; 
+            doc python:here.getContent();
+            req proxy/REQUEST;
+            pos python:int(req['pos']);
+            info python:here.getContentInfo();
+            parent python: proxy.getParentNode();
+            itemList python: parent.getFolderContents();
+            totalItems python: len(itemList);
+            ">
+  <metal:body use-macro="here/main_template/macros/master">
+    <metal:main fill-slot="javascript_head_slot">
+      <!-- make sure that the document css rules won't affect the window inner dimensions -->
+      <style type="text/css" media=screen>
+      <!--
+        body  { width: auto; height: auto;}
+       -->
+       </style>
+    </metal:main>
+    <metal:main fill-slot="body">
+      <div style="text-align: center">
+        <tal:block tal:condition="pos">
+          <a href="."
+            tal:attributes="href python:'/'+
+                    itemList[0].absolute_url(relative=1) +
+                    '/popup_image?pos=0'">&lt;&lt;</a>
+          <a i18n:translate="previous" href="."
+            tal:attributes="href python:'/'+
+                    itemList[pos - 1].absolute_url(relative=1) +
+                    '/popup_image?pos=%s' % (pos - 1)">Previous</a> |
+        </tal:block>
+        <span tal:content="info/title">Title</span>
+        <tal:block tal:condition="python: pos < totalItems - 1">
+          | <a href="." i18n:translate="next"
+            tal:attributes="href python:'/'+ 
+                    itemList[pos + 1].absolute_url(relative=1) + 
+                    '/popup_image?pos=%s' % (pos + 1)">Next</a>
+          <a href="."
+            tal:attributes="href python:'/'+
+                    itemList[totalItems - 1].absolute_url(relative=1) + 
+                    '/popup_image?pos=%s' % (totalItems - 1)">&gt;&gt;</a>
+        </tal:block>
+      </div>
+
+      <div class="popupImg">
+        <img tal:replace="structure python:here.getImgTag(info['rpath']+'/preview',
+               base_url='')" />
+      </div>
+
+      <div style="text-align: center">
+        <tal:block tal:condition="pos">
+          <a href="."
+            tal:attributes="href python:'/'+
+                    itemList[0].absolute_url(relative=1) +
+                    '/popup_image?pos=0'">&lt;&lt;</a>
+          <a i18n:translate="previous" href="."
+            tal:attributes="href python:'/'+
+                    itemList[pos - 1].absolute_url(relative=1) +
+                    '/popup_image?pos=%s' % (pos - 1)">Previous</a> |
+        </tal:block>
+        <span tal:content="info/title">Title</span>
+        <tal:block tal:condition="python: pos < totalItems - 1">
+          | <a href="." i18n:translate="next"
+            tal:attributes="href python:'/'+ 
+                    itemList[pos + 1].absolute_url(relative=1) + 
+                    '/popup_image?pos=%s' % (pos + 1)">Next</a>
+          <a href="."
+            tal:attributes="href python:'/'+
+                    itemList[totalItems - 1].absolute_url(relative=1) + 
+                    '/popup_image?pos=%s' % (totalItems - 1)">&gt;&gt;</a>
+        </tal:block>
+      </div>
+    </metal:main>
+  </metal:body>
 </metal:html>
