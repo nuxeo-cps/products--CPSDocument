@@ -306,7 +306,7 @@ msgid "label_subject_Science"
 msgstr "Sciences"
 
 msgid "label_subject_Shopping"
-msgstr "Achats & Boutiques en ligne"
+msgstr "Achats et Boutiques en ligne"
 
 msgid "label_subject_Society"
 msgstr "Société"
