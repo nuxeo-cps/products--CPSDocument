@@ -194,6 +194,10 @@ widgets = {
                 'render_method': 'widget_searchlocation_render',
                 },
             },
+        'Search Sort Widget': {
+            'type': 'CPS Search Sort Widget Type',
+            'data': {},
+            },
         }
 
 if loadcustom:
