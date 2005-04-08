@@ -2,6 +2,7 @@
 #$Id$
 """
 The list of the document roots.
+
 Returns the following structure:
 {
 root_id:{
@@ -25,21 +26,21 @@ situated under this root if no explicit association is found
 """
 
 
-root_of_workspaces = {
-    'title': 'Root of workspaces',
+workspaces = {
+    'title': 'Workspaces',
     'wf_attrname': 'cps_workspace_wf',
     'content_default_wf': 'workspace_content_wf',
     }
 
-root_of_sections = {
-    'title': 'Root of sections',
+sections = {
+    'title': 'Sections',
     'wf_attrname': 'cps_section_wf',
     'content_default_wf': 'section_content_wf',
 }
 
 doc_roots = {}
-doc_roots['workspaces'] = root_of_workspaces
-doc_roots['sections'] = root_of_sections
+doc_roots['workspaces'] = workspaces
+doc_roots['sections'] = sections
 
 if loadcustom:
     custom_document_roots = context.getCustomDocumentRoots()
