@@ -1,4 +1,43 @@
 *******************************************
+** CPSDocument V0.33.1 [R1 build 2005/04/11-13:23 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- Added script getDocumentRoots that specifies the document roots in the portal
+  (like workspaces, sections). This script can be then passed as argument in
+  CPSInstaller's verifyFlexibleTypes in order to automatically update local
+  workflow associations at the time types are installed.
+- Made the documents use the 'metadata' cluster instead of the 'metadata'
+  layout so that is easier to customize metadata page for a given portal type.
+- Portal type's export specify cps_workspace_wf and cps_sections_wf.
+- Added the "Document" document type, the CPS equivalent of the CMF Document,
+  that can be used to create HTML pages.
+- Added the "Zipped HTML" document type, A zip archive that contain html, that 
+  can be preview online
+- Made the layouts of Document, News Item, and Flexible content take advantage
+  of the new "file_uploader" option of the Text Widget.
+- Subject vocabulary is now i18n
+Bug fixes:
+~~~~~~~~~~
+- Made the upgradeDocuments() method in the upgrade module more generic.
+- Changed the portal type "PressRelease" into "Press Release" according to the
+  development guide, to have naming consistency.
+- Added back the translation for "attached file" that got erroneously removed.
+- Translated the "label_language_pt_BR" msgid into the shorter translated
+  accordingly "Brazilian" word.
+- Made the FAQ document use the new Layout properties "layout_create_method",
+  "layout_edit_method", "layout_view_method", and more generally
+  "layout_*_method".
+- fixing default language initialization
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- register ZippedHtmlWidget
+- register SearchWidgets
+
+*******************************************
 ** CPSDocument V0.33.0 [R1 build 2005/03/07-16:01 by madarche]
 
 Requires:
