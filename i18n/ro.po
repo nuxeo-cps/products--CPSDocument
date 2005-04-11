@@ -377,7 +377,7 @@ msgstr "Ascunde acest dosar in navigare"
 
 msgid "cpsdoc_hidden_folder_help"
 msgstr ""
-"Dosarul nu va putea fi vizibil in navigarea initiala, totusi este inca "
+"Dosarul nu va putea fi vizibil in navigarea implicita, totusi este inca "
 "accesibil atat in vizualizarea prin 'Afisarea continutului' cat si prin "
 "publicare. Pentru a proteja accesul la dosar trebuie utilizata 'Adaugarea de "
 "drepturi locale'."
