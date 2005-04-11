@@ -429,6 +429,7 @@ flexible_content_layout = {
                 'css_class': 'dcontent',
                 'width': 72,
                 'height': 10,
+                'file_uploader': 1,
                 'render_format': 'html',
                 'render_position': 'normal',
                 'configurable': 'format',
