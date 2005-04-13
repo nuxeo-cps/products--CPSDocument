@@ -1,8 +1,10 @@
 # Álvaro Tejero Cantero <alvaro@antalia.com>, 2004.
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: es-CPSDocument\n"
-"POT-Creation-Date: 2005-04-06 10:30default\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-04-13 17:41default\n"
 "PO-Revision-Date: 2004-03-27 20:48+0100\n"
 "Last-Translator: Álvaro Tejero Cantero <alvaro@antalia.com>\n"
 "Language-Team:  EspaÃ±ol <es@li.org>\n"
@@ -83,20 +85,19 @@ msgstr "Del"
 msgid "cpsdoc_import_zip_title"
 msgstr ""
 
-# default doc types
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 #, fuzzy
 msgid "cpsdoc_link_next_page"
-msgstr "Un enlace (URL)"
+msgstr "Next page"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 #, fuzzy
 msgid "cpsdoc_link_previous_page"
-msgstr "Icono:"
+msgstr "Previous page"
 
 # default doc types
 #.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
@@ -104,7 +105,7 @@ msgstr "Icono:"
 #: ../skins/cps_document_cmf/layout_page_view.pt
 #, fuzzy
 msgid "cpsdoc_link_toc"
-msgstr "Un enlace (URL)"
+msgstr "Table of contents"
 
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
@@ -113,7 +114,7 @@ msgstr "Un enlace (URL)"
 #: ../skins/cps_document_cmf/layout_chapter_view.pt
 #, fuzzy
 msgid "cpsdoc_title_toc"
-msgstr "Título: "
+msgstr "Table of Contents"
 
 #    <span>
 #        ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
@@ -181,8 +182,8 @@ msgid "label_zip_file"
 msgstr ""
 
 #.   <a href="." attributes="href python:'/'+ 
-#.                                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
@@ -191,6 +192,9 @@ msgstr ""
 msgid "next"
 msgstr ""
 
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos - 1].absolute_url(relative=1) +
+#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos - 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
@@ -222,7 +226,7 @@ msgstr "El "
 
 #, fuzzy
 msgid "cpsdoc_attachedFile_label"
-msgstr "Fichero adjunto:"
+msgstr "Attached file:"
 
 msgid "cpsdoc_preview_label_edit"
 msgstr "Icono:"
@@ -232,15 +236,15 @@ msgstr "Activar comentarios:"
 
 #, fuzzy
 msgid "cpsdoc_popup_mode_label_edit"
-msgstr "Fecha:"
+msgstr "Show images in a popup window"
 
 #, fuzzy
 msgid "cpsdoc_popup_width_label_edit"
-msgstr "Fecha:"
+msgstr "Window width"
 
 #, fuzzy
 msgid "cpsdoc_popup_height_label_edit"
-msgstr "Altura de las miniaturas"
+msgstr "Window Height"
 
 msgid "label_source"
 msgstr "Fuente"
@@ -279,11 +283,11 @@ msgstr "Una referencia (URL) a otro recurso que tiene relación con éste."
 
 #, fuzzy
 msgid "label_portal_type"
-msgstr "Cobertura"
+msgstr "Resource type"
 
 #, fuzzy
 msgid "label_subject_Arts"
-msgstr "El tema del contenido"
+msgstr "Arts"
 
 msgid "label_subject_Business"
 msgstr ""
@@ -293,45 +297,45 @@ msgstr ""
 
 #, fuzzy
 msgid "label_subject_Games"
-msgstr "Fuente"
+msgstr "Games"
 
 #, fuzzy
 msgid "label_subject_Health"
-msgstr "Fuente"
+msgstr "Health"
 
 #, fuzzy
 msgid "label_subject_Home"
-msgstr "Fuente"
+msgstr "Home"
 
 msgid "label_subject_Kids and Teens"
 msgstr ""
 
 #, fuzzy
 msgid "label_subject_News"
-msgstr "Fuente"
+msgstr "News"
 
 #, fuzzy
 msgid "label_subject_Recreation"
-msgstr "Relación"
+msgstr "Recreation"
 
 #, fuzzy
 msgid "label_subject_Reference"
-msgstr "Fuente"
+msgstr "Reference"
 
 #, fuzzy
 msgid "label_subject_Regional"
-msgstr "Relación"
+msgstr "Regional"
 
 #, fuzzy
 msgid "label_subject_Science"
-msgstr "Fuente"
+msgstr "Science"
 
 msgid "label_subject_Shopping"
 msgstr ""
 
 #, fuzzy
 msgid "label_subject_Society"
-msgstr "Fuente"
+msgstr "Society"
 
 msgid "label_subject_Sports"
 msgstr ""
@@ -384,11 +388,11 @@ msgstr "Un documento cuya estructura puede ser modificada"
 # default doc types
 #, fuzzy
 msgid "portal_type_Document_title"
-msgstr "Evento"
+msgstr "Document"
 
 #, fuzzy
 msgid "portal_type_Document_description"
-msgstr "Un evento"
+msgstr "A basic document that can be used to create an HTML page"
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -440,30 +444,30 @@ msgstr "Término"
 msgid "cpsdoc_glossary_expl_label_edit"
 msgstr "Definición"
 
-# default doc types
 #, fuzzy
 msgid "portal_type_NewsItem_title"
-msgstr "FAQ - Pregunta planteada con frecuencia."
+msgstr "News item"
 
 #, fuzzy
 msgid "portal_type_NewsItem_description"
-msgstr "Pregunta / respuesta."
+msgstr "A news item document"
 
 #, fuzzy
 msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Fecha de aparición: "
+msgstr "Related subjects:"
 
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Fecha de aparición: "
 
-# default doc types
 #, fuzzy
 msgid "portal_type_PressRelease_title"
-msgstr "Fichero"
+msgstr "Press Release"
 
 #, fuzzy
 msgid "portal_type_PressRelease_description"
-msgstr "Adjuntar un fichero"
+msgstr ""
+"A Press Release is a special News aimed at the press through formal "
+"publication"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -475,15 +479,15 @@ msgstr "Adjuntar un fichero"
 # default doc types
 #, fuzzy
 msgid "portal_type_ZippedHtml_title"
-msgstr "Fichero"
+msgstr "Zipped Html File"
 
 #, fuzzy
 msgid "portal_type_ZippedHtml_description"
-msgstr "Adjuntar un fichero"
+msgstr "A zip archive that contain html, that can be preview online"
 
 #, fuzzy
 msgid "cpsdoc_zippedhtml_label"
-msgstr "El "
+msgstr "Html zip archive"
 
 # default doc types
 msgid "portal_type_Event_title"
@@ -543,33 +547,31 @@ msgstr "Número de columnas por página"
 # default doc types
 #, fuzzy
 msgid "portal_type_Book_title"
-msgstr "Enlace"
+msgstr "Book"
 
 #, fuzzy
 msgid "portal_type_Book_description"
-msgstr "Una URL"
+msgstr "A folder that displays the documents it contains as pages"
 
-# default doc types
 #, fuzzy
 msgid "portal_type_Page_title"
-msgstr "Imagen"
+msgstr "Book - Page"
 
 #, fuzzy
 msgid "portal_type_Page_description"
-msgstr "Una imagen"
+msgstr "A flexible document displayed as a page in a book"
 
-# default doc types
 #, fuzzy
 msgid "portal_type_Chapter_title"
-msgstr "Imagen"
+msgstr "Book - Chapter"
 
 #, fuzzy
 msgid "portal_type_Chapter_description"
-msgstr "Una imagen"
+msgstr "A Chapter contain Pages"
 
 #, fuzzy
 msgid "cpsdoc_book_nb_summary_page_label_edit"
-msgstr "Definición"
+msgstr "Number of table of content items displayed per page"
 
 msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr ""

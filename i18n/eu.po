@@ -14,10 +14,12 @@
 # Aitzol Naberan Burgaña <anaberan@codesyntax.com>, 2004.
 #
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument_en\n"
-"POT-Creation-Date: 2005-04-06 10:30default\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-04-13 17:41default\n"
 "PO-Revision-Date: 2004-10-04 16:55+0100\n"
 "Last-Translator:  <>\n"
 "Language-Team: Euskara <eu@li.org>\n"
@@ -64,12 +66,13 @@ msgstr ""
 msgid "Type Title"
 msgstr ""
 
+#    <span>to</span>
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
 #: ../skins/cps_document_cmf/layout_event_view.pt
 #, fuzzy
 msgid "cpsdoc_Event_end_label"
-msgstr "Nori: "
+msgstr " al "
 
 #.   <span>from</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -79,9 +82,8 @@ msgstr "Hasiera: "
 
 #.   <h2>Import ZIP File</h2>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
-#, fuzzy
 msgid "cpsdoc_import_zip_title"
-msgstr "Argazkia"
+msgstr ""
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -167,8 +169,8 @@ msgid "label_zip_file"
 msgstr ""
 
 #.   <a href="." attributes="href python:'/'+ 
-#.                                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
@@ -177,6 +179,9 @@ msgstr ""
 msgid "next"
 msgstr "Hurrengoa"
 
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos - 1].absolute_url(relative=1) +
+#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos - 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
@@ -208,7 +213,7 @@ msgstr " "
 
 #, fuzzy
 msgid "cpsdoc_attachedFile_label"
-msgstr "Fitxategi erantsia: "
+msgstr "Attached file:"
 
 msgid "cpsdoc_preview_label_edit"
 msgstr "Ikonoa: "
@@ -230,11 +235,11 @@ msgstr "Iturria"
 
 #, fuzzy
 msgid "label_coverage"
-msgstr "Iturria"
+msgstr "Cobertura"
 
 #, fuzzy
 msgid "label_relation"
-msgstr "Iturria"
+msgstr "Relación"
 
 msgid "cpsdoc_hidden_folder"
 msgstr "Nabigatzean, karpeta hau ezkutatu"
@@ -253,7 +258,8 @@ msgstr ""
 
 #, fuzzy
 msgid "help_dc_source"
-msgstr "Iturria"
+msgstr ""
+"Una referencia a un recurso a partir del que se deriva el recurso actual."
 
 msgid "help_dc_coverage"
 msgstr ""
@@ -266,7 +272,7 @@ msgstr "Baliabide mota"
 
 #, fuzzy
 msgid "label_subject_Arts"
-msgstr "Iturria"
+msgstr "Arts"
 
 msgid "label_subject_Business"
 msgstr ""
@@ -276,45 +282,45 @@ msgstr ""
 
 #, fuzzy
 msgid "label_subject_Games"
-msgstr "Iturria"
+msgstr "Games"
 
 #, fuzzy
 msgid "label_subject_Health"
-msgstr "Iturria"
+msgstr "Health"
 
 #, fuzzy
 msgid "label_subject_Home"
-msgstr "Iturria"
+msgstr "Home"
 
 msgid "label_subject_Kids and Teens"
 msgstr ""
 
 #, fuzzy
 msgid "label_subject_News"
-msgstr "Iturria"
+msgstr "News"
 
 #, fuzzy
 msgid "label_subject_Recreation"
-msgstr "Iturria"
+msgstr "Recreation"
 
 #, fuzzy
 msgid "label_subject_Reference"
-msgstr "Iturria"
+msgstr "Reference"
 
 #, fuzzy
 msgid "label_subject_Regional"
-msgstr "Iturria"
+msgstr "Regional"
 
 #, fuzzy
 msgid "label_subject_Science"
-msgstr "Iturria"
+msgstr "Science"
 
 msgid "label_subject_Shopping"
 msgstr ""
 
 #, fuzzy
 msgid "label_subject_Society"
-msgstr "Iturria"
+msgstr "Society"
 
 msgid "label_subject_Sports"
 msgstr ""
@@ -324,7 +330,7 @@ msgstr "Testua: "
 
 #, fuzzy
 msgid "cpsdoc_flex_content_label_edit"
-msgstr "Eskuineko zutabeko testua: "
+msgstr "Texto:"
 
 msgid "cpsdoc_flex_content_right_label_edit"
 msgstr "Eskuineko zutabeko testua: "
@@ -353,11 +359,11 @@ msgstr "Loturako helbidea: "
 
 #, fuzzy
 msgid "cpsdoc_flex_textimage_title"
-msgstr "Testua: "
+msgstr "Bloque de texto e imagen:"
 
 #, fuzzy
 msgid "cpsdoc_flex_textimage_label_edit"
-msgstr "Eskuineko zutabeko testua: "
+msgstr "Bloque de texto e imagen:"
 
 # default doc types
 msgid "portal_type_Flexible_title"
@@ -369,11 +375,11 @@ msgstr "Zuk zeuk sortu dokumentua, zure beharren arabera!"
 # default doc types
 #, fuzzy
 msgid "portal_type_Document_title"
-msgstr "Hitzordua"
+msgstr "Document"
 
 #, fuzzy
 msgid "portal_type_Document_description"
-msgstr "Hitzordu bat"
+msgstr "A basic document that can be used to create an HTML page"
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -417,38 +423,39 @@ msgstr "Terminoaren definizioa (glosariorako)"
 
 #, fuzzy
 msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Azalpena"
+msgstr "Mostrar todas las entradas si no se selecciona ninguna letra"
 
 #, fuzzy
 msgid "cpsdoc_glossary_term_label_edit"
-msgstr "Azalpena"
+msgstr "Término"
 
 msgid "cpsdoc_glossary_expl_label_edit"
 msgstr "Azalpena"
 
-# default doc types
 #, fuzzy
 msgid "portal_type_NewsItem_title"
-msgstr "FAQ sarrera"
+msgstr "News item"
 
 #, fuzzy
 msgid "portal_type_NewsItem_description"
-msgstr "Galdera / Erantzuna"
+msgstr "A news item document"
 
 #, fuzzy
 msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Data:"
+msgstr "Related subjects:"
 
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Data:"
 
 #, fuzzy
 msgid "portal_type_PressRelease_title"
-msgstr "Liburua - Orrialdea"
+msgstr "Press Release"
 
 #, fuzzy
 msgid "portal_type_PressRelease_description"
-msgstr "Indexatutako fitxategi erantsia"
+msgstr ""
+"A Press Release is a special News aimed at the press through formal "
+"publication"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -460,15 +467,15 @@ msgstr "Indexatutako fitxategi erantsia"
 # default doc types
 #, fuzzy
 msgid "portal_type_ZippedHtml_title"
-msgstr "Fitxategia"
+msgstr "Zipped Html File"
 
 #, fuzzy
 msgid "portal_type_ZippedHtml_description"
-msgstr "Indexatutako fitxategi erantsia"
+msgstr "A zip archive that contain html, that can be preview online"
 
 #, fuzzy
 msgid "cpsdoc_zippedhtml_label"
-msgstr " "
+msgstr "Html zip archive"
 
 # default doc types
 msgid "portal_type_Event_title"
@@ -515,15 +522,15 @@ msgstr "Argazki bilduma"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_width_label_edit"
-msgstr "Zenbat zutabe orrialdeko"
+msgstr "Tamaño de las miniaturas"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_height_label_edit"
-msgstr "Zenbat zutabe orrialdeko"
+msgstr "Altura de las miniaturas"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_items_label_edit"
-msgstr "Zenbat zutabe orrialdeko"
+msgstr "Número de miniaturas por página"
 
 msgid "cpsdoc_imgallery_col_label_edit"
 msgstr "Zenbat zutabe orrialdeko"
@@ -534,36 +541,34 @@ msgstr "Liburua"
 
 #, fuzzy
 msgid "portal_type_Book_description"
-msgstr "URL"
+msgstr "A folder that displays the documents it contains as pages"
 
 msgid "portal_type_Page_title"
 msgstr "Liburua - Orrialdea"
 
 #, fuzzy
 msgid "portal_type_Page_description"
-msgstr "Argazkia"
+msgstr "A flexible document displayed as a page in a book"
 
 msgid "portal_type_Chapter_title"
 msgstr "Liburua - Kapitulua"
 
 #, fuzzy
 msgid "portal_type_Chapter_description"
-msgstr "Argazkia"
+msgstr "A Chapter contain Pages"
 
 #, fuzzy
 msgid "cpsdoc_book_nb_summary_page_label_edit"
-msgstr "Azalpena"
+msgstr "Number of table of content items displayed per page"
 
-#, fuzzy
 msgid "cpsdoc_book_has_search_box_label_edit"
-msgstr "Azalpena"
+msgstr ""
 
 msgid "cpsdoc_book_display"
 msgstr ""
 
-#, fuzzy
 msgid "cpsdoc_book_display_pages"
-msgstr "Aurreko orrialdea"
+msgstr ""
 
 msgid "cpsdoc_book_display_flat"
 msgstr ""

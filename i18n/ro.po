@@ -145,10 +145,12 @@
 # , 2005.
 # , 2005.
 # , 2005.
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2005-04-06 10:30default\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-04-13 17:41default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -304,8 +306,8 @@ msgid "label_zip_file"
 msgstr "Fisier ZIP"
 
 #.   <a href="." attributes="href python:'/'+ 
-#.                                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
@@ -314,6 +316,9 @@ msgstr "Fisier ZIP"
 msgid "next"
 msgstr "Inainte"
 
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos - 1].absolute_url(relative=1) +
+#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos - 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
@@ -404,7 +409,7 @@ msgstr "Tipul resursei"
 
 #, fuzzy
 msgid "label_subject_Arts"
-msgstr "Subiectul continutului resursei."
+msgstr "Arts"
 
 msgid "label_subject_Business"
 msgstr ""
@@ -412,54 +417,47 @@ msgstr ""
 msgid "label_subject_Computers"
 msgstr ""
 
-# metadata
 #, fuzzy
 msgid "label_subject_Games"
-msgstr "Sursa"
+msgstr "Jeux"
 
-# metadata
 #, fuzzy
 msgid "label_subject_Health"
-msgstr "Sursa"
+msgstr "Santé"
 
-# metadata
 #, fuzzy
 msgid "label_subject_Home"
-msgstr "Sursa"
+msgstr "Maison"
 
 msgid "label_subject_Kids and Teens"
 msgstr ""
 
-# metadata
 #, fuzzy
 msgid "label_subject_News"
-msgstr "Sursa"
+msgstr "Actualité"
 
 #, fuzzy
 msgid "label_subject_Recreation"
-msgstr "Relatie"
+msgstr "Loisirs"
 
-# metadata
 #, fuzzy
 msgid "label_subject_Reference"
-msgstr "Sursa"
+msgstr "Référence"
 
 #, fuzzy
 msgid "label_subject_Regional"
-msgstr "Relatie"
+msgstr "Régional"
 
-# metadata
 #, fuzzy
 msgid "label_subject_Science"
-msgstr "Sursa"
+msgstr "Sciences"
 
 msgid "label_subject_Shopping"
 msgstr ""
 
-# metadata
 #, fuzzy
 msgid "label_subject_Society"
-msgstr "Sursa"
+msgstr "Société"
 
 msgid "label_subject_Sports"
 msgstr ""

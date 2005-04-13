@@ -6,11 +6,12 @@
 # emmanuel <epietriga@nuxeo.com>, 2004.
 #
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-06 10:30default\n"
+"POT-Creation-Date: 2005-04-13 17:41default\n"
 "PO-Revision-Date: 2004-02-16 14:14+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -83,7 +84,7 @@ msgstr ""
 #: ../skins/cps_document_cmf/layout_page_view.pt
 #, fuzzy
 msgid "cpsdoc_link_next_page"
-msgstr "Connectie http :"
+msgstr "Next page"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -91,12 +92,13 @@ msgstr "Connectie http :"
 msgid "cpsdoc_link_previous_page"
 msgstr ""
 
+# default doc types
 #.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 #, fuzzy
 msgid "cpsdoc_link_toc"
-msgstr "Connectie http :"
+msgstr "Table of contents"
 
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
@@ -105,7 +107,7 @@ msgstr "Connectie http :"
 #: ../skins/cps_document_cmf/layout_chapter_view.pt
 #, fuzzy
 msgid "cpsdoc_title_toc"
-msgstr "Titel : "
+msgstr "Table of Contents"
 
 #.   <span>
 #.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
@@ -114,7 +116,7 @@ msgstr "Titel : "
 #: ../skins/cps_document_cmf/layout_imagegallery_view.pt
 #, fuzzy
 msgid "description_up_to"
-msgstr "Beschrijving : "
+msgstr "Up to ${up_id}"
 
 #.   <block condition="metadata">heading_metadata_edit</block>
 #.   <span condition="metadata">heading_metadata_edit</span>
@@ -165,8 +167,8 @@ msgid "label_zip_file"
 msgstr ""
 
 #.   <a href="." attributes="href python:'/'+ 
-#.                                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
@@ -175,6 +177,9 @@ msgstr ""
 msgid "next"
 msgstr ""
 
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos - 1].absolute_url(relative=1) +
+#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos - 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
@@ -203,31 +208,31 @@ msgstr "Datum : "
 
 #, fuzzy
 msgid "cpsdoc_date_label"
-msgstr "Datum : "
+msgstr "On "
 
 #, fuzzy
 msgid "cpsdoc_attachedFile_label"
-msgstr "Titel : "
+msgstr "Attached file:"
 
 #, fuzzy
 msgid "cpsdoc_preview_label_edit"
-msgstr "Titel : "
+msgstr "Icon: "
 
 #, fuzzy
 msgid "cpsdoc_allow_discussion_label_edit"
-msgstr "Uitgebreide vraag : "
+msgstr "Allow discussion: "
 
 #, fuzzy
 msgid "cpsdoc_popup_mode_label_edit"
-msgstr "Datum : "
+msgstr "Show images in a popup window"
 
 #, fuzzy
 msgid "cpsdoc_popup_width_label_edit"
-msgstr "Datum : "
+msgstr "Window width"
 
 #, fuzzy
 msgid "cpsdoc_popup_height_label_edit"
-msgstr "Titel : "
+msgstr "Window Height"
 
 msgid "label_source"
 msgstr ""
@@ -310,71 +315,69 @@ msgstr ""
 
 #, fuzzy
 msgid "cpsdoc_flex_content_title"
-msgstr "Inhoud : "
+msgstr "Text block"
 
 #, fuzzy
 msgid "cpsdoc_flex_content_label_edit"
-msgstr "Inhoud : "
+msgstr "Text: "
 
 #, fuzzy
 msgid "cpsdoc_flex_content_right_label_edit"
-msgstr "Inhoud : "
+msgstr "Right column text (optional): "
 
-# default doc types
 #, fuzzy
 msgid "cpsdoc_flex_attachedFile_title"
-msgstr "Dossier"
+msgstr "Attached file"
 
 #, fuzzy
 msgid "cpsdoc_flex_attachedFile_label_edit"
-msgstr "Thema : "
+msgstr "Attached file: "
 
 #, fuzzy
 msgid "cpsdoc_flex_attachedFile_label"
-msgstr " tot "
+msgstr "Attached file: "
 
 msgid "cpsdoc_flex_photo_title"
 msgstr ""
 
 #, fuzzy
 msgid "cpsdoc_flex_photo_label_edit"
-msgstr "Titel : "
+msgstr "Photo: "
 
 # default doc types
 #, fuzzy
 msgid "cpsdoc_flex_link_title"
-msgstr "Link"
+msgstr "Link (URL)"
 
 #, fuzzy
 msgid "cpdoc_flex_link_label_edit"
-msgstr "Connectie http :"
+msgstr "Link address: "
 
-# default doc types
 #, fuzzy
 msgid "cpsdoc_flex_textimage_title"
-msgstr "Afbeelding"
+msgstr "Image and Text block"
 
 #, fuzzy
 msgid "cpsdoc_flex_textimage_label_edit"
-msgstr "Thema : "
+msgstr "Text and image block: "
 
 # default doc types
 #, fuzzy
 msgid "portal_type_Flexible_title"
-msgstr "Dossier"
+msgstr "Flexible document"
 
 #, fuzzy
 msgid "portal_type_Flexible_description"
-msgstr "Geheel van documenten"
+msgstr "Flexible document!"
 
 # default doc types
 #, fuzzy
 msgid "portal_type_Document_title"
-msgstr "Evenement"
+msgstr "Document"
 
 #, fuzzy
 msgid "portal_type_Document_description"
-msgstr "Een evenement"
+msgstr "A basic document that can be used to create an HTML page"
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -386,11 +389,11 @@ msgstr "Overzicht van de meest gestelde vragen"
 # default doc types
 #, fuzzy
 msgid "portal_type_FAQitem_title"
-msgstr "FAQ"
+msgstr "FAQ item"
 
 #, fuzzy
 msgid "portal_type_FAQitem_description"
-msgstr "Overzicht van de meest gestelde vragen"
+msgstr "Question / Answer"
 
 msgid "cpsdoc_faq_question_label_edit"
 msgstr "Vraag : "
@@ -407,57 +410,57 @@ msgstr "Antwoord :  "
 # default doc types
 #, fuzzy
 msgid "portal_type_Glossary_title"
-msgstr "Dossier"
+msgstr "Glossary"
 
 #, fuzzy
 msgid "portal_type_Glossary_description"
-msgstr "Geheel van documenten"
+msgstr "Set of definitions grouped alphabetically"
 
 # default doc types
 #, fuzzy
 msgid "portal_type_GlossaryItem_title"
-msgstr "Dossier"
+msgstr "Glossary Entry"
 
 #, fuzzy
 msgid "portal_type_GlossaryItem_description"
-msgstr "Geheel van documenten"
+msgstr "Term definition (for glossaries)"
 
 #, fuzzy
 msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Datum : "
+msgstr "Display all entries if no letter is selected"
 
 #, fuzzy
 msgid "cpsdoc_glossary_term_label_edit"
-msgstr "Datum : "
+msgstr "Term"
 
 #, fuzzy
 msgid "cpsdoc_glossary_expl_label_edit"
-msgstr "Datum : "
+msgstr "Definition"
 
-# default doc types
 #, fuzzy
 msgid "portal_type_NewsItem_title"
-msgstr "Evenement"
+msgstr "News item"
 
 #, fuzzy
 msgid "portal_type_NewsItem_description"
-msgstr "Een afbeelding"
+msgstr "A news item document"
 
 #, fuzzy
 msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Datum van publicatie : "
+msgstr "Related subjects:"
 
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Datum van publicatie : "
 
-# default doc types
 #, fuzzy
 msgid "portal_type_PressRelease_title"
-msgstr "Dossier"
+msgstr "Press Release"
 
 #, fuzzy
 msgid "portal_type_PressRelease_description"
-msgstr "Geheel van documenten"
+msgstr ""
+"A Press Release is a special News aimed at the press through formal "
+"publication"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -469,15 +472,15 @@ msgstr "Geheel van documenten"
 # default doc types
 #, fuzzy
 msgid "portal_type_ZippedHtml_title"
-msgstr "Dossier"
+msgstr "Zipped Html File"
 
 #, fuzzy
 msgid "portal_type_ZippedHtml_description"
-msgstr "Geheel van documenten"
+msgstr "A zip archive that contain html, that can be preview online"
 
 #, fuzzy
 msgid "cpsdoc_zippedhtml_label"
-msgstr "Datum : "
+msgstr "Html zip archive"
 
 # default doc types
 msgid "portal_type_Event_title"
@@ -518,58 +521,56 @@ msgstr "Afbeelding : "
 # default doc types
 #, fuzzy
 msgid "portal_type_ImageGallery_title"
-msgstr "Afbeelding"
+msgstr "Image Gallery"
 
 #, fuzzy
 msgid "portal_type_ImageGallery_description"
-msgstr "Een afbeelding"
+msgstr "Set of pictures"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_width_label_edit"
-msgstr "Titel : "
+msgstr "Thumbnail Width"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_height_label_edit"
-msgstr "Afbeelding : "
+msgstr "Thumbnail Height"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_items_label_edit"
-msgstr "Datum : "
+msgstr "Number of Thumbnails per Page"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_col_label_edit"
-msgstr "Titel : "
+msgstr "Number of Columns per Page"
 
 # default doc types
 #, fuzzy
 msgid "portal_type_Book_title"
-msgstr "Link"
+msgstr "Book"
 
 #, fuzzy
 msgid "portal_type_Book_description"
-msgstr "Een URL"
+msgstr "A folder that displays the documents it contains as pages"
 
-# default doc types
 #, fuzzy
 msgid "portal_type_Page_title"
-msgstr "Afbeelding"
+msgstr "Book - Page"
 
 #, fuzzy
 msgid "portal_type_Page_description"
-msgstr "Een afbeelding"
+msgstr "A flexible document displayed as a page in a book"
 
-# default doc types
 #, fuzzy
 msgid "portal_type_Chapter_title"
-msgstr "Afbeelding"
+msgstr "Book - Chapter"
 
 #, fuzzy
 msgid "portal_type_Chapter_description"
-msgstr "Een afbeelding"
+msgstr "A Chapter contain Pages"
 
 #, fuzzy
 msgid "cpsdoc_book_nb_summary_page_label_edit"
-msgstr "Afbeelding : "
+msgstr "Number of table of content items displayed per page"
 
 msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr ""

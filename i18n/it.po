@@ -3,10 +3,12 @@
 # ##########################################################
 # Gettext Message File for default.
 # Your Name <your@email>, Year
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
-"POT-Creation-Date: 2005-04-06 10:30default\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-04-13 17:41default\n"
 "PO-Revision-Date: 2004-09-30 16:17+0100\n"
 "Last-Translator: Fabio Nosari <fabnos@fastwebnet.it>\n"
 "Language-Team: Fabio NOSARI <fabnos@fastwebnet.it>\n"
@@ -160,8 +162,8 @@ msgid "label_zip_file"
 msgstr ""
 
 #.   <a href="." attributes="href python:'/'+ 
-#.                                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
@@ -170,6 +172,9 @@ msgstr ""
 msgid "next"
 msgstr "Successivo"
 
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos - 1].absolute_url(relative=1) +
+#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos - 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
@@ -202,7 +207,7 @@ msgstr "Data"
 
 #, fuzzy
 msgid "cpsdoc_attachedFile_label"
-msgstr "File allegato:"
+msgstr "Fichier attaché :"
 
 msgid "cpsdoc_preview_label_edit"
 msgstr "Miniatura di anteprima:"
@@ -261,7 +266,7 @@ msgstr "Tipo di risorsa:"
 
 #, fuzzy
 msgid "label_subject_Arts"
-msgstr "L'argomento del contenuto della risorsa."
+msgstr "Arts"
 
 msgid "label_subject_Business"
 msgstr ""
@@ -269,54 +274,47 @@ msgstr ""
 msgid "label_subject_Computers"
 msgstr ""
 
-# metadata
 #, fuzzy
 msgid "label_subject_Games"
-msgstr "Origine:"
+msgstr "Jeux"
 
-# metadata
 #, fuzzy
 msgid "label_subject_Health"
-msgstr "Origine:"
+msgstr "Santé"
 
-# metadata
 #, fuzzy
 msgid "label_subject_Home"
-msgstr "Origine:"
+msgstr "Maison"
 
 msgid "label_subject_Kids and Teens"
 msgstr ""
 
-# metadata
 #, fuzzy
 msgid "label_subject_News"
-msgstr "Origine:"
+msgstr "Actualité"
 
 #, fuzzy
 msgid "label_subject_Recreation"
-msgstr "Correlazioni:"
+msgstr "Loisirs"
 
-# metadata
 #, fuzzy
 msgid "label_subject_Reference"
-msgstr "Origine:"
+msgstr "Référence"
 
 #, fuzzy
 msgid "label_subject_Regional"
-msgstr "Correlazioni:"
+msgstr "Régional"
 
-# metadata
 #, fuzzy
 msgid "label_subject_Science"
-msgstr "Origine:"
+msgstr "Sciences"
 
 msgid "label_subject_Shopping"
 msgstr ""
 
-# metadata
 #, fuzzy
 msgid "label_subject_Society"
-msgstr "Origine:"
+msgstr "Société"
 
 msgid "label_subject_Sports"
 msgstr ""
@@ -365,14 +363,14 @@ msgstr "Documento flessibile"
 msgid "portal_type_Flexible_description"
 msgstr "Documento modificabile nella struttura"
 
-# Event
+# default doc types
 #, fuzzy
 msgid "portal_type_Document_title"
-msgstr "Avvenimento"
+msgstr "Document"
 
 #, fuzzy
 msgid "portal_type_Document_description"
-msgstr "Un evento"
+msgstr "Un document de base qui peut être utilisé pour créer une page HTML"
 
 # Faq
 msgid "portal_type_FAQ_title"
@@ -425,28 +423,28 @@ msgstr "Definizione"
 
 #, fuzzy
 msgid "portal_type_NewsItem_title"
-msgstr "FAQ - Domanda posta frequentemente"
+msgstr "Nouvelle"
 
 #, fuzzy
 msgid "portal_type_NewsItem_description"
-msgstr "Domanda posta frequentemente e relativa risposta"
+msgstr "Une nouvelle"
 
 #, fuzzy
 msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Data di pubblicazione: "
+msgstr "Sujets connexes :"
 
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Data di pubblicazione: "
 
 #, fuzzy
 msgid "portal_type_PressRelease_title"
-msgstr "Libro - Pagina"
+msgstr "Communiqué de presse"
 
 #, fuzzy
 msgid "portal_type_PressRelease_description"
 msgstr ""
-"Un documento flessibile presentato con l'aspetto di una pagina interna di un "
-"libro"
+"Un communiqué de presse est une nouvelle spéciale destinée à la presse par "
+"le biais d'une publication formelle"
 
 # File
 msgid "portal_type_File_title"
@@ -455,18 +453,20 @@ msgstr "File"
 msgid "portal_type_File_description"
 msgstr "File allegato e indicizzabile"
 
-# File
+# default doc types
 #, fuzzy
 msgid "portal_type_ZippedHtml_title"
-msgstr "File"
+msgstr "Archive Zip HTML"
 
 #, fuzzy
 msgid "portal_type_ZippedHtml_description"
-msgstr "File allegato e indicizzabile"
+msgstr ""
+"Une archive zip contenant des documents au format HTML pouvant être "
+"prévisualisé"
 
 #, fuzzy
 msgid "cpsdoc_zippedhtml_label"
-msgstr "Data"
+msgstr "Archive zip de documents au format HTML"
 
 # Event
 msgid "portal_type_Event_title"

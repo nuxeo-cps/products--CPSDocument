@@ -2,6 +2,7 @@
 # Georg Hennemann <georg.hennemann@dhl.com>, 2005.
 # 
 # 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument-de CPS-3.2.4\n"
@@ -70,7 +71,7 @@ msgstr "Von  "
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
 #, fuzzy
 msgid "cpsdoc_import_zip_title"
-msgstr "Foto"
+msgstr "Import documents from ZIP File"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -197,7 +198,7 @@ msgstr "Datum Label"
 
 #, fuzzy
 msgid "cpsdoc_attachedFile_label"
-msgstr "Anhaftende Datei: "
+msgstr "Attached file:"
 
 msgid "cpsdoc_preview_label_edit"
 msgstr "Icon: "
@@ -254,7 +255,7 @@ msgstr "Ressourcen Typ"
 
 #, fuzzy
 msgid "label_subject_Arts"
-msgstr "Der Themenbereich des Inhalts dieser Ressource."
+msgstr "Arts"
 
 msgid "label_subject_Business"
 msgstr ""
@@ -264,45 +265,45 @@ msgstr ""
 
 #, fuzzy
 msgid "label_subject_Games"
-msgstr "Quelle"
+msgstr "Games"
 
 #, fuzzy
 msgid "label_subject_Health"
-msgstr "Quelle"
+msgstr "Health"
 
 #, fuzzy
 msgid "label_subject_Home"
-msgstr "Quelle"
+msgstr "Home"
 
 msgid "label_subject_Kids and Teens"
 msgstr ""
 
 #, fuzzy
 msgid "label_subject_News"
-msgstr "Quelle"
+msgstr "News"
 
 #, fuzzy
 msgid "label_subject_Recreation"
-msgstr "Beziehung"
+msgstr "Recreation"
 
 #, fuzzy
 msgid "label_subject_Reference"
-msgstr "Quelle"
+msgstr "Reference"
 
 #, fuzzy
 msgid "label_subject_Regional"
-msgstr "Beziehung"
+msgstr "Regional"
 
 #, fuzzy
 msgid "label_subject_Science"
-msgstr "Quelle"
+msgstr "Science"
 
 msgid "label_subject_Shopping"
 msgstr ""
 
 #, fuzzy
 msgid "label_subject_Society"
-msgstr "Quelle"
+msgstr "Society"
 
 msgid "label_subject_Sports"
 msgstr ""
@@ -354,11 +355,11 @@ msgstr "Dokument mit flexiblem Layout"
 # default doc types
 #, fuzzy
 msgid "portal_type_Document_title"
-msgstr "Event"
+msgstr "Document"
 
 #, fuzzy
 msgid "portal_type_Document_description"
-msgstr "Ereignisse portalweit ankündigen"
+msgstr "A basic document that can be used to create an HTML page"
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -411,28 +412,29 @@ msgstr "Definition"
 
 #, fuzzy
 msgid "portal_type_NewsItem_title"
-msgstr "Nachrichten oder Text Dokument"
+msgstr "News item"
 
 #, fuzzy
 msgid "portal_type_NewsItem_description"
-msgstr "Ein normaler Text oder eine Nachricht"
+msgstr "A news item document"
 
 #, fuzzy
 msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Kurz Titel: "
+msgstr "Related subjects:"
 
 #, fuzzy
 msgid "cpsdoc_NewsItem_label_publication_date"
-msgstr "Kurz Titel: "
+msgstr "Publication date:"
 
-# default doc types
 #, fuzzy
 msgid "portal_type_PressRelease_title"
-msgstr "Buchseite"
+msgstr "Press Release"
 
 #, fuzzy
 msgid "portal_type_PressRelease_description"
-msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
+msgstr ""
+"A Press Release is a special News aimed at the press through formal "
+"publication"
 
 # default doc types
 msgid "portal_type_File_title"
@@ -444,15 +446,15 @@ msgstr "beliebige indizierbare Dateien, zB pdf-Dokumente"
 # default doc types
 #, fuzzy
 msgid "portal_type_ZippedHtml_title"
-msgstr "Datei"
+msgstr "Zipped Html File"
 
 #, fuzzy
 msgid "portal_type_ZippedHtml_description"
-msgstr "beliebige indizierbare Dateien, zB pdf-Dokumente"
+msgstr "A zip archive that contain html, that can be preview online"
 
 #, fuzzy
 msgid "cpsdoc_zippedhtml_label"
-msgstr "Datum Label"
+msgstr "Html zip archive"
 
 # default doc types
 msgid "portal_type_Event_title"
@@ -535,18 +537,18 @@ msgstr "Anzahl der Einträge im Inhaltsverzeichnis pro Seite"
 
 #, fuzzy
 msgid "cpsdoc_book_has_search_box_label_edit"
-msgstr "Anzahl der Einträge im Inhaltsverzeichnis pro Seite"
+msgstr "Search Box"
 
 msgid "cpsdoc_book_display"
 msgstr ""
 
 #, fuzzy
 msgid "cpsdoc_book_display_pages"
-msgstr "Vorherige Seite"
+msgstr "With separate pages"
 
 #, fuzzy
 msgid "cpsdoc_book_display_flat"
-msgstr "Zeige alle Einträge wenn kein Buchstabe ausgewählt wurde"
+msgstr "Flat view"
 
 #~ msgid "cpsdoc_News_newsdate_label_edit"
 #~ msgstr "Datum:"
@@ -568,10 +570,6 @@ msgstr "Zeige alle Einträge wenn kein Buchstabe ausgewählt wurde"
 
 #~ msgid "cpsdoc_News_attachedFile_label_edit"
 #~ msgstr "Bearbeiten anhaftende Datei: "
-
-#, fuzzy
-#~ msgid "cpsdoc_News_image_label"
-#~ msgstr " "
 
 #~ msgid "cpsdoc_News_photo_label_edit"
 #~ msgstr "Foto: "
