@@ -7,7 +7,6 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - fixed the schema used by the Photo Widget by adding the required fields
-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Added comment: _constructInstance's job is not to index the object.
