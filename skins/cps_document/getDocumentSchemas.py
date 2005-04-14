@@ -59,6 +59,32 @@ common_schema = {
             'is_searchabletext': 0,
             },
         },
+    'photo': {
+        'type': 'CPS Image Field',
+        'data': {
+                'default_expr': 'nothing',
+                'is_searchabletext': 0,
+            },
+        },
+    'photo_subtitle': {
+        'type': 'CPS String Field',
+        'data': {
+                'default_expr': 'string:',
+                'is_searchabletext': 1,
+            },
+        },
+    'photo_position': {
+        'type': 'CPS String Field',
+        'data': {
+            },
+        },
+    'photo_original': {
+        'type': 'CPS Image Field',
+        'data': {
+                'default_expr': 'nothing',
+                'is_searchabletext': 0,
+            },
+        },
     }
 
 #########################################################
