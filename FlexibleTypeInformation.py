@@ -224,6 +224,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         """Build a bare instance of the appropriate type.
 
         Does not do CMF-specific checks or workflow insertions.
+        Does not index the object.
 
         Returns the object.
         """
