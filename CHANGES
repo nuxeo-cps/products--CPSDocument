@@ -7,6 +7,8 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - fixed the schema used by the Photo Widget by adding the required fields
+- has_search_box widget from book layout: fixed edit label's french 
+translation, remove unnecessary required attribute
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Added comment: _constructInstance's job is not to index the object.
