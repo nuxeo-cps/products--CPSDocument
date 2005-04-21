@@ -1235,7 +1235,7 @@ book_layout = {
             'type': 'CheckBox Widget',
             'data': {
                 'fields': ['has_search_box'],
-                'is_required': 1,
+                'is_required': 0,
                 'is_i18n': True,
                 'label_edit': 'cpsdoc_book_has_search_box_label_edit',
                 'label': '',
