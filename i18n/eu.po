@@ -1,28 +1,17 @@
-# translation of CPSDocument_en.po to Euskara
-# translation of en.po to
-# translation of en.po to
-# translation of en.po to
-# translation of en.po to Francais
-# translation of en.po to francais
-# translation of en.po to ben
-# Gettext Message File for default.
-# Your Name <your@email>, Year
-# ben <ben@nuxeo.com>, 2003,2004.
-# emmanuel <epietriga@nuxeo.com>, 2003, 2004.
-# DARCHE <madarche@nuxeo.com>, 2003.
 # Asier  Sarasua <asarasua@codesyntax.com>, 2004.
 # Aitzol Naberan Burgaña <anaberan@codesyntax.com>, 2004.
 #
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument_en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-13 17:41default\n"
+"POT-Creation-Date: 2005-04-26 15:34default\n"
 "PO-Revision-Date: 2004-10-04 16:55+0100\n"
 "Last-Translator:  <>\n"
 "Language-Team: Euskara <eu@li.org>\n"
+"Language-Code: eu\n"
+"Language-Name: Euskara\n"
+"Domain: default\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -64,6 +53,12 @@ msgstr ""
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
+msgstr ""
+
+#.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
+#: from ../skins/cps_document/layout_faq_view.pt
+#: ../skins/cps_document_cmf/layout_faq_view.pt
+msgid "button_back"
 msgstr ""
 
 #    <span>to</span>

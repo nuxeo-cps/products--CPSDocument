@@ -1,14 +1,9 @@
-# ##########################################################
-# ################# DON'T EDIT THIS FILE! ##################
-# ##########################################################
-# Gettext Message File for default.
-# Your Name <your@email>, Year
-#, fuzzy
+
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-13 17:41default\n"
+"POT-Creation-Date: 2005-04-26 15:34default\n"
 "PO-Revision-Date: 2004-09-30 16:17+0100\n"
 "Last-Translator: Fabio Nosari <fabnos@fastwebnet.it>\n"
 "Language-Team: Fabio NOSARI <fabnos@fastwebnet.it>\n"
@@ -16,10 +11,10 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"Language-code: LL\n"
-"Language-name: Language\n"
-"Preferred-encodings: utf-8 latin1\n"
+"Language-Code: it\n"
+"Language-Name: Italiano\n"
 "Domain: default\n"
+"Preferred-encodings: utf-8 latin1\n"
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
 
@@ -60,6 +55,12 @@ msgstr "nop"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
+msgstr ""
+
+#.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
+#: from ../skins/cps_document/layout_faq_view.pt
+#: ../skins/cps_document_cmf/layout_faq_view.pt
+msgid "button_back"
 msgstr ""
 
 #.   <span>to</span>

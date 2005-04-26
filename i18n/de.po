@@ -1,16 +1,17 @@
 # translation of en.po to German
 # Georg Hennemann <georg.hennemann@dhl.com>, 2005.
 # 
-# 
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument-de CPS-3.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-06 10:30default\n"
+"POT-Creation-Date: 2005-04-13 17:41default\n"
 "PO-Revision-Date: 2005-03-14 10:49+0100\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@dhl.com>\n"
 "Language-Team: de <rheinland@dzug.org>\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Domain: default\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -157,8 +158,8 @@ msgid "label_zip_file"
 msgstr ""
 
 #.   <a href="." attributes="href python:'/'+ 
-#.                                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
@@ -167,6 +168,9 @@ msgstr ""
 msgid "next"
 msgstr "n�chste"
 
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos - 1].absolute_url(relative=1) +
+#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos - 1].absolute_url(relative=1) +
 #.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
@@ -585,9 +589,6 @@ msgstr "Flat view"
 
 #~ msgid "batch_next"
 #~ msgstr "Nächster"
-
-#~ msgid "button_add"
-#~ msgstr "Neu"
 
 #~ msgid "button_change"
 #~ msgstr "Sichern Änderungen"

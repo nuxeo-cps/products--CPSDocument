@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2005-04-13 17:41default\n"
+"POT-Creation-Date: 2005-04-26 15:34default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -53,6 +53,12 @@ msgstr ""
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
+msgstr ""
+
+#.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
+#: from ../skins/cps_document/layout_faq_view.pt
+#: ../skins/cps_document_cmf/layout_faq_view.pt
+msgid "button_back"
 msgstr ""
 
 #.   <span>to</span>

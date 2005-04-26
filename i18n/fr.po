@@ -1,22 +1,12 @@
-# translation of fr.po to 
-# translation of fr.po to
-# translation of fr.po to
-# translation of fr.po to
-# translation of fr.po to Francais
-# translation of fr.po to francais
-# translation of fr.po to ben
-# Gettext Message File for default.
-# Your Name <your@email>, Year
 # ben <ben@nuxeo.com>, 2003,2004.
 # emmanuel <epietriga@nuxeo.com>, 2003, 2004.
 # DARCHE <madarche@nuxeo.com>, 2003, 2004, 2005.
-#
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-13 17:41default\n"
+"POT-Creation-Date: 2005-04-26 15:34default\n"
 "PO-Revision-Date: 2005-04-21 15:05+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -25,8 +15,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;X-Generator: KBabel 1.0.2\n"
 "X-Generator: KBabel 1.3\n"
-"Domain: default\n"
 "Language-Code: fr\n"
+"Language-Name: Francais\n"
+"Domain: default\n"
 
 #.   <h1 condition="creation">
 #.         Create a document of type
@@ -65,6 +56,12 @@ msgstr "nop"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
+msgstr ""
+
+#.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
+#: from ../skins/cps_document/layout_faq_view.pt
+#: ../skins/cps_document_cmf/layout_faq_view.pt
+msgid "button_back"
 msgstr ""
 
 #.   <span>to</span>
@@ -170,8 +167,8 @@ msgstr "label"
 msgid "label_zip_file"
 msgstr "Fichier ZIP"
 
-#.   <a href="." attributes="href python:'/'+
-#.                       itemList[pos + 1].absolute_url(relative=1) +
+#.   <a href="." attributes="href python:'/'+ 
+#.                       itemList[pos + 1].absolute_url(relative=1) + 
 #.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -254,7 +251,8 @@ msgid "help_dc_subject"
 msgstr "Le sujet du contenu de la ressource."
 
 msgid "help_dc_contirbutors"
-msgstr "Les entités qui ont contribué à la création du contenu de la ressource."
+msgstr ""
+"Les entités qui ont contribué à la création du contenu de la ressource."
 
 msgid "help_dc_source"
 msgstr ""
@@ -517,7 +515,8 @@ msgid "portal_type_Book_title"
 msgstr "Livre"
 
 msgid "portal_type_Book_description"
-msgstr "Un dossier présentant les documents qu'il contient sous la forme de pages"
+msgstr ""
+"Un dossier présentant les documents qu'il contient sous la forme de pages"
 
 msgid "portal_type_Page_title"
 msgstr "Livre - Page"
@@ -545,4 +544,3 @@ msgstr "par page"
 
 msgid "cpsdoc_book_display_flat"
 msgstr "à plat"
-

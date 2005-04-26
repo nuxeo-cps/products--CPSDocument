@@ -1,167 +1,20 @@
-# translation of ro.po to 
-# translation of ro.po to
-# translation of ro.po to
-# translation of ro.po to
-# translation of ro.po to
-# translation of ro.po to
-# translation of ro.po to
-# ##########################################################
-# ################# DON'T EDIT THIS FILE! ##################
-# ##########################################################
-# Gettext Message File for default.
-# Your Name <your@email>, Year
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-# , 2005.
-#, fuzzy
+
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-13 17:41default\n"
+"POT-Creation-Date: 2005-04-26 15:34default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-code: ro\n"
-"Language-name: Romanian\n"
+"Language-Code: ro\n"
+"Language-Name: Romana\n"
+"Domain: default\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Preferred-encodings: utf-8 latin1\n"
-"Domain: default\n"
 "X-Generator: KBabel 1.9.1\n"
 
 #.   <h1 condition="creation">
@@ -202,6 +55,12 @@ msgstr "Tip"
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
 msgstr "Tip Titlu"
+
+#.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
+#: from ../skins/cps_document/layout_faq_view.pt
+#: ../skins/cps_document_cmf/layout_faq_view.pt
+msgid "button_back"
+msgstr ""
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
