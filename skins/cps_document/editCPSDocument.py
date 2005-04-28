@@ -29,11 +29,12 @@ if not res[1]:
     do_notify = False
 
 if do_notify:
+    comments = request.get('comments')
     # XXX:
     # Notification has to be done manually here until the workflow takes care of
     # the "workflow_modify" transition.
     context.portal_eventservice.notifyEvent('workflow_modify', context,
-                                            {'comments': request.get('comments')
+                                            {'comments': comments,
                                              })
 
     # only done if we are in workspaces
@@ -58,7 +59,7 @@ if do_notify:
         # try to fire 'modify' transition to add an entry in wf history
         # if wf do not provide it, do nothing
         try:
-            pw.doActionFor(context, 'modify', comment='')
+            pw.doActionFor(context, 'modify', comment=comments)
         except WorkflowException:
             pass
 
