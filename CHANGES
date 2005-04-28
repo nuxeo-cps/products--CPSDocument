@@ -7,7 +7,7 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - Fixed the schema used by the Photo Widget by adding the required fields.
-- has_search_box widget from book layout: fixed edit label's french 
+- has_search_box widget from book layout: fixed edit label's French 
   translation, remove unnecessary required attribute.
 - Made the transition comments propagate through the modify action.
 New internal features:
