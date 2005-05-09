@@ -10,6 +10,8 @@ Bug fixes:
 - has_search_box widget from book layout: fixed edit label's French 
   translation, remove unnecessary required attribute.
 - Made the transition comments propagate through the modify action.
+- When deleting a flexible widget, corresponding attribute on object was set to
+  None: it is now deleted.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Added comment: _constructInstance's job is not to index the object.

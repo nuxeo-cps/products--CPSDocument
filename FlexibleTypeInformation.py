@@ -506,7 +506,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                 # Delete from the object otherweise the same content appears
                 # each time you wanna add the same kind of widget again.
                 # Was the case with the attached file.
-                setattr(ob, field_id, None)
+                if hasattr(ob, field_id):
+                    delattr(ob, field_id)
             if widget_id in flexible_widgets:
                 # Hide the widget as we may need it to create new widget.
                 widget.hide()
