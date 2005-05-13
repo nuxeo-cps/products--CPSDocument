@@ -110,6 +110,19 @@ class CPSDocumentMixin(ExtensionClass.Base):
         """
         return self.getTypeInfo().validateStoreRenderObject(self, *kw)
 
+    security.declareProtected(View, 'getDataModel')
+    def getDataModel(self, proxy=None, REQUEST=None, **kw):
+        """Return the data model.
+
+        Modifying the returned data model has no effect on the structure of the
+        document. For modifications to have any effects the data model has to be
+        committed.
+        """
+        if REQUEST:
+            raise Unauthorized("Not accessible TTW.")
+        dm = self.getTypeInfo().getDataModel(self, proxy=proxy)
+        return dm
+
     # XXX make this a WorkflowMethod
     security.declareProtected(ModifyPortalContent, 'edit')
     def edit(self, mapping={}, proxy=None, REQUEST=None, **kw):

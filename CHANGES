@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- Added the method getDataModel() on CPSDocuments.
 Bug fixes:
 ~~~~~~~~~~
 - Fixed the schema used by the Photo Widget by adding the required fields.
