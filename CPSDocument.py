@@ -113,10 +113,10 @@ class CPSDocumentMixin(ExtensionClass.Base):
     security.declareProtected(View, 'getDataModel')
     def getDataModel(self, proxy=None, REQUEST=None, **kw):
         """Return the data model.
-
-        Modifying the returned data model has no effect on the structure of the
-        document. For modifications to have any effects the data model has to be
-        committed.
+    
+        Modifying the returned data model has no effect on the
+        structure of the document. For modifications to have any
+        effects the data model has to be committed.
         """
         if REQUEST:
             raise Unauthorized("Not accessible TTW.")
@@ -155,7 +155,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
         if ti is None:
             return ''
 
-        dm = ti.getDataModel(self)
+        dm = aq_base(ti).getDataModel(self)
         strings = []
         # XXX uses internal knowledge of DataModel
         for fieldid, field in dm._fields.items():

@@ -467,6 +467,30 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         self.assert_(doc_id not in self.ws.objectIds())
 
+    def testGetDataModel(self):
+
+        # test getDataModelMethod
+
+        doc_type = 'File'
+        doc_id = doc_type.lower()
+
+        file_instance = File('x', 'x', 'xx')
+        self.ws.invokeFactory(doc_type, doc_id, file=file_instance)
+        
+        proxy = getattr(self.ws, doc_id)
+        doc = proxy.getContent()
+
+        # Fetch the dm directly with the CPSDocument.getDataModel()
+        dm = doc.getDataModel(proxy=proxy)
+        self.assert_(dm)
+
+        # Fetch the dm though the getTypeInfo()
+        dm2 = doc.getTypeInfo().getDataModel(doc, proxy=proxy)
+        self.assert_(dm2)
+
+        # Check it's they are the same
+        self.assertEqual(dm, dm2)
+        
 def test_suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(TestDocuments))

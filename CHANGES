@@ -15,3 +15,4 @@ Bug fixes:
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Added comment: _constructInstance's job is not to index the object.
+- Fix bug on SeachableText() and add a unit tests on CPSDocument.getDataModel()
