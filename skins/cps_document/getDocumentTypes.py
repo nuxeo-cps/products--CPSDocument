@@ -434,6 +434,28 @@ image_type = {
     'use_content_status_history': 1,
     }
 
+flash_animation_type = {
+    'title': 'portal_type_Flash_Animation_title',
+    'description': 'portal_type_Flash_Animation_description',
+    'content_icon': 'flash_animation_icon.png',
+    'content_meta_type': 'CPS Document',
+    'product': 'CPSDocument',
+    'factory': 'addCPSDocument',
+    'immediate_view': 'cpsdocument_view',
+    'global_allow': 1,
+    'filter_content_types': 1,
+    'allowed_content_types': [],
+    'allow_discussion': 0,
+    'cps_is_searchable': 1,
+    'cps_proxy_type': 'document',
+    'schemas': ['metadata', 'common'],
+    'layouts': ['common', 'flash_animation'],
+    'layout_clusters': ['metadata:metadata'],
+    'flexible_layouts': [],
+    'storage_methods': [],
+    'use_content_status_history': 1,
+    }
+
 book_type = {
     'title': 'portal_type_Book_title',
     'description': 'portal_type_Book_description',
@@ -525,6 +547,7 @@ types['ImageGallery'] = imagegallery_type
 types['Book'] = book_type
 types['Chapter'] = chapter_type
 types['Page'] = page_type
+types['Flash Animation'] = flash_animation_type
 
 # other products
 try:

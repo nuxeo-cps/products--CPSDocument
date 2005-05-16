@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2005-04-26 15:34default\n"
+"POT-Creation-Date: 2005-05-16 02:58default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -524,4 +524,11 @@ msgid "cpsdoc_book_display_pages"
 msgstr ""
 
 msgid "cpsdoc_book_display_flat"
+msgstr ""
+
+# Flash document
+msgid "portal_type_Flash_Animation_title"
+msgstr ""
+
+msgid "portal_type_Flash_Animation_description"
 msgstr ""

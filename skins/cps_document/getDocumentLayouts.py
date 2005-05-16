@@ -1074,6 +1074,59 @@ image_layout = {
     }
 
 #########################################################
+# IMAGE LAYOUT
+#########################################################
+flash_animation_layout = {
+    'widgets': {
+        'Source': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Source'],
+                'hidden_layout_modes': ['view'],
+                'is_i18n': 1,
+                'label_edit': 'label_source',
+                'label': '',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
+        'Rights': {
+            'type': 'String Widget',
+            'data': {
+                'fields': ['Rights'],
+                'hidden_layout_modes': ['view'],
+                'is_i18n': 1,
+                'label_edit': 'label_rights',
+                'label': '',
+                'display_width': 30,
+                'size_max': 80,
+            },
+        },
+        'preview': {
+            'type': 'Flash Widget',
+            'data': {
+                'fields': ['preview'],
+                'is_i18n': 1,
+                'label_edit': 'cpsdoc_Flash_Animation_label_edit',
+                'label': '',
+                'display_width': 640,
+                'display_height': 600,
+                'size_max': 0,
+            },
+        },
+    },
+    'layout': {
+        'style_prefix': 'layout_default_',
+        'ncols': 2,
+        'rows': [
+            [{'widget_id': 'Source'},
+             {'widget_id': 'Rights'},],
+            [{'ncols': 2, 'widget_id': 'preview'},],
+            ],
+        },
+    }
+
+#########################################################
 # IMAGE GALLERY LAYOUT
 #########################################################
 imagegallery_layout = {
@@ -1356,6 +1409,7 @@ layouts['imagegallery'] = imagegallery_layout
 layouts['book'] = book_layout
 layouts['chapter'] = chapter_layout
 layouts['page'] = page_layout
+layouts['flash_animation'] = flash_animation_layout
 
 # other products
 try:

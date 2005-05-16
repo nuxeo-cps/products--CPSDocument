@@ -1,12 +1,13 @@
-
+# translation of en.po to 
+# Julien Anguenot <anguenot@in.nuxeo.com>, 2005.
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-26 15:34default\n"
-"PO-Revision-Date: 2005-03-14 12:15+0100\n"
-"Last-Translator: DARCHE <madarche@nuxeo.com>\n"
-"Language-Team: Francais <fr@li.org>\n"
+"POT-Creation-Date: 2005-05-16 02:58default\n"
+"PO-Revision-Date: 2005-05-16 02:59+0200\n"
+"Last-Translator: Julien Anguenot <anguenot@in.nuxeo.com>\n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -163,8 +164,8 @@ msgstr "label"
 msgid "label_zip_file"
 msgstr "ZIP File"
 
-#.   <a href="." attributes="href python:'/'+ 
-#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos + 1].absolute_url(relative=1) +
 #.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -246,8 +247,7 @@ msgid "help_dc_subject"
 msgstr "A topic of the content of the resource."
 
 msgid "help_dc_contirbutors"
-msgstr ""
-"Entities responsible for making contributions to the content of the resource."
+msgstr "Entities responsible for making contributions to the content of the resource."
 
 msgid "help_dc_source"
 msgstr "A Reference to a resource from which the present resource is derived."
@@ -531,3 +531,11 @@ msgstr "With separate pages"
 
 msgid "cpsdoc_book_display_flat"
 msgstr "Flat view"
+
+# default doc types
+msgid "portal_type_Flash_Animation_title"
+msgstr "Flash Animation"
+
+msgid "portal_type_Flash_Animation_description"
+msgstr "Flash Animation (swf format)"
+

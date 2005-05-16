@@ -379,3 +379,11 @@ msgstr ""
 
 msgid "cpsdoc_book_display_flat"
 msgstr ""
+
+# Flash document
+
+msgid "portal_type_Flash_Animation_title"
+msgstr ""
+
+msgid "portal_type_Flash_Animation_description"
+msgstr ""

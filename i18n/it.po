@@ -1,9 +1,8 @@
-
 msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-26 15:34default\n"
+"POT-Creation-Date: 2005-05-16 02:58default\n"
 "PO-Revision-Date: 2004-09-30 16:17+0100\n"
 "Last-Translator: Fabio Nosari <fabnos@fastwebnet.it>\n"
 "Language-Team: Fabio NOSARI <fabnos@fastwebnet.it>\n"
@@ -564,3 +563,12 @@ msgstr ""
 
 msgid "cpsdoc_book_display_flat"
 msgstr ""
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Flash_Animation_title"
+msgstr "FAQ - Question posée fréquemment"
+
+#, fuzzy
+msgid "portal_type_Flash_Animation_description"
+msgstr "Question / réponse"

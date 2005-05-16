@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es-CPSDocument\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-26 15:34default\n"
+"POT-Creation-Date: 2005-05-16 02:58default\n"
 "PO-Revision-Date: 2004-03-27 20:48+0100\n"
 "Last-Translator: ¡lvaro Tejero Cantero <alvaro@antalia.com>\n"
 "Language-Team:  Espa√±ol <es@li.org>\n"
@@ -588,3 +588,12 @@ msgstr ""
 
 msgid "cpsdoc_book_display_flat"
 msgstr ""
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Flash_Animation_title"
+msgstr "FAQ item"
+
+#, fuzzy
+msgid "portal_type_Flash_Animation_description"
+msgstr "Question / Answer"

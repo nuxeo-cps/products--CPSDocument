@@ -198,6 +198,10 @@ widgets = {
             'type': 'CPS Search Sort Widget Type',
             'data': {},
             },
+        'Flash Widget' : {
+            'type' : 'CPS Flash Widget Type',
+            'data': {},
+            },
         }
 
 if loadcustom:
