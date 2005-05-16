@@ -4,6 +4,7 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - Added the method getDataModel() on CPSDocuments.
+- Flash Animation content type
 Bug fixes:
 ~~~~~~~~~~
 - Fixed the schema used by the Photo Widget by adding the required fields.
