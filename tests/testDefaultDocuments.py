@@ -213,9 +213,9 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         except AttributeError:
             doc = proxy
 
-        metadata = ('Title', 'Description', 'Subject', 'Contributors', 
+        metadata = ('Title', 'Description', 'Subject', 'Contributors',
                     'CreationDate', 'ModificationDate',
-                    # We get into trouble because 
+                    # We get into trouble because
                     # EffectiveDate == ExpirationDate below
                     #'EffectiveDate', 'ExpirationDate',
                     'Format', 'Rights', 'Creator', 'Source', 'Relation',
@@ -476,7 +476,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         file_instance = File('x', 'x', 'xx')
         self.ws.invokeFactory(doc_type, doc_id, file=file_instance)
-        
+
         proxy = getattr(self.ws, doc_id)
         doc = proxy.getContent()
 
@@ -490,7 +490,34 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         # Check it's they are the same
         self.assertEqual(dm, dm2)
-        
+
+    def testFlashDocument(self):
+
+        doc_type = 'Flash Animation'
+        doc_id = doc_type.lower()
+
+        from Products.CPSDocument import tests
+        TEST_SWF = os.path.join(tests.__path__[0], 'test.swf')
+
+        data = open(TEST_SWF, 'r').read()
+        file_instance = File('x', 'x', data)
+
+        # Done at upload time usually
+        file_instance.content_type = 'application/x-shockwave-flash'
+
+        self.ws.invokeFactory(doc_type, doc_id, file=file_instance)
+
+        proxy = getattr(self.ws, doc_id)
+
+        # Render the document
+        ob = proxy.getContent()
+        res = ob.render(layout_mode='view',
+                        layout_id='flash_animation',
+                        proxy=proxy)
+
+        # XXX test the HTML rendering
+
+
 def test_suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(TestDocuments))
