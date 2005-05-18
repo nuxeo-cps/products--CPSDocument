@@ -113,15 +113,23 @@ class CPSDocumentMixin(ExtensionClass.Base):
     security.declareProtected(View, 'getDataModel')
     def getDataModel(self, proxy=None, REQUEST=None, **kw):
         """Return the data model.
-    
+
         Modifying the returned data model has no effect on the
         structure of the document. For modifications to have any
         effects the data model has to be committed.
         """
+
         if REQUEST:
             raise Unauthorized("Not accessible TTW.")
-        dm = self.getTypeInfo().getDataModel(self, proxy=proxy)
-        return dm
+
+        ti = self.getTypeInfo()
+
+        # It has to be an FTI in order to have the getDataModel method
+        if getattr(aq_base(ti), 'getDataModel', 0):
+            return self.getTypeInfo().getDataModel(self, proxy=proxy)
+
+        raise ValueError("%s is not a FTI : getDataModel is not available"
+                         %(repr(ti)))
 
     # XXX make this a WorkflowMethod
     security.declareProtected(ModifyPortalContent, 'edit')
@@ -155,7 +163,11 @@ class CPSDocumentMixin(ExtensionClass.Base):
         if ti is None:
             return ''
 
-        dm = aq_base(ti).getDataModel(self)
+        # Not a Flexible Type Information
+        if not getattr(aq_base(ti), 'getDataModel', 0):
+            return PortalFolder.SearchableText(self, self)
+
+        dm = ti.getDataModel(self)
         strings = []
         # XXX uses internal knowledge of DataModel
         for fieldid, field in dm._fields.items():

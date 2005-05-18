@@ -13,6 +13,7 @@ Bug fixes:
 - Made the transition comments propagate through the modify action.
 - When deleting a flexible widget, corresponding attribute on object was set to
   None: it is now deleted.
+- Fix CPSDocument.SearchableText() with non FTI
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Added comment: _constructInstance's job is not to index the object.
