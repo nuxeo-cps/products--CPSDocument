@@ -517,6 +517,24 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         # XXX test the HTML rendering
 
+    def testSearchableText(self):
+
+        # Test the SearchableText method
+
+        doc_type = 'File'
+        doc_id = doc_type.lower()
+
+        file_instance = File('x', 'x', '')
+        self.ws.invokeFactory(doc_type, doc_id, file=file_instance)
+        proxy = getattr(self.ws, doc_id)
+
+        # edit Title
+        proxy.edit(Title='a title')
+
+        stext = proxy.getContent().SearchableText()
+
+        # It should return at least the title right now.
+        self.assert_(stext)
 
 def test_suite():
     suite = unittest.TestSuite()
