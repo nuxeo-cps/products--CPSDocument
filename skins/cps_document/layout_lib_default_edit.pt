@@ -150,7 +150,7 @@
           onclick="toggleElementVisibility('transition_comments_help')"> ? </button>
       </dt>
       <dd>
-        <textarea name="comments" id="comments" cols="60" rows="5"
+        <textarea name="comments" id="comments" cols="60" rows="3"
           tal:content="nothing">
         </textarea>
       </dd>

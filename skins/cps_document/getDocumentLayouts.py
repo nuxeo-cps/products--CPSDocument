@@ -482,7 +482,7 @@ document_layout = {
                 'label': '',
                 'css_class': 'dcontent',
                 'width': 72,
-                'height': 10,
+                'height': 20,
                 'file_uploader': 1,
                 'render_format': 'html',
                 'render_position': 'normal',
@@ -638,7 +638,7 @@ newsitem_start_layout = {
                 'label': '',
                 'css_class': 'dcontent',
                 'width': 72,
-                'height': 10,
+                'height': 20,
                 'file_uploader': 1,
                 'render_format': 'html',
                 'render_position': 'normal',
@@ -860,7 +860,7 @@ zippedhtml_layout = {
                 'hidden_empty': 1,
                 'description': 'cpsdoc_zippedhtml_description',
                 'deletable': 1,
-                # for performence reason size of zipped should be small !
+                # for performence reason size of zipped should be small!
                 'size_max': 1*1024*1024,
             },
         },
