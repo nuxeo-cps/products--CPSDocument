@@ -165,7 +165,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
         # Not a Flexible Type Information
         if not getattr(aq_base(ti), 'getDataModel', 0):
-            return PortalFolder.SearchableText(self, self)
+            return PortalFolder.SearchableText(self)
 
         dm = ti.getDataModel(self)
         strings = []
