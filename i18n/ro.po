@@ -1,3 +1,4 @@
+# Alin Voinea <avoinea@nuxeo.com>, 2005.
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
@@ -53,19 +54,19 @@ msgstr "Tip"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
-msgstr "Tip Titlu"
+msgstr "Titlul tipului"
 
 #.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
 #: from ../skins/cps_document/layout_faq_view.pt
 #: ../skins/cps_document_cmf/layout_faq_view.pt
 msgid "button_back"
-msgstr ""
+msgstr "Inapoi"
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
 #: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_end_label"
-msgstr "la  "
+msgstr " la  "
 
 #.   <span>from</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -76,19 +77,19 @@ msgstr "De la  "
 #.   <h2>Import ZIP File</h2>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
 msgid "cpsdoc_import_zip_title"
-msgstr "Import de documente din arhiva ZIP"
+msgstr "Importare documente din arhiva ZIP"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
-msgstr "Inainte  "
+msgstr "Pagina urmatoare"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
-msgstr "Inapoi  "
+msgstr "Pagina anterioara"
 
 #.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -110,20 +111,20 @@ msgstr "Continut "
 #: from ../skins/cps_document/layout_imagegallery_view.pt
 #: ../skins/cps_document_cmf/layout_imagegallery_view.pt
 msgid "description_up_to"
-msgstr "Sus catre ${up_id}"
+msgstr "Inapoi la ${up_id}"
 
 #.   <block condition="metadata">heading_metadata_edit</block>
 #.   <span condition="metadata">heading_metadata_edit</span>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "heading_metadata_edit"
-msgstr "Editare Metadata "
+msgstr "Editare proprietati comune"
 
 #.   <h1>heading_metadata_view</h1>
 #: from ../skins/cps_document/layout_metadata_view.pt
 #: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "heading_metadata_view"
-msgstr "Metadata "
+msgstr "Proprietati comune"
 
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.         In this filed you can give the reason of the modification that you are doing on this document.
@@ -134,8 +135,8 @@ msgstr "Metadata "
 msgid "help_transition_comments_modification"
 msgstr ""
 "In acest camp poti indica motivul modificarilor pe care le faci acestui "
-"document. Comentariile pot fi folosite pentru a anunta alti utilizatori de "
-"modificarile tale."
+"document. Comentariile pot fi folosite pentru a anunta alti utilizatori despre "
+"aceste modificari."
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
@@ -196,7 +197,7 @@ msgid "cpsdoc_title_label_edit"
 msgstr "Titlu: "
 
 msgid "cpsdoc_description_label_edit"
-msgstr "Descriere: "
+msgstr "Descriere:"
 
 msgid "cpsdoc_theme_label_edit"
 msgstr "Tema: "
@@ -211,7 +212,7 @@ msgid "cpsdoc_attachedFile_label"
 msgstr "Fisier atasat:"
 
 msgid "cpsdoc_preview_label_edit"
-msgstr "Imagine: "
+msgstr "Pictograma: "
 
 msgid "cpsdoc_allow_discussion_label_edit"
 msgstr "Activeaza comentariile"
@@ -265,62 +266,51 @@ msgstr ""
 msgid "label_portal_type"
 msgstr "Tipul resursei"
 
-#, fuzzy
 msgid "label_subject_Arts"
-msgstr "Arts"
+msgstr "Arta"
 
 msgid "label_subject_Business"
-msgstr ""
+msgstr "Afaceri"
 
 msgid "label_subject_Computers"
-msgstr ""
+msgstr "Calculatoare"
 
-#, fuzzy
 msgid "label_subject_Games"
-msgstr "Jeux"
+msgstr "Jocuri"
 
-#, fuzzy
 msgid "label_subject_Health"
-msgstr "Santé"
+msgstr "Sanatate"
 
-#, fuzzy
 msgid "label_subject_Home"
-msgstr "Maison"
+msgstr "Acasa"
 
 msgid "label_subject_Kids and Teens"
-msgstr ""
+msgstr "Copii si Adolescenti"
 
-#, fuzzy
 msgid "label_subject_News"
-msgstr "Actualité"
+msgstr "Noutati"
 
-#, fuzzy
 msgid "label_subject_Recreation"
-msgstr "Loisirs"
+msgstr "Distractiv"
 
-#, fuzzy
 msgid "label_subject_Reference"
-msgstr "Référence"
+msgstr "Consultanta"
 
-#, fuzzy
 msgid "label_subject_Regional"
-msgstr "Régional"
+msgstr "Traditional"
 
-#, fuzzy
 msgid "label_subject_Science"
-msgstr "Sciences"
+msgstr "Stiinta"
 
 msgid "label_subject_Shopping"
-msgstr ""
+msgstr "Cumparaturi"
 
-#, fuzzy
 msgid "label_subject_Society"
-msgstr "Société"
+msgstr "Societate"
 
 msgid "label_subject_Sports"
-msgstr ""
+msgstr "Sport"
 
-# flex content
 msgid "cpsdoc_flex_content_title"
 msgstr "Bloc text"
 
@@ -337,41 +327,38 @@ msgid "cpsdoc_flex_attachedFile_label_edit"
 msgstr "Fisier atasat: "
 
 msgid "cpsdoc_flex_attachedFile_label"
-msgstr "Fisier atasat : "
+msgstr "Fisier atasat: "
 
 msgid "cpsdoc_flex_photo_title"
 msgstr "Imagine"
 
 msgid "cpsdoc_flex_photo_label_edit"
-msgstr "Imagine : "
+msgstr "Imagine: "
 
 msgid "cpsdoc_flex_link_title"
 msgstr "Legatura (URL)"
 
 msgid "cpdoc_flex_link_label_edit"
-msgstr "Adresa legaturii : "
+msgstr "Adresa legaturii: "
 
 msgid "cpsdoc_flex_textimage_title"
 msgstr "Bloc text si imagine"
 
 msgid "cpsdoc_flex_textimage_label_edit"
-msgstr "Bloc text si imagine : "
+msgstr "Bloc text si imagine: "
 
-# Flexible
 msgid "portal_type_Flexible_title"
 msgstr "Document flexibil"
 
 msgid "portal_type_Flexible_description"
 msgstr "Un document a caruit structura poate fi modificata"
 
-# Document
 msgid "portal_type_Document_title"
-msgstr ""
+msgstr "Document"
 
 msgid "portal_type_Document_description"
-msgstr ""
+msgstr "Document de baza care permite crearea paginilor HTML"
 
-# Faq
 msgid "portal_type_FAQ_title"
 msgstr "FAQ (Cele mai frecvente intrebari)"
 
@@ -385,20 +372,19 @@ msgid "portal_type_FAQitem_description"
 msgstr "Intrebare / raspuns"
 
 msgid "cpsdoc_faq_question_label_edit"
-msgstr "Intrebare : "
+msgstr "Intrebare: "
 
 msgid "cpsdoc_faq_long_question_label_edit"
-msgstr "Comentarii pentru intrebare : "
+msgstr "Comentarii pentru intrebare: "
 
 msgid "cpsdoc_faq_answer_label_edit"
-msgstr "Raspuns : "
+msgstr "Raspuns: "
 
 msgid "cpsdoc_faq_answer_label"
 msgstr "Raspuns :  "
 
-# Glossary
 msgid "portal_type_Glossary_title"
-msgstr "Glosar "
+msgstr "Glosar"
 
 msgid "portal_type_Glossary_description"
 msgstr "Set de definitii de termeni ordonati alfabetic"
@@ -407,11 +393,10 @@ msgid "portal_type_GlossaryItem_title"
 msgstr "Glosar - definitia unui termen"
 
 msgid "portal_type_GlossaryItem_description"
-msgstr "Intrarea glosarului"
+msgstr "Inregistrare in glosar"
 
-# Glossary
 msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Afiseaza toate intrarile daca nici o litera nu a fost selectionata"
+msgstr "Afiseaza toate inregistrarile daca nici o litera nu a fost selectionata"
 
 msgid "cpsdoc_glossary_term_label_edit"
 msgstr "Termen"
@@ -419,7 +404,6 @@ msgstr "Termen"
 msgid "cpsdoc_glossary_expl_label_edit"
 msgstr "Definitie"
 
-# NewsItem
 msgid "portal_type_NewsItem_title"
 msgstr "Stire"
 
@@ -430,9 +414,8 @@ msgid "cpsdoc_NewsItem_label_related_subjects"
 msgstr "Subiecte legate:"
 
 msgid "cpsdoc_NewsItem_label_publication_date"
-msgstr "Ziua publicarii : "
+msgstr "Data publicarii:"
 
-# Press Release
 msgid "portal_type_PressRelease_title"
 msgstr "Comunicat de presa"
 
@@ -441,24 +424,21 @@ msgstr ""
 "Un comunicat de presa este o stire speciala destinata presei cu caracter "
 "oficial"
 
-# File
 msgid "portal_type_File_title"
 msgstr "Fisier"
 
 msgid "portal_type_File_description"
 msgstr "Ataseaza un fisier"
 
-# ZippedHtml
 msgid "portal_type_ZippedHtml_title"
-msgstr ""
+msgstr "Fisier HTML arhivat (Zipped)"
 
 msgid "portal_type_ZippedHtml_description"
-msgstr ""
+msgstr "O arhiva de documente html, care pot fi previzualizate online."
 
 msgid "cpsdoc_zippedhtml_label"
-msgstr ""
+msgstr "Arhiva de document HTML"
 
-# Event
 msgid "portal_type_Event_title"
 msgstr "Eveniment"
 
@@ -469,12 +449,11 @@ msgid "cpsdoc_Event_start_label_edit"
 msgstr "De la: "
 
 msgid "cpsdoc_Event_end_label_edit"
-msgstr "La : "
+msgstr "Pana la: "
 
 msgid "cpsdoc_Event_content_label_edit"
-msgstr "Continutul evenimentului : "
+msgstr "Continutul evenimentului: "
 
-# Link
 msgid "portal_type_Link_title"
 msgstr "Legatura"
 
@@ -482,9 +461,8 @@ msgid "portal_type_Link_description"
 msgstr "Un URL"
 
 msgid "cpsdoc_Link_label_edit"
-msgstr "Adresa :"
+msgstr "Adresa URL: "
 
-# Image
 msgid "portal_type_Image_title"
 msgstr "Imagine"
 
@@ -492,7 +470,7 @@ msgid "portal_type_Image_description"
 msgstr "O imagine"
 
 msgid "cpsdoc_Image_label_edit"
-msgstr "Imagine : "
+msgstr "Imagine: "
 
 # Images
 msgid "portal_type_ImageGallery_title"
@@ -503,10 +481,10 @@ msgstr "Biblioteca de imagini"
 
 # ImageGallery
 msgid "cpsdoc_imgallery_width_label_edit"
-msgstr "Largimea pentru imaginea in miniatura"
+msgstr "Latimea imagini in miniatura"
 
 msgid "cpsdoc_imgallery_height_label_edit"
-msgstr "Inaltimea pentru imaginea in miniatura"
+msgstr "Inaltimea imagini in miniatura"
 
 msgid "cpsdoc_imgallery_items_label_edit"
 msgstr "Numar de imagini in miniatura pe pagina"
@@ -519,7 +497,7 @@ msgid "portal_type_Book_title"
 msgstr "Carte"
 
 msgid "portal_type_Book_description"
-msgstr "Un dosar care prezinta documentele pe care le contine ca si pagini"
+msgstr "Un dosar care prezinta documentele pe care le contine sub forma unor pagini ale unei carti."
 
 msgid "portal_type_Page_title"
 msgstr "Carte - Pagina"
@@ -537,7 +515,7 @@ msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Numarul de intrari ale continutului prezentate pe aceeasi pagina"
 
 msgid "cpsdoc_book_has_search_box_label_edit"
-msgstr "Box de cautare"
+msgstr "Caseta pentru cautare"
 
 msgid "cpsdoc_book_display"
 msgstr "Mod de afisare"
@@ -551,8 +529,8 @@ msgstr "Intr-o singura pagina"
 # default doc types
 #, fuzzy
 msgid "portal_type_Flash_Animation_title"
-msgstr "FAQ - Question posée fréquemment"
+msgstr "Animatie Flash"
 
 #, fuzzy
 msgid "portal_type_Flash_Animation_description"
-msgstr "Question / réponse"
+msgstr "Animatie Flash (format swf)"
