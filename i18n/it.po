@@ -10,12 +10,12 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"Language-Code: it\n"
-"Language-Name: Italiano\n"
-"Domain: default\n"
 "Preferred-encodings: utf-8 latin1\n"
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
+"Domain: default\n"
 
 #.   <h1 condition="creation">
 #.         Create a document of type
