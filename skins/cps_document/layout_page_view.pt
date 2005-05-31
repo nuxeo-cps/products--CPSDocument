@@ -1,5 +1,5 @@
 <tal:block tal:define="proxy nocall:options/proxy;
-                       book nocall:proxy/aq_inner/aq_parent;
+                       book proxy/getBookParent;
                        display_mode python:int(getattr(book,'display_mode',0));
                        pages book/getFolderContents;
                        page_ids python:[page.id for page in pages];
@@ -10,7 +10,7 @@
 <tal:block condition="display_mode">
   <div class="bookPageHeader">
     <div class="bookPageInfo">
-      <tal:block tal:define="book_title book/Title" 
+      <tal:block tal:define="book_title book/Title"
                  tal:condition="book_title"
                  tal:replace="string:${book_title} - " />
       <span i18n:translate="">Page <tal:block i18n:name="page"
