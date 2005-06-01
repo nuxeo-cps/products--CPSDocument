@@ -1,20 +1,23 @@
 <tal:block tal:define="proxy nocall:options/proxy;
-                       book proxy/getBookParent;
-                       display_mode python:int(getattr(book,'display_mode',0));
-                       pages book/getFolderContents;
-                       page_ids python:[page.id for page in pages];
-                       page_index python:test(proxy.id in page_ids, page_ids.index(proxy.id), -1);
-                       is_first python:page_index == 0;
-                       is_last python:page_index == len(page_ids) - 1">
+                        book proxy/getBookParent;
+                        parent_type book/portal_type|nothing">
 
-<tal:block condition="display_mode">
-  <div class="bookPageHeader">
+<tal:block condition="python:parent_type=='Book'">
+  <div class="bookPageHeader"
+       tal:define="display_mode python:int(getattr(book,'display_mode',0));
+                   pages book/getFolderContents;
+                   page_ids python:[page.id for page in pages];
+                   page_index python:test(proxy.id in page_ids,
+                                          page_ids.index(proxy.id), -1);
+                   is_first python:page_index == 0;
+                   is_last python:page_index == len(page_ids) - 1">
+
     <div class="bookPageInfo">
-      <tal:block tal:define="book_title book/Title"
+      <tal:block tal:define="book_title book/Title;"
                  tal:condition="book_title"
                  tal:replace="string:${book_title} - " />
       <span i18n:translate="">Page <tal:block i18n:name="page"
-                                              tal:replace="python:str(page_index + 1)" /></span>
+                                                tal:replace="python:str(page_index + 1)" /></span>
     </div>
     <div class="bookPageNavigation"
          tal:define="book_url python:'/'+book.absolute_url(relative=1)">
@@ -29,6 +32,7 @@
              i18n:translate="">cpsdoc_link_next_page</a>
       </tal:block>
     </div>
+
   </div>
 </tal:block>
 
