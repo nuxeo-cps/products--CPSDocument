@@ -3,18 +3,10 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- Added the method getDataModel() on CPSDocuments.
-- Flash Animation content type
+-
 Bug fixes:
 ~~~~~~~~~~
-- Fixed the schema used by the Photo Widget by adding the required fields.
-- has_search_box widget from book layout: fixed edit label's French 
-  translation, remove unnecessary required attribute.
-- Made the transition comments propagate through the modify action.
-- When deleting a flexible widget, corresponding attribute on object was set to
-  None: it is now deleted.
-- Fix CPSDocument.SearchableText() with non FTI
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- Added comment: _constructInstance's job is not to index the object.
-- Fix bug on SeachableText() and add a unit tests on CPSDocument.getDataModel()
+-
