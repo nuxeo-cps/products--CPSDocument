@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-16 02:58default\n"
+"POT-Creation-Date: 2005-06-03 19:05default\n"
 "PO-Revision-Date: 2004-09-01 12:09-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@curiango.ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
@@ -42,7 +42,7 @@ msgstr "Editar ${title}"
 msgid "Page ${page}"
 msgstr "Página ${page}"
 
-#.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
+#.   <option content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n" value=".">Type</option>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "Type"
@@ -55,10 +55,42 @@ msgstr "Tipo"
 msgid "Type Title"
 msgstr "Título do Tipo"
 
+#.   <input type="submit" name="addwidget_button" value="button_add" class="context" />
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+msgid "button_add"
+msgstr ""
+
 #.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
 #: from ../skins/cps_document/layout_faq_view.pt
 #: ../skins/cps_document_cmf/layout_faq_view.pt
 msgid "button_back"
+msgstr ""
+
+#.   <input attributes="name string:deleterow_${repeat/row/index};
+#.                                 onclick python:'return window.confirm(\'%s\')' %
+#.                                   (cpsmcat('description_confirm_delete'), )" type="submit" class="destructive" value="button_delete" />
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+msgid "button_delete"
+msgstr ""
+
+#.   <input attributes="name string:downrow_${repeat/row/index}" condition="not:repeat/row/end" type="submit" class="context moveDown" value="button_move_down" />
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+msgid "button_move_down"
+msgstr ""
+
+#.   <input attributes="name string:uprow_${repeat/row/index}" condition="not:repeat/row/start" type="submit" class="context moveUp" value="button_move_up" />
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+msgid "button_move_up"
+msgstr ""
+
+#.   <input type="submit" class="standalone searchButton" value="button_ok" />
+#: from ../skins/cps_document/book_lib_search_box.pt
+#: ../skins/cps_document/layout_chapter_view.pt
+msgid "button_ok"
 msgstr ""
 
 #.   <span>to</span>
@@ -78,19 +110,19 @@ msgstr "De"
 msgid "cpsdoc_import_zip_title"
 msgstr ""
 
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
 msgstr "Próxima"
 
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
 msgstr "Anterior"
 
-#.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
+#.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_toc"
@@ -125,7 +157,7 @@ msgstr "Metadados:"
 msgid "heading_metadata_view"
 msgstr "Metadados"
 
-#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
 #.         In this filed you can give the reason of the modification that you are doing on this document.
 #.         Your comments may be used to notify other users.
 #.       </div>
@@ -141,7 +173,7 @@ msgid "i18_key-help_for_this_field"
 msgstr "Tecla de ajuda i18 para este campo"
 
 #.   <block content="widget/label_edit" condition="widget/is_i18n">label</block>
-#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
+#.   <span content="widget/label" condition="widget/is_i18n" class="dlabel">label</span>
 #.   <strong content="widget/label">label</strong>
 #.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
@@ -155,28 +187,37 @@ msgstr "Tecla de ajuda i18 para este campo"
 msgid "label"
 msgstr "Rótulo"
 
+#.   <label for="resultSearchText">
+#.               Text to search
+#.             </label>
+#: from ../skins/cps_document/book_lib_search_box.pt
+#: ../skins/cps_document/layout_chapter_view.pt
+#, fuzzy
+msgid "label_text_to_search"
+msgstr "Health"
+
 #.   <block>ZIP File</block>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
 msgid "label_zip_file"
 msgstr ""
 
-#.   <a href="." attributes="href python:'/'+ 
+#.   <a attributes="href python:'/'+ 
 #.                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
-#.   <a href="." attributes="href python:'/'+
+#.                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
+#.   <a attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
-#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#.                                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "next"
 msgstr "Próximo"
 
-#.   <a href="." attributes="href python:'/'+
+#.   <a attributes="href python:'/'+
 #.                       itemList[pos - 1].absolute_url(relative=1) +
-#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
-#.   <a href="." attributes="href python:'/'+
+#.                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
+#.   <a attributes="href python:'/'+
 #.                                       itemList[pos - 1].absolute_url(relative=1) +
-#.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
+#.                                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "previous"
@@ -314,6 +355,41 @@ msgstr "Society"
 
 msgid "label_subject_Sports"
 msgstr ""
+
+#, fuzzy
+msgid "label_sort_by"
+msgstr "Resource type"
+
+msgid "label_title_asc"
+msgstr ""
+
+#, fuzzy
+msgid "label_title_desc"
+msgstr "Resource type"
+
+#, fuzzy
+msgid "label_date_asc"
+msgstr "Source"
+
+#, fuzzy
+msgid "label_date_desc"
+msgstr "News"
+
+#, fuzzy
+msgid "label_status_asc"
+msgstr "Source"
+
+#, fuzzy
+msgid "label_status_desc"
+msgstr "News"
+
+#, fuzzy
+msgid "label_author_asc"
+msgstr "Source"
+
+#, fuzzy
+msgid "label_author_desc"
+msgstr "News"
 
 # flex content
 msgid "cpsdoc_flex_content_title"
@@ -556,8 +632,8 @@ msgstr ""
 # default doc types
 #, fuzzy
 msgid "portal_type_Flash_Animation_title"
-msgstr "FAQ item"
+msgstr "Flash Animation"
 
 #, fuzzy
 msgid "portal_type_Flash_Animation_description"
-msgstr "Question / Answer"
+msgstr "Flash Animation (swf format)"

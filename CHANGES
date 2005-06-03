@@ -8,6 +8,7 @@ Bug fixes:
 ~~~~~~~~~~
 - #699: Use AddPortalContent instead of ModifyPortalContent to condition
   the display of the "New" action in sections and workspaces.
+- added translations for the search_sort_results_by voc
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Don't use strings for permission names in getDocumentTypes.

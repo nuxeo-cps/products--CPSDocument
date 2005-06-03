@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-16 02:58default\n"
+"POT-Creation-Date: 2005-06-03 19:05default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -43,7 +43,7 @@ msgstr "Editeaza ${title} "
 msgid "Page ${page}"
 msgstr "Pagina ${page}"
 
-#.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
+#.   <option content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n" value=".">Type</option>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "Type"
@@ -56,11 +56,43 @@ msgstr "Tip"
 msgid "Type Title"
 msgstr "Titlul tipului"
 
+#.   <input type="submit" name="addwidget_button" value="button_add" class="context" />
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+msgid "button_add"
+msgstr ""
+
 #.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
 #: from ../skins/cps_document/layout_faq_view.pt
 #: ../skins/cps_document_cmf/layout_faq_view.pt
 msgid "button_back"
 msgstr "Inapoi"
+
+#.   <input attributes="name string:deleterow_${repeat/row/index};
+#.                                 onclick python:'return window.confirm(\'%s\')' %
+#.                                   (cpsmcat('description_confirm_delete'), )" type="submit" class="destructive" value="button_delete" />
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+msgid "button_delete"
+msgstr ""
+
+#.   <input attributes="name string:downrow_${repeat/row/index}" condition="not:repeat/row/end" type="submit" class="context moveDown" value="button_move_down" />
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+msgid "button_move_down"
+msgstr ""
+
+#.   <input attributes="name string:uprow_${repeat/row/index}" condition="not:repeat/row/start" type="submit" class="context moveUp" value="button_move_up" />
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+msgid "button_move_up"
+msgstr ""
+
+#.   <input type="submit" class="standalone searchButton" value="button_ok" />
+#: from ../skins/cps_document/book_lib_search_box.pt
+#: ../skins/cps_document/layout_chapter_view.pt
+msgid "button_ok"
+msgstr ""
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -79,19 +111,19 @@ msgstr "De la  "
 msgid "cpsdoc_import_zip_title"
 msgstr "Importare documente din arhiva ZIP"
 
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
 msgstr "Pagina urmatoare"
 
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
 msgstr "Pagina anterioara"
 
-#.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
+#.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_toc"
@@ -126,7 +158,7 @@ msgstr "Editare proprietati comune"
 msgid "heading_metadata_view"
 msgstr "Proprietati comune"
 
-#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
 #.         In this filed you can give the reason of the modification that you are doing on this document.
 #.         Your comments may be used to notify other users.
 #.       </div>
@@ -135,8 +167,8 @@ msgstr "Proprietati comune"
 msgid "help_transition_comments_modification"
 msgstr ""
 "In acest camp poti indica motivul modificarilor pe care le faci acestui "
-"document. Comentariile pot fi folosite pentru a anunta alti utilizatori despre "
-"aceste modificari."
+"document. Comentariile pot fi folosite pentru a anunta alti utilizatori "
+"despre aceste modificari."
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
@@ -145,7 +177,7 @@ msgid "i18_key-help_for_this_field"
 msgstr ""
 
 #.   <block content="widget/label_edit" condition="widget/is_i18n">label</block>
-#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
+#.   <span content="widget/label" condition="widget/is_i18n" class="dlabel">label</span>
 #.   <strong content="widget/label">label</strong>
 #.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
@@ -159,28 +191,37 @@ msgstr ""
 msgid "label"
 msgstr "eticheta"
 
+#.   <label for="resultSearchText">
+#.               Text to search
+#.             </label>
+#: from ../skins/cps_document/book_lib_search_box.pt
+#: ../skins/cps_document/layout_chapter_view.pt
+#, fuzzy
+msgid "label_text_to_search"
+msgstr "Santé"
+
 #.   <block>ZIP File</block>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
 msgid "label_zip_file"
 msgstr "Fisier ZIP"
 
-#.   <a href="." attributes="href python:'/'+ 
+#.   <a attributes="href python:'/'+ 
 #.                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
-#.   <a href="." attributes="href python:'/'+
+#.                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
+#.   <a attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
-#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#.                                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "next"
 msgstr "Inainte"
 
-#.   <a href="." attributes="href python:'/'+
+#.   <a attributes="href python:'/'+
 #.                       itemList[pos - 1].absolute_url(relative=1) +
-#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
-#.   <a href="." attributes="href python:'/'+
+#.                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
+#.   <a attributes="href python:'/'+
 #.                                       itemList[pos - 1].absolute_url(relative=1) +
-#.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
+#.                                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "previous"
@@ -311,6 +352,42 @@ msgstr "Societate"
 msgid "label_subject_Sports"
 msgstr "Sport"
 
+#, fuzzy
+msgid "label_sort_by"
+msgstr "Type de ressource"
+
+#, fuzzy
+msgid "label_title_asc"
+msgstr "Fichier ZIP"
+
+#, fuzzy
+msgid "label_title_desc"
+msgstr "Type de ressource"
+
+#, fuzzy
+msgid "label_date_asc"
+msgstr "Source"
+
+#, fuzzy
+msgid "label_date_desc"
+msgstr "Actualité"
+
+#, fuzzy
+msgid "label_status_asc"
+msgstr "Source"
+
+#, fuzzy
+msgid "label_status_desc"
+msgstr "Actualité"
+
+#, fuzzy
+msgid "label_author_asc"
+msgstr "Source"
+
+#, fuzzy
+msgid "label_author_desc"
+msgstr "Actualité"
+
 msgid "cpsdoc_flex_content_title"
 msgstr "Bloc text"
 
@@ -396,7 +473,8 @@ msgid "portal_type_GlossaryItem_description"
 msgstr "Inregistrare in glosar"
 
 msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Afiseaza toate inregistrarile daca nici o litera nu a fost selectionata"
+msgstr ""
+"Afiseaza toate inregistrarile daca nici o litera nu a fost selectionata"
 
 msgid "cpsdoc_glossary_term_label_edit"
 msgstr "Termen"
@@ -497,7 +575,9 @@ msgid "portal_type_Book_title"
 msgstr "Carte"
 
 msgid "portal_type_Book_description"
-msgstr "Un dosar care prezinta documentele pe care le contine sub forma unor pagini ale unei carti."
+msgstr ""
+"Un dosar care prezinta documentele pe care le contine sub forma unor pagini "
+"ale unei carti."
 
 msgid "portal_type_Page_title"
 msgstr "Carte - Pagina"
@@ -529,8 +609,8 @@ msgstr "Intr-o singura pagina"
 # default doc types
 #, fuzzy
 msgid "portal_type_Flash_Animation_title"
-msgstr "Animatie Flash"
+msgstr "Animation Flash "
 
 #, fuzzy
 msgid "portal_type_Flash_Animation_description"
-msgstr "Animatie Flash (format swf)"
+msgstr "Animation Flash au format swf"

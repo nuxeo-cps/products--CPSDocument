@@ -137,6 +137,37 @@ msgstr ""
 msgid "label_subject_Sports"
 msgstr ""
 
+# documents sorting vocabulary
+
+msgid "label_sort_by"
+msgstr ""
+
+msgid "label_title_asc"
+msgstr ""
+
+msgid "label_title_desc"
+msgstr ""
+
+msgid "label_date_asc"
+msgstr ""
+
+msgid "label_date_desc"
+msgstr ""
+
+msgid "label_status_asc"
+msgstr ""
+
+msgid "label_status_desc"
+msgstr ""
+
+msgid "label_author_asc"
+msgstr ""
+
+msgid "label_author_desc"
+msgstr ""
+
+
+
 
 # Flexible content
 msgid "cpsdoc_flex_content_title"

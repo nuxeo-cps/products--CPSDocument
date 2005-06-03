@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-26 15:34default\n"
+"POT-Creation-Date: 2005-05-16 02:58default\n"
 "PO-Revision-Date: 2005-05-16 02:58+0200\n"
 "Last-Translator: Julien Anguenot <anguenot@in.nuxeo.com>\n"
 "Language-Team:  <en@li.org>\n"
@@ -166,8 +166,8 @@ msgstr "Label"
 msgid "label_zip_file"
 msgstr ""
 
-#.   <a href="." attributes="href python:'/'+ 
-#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos + 1].absolute_url(relative=1) +
 #.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -562,3 +562,12 @@ msgstr "With separate pages"
 #, fuzzy
 msgid "cpsdoc_book_display_flat"
 msgstr "Flat view"
+
+# default doc types
+#, fuzzy
+msgid "portal_type_Flash_Animation_title"
+msgstr "Flash Animation"
+
+#, fuzzy
+msgid "portal_type_Flash_Animation_description"
+msgstr "Flash Animation (swf format)"
