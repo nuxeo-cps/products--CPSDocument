@@ -52,16 +52,18 @@ vocabularies = {
         },
     'search_sort_results_by': {
         'type': 'CPS Vocabulary',
-        'data': {'tuples': (('', "No sort", "label_sort_by"),
-                            ('title_asc', "Title ascending", "label_title_asc"),
-                            ('title_desc', "Title descending", "label_title_desc"),
-                            ('date_asc', "Date ascending", "label_date_asc"),
-                            ('date_desc', "Date descending", "label_date_desc"),
-                            ('status_asc', "Status ascending", "label_status_asc"),
-                            ('status_desc', "Status descending", "label_status_desc"),
-                            ('author_asc', "Author ascending", "label_author_asc"),
-                            ('author_desc', "Author descending", "label_author_desc"),)
-                 },
+        'data': {'tuples': (
+                ('', "No sort", "label_sort_by"),
+                ('title_asc', "Title ascending", "label_title_asc"),
+                ('title_desc', "Title descending", "label_title_desc"),
+                ('date_asc', "Date ascending", "label_date_asc"),
+                ('date_desc', "Date descending", "label_date_desc"),
+                ('status_asc', "Status ascending", "label_status_asc"),
+                ('status_desc', "Status descending", "label_status_desc"),
+                ('author_asc', "Author ascending", "label_author_asc"),
+                ('author_desc', "Author descending", "label_author_desc"),
+                )
+        },
         },
     }
 
