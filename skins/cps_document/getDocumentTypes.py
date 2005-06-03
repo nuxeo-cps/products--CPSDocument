@@ -4,6 +4,13 @@
 Here are defined list of portal type created with CPSDocument
 """
 
+# permissions
+from Products.CMFCore.permissions import View
+from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFCore.permissions import AddPortalContent
+ChangePermissions = 'Change permissions'
+ManageBoxes = 'Manage Boxes'
+
 section_type = {
     'title': 'portal_type_Section_title',
     'description': 'portal_type_Section_description',
@@ -25,32 +32,32 @@ section_type = {
     'actions': ({'id': 'view',
                  'name': 'action_view',
                  'action': 'folder_view',
-                 'permissions': ('View',)},
+                 'permissions': (View,)},
                 {'id': 'new_content',
                  'name': 'action_new_content',
                  'action': 'folder_factories',
-                 'permissions': ('Modify portal content',)},
+                 'permissions': (AddPortalContent,)},
                 {'id': 'contents',
                  'name': 'action_folder_contents',
                  'action': 'folder_contents',
-                 'permissions': ('Modify portal content',)},
+                 'permissions': (ModifyPortalContent,)},
                 {'id': 'edit',
                  'name': 'action_edit',
                  'action': 'cpsdocument_edit_form',
-                 'permissions': ('Modify portal content',)},
+                 'permissions': (ModifyPortalContent,)},
                 {'id': 'metadata',
                  'name': 'action_metadata',
                  'action': 'cpsdocument_metadata',
                  'condition': 'not:portal/portal_membership/isAnonymousUser',
-                 'permissions': ('View',)},
+                 'permissions': (View,)},
                 {'id': 'localroles',
                  'name': 'action_local_roles',
                  'action': 'folder_localrole_form',
-                 'permissions': ('Change permissions',)},
+                 'permissions': (ChangePermissions,)},
                 {'id': 'boxes',
                  'name': 'action_boxes',
                  'action': 'box_manage_form',
-                 'permissions': ('Manage Boxes',)},
+                 'permissions': (ManageBoxes,)},
                 ),
     }
 
@@ -75,37 +82,37 @@ workspace_type = {
     'actions': ({'id': 'view',
                  'name': 'action_view',
                  'action': 'folder_view',
-                 'permissions': ('View',)},
+                 'permissions': (View,)},
                 {'id': 'new_content',
                  'name': 'action_new_content',
                  'action': 'folder_factories',
-                 'permissions': ('Modify portal content',)},
+                 'permissions': (AddPortalContent,)},
                 {'id': 'import_documents',
                  'name': 'action_import_documents',
                  'action': 'cpsdocument_import_zip_form',
                  'visible': 0,
-                 'permissions': ('Modify portal content',)},
+                 'permissions': (ModifyPortalContent,)},
                 {'id': 'contents',
                  'name': 'action_folder_contents',
                  'action': 'folder_contents',
-                 'permissions': ('Modify portal content',)},
+                 'permissions': (ModifyPortalContent,)},
                 {'id': 'edit',
                  'name': 'action_edit',
                  'action': 'cpsdocument_edit_form',
-                 'permissions': ('Modify portal content',)},
+                 'permissions': (ModifyPortalContent,)},
                 {'id': 'metadata',
                  'name': 'action_metadata',
                  'action': 'cpsdocument_metadata',
                  'condition': 'not:portal/portal_membership/isAnonymousUser',
-                 'permissions': ('View',)},
+                 'permissions': (View,)},
                 {'id': 'localroles',
                  'name': 'action_local_roles',
                  'action': 'folder_localrole_form',
-                 'permissions': ('Change permissions',)},
+                 'permissions': (ChangePermissions,)},
                 {'id': 'boxes',
                  'name': 'action_boxes',
                  'action': 'box_manage_form',
-                 'permissions': ('Manage Boxes',)},
+                 'permissions': (ManageBoxes,)},
                 ),
     }
 
@@ -338,7 +345,7 @@ file_type = {
                      'condition': ('python:object is not None '
                                    'and object.getContent().file is not None '
                                    'and modules["Products.CPSUtil.integration"].isProductPresent("Products.ExternalEditor")'),
-                     'permissions': ('Modify portal content',)},
+                     'permissions': (ModifyPortalContent,)},
                 ),
     }
 
