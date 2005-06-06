@@ -52,6 +52,7 @@ def upgradeDocuments(self):
 
 
 def modifyPortalType(new_portal_type, old_portal_type, portal):
+    log_key = 'modifyPortalType'
     brains = portal.search(query={'portal_type': (old_portal_type,)})
     for brain in brains:
         proxy = brain.getObject()
