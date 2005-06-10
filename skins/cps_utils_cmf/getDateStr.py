@@ -5,8 +5,7 @@
 if not dt:
     return ''
 
-Localizer = context.Localizer
-mcat = Localizer.default
+mcat = context.translation_service
 
 if fmt not in ('short', 'medium', 'long', 'iso8601'):
     fmt = 'date_long'

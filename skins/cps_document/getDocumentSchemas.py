@@ -31,7 +31,7 @@ metadata_schema = {
     'Language': {'type': 'CPS String Field',
                  'data': {'write_ignore_storage': 1,
                           'default_expr':
-                          'portal/Localizer/get_selected_language|nothing'}},
+                          'portal/translation_service/getSelectedLanguage|nothing'}},
     'Rights': {'type': 'CPS String Field', 'data': {'is_searchabletext': 0}},
     'Creator': {'type': 'CPS String Field',
                 'data': {'is_searchabletext': 0,
