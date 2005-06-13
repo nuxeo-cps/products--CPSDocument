@@ -169,12 +169,12 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     content_meta_type = 'CPS Document'
     product = 'CPSDocument'
     factory = 'addCPSDocument'
-    schemas = []
+    schemas = ()
     # XXX assume fixed storage adapters for now
-    layouts = []
-    layout_clusters = []
-    flexible_layouts = []
-    storage_methods = [] # XXX will later use a storage adapter in the schema
+    layouts = ()
+    layout_clusters = ()
+    flexible_layouts = ()
+    storage_methods = () # XXX will later use a storage adapter in the schema
     cps_is_searchable = 1
     cps_proxy_type = 'document'
     cps_display_as_document_in_listing = 0
