@@ -1,6 +1,6 @@
 Requires:
 ~~~~~~~~~
--
+- CPSDefault > 3.34.0
 New features:
 ~~~~~~~~~~~~~
 -
@@ -16,3 +16,4 @@ Bug fixes:
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Don't use strings for permission names in getDocumentTypes.
+- Moved the computeContributors script to the CPSDefault.utils module.

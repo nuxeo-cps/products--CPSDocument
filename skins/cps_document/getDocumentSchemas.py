@@ -18,7 +18,7 @@ metadata_schema = {
     'Contributors': {'type': 'CPS String List Field',
                      'data': {'is_searchabletext': 0,
                               'write_process_expr':
-                              'python: portal.computeContributors(user, value)'
+                              'python: modules["Products.CPSDefault.utils"].computeContributors(portal, value)'
                               },},
     'CreationDate': {'type': 'CPS DateTime Field',
                      'data': {'write_ignore_storage': 1,}},

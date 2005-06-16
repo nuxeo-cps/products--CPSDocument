@@ -1,16 +1,13 @@
-##parameters=user, value
+##parameters=dummy_user, value
 # $Id$
-"""this script is called by the the Contributors write expression
-check if current user is in contributors if not add him"""
-uname = user.getId()
-duser = context.portal_directories['members'].getEntry(uname, default=None)
-if duser:
-    uname = duser.get('fullname', uname)
-if not value:
-    ret = [uname,]
-elif uname in value:
-    ret = value
-else:
-    ret = list(value) + [uname]
+"""Compute contributors.
 
-return ret
+Called by old Contributors write expression of the metadata schema.
+
+BBB: will be removed in CPS 3.3.7.
+"""
+
+from Products.CPSDefault.utils import computeContributors
+portal = context.portal_url.getPortalObject()
+
+return computeContributors(portal, value)
