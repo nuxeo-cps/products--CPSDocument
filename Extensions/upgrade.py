@@ -51,7 +51,7 @@ def upgradeDocuments(self):
     deletePortalTypes(('News', 'PressRelease'), portal)
 
 
-def modifyPortalType(new_portal_type, old_portal_type, portal):
+def modifyPortalType(old_portal_type, new_portal_type, portal):
     log_key = 'modifyPortalType'
     brains = portal.search(query={'portal_type': (old_portal_type,)})
     for brain in brains:
@@ -69,6 +69,7 @@ def modifyPortalType(new_portal_type, old_portal_type, portal):
 
         proxy.portal_type = new_portal_type
         document.portal_type = new_portal_type
+        proxy.reindexObject()
 
 
 
