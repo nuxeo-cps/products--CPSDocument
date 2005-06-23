@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-16 02:58default\n"
+"POT-Creation-Date: 2005-06-23 17:32default\n"
 "PO-Revision-Date: 2005-06-17 17:11-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
@@ -302,6 +302,42 @@ msgstr "Sociedade"
 msgid "label_subject_Sports"
 msgstr "Esportes"
 
+#, fuzzy
+msgid "label_sort_by"
+msgstr "Sort by"
+
+#, fuzzy
+msgid "label_title_asc"
+msgstr "Ascending title"
+
+#, fuzzy
+msgid "label_title_desc"
+msgstr "Descending title"
+
+#, fuzzy
+msgid "label_date_asc"
+msgstr "Ascending date"
+
+#, fuzzy
+msgid "label_date_desc"
+msgstr "Descending date"
+
+#, fuzzy
+msgid "label_status_asc"
+msgstr "Ascending status"
+
+#, fuzzy
+msgid "label_status_desc"
+msgstr "Descending status"
+
+#, fuzzy
+msgid "label_author_asc"
+msgstr "Ascending author"
+
+#, fuzzy
+msgid "label_author_desc"
+msgstr "Descending author"
+
 # flex content
 msgid "cpsdoc_flex_content_title"
 msgstr "Conteúdo"
@@ -537,3 +573,21 @@ msgstr "Animação Flash"
 
 msgid "portal_type_Flash_Animation_description"
 msgstr "Animação em MacroMedia Flash"
+
+msgid "button_add"
+msgstr "Add"
+
+msgid "button_delete"
+msgstr "Delete"
+
+msgid "button_move_down"
+msgstr "Move down"
+
+msgid "button_move_up"
+msgstr "Move up"
+
+msgid "button_ok"
+msgstr "Ok"
+
+msgid "label_text_to_search"
+msgstr "Text to search"

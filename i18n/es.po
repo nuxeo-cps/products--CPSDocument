@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-13 17:41default\n"
+"POT-Creation-Date: 2005-06-23 17:32default\n"
 "PO-Revision-Date: 2005-05-27 10:55+0100\n"
 "Last-Translator: Jesús <jesusmartin@lasalle.es>\n"
 "Language-Team: español <jesusmartin@lasalle.es>\n"
@@ -11,7 +11,8 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Preferred-encodings: utf-8 latin1\n"
-"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-sv es-gt es-"
+"hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
 "X-Generator: KBabel 1.0.2\n"
 "Domain: default\n"
 "Language-Code: es\n"
@@ -66,6 +67,12 @@ msgstr "Tipo"
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
 msgstr "Título del tipo"
+
+#.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
+#: from ../skins/cps_document/layout_faq_view.pt
+#: ../skins/cps_document_cmf/layout_faq_view.pt
+msgid "button_back"
+msgstr ""
 
 #    <span>to</span>
 #.   <span>to</span>
@@ -145,7 +152,9 @@ msgstr "Metadatos del documento"
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
-msgstr "En este campo, podrá poner el motivo por el que desea modificar este documento."
+msgstr ""
+"En este campo, podrá poner el motivo por el que desea modificar este "
+"documento."
 
 #    <span condition="widget/is_i18n" content="widget/help">i18_key-help_for_this_field</span>
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
@@ -177,8 +186,8 @@ msgstr "etiqueta"
 msgid "label_zip_file"
 msgstr "Archivo ZIP"
 
-#.   <a href="." attributes="href python:'/'+
-#.                       itemList[pos + 1].absolute_url(relative=1) +
+#.   <a href="." attributes="href python:'/'+ 
+#.                       itemList[pos + 1].absolute_url(relative=1) + 
 #.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -251,7 +260,11 @@ msgid "cpsdoc_hidden_folder"
 msgstr "Ocultar esta carpeta en la navegación"
 
 msgid "cpsdoc_hidden_folder_help"
-msgstr "La carpeta no será ya visible en la navegación por defecto, sin embargo seguirá siendo accesible en la vista 'Gestionar contenido' así como para la publicación. Para proteger el acceso a la carpeta hay que utilizar 'Gestionar roles locales'."
+msgstr ""
+"La carpeta no será ya visible en la navegación por defecto, sin embargo "
+"seguirá siendo accesible en la vista 'Gestionar contenido' así como para la "
+"publicación. Para proteger el acceso a la carpeta hay que utilizar "
+"'Gestionar roles locales'."
 
 msgid "help_dc_subject"
 msgstr "El tema del contenido"
@@ -260,7 +273,8 @@ msgid "help_dc_contirbutors"
 msgstr "Las entidades que han contribuido a la creación del contenido."
 
 msgid "help_dc_source"
-msgstr "Una referencia a un recurso a partir del que se deriva el recurso actual."
+msgstr ""
+"Una referencia a un recurso a partir del que se deriva el recurso actual."
 
 msgid "help_dc_coverage"
 msgstr "El alcance o la cobertura espacio-temporal del recurso."
@@ -316,6 +330,42 @@ msgstr "Sociedad"
 
 msgid "label_subject_Sports"
 msgstr "Deportes"
+
+#, fuzzy
+msgid "label_sort_by"
+msgstr "Sort by"
+
+#, fuzzy
+msgid "label_title_asc"
+msgstr "Ascending title"
+
+#, fuzzy
+msgid "label_title_desc"
+msgstr "Descending title"
+
+#, fuzzy
+msgid "label_date_asc"
+msgstr "Ascending date"
+
+#, fuzzy
+msgid "label_date_desc"
+msgstr "Descending date"
+
+#, fuzzy
+msgid "label_status_asc"
+msgstr "Ascending status"
+
+#, fuzzy
+msgid "label_status_desc"
+msgstr "Descending status"
+
+#, fuzzy
+msgid "label_author_asc"
+msgstr "Ascending author"
+
+#, fuzzy
+msgid "label_author_desc"
+msgstr "Descending author"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Bloque de texto"
@@ -434,7 +484,10 @@ msgid "portal_type_PressRelease_title"
 msgstr "Comunicado de prensa"
 
 msgid "portal_type_PressRelease_description"
-msgstr "Un comunicado de prensa es un tipo especial de noticia, utilizada habitualmente para los comunicados más formales (noticias institucionales...)."
+msgstr ""
+"Un comunicado de prensa es un tipo especial de noticia, utilizada "
+"habitualmente para los comunicados más formales (noticias "
+"institucionales...)."
 
 # default doc types
 msgid "portal_type_File_title"
@@ -448,7 +501,8 @@ msgid "portal_type_ZippedHtml_title"
 msgstr "Archivo HTML comprimido en formato zip"
 
 msgid "portal_type_ZippedHtml_description"
-msgstr "Un archivo zip que contiene código html y que puede previsualizarse en línea."
+msgstr ""
+"Un archivo zip que contiene código html y que puede previsualizarse en línea."
 
 msgid "cpsdoc_zippedhtml_label"
 msgstr "Archivo Html comprimido en formato zip"
@@ -513,19 +567,25 @@ msgid "portal_type_Book_title"
 msgstr "Libro"
 
 msgid "portal_type_Book_description"
-msgstr "Una carpeta que muestra los documentos que contiene como si fueran páginas de un libro."
+msgstr ""
+"Una carpeta que muestra los documentos que contiene como si fueran páginas "
+"de un libro."
 
 msgid "portal_type_Page_title"
 msgstr "Libro - Página"
 
 msgid "portal_type_Page_description"
-msgstr "Documento flexible mostrado estructuralmente como si fuera la página de un libro."
+msgstr ""
+"Documento flexible mostrado estructuralmente como si fuera la página de un "
+"libro."
 
 msgid "portal_type_Chapter_title"
 msgstr "Libro - Capítulo"
 
 msgid "portal_type_Chapter_description"
-msgstr "Documento flexible con aspecto de capítulo de un libro el cual, a su vez, contiene páginas."
+msgstr ""
+"Documento flexible con aspecto de capítulo de un libro el cual, a su vez, "
+"contiene páginas."
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Número de tablas de contenido que se mostrará por página"
@@ -542,3 +602,29 @@ msgstr "en páginas separadas"
 msgid "cpsdoc_book_display_flat"
 msgstr "Vista plana"
 
+# default doc types
+#, fuzzy
+msgid "portal_type_Flash_Animation_title"
+msgstr "Flash Animation"
+
+#, fuzzy
+msgid "portal_type_Flash_Animation_description"
+msgstr "Flash Animation (swf format)"
+
+msgid "button_add"
+msgstr "Add"
+
+msgid "button_delete"
+msgstr "Delete"
+
+msgid "button_move_down"
+msgstr "Move down"
+
+msgid "button_move_up"
+msgstr "Move up"
+
+msgid "button_ok"
+msgstr "Ok"
+
+msgid "label_text_to_search"
+msgstr "Text to search"
