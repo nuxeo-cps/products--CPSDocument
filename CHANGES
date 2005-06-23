@@ -13,6 +13,7 @@ Bug fixes:
   packaged on its own as a Debian package.
 - log_key variable definition was missing in CPSdocument/Extensions/upgrade.py
 - Taking advantage of the new centralized CPSI18n.tests.translations module.
+- Fixed translation files through the CPSI18n/bin/fix_pos script.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Don't use strings for permission names in getDocumentTypes.
