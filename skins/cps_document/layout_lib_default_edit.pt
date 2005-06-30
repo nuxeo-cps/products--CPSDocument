@@ -47,10 +47,12 @@
           <div class="label" tal:condition="widget/label_edit"
             tal:attributes="class python:test(is_required, 'label required',
                                               'label')">
-            <tal:block i18n:translate="" tal:condition="widget/is_i18n"
-              tal:content="widget/label_edit">label</tal:block>
-            <tal:block tal:condition="not:widget/is_i18n"
-              tal:content="widget/label_edit">label</tal:block>
+            <label i18n:translate="" tal:condition="widget/is_i18n"
+              tal:content="widget/label_edit"
+              tal:attributes="for cell/widget_input_area_id|nothing;">label</label>
+            <label tal:condition="not:widget/is_i18n"
+              tal:content="widget/label_edit"
+              tal:attributes="for cell/widget_input_area_id|nothing;">label</label>
           </div>
           <button type="button" class="tooltipControl"
                   tal:condition="widget/help"
