@@ -1,5 +1,5 @@
 <tal:block tal:define="proxy nocall:options/proxy;
-                        book proxy/getBookParent;
+                        book nocall:proxy/getBookParent;
                         parent_type book/portal_type|nothing">
 
 <tal:block condition="python:parent_type=='Book'">
