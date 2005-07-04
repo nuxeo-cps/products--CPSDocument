@@ -5,8 +5,7 @@
                   ">
 <h1 i18n:translate="">heading_metadata_view</h1>
 <br />
-<table width="100%" cellpadding="2" cellspacing="2" border="0"
-  summary="form layout">
+<table width="100%" cellpadding="2" cellspacing="2" summary="form layout">
   <tr tal:repeat="row layout/rows"
     tal:attributes="class python:test(repeat['row'].even(),'odd','even')">
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">

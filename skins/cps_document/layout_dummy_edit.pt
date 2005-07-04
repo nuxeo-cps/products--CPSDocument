@@ -4,7 +4,7 @@
   ">
   <form action="." method="post" enctype="multipart/form-data"
     tal:attributes="action string:cpsdocument_edit_form">
-    <table width="100%" cellpadding="2" cellspacing="2" border="0">
+    <table width="100%" cellpadding="2" cellspacing="2">
       <tr tal:condition="not:ok">
         <td tal:attributes="colspan layout/ncols">
           <strong style="color: red">Please correct the errors.</strong>

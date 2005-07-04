@@ -10,8 +10,7 @@
 
 <metal:block define-macro="default_view"
   tal:define="layout options/layout">
-<table width="100%" cellpadding="2" cellspacing="2" border="0"
-  summary="layout">
+<table width="100%" cellpadding="2" cellspacing="2" summary="layout">
   <tr tal:repeat="row layout/rows">
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget">

@@ -22,7 +22,7 @@
 
 <!-- Flex part for instance here -->
 
-<table width="100%" cellpadding="2" cellspacing="2" border="0">
+<table width="100%" cellpadding="2" cellspacing="2">
   <tr tal:repeat="row layout/rows">
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget">

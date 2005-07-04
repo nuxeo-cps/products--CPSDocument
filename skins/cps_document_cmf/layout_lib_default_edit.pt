@@ -27,8 +27,7 @@
     tal:condition="creation" tal:attributes="value request/type_name" />
 </tal:block>
 
-<table width="100%" cellpadding="2" cellspacing="2" border="0"
-  summary="Form layout">
+<table width="100%" cellpadding="2" cellspacing="2" summary="Form layout">
   <tr tal:repeat="row layout/rows" valign="top">
     <td tal:repeat="cell row"
       tal:attributes="colspan cell/ncols">
