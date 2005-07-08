@@ -15,7 +15,7 @@
         <tal:block condition="widget/label">
           <span class="dlabel" i18n:translate="" tal:condition="widget/is_i18n"
             tal:content="widget/label">label</span>
-          <span tal:condition="not:widget/is_i18n"
+          <span class="dlabel" tal:condition="not:widget/is_i18n"
             tal:content="widget/label">label</span>
         </tal:block>
         <tal:block replace="structure cell/widget_rendered" />
