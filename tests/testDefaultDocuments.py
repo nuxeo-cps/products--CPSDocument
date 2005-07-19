@@ -84,7 +84,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             else:
                 proxy = getattr(self.ws, doc_id)
                 try:
-                    doc = proxy.getContent()
+                    doc = proxy.getEditableContent()
                 except AttributeError:
                     doc = proxy
 
@@ -96,7 +96,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
                 expected_invariable = {}
                 expected_invariable['Contributors'] = doc.contributors
                 expected_invariable['Creator'] = doc.Creator()
-                doc.edit(**self.attr_values_1)
+                doc.edit(proxy=proxy, **self.attr_values_1)
                 self._validateDocument(proxy, doc)
                 self._testAttributeValues(doc, self.attr_values_1)
                 self._testAttributeValues(doc, expected_invariable)
@@ -209,7 +209,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         self.ws.invokeFactory('News Item', id)
         proxy = getattr(self.ws, id)
         try:
-            doc = proxy.getContent()
+            doc = proxy.getEditableContent()
         except AttributeError:
             doc = proxy
 
@@ -245,6 +245,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         request = self.portal.REQUEST
         request.form = form
         rendered, is_valid, ds = doc.renderEditDetailed(request=request,
+                                                        proxy=proxy,
                                                         layout_id='metadata')
         self.assert_(is_valid, 'invalid input: ' + str(ds.getErrors()) +
                      'ds = ' + str(ds))
@@ -253,12 +254,12 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
     def testNews(self):
         self.ws.invokeFactory('News Item', 'news')
-        proxy = getattr(self.ws, 'news')
+        proxy = self.ws.news
 
         try:
-            doc = self.ws.news.getContent()
+            doc = proxy.getEditableContent()
         except AttributeError:
-            doc = self.ws.news
+            doc = proxy
 
         # Test doc has default values
         for prop_name in self.document_schemas['newsitem'].keys():
@@ -266,17 +267,17 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             # getDocumentSchemas(). I consider this as a bug.
             self.assert_(hasattr(doc, prop_name))
 
-        doc.edit(Title='The title')
+        doc.edit(proxy=proxy, Title='The title')
         self.assertEquals(doc.Title(), 'The title')
 
-        doc.edit(content='The content')
+        doc.edit(proxy=proxy, content='The content')
         self.assertEquals(doc.content, 'The content')
         self.assertEquals(
             doc.getAdditionalContentInfo(proxy)['summary'], 'The content')
 
         from Products.CPSDocument.CPSDocument import SUMMARY_MAX_LEN
         very_long_content = 'A very long content' * 100
-        doc.edit(content=very_long_content)
+        doc.edit(proxy=proxy, content=very_long_content)
         self.assertEquals(
             doc.getAdditionalContentInfo(proxy)['summary'],
             very_long_content[0:SUMMARY_MAX_LEN] + '...')
@@ -286,7 +287,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         proxy = self.ws.file1
         try:
-            doc = proxy.getContent()
+            doc = proxy.getEditableContent()
         except AttributeError:
             doc = proxy
 
@@ -298,7 +299,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
         # Edit file as string
         text = randomText()
-        doc.edit(file=text)
+        doc.edit(proxy=proxy, file=text)
         self.assertEquals(doc.file, text)
         self.assertEquals(proxy['file'], text)
         #XXX self.assertEquals(doc.downloadFile('file'), text)
@@ -529,9 +530,10 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         proxy = getattr(self.ws, doc_id)
 
         # edit Title
-        proxy.edit(Title='a title')
+        doc = proxy.getEditableContent()
+        doc.edit(proxy=proxy, Title='a title')
 
-        stext = proxy.getContent().SearchableText()
+        stext = doc.SearchableText()
 
         # It should return at least the title right now.
         self.assert_(stext)
