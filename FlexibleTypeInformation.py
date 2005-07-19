@@ -870,13 +870,19 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         return ob
 
     def _notifyModification(self, ob, proxy):
-        ob.reindexObject()
+        # If a proxy is available, reindex it, not the document
+        # in the repository.
+        if proxy is not None:
+            proxy.reindexObject()
+        else:
+            ob.reindexObject()
         evtool = getToolByName(self, 'portal_eventservice', None)
         if evtool is not None:
-            evtool.notify('sys_modify_object', ob, {})
             if proxy is not None:
                 # XXX Should be done by the proxy tool or something.
                 evtool.notify('sys_modify_object', proxy, {})
+            else:
+                evtool.notify('sys_modify_object', ob, {})
         return ob
 
     security.declarePrivate('renderEditObjectDetailed')
