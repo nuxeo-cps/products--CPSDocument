@@ -866,24 +866,18 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         # Update the object from dm.
         ob = dm._commit(check_perms=check_perms)
         # CMF/CPS stuff.
-        ob = self._notifyModification(ob, dm.getProxy())
+        self._notifyModification(ob)
         return ob
 
-    def _notifyModification(self, ob, proxy):
-        # If a proxy is available, reindex it, not the document
-        # in the repository.
-        if proxy is not None:
-            proxy.reindexObject()
-        else:
-            ob.reindexObject()
+    def _notifyModification(self, ob):
+        # Note that the catalog won't index repository objects.
+        ob.reindexObject()
         evtool = getToolByName(self, 'portal_eventservice', None)
         if evtool is not None:
-            if proxy is not None:
-                # XXX Should be done by the proxy tool or something.
-                evtool.notify('sys_modify_object', proxy, {})
-            else:
-                evtool.notify('sys_modify_object', ob, {})
-        return ob
+            evtool.notify('sys_modify_object', ob, {})
+            # If the object is in the repository, the proxy tool
+            # will do what's necessary to reindex the proxies
+            # and send a notification for them.
 
     security.declarePrivate('renderEditObjectDetailed')
     def renderEditObjectDetailed(self, ob, request=None,
@@ -1075,7 +1069,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                 ob = proxy.getContent()
             else:
                 ob = proxy
-            self._notifyModification(ob, proxy)
+            self._notifyModification(ob)
             created_func = getattr(proxy, created_callback, None)
             if created_func is None:
                 raise ValueError("Unknown created_callback %s" %
