@@ -23,6 +23,7 @@ Bug fixes:
   work in progress to fix #773 "Using XHTML 1.0 Strict by default for CPS
   sites".
 - Correctly reindex proxies in all cases after they have been modified.
+- Replaced incorrect code producing broken urls using virtual hosting.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Don't use strings for permission names in getDocumentTypes.

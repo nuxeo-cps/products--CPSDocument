@@ -7,7 +7,7 @@
   <p tal:repeat="item items">
     <img tal:replace="structure python:
       here.getImgTag(here.portal_types[item.portal_type].getIcon(),
-      base_url=here.portal_url.getPortalPath() + '/')">
+      base_url=here.portal_url.getBaseUrl())">
       <a tal:define="doc item/getContent"
         tal:attributes="href string:${request/URL}#a${repeat/item/number};
         name string:q${repeat/item/number};

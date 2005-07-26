@@ -28,7 +28,7 @@
 #
 ##############################################################################
 #
-# $Id:$
+# $Id$
 """Types tool import/export for CMFSetup.
 
 Knows about Flexible Type Information

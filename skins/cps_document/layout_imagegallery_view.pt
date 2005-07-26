@@ -3,7 +3,7 @@
   'aq_parent')">
   <a href="../">
   <img tal:replace="structure python:here.getImgTag('UpFolder_icon.png',
-    base_url=here.portal_url.getPortalPath()+'/')">
+    base_url=here.portal_url.getBaseUrl())">
   <span i18n:translate="description_up_to">
     <strong i18n:name="up_id" tal:content="python:options['proxy'].aq_parent.title_or_id()">
       Up ID</strong>
@@ -11,7 +11,8 @@
   </a>
 </tal:block>
 <metal:block use-macro="here/layout_lib_div_view/macros/div_view" />
-<tal:block tal:define="proxy nocall:options/proxy;
+<tal:block tal:define="utool nocall:here/portal_url;
+                       proxy nocall:options/proxy;
                        items proxy/getFolderContents;
                        gallery python:here.getContent();
                        nb_cols python:getattr(gallery,'nb_cols','3');
@@ -40,23 +41,25 @@
                                                                start=row*nb_cols);">
     <td tal:repeat="item batch">
       <a href="."
-         tal:attributes="href python:test(popup_mode,'.' , '/'+item.absolute_url(relative=1));
-                         onClick python:test(popup_mode, 'window.open(\'' + 
-                                                          item.absolute_url(relative=1) + 
-                                                          '/popup_image' + '?pos=%s' % (repeat['row'].index * nb_cols + repeat['item'].index + page_batch_start) +
-                                                          '\', \'view_image\', ' +
-                                                          '\'innerwidth=%s' % popup_width + 
-                                                          ',innerheight=%s' % popup_height +
-                                                          ',location=no' +
-                                                          ',menubar=no' +
-                                                          ',personalbar=no' +
-                                                          ',toolbar=no' +
-                                                          ',status=no' +
-                                                          ',scrollbars=yes'
-                                                          '\');; return false', 'return true')">
-        <img tal:replace="structure 
+        tal:define="item_url python:item.absolute_url()"
+        tal:attributes="
+          href python:test(popup_mode, '.', item_url);
+          onClick python:test(popup_mode, 'window.open(\'' +
+                    item_url +
+                    '/popup_image' + '?pos=%s' % (repeat['row'].index * nb_cols + repeat['item'].index + page_batch_start) +
+                    '\', \'view_image\', ' +
+                    '\'innerwidth=%s' % popup_width +
+                    ',innerheight=%s' % popup_height +
+                    ',location=no' +
+                    ',menubar=no' +
+                    ',personalbar=no' +
+                    ',toolbar=no' +
+                    ',status=no' +
+                    ',scrollbars=yes'
+                    '\');; return false', 'return true')">
+        <img tal:replace="structure
                            python:here.getImgTag(
-                             item.getContent().absolute_url(relative=1)+'/preview',
+                             item.absolute_url(relative=1)+'/preview',
                              base_url='',width=th_width,height=th_height,
                              keep_ratio=1)">
         <br />
@@ -68,7 +71,7 @@
 </table>
 
 <table width="100%" cellspacing="0" cellpadding="0" summary="batch layout"
-  condition="python:previous_page or next_page">
+  tal:condition="python:previous_page or next_page">
   <tr class="even">
     <td align="center" width="100%"
         tal:define="mq nocall:modules/ZTUtils/make_query;">
