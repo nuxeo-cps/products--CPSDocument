@@ -24,6 +24,8 @@ Bug fixes:
   sites".
 - Correctly reindex proxies in all cases after they have been modified.
 - Replaced incorrect code producing broken urls using virtual hosting.
+- Removed redundant 'photo*' fields in the 'newsitem' schema (they are
+  already in 'common').
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Don't use strings for permission names in getDocumentTypes.
