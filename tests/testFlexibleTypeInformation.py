@@ -42,7 +42,7 @@ class TestFlexibleTypeInformation(unittest.TestCase):
         ti = FlexibleTypeInformation('myti', layouts=default)
         func = ti.getLayoutIds
 
-        ti.layout_clusters = ['']
+        ti.layout_clusters = []
         self.assertEquals(func(), default)
         self.assertEquals(func(cluster='view'), default)
         self.assertEquals(func(cluster='babar'), default)
