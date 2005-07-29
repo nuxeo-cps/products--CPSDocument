@@ -21,7 +21,7 @@
 Type information for types described by a flexible set of schemas and layout.
 """
 
-from zLOG import LOG, DEBUG, PROBLEM
+from zLOG import LOG, DEBUG, WARNING
 from Acquisition import aq_base, aq_parent, aq_inner
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
@@ -629,7 +629,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                     else:
                         v = []
                 except ValueError:
-                    LOG('getLayoutIds', PROBLEM,
+                    LOG('getLayoutIds', WARNING,
                         "Invalid layout cluster %s in portal_type '%s'"
                         %(`s`, self.getId()))
                     continue
