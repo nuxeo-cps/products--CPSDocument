@@ -83,6 +83,10 @@ class DocInstaller(CPSInstaller):
         types = self.newptypes[:]
         types.remove('Section')
         self.allowContentTypes(types, 'Workspace')
+        # The workflow will disallow them to be created directly But
+        # we need to allow them explictly for being able to rename
+        # them for instance
+        self.allowContentTypes(types, 'Section')
         self.updatePortalTree()
 
     def updateWorkflowAssociations(self):
