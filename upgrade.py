@@ -29,4 +29,4 @@ def upgrade_334_335_allowct_sections(context):
         if ptype not in  sectionACT:
             sectionACT.append(ptype)
             section.allowed_content_types = sectionACT
-    return "CPSDocument updated : Sections allow conten types"
+    return "CPSDocument updated : Sections allow content types"
