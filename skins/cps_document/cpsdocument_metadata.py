@@ -1,22 +1,38 @@
-##parameters=REQUEST=None
+##parameters=REQUEST
+# $Id$
+"""View or edit the document metadata
 
-is_view = len(REQUEST.form.keys()) == 0
+If user is not allowed to edit the document, display the metadata page in view
+mode.
 
-edit_metadata = context.portal_membership.checkPermission('Modify portal content', context)
+If user is allowed to edit the document:
+- if form has not been submitted yet, or if an error occured during edition,
+  display the metadata page in edit mode.
+- if edition has been successfully performed, redirect to the document view
+  page.
+"""
 
-if not edit_metadata:
-    return context.cpsdocument_metadata_template(metadata=0)
+from Products.CMFCore.utils import getToolByName
+
+pmtool = getToolByName(context, 'portal_membership')
+can_edit = pmtool.checkPermission('Modify portal content', context)
+
+if not can_edit:
+    return context.cpsdocument_metadata_template(edit_metadata=0)
 else:
-    rendered_main, portal_status_message = context.editCPSDocument(REQUEST=REQUEST,
-                                                                   cluster='metadata')
-    error = portal_status_message == 'psm_content_error'
+    form_submitted = REQUEST.form.has_key('cpsdocument_edit_button')
+    # editCPSDocument will check if form has been submitted too before
+    # committing data managed by the metadata cluster
+    rendered_main, psm = context.editCPSDocument(REQUEST=REQUEST,
+                                                 cluster='metadata')
+    error = psm == 'psm_content_error'
 
-    if is_view:
-        return context.cpsdocument_metadata_template(edit_metadata=1, rendered_main=rendered_main,
-                                                     portal_status_message=portal_status_message)
-    elif error:
-        return context.cpsdocument_metadata_template(edit_metadata=1, rendered_main=rendered_main,
-                                                     portal_status_message=portal_status_message)
+    if not form_submitted or error:
+        return context.cpsdocument_metadata_template(edit_metadata=1,
+                                                     rendered_main=rendered_main,
+                                                     portal_status_message=psm)
     else:
-       REQUEST.RESPONSE.redirect(context.absolute_url())
+        redirect_url = context.absolute_url()
+        redirect_url += "?portal_status_message=" + psm
+        REQUEST.RESPONSE.redirect(redirect_url)
 

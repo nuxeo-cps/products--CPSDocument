@@ -26,6 +26,7 @@ Bug fixes:
 - Replaced incorrect code producing broken urls using virtual hosting.
 - Removed redundant 'photo*' fields in the 'newsitem' schema (they are
   already in 'common').
+- #688 cpsdocument_metadata.py weak test
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Don't use strings for permission names in getDocumentTypes.
