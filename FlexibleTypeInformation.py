@@ -707,7 +707,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         """Save datastructure values for field listed in backup_items."""
         if request is None:
             return
-        item_ids= []
+        item_ids = []
         if datastructure.has_key('backup_items'):
             datamodel = datastructure.getDataModel()
             for widget_id, field_id in datastructure['backup_items'].items():
@@ -822,8 +822,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             else:
                 last_layout = 0
             is_flexible = layout_mode != 'create' and \
-                          layout_structure['layout_id'] in \
-                          flexible_layouts
+                          layout_structure['layout_id'] in flexible_layouts
             # Render layout structure.
             layout = layout_structure['layout']
             layout.renderLayoutStructure(layout_structure, datastructure, **kw)
