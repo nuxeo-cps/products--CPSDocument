@@ -429,7 +429,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         i = 0
         for field_type in field_types:
             # Find free field id (based on the field type name).
-            field_id = widget_id
+            field_id = '%s_f%d' % (widget_id, 0)
             field_ids = schema.keys()
             n = 0
             while field_id in field_ids:
@@ -496,23 +496,30 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         for widget_id in widget_ids:
             widget = layout[widget_id]
             for field_id in widget.fields:
+                LOG('FlexibleTypeInformation', DEBUG, 'deleting field %s' %
+                        field_id)
                 # Delete the field.
                 schema.delSubObject(field_id)
                 # XXX FIXME it has to be handle differently
                 # It assumes it is an AttributeStorage.
-                # All the properties are not removed.
                 # Though, this one is enough to prevent the file to be proposed
                 # again next time you create the same kind of widget.
                 # Delete from the object otherweise the same content appears
                 # each time you wanna add the same kind of widget again.
                 # Was the case with the attached file.
-                if hasattr(ob, field_id):
-                    delattr(ob, field_id)
+                if field_id in ob.objectIds():
+                    LOG('FlexibleTypeInformation', DEBUG, 'deleting object %s' %
+                            field_id)
+                    ob.manage_delObjects([field_id])
             if widget_id in flexible_widgets:
                 # Hide the widget as we may need it to create new widget.
+                LOG('FlexibleTypeInformation', DEBUG, 'hiding widget %s' %
+                        widget_id)
                 widget.hide()
             else:
                 # Delete the widget.
+                LOG('FlexibleTypeInformation', DEBUG, 'deleting widget %s' %
+                        widget_id)
                 layout.delSubObject(widget_id)
 
     security.declareProtected(ModifyPortalContent, 'flexibleChangeLayout')

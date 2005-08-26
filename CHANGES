@@ -6,7 +6,13 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- #889: flexible fields are now all suffixed with _fn with n starting from 0:
+  this avoids name conflicts between static and flexible fields make it easier to
+  understand what is flexible and what is not.
+  Furthermore, in case of attribute storage of binary files (images, attached
+  files, usw): now  use the manage_delObjectMethod instead of delattr to clean then
+  on flexible field deletion so as to avoid leaving rubbish in the _objects
+  attribute. This fixes a bug that was semi-hidden by the first one.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
