@@ -29,4 +29,25 @@ def upgrade_334_335_allowct_sections(context):
         if ptype not in  sectionACT:
             sectionACT.append(ptype)
             section.allowed_content_types = sectionACT
-    return "CPSDocument updated : Sections allow content types"
+    return "CPSDocument updated: Sections allow content types"
+
+def upgrade_335_336_fix_broken_flexible(context):
+    """Fix broken flexible attachement fields
+
+    The _objects attribute of docs with flexible content might be broken because
+    of the use of the 'delattr' function instead of 'manage_delObjects' when
+    deleting flexible fields.
+
+    This is related to ticket:889
+    """
+    repository = getToolByName(context, 'portal_repository')
+    fixed_fields = 0
+    for doc in repository.values():
+        new_objects = []
+        for ob in doc._objects:
+            if not hasattr(doc, ob['id']):
+                fixed_fields += 1
+            else:
+                new_objects.append(ob)
+        doc._objects = tuple(new_objects)
+    return "CPSDocument updated: fixed %d broken flexible fields" % fixed_fields

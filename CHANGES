@@ -13,6 +13,7 @@ Bug fixes:
   files, usw): now  use the manage_delObjectMethod instead of delattr to clean then
   on flexible field deletion so as to avoid leaving rubbish in the _objects
   attribute. This fixes a bug that was semi-hidden by the first one.
+  upgrade.py has a function to fix broken fields
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
