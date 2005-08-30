@@ -46,7 +46,7 @@ from Products.CPSSchemas.StorageAdapter import AttributeStorageAdapter, \
      MetaDataStorageAdapter
 
 from Products.CPSDocument.CPSDocument import addCPSDocument
-from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget, _isinstance
+from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget
 
 SESSION_ITEM_KEY = 'CPS_FLEXIBLETYPEINFO_FILE'
 SESSION_ITEM_IDS_KEY = 'CPS_FLEXIBLETYPEINFO_FILES'
@@ -370,7 +370,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         ltool = getToolByName(self, 'portal_layouts')
         layout_ob = ltool._getOb(layout_id)
         tpl_widget = layout_ob[wtid]
-        if not _isinstance(tpl_widget, CPSCompoundWidget):
+        if not isinstance(tpl_widget, CPSCompoundWidget):
             return self._flexibleAddSimpleWidget(ob, layout_id, wtid, **kw)
 
         # Compound widget - creating sub widgets
