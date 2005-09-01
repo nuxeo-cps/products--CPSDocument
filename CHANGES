@@ -14,6 +14,8 @@ Bug fixes:
   on flexible field deletion so as to avoid leaving rubbish in the _objects
   attribute. This fixes a bug that was semi-hidden by the first one.
   upgrade.py has a function to fix broken fields
+- #901: Field storage expression context's "proxy" variable is always None in
+  read expressions
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
