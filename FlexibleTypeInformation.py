@@ -578,9 +578,9 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         adapters = []
         for schema in schemas:
             if schema.id.startswith('metadata'):
-                adapters.append(MetaDataStorageAdapter(schema, ob))
+                adapters.append(MetaDataStorageAdapter(schema, ob, proxy=proxy))
             else:
-                adapters.append(AttributeStorageAdapter(schema, ob))
+                adapters.append(AttributeStorageAdapter(schema, ob, proxy=proxy))
         dm = DataModel(ob, adapters, proxy=proxy, context=context)
         dm._fetch()
         return dm
