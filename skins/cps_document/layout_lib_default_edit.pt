@@ -118,15 +118,16 @@
      class="context"
      i18n:attributes="value" />
   </tal:select>
-  <tal:button condition="python:len(flexible_widgets) == 1"
-              define="widget python:flexible_widgets[0]">
-    <input type="hidden" name="widget_type"
-      tal:attributes="value widget/getWidgetId">
-    <input type="submit" name="addwidget_button"
-      tal:define="button_add python:cpsmcat('button_add');
-        widget_title python:cpsmcat(widget.title_or_id())"
-      tal:attributes="value string:${button_add} ${widget_title}"
-      class="context" />
+  <tal:button condition="python:len(flexible_widgets) == 1">
+    <tal:block define="widget python:flexible_widgets[0]">
+      <input type="hidden" name="widget_type"
+        tal:attributes="value widget/getWidgetId">
+      <input type="submit" name="addwidget_button"
+        tal:define="button_add python:cpsmcat('button_add');
+          widget_title python:cpsmcat(widget.title_or_id())"
+        tal:attributes="value string:${button_add} ${widget_title}"
+        class="context" />
+    </tal:block>
   </tal:button>
 </div>
 </tal:block>
