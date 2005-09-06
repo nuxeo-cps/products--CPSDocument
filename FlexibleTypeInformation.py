@@ -511,6 +511,10 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                     LOG('FlexibleTypeInformation', DEBUG, 'deleting object %s' %
                             field_id)
                     ob.manage_delObjects([field_id])
+                else:
+                    # Other fields such as string Fields are stored as
+                    # non-object attributes
+                    delattr(ob, field_id)
             if widget_id in flexible_widgets:
                 # Hide the widget as we may need it to create new widget.
                 LOG('FlexibleTypeInformation', DEBUG, 'hiding widget %s' %
