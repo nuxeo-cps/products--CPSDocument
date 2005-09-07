@@ -63,9 +63,6 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
     attr_values_1 = {'1 Subject': ['1 New Subject',],
                      '1 Title': '1 New Title',
                      '1 Description': '1 New Description'}
-    attr_values_2 = {'2 Subject': ['2 New Subject',],
-                     '2 Title': '2 New Title',
-                     '2 Description': '2 New Description'}
     def testCreateDocumentsInWorkspacesRoot(self):
         for doc_type in self.document_types.keys():
             if doc_type in ('Section',):
@@ -267,14 +264,23 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             # getDocumentSchemas(). I consider this as a bug.
             self.assert_(hasattr(doc, prop_name))
 
-        doc.edit(proxy=proxy, Title='The title')
-        self.assertEquals(doc.Title(), 'The title')
+        TITLE = "Un titre accentué"
+        CONTENT = "L'été est bientôt terminé"
 
-        doc.edit(proxy=proxy, content='The content')
-        self.assertEquals(doc.content, 'The content')
+        doc.edit(proxy=proxy, Title=TITLE)
+        self.assertEquals(doc.Title(), TITLE)
+
+        doc.edit(proxy=proxy, content=CONTENT)
+        self.assertEquals(doc.content, CONTENT)
         self.assertEquals(
-            doc.getAdditionalContentInfo(proxy)['summary'], 'The content')
+            doc.getAdditionalContentInfo(proxy)['summary'], CONTENT)
 
+        # Test view
+        view = proxy.cpsdocument_view()
+        self.assert_(TITLE in view)
+        self.assert_(CONTENT in view)
+
+        # Test summary for long content
         from Products.CPSDocument.CPSDocument import SUMMARY_MAX_LEN
         very_long_content = 'A very long content' * 100
         doc.edit(proxy=proxy, content=very_long_content)
