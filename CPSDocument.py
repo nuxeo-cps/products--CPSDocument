@@ -315,8 +315,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
             except KeyError:
                 pass
 
-        for item in self.propdict().keys():
-            size += len(str(getattr(self, item, '')))
+        for prop_id in self.propdict().keys():
+            size += len(str(getattr(self, prop_id, '')))
 
         return size
 
