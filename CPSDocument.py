@@ -19,7 +19,6 @@
 # $Id$
 
 from zLOG import LOG, DEBUG, ERROR
-from types import ListType, TupleType, UnicodeType
 from cgi import escape
 import ExtensionClass
 import re
@@ -174,8 +173,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
             if not field.is_searchabletext:
                 continue
             value = dm[fieldid]
-            if (not isinstance(value, ListType) and
-                not isinstance(value, TupleType)):
+            if not isinstance(value, (list, tuple)):
                 value = (value,)
             for v in value:
                 strings.append(str(v)) # XXX Use ustr ?
@@ -303,11 +301,13 @@ class CPSDocumentMixin(ExtensionClass.Base):
         else:
             dm = datamodel
         # XXX uses internal knowledge of DataModel
+        done = {}
         for field_id in dm._fields.keys():
+            done[field_id] = None
             try:
                 if hasattr(aq_base(dm[field_id]), 'get_size'):
                     field_size = dm[field_id].get_size()
-                elif isinstance(dm[field_id], UnicodeType):
+                elif isinstance(dm[field_id], unicode):
                     field_size = len(dm[field_id])
                 else:
                     field_size = len(str(dm[field_id]))
@@ -315,13 +315,17 @@ class CPSDocumentMixin(ExtensionClass.Base):
             except KeyError:
                 pass
 
+        # XXX this code is doubtful, we already have the size
+        # of all fields, why should properties matter ?
         for prop_id in self.propdict().keys():
+            if prop_id in done:
+                continue
             prop_value = getattr(self, prop_id, '')
-            if type(prop_value) == str:
+            if isinstance(prop_value, str):
                 size += len(prop_value)
-            elif type(prop_value) == unicode:
+            elif isinstance(prop_value, unicode):
                 size += 2 * len(prop_value)
-            elif type(prop_value) in (int, float):
+            elif isinstance(prop_value, (int, float)):
                 size += 4
             else:
                 # XXX: what else ?
