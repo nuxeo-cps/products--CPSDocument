@@ -26,6 +26,7 @@ from Globals import InitializeClass
 from AccessControl import Unauthorized
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_base
+from OFS.Image import File
 
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.permissions import View
@@ -267,6 +268,19 @@ class CPSDocumentMixin(ExtensionClass.Base):
             if hasattr(doc, f) and getattr(doc, f, None):
                 infos['photo'] = proxy.absolute_url(1) + '/'+ f
                 break
+
+        # Support for direct download of attached files
+        if hasattr(doc, 'file') and isinstance(self.file, File):
+            last_modified = ''
+            if self.file._p_mtime:
+                last_modified = str(self.file._p_mtime)
+            filename = self.file.getId()
+            infos['download_url'] = "/downloadFile/file/%s?nocache=%s" % (
+                   filename, last_modified)
+            registry = getToolByName(self, 'mimetypes_registry')
+            mimetype = registry.lookupExtension(filename.lower()) or\
+                       registry.lookupExtension('fake.bin')
+            infos['download_mimetype'] = mimetype
 
         return infos
 

@@ -19,4 +19,4 @@ Bug fixes:
 - #907: Error when editing some documents flexible widgets.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- added additional content info for attached files

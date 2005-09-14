@@ -1,3 +1,4 @@
+# -*- coding: iso-8859-15 -*-
 # $Id$
 # TODO:
 # - don't depend on getDocumentSchemas / getDocumentTypes but is there
