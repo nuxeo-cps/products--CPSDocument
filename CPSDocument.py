@@ -316,7 +316,16 @@ class CPSDocumentMixin(ExtensionClass.Base):
                 pass
 
         for prop_id in self.propdict().keys():
-            size += len(str(getattr(self, prop_id, '')))
+            prop_value = getattr(self, prop_id, '')
+            if type(prop_value) == str:
+                size += len(prop_value)
+            elif type(prop_value) == unicode:
+                size += 2 * len(prop_value)
+            elif type(prop_value) in (int, float):
+                size += 4
+            else:
+                # XXX: what else ?
+                pass
 
         return size
 
