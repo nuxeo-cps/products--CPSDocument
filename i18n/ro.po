@@ -241,8 +241,8 @@ msgstr "Ascunde acest dosar in navigare"
 
 msgid "cpsdoc_hidden_folder_help"
 msgstr ""
-"Dosarul nu va putea fi vizibil in navigarea implicita, totusi este inca "
-"accesibil atat in vizualizarea prin 'Afisarea continutului' cat si prin "
+"Dosarul nu va putea fi vizibil in navigarea implicita, dar este inca "
+"accesibil atat in vizualizarea prin 'Afisarea continutului', cat si prin "
 "publicare. Pentru a proteja accesul la dosar trebuie utilizata 'Adaugarea de "
 "drepturi locale'."
 
@@ -291,7 +291,7 @@ msgid "label_subject_News"
 msgstr "Noutati"
 
 msgid "label_subject_Recreation"
-msgstr "Distractiv"
+msgstr "Recreere"
 
 msgid "label_subject_Reference"
 msgstr "Consultanta"
@@ -313,39 +313,39 @@ msgstr "Sport"
 
 #, fuzzy
 msgid "label_sort_by"
-msgstr "Trier par"
+msgstr "Sorteaza dupa"
 
 #, fuzzy
 msgid "label_title_asc"
-msgstr "Titre (croissant)"
+msgstr "Titlu (crescator)"
 
 #, fuzzy
 msgid "label_title_desc"
-msgstr "Titre (décroissant)"
+msgstr "Titlu (descrescator)"
 
 #, fuzzy
 msgid "label_date_asc"
-msgstr "Date (croissant)"
+msgstr "Data (crescator)"
 
 #, fuzzy
 msgid "label_date_desc"
-msgstr "Date (décroissant)"
+msgstr "Data (descrescator)"
 
 #, fuzzy
 msgid "label_status_asc"
-msgstr "Statut (croissant)"
+msgstr "Statut (crescator)"
 
 #, fuzzy
 msgid "label_status_desc"
-msgstr "Statut (décroissant)"
+msgstr "Statut (descrescator)"
 
 #, fuzzy
 msgid "label_author_asc"
-msgstr "Auteur (croissant)"
+msgstr "Autor (crescator)"
 
 #, fuzzy
 msgid "label_author_desc"
-msgstr "Auteur (décroissant)"
+msgstr "Autor (descrescator)"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Bloc text"
@@ -387,7 +387,7 @@ msgid "portal_type_Flexible_title"
 msgstr "Document flexibil"
 
 msgid "portal_type_Flexible_description"
-msgstr "Un document a caruit structura poate fi modificata"
+msgstr "Un document a carui structura poate fi modificata"
 
 msgid "portal_type_Document_title"
 msgstr "Document"
@@ -396,13 +396,13 @@ msgid "portal_type_Document_description"
 msgstr "Document de baza care permite crearea paginilor HTML"
 
 msgid "portal_type_FAQ_title"
-msgstr "FAQ (Cele mai frecvente intrebari)"
+msgstr "FAQ (Intrebari frecvente)"
 
 msgid "portal_type_FAQ_description"
 msgstr "Dosar care contine un ansamblu de intrebari puse frecvent"
 
 msgid "portal_type_FAQitem_title"
-msgstr "FAQ - Intrebare pusa frecvent"
+msgstr "FAQ - Intrebari frecvente"
 
 msgid "portal_type_FAQitem_description"
 msgstr "Intrebare / raspuns"
@@ -458,7 +458,7 @@ msgstr "Comunicat de presa"
 
 msgid "portal_type_PressRelease_description"
 msgstr ""
-"Un comunicat de presa este o stire speciala destinata presei cu caracter "
+"Un comunicat de presa este o stire speciala destinata presei, cu caracter "
 "oficial"
 
 msgid "portal_type_File_title"
@@ -535,14 +535,14 @@ msgstr "Carte"
 
 msgid "portal_type_Book_description"
 msgstr ""
-"Un dosar care prezinta documentele pe care le contine sub forma unor pagini "
-"ale unei carti."
+"Un dosar care prezinta documentele pe care le contine, sub forma unor pagini "
+"de carte."
 
 msgid "portal_type_Page_title"
 msgstr "Carte - Pagina"
 
 msgid "portal_type_Page_description"
-msgstr "Document flexibil prezentat sub forma unei pagini dintr-o carte"
+msgstr "Document flexibil prezentat sub forma unei pagini de carte"
 
 msgid "portal_type_Chapter_title"
 msgstr "Carte - Capitol"
@@ -568,27 +568,27 @@ msgstr "Intr-o singura pagina"
 # default doc types
 #, fuzzy
 msgid "portal_type_Flash_Animation_title"
-msgstr "Animation Flash "
+msgstr "Animatie Flash "
 
 #, fuzzy
 msgid "portal_type_Flash_Animation_description"
-msgstr "Animation Flash au format swf"
+msgstr "Animatie Flash in format swf"
 
 msgid "button_add"
-msgstr "Ajouter"
+msgstr "Adauga"
 
 msgid "button_delete"
-msgstr "Effacer"
+msgstr "Sterge"
 
 msgid "button_move_down"
-msgstr "Déplacer en dessous"
+msgstr "Muta mai jos"
 
 msgid "button_move_up"
-msgstr "Déplacer au dessus"
+msgstr "Muta mai sus"
 
 msgid "button_ok"
 msgstr "Ok"
 
 #, fuzzy
 msgid "label_text_to_search"
-msgstr "Texte à chercher"
+msgstr "Cauta textul"
