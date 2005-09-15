@@ -247,7 +247,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
         tag_pattern = re.compile(r'<[^>]*>')
         summary = ''
         for f in summary_fields:
-            if hasattr(doc, f):
+            if getattr(doc, f, None) is not None:
                 try:
                     summary += tag_pattern.sub('', getattr(self, f))
                     # filtering &nbsp; characters
@@ -260,21 +260,22 @@ class CPSDocumentMixin(ExtensionClass.Base):
         if summary:
             infos['summary'] = summary
 
-        if hasattr(doc, 'preview') and self.preview:
+        if getattr(doc, 'preview', None):
             infos['preview'] =  proxy.absolute_url(1) + '/preview'
 
         photo_fields = ('photo', 'image', 'photo_1', 'preview')
         for f in photo_fields:
-            if hasattr(doc, f) and getattr(doc, f, None):
+            if getattr(doc, f, None):
                 infos['photo'] = proxy.absolute_url(1) + '/'+ f
                 break
 
         # Support for direct download of attached files
-        if hasattr(doc, 'file') and isinstance(self.file, File):
+        f = getattr(doc, 'file', None)
+        if isinstance(f, File):
             last_modified = ''
-            if self.file._p_mtime:
-                last_modified = str(self.file._p_mtime)
-            filename = self.file.getId()
+            if f._p_mtime:
+                last_modified = str(f._p_mtime)
+            filename = f.getId()
             infos['download_url'] = "/downloadFile/file/%s?nocache=%s" % (
                    filename, last_modified)
             registry = getToolByName(self, 'mimetypes_registry')
