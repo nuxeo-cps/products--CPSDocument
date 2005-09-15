@@ -276,8 +276,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
             if f._p_mtime:
                 last_modified = str(f._p_mtime)
             filename = f.getId()
-            infos['download_url'] = "/downloadFile/file/%s?nocache=%s" % (
-                   filename, last_modified)
+            infos['download_url'] = "%s/downloadFile/file/%s?nocache=%s" % (
+                   proxy.absolute_url(1), filename, last_modified)
             registry = getToolByName(self, 'mimetypes_registry')
             mimetype = registry.lookupExtension(filename.lower()) or\
                        registry.lookupExtension('fake.bin')
