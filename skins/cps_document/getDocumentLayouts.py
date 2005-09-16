@@ -66,6 +66,7 @@ metadata_layout = {
                 'is_i18n': 1,
                 'label_edit': 'label_contributors',
                 'label': 'label_contributors',
+                'readonly_layout_modes': ['create', 'edit'],
                 'help': 'help_dc_contirbutors',
             },
         },

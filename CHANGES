@@ -18,6 +18,7 @@ Bug fixes:
   read expressions
 - #907: Error when editing some documents flexible widgets.
 - #694: Misuse of getBookParent. Fixed getBookParent algorithm.
+- #825: Make Contributors a read-only widget.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added additional content info for attached files
