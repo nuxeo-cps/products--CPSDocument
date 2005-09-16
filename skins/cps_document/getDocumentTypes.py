@@ -532,6 +532,11 @@ page_type = {
     'flexible_layouts': ['flexible_content:flexible_content'],
     'storage_methods': [],
     'use_content_status_history': 1,
+    'actions_add': ({'id': 'view',
+                     'name': 'action_view',
+                     'action': 'page_view',
+                     'permissions': (View,)},
+                ),
     }
 
 types = {}

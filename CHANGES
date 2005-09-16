@@ -1,6 +1,6 @@
 Requires:
 ~~~~~~~~~
--
+- CPSInstaller > 0.19.0
 New features:
 ~~~~~~~~~~~~~
 -
@@ -17,6 +17,7 @@ Bug fixes:
 - #901: Field storage expression context's "proxy" variable is always None in
   read expressions
 - #907: Error when editing some documents flexible widgets.
+- #694: Misuse of getBookParent. Fixed getBookParent algorithm.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - added additional content info for attached files

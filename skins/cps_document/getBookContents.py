@@ -1,5 +1,8 @@
 ##parameters=
-# recursive call of getFoldercCntents
+# $Id:$
+"""
+Recursive call of getFolderContents
+"""
 
 def getContainerContent(object, liste, level, nb):
     
