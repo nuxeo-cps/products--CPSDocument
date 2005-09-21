@@ -136,6 +136,24 @@ div.ddescription {
   font-size: <dtml-var headingSize5>;
 }
 
+.photoWidget {
+  text-align:center;
+  padding: 0.5em;
+}
+
+.photoWidget p {
+  display:inline;
+  text-align:left;
+}
+
+.photoWidget span {
+  vertical-align:top;
+  display:table-cell;
+  display:inline-table;
+  display:inline-block;
+  font-size: 95%;
+}
+
 /* hack for IE6 bugs */
 /* Hides from IE5-mac \*/
 * html div.dleft {height: 1%}
