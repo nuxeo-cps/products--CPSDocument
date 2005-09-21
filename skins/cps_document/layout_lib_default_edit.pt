@@ -38,9 +38,11 @@
                          err_mapping python:ds.getErrorMapping(wid);
                          is_required widget/is_required|nothing;
                          tooltip_id python:wid + '_help';
+                         widget_css_class cell/widget_css_class|nothing;
+                         widget_css_class python:test(is_flexible, 'group', widget_css_class);
                          css_class python:test(err, 'row error',
                                                test(is_flexible, 'group', 'row'))">
-        <div tal:attributes="class cell/widget_css_class|nothing;
+        <div tal:attributes="class widget_css_class;
                              id python:widget.getHtmlWidgetId()+'_widget';
                             ">
           <div class="label" tal:condition="widget/label_edit"
