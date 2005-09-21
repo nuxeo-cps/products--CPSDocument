@@ -11,8 +11,6 @@ Returns the created object. In CPS, returns the proxy (which is
 the only thing the user sees).
 """
 
-folder = context
-
 id = datamodel.get('Title')
 if not id:
     id = 'my ' + type_name
