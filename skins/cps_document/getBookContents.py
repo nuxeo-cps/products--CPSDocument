@@ -1,5 +1,5 @@
 ##parameters=
-# $Id$
+# $Id$ 
 """
 Recursive call of getFolderContents
 """
