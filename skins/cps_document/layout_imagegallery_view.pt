@@ -59,7 +59,7 @@
                     '\');; return false', 'return true')">
         <img tal:replace="structure
                            python:here.getImgTag(
-                             item.absolute_url(relative=1)+'/preview',
+                             item.absolute_url_path()+'/preview',
                              base_url='',width=th_width,height=th_height,
                              keep_ratio=1)">
         <br />

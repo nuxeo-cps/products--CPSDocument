@@ -7,6 +7,7 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 -
+- #3100: Unauthorized exception in Image Gallery with CMFonFive installed.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - code cleaning
