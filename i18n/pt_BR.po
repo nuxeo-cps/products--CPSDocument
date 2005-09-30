@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: pt-BR\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-06-23 17:32default\n"
-"PO-Revision-Date: 2005-06-17 17:11-0300\n"
+"PO-Revision-Date: 2005-09-29 14:44-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -13,16 +13,11 @@ msgstr ""
 "Domain: default\n"
 "Language-Code: pt_BR\n"
 "Language-Name: Portuguese Brazilian\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-Basepath: /var/lib/zope2.8/instance/default/Products\n"
 
 #.   <h1 condition="creation">
-#.         Create a document of type
-#.         ${type_name (tal content="type_info/Title" define="type_name request/type_name;
-#.                           type_info python:here.portal_types[type_name]")}
-#.       </h1>
-#.   <h1 condition="creation">
-#.         Create a document of type
-#.         ${type_name}
-#.       </h1>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
@@ -47,7 +42,6 @@ msgid "Type"
 msgstr "Tipo"
 
 #.   <block content="type_info/Title" define="type_name request/type_name;
-#.                           type_info python:here.portal_types[type_name]">Type Title</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
@@ -103,15 +97,12 @@ msgid "cpsdoc_title_toc"
 msgstr "Índice"
 
 #.   <span>
-#.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
-#.     </span>
 #: from ../skins/cps_document/layout_imagegallery_view.pt
 #: ../skins/cps_document_cmf/layout_imagegallery_view.pt
 msgid "description_up_to"
 msgstr "Subir para"
 
 #.   <block condition="metadata">heading_metadata_edit</block>
-#.   <span condition="metadata">heading_metadata_edit</span>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "heading_metadata_edit"
@@ -124,9 +115,6 @@ msgid "heading_metadata_view"
 msgstr "Metadados"
 
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
-#.         In this filed you can give the reason of the modification that you are doing on this document.
-#.         Your comments may be used to notify other users.
-#.       </div>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
@@ -139,9 +127,6 @@ msgid "i18_key-help_for_this_field"
 msgstr "Tecla de ajuda i18 para este campo"
 
 #.   <block content="widget/label_edit" condition="widget/is_i18n">label</block>
-#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
-#.   <strong content="widget/label">label</strong>
-#.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
@@ -158,23 +143,13 @@ msgstr "Rótulo"
 msgid "label_zip_file"
 msgstr "Arquivo ZIP"
 
-#.   <a href="." attributes="href python:'/'+ 
-#.                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
-#.                                       itemList[pos + 1].absolute_url(relative=1) +
-#.                                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "next"
 msgstr "Próximo"
 
 #.   <a href="." attributes="href python:'/'+
-#.                       itemList[pos - 1].absolute_url(relative=1) +
-#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
-#.   <a href="." attributes="href python:'/'+
-#.                                       itemList[pos - 1].absolute_url(relative=1) +
-#.                                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "previous"
@@ -234,10 +209,7 @@ msgid "cpsdoc_hidden_folder"
 msgstr "Pasta oculta"
 
 msgid "cpsdoc_hidden_folder_help"
-msgstr ""
-"Esta pasta será oculta no modo de visualização; você ainda poderá vê-la/"
-"acessá-la usando 'Conteúdo da Pasta' ou quando escolher um alvo para "
-"publicação. Use 'Papéis Locais' para definir a segurança no acesso à pasta."
+msgstr "Esta pasta será oculta no modo de visualização; você ainda poderá vê-la/acessá-la usando 'Conteúdo da Pasta' ou quando escolher um alvo para publicação. Use 'Papéis Locais' para definir a segurança no acesso à pasta."
 
 msgid "help_dc_subject"
 msgstr "Um tópico do conteúdo do recurso."
@@ -302,41 +274,32 @@ msgstr "Sociedade"
 msgid "label_subject_Sports"
 msgstr "Esportes"
 
-#, fuzzy
 msgid "label_sort_by"
-msgstr "Sort by"
+msgstr "Ordenar por"
 
-#, fuzzy
 msgid "label_title_asc"
-msgstr "Ascending title"
+msgstr "Crescente por título"
 
-#, fuzzy
 msgid "label_title_desc"
-msgstr "Descending title"
+msgstr "Decrescente por título"
 
-#, fuzzy
 msgid "label_date_asc"
-msgstr "Ascending date"
+msgstr "Crescente por data"
 
-#, fuzzy
 msgid "label_date_desc"
-msgstr "Descending date"
+msgstr "Decrescente por data"
 
-#, fuzzy
 msgid "label_status_asc"
-msgstr "Ascending status"
+msgstr "Crescente por estado"
 
-#, fuzzy
 msgid "label_status_desc"
-msgstr "Descending status"
+msgstr "Decrescente por estado"
 
-#, fuzzy
 msgid "label_author_asc"
-msgstr "Ascending author"
+msgstr "Crescente por autor"
 
-#, fuzzy
 msgid "label_author_desc"
-msgstr "Descending author"
+msgstr "Decrescente por autor"
 
 # flex content
 msgid "cpsdoc_flex_content_title"
@@ -394,9 +357,7 @@ msgid "portal_type_FAQ_title"
 msgstr "FAQ (Perguntas feitas com freqüência e suas respostas)"
 
 msgid "portal_type_FAQ_description"
-msgstr ""
-"Pasta que contém um conjunto de perguntas feitas com freqüência e suas "
-"respostas."
+msgstr "Pasta que contém um conjunto de perguntas feitas com freqüência e suas respostas."
 
 msgid "portal_type_FAQitem_title"
 msgstr "FAQ - Pergunta feita com freqüência"
@@ -455,9 +416,7 @@ msgid "portal_type_PressRelease_title"
 msgstr "Nota à imprensa"
 
 msgid "portal_type_PressRelease_description"
-msgstr ""
-"Uma Nota à Imprensa é uma Notícia especial destinada à imprensa através da "
-"publicação formal."
+msgstr "Uma Nota à Imprensa é uma Notícia especial destinada à imprensa através da publicação formal."
 
 # File
 msgid "portal_type_File_title"
@@ -471,9 +430,7 @@ msgid "portal_type_ZippedHtml_title"
 msgstr "Arquivo HTML Zipado (compactado)"
 
 msgid "portal_type_ZippedHtml_description"
-msgstr ""
-"Um arquivo zipado (compactado) que contém html e que pode ser previsto "
-"online."
+msgstr "Um arquivo zipado (compactado) que contém html e que pode ser previsto online."
 
 msgid "cpsdoc_zippedhtml_label"
 msgstr "Arquivo Html zipado (compactado)"
@@ -574,20 +531,3 @@ msgstr "Animação Flash"
 msgid "portal_type_Flash_Animation_description"
 msgstr "Animação em MacroMedia Flash"
 
-msgid "button_add"
-msgstr "Add"
-
-msgid "button_delete"
-msgstr "Delete"
-
-msgid "button_move_down"
-msgstr "Move down"
-
-msgid "button_move_up"
-msgstr "Move up"
-
-msgid "button_ok"
-msgstr "Ok"
-
-msgid "label_text_to_search"
-msgstr "Text to search"
