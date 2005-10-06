@@ -1060,6 +1060,7 @@ image_layout = {
                 'display_width': 640,
                 'display_height': 600,
                 'size_max': 3*1024*1024,
+                'allow_resize': True,
             },
         },
     },

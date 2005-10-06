@@ -5,7 +5,7 @@ New features:
 ~~~~~~~~~~~~~
 - updated Brazilian Portuguese translations (Thanks to Mario Olimpio de Menezes
   <mario [at] curiango.ipen.br>)
--
+- allow_resize is set to True by default on image_layout
 Bug fixes:
 ~~~~~~~~~~
 - #3100: Unauthorized exception in Image Gallery with CMFonFive installed.
