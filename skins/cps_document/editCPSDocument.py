@@ -13,7 +13,9 @@ do_notify = False
 
 layout_changed = context.editLayouts(REQUEST=REQUEST);
 
-if layout_changed or REQUEST.has_key('cpsdocument_edit_button'):
+if (layout_changed
+    or REQUEST.has_key('cpsdocument_edit_button')
+    or REQUEST.has_key('cpsdocument_edit_and_view_button')):
     request = REQUEST
     psm = 'psm_content_changed'
     do_notify = True
@@ -63,4 +65,9 @@ if do_notify:
         except WorkflowException:
             pass
 
+if REQUEST.has_key('cpsdocument_edit_and_view_button') and res[1]:
+    # If everything went well and view is requested, redirect to it
+    view_url = context.absolute_url()
+    REQUEST.RESPONSE.redirect("%s?portal_status_message=%s" % (view_url, psm))
+    
 return res[0], psm

@@ -163,6 +163,9 @@
   <input type="submit" class="standalone" name="cpsdocument_edit_button"
     value="button_change" i18n:attributes="value"
     tal:condition="not:creation" />
+  <input type="submit" class="standalone" name="cpsdocument_edit_and_view_button"
+    value="button_change_and_view" i18n:attributes="value"
+    tal:condition="not:creation" />
   <input type="submit" class="standalone" name="cpsdocument_create_button"
     value="button_create" i18n:attributes="value" tal:condition="creation" />
   <tal:block content="structure string:</div></form>" />
