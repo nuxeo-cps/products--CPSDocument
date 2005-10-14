@@ -11,7 +11,8 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - #3100: Unauthorized exception in Image Gallery with CMFonFive installed.
--
+- Fixed typo thanks to Joachim Schmitz on
+CPSDocument.validateStoreRender() : **kw instead of *kw
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - code cleaning

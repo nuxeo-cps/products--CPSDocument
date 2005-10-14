@@ -108,7 +108,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
         An optional 'proxy' arg can be given, it will be passed to the
         layouts and the backend.
         """
-        return self.getTypeInfo().validateStoreRenderObject(self, *kw)
+        return self.getTypeInfo().validateStoreRenderObject(self, **kw)
 
     security.declareProtected(View, 'getDataModel')
     def getDataModel(self, proxy=None, REQUEST=None, **kw):
