@@ -13,6 +13,7 @@ Bug fixes:
 - #3100: Unauthorized exception in Image Gallery with CMFonFive installed.
 - Fixed typo thanks to Joachim Schmitz on
 CPSDocument.validateStoreRender() : **kw instead of *kw
+- Fixed bad url links in layout_faq_view.pt
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - code cleaning
