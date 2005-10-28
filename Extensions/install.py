@@ -85,7 +85,11 @@ class DocInstaller(CPSInstaller):
         self.allowContentTypes(types, 'Workspace')
         # The workflow will disallow them to be created directly But
         # we need to allow them explictly for being able to rename
-        # them for instance
+        # them for instance once published for instance.
+        # As well, it is possible to copy/paste directly, if granted,
+        # from workspace to section as a shorcut to the publication
+        # process.
+        types.remove('Workspace')
         self.allowContentTypes(types, 'Section')
         self.updatePortalTree()
 
