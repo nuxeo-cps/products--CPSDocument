@@ -137,20 +137,20 @@ div.ddescription {
 }
 
 .photoWidget {
-  text-align:center;
+  text-align: center;
   padding: 0.5em;
 }
 
 .photoWidget p {
-  display:inline;
-  text-align:left;
+  display: inline;
+  text-align: left;
 }
 
 .photoWidget span {
-  vertical-align:top;
-  display:table-cell;
-  display:inline-table;
-  display:inline-block;
+  vertical-align: top;
+  display: table-cell;
+  display: inline-table;
+  display: inline-block;
   font-size: 95%;
 }
 
