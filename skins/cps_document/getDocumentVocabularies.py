@@ -27,15 +27,7 @@ vocabularies = {
             ("Sports", "Sports", "label_subject_Sports"),
             )},
         },
-    'dummy_voc': {
-        'type': 'CPS Vocabulary',
-        'data': {'tuples': (
-            ('news', "News", ''),
-            ('society', "Society", ''),
-            ('technology', "Technology", ''),
-            )},
-        },
-    'language_voc': {
+   'language_voc': {
         'type': 'CPS Vocabulary',
         'data': {'tuples': (
             ('fr', 'Français', 'label_language_fr'),

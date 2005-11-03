@@ -15,6 +15,7 @@ Bug fixes:
 CPSDocument.validateStoreRender() : **kw instead of *kw
 - Fixed bad url links in layout_faq_view.pt
 - #1005 : forbid mix workspace and sections
+- Removed useless dummy vocabulary. This is a part of the fix for #700.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - code cleaning
