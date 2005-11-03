@@ -14,8 +14,6 @@ Bug fixes:
 - Fixed typo thanks to Joachim Schmitz on
 CPSDocument.validateStoreRender() : **kw instead of *kw
 - Fixed bad url links in layout_faq_view.pt
-- #967 CPSDocument image preview is not compliant with virtual hosting correct
-  management
 - #1005 : forbid mix workspace and sections
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~

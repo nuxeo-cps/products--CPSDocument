@@ -261,12 +261,12 @@ class CPSDocumentMixin(ExtensionClass.Base):
             infos['summary'] = summary
 
         if getattr(doc, 'preview', None):
-            infos['preview'] =  proxy.absolute_url() + '/preview'
+            infos['preview'] = proxy.absolute_url(1) + '/preview'
 
         photo_fields = ('photo', 'image', 'photo_1', 'preview')
         for f in photo_fields:
             if getattr(doc, f, None):
-                infos['photo'] = proxy.absolute_url() + '/'+ f
+                infos['photo'] = proxy.absolute_url(1) + '/'+ f
                 break
 
         # Support for direct download of attached files
@@ -277,7 +277,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
                 last_modified = str(f._p_mtime)
             filename = f.getId()
             infos['download_url'] = "%s/downloadFile/file/%s?nocache=%s" % (
-                   proxy.absolute_url(), filename, last_modified)
+                   proxy.absolute_url(1), filename, last_modified)
             registry = getToolByName(self, 'mimetypes_registry')
             mimetype = registry.lookupExtension(filename.lower()) or\
                        registry.lookupExtension('fake.bin')
