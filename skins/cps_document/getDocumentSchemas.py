@@ -421,6 +421,36 @@ book_schema = {
         },
     }
 
+########################################################
+# Flash
+########################################################
+flash_animation_schema = {
+    'flash_file': {
+        'type': 'CPS File Field',
+        'data': {
+                'default_expr': 'nothing',
+                'is_searchabletext': 0,
+                'suffix_text': '_text',
+                'suffix_html': '_html',
+                'suffix_html_subfiles': '_html_subfiles',
+            },
+        },
+    'flash_file_html': {
+        'type': 'CPS File Field',
+        'data': {
+                'default_expr': 'nothing',
+                'is_searchabletext': 0,
+            },
+        },
+    'flash_file_html_subfiles': {
+        'type': 'CPS SubObjects Field',
+        'data': {
+                'default_expr': 'nothing',
+                'is_searchabletext': 0,
+            },
+        },
+}
+
 
 schemas = {}
 
@@ -440,6 +470,7 @@ schemas['zippedhtml'] = zippedhtml_schema
 schemas['event'] = event_schema
 schemas['imagegallery'] = imagegallery_schema
 schemas['book'] = book_schema
+schemas['flash_animation'] = flash_animation_schema
 
 # other products
 try:

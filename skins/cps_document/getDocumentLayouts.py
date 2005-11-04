@@ -1104,10 +1104,10 @@ flash_animation_layout = {
                 'size_max': 80,
             },
         },
-        'preview': {
+        'flash_file': {
             'type': 'Flash Widget',
             'data': {
-                'fields': ['preview'],
+                'fields': ['flash_file'],
                 'is_i18n': 1,
                 'label_edit': 'cpsdoc_Flash_Animation_label_edit',
                 'label': '',
@@ -1123,7 +1123,7 @@ flash_animation_layout = {
         'rows': [
             [{'widget_id': 'Source'},
              {'widget_id': 'Rights'},],
-            [{'ncols': 2, 'widget_id': 'preview'},],
+            [{'ncols': 2, 'widget_id': 'flash_file'},],
             ],
         },
     }

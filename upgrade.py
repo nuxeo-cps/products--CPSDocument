@@ -51,3 +51,22 @@ def upgrade_335_336_fix_broken_flexible(context):
                 new_objects.append(ob)
         doc._objects = tuple(new_objects)
     return "CPSDocument updated: fixed %d broken flexible fields" % fixed_fields
+
+def upgrade_336_337_anim_flash(context):
+    """ Upgrade all Flash anims
+
+    the field that contains the file, named 'preview'
+    is beeing moved to 'flash_file'
+    """
+    repository = getToolByName(context, 'portal_repository')
+
+    fixed_files = 0
+
+    for doc in repository.values():
+        if (hasattr(doc, 'portal_type') and
+            doc.portal_type == 'Flash Animation'):
+            if not hasattr(doc, 'flash_file') and hasattr(doc, 'preview'):
+                doc.manage_renameObject('preview', 'flash_file')
+                fixed_files += 1
+
+    return "CPSDocument updated: fixed %d flash anims" % fixed_files

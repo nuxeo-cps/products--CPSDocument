@@ -455,7 +455,7 @@ flash_animation_type = {
     'allow_discussion': 0,
     'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
-    'schemas': ['metadata', 'common'],
+    'schemas': ['metadata', 'common', 'flash_animation'],
     'layouts': ['common', 'flash_animation'],
     'layout_clusters': ['metadata:metadata'],
     'flexible_layouts': [],
