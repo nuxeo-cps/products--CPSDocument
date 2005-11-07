@@ -3,21 +3,10 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- updated Brazilian Portuguese translations (Thanks to Mario Olimpio de Menezes
-  <mario [at] curiango.ipen.br>)
-- allow_resize is set to True by default on image_layout
-- [Usability] added an "edit and view" button on the default document editing
-  template in order to save a click in 90% of the use cases
+-
 Bug fixes:
 ~~~~~~~~~~
-- #3100: Unauthorized exception in Image Gallery with CMFonFive installed.
-- Fixed typo thanks to Joachim Schmitz on
-CPSDocument.validateStoreRender() : **kw instead of *kw
-- Fixed bad url links in layout_faq_view.pt
-- #1005 : forbid mix workspace and sections
-- Removed useless dummy vocabulary. This is a part of the fix for #700.
-- #1092: Flash Animation Document type was using 'preview' for the flash file
-         fieldname. Name collisions where making several problems in metadatas.
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- code cleaning
+-
