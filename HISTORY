@@ -1,4 +1,20 @@
 *******************************************
+** CPSDocument V0.38.0 [R1 build 2005/11/08-16:54 by fguillaume]
+** SVN URL: https://svn.nuxeo.org/pub/CPSDocument/trunk Revision: 29274
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- Added support for FCKeditor as the HTML editor.
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.37.0 [R1 build 2005/11/07-15:19 by fguillaume]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSDocument/trunk Revision: 29089
 Requires:
