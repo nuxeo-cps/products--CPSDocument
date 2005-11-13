@@ -161,7 +161,6 @@ class DocInstaller(CPSInstaller):
                                 ob.getId())
 
     def installDocumentSchemas(self):
-        self.verifyWidgets(self.portal.getDocumentWidgets())
         self.verifySchemas(self.portal.getDocumentSchemas())
         self.verifyLayouts(self.portal.getDocumentLayouts())
         self.verifyVocabularies(self.portal.getDocumentVocabularies())
@@ -196,7 +195,6 @@ class CMFInstaller(DocInstaller):
         self.verifyFlexibleTypes(self.flextypes)
 
     def installDocumentSchemas(self):
-        self.verifyWidgets(self.portal.getDocumentWidgets())
         self.verifySchemas(self.portal.getDocumentSchemas())
         self.verifyLayouts(self.portal.getDocumentLayouts())
         self.verifyVocabularies(self.portal.getDocumentVocabularies())

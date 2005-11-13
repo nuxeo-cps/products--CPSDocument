@@ -976,7 +976,7 @@ link_layout = {
             'data': {
                 'label_edit': 'cpsdoc_Link_label_edit',
                 'is_i18n': 1,
-                'fields': [],
+                'fields': ['Relation', 'Title', 'Description'],
                 'widget_ids': ['Relation', 'Title', 'Description'],
             },
         },
