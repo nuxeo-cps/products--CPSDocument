@@ -24,11 +24,15 @@
     <tal:block condition="python:modules['Products.CPSUtil.integration'].isProductPresent('Products.FCKeditor')">
       <script type="text/javascript">
         var popup_editor_form = 'popup_fckeditor_form';
+        var width = 640;
+        var height = 520;
       </script>
     </tal:block>
     <tal:block condition="python:not modules['Products.CPSUtil.integration'].isProductPresent('Products.FCKeditor')">
       <script type="text/javascript">
         var popup_editor_form = 'popup_rte_form';
+        var width = 640;
+        var height = 480;
       </script>
     </tal:block>
     <script type="text/javascript">
@@ -36,7 +40,8 @@
        var args, value;
        value = document.getElementById(input_id).value;
        args = '?input_id='+input_id+'&amp;label_edit='+escape(label_edit);
-       popup = window.open(popup_editor_form + args, input_id, 'toolbar=0, scrollbars=0, location=0, statusbar=0, menubar=0, resizable=1, dependent=1, width=640, height=480');
+       str_window_features = 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,dependent=1,width=' + width + ',height=' + height;
+       popup = window.open(popup_editor_form + args, input_id, str_window_features);
        if (!popup.opener) {
          popup.opener = window;
        }
