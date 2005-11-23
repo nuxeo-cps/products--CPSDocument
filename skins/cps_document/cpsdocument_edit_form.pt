@@ -28,7 +28,7 @@
         var height = 520;
       </script>
     </tal:block>
-    <tal:block condition="python:not modules['Products.CPSUtil.integration'].isProductPresent('Products.FCKeditor')">
+    <tal:block condition="python:modules['Products.CPSUtil.integration'].isProductPresent('Products.Epoz')">
       <script type="text/javascript">
         var popup_editor_form = 'popup_rte_form';
         var width = 640;
