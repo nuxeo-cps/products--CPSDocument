@@ -6,8 +6,12 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- #1130: fixed Export tab in FTI to get correct workflows.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Removed obsolete widget types registration.
 - tune #1138: cpsdocument_create_form render and empty page before redirect
+
+
+
+
