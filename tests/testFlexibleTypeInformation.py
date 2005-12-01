@@ -34,7 +34,7 @@ from Products.CPSDocument.FlexibleTypeInformation \
 
 class TestFlexibleTypeInformation(unittest.TestCase):
 
-    def test_Interfaces(self):
+    def test_interfaces(self):
         verifyClass(IContentTypeInformation, FlexibleTypeInformation)
 
     def test_getLayoutIds(self):

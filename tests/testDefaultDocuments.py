@@ -323,31 +323,31 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         #self.assertEquals(response.headers['Content-Disposition'],
         #    "inline; filename=file")
 
-    if 0: # Don't know hown to do that
-        # Edit
-        class FieldStorage:
-            def __init__(self, **kw):
-                for k, v in kw.items():
-                    setattr(self, k, v)
-        from StringIO import StringIO
-        from ZPublisher.HTTPRequest import FileUpload
-        text = randomText()
-        file = StringIO(text)
-        fs = FieldStorage(file=file, headers={"Content-Type": "text/html"},
-            filename="filename")
-        fileupload = FileUpload(fs)
+        if 0: # XXX Don't know hown to do that
+            # Edit
+            class FieldStorage:
+                def __init__(self, **kw):
+                    for k, v in kw.items():
+                        setattr(self, k, v)
+            from StringIO import StringIO
+            from ZPublisher.HTTPRequest import FileUpload
+            text = randomText()
+            file = StringIO(text)
+            fs = FieldStorage(file=file, headers={"Content-Type": "text/html"},
+                filename="filename")
+            fileupload = FileUpload(fs)
 
-        doc.renderEdit(file=fileupload)
+            doc.renderEdit(file=fileupload)
 
-        response = DummyResponse()
-        doc.downloadFile('file', response)
-        self.assertEquals(response.data, text)
-        self.assertEquals(response.headers['Content-Type'],
-            'application/octet-stream')
-        self.assertEquals(response.headers['Content-Length'],
-            len(text))
-        self.assertEquals(response.headers['Content-Disposition'],
-            "inline; filename=filename")
+            response = DummyResponse()
+            doc.downloadFile('file', response)
+            self.assertEquals(response.data, text)
+            self.assertEquals(response.headers['Content-Type'],
+                'application/octet-stream')
+            self.assertEquals(response.headers['Content-Length'],
+                len(text))
+            self.assertEquals(response.headers['Content-Disposition'],
+                "inline; filename=filename")
 
     # XXX: is this correct ???
     def testFileCalledFile(self):
