@@ -37,7 +37,7 @@ ModuleSecurityInfo('Products.CPSDocument.createFile').declarePublic('createFile'
 def createFile(context, zip_file):
     """create documents based on the files in the uploaded ZIP"""
 
-    evtool = getEventService(self)
+    evtool = getEventService(context)
     evtool.notifyEvent('modify_object', context, {})
 
     if hasattr(zip_file, 'filename'):
