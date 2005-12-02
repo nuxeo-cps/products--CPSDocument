@@ -35,7 +35,8 @@ if do_notify:
     # XXX:
     # Notification has to be done manually here until the workflow takes care of
     # the "workflow_modify" transition.
-    context.portal_eventservice.notifyEvent('workflow_modify', context,
+    from Products.CPSCore.EventServiceTool import getPublicEventService
+    getPublicEventService(context).notifyEvent('workflow_modify', context,
                                             {'comments': comments,
                                              })
 

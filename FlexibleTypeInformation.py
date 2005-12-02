@@ -37,6 +37,7 @@ from Products.CMFCore.TypesTool import FactoryTypeInformation
 from Products.CMFCore.interfaces.portal_types \
     import ContentTypeInformation as ITypeInformation
 
+from Products.CPSCore.EventServiceTool import getEventService
 from Products.CPSSchemas.utils import copyFile, copyImage
 from Products.CPSSchemas.Schema import SchemaContainer
 from Products.CPSSchemas.Layout import LayoutContainer
@@ -882,12 +883,11 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     def _notifyModification(self, ob):
         # Note that the catalog won't index repository objects.
         ob.reindexObject()
-        evtool = getToolByName(self, 'portal_eventservice', None)
-        if evtool is not None:
-            evtool.notify('sys_modify_object', ob, {})
-            # If the object is in the repository, the proxy tool
-            # will do what's necessary to reindex the proxies
-            # and send a notification for them.
+        evtool = getEventService(self)
+        evtool.notify('sys_modify_object', ob, {})
+        # If the object is in the repository, the proxy tool
+        # will do what's necessary to reindex the proxies
+        # and send a notification for them.
 
     security.declarePrivate('renderEditObjectDetailed')
     def renderEditObjectDetailed(self, ob, request=None,

@@ -29,6 +29,7 @@ from AccessControl import ModuleSecurityInfo
 from zipfile import ZipFile, BadZipfile
 from StringIO import StringIO
 from zExceptions import BadRequest
+from Products.CPSCore.EventServiceTool import getEventService
 
 
 ModuleSecurityInfo('Products.CPSDocument.createFile').declarePublic('createFile')
@@ -36,7 +37,8 @@ ModuleSecurityInfo('Products.CPSDocument.createFile').declarePublic('createFile'
 def createFile(context, zip_file):
     """create documents based on the files in the uploaded ZIP"""
 
-    context.portal_eventservice.notifyEvent('modify_object', context, {})
+    evtool = getEventService(self)
+    evtool.notifyEvent('modify_object', context, {})
 
     if hasattr(zip_file, 'filename'):
         filename = zip_file.filename
