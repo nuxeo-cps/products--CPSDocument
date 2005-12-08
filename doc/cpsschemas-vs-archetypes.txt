@@ -1,60 +1,64 @@
-From: Florent Guillaume <fg@nuxeo.com>
-Date: Mon, 01 Dec 2003 20:36:20 +0100
-To: cps-devel@lists.nuxeo.com, plone-developers@lists.sourceforge.net
+A message from Florent::
+
+  From: Florent Guillaume <fg@nuxeo.com>
+  Date: Mon, 01 Dec 2003 20:36:20 +0100
+  To: cps-devel@lists.nuxeo.com, plone-developers@lists.sourceforge.net
 
 Hi folks,
 
-I see there has been some talk about Archetypes vs. CPSSchemas, what
-their commonalities and differences are, whether it makes sense to have
-two solution for the same need, etc.
+I see there has been some talk about Archetypes vs. CPSSchemas,
+what their commonalities and differences are, whether it makes
+sense to have two solution for the same need, etc.
 
 While I still haven't finished a writeup of a full description of
-CPSSchemas that will enlighten those that don't know the details of its
-architecture, let me state here a few points about the respective merits
-of the two solutions. Of course I'm (with Lennart) the main developer of
-CPSSchemas so please excuse the bias in the description. Also I don't
-know the full details of the architecture of Archetypes, I may be wrong
-on some points.
+CPSSchemas that will enlighten those that don't know the details
+of its architecture, let me state here a few points about the
+respective merits of the two solutions. Of course I'm (with
+Lennart) the main developer of CPSSchemas so please excuse the
+bias in the description. Also I don't know the full details of the
+architecture of Archetypes, I may be wrong on some points.
 
 
 First let's talk a bit about the histories of the architectures.
-Archetypes, as I understand it, is an evolution of CMFTypes, of which I
-became aware of roughly one year ago at the Rotterdam Zope 3 Sprint
-(december 2002). At that time I already knew I had to have some
-schema/form support in CPS 3. But a code-generating solution was out of
-the question for me, so I couldn't use CMFTypes, and also I needed more
-abstraction level than there was in it. CPSSchemas's design was started
-roughly in the beginning of 2003 by Lennart and me. After an initial
-implementation by Lennart, I refactored everything more to my taste and
-we ended up with a working useful solution a few months later. Even if
-the two solutions were developped independently, there are LOTS of
-common underlying concepts that are the same (and we all looked at Zope
-3), and for those that read the code you'll see a lot of convergence in
-the naming.
+Archetypes, as I understand it, is an evolution of CMFTypes, of
+which I became aware of roughly one year ago at the Rotterdam Zope
+3 Sprint (december 2002). At that time I already knew I had to
+have some schema/form support in CPS 3. But a code-generating
+solution was out of the question for me, so I couldn't use
+CMFTypes, and also I needed more abstraction level than there was
+in it. CPSSchemas's design was started roughly in the beginning of
+2003 by Lennart and me. After an initial implementation by
+Lennart, I refactored everything more to my taste and we ended up
+with a working useful solution a few months later. Even if the two
+solutions were developped independently, there are LOTS of common
+underlying concepts that are the same (and we all looked at Zope
+3), and for those that read the code you'll see a lot of
+convergence in the naming.
 
 
-While it may seem that Archetypes and CPSSchemas both have the same goal
-(easy generation of documents and forms), I see a fundamental difference
-in the fact that when you create a new document type with Archetypes you
-end up generating python code, whereas CPSSchemas has a persistent
-representation of the schema (and other things, like the widgets and
-layouts) in the ZODB. These objects can be modified by any
-administrator. This means that the development of objects with
-CPSSchemas can be fully ZMI-driven, and that the schema itself is a
-first-class persistent citizen. That everything be manageable from the
-ZMI was a fundamental design choice for CPSSchemas.
+While it may seem that Archetypes and CPSSchemas both have the
+same goal (easy generation of documents and forms), I see a
+fundamental difference in the fact that when you create a new
+document type with Archetypes you end up generating python code,
+whereas CPSSchemas has a persistent representation of the schema
+(and other things, like the widgets and layouts) in the ZODB.
+These objects can be modified by any administrator. This means
+that the development of objects with CPSSchemas can be fully
+ZMI-driven, and that the schema itself is a first-class persistent
+citizen. That everything be manageable from the ZMI was a
+fundamental design choice for CPSSchemas.
 
-Nevertheless, I try to use what I can from Archetypes when it makes
-sense, for instance PortalTransforms is used as the transforming tool to
-convert documents from Word/PDF to text for indexing or HTML for
-preview.
+Nevertheless, I try to use what I can from Archetypes when it
+makes sense, for instance PortalTransforms is used as the
+transforming tool to convert documents from Word/PDF to text for
+indexing or HTML for preview.
 
-But underlying all this, our architectures are different. Sure we all
-have fields, widgets, vocabularies, schemas, storage layers... There's
-no way to do what we want without these concepts. But that's not all
-there is to it. Here's a quick rundown on the architecture of CPSSchemas
-(keep in mind that all these are persistent objects you can edit in the
-ZMI):
+But underlying all this, our architectures are different. Sure we
+all have fields, widgets, vocabularies, schemas, storage layers...
+There's no way to do what we want without these concepts. But
+that's not all there is to it. Here's a quick rundown on the
+architecture of CPSSchemas (keep in mind that all these are
+persistent objects you can edit in the ZMI):
 
 - portal_schemas contains Schemas
 - a Schema contains Fields
@@ -83,72 +87,74 @@ It is important to note that:
   widgets that are readonly in the middle of the document if needed,
   widgets that are visible only in some workflow state, etc.
 
-Underlying this, we have a DataModel and a DataStructure, which abstract
-data representation. DataModel is an abstraction of what's stored (and
-corresponds to the fields). DataStructure (maybe badly named...) is a
-representation of the user input done on the widgets. The two may be
-very different, think of a DateTime widget for instance.
+Underlying this, we have a DataModel and a DataStructure, which
+abstract data representation. DataModel is an abstraction of
+what's stored (and corresponds to the fields). DataStructure
+(maybe badly named...) is a representation of the user input done
+on the widgets. The two may be very different, think of a DateTime
+widget for instance.
 
 
-The users of this framework are, for now, CPSDocument and CPSDirectory.
+The users of this framework are, for now, CPSDocument and
+CPSDirectory.
 
-CPSDocument uses schemas/layouts (several are allowed per document) to
-create, edit, validate documents. It also has the feature that a given
-document can have specific local definitions of some modified schemas
-and layouts. This gives us "flexible documents", where the user is
-allowed to change the available structure (add new text zones, change
-ordering, switch widgets for other "compatible" widgets...)
+CPSDocument uses schemas/layouts (several are allowed per
+document) to create, edit, validate documents. It also has the
+feature that a given document can have specific local definitions
+of some modified schemas and layouts. This gives us "flexible
+documents", where the user is allowed to change the available
+structure (add new text zones, change ordering, switch widgets for
+other "compatible" widgets...)
 
 Note that CPSDocument can (modulo some skin details) be used with
 pre-existing instances of documents, as long as their schema is
-described correctly. It doesn't impose a base type or a mixin on the
-classes. This immensely simplifies migration. I think it would allow any
-Archetype-based instances to be moved to CPSDocument quite easily.
+described correctly. It doesn't impose a base type or a mixin on
+the classes. This immensely simplifies migration. I think it would
+allow any Archetype-based instances to be moved to CPSDocument
+quite easily.
 
 CPSDirectory uses the schemas/layouts, together with some specific
-Storage Adapters, to provide a schema-driven view of directories: the
-members, the roles, the groups, or any arbitrary LDAP directory (more
-types are planned).
+Storage Adapters, to provide a schema-driven view of directories:
+the members, the roles, the groups, or any arbitrary LDAP
+directory (more types are planned).
 
-Because the underlying framework is the the same, it would be trivial to
-start the life of a member as a CPSDocument-driven document which obeys
-the "members" schema, and then later on put its data into the members
-directory (and thus in portal_memberdata) through CPSDirectory.
+Because the underlying framework is the the same, it would be
+trivial to start the life of a member as a CPSDocument-driven
+document which obeys the "members" schema, and then later on put
+its data into the members directory (and thus in
+portal_memberdata) through CPSDirectory.
 
 
+Now I won't say CPSSchemas has everything, for instance it doesn't
+have the following that Archetypes has:
 
-Now I won't say CPSSchemas has everything, for instance it doesn't have
-the following that Archetypes has:
-
-- we don't have a SQLStorageAdapter yet. Note that this kind of adapter
-  needs a unique-id service that we don't have yet. But this definitely
-  is something we want.
-- we don't have a reference model, I think it's orthogonal to what the
-  schemas do.
+- we don't have a SQLStorageAdapter yet. Note that this kind of
+  adapter needs a unique-id service that we don't have yet. But
+  this definitely is something we want.
+- we don't have a reference model, I think it's orthogonal to what
+  the schemas do.
 
 There are several things for which CPSSchemas has the necessary
 framework but whose implementation is not finished:
 
 - easy XML import/export of the schema/widgets/layout definitions
 - easy XML import/export of document instances
-- vocabulary enforcement at the Field level (it's done at the widget
-  level currently)
+- vocabulary enforcement at the Field level (it's done at the
+  widget level currently)
 
-
-Ok, this may have read a bit like an advertisement for CPSSchemas, sorry
-about that. But Archetypes as had a lot more exposure than us, so maybe
-it's not a bad idea to talk about what we can do
-
+Ok, this may have read a bit like an advertisement for CPSSchemas,
+sorry about that. But Archetypes as had a lot more exposure than
+us, so maybe it's not a bad idea to talk about what we can do
 
 Florent
 
-PS: the code is available under the GPL at http://cvs.nuxeo.org/
+PS: the code is available under the GPL at http://cvs.nuxeo.org/.
 
--- 
-Florent Guillaume, Nuxeo (Paris, France)
-+33 1 40 33 79 87  http://nuxeo.com  mailto:fg@nuxeo.com
+::
 
-_______________________________________________
+  Florent Guillaume, Nuxeo (Paris, France)
+  +33 1 40 33 79 87  http://nuxeo.com  mailto:fg@nuxeo.com
+
 cps-devel mailing list
 http://lists.nuxeo.com/mailman/listinfo/cps-devel
 
