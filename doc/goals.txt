@@ -1,54 +1,56 @@
+======================
 Goals of CPS3 Document
+======================
 
-  Revision information
 
-    $Id$
+:Revision: $Id$
 
-  Replace NuxDocument
 
-    - Uploading of binary types
+Replace NuxDocument
 
-    - HTML preview and full-text indexing
+- Uploading of binary types
 
-    - Plugins for different conversion backends
+- HTML preview and full-text indexing
 
-  Replace and extend CPS 2 Flexible document
+- Plugins for different conversion backends
 
-    - Document type creation by administrator
+Replace and extend CPS 2 Flexible document
 
-    - User-extensible documents
+- Document type creation by administrator
 
-    - Arbitrary fields constraints
+- User-extensible documents
 
-    - Layout constraints
+- Arbitrary fields constraints
 
-    - Simple layouts creation
+- Layout constraints
 
-  Replace ad-hoc form generation and layout
+- Simple layouts creation
 
-    - Document editing
+Replace ad-hoc form generation and layout
 
-    - Document display
+- Document editing
 
-    - Document display that can itself be a form (polls)
+- Document display
 
-    - Document display and editing that is conditionned by workflow
-      states and permissions
+- Document display that can itself be a form (polls)
 
-  Provide a way to have a central place to configure metadata
+- Document display and editing that is conditionned by workflow
+  states and permissions
 
-    - Define fields that all content objects will have
+Provide a way to have a central place to configure metadata
 
-  Centralize text transformations
+- Define fields that all content objects will have
 
-    - structured-text
+Centralize text transformations
 
-    - restructured-text
+- structured-text
 
-    - MSWord-like conversions
+- restructured-text
 
-    (Probably in a separate tool)
+- MSWord-like conversions
 
-  Abstract storage requirements
+(Probably in a separate tool)
 
-    - Provide a simple way to map an object to a database storage
+Abstract storage requirements
+
+- Provide a simple way to map an object to a database storage
