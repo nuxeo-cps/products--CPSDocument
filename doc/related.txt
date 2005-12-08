@@ -1,56 +1,71 @@
-Related projects and their status
+=================================
+Related Projects and Their Status
+=================================
 
-  Revision information
+:Revision: $Id$
 
-    $Id$
+.. sectnum::    :depth: 4
+.. contents::   :depth: 4
 
-  Older versions in CPS
 
-    - NuxDocument
+Older versions in CPS
+=====================
 
-    - NuxCPSFlexibleDocument
+- NuxDocument
 
-    - NuxCPSFlexibleDocument2
+- NuxCPSFlexibleDocument
 
-    Not abstract enough. Lack easy TypesTool creation. Not enough
-    abstraction of form processing and layout. Not useable for
-    extensible metadata.
+- NuxCPSFlexibleDocument2
 
-  Formulator
+Not abstract enough. Lack easy TypesTool creation. Not enough
+abstraction of form processing and layout. Not useable for
+extensible metadata.
 
-    - http://www.zope.org/Members/faassen/Formulator
 
-    Not oriented toward having extensible instances. Too much oriented
-    toward form generation. No abstraction of layout.
+Formulator
+==========
 
-  CMFTypes
+- http://www.zope.org/Members/faassen/Formulator
 
-    - http://plone.org/documentation/CMFTypesBook
+Not oriented toward having extensible instances. Too much oriented
+toward form generation. No abstraction of layout.
 
-    - http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/collective/CMFTypes/
 
-    Oriented toward code generation, not TTW document type creation.
-    Types are not extensible. Presentation and validation are confused.
-    There is no abstraction of the layout.
+CMFTypes
+========
 
-    Has an interesting concept of text transformations but this is mixed
-    deeply in the validation code instead of being an entirely different
-    tool.
+- http://plone.org/documentation/CMFTypesBook
 
-  Flexible Metadata patch
+- http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/collective/CMFTypes/
 
-    - http://www.gocept.com/opensource/projects/CMF_Metadata
+Oriented toward code generation, not TTW document type creation.
+Types are not extensible. Presentation and validation are confused.
+There is no abstraction of the layout.
 
-    Only does flexible metadata.
+Has an interesting concept of text transformations but this is mixed
+deeply in the validation code instead of being an entirely different
+tool.
 
-  Bricolage
 
-    - http://www.bricolage.cc
+Flexible Metadata patch
+=======================
 
-    - http://www.masonbook.com/book/appendix-d.mhtml
+- http://www.gocept.com/opensource/projects/CMF_Metadata
 
-    Not a Zope product. Does interesting stuff.
+Only does flexible metadata.
 
-  Archetypes
 
-    (XXX too be filled in)
+Bricolage
+=========
+
+- http://www.bricolage.cc
+
+- http://www.masonbook.com/book/appendix-d.mhtml
+
+Not a Zope product. Does interesting stuff.
+
+
+Archetypes
+==========
+
+(XXX too be filled in)
