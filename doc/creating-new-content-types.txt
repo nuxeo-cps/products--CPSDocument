@@ -1,28 +1,27 @@
-(Message from the CPS-devel mailing list)
+Message from the CPS-devel mailing list::
 
-From: "Gitte Wange" <gitte@mmmanager.org>
+    From: "Gitte Wange" <gitte@mmmanager.org>
 
 >> They seem very technical and I didn't find some examples on where to
 >> start looking in order to create a new CPSSchemas-based content type.
 
-
 No, that's true. However, it's quite easy.
 
-You create a schema in portal_schemas. Say, "Foo". Just put in all fields
-you want. For CPSDocuments I think title and description are required, but I
-don't remember 100%.
+You create a schema in portal_schemas. Say, "Foo". Just put in all
+fields you want. For CPSDocuments I think title and description
+are required, but I don't remember 100%.
 
-Then you create a layout (use the same name to lesser confusion) in
-portal_layouts. Here you add all the fields again, but now you choose how
-they should be displayed by using different WidgetTypes.
-Then you go to the Layout Tab, where you add the widgets to the layout, so
-they get displayed.
+Then you create a layout (use the same name to lesser confusion)
+in portal_layouts. Here you add all the fields again, but now you
+choose how they should be displayed by using different
+WidgetTypes. Then you go to the Layout Tab, where you add the
+widgets to the layout, so they get displayed.
 
-Finally, you create a new CPS Flexible Type in portal_types, and set it to
-use the schema and layout you created before.
+Finally, you create a new CPS Flexible Type in portal_types, and
+set it to use the schema and layout you created before.
 
-That is basically it. If you get into any troubles, ask. I have probably
-forgotten lot's of details.
+That is basically it. If you get into any troubles, ask. I have
+probably forgotten lot's of details.
 
 //Lennart
 
