@@ -499,6 +499,59 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         # Check it's they are the same
         self.assertEqual(dm, dm2)
 
+    def test_renderEditObjectDetailed_pre_commit_hook(self):
+        # this no more mis-placed than the previous one :-)
+
+        def pre_hook(dm, proxy=None, **kw):
+            proxy.freezeProxy()
+
+        self.ws.invokeFactory('Workspace', 'test',
+                              Title='test', Description='Old')
+        proxy = self.ws.test
+        ob = proxy.getContent()
+        tinfo = ob.getTypeInfo()
+
+        request = self.portal.REQUEST
+        request.form = {widgetname('Description') : 'New descr'}
+        tinfo.renderEditObjectDetailed(ob, request=request,
+                                       proxy=proxy,
+                                       pre_commit_hook=pre_hook)
+
+        proxy = self.ws.test
+        # modification was done
+        self.assertEquals(proxy.getContent().Description(), 'New descr')
+        # hook was called
+        self.assertEquals(proxy.getRevision(), 2)
+        # and that was before the DM commit
+        self.assertEquals(proxy.getContent(rev=1).Description(), 'Old')
+
+    def test_renderEditObjectDetailed_post_commit_hook(self):
+        # a post-commit hook that stores info 
+        events = []
+        def post_hook(ob, proxy=None, **kw):
+            events.append((proxy.getId(), ob.Description()))
+
+        self.ws.invokeFactory('Workspace', 'test',
+                              Title='test', Description='Old')
+        proxy = self.ws.test
+        ob = proxy.getContent()
+        tinfo = ob.getTypeInfo()
+
+        request = self.portal.REQUEST
+        request.form = {widgetname('Description') : 'New descr'}
+        tinfo.renderEditObjectDetailed(ob, request=request,
+                                       proxy=proxy,
+                                       post_commit_hook=post_hook)
+
+        proxy = self.ws.test
+        # modification was done
+        self.assertEquals(proxy.getContent().Description(), 'New descr')
+        # hook was called, and that was after the DM commit
+        self.assertEquals(events, [('test', 'New descr')])
+
+
+        
+
     def testFlashDocument(self):
 
         doc_type = 'Flash Animation'

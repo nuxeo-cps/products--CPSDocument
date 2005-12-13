@@ -910,6 +910,12 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         layouts and used for getEditableContent if the object is
         modified.
 
+        Optional 'pre_commit_hook' and 'post_commit_hook' args can be given.
+        These are callables. The request and kw get forwarded to them.
+        The first one takes datamodel as unique positional arg. It can access
+        the object through the datamodel, but must maintain consistency. 
+        The second one takes the object, and must return it in case it changed.
+
         Returns (rendered, ok, datastructure):
           - rendered is the rendered HTML,
           - ok is the result of the validation,
@@ -930,7 +936,18 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                                                       layout_mode=layout_mode,
                                                       request=request)
             if is_valid:
+                # apply pre-commit hook
+                hook = kw.get('pre_commit_hook')
+                if hook is not None:
+                    hook(dm, **kw)
                 ob = self._commitDM(dm)
+
+                # apply post-commit hook
+                hook = kw.get('post_commit_hook')
+                if hook is not None:
+                    n_ob = hook(ob, **kw)
+                    if n_ob is not None: # 'or' is shorter but slowlier
+                        ob = n_ob
             else:
                 layout_mode = layout_mode_err
 
