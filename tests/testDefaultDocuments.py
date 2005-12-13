@@ -365,7 +365,10 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
             doc = self.ws.flex.getContent()
         except AttributeError:
             doc = self.ws.flex
-        # XXX: now do something!
+        tinfo = doc.getTypeInfo()
+        wid = tinfo.flexibleAddWidget(doc, 'flexible_content', 'link')
+        doc.edit(link_href_f0='http://test.nohost')
+        self.assertEquals(doc.link_href_f0, 'http://test.nohost')
 
     def testDocumentSearch(self):
         # The aim of this test is first to assert that documents can be queried.
