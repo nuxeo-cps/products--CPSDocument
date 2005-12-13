@@ -939,13 +939,13 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                 # apply pre-commit hook
                 hook = kw.get('pre_commit_hook')
                 if hook is not None:
-                    hook(dm, **kw)
+                    hook(dm, request=request, **kw)
                 ob = self._commitDM(dm)
 
                 # apply post-commit hook
                 hook = kw.get('post_commit_hook')
                 if hook is not None:
-                    n_ob = hook(ob, **kw)
+                    n_ob = hook(ob, request=request, **kw)
                     if n_ob is not None: # 'or' is shorter but slowlier
                         ob = n_ob
             else:
