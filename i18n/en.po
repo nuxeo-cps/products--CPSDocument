@@ -1,4 +1,4 @@
-# translation of en.po to 
+# translation of en.po to
 # Julien Anguenot <anguenot@in.nuxeo.com>, 2005.
 msgid ""
 msgstr ""
@@ -239,7 +239,7 @@ msgstr "Hide this folder in the navigation"
 
 msgid "cpsdoc_hidden_folder_help"
 msgstr ""
-"this folder will be hidden in view mode, you can still view/access this "
+"This folder will be hidden in view mode, you can still view/access this "
 "folder using 'Folder Contents' or when choosing a target for publishing. Use "
 "'Local Roles' to secure the folder access."
 
