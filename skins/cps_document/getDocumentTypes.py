@@ -9,7 +9,6 @@ from Products.CMFCore.permissions import View
 from Products.CMFCore.permissions import ModifyPortalContent
 from Products.CMFCore.permissions import AddPortalContent
 ChangePermissions = 'Change permissions'
-ManageBoxes = 'Manage Boxes'
 
 section_type = {
     'title': 'portal_type_Section_title',
@@ -54,10 +53,6 @@ section_type = {
                  'name': 'action_local_roles',
                  'action': 'folder_localrole_form',
                  'permissions': (ChangePermissions,)},
-                {'id': 'boxes',
-                 'name': 'action_boxes',
-                 'action': 'box_manage_form',
-                 'permissions': (ManageBoxes,)},
                 ),
     }
 
@@ -109,10 +104,6 @@ workspace_type = {
                  'name': 'action_local_roles',
                  'action': 'folder_localrole_form',
                  'permissions': (ChangePermissions,)},
-                {'id': 'boxes',
-                 'name': 'action_boxes',
-                 'action': 'box_manage_form',
-                 'permissions': (ManageBoxes,)},
                 ),
     }
 
