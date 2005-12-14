@@ -7,6 +7,7 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - #1130: fixed Export tab in FTI to get correct workflows.
+- #967: CPSDocument image preview is not compliant with virtual hosting correct management
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Removed obsolete widget types registration.

@@ -240,6 +240,9 @@ class CPSDocumentMixin(ExtensionClass.Base):
     security.declareProtected(View, 'getAdditionalContentInfo')
     def getAdditionalContentInfo(self, proxy):
         """Return a dictionary used in getContentInfo."""
+
+        utool = getToolByName(self, 'portal_url')
+        
         infos = {}
         doc = aq_base(self)
 
@@ -261,12 +264,12 @@ class CPSDocumentMixin(ExtensionClass.Base):
             infos['summary'] = summary
 
         if getattr(doc, 'preview', None):
-            infos['preview'] = proxy.absolute_url(1) + '/preview'
+            infos['preview'] = utool.getRelativeUrl(proxy) + '/preview'
 
         photo_fields = ('photo', 'image', 'photo_1', 'preview')
         for f in photo_fields:
             if getattr(doc, f, None):
-                infos['photo'] = proxy.absolute_url(1) + '/'+ f
+                infos['photo'] = utool.getRelativeUrl(proxy) + '/'+ f
                 break
 
         # Support for direct download of attached files
@@ -277,7 +280,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
                 last_modified = str(f._p_mtime)
             filename = f.getId()
             infos['download_url'] = "%s/downloadFile/file/%s?nocache=%s" % (
-                   proxy.absolute_url(1), filename, last_modified)
+                   utool.getRelativeUrl(proxy), filename, last_modified)
             registry = getToolByName(self, 'mimetypes_registry')
             mimetype = registry.lookupExtension(filename.lower()) or\
                        registry.lookupExtension('fake.bin')
