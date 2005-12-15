@@ -135,7 +135,7 @@ msgstr "Metadata"
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
-"In this filed you can give the reason of the modification that you are doing "
+"In this field you can give the reason for the modification "
 "on this document. Your comments may be used to notify other users."
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
