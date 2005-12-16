@@ -160,8 +160,8 @@ msgstr ""
 msgid "label_zip_file"
 msgstr ""
 
-#.   <a href="." attributes="href python:'/'+ 
-#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos + 1].absolute_url(relative=1) +
 #.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -559,4 +559,7 @@ msgid "portal_type_Flash_Animation_title"
 msgstr ""
 
 msgid "portal_type_Flash_Animation_description"
+msgstr ""
+
+msgid "psm_ajax_working"
 msgstr ""

@@ -164,8 +164,8 @@ msgstr "label"
 msgid "label_zip_file"
 msgstr "ZIP File"
 
-#.   <a href="." attributes="href python:'/'+ 
-#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos + 1].absolute_url(relative=1) +
 #.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -584,3 +584,6 @@ msgstr "Flash Animation (swf format)"
 
 #~ msgid "label_text_to_search"
 #~ msgstr "Text to search"
+
+msgid "psm_ajax_working"
+msgstr "Transferring datas"

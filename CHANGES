@@ -3,7 +3,8 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- Added a graceful degradation AJAX-based form validation 
+  for forms that does not contains a file type input field
 Bug fixes:
 ~~~~~~~~~~
 - #1130: fixed Export tab in FTI to get correct workflows.

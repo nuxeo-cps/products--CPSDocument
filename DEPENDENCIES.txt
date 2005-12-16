@@ -1,5 +1,5 @@
 # $Id$
 
 # CPS --------------------
-CPSUtil >= 0.2
+CPSUtil >= 0.9.0 R2
 CPSSchemas > 0.43.0

@@ -1,0 +1,239 @@
+/*
+<dtml-let last_modified="_.DateTime()-14" expires="_.DateTime()+1" >
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Content-Type', 'text/javascript' )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Last-Modified', last_modified.toZone('GMT').rfc822() )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Cache-Control', 'max-age=36000, must-revalidate' )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Expires', expires.toZone('GMT').rfc822() )" >
+</dtml-let>
+*/
+/*
+# (C) Copyright 2003 Nuxeo SARL <http://nuxeo.com>
+# Author: Tarek Ziadé <tz@nuxeo.com>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2 as published
+# by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+# 02111-1307, USA.
+#
+# $Id:$
+
+CPSDocument javascript layer
+
+XXX need to find a way to upload file, it is very
+restrictive as it does'nt allow to send simple
+types like Document, flexible, etc...
+
+*/
+
+var CPSDocumentEditor = Class.create();
+
+CPSDocumentEditor.prototype = {
+  initialize: function(form_id, form_action, rendered_id, buttons,
+                       reloadbuttons, title_id, translations, last_error) {
+    this.form_id = form_id;
+    this.effects = Effect;
+    this.rendered_id = rendered_id;
+    this.title_id = title_id;
+    this.last_error = last_error;
+
+    var edit_form = $(form_id);
+    var rendered_node = $(rendered_id);
+    if (!edit_form || !rendered_node) {
+      this.enabled = false;
+    }
+    else {
+
+      // getting the action value
+      this.edit_form = edit_form;
+
+      if (!this.canSendForm()) {
+        this.enabled = false;
+      }
+      else
+      {
+        this.rendered_node = rendered_node;
+        this.buttons = buttons;
+        this.reloadbuttons = reloadbuttons;
+        this.form_action = form_action;
+        // linking action to buttons
+        var count = 0;
+        if (buttons)
+        {
+            for (var i = 0; i < buttons.length; i += 1) {
+            var button = buttons[i];
+            var button_node = $(button);
+            if (button_node) {
+                button_node.type = 'button';
+                button_node.onclick = this.sendForm.bindAsEventListener(this);
+                count += 1;
+            }
+            }
+        }
+        if (reloadbuttons)
+        {
+            for (var i = 0; i < reloadbuttons.length; i += 1) {
+            var button = reloadbuttons[i];
+            var button_node = $(button);
+            if (button_node) {
+                button_node.type = 'button';
+                button_node.onclick = this.sendFormReload.bindAsEventListener(this);
+                count += 1;
+            }
+            }
+        }
+        if (count>0) {
+            this.enabled = true;
+            edit_form.action = ''; // disabling direct sending
+            Ajax.Responders.register({
+            onCreate: function() {
+                if ($('ajax_psm') && Ajax.activeRequestCount>0) {
+                Position.prepare();
+                var elt = $('ajax_psm');
+                elt.innerHTML = translations.working;
+                elt.style.left = Position.deltaX + "px";
+                elt.style.top = Position.deltaY + "px";
+                Effect.Appear('ajax_psm',{duration:0.5, queue:'end'});
+                }
+            },
+            onComplete: function() {
+                if ($('ajax_psm') && Ajax.activeRequestCount==0) {
+                Effect.Fade('ajax_psm',{duration:2.5, queue:'end'});
+                }
+            }
+            });
+            this.translations = translations;
+        }
+        else {
+            this.enabled = false;
+        }
+      }
+    }
+  },
+
+  sendForm: function(evt) {
+    if (this.enabled) {
+      // let's serialize the content of the form
+      // and send it to the server
+      params = Form.serialize(this.edit_form);
+      if (params!='') {
+        params += '&ajax_edit=1';
+      }
+      var sendFormCompletedFn = this.sendFormCompleted.bind(this);
+      var myAjax = new Ajax.Request(this.form_action, {
+         parameters: params,
+         onComplete: sendFormCompletedFn
+         });
+    }
+  },
+
+  sendFormReload: function(evt) {
+    if (this.enabled) {
+      // let's serialize the content of the form
+      // and send it to the server
+      params = Form.serialize(this.edit_form);
+      if (params!='') {
+        params += '&ajax_edit=1&cpsdocument_edit_and_view_button=1';
+      }
+      var sendFormCompletedFn = this.sendFormCompleted.bind(this);
+      var myAjax = new Ajax.Request(this.form_action, {
+         parameters: params,
+         onComplete: sendFormCompletedFn
+         });
+    }
+  },
+
+  sendFormCompleted: function(originalRequest) {
+    var result = originalRequest.responseXML;
+    // result comes in three node, under ajax-response
+    result = result.childNodes[0];
+    var action = '';
+    var layout = '';
+    var form_result = false;
+
+    for (var i = 0; i < result.childNodes.length; i++) {
+      var node = result.childNodes[i];
+      if (node.nodeName=='result') {
+        if (node.childNodes[0].nodeValue=='True')
+          form_result = true;
+      }
+      if (node.nodeName=='layout') {
+        layout = node.childNodes[0].nodeValue;
+      }
+      if (node.nodeName=='action') {
+        if (node.childNodes.length>0) {
+          action = node.childNodes[0].nodeValue;
+        }
+      }
+    }
+
+    if (form_result) {
+      psm = this.translations.content_changed;
+      if (this.last_error)
+        this.rendered_node.innerHTML = layout;
+    }
+    else {
+      psm = this.translations.content_error;
+      // need to reload form here
+      this.rendered_node.innerHTML = layout;
+    }
+
+    // feedback, in any case
+    feedback = $('ajax_psm');
+    if (feedback) {
+     feedback.innerHTML = psm;
+    }
+
+    // reload elements
+    if (!action) {
+      this.initialize(this.form_id, this.form_action, this.rendered_id,
+                      this.buttons, this.reloadbuttons, this.title_id,
+                      this.translations, !form_result);
+      if (form_result)
+        this.reloadTitleFromForm();
+
+    }
+    else {
+      this.gotoUrl('cpsdocument_view');
+    }
+  },
+
+  gotoUrl: function(dest) {
+    self.location.href = dest;
+  },
+
+  canSendForm: function() {
+    // trying to see if there are files in the form
+    var inputs = this.edit_form.getElementsByTagName('input');
+    for (var i = 0; i < inputs.length; i++) {
+      var input = inputs[i];
+      // if (input.type == 'file' && input.value != '') {
+      if (input.type == 'file') {
+        return false;
+      }
+    }
+    return true;
+  },
+
+  reloadTitleFromForm: function() {
+    if ($('widget__Title')) {
+        this.reloadTitle($('widget__Title').value);
+      }
+  },
+
+  reloadTitle: function(new_title) {
+    // reloading title
+    title_node = $(this.title_id);
+    if (title_node)
+      title_node.innerHTML = new_title;
+    document.title = new_title;
+  }
+}

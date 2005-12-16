@@ -20,7 +20,12 @@
       tal:attributes="src string:${base_url}lang/calendar-${local}.js"></script>
     <script type="text/javascript" src="calendar-setup.js"
       tal:attributes="src string:${base_url}calendar-setup.js"></script>
-
+    <script type="text/javascript" src="prototype.js"
+      tal:attributes="src string:${base_url}prototype.js"></script>
+    <script type="text/javascript" src="effects.js"
+      tal:attributes="src string:${base_url}effects.js"></script>
+    <script type="text/javascript" src="cpsdocument.js"
+      tal:attributes="src string:${base_url}cpsdocument.js"></script>
     <tal:block condition="python:modules['Products.CPSUtil.integration'].isProductPresent('Products.FCKeditor')">
       <script type="text/javascript">
         var popup_editor_form = 'popup_fckeditor_form';
@@ -65,7 +70,7 @@
     <h1 tal:condition="not:creation">
       <img tal:replace="structure python:here.getImgTag('/'+here.getIcon(), base_url='')">
       <tal:block condition="edition"
-        i18n:translate="">Edit <span i18n:name="title"
+        i18n:translate="">Edit <span id="page_title" i18n:name="title"
         tal:content="here/title_or_id">Page Title</span></tal:block>
       <tal:block tal:condition="metadata"
         i18n:translate="">heading_metadata_edit</tal:block>
@@ -73,7 +78,37 @@
   </metal:block>
 
   <metal:block fill-slot="main">
-    <div tal:replace="structure rendered_main" />
+    <style>
+    #ajax_psm {
+    background: #ffac0b;
+    color: white;
+    position: absolute;
+    z-index:500;
+    padding: 8px;
+    border: 1px solid black;
+    }
+    </style>
+
+    <div id="ajax_psm" style="display:none">
+      ajax feedback
+    </div>
+    <div id="rendered_main">
+      <tal:block tal:replace="structure rendered_main"/>
+    </div>
+    <tal:block tal:define="content_changed python:cpsmcat('psm_content_changed');
+                           content_error python:cpsmcat('psm_content_error');
+                           working python:cpsmcat('psm_ajax_working')">
+    <script type="text/javascript" language="javascript" tal:content="string:
+      // unobtrusive form controller, that leaves the form accessible
+      var editor = new CPSDocumentEditor('editForm', 'editCPSDocument',
+                                         'rendered_main',
+                                         new Array('cpsdocument_edit_button'),
+                                         new Array('cpsdocument_edit_and_view_button'),
+                                         'page_title',
+                                         {content_changed: '${content_changed}',
+                                          working: '${working}',
+                                          content_error: '${content_error}'});"/>
+    </tal:block>
   </metal:block>
 
 </metal:block>

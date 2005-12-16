@@ -20,7 +20,7 @@
               ">
 <tal:block condition="first_layout">
   <tal:block
-  content="structure string:<form action='${formaction}' method='post'
+  content="structure string:<form id='editForm' action='${formaction}' method='post'
   enctype='multipart/form-data' class='workflow'>
   <div class='group'><div class='documentFields'>" />
   <input type="hidden" name="type_name" value="."
@@ -159,12 +159,12 @@
       </dd>
     </dl>
   </tal:block>
-
   <input type="submit" class="standalone" name="cpsdocument_edit_button"
-    value="button_change" i18n:attributes="value"
+    value="button_change" i18n:attributes="value" id="cpsdocument_edit_button"
     tal:condition="not:creation" />
   <input type="submit" class="standalone" name="cpsdocument_edit_and_view_button"
     value="button_change_and_view" i18n:attributes="value"
+    id="cpsdocument_edit_and_view_button"
     tal:condition="not:creation" />
   <input type="submit" class="standalone" name="cpsdocument_create_button"
     value="button_create" i18n:attributes="value" tal:condition="creation" />

@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>The Title</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script src="prototype.js" type="text/javascript"></script>
+  <script src="effects.js" type="text/javascript"></script>
+  <script src="../cpsdocument.js.dtml" type="text/javascript"></script>
+  <script src="unittest.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="test.css" type="text/css" />
+  <style type="text/css" media="screen">
+  /* <![CDATA[ */
+    #div_absolute_test { position: absolute }
+  /* ]]> */
+  </style>
+
+</head>
+<body>
+<h1>CPSDocumentEditor Unit Tests</h1>
+<p>
+  Test of CPSDocumentEditor
+</p>
+
+<!-- simulate a cpsdocument edit rendering -->
+<span id="title">The Title</span>
+
+<div id="rendered_main">
+  <form action="cpsdocumenteditor_validate1.html" id="gogogo">
+     A: <input type="text" name="a" value="input a"/>
+     B: <input type="text" name="b" value="input b"/>
+     <input type="submit" id="submit1" value="OK1"/>
+     <input type="submit" id="submit2" value="OK2"/>
+     <input type="text" name="widget__Title" value="The title" id="widget__Title"/>
+   </form>
+   <form action="cpsdocumenteditor_validate1.html" id="withfile">
+     A: <input type="text" name="a" value="input a"/>
+     B: <input type="text" name="b" value="input b"/>
+     File: <input type="file" id="File1"/>
+
+     <input type="submit" id="submit1" value="OK1"/>
+     <input type="submit" id="submit2" value="OK2"/>
+   </form>
+</div>
+
+<!-- Log output -->
+<div id="testlog"> </div>
+
+<!-- Tests follow -->
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+
+  new Test.Unit.Runner({
+
+    setup: function() {
+      this.idle = 100;
+    },
+
+    testInitialization: function() { with(this) {
+      var editor1 = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main');
+      assertInstanceOf(CPSDocumentEditor, editor1);
+    }},
+
+
+    testAttributes: function() { with(this) {
+      var buttons = new Array();
+      buttons.push('submit1');
+      buttons.push('submit2');
+
+      var editor1 = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main',
+                                          buttons);
+
+      // making sure we get the form action
+      // and the editor is enabled
+      form_ = $('gogogo');
+      div_ = $('rendered_main');
+      wait(this.idle, function() {
+        assertEqual(editor1.enabled, true);
+        assertEqual(editor1.form_action, 'gagagag');
+        assertEqual(editor1.edit_form, form_);
+        assertEqual(editor1.rendered_node, div_);
+
+        // removing binds
+        var buttons = new Array();
+        buttons.push('submit1');
+        buttons.push('submit2');
+        for (var i = 0; i < buttons.length; i += 1) {
+          button_node = $(buttons[i]);
+          button_node.onclick = '';
+        }
+
+      });
+    }},
+
+    testDisable: function() { with(this) {
+      var editor2 = new CPSDocumentEditor('gagaga', 'gagagag', 'rendered_main');
+      wait(this.idle, function() {
+        assertEqual(editor2.enabled, false);
+      });
+    }},
+
+
+    testErrorDisplayer: function() { with(this) {
+      var editor = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main');
+      wait(this.idle, function() {
+        editor.sendForm();
+        // XXX
+      });
+    }},
+
+    testButtonCatcher: function() { with(this) {
+      wait(this.idle, function() {
+        var buttons = new Array();
+        buttons.push('submit1');
+        buttons.push('submit2');
+        for (var i = 0; i < buttons.length; i += 1) {
+          button_node = $(buttons[i]);
+          assertEqual(button_node.onclick, '');
+        }
+
+        var editor = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main',
+                                           buttons);
+
+        for (var i = 0; i < buttons.length; i += 1) {
+          button_node = $(buttons[i]);
+          assertEqual(button_node.type, 'button');
+          assertNotEqual(button_node.onclick, '');
+        }
+      });
+    }},
+
+    testFormDisabler: function() { with(this) {
+      wait(this.idle, function() {
+        // making sure the form is disabled
+        var buttons = new Array();
+        buttons.push('submit1');
+        buttons.push('submit2');
+        var editor = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main',
+                                           buttons);
+        form_ = $('gogogo');
+        assertEqual(form_.action, '');
+      });
+    }},
+
+    testButtonControling: function() { with(this) {
+      wait(this.idle, function() {
+        // making sure the sender is disabled
+        // if no button exists
+        var buttons = new Array();
+        buttons.push('xxxxx');
+        buttons.push('xxxxxxxxx');
+        var editor = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main',
+                                           buttons);
+        assertEqual(editor.enabled, false);
+      });
+    }},
+
+    testButtonCatcher2: function() { with(this) {
+      wait(this.idle, function() {
+        var buttons = new Array();
+        buttons.push('submit1');
+        var buttons2 = new Array();
+        buttons2.push('submit2');
+
+        for (var i = 0; i < buttons.length; i += 1) {
+          button_node = $(buttons[i]);
+          button_node.onclick = '';
+        }
+
+        for (var i = 0; i < buttons2.length; i += 1) {
+          button_node = $(buttons2[i]);
+          button_node.onclick = '';
+        }
+
+        var editor = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main',
+                                           buttons, buttons2);
+
+        for (var i = 0; i < buttons.length; i += 1) {
+          button_node = $(buttons[i]);
+          assertEqual(button_node.type, 'button');
+          assertNotEqual(button_node.onclick, '');
+        }
+
+        for (var i = 0; i < buttons2.length; i += 1) {
+          button_node = $(buttons2[i]);
+          assertEqual(button_node.type, 'button');
+          assertNotEqual(button_node.onclick, '');
+        }
+      });
+    }},
+
+    testcanSendForm: function() { with(this) {
+      wait(this.idle, function() {
+        var buttons = new Array();
+        buttons.push('submit1');
+        var buttons2 = new Array();
+        buttons2.push('submit2');
+        var editor = new CPSDocumentEditor('withfile', 'gagagag', 'rendered_main',
+                                           buttons, buttons2);
+        assertEqual(editor.canSendForm(), false);
+
+        var editor2 = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main',
+                                           buttons, buttons2);
+        assertEqual(editor2.canSendForm(), true);
+
+      });
+    }},
+
+    testcanSendForm2: function() { with(this) {
+      wait(this.idle, function() {
+        var buttons = new Array();
+        buttons.push('submit1');
+        var buttons2 = new Array();
+        buttons2.push('submit2');
+        var editor = new CPSDocumentEditor('withfile', 'gagagag', 'rendered_main',
+                                           buttons, buttons2);
+        assertEqual(editor.enabled, false);
+
+      });
+    }},
+
+    testTitleChanges: function() { with(this) {
+      wait(this.idle, function() {
+        var buttons = new Array();
+        buttons.push('submit1');
+        var buttons2 = new Array();
+        buttons2.push('submit2');
+
+        current_title = $('title');
+        assertEqual(current_title.innerHTML, 'The Title');
+        assertEqual(document.title, 'The Title');
+
+        var editor = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main',
+                                           buttons, buttons2, 'title');
+        editor.reloadTitle('The Title changed');
+
+        assertEqual(current_title.innerHTML, 'The Title changed');
+        assertEqual(document.title, 'The Title changed');
+
+      });
+    }},
+
+    testreloadTitleFromForm: function() { with(this) {
+      wait(this.idle, function() {
+        var buttons = new Array();
+        buttons.push('submit1');
+        var buttons2 = new Array();
+        buttons2.push('submit2');
+
+        var editor = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main',
+                                           buttons, buttons2, 'title');
+
+        $('widget__Title').value = 'go!';
+        editor.reloadTitleFromForm();
+
+        assertEqual(current_title.innerHTML, 'go!');
+        assertEqual(document.title, 'go!');
+
+      });
+    }}
+
+  }, "testlog");
+
+// ]]>
+</script>
+
+
+</body>
+</html>

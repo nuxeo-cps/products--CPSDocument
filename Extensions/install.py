@@ -42,7 +42,8 @@ CPS_SKINS = { 'cps_document': 'Products/CPSDocument/skins/cps_document',
 CMF_SKINS = { 'cps_document': 'Products/CPSDocument/skins/cps_document_cmf',
               'cps_utils_cmf': 'Products/CPSDocument/skins/cps_utils_cmf',
               'cps_document_images':
-              'Products/CPSDocument/skins/cps_document_images'}
+              'Products/CPSDocument/skins/cps_document_images',
+	      'cps_document_js': 'Products/CPSDocument/skins/cps_document_js'}
 
 
 class DocInstaller(CPSInstaller):

@@ -418,3 +418,6 @@ msgstr ""
 
 msgid "portal_type_Flash_Animation_description"
 msgstr ""
+
+msgid "psm_ajax_working"
+msgstr ""

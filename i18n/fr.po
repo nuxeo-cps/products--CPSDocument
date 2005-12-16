@@ -598,3 +598,7 @@ msgstr "Animation Flash au format swf"
 
 #~ msgid "label_text_to_search"
 #~ msgstr "Texte à chercher"
+
+msgid "psm_ajax_working"
+msgstr "Transfert en cours"
+
