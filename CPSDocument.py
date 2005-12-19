@@ -58,9 +58,18 @@ class CPSDocumentMixin(ExtensionClass.Base):
     def render(self, **kw):
         """Render the object according to a layout mode.
 
-        Arguments are layout_mode, layout_id, proxy.
+        Optional arguments are layout_mode, layout_id, cluster,
+        proxy, request.
         """
         return self.getTypeInfo().renderObject(self, **kw)
+
+    security.declareProtected(View, 'validate')
+    def validate(self, **kw):
+        """Validate the modifications posted on an object.
+
+        See FlexibleTypeInformation.validateObject.
+        """
+        return self.getTypeInfo().validateObject(self, **kw)
 
     # This is not protected using ModifyPortalContent because the object
     # may be frozen, and will only be unfrozen just before committing.

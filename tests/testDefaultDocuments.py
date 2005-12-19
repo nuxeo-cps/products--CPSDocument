@@ -245,7 +245,7 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
         rendered, is_valid, ds = doc.renderEditDetailed(request=request,
                                                         proxy=proxy,
                                                         layout_id='metadata')
-        self.assert_(is_valid, 'invalid input: ' + str(ds.getErrors()) +
+        self.assert_(is_valid, 'invalid input: ' + str(ds.errors) +
                      'ds = ' + str(ds))
         for k, v in data.items():
             self.assertEquals(ds[k], v)

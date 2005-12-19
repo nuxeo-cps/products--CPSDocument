@@ -1,8 +1,9 @@
-<tal:block define="res python:here.editCPSDocument(REQUEST=request);
-                   rendered_main python: res[0];
-                   portal_status_message python: res[1];
-                   edition python:1;
-  ">
+<tal:block define="
+    rendered_main python:here.cpsdocument_edit_render(request=request);
+    creation python:False;
+    edition python:True;
+    metadata metadata|nothing;
+    ">
 <metal:block define-macro="edit_form">
 <metal:block use-macro="here/content_lib_master/macros/master">
   <metal:block fill-slot="css_slot">
@@ -56,10 +57,7 @@
    </metal:block>
   </metal:block>
 
-  <metal:block fill-slot="header"
-    tal:define="creation creation|nothing;
-                edition edition|nothing;
-                metadata metadata|nothing">
+  <metal:block fill-slot="header">
     <h1 tal:condition="creation" i18n:translate="">
       Create a document of type
       <tal:block i18n:name="type_name" i18n:translate=""
@@ -92,23 +90,49 @@
     <div id="ajax_psm" style="display:none">
       ajax feedback
     </div>
-    <div id="rendered_main">
-      <tal:block tal:replace="structure rendered_main"/>
-    </div>
-    <tal:block tal:define="content_changed python:cpsmcat('psm_content_changed');
-                           content_error python:cpsmcat('psm_content_error');
-                           working python:cpsmcat('psm_ajax_working')">
-    <script type="text/javascript" language="javascript" tal:content="string:
-      // unobtrusive form controller, that leaves the form accessible
-      var editor = new CPSDocumentEditor('editForm', 'editCPSDocument',
-                                         'rendered_main',
-                                         new Array('cpsdocument_edit_button'),
-                                         new Array('cpsdocument_edit_and_view_button'),
-                                         'page_title',
-                                         {content_changed: '${content_changed}',
-                                          working: '${working}',
-                                          content_error: '${content_error}'});"/>
-    </tal:block>
+    <form action="ACTION" method="post" enctype="multipart/form-data"
+          class="workflow"
+          tal:attributes="action python:creation and 'cpsdocument_create'
+                                                  or 'cpsdocument_edit'">
+      <div class="group">
+        <div class="documentFields">
+          <tal:block define="getFormUidHtml nocall:modules/Products.CPSDocument.utils/getFormUidHtml"
+                     replace="structure python:getFormUidHtml(request)"/>
+          <input type="hidden" name="type_name" value="VALUE"
+                 tal:condition="creation"
+                 tal:attributes="value request/type_name" />
+          <div id="rendered_main" tal:content="structure rendered_main">
+            CONTENT
+          </div>
+        </div>
+
+        <tal:block condition="not:creation">
+          <div class="tooltipArea" style="visibility: hidden;"
+               id="transition_comments_help"
+               onclick="showElement(false, 'transition_comments_help')"
+               i18n:translate="help_transition_comments_modification">
+            In this field you can give the reason for the modification
+            on this document. Your comments may be used to notify other users.
+          </div>
+          <dl>
+            <dt><label for="comments"
+                       i18n:translate="transition_comments_modification"
+                       >Reason of the modification</label>
+              <button type="button" class="tooltipControl"
+                      onclick="toggleElementVisibility('transition_comments_help')"> ? </button>
+            </dt>
+            <dd>
+              <textarea name="comments" id="comments" cols="60" rows="3"
+                        tal:content="nothing">
+              </textarea>
+            </dd>
+          </dl>
+        </tal:block>
+
+        <metal:block use-macro="here/cpsdocument_edit_buttons/macros/buttons"/>
+
+      </div>
+    </form>
   </metal:block>
 
 </metal:block>

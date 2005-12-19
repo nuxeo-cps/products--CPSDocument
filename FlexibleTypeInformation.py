@@ -21,12 +21,12 @@
 Type information for types described by a flexible set of schemas and layout.
 """
 
+import warnings
 from zLOG import LOG, DEBUG, WARNING
 from Acquisition import aq_base, aq_parent, aq_inner
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
 from OFS.Image import File, Image
-from ZPublisher.HTTPRequest import FileUpload
 
 from Products.CMFCore.permissions import View
 from Products.CMFCore.permissions import ModifyPortalContent
@@ -49,8 +49,7 @@ from Products.CPSSchemas.StorageAdapter import AttributeStorageAdapter, \
 from Products.CPSDocument.CPSDocument import addCPSDocument
 from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget
 
-SESSION_ITEM_KEY = 'CPS_FLEXIBLETYPEINFO_FILE'
-SESSION_ITEM_IDS_KEY = 'CPS_FLEXIBLETYPEINFO_FILES'
+from Products.CPSDocument.utils import getFormUid
 
 # inserted into TypesTool by PatchTypesTool
 addFlexibleTypeInformationForm = DTMLFile('zmi/addflextiform', globals())
@@ -658,11 +657,12 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     security.declarePrivate('_computeLayoutStructures')
     def _computeLayoutStructures(self, datastructure, layout_mode,
                                  layout_id=None, cluster=None,
-                                 ob=None, request=None):
+                                 ob=None, request=None,
+                                 use_session=False):
         """Initialize the datastructure and compute the layout.
 
-        Datastructure is initialized according to the widgets and the
-        request.
+        Datastructure is initialized according to the widgets, and
+        if available from the request and the session.
 
         Computes the layout structure.
 
@@ -674,10 +674,13 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         for layout in layouts:
             layout.prepareLayoutWidgets(datastructure)
         if request is not None:
+            if use_session:
+                # Restore data from the session
+                formuid = getFormUid(request)
+                datastructure._updateFromSession(request, formuid)
+            # Update with the form itself
             datastructure.updateFromMapping(request.form)
-            # we update the ds with items previously backuped after
-            # an invalid layout
-            self._restoreDataStructureItemsFromSession(datastructure, request)
+
         layout_structures = []
         datamodel = datastructure.getDataModel()
         for layout in layouts:
@@ -689,150 +692,50 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
     security.declarePrivate('_validateLayoutStructures')
     def _validateLayoutStructures(self, layout_structures,
-                                  datastructure, request=None, **kw):
+                                  datastructure, request=None,
+                                  use_session=False, **kw):
         """Validate all layout structures.
 
         Returns a boolean is_valid.
         """
-        is_valid = 1
+        datastructure.clearErrors()
+        is_valid = True
         for layout_structure in layout_structures:
             layout = layout_structure['layout']
             ok = layout.validateLayoutStructure(layout_structure,
                                                 datastructure, **kw)
             is_valid = is_valid and ok
-        if not is_valid:
-            # in case of error a widget can ask to backup a value
-            # into the session by setting a 'backup_items' into the ds
-            # like this:
-            # if not datastructure.has_key('backup_items'):
-            #    datastructure['backup_items'] = {}
-            # datastructure['backup_items'][widget_id] = field_id
-            self._backupDataStructureItemsIntoSession(datastructure, request)
-        else:
-            self._deleteSessionItems(request)
+        if use_session:
+            if is_valid:
+                # We don't need anything from the session anymore
+                datastructure._removeFromSession(request)
+            else:
+                # Backup data in the session
+                formuid = getFormUid(request)
+                datastructure._saveToSession(request, formuid)
         return is_valid
 
-
-    ### session stuff
-    security.declarePrivate('_backupDataStructureItemsIntoSession')
-    def _backupDataStructureItemsIntoSession(self, datastructure, request):
-        """Save datastructure values for field listed in backup_items."""
-        if request is None:
-            return
-        item_ids = []
-        if datastructure.has_key('backup_items'):
-            datamodel = datastructure.getDataModel()
-            for widget_id, field_id in datastructure['backup_items'].items():
-                value = datamodel.get(field_id)
-                self._addSessionItem(widget_id, value, request)
-                item_ids.append(widget_id)
-        request.SESSION[SESSION_ITEM_IDS_KEY] = item_ids
-
-    security.declarePrivate('_restoreDataStructureItemsFromSession')
-    def _restoreDataStructureItemsFromSession(self, datastructure, request):
-        """Restore files from session into datastructure.
-
-        datastructure['restored_items'] contains the list of restored
-        widget_ids.
-        """
-        if request is None:
-            return
-        item_ids = request.SESSION.get(SESSION_ITEM_IDS_KEY)
-        if not item_ids:
-            return
-        restored_items = []
-        for item_id in item_ids:
-            if datastructure.has_key(item_id):
-                datastructure[item_id] = self._getSessionItem(item_id, request)
-                restored_items.append(item_id)
-        datastructure['restored_items'] = restored_items
-
-    security.declarePrivate('_deleteSessionItems')
-    def _deleteSessionItems(self, request):
-        """Remove any backuped files."""
-        if request is None:
-            return
-        item_ids = request.SESSION.get(SESSION_ITEM_IDS_KEY)
-        if not item_ids:
-            return
-        for item_id in item_ids:
-            self._deleteSessionItem(item_id, request)
-        del request.SESSION[SESSION_ITEM_IDS_KEY]
-
-    security.declarePrivate('_addSessionItem')
-    def _addSessionItem(self, item_id, item, request):
-        """Backup an item into the session.
-
-        note that for the moment we only support File object."""
-        skey = '%s_%s' % (SESSION_ITEM_KEY, item_id)
-        if type(item) in (File, Image):
-            # file obj must be cloned otherwhise we run into:
-            # "Attempt to store an object from a foreign database
-            # connection" error which means that a same (persistant) object
-            # can not be stored into the zodb and into a session
-            if type(item) is File:
-                request.SESSION[skey] = copyFile(item)
-            elif type(item) is Image:
-                request.SESSION[skey] = copyImage(item)
-            LOG('FlexibleTypeInformation._addSessionItem', DEBUG,
-                'Saving file into SESSION %s: %s' % (skey, item.title))
-
-    security.declarePrivate('_getSessionItem')
-    def _getSessionItem(self, item_id, request):
-        """Return an item stored by backupSessionItem."""
-        item = None
-        skey = '%s_%s' % (SESSION_ITEM_KEY, item_id)
-        item_session = request.SESSION.get(skey)
-        if item_session is not None:
-            if type(item_session) in (File, Image):
-                # file obj must be cloned otherwhise we run into:
-                # "Attempt to store an object from a foreign database
-                # connection" error which means that a same (persistant) object
-                # can not be stored into the zodb and into a session
-                if type(item_session) is File:
-                    item = copyFile(item_session)
-                elif type(item_session) is Image:
-                    item = copyImage(item_session)
-                LOG('FlexibleTypeInformation._getSessionItem', DEBUG,
-                    'Restore file from SESSION %s=%s' %
-                    (skey, item.title))
-        return item
-
-    security.declarePrivate('_deleteSessionItem')
-    def _deleteSessionItem(self, item_id, request):
-        """Try to remove an item from the session."""
-        skey = '%s_%s' % (SESSION_ITEM_KEY, item_id)
-        try:
-            del request.SESSION[skey]
-            LOG('FlexibleTypeInformation._removeSessionItem', DEBUG,
-                'Removing session item: %s' % (skey))
-        except KeyError:
-            pass
-
-    ### end of session stuff
-
     security.declarePrivate('_renderLayouts')
-    def _renderLayouts(self, layout_structures, datastructure, ob, **kw):
+    def _renderLayouts(self, layout_structures, datastructure, context,
+                       no_form=False, **kw):
         """Get HTML rendering of all layouts.
 
-        Uses ob as a rendering context.
+        ``context`` is the rendering context.
+
+        BBB: no_form will be implicit in CPS 3.5.0
         """
         layout_mode = kw['layout_mode']
         all_rendered = ''
         nb_layouts = len(layout_structures)
-        i = 0
         flexible_layouts = self._getFlexibleLayouts()
-        for layout_structure in layout_structures:
-            # find if is the first/last layout
-            i += 1
-            if i == 1:
-                first_layout = 1
+        for i, layout_structure in enumerate(layout_structures):
+            if no_form:
+                # We don't want to generate form header/footer
+                first_layout = last_layout = False
             else:
-                first_layout = 0
-            if i == nb_layouts:
-                last_layout = 1
-            else:
-                last_layout = 0
+                # find if is the first/last layout
+                first_layout = (i == 0)
+                last_layout = (i == nb_layouts-1)
             is_flexible = layout_mode != 'create' and \
                           layout_structure['layout_id'] in flexible_layouts
             # Render layout structure.
@@ -840,7 +743,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             layout.renderLayoutStructure(layout_structure, datastructure, **kw)
             # Apply layout style.
             rendered = layout.renderLayoutStyle(layout_structure,
-                                                datastructure, ob,
+                                                datastructure, context,
                                                 first_layout=first_layout,
                                                 last_layout=last_layout,
                                                 is_flexible=is_flexible,
@@ -852,21 +755,90 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     # API
     #
 
-    security.declarePrivate('renderObject')
-    def renderObject(self, ob, layout_mode='view',
-                     layout_id=None, cluster=None,
-                     **kw):
-        """Render the object."""
+    security.declareProtected(View, 'renderObject')
+    def renderObject(self, ob, layout_mode='view', layout_id=None,
+                     cluster=None, request=None, context=None,
+                     use_session=False, **kw):
+        """Render the object.
+
+        The datastructure information comes from the object, and, if
+        available, the request (to be able to pass explicit values in
+        the URL) and the session (if use_session is true).
+
+        ``context`` is used to find the layout method.
+        """
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
 
         layout_structures = self._computeLayoutStructures(
             ds, layout_mode, layout_id=layout_id, cluster=cluster,
-            ob=ob, request=None)
+            ob=ob, request=request, use_session=use_session)
 
-        return self._renderLayouts(layout_structures, ds, ob,
+        if context is None:
+            context = ob
+        return self._renderLayouts(layout_structures, ds, context,
                                    layout_mode=layout_mode, **kw)
+
+    security.declareProtected(View, 'validateObject')
+    def validateObject(self, ob, layout_mode='edit', layout_id=None,
+                       cluster=None, request=None, use_session=False,
+                       pre_commit_hook=None,
+                       **kw):
+        """Validate the modifications posted on an object.
+
+        The data from the object, the request (and the session if
+        use_session is True) is validated.
+
+        If there is no validation error, the object modified. In
+        creation mode, it's the caller's responsability to create the
+        object using the datamodel.
+
+        If there is a validation error and use_session is True, the
+        datastructure is saved in the session.
+
+        An optional 'proxy' arg will be passed to the layouts and used
+        for getEditableContent if the object is modified.
+
+        An optional 'context' arg will be used to provide context to the
+        widgets.
+
+        An optional 'pre_commit_hook' arg can be given. It takes the
+        datamodel and request as arguments, and gets **kw forwarded. It
+        can access the object through the datamodel, but must maintain
+        consistency.
+
+        Returns (is_valid, datastructure):
+          - is_valid is the result of the validation,
+          - datastructure is the resulting datastructure, it can be
+            used to create an object if ob was None.
+        """
+        if request is None:
+            raise ValueError("request is None")
+
+        proxy = kw.get('proxy')
+        context = kw.get('context')
+        dm = self.getDataModel(ob, proxy=proxy, context=context)
+        ds = DataStructure(datamodel=dm)
+
+        # To validate we must have the layout structures to know
+        # which widgets are present.
+        # This also updates the datastructure from request/session.
+        layout_structures = self._computeLayoutStructures(
+            ds, layout_mode, layout_id=layout_id, cluster=cluster,
+            ob=ob, request=request, use_session=use_session)
+
+        # This also saves datastructure in session if there are errors.
+        is_valid = self._validateLayoutStructures(
+            layout_structures, ds, layout_mode=layout_mode,
+            request=request, use_session=use_session)
+
+        if is_valid and ob is not None:
+            if pre_commit_hook is not None:
+                pre_commit_hook(dm, request=request, **kw)
+            ob = self._commitDM(dm)
+
+        return is_valid, ds
 
     def _commitDM(self, dm, check_perms=1):
         """Commits the dm.
@@ -888,6 +860,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         # If the object is in the repository, the proxy tool
         # will do what's necessary to reindex the proxies
         # and send a notification for them.
+
+    # BBB The following methods are now obsolete and will go away in CPS 3.5.0
 
     security.declarePrivate('renderEditObjectDetailed')
     def renderEditObjectDetailed(self, ob, request=None,
@@ -921,6 +895,10 @@ class FlexibleTypeInformation(FactoryTypeInformation):
           - ok is the result of the validation,
           - datastructure is the resulting datastructure.
         """
+
+        warnings.warn("renderEditObjectDetailed is obsolete and will be "
+                      "removed in CPS 3.5.0", DeprecationWarning, 2)
+
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
@@ -964,6 +942,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         See renderEditObjectDetailed for more.
         """
+        warnings.warn("renderEditObject is obsolete and will be "
+                      "removed in CPS 3.5.0", DeprecationWarning, 2)
         rendered, ok, ds = self.renderEditObjectDetailed(*args, **kw)
         return rendered
 
@@ -992,6 +972,9 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         layouts and used for getEditableContent if the object is
         modified.
         """
+        warnings.warn("validateStoreRenderObject is obsolete and will be "
+                      "removed in CPS 3.5.0", DeprecationWarning, 2)
+
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy)
         ds = DataStructure(datamodel=dm)
@@ -1068,6 +1051,9 @@ class FlexibleTypeInformation(FactoryTypeInformation):
           - is_valid is the result of the validation,
           - datastructure is the resulting datastructure.
         """
+        warnings.warn("renderCreateObjectDetailed is obsolete and will be "
+                      "removed in CPS 3.5.0", DeprecationWarning, 2)
+
         dm = self.getDataModel(None, context=container)
         ds = DataStructure(datamodel=dm)
 
@@ -1113,6 +1099,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         See renderCreateObjectDetailed for more info.
         """
+        warnings.warn("renderCreateObject is obsolete and will be "
+                      "removed in CPS 3.5.0", DeprecationWarning, 2)
         rendered, ok, ds = self.renderCreateObjectDetailed(*args, **kw)
         return rendered
 

@@ -17,7 +17,6 @@
 #
 # $Id$
 
-from Products.CMFCore import utils
 from Products.CMFCore.DirectoryView import registerDirectory
 from Products.CMFCore.permissions import AddPortalContent
 
@@ -30,6 +29,7 @@ import PatchTypesTool
 import FlexibleTypeInformation
 import CPSDocument
 import createFile
+import Products.CPSDocument.utils
 
 contentClasses = (
     CPSDocument.CPSDocument,
@@ -44,6 +44,7 @@ fti = ()
 registerDirectory('skins', globals())
 
 def initialize(registrar):
+    from Products.CMFCore import utils
     utils.ContentInit(
         'CPS Document Types',
         content_types=contentClasses,

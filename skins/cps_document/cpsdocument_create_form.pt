@@ -1,9 +1,9 @@
-<tal:block define="res python:here.createCPSDocument(REQUEST=request);
-                   rendered_main python: res[0];
-                   portal_status_message python: res[1];
-                   creation python:1;
-  ">
-  <tal:block condition="python:portal_status_message!='psm_content_created'">
-    <metal:block use-macro="here/cpsdocument_edit_form/macros/edit_form" />
-  </tal:block>
+<tal:block define="
+    type_name request/type_name;
+    rendered_main python:here.cpsdocument_create_render(request=request,
+                                                        type_name=type_name);
+    creation python:True;
+    edition python:False;
+    ">
+  <metal:block use-macro="here/cpsdocument_edit_form/macros/edit_form" />
 </tal:block>
