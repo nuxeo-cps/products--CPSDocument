@@ -124,9 +124,6 @@ CPSDocumentEditor.prototype = {
       // let's serialize the content of the form
       // and send it to the server
       params = Form.serialize(this.edit_form);
-      if (params!='') {
-        params += '&ajax_edit=1';
-      }
       var sendFormCompletedFn = this.sendFormCompleted.bind(this);
       var myAjax = new Ajax.Request(this.form_action, {
          parameters: params,
@@ -141,7 +138,7 @@ CPSDocumentEditor.prototype = {
       // and send it to the server
       params = Form.serialize(this.edit_form);
       if (params!='') {
-        params += '&ajax_edit=1&cpsdocument_edit_and_view_button=1';
+        params += '&cpsdocument_edit_and_view_button=1';
       }
       var sendFormCompletedFn = this.sendFormCompleted.bind(this);
       var myAjax = new Ajax.Request(this.form_action, {
