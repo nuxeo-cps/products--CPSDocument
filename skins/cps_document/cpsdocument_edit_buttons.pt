@@ -1,21 +1,24 @@
 <metal:block define-macro="buttons">
   <input type="submit" name="cpsdocument_edit_button"
          class="standalone" value="button_change"
+         id="cpsdocument_edit_button"
          i18n:attributes="value"
          tal:condition="not:creation" />
   <input type="submit" name="cpsdocument_edit_and_view_button"
          class="standalone" value="button_change_and_view"
+         id="cpsdocument_edit_and_view_button"
          i18n:attributes="value"
          tal:condition="not:creation" />
   <input type="submit" name="cpsdocument_create_button"
          class="standalone" value="button_create"
          i18n:attributes="value"
+         id="cpsdocument_create_button"
          tal:condition="creation" />
   <tal:block define="
       content_changed python:cpsmcat('psm_content_changed');
       content_error python:cpsmcat('psm_content_error');
       working python:cpsmcat('psm_ajax_working')"
-             condition="python: False and 'not:creation XXX'">
+             condition="edition">
     <script type="text/javascript" language="javascript"
             tal:content="string:
     // unobtrusive form controller, that leaves the form accessible

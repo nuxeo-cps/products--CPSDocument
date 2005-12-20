@@ -90,8 +90,8 @@
     <div id="ajax_psm" style="display:none">
       ajax feedback
     </div>
-    <form action="ACTION" method="post" enctype="multipart/form-data"
-          class="workflow"
+    <form action="ACTION" method="post" id="editForm"
+          enctype="multipart/form-data" class="workflow"
           tal:attributes="action python:creation and 'cpsdocument_create'
                                                   or 'cpsdocument_edit'">
       <div class="group">
