@@ -25,7 +25,6 @@ try:
 except ImportError:
     import CPSDocumentPatchForCMF
 
-import PatchTypesTool
 import FlexibleTypeInformation
 import CPSDocument
 import createFile

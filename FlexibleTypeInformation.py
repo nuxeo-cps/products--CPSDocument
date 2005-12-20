@@ -34,8 +34,7 @@ from Products.CMFCore.permissions import ChangePermissions
 from Products.CMFCore.permissions import ManagePortal
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.TypesTool import FactoryTypeInformation
-from Products.CMFCore.interfaces.portal_types \
-    import ContentTypeInformation as ITypeInformation
+from Products.CMFCore.interfaces import ITypeInformation
 
 from Products.CPSCore.EventServiceTool import getEventService
 from Products.CPSSchemas.utils import copyFile, copyImage
@@ -51,8 +50,8 @@ from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget
 
 from Products.CPSDocument.utils import getFormUid
 
-# inserted into TypesTool by PatchTypesTool
-addFlexibleTypeInformationForm = DTMLFile('zmi/addflextiform', globals())
+import zope.interface
+
 
 def addFlexibleTypeInformation(container, id, REQUEST=None):
     """Add a Flexible Type Information."""
@@ -102,37 +101,9 @@ def addFlexibleTypeInformation(container, id, REQUEST=None):
     else:
         return flexti
 
-# XXX add this at construction above
-# this does nothing...
-factory_type_information = (
-    {'id': 'CPS Document',
-     'title': "CPS Document",
-     'description': "A base CPS document.",
-     'icon': 'cpsdocument_icon.png',
-     'immediate_view': 'metadata_edit_form',
-     #'product': 'CPSDocument',
-     #'factory': 'addCPSDocument',
-     #'meta_type': 'Dummy',
-     # CPS attr
-     'actions': ({'id': 'view',
-                  'name': 'View',
-                  'action': 'dummy_view',
-                  'permissions': (View,),
-                  },
-                 {'id': 'edit',
-                  'name': 'Edit',
-                  'action': 'dummy_edit_form',
-                  'permissions': (ModifyPortalContent,),
-                  },
-                 {'id': 'metadata',
-                  'name': 'Metadata',
-                  'action': 'metadata_edit_form',
-                  'condition': 'not:portal/portal_membership/isAnonymousUser',
-                  'permissions': (ModifyPortalContent,),
-                  },
-                 ),
-     },
-    )
+# Patch TypesTool to add this method (BBB used by CPSInstaller)
+from Products.CMFCore.TypesTool import TypesTool
+TypesTool.addFlexibleTypeInformation = addFlexibleTypeInformation
 
 
 class FlexibleTypeInformation(FactoryTypeInformation):
@@ -144,7 +115,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
     meta_type = 'CPS Flexible Type Information'
 
-    __implements__ = ITypeInformation
+    zope.interface.implements(ITypeInformation)
 
     security = ClassSecurityInfo()
 

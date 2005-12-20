@@ -1,0 +1,26 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five">
+
+  <five:registerClass
+      class=".FlexibleTypeInformation.FlexibleTypeInformation"
+      meta_type="CPS Flexible Type Information"
+      addview="addFlexibleTypeInformation.html"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <configure package="Products.GenericSetup.browser">
+
+    <browser:page
+        for="zope.app.container.interfaces.IAdding"
+        name="addFlexibleTypeInformation.html"
+        template="addWithPresettings.pt"
+        class="Products.CPSDocument.browser.typeinfo.FlexibleTypeInformationAddView"
+        permission="cmf.ManagePortal"
+        />
+
+  </configure>
+
+</configure>
