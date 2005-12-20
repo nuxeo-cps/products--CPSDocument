@@ -14,7 +14,7 @@ for key, value in REQUEST.form.items():
         REQUEST.form[key] = value
 
 doc = context.getContent()
-res = doc.renderEditDetailed(request=REQUEST, proxy=context,, cluster=cluster)
+res = doc.renderEditDetailed(request=REQUEST, proxy=context, cluster=cluster)
 layout, is_valid = str(res[0]), res[1]
 
 # AJAX tries to change the doc and just needs to know if there were errors
