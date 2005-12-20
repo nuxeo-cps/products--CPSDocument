@@ -154,6 +154,15 @@ div.ddescription {
   font-size: 95%;
 }
 
+#ajax_psm {
+  background: #ffac0b;
+  color: white;
+  position: absolute;
+  z-index:500;
+  padding: 8px;
+  border: 1px solid black;
+}
+
 /* hack for IE6 bugs */
 /* Hides from IE5-mac \*/
 * html div.dleft {height: 1%}

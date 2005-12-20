@@ -76,17 +76,6 @@
   </metal:block>
 
   <metal:block fill-slot="main">
-    <style>
-    #ajax_psm {
-    background: #ffac0b;
-    color: white;
-    position: absolute;
-    z-index:500;
-    padding: 8px;
-    border: 1px solid black;
-    }
-    </style>
-
     <div id="ajax_psm" style="display:none">
       ajax feedback
     </div>
