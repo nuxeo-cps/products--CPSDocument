@@ -43,6 +43,8 @@ def upgrade_335_336_fix_broken_flexible(context):
     repository = getToolByName(context, 'portal_repository')
     fixed_fields = 0
     for doc in repository.values():
+        if getattr(doc, '_objects', None) is None:
+            continue
         new_objects = []
         for ob in doc._objects:
             if not hasattr(doc, ob['id']):
