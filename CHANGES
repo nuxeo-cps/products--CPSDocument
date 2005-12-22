@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- Added a graceful degradation AJAX-based form validation 
+- Added a graceful degradation AJAX-based form validation
   for forms that does not contains a file type input field
 Bug fixes:
 ~~~~~~~~~~
