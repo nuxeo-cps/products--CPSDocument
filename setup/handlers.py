@@ -45,7 +45,7 @@ from Globals import InitializeClass
 from Globals import package_home
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 
-from Products.CMFCore.TypesTool import typeClasses
+#from Products.CMFCore.TypesTool import typeClasses
 from Products.CMFCore.utils import getToolByName
 
 from Products.CMFCore.permissions import ManagePortal
