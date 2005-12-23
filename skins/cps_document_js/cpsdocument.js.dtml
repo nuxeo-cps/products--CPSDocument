@@ -44,6 +44,8 @@ CPSDocumentEditor.prototype = {
     this.rendered_id = rendered_id;
     this.title_id = title_id;
     this.last_error = last_error;
+    this.sender = null;
+    this.translations = translations;
 
     var edit_form = $(form_id);
     var rendered_node = $(rendered_id);
@@ -93,24 +95,6 @@ CPSDocumentEditor.prototype = {
         if (count>0) {
             this.enabled = true;
             edit_form.action = ''; // disabling direct sending
-            Ajax.Responders.register({
-            onCreate: function() {
-                if ($('ajax_psm') && Ajax.activeRequestCount>0) {
-                Position.prepare();
-                var elt = $('ajax_psm');
-                elt.innerHTML = translations.working;
-                elt.style.left = Position.deltaX + "px";
-                elt.style.top = Position.deltaY + "px";
-                Effect.Appear('ajax_psm',{duration:0.5, queue:'end'});
-                }
-            },
-            onComplete: function() {
-                if ($('ajax_psm') && Ajax.activeRequestCount==0) {
-                Effect.Fade('ajax_psm',{duration:2.5, queue:'end'});
-                }
-            }
-            });
-            this.translations = translations;
         }
         else {
             this.enabled = false;
@@ -119,21 +103,44 @@ CPSDocumentEditor.prototype = {
     }
   },
 
+  onCreate: function() {
+    if ($('ajax_psm')) {
+      Position.prepare();
+      var elt = $('ajax_psm');
+      elt.innerHTML = this.translations.working;
+      elt.style.left = Position.deltaX + "px";
+      elt.style.top = Position.deltaY + "px";
+      Effect.Appear('ajax_psm', {duration:0.5, queue:'end'});
+    }
+  },
+
+  onComplete: function() {
+    if ($('ajax_psm')) {
+      Effect.Fade('ajax_psm',{duration:0.5, queue:'end'});
+    }
+  },
+
   sendForm: function(evt) {
     if (this.enabled) {
+      this.onCreate();
       // let's serialize the content of the form
       // and send it to the server
       params = Form.serialize(this.edit_form);
       var sendFormCompletedFn = this.sendFormCompleted.bind(this);
-      var myAjax = new Ajax.Request(this.form_action, {
-         parameters: params,
-         onComplete: sendFormCompletedFn
-         });
+      var options = {parameters: params, onComplete: sendFormCompletedFn};
+      if (!this.sender) {
+        this.sender = new Ajax.Request(this.form_action, options);
+      }
+      else {
+        this.sender.setOptions(options);
+        this.sender.request(this.form_action);
+      }
     }
   },
 
   sendFormReload: function(evt) {
     if (this.enabled) {
+      this.onCreate();
       // let's serialize the content of the form
       // and send it to the server
       params = Form.serialize(this.edit_form);
@@ -141,10 +148,14 @@ CPSDocumentEditor.prototype = {
         params += '&cpsdocument_edit_and_view_button=1';
       }
       var sendFormCompletedFn = this.sendFormCompleted.bind(this);
-      var myAjax = new Ajax.Request(this.form_action, {
-         parameters: params,
-         onComplete: sendFormCompletedFn
-         });
+      var options = {parameters: params, onComplete: sendFormCompletedFn};
+      if (!this.sender) {
+        this.sender = new Ajax.Request(this.form_action, options);
+      }
+      else {
+        this.sender.setOptions(options);
+        this.sender.request(this.form_action);
+      }
     }
   },
 
@@ -203,6 +214,7 @@ CPSDocumentEditor.prototype = {
     else {
       this.gotoUrl('cpsdocument_view');
     }
+    this.onComplete();
   },
 
   gotoUrl: function(dest) {
