@@ -43,8 +43,29 @@
    </form>
 </div>
 
+testing auto-scrolling on errors:
+
+<table summary="link layout" width="100%">
+ <tbody>
+   <tr>
+    <td valign="top">URL</td>
+    <td class="row error" valign="top">
+      <input name="widget__Relation" value="dzdzdzdzdé" maxlength="4096"
+        id="widget__Relation" size="60" type="text">
+      <div>
+        <em style="color: red;">Invalid URL</em>
+      </div>
+    </td>
+   </tr>
+ </tbody>
+</table>
+
 <!-- Log output -->
 <div id="testlog"> </div>
+
+
+<div class="scrolldown"/>
+
 
 <!-- Tests follow -->
 <script type="text/javascript" language="javascript" charset="utf-8">
@@ -256,6 +277,20 @@
         assertEqual(current_title.innerHTML, 'go!');
         assertEqual(document.title, 'go!');
 
+      });
+    }},
+
+    testScroll: function() { with(this) {
+      wait(this.idle, function() {
+        var buttons = new Array();
+        buttons.push('submit1');
+        var buttons2 = new Array();
+        buttons2.push('submit2');
+
+        var editor = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main',
+                                           buttons, buttons2, 'title');
+        editor.scrollTo('scrolldown');
+        wait(500, function () {editor.scrollTo('error');});
       });
     }}
 

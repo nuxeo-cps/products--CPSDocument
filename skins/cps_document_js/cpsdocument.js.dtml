@@ -182,8 +182,7 @@ CPSDocumentEditor.prototype = {
       // need to reload form here
       this.rendered_node.innerHTML = layout;
       // we also want to scroll to the first error
-      // element = $();
-      // this.scrollTo(element);
+      this.scrollTo('error');
     }
 
     // feedback, in any case
@@ -235,5 +234,15 @@ CPSDocumentEditor.prototype = {
     if (title_node)
       title_node.innerHTML = new_title;
     document.title = new_title;
-  }
+  },
+
+  scrollTo: function(classname) {
+    elements = document.getElementsByClassName(classname, document);
+    if (elements.length>0) {
+      var element = elements[0];
+      var x = element.x ? element.x : element.offsetLeft,
+          y = element.y ? element.y : element.offsetTop;
+      window.scrollTo(x, y);
+    }
+  },
 }
