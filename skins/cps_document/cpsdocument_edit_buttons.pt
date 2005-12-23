@@ -25,7 +25,7 @@
     var editor = new CPSDocumentEditor(
                         'editForm',
                         'cpsdocument_edit_ajax',
-                        'rendered_main',
+                        'editForm',
                         new Array('cpsdocument_edit_button'),
                         new Array('cpsdocument_edit_and_view_button'),
                         'page_title',
