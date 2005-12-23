@@ -181,6 +181,9 @@ CPSDocumentEditor.prototype = {
       psm = this.translations.content_error;
       // need to reload form here
       this.rendered_node.innerHTML = layout;
+      // we also want to scroll to the first error
+      // element = $();
+      // this.scrollTo(element);
     }
 
     // feedback, in any case
