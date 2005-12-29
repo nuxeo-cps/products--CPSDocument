@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-23 17:32default\n"
+"POT-Creation-Date: 2005-12-29 16:09default\n"
 "PO-Revision-Date: 2005-05-16 02:59+0200\n"
 "Last-Translator: Julien Anguenot <anguenot@in.nuxeo.com>\n"
 "Language-Team:  <en@li.org>\n"
@@ -55,12 +55,6 @@ msgstr "nop"
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
 msgstr ""
-
-#.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
-#: from ../skins/cps_document/layout_faq_view.pt
-#: ../skins/cps_document_cmf/layout_faq_view.pt
-msgid "button_back"
-msgstr "Back"
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -128,15 +122,20 @@ msgid "heading_metadata_view"
 msgstr "Metadata"
 
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.               In this field you can give the reason for the modification
+#.               on this document. Your comments may be used to notify other users.
+#.             </div>
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.         In this filed you can give the reason of the modification that you are doing on this document.
 #.         Your comments may be used to notify other users.
 #.       </div>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
-"In this field you can give the reason for the modification "
-"on this document. Your comments may be used to notify other users."
+"In this field you can give the reason for the modification on this document. "
+"Your comments may be used to notify other users."
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
@@ -144,7 +143,7 @@ msgstr ""
 msgid "i18_key-help_for_this_field"
 msgstr ""
 
-#.   <block content="widget/label_edit" condition="widget/is_i18n">label</block>
+#.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
 #.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
 #.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
@@ -164,8 +163,8 @@ msgstr "label"
 msgid "label_zip_file"
 msgstr "ZIP File"
 
-#.   <a href="." attributes="href python:'/'+
-#.                       itemList[pos + 1].absolute_url(relative=1) +
+#.   <a href="." attributes="href python:'/'+ 
+#.                       itemList[pos + 1].absolute_url(relative=1) + 
 #.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -187,7 +186,8 @@ msgid "previous"
 msgstr "Previous"
 
 #.   <label for="comments">Reason of the modification</label>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
 msgstr "Reason for the modification"
@@ -567,6 +567,12 @@ msgstr "Flash Animation"
 msgid "portal_type_Flash_Animation_description"
 msgstr "Flash Animation (swf format)"
 
+msgid "psm_ajax_working"
+msgstr "Transferring datas"
+
+#~ msgid "button_back"
+#~ msgstr "Back"
+
 #~ msgid "button_add"
 #~ msgstr "Add"
 
@@ -584,6 +590,3 @@ msgstr "Flash Animation (swf format)"
 
 #~ msgid "label_text_to_search"
 #~ msgstr "Text to search"
-
-msgid "psm_ajax_working"
-msgstr "Transferring datas"

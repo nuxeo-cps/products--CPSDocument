@@ -1,15 +1,14 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: CPSDocument\n"
+"Project-Id-Version: CPSDocument Italian Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-23 17:32default\n"
-"PO-Revision-Date: 2004-09-30 16:17+0100\n"
-"Last-Translator: Fabio Nosari <fabnos@fastwebnet.it>\n"
-"Language-Team: Fabio NOSARI <fabnos@fastwebnet.it>\n"
+"POT-Creation-Date: 2005-12-29 16:09default\n"
+"PO-Revision-Date: 2005-11-10 09:09+0100\n"
+"Last-Translator: Stefano Schintu <schintu@gmail.com>\n"
+"Language-Team: CPS Italian <schintu@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Preferred-encodings: utf-8 latin1\n"
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
@@ -35,32 +34,26 @@ msgstr "Crea un oggetto di tipo: <br/> ${type_name}"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
-msgstr "Modifica:<br>${title}"
+msgstr "Modifica: ${title}"
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "Page ${page}"
-msgstr "Pagina:<br>${page}"
+msgstr "Pagina ${page}"
 
 #.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "Type"
-msgstr "nop"
+msgstr "Tipo"
 
 #.   <block content="type_info/Title" define="type_name request/type_name;
 #.                           type_info python:here.portal_types[type_name]">Type Title</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
-msgstr ""
-
-#.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
-#: from ../skins/cps_document/layout_faq_view.pt
-#: ../skins/cps_document_cmf/layout_faq_view.pt
-msgid "button_back"
-msgstr ""
+msgstr "Titolo del tipo"
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -77,7 +70,7 @@ msgstr "Dal"
 #.   <h2>Import ZIP File</h2>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
 msgid "cpsdoc_import_zip_title"
-msgstr ""
+msgstr "Importa file ZIP"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -111,7 +104,7 @@ msgstr "Indice:"
 #: from ../skins/cps_document/layout_imagegallery_view.pt
 #: ../skins/cps_document_cmf/layout_imagegallery_view.pt
 msgid "description_up_to"
-msgstr "Ritorna a:   ${up_id}"
+msgstr "Ritorna a: ${up_id}"
 
 #.   <block condition="metadata">heading_metadata_edit</block>
 #.   <span condition="metadata">heading_metadata_edit</span>
@@ -127,13 +120,21 @@ msgid "heading_metadata_view"
 msgstr "Visualizza i metadati"
 
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.               In this field you can give the reason for the modification
+#.               on this document. Your comments may be used to notify other users.
+#.             </div>
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.         In this filed you can give the reason of the modification that you are doing on this document.
 #.         Your comments may be used to notify other users.
 #.       </div>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
+"In questo campo puoi indicare la ragione delle modifiche che hai effettuato "
+"su questo documento. I tuoi commenti possono essere utilizzati anche per "
+"inviare una notifica agli altri utenti."
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
@@ -141,7 +142,7 @@ msgstr ""
 msgid "i18_key-help_for_this_field"
 msgstr ""
 
-#.   <block content="widget/label_edit" condition="widget/is_i18n">label</block>
+#.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
 #.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
 #.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
@@ -159,7 +160,7 @@ msgstr "etichetta"
 #.   <block>ZIP File</block>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
 msgid "label_zip_file"
-msgstr ""
+msgstr "File ZIP"
 
 #.   <a href="." attributes="href python:'/'+ 
 #.                       itemList[pos + 1].absolute_url(relative=1) + 
@@ -184,10 +185,11 @@ msgid "previous"
 msgstr "Precedente"
 
 #.   <label for="comments">Reason of the modification</label>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
-msgstr ""
+msgstr "Motivi della modifica"
 
 # generic names
 msgid "cpsdoc_title_label_edit"
@@ -205,12 +207,11 @@ msgstr "Data:"
 msgid "cpsdoc_date_label"
 msgstr "Data"
 
-#, fuzzy
 msgid "cpsdoc_attachedFile_label"
-msgstr "Fichier attaché :"
+msgstr "File allegato:"
 
 msgid "cpsdoc_preview_label_edit"
-msgstr "Miniatura di anteprima:"
+msgstr "Miniatura dell'anteprima:"
 
 msgid "cpsdoc_allow_discussion_label_edit"
 msgstr "Consenti discussione:"
@@ -264,95 +265,77 @@ msgstr "Un collegamento (URL) ad una risorsa analoga."
 msgid "label_portal_type"
 msgstr "Tipo di risorsa:"
 
-#, fuzzy
 msgid "label_subject_Arts"
-msgstr "Arts"
+msgstr "Arti"
 
 msgid "label_subject_Business"
-msgstr ""
+msgstr "Business"
 
 msgid "label_subject_Computers"
-msgstr ""
+msgstr "Computer"
 
-#, fuzzy
 msgid "label_subject_Games"
-msgstr "Jeux"
+msgstr "Giochi"
 
-#, fuzzy
 msgid "label_subject_Health"
-msgstr "Santé"
+msgstr "Salute"
 
-#, fuzzy
 msgid "label_subject_Home"
-msgstr "Maison"
+msgstr "Casa"
 
 msgid "label_subject_Kids and Teens"
-msgstr ""
+msgstr "Bambini e ragazzi"
 
-#, fuzzy
 msgid "label_subject_News"
-msgstr "Actualité"
+msgstr "Notizie"
 
-#, fuzzy
 msgid "label_subject_Recreation"
-msgstr "Loisirs"
+msgstr "Tempo libero"
 
-#, fuzzy
 msgid "label_subject_Reference"
-msgstr "Référence"
+msgstr "Referenze"
 
-#, fuzzy
 msgid "label_subject_Regional"
-msgstr "Régional"
+msgstr "Regionale"
 
-#, fuzzy
 msgid "label_subject_Science"
-msgstr "Sciences"
+msgstr "Scienze"
 
 msgid "label_subject_Shopping"
-msgstr ""
+msgstr "Acquisti"
 
-#, fuzzy
 msgid "label_subject_Society"
-msgstr "Société"
+msgstr "Società"
 
 msgid "label_subject_Sports"
-msgstr ""
+msgstr "Sport"
 
-#, fuzzy
 msgid "label_sort_by"
-msgstr "Trier par"
+msgstr "Ordina per"
 
 msgid "label_title_asc"
-msgstr ""
+msgstr "Titolo crescente"
 
-#, fuzzy
 msgid "label_title_desc"
-msgstr "Titre (décroissant)"
+msgstr "Titolo decrescente"
 
-#, fuzzy
 msgid "label_date_asc"
-msgstr "Date (croissant)"
+msgstr "Data crescente"
 
-#, fuzzy
 msgid "label_date_desc"
-msgstr "Date (décroissant)"
+msgstr "Data decrescente"
 
-#, fuzzy
 msgid "label_status_asc"
-msgstr "Statut (croissant)"
+msgstr "Stato crescente"
 
-#, fuzzy
 msgid "label_status_desc"
-msgstr "Statut (décroissant)"
+msgstr "Stato decrescente"
 
-#, fuzzy
 msgid "label_author_asc"
-msgstr "Auteur (croissant)"
+msgstr "Autore crescente"
 
-#, fuzzy
 msgid "label_author_desc"
-msgstr "Auteur (décroissant)"
+msgstr "Autore decrescente"
 
 # flex content
 msgid "cpsdoc_flex_content_title"
@@ -399,13 +382,12 @@ msgid "portal_type_Flexible_description"
 msgstr "Documento modificabile nella struttura"
 
 # default doc types
-#, fuzzy
 msgid "portal_type_Document_title"
-msgstr "Document"
+msgstr "Documento"
 
-#, fuzzy
 msgid "portal_type_Document_description"
-msgstr "Un document de base qui peut être utilisé pour créer une page HTML"
+msgstr ""
+"Un documento di base che può essere utilizzato per creare una pagina HTML"
 
 # Faq
 msgid "portal_type_FAQ_title"
@@ -456,30 +438,23 @@ msgstr "Termine"
 msgid "cpsdoc_glossary_expl_label_edit"
 msgstr "Definizione"
 
-#, fuzzy
 msgid "portal_type_NewsItem_title"
-msgstr "Nouvelle"
+msgstr "Notizia"
 
-#, fuzzy
 msgid "portal_type_NewsItem_description"
-msgstr "Une nouvelle"
+msgstr "Una notizia"
 
-#, fuzzy
 msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Sujets connexes :"
+msgstr "Temi connessi:"
 
 msgid "cpsdoc_NewsItem_label_publication_date"
 msgstr "Data di pubblicazione: "
 
-#, fuzzy
 msgid "portal_type_PressRelease_title"
-msgstr "Communiqué de presse"
+msgstr "Comunicato stampa"
 
-#, fuzzy
 msgid "portal_type_PressRelease_description"
-msgstr ""
-"Un communiqué de presse est une nouvelle spéciale destinée à la presse par "
-"le biais d'une publication formelle"
+msgstr "Un comunicato stampa"
 
 # File
 msgid "portal_type_File_title"
@@ -489,19 +464,16 @@ msgid "portal_type_File_description"
 msgstr "File allegato e indicizzabile"
 
 # default doc types
-#, fuzzy
 msgid "portal_type_ZippedHtml_title"
-msgstr "Archive Zip HTML"
+msgstr "Archivio HTML in formato ZIP"
 
-#, fuzzy
 msgid "portal_type_ZippedHtml_description"
 msgstr ""
-"Une archive zip contenant des documents au format HTML pouvant être "
-"prévisualisé"
+"Un archivio ZIP contenente documenti in formato HTML che potranno essere "
+"mostrati in anteprima"
 
-#, fuzzy
 msgid "cpsdoc_zippedhtml_label"
-msgstr "Archive zip de documents au format HTML"
+msgstr "Archivio ZIP dei documenti in formato HTML"
 
 # Event
 msgid "portal_type_Event_title"
@@ -588,41 +560,26 @@ msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Numero di elementi dell'indice presentati nella stessa pagina:"
 
 msgid "cpsdoc_book_has_search_box_label_edit"
-msgstr ""
+msgstr "Casella di ricerca"
 
 msgid "cpsdoc_book_display"
-msgstr ""
+msgstr "Modalità di visualizzazione"
 
 msgid "cpsdoc_book_display_pages"
-msgstr ""
+msgstr "In pagine separate"
 
 msgid "cpsdoc_book_display_flat"
-msgstr ""
+msgstr "In un'unica pagina"
 
 # default doc types
-#, fuzzy
 msgid "portal_type_Flash_Animation_title"
-msgstr "Animation Flash "
+msgstr "Animazione Flash "
 
-#, fuzzy
 msgid "portal_type_Flash_Animation_description"
-msgstr "Animation Flash au format swf"
+msgstr "Animazione Flash nel formato swf"
 
-msgid "button_add"
-msgstr "Ajouter"
+msgid "psm_ajax_working"
+msgstr ""
 
-msgid "button_delete"
-msgstr "Effacer"
-
-msgid "button_move_down"
-msgstr "Déplacer en dessous"
-
-msgid "button_move_up"
-msgstr "Déplacer au dessus"
-
-msgid "button_ok"
-msgstr "Ok"
-
-#, fuzzy
-msgid "label_text_to_search"
-msgstr "Texte à chercher"
+#~ msgid "button_back"
+#~ msgstr "indietro"

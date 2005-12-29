@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-23 17:32default\n"
+"POT-Creation-Date: 2005-12-29 16:09default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -55,12 +55,6 @@ msgstr "Tip"
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
 msgstr "Titlul tipului"
-
-#.   <a attributes="href string:${request/URL}#q${repeat/item/number}">back</a>
-#: from ../skins/cps_document/layout_faq_view.pt
-#: ../skins/cps_document_cmf/layout_faq_view.pt
-msgid "button_back"
-msgstr "Inapoi"
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -127,10 +121,15 @@ msgid "heading_metadata_view"
 msgstr "Proprietati comune"
 
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.               In this field you can give the reason for the modification
+#.               on this document. Your comments may be used to notify other users.
+#.             </div>
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.         In this filed you can give the reason of the modification that you are doing on this document.
 #.         Your comments may be used to notify other users.
 #.       </div>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
@@ -144,7 +143,7 @@ msgstr ""
 msgid "i18_key-help_for_this_field"
 msgstr ""
 
-#.   <block content="widget/label_edit" condition="widget/is_i18n">label</block>
+#.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
 #.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
 #.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
@@ -187,7 +186,8 @@ msgid "previous"
 msgstr "Inapoi"
 
 #.   <label for="comments">Reason of the modification</label>
-#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
 msgstr "Motivul modificarii"
@@ -313,39 +313,39 @@ msgstr "Sport"
 
 #, fuzzy
 msgid "label_sort_by"
-msgstr "Sorteaza dupa"
+msgstr "Trier par"
 
 #, fuzzy
 msgid "label_title_asc"
-msgstr "Titlu (crescator)"
+msgstr "Titre (croissant)"
 
 #, fuzzy
 msgid "label_title_desc"
-msgstr "Titlu (descrescator)"
+msgstr "Titre (décroissant)"
 
 #, fuzzy
 msgid "label_date_asc"
-msgstr "Data (crescator)"
+msgstr "Date (croissant)"
 
 #, fuzzy
 msgid "label_date_desc"
-msgstr "Data (descrescator)"
+msgstr "Date (décroissant)"
 
 #, fuzzy
 msgid "label_status_asc"
-msgstr "Statut (crescator)"
+msgstr "Statut (croissant)"
 
 #, fuzzy
 msgid "label_status_desc"
-msgstr "Statut (descrescator)"
+msgstr "Statut (décroissant)"
 
 #, fuzzy
 msgid "label_author_asc"
-msgstr "Autor (crescator)"
+msgstr "Auteur (croissant)"
 
 #, fuzzy
 msgid "label_author_desc"
-msgstr "Autor (descrescator)"
+msgstr "Auteur (décroissant)"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Bloc text"
@@ -568,11 +568,17 @@ msgstr "Intr-o singura pagina"
 # default doc types
 #, fuzzy
 msgid "portal_type_Flash_Animation_title"
-msgstr "Animatie Flash "
+msgstr "Animation Flash "
 
 #, fuzzy
 msgid "portal_type_Flash_Animation_description"
-msgstr "Animatie Flash in format swf"
+msgstr "Animation Flash au format swf"
+
+msgid "psm_ajax_working"
+msgstr ""
+
+msgid "button_back"
+msgstr "Inapoi"
 
 msgid "button_add"
 msgstr "Adauga"
@@ -591,4 +597,4 @@ msgstr "Ok"
 
 #, fuzzy
 msgid "label_text_to_search"
-msgstr "Cauta textul"
+msgstr "Texte à chercher"
