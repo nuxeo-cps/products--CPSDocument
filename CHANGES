@@ -15,4 +15,4 @@ New internal features:
 - Removed obsolete widget types registration.
 - tune #1138: cpsdocument_create_form render and empty page before redirect
 - removed left-over "Manage Boxes" action
-
+- CPS css_slot was renamed style_slot to comply with later CMF/Zope 3 standard.
