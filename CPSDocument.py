@@ -39,6 +39,10 @@ from Products.CMFCore.interfaces.DublinCore import DublinCore as IDublinCore
 from Products.CMFCore.interfaces.Contentish import Contentish as IContentish
 from Products.CMFCore.interfaces.Dynamic import DynamicType as IDynamicType
 
+from zope.interface import implements
+from Products.CPSDocument.interfaces import ICPSDocument
+
+
 SUMMARY_MAX_LEN = 418  # XXX: better get rid of magical constants
 
 class CPSDocumentMixin(ExtensionClass.Base):
@@ -416,10 +420,12 @@ class CPSDocument(CPSDocumentMixin, CMFCatalogAware, PortalFolder,
     the schemas and layouts specified in the Types Tool.
     """
 
+    implements(ICPSDocument)
+
     meta_type = 'CPS Document'
     portal_type = 'CPS Document' # To ease testing.
 
-    __implements__ = (IDublinCore, IContentish, IDynamicType)
+    #__implements__ = (IDublinCore, IContentish, IDynamicType)
 
     manage_options = (
         PortalContent.manage_options[:1] + # Dublin Core

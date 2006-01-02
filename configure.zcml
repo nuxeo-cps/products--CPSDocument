@@ -3,6 +3,27 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:five="http://namespaces.zope.org/five">
 
+  <adapter
+      factory=".exportimport.CPSDocumentXMLAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for="Products.CPSDocument.interfaces.ICPSDocument
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+
+  <adapter
+      factory=".exportimport.OFSFileBodyAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for="Products.CPSDocument.interfaces.IOFSFile
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <five:implements
+      class="OFS.Image.File"
+      interface="Products.CPSDocument.interfaces.IOFSFile"
+      />
+
+
   <five:registerClass
       class=".FlexibleTypeInformation.FlexibleTypeInformation"
       meta_type="CPS Flexible Type Information"
