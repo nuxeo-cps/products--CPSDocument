@@ -108,8 +108,10 @@ CPSDocumentEditor.prototype = {
       Position.prepare();
       var elt = $('ajax_psm');
       elt.innerHTML = this.translations.working;
-      elt.style.left = Position.deltaX + "px";
-      elt.style.top = Position.deltaY + "px";
+      //elt.style.left = Position.deltaX + "px";
+      //elt.style.top = Position.deltaY + "px";
+      this.placeMessage(900, 100);
+      this.addObserver();
       Effect.Appear('ajax_psm', {duration:0.5, queue:'end'});
     }
   },
@@ -117,6 +119,7 @@ CPSDocumentEditor.prototype = {
   onComplete: function() {
     if ($('ajax_psm')) {
       Effect.Fade('ajax_psm',{duration:0.5, queue:'end'});
+      this.removeObserver();
     }
   },
 
@@ -257,4 +260,28 @@ CPSDocumentEditor.prototype = {
       window.scrollTo(x, y);
     }
   },
+
+  addObserver: function() {
+    Event.observe(document, "mouseover", this.onHover.bindAsEventListener(this));
+  },
+
+  removeObserver: function() {
+    Event.stopObserving(document, "mouseover", this.onHover.bindAsEventListener(this));
+  },
+
+  placeMessage: function(x, y) {
+    if ($('ajax_psm')) {
+      var elt = $('ajax_psm');
+      elt.style.left = x;
+      elt.style.top = y;
+    }
+  },
+
+  onHover: function(event) {
+    x = Event.pointerX(event) + 10 + 'px';
+    y = Event.pointerY(event) + 10 + 'px';
+    this.placeMessage(x, y);
+    Event.stop(event);
+  },
+
 }
