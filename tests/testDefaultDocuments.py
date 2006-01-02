@@ -104,7 +104,6 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
 
 
     def _validateDocument(self, proxy, doc):
-        self._testInterfaces(doc)
         self._testDefaultAttributes(doc)
         self.assertEquals(doc.getAdditionalContentInfo(proxy), {})
         # Rendering / default view test (on the proxy)
@@ -163,19 +162,6 @@ class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
                                       'attr %s is %s expected %s' % (
                         attr_name, getattr(doc, attr_name),
                         attr_expected[prop_name]))
-
-    def _testInterfaces(self, doc):
-        from Interface.Verify import verifyObject
-        from Products.CMFCore.interfaces.Dynamic \
-            import DynamicType as IDynamicType
-        from Products.CMFCore.interfaces.Contentish \
-            import Contentish as IContentish
-        from Products.CMFCore.interfaces.DublinCore \
-            import DublinCore as IDublinCore
-
-        verifyObject(IDynamicType, doc)
-        verifyObject(IContentish, doc)
-        verifyObject(IDublinCore, doc)
 
     def _testRendering(self, doc, proxy):
         res = doc.render(proxy=proxy)
