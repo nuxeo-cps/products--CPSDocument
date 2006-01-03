@@ -33,13 +33,24 @@ restrictive as it does'nt allow to send simple
 types like Document, flexible, etc...
 
 */
-
 var CPSDocumentEditor = Class.create();
 
 CPSDocumentEditor.prototype = {
   initialize: function(form_id, form_action, rendered_id, buttons,
-                       reloadbuttons, title_id, translations, last_error) {
+                       reloadbuttons, title_id, translations, last_error,
+                       blockers) {
+    // if any blocker is found, we don't ajaxify
+    if (blockers) {
+      for (var i = 0; i < blockers.length; i += 1) {
+        var blocker = blockers[i];
+        if ($(blocker)) {
+          this.enabled = false;
+          return;
+        }
+      }
+    }
     this.form_id = form_id;
+    this.blockers = blockers;
     this.effects = Effect;
     this.rendered_id = rendered_id;
     this.title_id = title_id;
@@ -209,13 +220,13 @@ CPSDocumentEditor.prototype = {
     if (!action) {
       this.initialize(this.form_id, this.form_action, this.rendered_id,
                       this.buttons, this.reloadbuttons, this.title_id,
-                      this.translations, !form_result);
+                      this.translations, !form_result, this.blockers);
       if (form_result)
         this.reloadTitleFromForm();
 
     }
     else {
-      this.gotoUrl('cpsdocument_view');
+      this.gotoUrl(action);
     }
     this.onComplete();
   },

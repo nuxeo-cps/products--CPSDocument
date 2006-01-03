@@ -29,7 +29,7 @@ layout, is_valid = str(res[0]), res[1]
 layout = layout.decode('iso-8859-15').encode('utf-8')
 
 if is_valid and 'cpsdocument_edit_and_view_button' in REQUEST:
-    action = 'redirect'
+    action = 'cpsdocument_view'
 else:
     action = ''
 

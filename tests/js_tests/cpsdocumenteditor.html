@@ -60,6 +60,25 @@ testing auto-scrolling on errors:
  </tbody>
 </table>
 
+testing blocker:
+
+<form action="cpsdocumenteditor_validate1.html" id="gogogo2">
+     A: <input type="text" name="a" value="input a"/>
+     B: <input type="text" name="b" value="input b"/>
+     <input type="submit" id="submit1" value="OK1"/>
+     <input type="submit" id="submit2" value="OK2"/>
+     <input type="text" name="widget__Title" value="The title" id="widget__Title"/>
+   </form>
+   <form action="cpsdocumenteditor_validate1.html" id="withfile">
+     A: <input type="text" name="a" value="input a"/>
+     B: <input type="text" name="b" value="input b"/>
+     File: <input type="file" id="File1"/>
+
+     <input type="submit" id="submit1" value="OK1"/>
+     <input type="submit" id="submit2" value="OK2"/>
+     <input type="submit" id="BLOCK" value="OK2"/>
+   </form>
+
 <!-- Log output -->
 <div id="testlog"> </div>
 
@@ -280,17 +299,17 @@ testing auto-scrolling on errors:
       });
     }},
 
-    testScroll: function() { with(this) {
+    testBlocker: function() { with(this) {
       wait(this.idle, function() {
         var buttons = new Array();
         buttons.push('submit1');
         var buttons2 = new Array();
         buttons2.push('submit2');
-
-        var editor = new CPSDocumentEditor('gogogo', 'gagagag', 'rendered_main',
-                                           buttons, buttons2, 'title');
-        editor.scrollTo('scrolldown');
-        wait(500, function () {editor.scrollTo('error');});
+        blockers = new Array('BLOCK')
+        var editor = new CPSDocumentEditor('gogogo2', 'gagagag', 'rendered_main',
+                                           buttons, buttons2, 'title', null, null,
+                                           blockers);
+        assertEqual(editor.enabled, false);
       });
     }}
 

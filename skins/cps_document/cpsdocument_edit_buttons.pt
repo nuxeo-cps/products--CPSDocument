@@ -31,8 +31,8 @@
                         'page_title',
                         {content_changed: '${content_changed}',
                          working: '${working}',
-                         content_error: '${content_error}'}
-                         );">
+                         content_error: '${content_error}'},
+                         new Array('addwidget_button'));">
     </script>
   </tal:block>
 </metal:block>
