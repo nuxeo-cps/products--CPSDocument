@@ -1,24 +1,16 @@
-# translation of de.po to 
-# translation of en.po to German
-# Georg Hennemann <georg.hennemann@dhl.com>, 2005.
-# Julien Anguenot <anguenot@in.nuxeo.com>, 2005.
-#
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: de\n"
+"Project-Id-Version: de 3.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-29 16:09default\n"
-"PO-Revision-Date: 2005-05-16 02:58+0200\n"
-"Last-Translator: Julien Anguenot <anguenot@in.nuxeo.com>\n"
-"Language-Team:  <en@li.org>\n"
+"POT-Creation-Date: 2006-01-03 14:46default\n"
+"PO-Revision-Date: 2005-10-12 23:30+0200\n"
+"Last-Translator: Georg Hennemann <georg.hennemann@dhl.com>\n"
+"Language-Team: German <rheinland@dzug.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;X-Generator: KBabel 1.0.2\n"
-"X-Generator: KBabel 1.9.1\n"
-"Language-Code: de\n"
-"Language-Name: German\n"
-"Domain: default\n"
 
 #.   <h1 condition="creation">
 #.         Create a document of type
@@ -32,13 +24,13 @@ msgstr ""
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
-msgstr "Erstelle ein Objekt vom Typ ${type_name} "
+msgstr "Erstelle ein Dokument vom Typ ${type_name}"
 
 #.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
-msgstr "Bearbeite \"${title}\""
+msgstr "Editiere \"${title}\""
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -57,13 +49,13 @@ msgstr "nop"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
-msgstr "Typ Titel"
+msgstr ""
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
 #: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_end_label"
-msgstr "Ende Label"
+msgstr " bis  "
 
 #.   <span>from</span>
 #: from ../skins/cps_document/layout_event_view.pt
@@ -73,9 +65,8 @@ msgstr "Von  "
 
 #.   <h2>Import ZIP File</h2>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
-#, fuzzy
 msgid "cpsdoc_import_zip_title"
-msgstr "Import documents from ZIP File"
+msgstr "Importiere Dokumente aus ZIP Datei"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -94,7 +85,7 @@ msgstr "Vorherige Seite"
 #: from ../skins/cps_document/layout_page_view.pt
 #: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_toc"
-msgstr "Inhalt"
+msgstr "Inhaltsverzeichnis"
 
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
@@ -117,7 +108,7 @@ msgstr "Zurück zu ${up_id}"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "heading_metadata_edit"
-msgstr "Metadaten Bearbeiten "
+msgstr "Metadaten Bearbeiten"
 
 #.   <h1>heading_metadata_view</h1>
 #: from ../skins/cps_document/layout_metadata_view.pt
@@ -138,12 +129,14 @@ msgstr "Metadaten"
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
+"In diesem Feld können Sie die Grund der Änderung eintragen. Ihr Kommentar "
+"ist ggfs auch wertvoll für andere Teilnehmer."
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "i18_key-help_for_this_field"
-msgstr "Hilfe für dieses feld"
+msgstr ""
 
 #.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
 #.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
@@ -158,12 +151,12 @@ msgstr "Hilfe für dieses feld"
 #: ../skins/cps_document_cmf/layout_lib_div_view.pt
 #: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
-msgstr "Label"
+msgstr "Schriftzug"
 
 #.   <block>ZIP File</block>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
 msgid "label_zip_file"
-msgstr ""
+msgstr "ZIP Datei"
 
 #.   <a href="." attributes="href python:'/'+ 
 #.                       itemList[pos + 1].absolute_url(relative=1) + 
@@ -174,7 +167,7 @@ msgstr ""
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "next"
-msgstr "nächste"
+msgstr "Nächste"
 
 #.   <a href="." attributes="href python:'/'+
 #.                       itemList[pos - 1].absolute_url(relative=1) +
@@ -185,14 +178,14 @@ msgstr "nächste"
 #: from ../skins/cps_document/popup_image.pt
 #: ../skins/cps_document_cmf/popup_image.pt
 msgid "previous"
-msgstr "vorherige"
+msgstr "Vorherige"
 
 #.   <label for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
-msgstr ""
+msgstr "Grund der Änderung"
 
 msgid "cpsdoc_title_label_edit"
 msgstr "Titel: "
@@ -207,26 +200,25 @@ msgid "cpsdoc_date_label_edit"
 msgstr "Datum: "
 
 msgid "cpsdoc_date_label"
-msgstr "Datum Label"
+msgstr "Am "
 
-#, fuzzy
 msgid "cpsdoc_attachedFile_label"
-msgstr "Attached file:"
+msgstr "Angefügte Datei:"
 
 msgid "cpsdoc_preview_label_edit"
-msgstr "Icon: "
+msgstr "Minibild: "
 
 msgid "cpsdoc_allow_discussion_label_edit"
 msgstr "Erlaube Diskussion: "
 
 msgid "cpsdoc_popup_mode_label_edit"
-msgstr "Datum:"
+msgstr "Zeige Bilder in einem Popup-Fenster"
 
 msgid "cpsdoc_popup_width_label_edit"
-msgstr "Breite:"
+msgstr "Fenster Breite"
 
 msgid "cpsdoc_popup_height_label_edit"
-msgstr "Höhe:"
+msgstr "Fenster Höhe"
 
 msgid "label_source"
 msgstr "Quelle"
@@ -235,144 +227,127 @@ msgid "label_coverage"
 msgstr "Kontext"
 
 msgid "label_relation"
-msgstr "Beziehung"
+msgstr "Bezug"
 
 msgid "cpsdoc_hidden_folder"
 msgstr "Verberge diesen Folder in der Navigation"
 
 msgid "cpsdoc_hidden_folder_help"
 msgstr ""
-"Der Folder wird in der 'Folder Ansicht' verborgen. Sie können dennoch darauf "
-"zugreifen indem Sie 'Folder Inhalt' aufrufen oder bei der Auswahl eines "
-"Publikationsziels. Benutzen Sie 'Lokal Rollen' um den Zugang zu sichern."
+"Der Folder wird in der Navigation unter 'Folder Ansicht' verborgen. Sie "
+"können dennoch darauf zugreifen indem Sie 'Folder Inhalt' aufrufen oder ein "
+"etwas aus dem Folder publizieren wollen. Benutzen Sie 'Lokal Rollen' um den "
+"Zugang zum Folder zu sperren."
 
 msgid "help_dc_subject"
-msgstr "Der Themenbereich des Inhalts dieser Ressource."
+msgstr "Der Themenbereich des Inhalts dieser Ressource"
 
 msgid "help_dc_contirbutors"
-msgstr "Teilnehmer die für den Inhalt dieser Ressource verantwortlich sind."
+msgstr "Mitwirkende die für den Inhalt dieser Ressource verantwortlich sind."
 
 msgid "help_dc_source"
 msgstr ""
-"Ein Verweis auf ein Objekt oder eine Ressource von dem der Inhalt dieser "
-"Ressource abgeleitet ist."
+"Ein Verweis auf eine Ressource von dem der Inhalt dieser Ressource "
+"abgeleitet ist."
 
 msgid "help_dc_coverage"
 msgstr "Der Kontext des Inhalts dieser Ressource."
 
 msgid "help_dc_relation"
-msgstr "Beziehung zu einer verwandten Ressource."
+msgstr "Beziehung oder Verweis (URL) zu einer verwandten Ressource."
 
 msgid "label_portal_type"
 msgstr "Ressourcen Typ"
 
-#, fuzzy
 msgid "label_subject_Arts"
-msgstr "Arts"
+msgstr "Kunst"
 
 msgid "label_subject_Business"
-msgstr ""
+msgstr "Business"
 
 msgid "label_subject_Computers"
-msgstr ""
+msgstr "Computer"
 
-#, fuzzy
 msgid "label_subject_Games"
-msgstr "Games"
+msgstr "Spiele"
 
-#, fuzzy
 msgid "label_subject_Health"
-msgstr "Health"
+msgstr "Gesundheit"
 
-#, fuzzy
 msgid "label_subject_Home"
-msgstr "Home"
+msgstr "Heim"
 
 msgid "label_subject_Kids and Teens"
-msgstr ""
+msgstr "Kinder und Teenager"
 
-#, fuzzy
 msgid "label_subject_News"
-msgstr "News"
+msgstr "Nachrichten"
 
-#, fuzzy
 msgid "label_subject_Recreation"
-msgstr "Recreation"
+msgstr "Erholung"
 
-#, fuzzy
 msgid "label_subject_Reference"
-msgstr "Reference"
+msgstr "Referenz"
 
-#, fuzzy
 msgid "label_subject_Regional"
 msgstr "Regional"
 
-#, fuzzy
 msgid "label_subject_Science"
-msgstr "Science"
+msgstr "Wissen"
 
 msgid "label_subject_Shopping"
-msgstr ""
+msgstr "Einkauf"
 
-#, fuzzy
 msgid "label_subject_Society"
-msgstr "Society"
+msgstr "Gesellschaft"
 
 msgid "label_subject_Sports"
-msgstr ""
+msgstr "Sport"
 
-#, fuzzy
 msgid "label_sort_by"
-msgstr "Sort by"
+msgstr "Sortiert nach"
 
 msgid "label_title_asc"
-msgstr ""
+msgstr "Titel aufsteigend sortiert"
 
-#, fuzzy
 msgid "label_title_desc"
-msgstr "Descending title"
+msgstr "Titel absteigend sortiert"
 
-#, fuzzy
 msgid "label_date_asc"
-msgstr "Ascending date"
+msgstr "Datum aufsteigend sortiert"
 
-#, fuzzy
 msgid "label_date_desc"
-msgstr "Descending date"
+msgstr "Datum absteigend sortiert"
 
-#, fuzzy
 msgid "label_status_asc"
-msgstr "Ascending status"
+msgstr "Status aufsteigend sortiert"
 
-#, fuzzy
 msgid "label_status_desc"
-msgstr "Descending status"
+msgstr "Status absteigend sortiert"
 
-#, fuzzy
 msgid "label_author_asc"
-msgstr "Ascending author"
+msgstr "Autor aufsteigend sortiert"
 
-#, fuzzy
 msgid "label_author_desc"
-msgstr "Descending author"
+msgstr "Autor absteigend sortiert"
 
 msgid "cpsdoc_flex_content_title"
-msgstr "Text: "
+msgstr "Text Block"
 
 msgid "cpsdoc_flex_content_label_edit"
-msgstr "Text Block: "
+msgstr "Text: "
 
 msgid "cpsdoc_flex_content_right_label_edit"
-msgstr "Rechte Spalte Text: "
+msgstr "Text Rechte Spalte (optional): "
 
 msgid "cpsdoc_flex_attachedFile_title"
-msgstr "anhaftende Datei"
+msgstr "Angefügte Datei"
 
 msgid "cpsdoc_flex_attachedFile_label_edit"
-msgstr "Anhaftende Datei: "
+msgstr "Angefügte Datei: "
 
 msgid "cpsdoc_flex_attachedFile_label"
-msgstr "Anhaftende Datei: "
+msgstr "Angefügte Datei: "
 
 msgid "cpsdoc_flex_photo_title"
 msgstr "Foto"
@@ -382,75 +357,73 @@ msgstr "Foto: "
 
 # default doc types
 msgid "cpsdoc_flex_link_title"
-msgstr "Link (URL)"
+msgstr "Verweis (URL)"
 
 msgid "cpdoc_flex_link_label_edit"
-msgstr "Link Adresse: "
+msgstr "Verweis Adresse: "
 
 msgid "cpsdoc_flex_textimage_title"
-msgstr "Text und Bild Block"
+msgstr "Bild und Text Block"
 
 msgid "cpsdoc_flex_textimage_label_edit"
 msgstr "Text und Bild Block: "
 
 # default doc types
 msgid "portal_type_Flexible_title"
-msgstr "Layout Dokument"
+msgstr "Flexibles Dokument"
 
 msgid "portal_type_Flexible_description"
-msgstr "Dokument mit flexiblem Layout"
+msgstr "Flexibles Dokument!"
 
 # default doc types
-#, fuzzy
 msgid "portal_type_Document_title"
-msgstr "Document"
+msgstr "Dokument"
 
-#, fuzzy
 msgid "portal_type_Document_description"
-msgstr "A basic document that can be used to create an HTML page"
+msgstr "Ein Standard Dokument mit dem eine HTML Seite erstellt werden kann"
 
 # default doc types
 msgid "portal_type_FAQ_title"
-msgstr "FAQ's (Oft gestellte Fragen und Antworten)"
+msgstr "FAQ (Häufige Frage)"
 
 msgid "portal_type_FAQ_description"
-msgstr "Eine Sammlung von FAQs"
+msgstr "Ein Sammlung von häufig gestellten Fragen"
 
 # default doc types
 msgid "portal_type_FAQitem_title"
-msgstr "FAQ Titel"
+msgstr "Eine oft gestellte Frage"
 
 msgid "portal_type_FAQitem_description"
-msgstr "FAQ Frage & Antwort"
+msgstr "Frage / Antwort"
 
 msgid "cpsdoc_faq_question_label_edit"
 msgstr "Frage: "
 
 msgid "cpsdoc_faq_long_question_label_edit"
-msgstr "Frage vollständig: "
+msgstr "Frage detailiert: "
 
 msgid "cpsdoc_faq_answer_label_edit"
 msgstr "Antwort: "
 
 msgid "cpsdoc_faq_answer_label"
-msgstr "Antwort vollständig: "
+msgstr "Antwort detailiert: "
 
 # default doc types
 msgid "portal_type_Glossary_title"
 msgstr "Glossar"
 
 msgid "portal_type_Glossary_description"
-msgstr "Eine Sammlung alphabetisch geordneter Begriffsdefinitionen"
+msgstr "Eine Register mit alphabetisch sortierten Begriffserklärungen"
 
 # default doc types
 msgid "portal_type_GlossaryItem_title"
 msgstr "Glossar Eintrag"
 
 msgid "portal_type_GlossaryItem_description"
-msgstr "Begriffdefinition (für Glossare)"
+msgstr "Eine Begriffsdefinition innerhalb des Glossars"
 
 msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Zeige alle Einträge wenn kein Buchstabe ausgewählt wurde"
+msgstr "Zeige alle Glossar Einträge wenn kein Buchstabe ausgewählt wurde"
 
 msgid "cpsdoc_glossary_term_label_edit"
 msgstr "Eintrag"
@@ -458,58 +431,51 @@ msgstr "Eintrag"
 msgid "cpsdoc_glossary_expl_label_edit"
 msgstr "Definition"
 
-#, fuzzy
 msgid "portal_type_NewsItem_title"
-msgstr "News item"
+msgstr "Nachricht"
 
-#, fuzzy
 msgid "portal_type_NewsItem_description"
-msgstr "A news item document"
+msgstr "Ein Nachrichten Dokument"
 
-#, fuzzy
 msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Related subjects:"
+msgstr "Verwandte Themen:"
 
-#, fuzzy
 msgid "cpsdoc_NewsItem_label_publication_date"
-msgstr "Publication date:"
+msgstr "Erscheinungs Datum:"
 
-#, fuzzy
 msgid "portal_type_PressRelease_title"
-msgstr "Press Release"
+msgstr "Presse-Mitteilung"
 
-#, fuzzy
 msgid "portal_type_PressRelease_description"
 msgstr ""
-"A Press Release is a special News aimed at the press through formal "
-"publication"
+"Eine Presse-Mitteilung ist eine spezielle Nachricht für die Presse durch "
+"formale Publikation"
 
 # default doc types
 msgid "portal_type_File_title"
 msgstr "Datei"
 
 msgid "portal_type_File_description"
-msgstr "beliebige indizierbare Dateien, zB pdf-Dokumente"
+msgstr "beliebige indizierbare Datei, zB PDF- oder Word-Dokumente"
 
 # default doc types
-#, fuzzy
 msgid "portal_type_ZippedHtml_title"
-msgstr "Zipped Html File"
+msgstr "gezippte HTML Datei"
 
-#, fuzzy
 msgid "portal_type_ZippedHtml_description"
-msgstr "A zip archive that contain html, that can be preview online"
+msgstr ""
+"Ein gezipptes Archiv mit HTML-Dateien, das in einer Vorabansicht angezeigt "
+"werden kann"
 
-#, fuzzy
 msgid "cpsdoc_zippedhtml_label"
-msgstr "Html zip archive"
+msgstr "gezipptes HTML Archiv"
 
 # default doc types
 msgid "portal_type_Event_title"
-msgstr "Event"
+msgstr "Event oder Ereignis"
 
 msgid "portal_type_Event_description"
-msgstr "Ereignisse portalweit ankündigen"
+msgstr "Ereignisse oder Events portalweit ankündigen"
 
 msgid "cpsdoc_Event_start_label_edit"
 msgstr "Von: "
@@ -518,24 +484,24 @@ msgid "cpsdoc_Event_end_label_edit"
 msgstr "Bis: "
 
 msgid "cpsdoc_Event_content_label_edit"
-msgstr "Inhalt dieses Events: "
+msgstr "Inhalt dieses Events/Ereignisses: "
 
 # default doc types
 msgid "portal_type_Link_title"
-msgstr "Link"
+msgstr "Verweis"
 
 msgid "portal_type_Link_description"
-msgstr "Ein Verweis (URL) zu einer Ressource"
+msgstr "Ein Verweis (URL)"
 
 msgid "cpsdoc_Link_label_edit"
-msgstr "Link Adresse: "
+msgstr "Verweis Adresse: "
 
 # default doc types
 msgid "portal_type_Image_title"
 msgstr "Bild"
 
 msgid "portal_type_Image_description"
-msgstr "ein Bild oder ein Foto"
+msgstr "Ein Bild oder ein Foto"
 
 msgid "cpsdoc_Image_label_edit"
 msgstr "Bild: "
@@ -548,7 +514,7 @@ msgid "portal_type_ImageGallery_description"
 msgstr "Eine Sammlung von Bildern oder Fotos"
 
 msgid "cpsdoc_imgallery_width_label_edit"
-msgstr "Minibild Weite"
+msgstr "Minibild Breite"
 
 msgid "cpsdoc_imgallery_height_label_edit"
 msgstr "Minibild Höhe"
@@ -566,67 +532,60 @@ msgstr "Buch"
 msgid "portal_type_Book_description"
 msgstr "Ein spezieller Folder der Layout Dokumente seitenweise anzeigt"
 
-# default doc types
 msgid "portal_type_Page_title"
-msgstr "Buchseite"
+msgstr "Buch - Seite "
 
 msgid "portal_type_Page_description"
-msgstr "Ein Layout Dokument das als Buchseite angelegt wird"
+msgstr "Ein Layout Dokument das als Buchseite angezeigt wird"
 
-# default doc types
 msgid "portal_type_Chapter_title"
-msgstr "Buch Kapitel oder Rubrik"
+msgstr "Buch - Kapitel"
 
 msgid "portal_type_Chapter_description"
-msgstr "Ein Buch Kapitel oder eine Rubrik"
+msgstr "Ein Kapitel enthält Seiten"
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Anzahl der Einträge im Inhaltsverzeichnis pro Seite"
 
-#, fuzzy
 msgid "cpsdoc_book_has_search_box_label_edit"
-msgstr "Search Box"
+msgstr "Such Box"
 
 msgid "cpsdoc_book_display"
-msgstr ""
+msgstr "Anzeige Modus"
 
-#, fuzzy
 msgid "cpsdoc_book_display_pages"
-msgstr "With separate pages"
+msgstr "Mit separaten Seiten"
 
-#, fuzzy
 msgid "cpsdoc_book_display_flat"
-msgstr "Flat view"
+msgstr "Gesamt Ansicht"
 
 # default doc types
-#, fuzzy
 msgid "portal_type_Flash_Animation_title"
 msgstr "Flash Animation"
 
-#, fuzzy
 msgid "portal_type_Flash_Animation_description"
-msgstr "Flash Animation (swf format)"
+msgstr "Flash Animation (im swf-Format)"
 
 msgid "psm_ajax_working"
 msgstr ""
 
-msgid "button_back"
-msgstr "Back"
+#~ msgid "button_back"
+#~ msgstr "Zurück"
 
-msgid "button_add"
-msgstr "Add"
+#~ msgid "button_add"
+#~ msgstr "Add"
 
-msgid "button_delete"
-msgstr "Delete"
+#~ msgid "button_delete"
+#~ msgstr "Delete"
 
-msgid "button_move_down"
-msgstr "Move down"
+#~ msgid "button_move_down"
+#~ msgstr "Move down"
 
-msgid "button_move_up"
-msgstr "Move up"
+#~ msgid "button_move_up"
+#~ msgstr "Move up"
 
-msgid "button_ok"
-msgstr "Ok"
+#~ msgid "button_ok"
+#~ msgstr "Ok"
 
-msgid "label_text_to_search"
-msgstr "Text to search"
+#~ msgid "label_text_to_search"
+#~ msgstr "Text to search"
