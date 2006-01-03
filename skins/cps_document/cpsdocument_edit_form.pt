@@ -8,6 +8,8 @@
 <metal:block use-macro="here/content_lib_master/macros/master">
   <metal:block fill-slot="style_slot">
     <link rel="Stylesheet" type="text/css" href=""
+      tal:attributes="href string:${base_url}schemas.css" />
+    <link rel="Stylesheet" type="text/css" href=""
       tal:attributes="href string:${base_url}document.css" />
 
     <metal:block define-macro="widgets_javascript">
@@ -25,6 +27,8 @@
       tal:attributes="src string:${base_url}prototype.js"></script>
     <script type="text/javascript" src="effects.js"
       tal:attributes="src string:${base_url}effects.js"></script>
+    <script type="text/javascript" src="cpsdocument.js"
+      tal:attributes="src string:${base_url}cpsdocument.js"></script>
     <script type="text/javascript" src="cpsdocument.js"
       tal:attributes="src string:${base_url}cpsdocument.js"></script>
     <tal:block condition="python:modules['Products.CPSUtil.integration'].isProductPresent('Products.FCKeditor')">
