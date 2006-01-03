@@ -1,10 +1,9 @@
-<tal:block define="
-    rendered_main python:here.cpsdocument_edit_render(request=request);
-    creation python:False;
-    edition python:True;
-    metadata metadata|nothing;
-    ">
-<metal:block define-macro="edit_form">
+<metal:block define-macro="edit_form"
+	     tal:define="rendered_main python:here.cpsdocument_edit_render(request=request);
+			 creation python:False;
+			 edition python:True;
+			 metadata metadata|nothing;
+			 ">
 <metal:block use-macro="here/content_lib_master/macros/master">
   <metal:block fill-slot="style_slot">
     <link rel="Stylesheet" type="text/css" href=""
@@ -129,4 +128,3 @@
 
 </metal:block>
 </metal:block>
-</tal:block>
