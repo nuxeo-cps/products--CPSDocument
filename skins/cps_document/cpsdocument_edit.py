@@ -1,4 +1,4 @@
-##parameters=REQUEST, cluster=None, cpsdocument_edit_and_view_button=None
+##parameters=REQUEST, cluster=None, cpsdocument_edit_and_view_button=None, action=None
 # $Id$
 """
 Called when a document form is posted.
@@ -30,7 +30,8 @@ doc = context.getContent()
 is_valid, ds = doc.validate(request=REQUEST, proxy=context, cluster=cluster,
                             use_session=True)
 
-action = '/cpsdocument_edit_form'
+if action is None:
+    action = '/cpsdocument_edit_form'
 
 if is_valid:
     comments = REQUEST.get('comments')

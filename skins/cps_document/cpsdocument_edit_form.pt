@@ -1,9 +1,11 @@
-<metal:block define-macro="edit_form"
-	     tal:define="rendered_main python:here.cpsdocument_edit_render(request=request);
-			 creation python:False;
-			 edition python:True;
-			 metadata metadata|nothing;
-			 ">
+<tal:block define="
+    rendered_main python:here.cpsdocument_edit_render(request=request);
+    form_action string:cpsdocument_edit;
+    creation python:False;
+    edition python:True;
+    metadata metadata|nothing;
+    ">
+<metal:block define-macro="edit_form">
 <metal:block use-macro="here/content_lib_master/macros/master">
   <metal:block fill-slot="style_slot">
     <link rel="Stylesheet" type="text/css" href=""
@@ -81,8 +83,7 @@
   <metal:block fill-slot="main">
     <form action="ACTION" method="post" id="editForm"
           enctype="multipart/form-data" class="workflow"
-          tal:attributes="action python:creation and 'cpsdocument_create'
-                                                  or 'cpsdocument_edit'">
+          tal:attributes="action form_action">
       <div class="group">
         <div class="documentFields">
           <tal:block define="getFormUidHtml nocall:modules/Products.CPSDocument.utils/getFormUidHtml"
@@ -128,3 +129,4 @@
 
 </metal:block>
 </metal:block>
+</tal:block>

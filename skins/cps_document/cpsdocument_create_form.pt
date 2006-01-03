@@ -2,6 +2,7 @@
     type_name request/type_name;
     rendered_main python:here.cpsdocument_create_render(request=request,
                                                         type_name=type_name);
+    form_action string:cpsdocument_create;
     creation python:True;
     edition python:False;
     ">

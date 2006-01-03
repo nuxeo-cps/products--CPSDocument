@@ -13,6 +13,7 @@ Bug fixes:
 - fix FTI.renderObject() bug. was constructing the data model without
 associated context
 - Fixed #671: The text area used for editing wiki pages should use monospaced
+- Fixed metadata edit pages.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Removed obsolete widget types registration.
