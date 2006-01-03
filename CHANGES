@@ -10,6 +10,8 @@ Bug fixes:
 - #1130: fixed Export tab in FTI to get correct workflows.
 - #967: CPSDocument image preview is not compliant with virtual hosting correct management
 - #889: fixed broken upgrade function for flexible attachements
+- fix FTI.renderObject() bug. was constructing the data model without
+associated context
 - Fixed #671: The text area used for editing wiki pages should use monospaced
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~

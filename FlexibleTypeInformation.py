@@ -739,7 +739,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         ``context`` is used to find the layout method.
         """
         proxy = kw.get('proxy')
-        dm = self.getDataModel(ob, proxy=proxy)
+        dm = self.getDataModel(ob, proxy=proxy, context=context)
         ds = DataStructure(datamodel=dm)
 
         layout_structures = self._computeLayoutStructures(
