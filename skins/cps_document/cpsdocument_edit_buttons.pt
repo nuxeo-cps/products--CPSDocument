@@ -19,7 +19,7 @@
       content_error python:cpsmcat('psm_content_error');
       working python:cpsmcat('psm_ajax_working')"
              condition="edition">
-    <script type="text/javascript" language="javascript"
+    <script type="text/javascript"
             tal:content="string:
     // unobtrusive form controller, that leaves the form accessible
     var editor = new CPSDocumentEditor(
