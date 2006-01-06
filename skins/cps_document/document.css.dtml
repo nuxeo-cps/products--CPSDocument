@@ -14,6 +14,8 @@ $Id$
 <dtml-with stylesheet_properties>
 */
 
+<dtml-var schemas.css>
+
 <dtml-comment>
 The "documentFields" class is used to group together the fields pertaining to a
 document. This is a stricter grouping scheme than the one defined by the
@@ -162,8 +164,6 @@ div.ddescription {
   padding: 8px;
   border: 1px solid black;
 }
-
-<dtml-var schemas.css>
 
 /* hack for IE6 bugs */
 /* Hides from IE5-mac \*/
