@@ -1,7 +1,8 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    xmlns:five="http://namespaces.zope.org/five">
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:cps="http://namespaces.nuxeo.org/cps">
 
   <adapter
       factory=".exportimport.CPSDocumentXMLAdapter"
@@ -43,5 +44,17 @@
         />
 
   </configure>
+
+  <cps:upgradeStep
+      title="Fix flexible documents with subobjects"
+      source="3.3.5" destination="3.3.6"
+      handler=".upgrade.upgrade_335_336_fix_broken_flexible"
+      />
+
+  <cps:upgradeStep
+      title="Upgrade flash animations"
+      source="3.3.6" destination="3.3.7"
+      handler=".upgrade.upgrade_336_337_anim_flash"
+      />
 
 </configure>

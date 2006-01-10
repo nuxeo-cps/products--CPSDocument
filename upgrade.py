@@ -17,7 +17,11 @@
 #
 # $Id$
 
+from zLOG import LOG, DEBUG
+from Acquisition import aq_base
 from Products.CMFCore.utils import getToolByName
+
+_marker = object()
 
 def upgrade_334_335_allowct_sections(context):
     ttool = getToolByName(context, 'portal_types')
@@ -34,11 +38,11 @@ def upgrade_334_335_allowct_sections(context):
 def upgrade_335_336_fix_broken_flexible(context):
     """Fix broken flexible attachement fields
 
-    The _objects attribute of docs with flexible content might be broken because
-    of the use of the 'delattr' function instead of 'manage_delObjects' when
-    deleting flexible fields.
+    The _objects attribute of docs with flexible content might be broken
+    because of the use of the 'delattr' function instead of
+    'manage_delObjects' when deleting flexible fields.
 
-    This is related to ticket:889
+    This is related to ticket #889.
     """
     repository = getToolByName(context, 'portal_repository')
     fixed_fields = 0
@@ -47,7 +51,7 @@ def upgrade_335_336_fix_broken_flexible(context):
             continue
         new_objects = []
         for ob in doc._objects:
-            if not hasattr(doc, ob['id']):
+            if getattr(aq_base(doc), ob['id'], None) is None:
                 fixed_fields += 1
             else:
                 new_objects.append(ob)
@@ -55,20 +59,17 @@ def upgrade_335_336_fix_broken_flexible(context):
     return "CPSDocument updated: fixed %d broken flexible fields" % fixed_fields
 
 def upgrade_336_337_anim_flash(context):
-    """ Upgrade all Flash anims
+    """Upgrade all Flash Animations.
 
-    the field that contains the file, named 'preview'
-    is beeing moved to 'flash_file'
+    The field 'preview' that contains the file is moved to 'flash_file'.
     """
     repository = getToolByName(context, 'portal_repository')
-
     fixed_files = 0
-
     for doc in repository.values():
-        if (hasattr(doc, 'portal_type') and
-            doc.portal_type == 'Flash Animation'):
-            if not hasattr(doc, 'flash_file') and hasattr(doc, 'preview'):
+        bdoc = aq_base(doc)
+        if getattr(bdoc, 'portal_type', None) == 'Flash Animation':
+            if (getattr(bdoc, 'preview', _marker) is not _marker and
+                getattr(bdoc, 'flash_file', _marker) is _marker):
                 doc.manage_renameObject('preview', 'flash_file')
                 fixed_files += 1
-
     return "CPSDocument updated: fixed %d flash anims" % fixed_files
