@@ -39,7 +39,7 @@
         for="zope.app.container.interfaces.IAdding"
         name="addFlexibleTypeInformation.html"
         template="addWithPresettings.pt"
-        class=".browser.typeinfo.FlexibleTypeInformationAddView"
+        class="Products.CPSDocument.browser.typeinfo.FlexibleTypeInformationAddView"
         permission="cmf.ManagePortal"
         />
 
