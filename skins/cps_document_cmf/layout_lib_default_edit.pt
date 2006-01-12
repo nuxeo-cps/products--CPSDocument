@@ -50,7 +50,7 @@
           </div>
           <button type="button" class="tooltipControl"
                 tal:condition="widget/help"
-		tal:attributes="onclick python:'toggleElementVisibility(\'%s\')' % tooltip_id;"
+        tal:attributes="onclick python:'toggleElementVisibility(\'%s\')' % tooltip_id;"
           > ? </button>
           <div class="field">
             <div tal:replace="structure cell/widget_rendered"/>
@@ -111,7 +111,7 @@
     </tal:block>
   </select>
   <input type="submit" name="addwidget_button" value="button_add"
-   class="context"
+   class="context" id="addwidget_button"
    i18n:attributes="value" />
 </div>
 </tal:block>

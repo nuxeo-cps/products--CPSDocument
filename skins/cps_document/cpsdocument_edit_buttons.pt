@@ -32,6 +32,7 @@
                         {content_changed: '${content_changed}',
                          working: '${working}',
                          content_error: '${content_error}'},
+                         null,
                          new Array('addwidget_button'));">
     </script>
   </tal:block>
