@@ -7,7 +7,7 @@
   <adapter
       factory=".exportimport.CPSDocumentXMLAdapter"
       provides="Products.GenericSetup.interfaces.IBody"
-      for="Products.CPSDocument.interfaces.ICPSDocument
+      for=".interfaces.ICPSDocument
            Products.GenericSetup.interfaces.ISetupEnviron"
       />
 
@@ -15,13 +15,13 @@
   <adapter
       factory=".exportimport.OFSFileBodyAdapter"
       provides="Products.GenericSetup.interfaces.IBody"
-      for="Products.CPSDocument.interfaces.IOFSFile
+      for=".interfaces.IOFSFile
            Products.GenericSetup.interfaces.ISetupEnviron"
       />
 
   <five:implements
       class="OFS.Image.File"
-      interface="Products.CPSDocument.interfaces.IOFSFile"
+      interface=".interfaces.IOFSFile"
       />
 
 
@@ -39,7 +39,7 @@
         for="zope.app.container.interfaces.IAdding"
         name="addFlexibleTypeInformation.html"
         template="addWithPresettings.pt"
-        class="Products.CPSDocument.browser.typeinfo.FlexibleTypeInformationAddView"
+        class=".browser.typeinfo.FlexibleTypeInformationAddView"
         permission="cmf.ManagePortal"
         />
 
