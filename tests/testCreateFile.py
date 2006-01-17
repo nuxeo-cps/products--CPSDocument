@@ -1,11 +1,12 @@
 # $Id$
 
 import unittest, os, StringIO
-import CPSDocumentTestCase
+from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
+
 from Products.CPSDocument.createFile import createFile
 
 
-class TestCreateFile(CPSDocumentTestCase.CPSDocumentTestCase):
+class TestCreateFile(CPSTestCase):
     def afterSetUp(self):
         try:
             self.login('manager')

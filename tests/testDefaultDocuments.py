@@ -12,7 +12,8 @@ from pprint import pprint
 import unittest
 from DateTime import DateTime
 from Testing import ZopeTestCase
-import CPSDocumentTestCase
+from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
+
 from Products.CPSSchemas.Widget import widgetname
 from Products.CMFCore.utils import _getViewFor
 
@@ -39,7 +40,7 @@ def randomText(max_len=10):
         [chr(random.randint(32, 128)) for i in range(0, max_len)])
 
 
-class TestDocuments(CPSDocumentTestCase.CPSDocumentTestCase):
+class TestDocuments(CPSTestCase):
     def afterSetUp(self):
         try:
             self.login('manager')

@@ -25,9 +25,9 @@ import unittest
 from Acquisition import aq_base
 from OFS.Image import File
 
-import CPSDocumentTestCase
+from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
 
-class TestCPSDocument(CPSDocumentTestCase.CPSDocumentTestCase):
+class TestCPSDocument(CPSTestCase):
 
     def test_get_add_content_info_virtual_hosting(self):
         # http://svn.nuxeo.org/trac/pub/ticket/967
