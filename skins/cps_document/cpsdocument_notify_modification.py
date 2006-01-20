@@ -16,7 +16,9 @@ while current.portal_type != 'Portal':
         break
     current = current.aq_inner.aq_parent
 
-if in_workspace:
+# Only CPS Proxy Documents and friends have a workflow (this is not the case
+# for other CPSDocument instances such as portlets)
+if in_workspace and context.meta_type.startswith('CPS Proxy'):
     from Products.CMFCore.utils import getToolByName
     from Products.CMFCore.WorkflowCore import WorkflowException
     wftool = getToolByName(context, 'portal_workflow')

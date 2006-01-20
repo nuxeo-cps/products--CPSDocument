@@ -14,6 +14,7 @@ Bug fixes:
 associated context
 - Fixed #671: The text area used for editing wiki pages should use monospaced
 - Fixed metadata edit pages.
+- Fixed #1293: fixed WF problem when editing portlets in the wokspaces
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Removed obsolete widget types registration.
