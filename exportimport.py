@@ -19,10 +19,6 @@
 """CPSDocument XML Adapter.
 """
 
-import cgi
-from TAL.TALDefs import attrEscape
-from xml.dom.minidom import Node
-
 from zope.app import zapi
 from zope.component import adapts
 from zope.interface import implements
@@ -35,8 +31,6 @@ from Products.CMFCore.utils import getToolByName
 from Products.GenericSetup.utils import BodyAdapterBase
 from Products.GenericSetup.utils import XMLAdapterBase
 from Products.GenericSetup.utils import ObjectManagerHelpers
-from Products.GenericSetup.utils import _LineWrapper
-from Products.GenericSetup.utils import _Element
 from Products.GenericSetup.interfaces import INode
 from Products.GenericSetup.interfaces import IBody
 from Products.GenericSetup.interfaces import ISetupEnviron
@@ -301,9 +295,6 @@ class OFSFileBodyAdapter(BodyAdapterBase):
         self._logger.log(VERBOSE, msg)
 
     body = property(_exportBody, _importBody)
-
-
-
 
 
 def getCPSObjectValues(parent):
