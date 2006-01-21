@@ -41,6 +41,8 @@ from Products.GenericSetup.interfaces import INode
 from Products.GenericSetup.interfaces import IBody
 from Products.GenericSetup.interfaces import ISetupEnviron
 from Products.CPSDocument.CPSDocument import CPSDocumentMixin
+from Products.CPSUtil.genericsetup import StrictTextElement
+from Products.CPSUtil.genericsetup import getExactNodeText
 
 from OFS.interfaces import IOrderedContainer
 from Products.CPSDocument.interfaces import ICPSDocument
@@ -245,60 +247,12 @@ class CPSDocumentXMLAdapter(XMLAdapterBase, CPSObjectManagerHelpers):
 
         Returns unicode.
         """
-        texts = []
-        for child in node.childNodes:
-            if child.nodeName != '#text':
-                continue
-            texts.append(child.nodeValue)
-        text = ''.join(texts)
-        return text
+        return getExactNodeText(node)
 
     def createStrictTextElement(self, tagName):
         e = StrictTextElement(tagName)
         e.ownerDocument = self._doc
         return e
-
-
-class StrictTextElement(_Element):
-    """GenericSetup _Element but with stricter text node output.
-
-    Text nodes are exported exactly as is, without added whitespace.
-    """
-
-    def writexml(self, writer, indent="", addindent="", newl=""):
-        # indent = current indentation
-        # addindent = indentation to add to higher levels
-        # newl = newline string
-        wrapper = _LineWrapper(writer, indent, addindent, newl, 78)
-        wrapper.write('<%s' % self.tagName)
-
-        # move 'name', 'meta_type' and 'title' to the top, sort the rest
-        attrs = self._get_attributes()
-        a_names = attrs.keys()
-        a_names.sort()
-        for special in ('title', 'meta_type', 'name'):
-            if special in a_names:
-                a_names.remove(special)
-                a_names.insert(0, special)
-
-        for a_name in a_names:
-            wrapper.write()
-            a_value = attrEscape(attrs[a_name].value)
-            wrapper.queue(' %s="%s"' % (a_name, a_value))
-
-        if self.childNodes:
-            wrapper.queue('>')
-            for node in self.childNodes:
-                if node.nodeType == Node.TEXT_NODE:
-                    data = cgi.escape(node.data)
-                    # Here, simplified output, just queue the data
-                    wrapper.queue(data)
-                else:
-                    wrapper.write('', True)
-                    node.writexml(writer, indent+addindent, addindent, newl)
-            wrapper.write('</%s>' % self.tagName, True)
-        else:
-            wrapper.write('/>', True)
 
 
 class OFSFileBodyAdapter(BodyAdapterBase):
