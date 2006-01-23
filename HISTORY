@@ -1,4 +1,34 @@
 *******************************************
+** CPSDocument V0.39.0 [R1 build 2006/01/23-17:27 by fermigier]
+** SVN URL: https://svn.nuxeo.org/pub/CPSDocument/trunk Revision: 31976
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- Added a graceful degradation AJAX-based form validation
+  for forms that does not contains a file type input field
+Bug fixes:
+~~~~~~~~~~
+- #1130: fixed Export tab in FTI to get correct workflows.
+- #967: CPSDocument image preview is not compliant with virtual hosting correct management
+- #889: fixed broken upgrade function for flexible attachements
+- fix FTI.renderObject() bug. was constructing the data model without
+  associated context
+- Fixed #671: The text area used for editing wiki pages should use monospaced
+- Fixed metadata edit pages.
+- Fixed #1293: fixed WF problem when editing portlets in the wokspaces
+- Make explicit checks on CPSForum product installation for comments viewing
+  inline.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Removed obsolete widget types registration.
+- tune #1138: cpsdocument_create_form render and empty page before redirect
+- removed left-over "Manage Boxes" action
+- CPS css_slot was renamed style_slot to comply with later CMF/Zope 3 standard.
+- Added a CSS file dedicated to CPSSchemas.
+
+*******************************************
 ** CPSDocument V0.38.0 [R1 build 2005/11/08-16:54 by fguillaume]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSDocument/trunk Revision: 29274
 Requires:
