@@ -18,10 +18,10 @@
     </div>
 
     <tal:block
-      define="integration python:modules['Products.CPSUtil.integration']"
-      condition="python:integration.isProductPresent('Products.CPSForum')">
+      define="dtool nocall:here/portal_discussion|nothing"
+      condition="python:dtool and dtool.meta_type == 'CPS Discussion Tool'">
       <tal:block tal:define="comments_allowed
-        python:here.portal_discussion.isCommentingAllowedFor(here);"
+        python:dtool.isCommentingAllowedFor(here);"
         tal:condition="comments_allowed">
         <metal:block
           use-macro="here/forum_comment_lib_view_comments_inline/macros/view_comments_inline" />
