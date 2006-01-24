@@ -169,12 +169,15 @@ class TestDocuments(CPSTestCase):
         self.assert_(res)
 
     def _testMetadataRendering(self, doc, proxy):
-        res = doc.renderEditDetailed(request=None, proxy=proxy,
-                                     layout_id='metadata')
+        res = doc.render(request=None, proxy=proxy, layout_mode='view',
+                         cluster='metadata')
+        self.assert_(res)
+        res = doc.render(request=None, proxy=proxy, layout_mode='edit',
+                         cluster='metadata')
         self.assert_(res)
 
     def _testEditRendering(self, doc, proxy):
-        res = doc.renderEditDetailed(request=None, proxy=proxy)
+        res = doc.render(request=None, proxy=proxy, layout_mode='edit')
         self.assert_(res)
 
 
