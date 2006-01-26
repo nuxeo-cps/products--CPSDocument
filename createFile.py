@@ -30,7 +30,7 @@ from zipfile import ZipFile, BadZipfile
 from StringIO import StringIO
 from zExceptions import BadRequest
 from Products.CPSCore.EventServiceTool import getEventService
-
+from Products.CPSUtil.id import generateFileName
 
 ModuleSecurityInfo('Products.CPSDocument.createFile').declarePublic('createFile')
 
@@ -66,7 +66,7 @@ def createFile(context, zip_file):
             continue
         data = zipfile.read(path)
         # Acquiring only the filename (without the directory path)
-        path_filename = path.split('/')[-1]
+        path_filename = generateFileName(path.split('/')[-1])
         try:
             file_id = context.portal_workflow.invokeFactoryFor(
                      context, 'File', path_filename)

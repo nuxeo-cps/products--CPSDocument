@@ -2,6 +2,8 @@
                    emptybody python:1;
                    rendered_main python: res[0];
                    portal_status_message python: res[1];
+                   form_action string:cpsdocument_import_zip;
+                   edition python:False;
                    creation python:1;
   ">
   <metal:block use-macro="here/cpsdocument_edit_form/macros/edit_form" />

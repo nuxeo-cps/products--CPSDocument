@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Fix zip archive import: crashed if the zip contained filenames with accented 
+  characters
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
