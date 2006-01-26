@@ -391,7 +391,7 @@ msgstr "Un document dont la structure peut être modifiée"
 
 # default doc types
 msgid "portal_type_Document_title"
-msgstr "Document"
+msgstr "Document Web"
 
 msgid "portal_type_Document_description"
 msgstr "Un document de base qui peut être utilisé pour créer une page HTML"

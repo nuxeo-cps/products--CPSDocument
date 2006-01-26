@@ -380,7 +380,7 @@ msgstr "Flexible document!"
 
 # default doc types
 msgid "portal_type_Document_title"
-msgstr "Document"
+msgstr "Web Document"
 
 msgid "portal_type_Document_description"
 msgstr "A basic document that can be used to create an HTML page"
