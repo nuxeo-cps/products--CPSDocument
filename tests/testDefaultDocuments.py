@@ -114,7 +114,7 @@ class TestDocuments(CPSTestCase):
         # Normal View
         view = _getViewFor(proxy)
         self.assert_(view())
-        self.assert_(self.isValidXML(doc.exportAsXML(proxy=proxy)))
+        self.assertWellFormedXML(doc.exportAsXML(proxy=proxy), "exportAsXML")
 
     # Standard conversion to attributes for special metadata schema.
     field_to_attr = {
