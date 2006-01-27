@@ -15,10 +15,11 @@
          id="cpsdocument_create_button"
          tal:condition="creation" />
   <tal:block define="
+      use_ajax use_ajax|python:True;
       content_changed python:cpsmcat('psm_content_changed');
       content_error python:cpsmcat('psm_content_error');
       working python:cpsmcat('psm_ajax_working')"
-             condition="edition">
+             condition="python:edition and use_ajax">
     <script type="text/javascript"
             tal:content="string:
     // unobtrusive form controller, that leaves the form accessible

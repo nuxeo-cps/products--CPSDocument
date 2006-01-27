@@ -13,13 +13,12 @@ A form uid is propagated during the redirect to uniquely identify the
 form in the session.
 """
 
+from urllib import urlencode
+from Products.CPSDocument.utils import getFormUidUrlArg
+
 # Until ajax posts directly to its own script...
 if 'ajax_edit' in REQUEST.form:
     return self.cpsdocument_edit_ajax(REQUEST, cluster=cluster)
-
-
-from urllib import urlencode
-from Products.CPSDocument.utils import getFormUidUrlArg
 
 # Check flexible controls
 context.editLayouts(REQUEST=REQUEST)
