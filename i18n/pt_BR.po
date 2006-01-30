@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-03 14:46default\n"
+"POT-Creation-Date: 2006-01-30 18:58default\n"
 "PO-Revision-Date: 2005-09-29 14:44-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
@@ -351,6 +351,18 @@ msgstr "Documento anexado:"
 msgid "cpsdoc_flex_attachedFile_label"
 msgstr "Documento anexado"
 
+#, fuzzy
+msgid "cpsdoc_flex_flash_title"
+msgstr "Flash Animation"
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label_edit"
+msgstr "Flash Animation: "
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label"
+msgstr "Flash Animation: "
+
 msgid "cpsdoc_flex_photo_title"
 msgstr "Foto"
 
@@ -571,5 +583,23 @@ msgstr "Animação em MacroMedia Flash"
 msgid "psm_ajax_working"
 msgstr ""
 
-#~ msgid "button_back"
-#~ msgstr "Voltar"
+msgid "button_back"
+msgstr "Voltar"
+
+msgid "button_add"
+msgstr "Add"
+
+msgid "button_delete"
+msgstr "Delete"
+
+msgid "button_move_down"
+msgstr "Move down"
+
+msgid "button_move_up"
+msgstr "Move up"
+
+msgid "button_ok"
+msgstr "Ok"
+
+msgid "label_text_to_search"
+msgstr "Text to search"

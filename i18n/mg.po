@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-03 14:46default\n"
+"POT-Creation-Date: 2006-01-30 18:58default\n"
 "PO-Revision-Date: 2004-11-25 13:38+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -375,6 +375,18 @@ msgstr "Sary na antotandahatsoratra alefa : "
 msgid "cpsdoc_flex_attachedFile_label"
 msgstr "Sary na antotandahatsoratra alefa : "
 
+#, fuzzy
+msgid "cpsdoc_flex_flash_title"
+msgstr "Animation Flash"
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label_edit"
+msgstr "Animation Flash : "
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label"
+msgstr "Animation Flash : "
+
 msgid "cpsdoc_flex_photo_title"
 msgstr "Sary "
 
@@ -405,7 +417,7 @@ msgstr "Antotandahatsoratra azo ovaina"
 # default doc types
 #, fuzzy
 msgid "portal_type_Document_title"
-msgstr "Document"
+msgstr "Document Web"
 
 #, fuzzy
 msgid "portal_type_Document_description"

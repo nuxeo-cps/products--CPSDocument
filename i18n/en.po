@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-03 14:46default\n"
+"POT-Creation-Date: 2006-01-30 18:58default\n"
 "PO-Revision-Date: 2005-05-16 02:59+0200\n"
 "Last-Translator: Julien Anguenot <anguenot@in.nuxeo.com>\n"
 "Language-Team:  <en@li.org>\n"
@@ -351,6 +351,15 @@ msgstr "Attached file: "
 
 msgid "cpsdoc_flex_attachedFile_label"
 msgstr "Attached file: "
+
+msgid "cpsdoc_flex_flash_title"
+msgstr "Flash Animation"
+
+msgid "cpsdoc_flex_flash_label_edit"
+msgstr "Flash Animation: "
+
+msgid "cpsdoc_flex_flash_label"
+msgstr "Flash Animation: "
 
 msgid "cpsdoc_flex_photo_title"
 msgstr "Photo"

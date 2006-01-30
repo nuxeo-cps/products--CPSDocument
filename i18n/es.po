@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-03 14:46default\n"
+"POT-Creation-Date: 2006-01-30 18:58default\n"
 "PO-Revision-Date: 2005-05-27 10:55+0100\n"
 "Last-Translator: Jesús <jesusmartin@lasalle.es>\n"
 "Language-Team: español <jesusmartin@lasalle.es>\n"
@@ -384,6 +384,18 @@ msgstr "Fichero adjunto:"
 
 msgid "cpsdoc_flex_attachedFile_label"
 msgstr "Fichero adjunto:"
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_title"
+msgstr "Flash Animation"
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label_edit"
+msgstr "Flash Animation: "
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label"
+msgstr "Flash Animation: "
 
 msgid "cpsdoc_flex_photo_title"
 msgstr "Imagen "

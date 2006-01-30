@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument_en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-03 14:46default\n"
+"POT-Creation-Date: 2006-01-30 18:58default\n"
 "PO-Revision-Date: 2004-10-04 16:55+0100\n"
 "Last-Translator:  <>\n"
 "Language-Team: Euskara <eu@li.org>\n"
@@ -373,6 +373,18 @@ msgstr "Fitxategi erantsia: "
 
 msgid "cpsdoc_flex_attachedFile_label"
 msgstr "Fitxategi erantsia: "
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_title"
+msgstr "Flash Animation"
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label_edit"
+msgstr "Flash Animation: "
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label"
+msgstr "Flash Animation: "
 
 msgid "cpsdoc_flex_photo_title"
 msgstr "Argazkia"

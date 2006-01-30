@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-03 14:46default\n"
+"POT-Creation-Date: 2006-01-30 18:58default\n"
 "PO-Revision-Date: 2004-02-16 14:14+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -366,6 +366,18 @@ msgstr "Attached file: "
 msgid "cpsdoc_flex_attachedFile_label"
 msgstr "Attached file: "
 
+#, fuzzy
+msgid "cpsdoc_flex_flash_title"
+msgstr "Flash Animation"
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label_edit"
+msgstr "Flash Animation: "
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label"
+msgstr "Flash Animation: "
+
 msgid "cpsdoc_flex_photo_title"
 msgstr ""
 
@@ -402,7 +414,7 @@ msgstr "Flexible document!"
 # default doc types
 #, fuzzy
 msgid "portal_type_Document_title"
-msgstr "Document"
+msgstr "Web Document"
 
 #, fuzzy
 msgid "portal_type_Document_description"

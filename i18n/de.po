@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de 3.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-03 14:46default\n"
+"POT-Creation-Date: 2006-01-30 18:56default\n"
 "PO-Revision-Date: 2005-10-12 23:30+0200\n"
 "Last-Translator: Georg Hennemann <georg.hennemann@dhl.com>\n"
 "Language-Team: German <rheinland@dzug.org>\n"
@@ -352,6 +352,18 @@ msgstr "Angefügte Datei: "
 msgid "cpsdoc_flex_attachedFile_label"
 msgstr "Angefügte Datei: "
 
+#, fuzzy
+msgid "cpsdoc_flex_flash_title"
+msgstr "Flash Animation"
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label_edit"
+msgstr "Flash Animation: "
+
+#, fuzzy
+msgid "cpsdoc_flex_flash_label"
+msgstr "Flash Animation: "
+
 msgid "cpsdoc_flex_photo_title"
 msgstr "Foto"
 
@@ -572,23 +584,23 @@ msgstr "Flash Animation (im swf-Format)"
 msgid "psm_ajax_working"
 msgstr ""
 
-#~ msgid "button_back"
-#~ msgstr "Zurück"
+msgid "button_back"
+msgstr "Zurück"
 
-#~ msgid "button_add"
-#~ msgstr "Add"
+msgid "button_add"
+msgstr "Add"
 
-#~ msgid "button_delete"
-#~ msgstr "Delete"
+msgid "button_delete"
+msgstr "Delete"
 
-#~ msgid "button_move_down"
-#~ msgstr "Move down"
+msgid "button_move_down"
+msgstr "Move down"
 
-#~ msgid "button_move_up"
-#~ msgstr "Move up"
+msgid "button_move_up"
+msgstr "Move up"
 
-#~ msgid "button_ok"
-#~ msgstr "Ok"
+msgid "button_ok"
+msgstr "Ok"
 
-#~ msgid "label_text_to_search"
-#~ msgstr "Text to search"
+msgid "label_text_to_search"
+msgstr "Text to search"

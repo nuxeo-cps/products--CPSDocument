@@ -188,6 +188,15 @@ msgstr ""
 msgid "cpsdoc_flex_attachedFile_label"
 msgstr ""
 
+msgid "cpsdoc_flex_flash_title"
+msgstr ""
+
+msgid "cpsdoc_flex_flash_label_edit"
+msgstr ""
+
+msgid "cpsdoc_flex_flash_label"
+msgstr ""
+
 msgid "cpsdoc_flex_photo_title"
 msgstr ""
 
