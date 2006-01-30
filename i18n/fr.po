@@ -455,7 +455,7 @@ msgid "cpsdoc_glossary_expl_label_edit"
 msgstr "Définition"
 
 msgid "portal_type_NewsItem_title"
-msgstr "Nouvelle"
+msgstr "Brève"
 
 msgid "portal_type_NewsItem_description"
 msgstr "Une nouvelle"
