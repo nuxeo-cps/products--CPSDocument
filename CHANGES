@@ -10,4 +10,4 @@ Bug fixes:
   characters
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Move widget selector from right to left in flexible documents

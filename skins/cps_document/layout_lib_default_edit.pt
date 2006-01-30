@@ -98,7 +98,7 @@
 </table>
 
 <tal:block condition="is_flexible">
-<div style="float: right;"
+<div style="float: left;"
     tal:define="flexible_widgets options/flexible_widgets">
   <input type="hidden" name="layout_id" value="."
     tal:attributes="value layout/layout_id" />
