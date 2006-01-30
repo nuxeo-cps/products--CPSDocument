@@ -254,6 +254,7 @@ class OFSFileBodyAdapter(BodyAdapterBase):
 
     Dumps CMF Image and File documents as their simpler OFS version.
     """
+    # XXX we need to I/O the title too
 
     adapts(IOFSFile, ISetupEnviron)
     implements(IBody)
