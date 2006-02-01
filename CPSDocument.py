@@ -136,6 +136,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
             raise Unauthorized("Not accessible TTW.")
 
         ti = self.getTypeInfo()
+        if ti is None:
+            raise ValueError("No TI for portal_type %r" % self.portal_type)
 
         # It has to be an FTI in order to have the getDataModel method
         if getattr(aq_base(ti), 'getDataModel', 0):
