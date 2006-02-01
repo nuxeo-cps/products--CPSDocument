@@ -6,8 +6,11 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- Fix zip archive import: crashed if the zip contained filenames with accented 
+- Fix zip archive import: crashed if the zip contained filenames with accented
   characters
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Move widget selector from right to left in flexible documents
+- Changed 'action' in cpsdocument_edit_ajax.py script from 'cpsdocument_view'
+  to 'view' to profit from aliases when used for different type of object
+  than Document.
