@@ -219,7 +219,7 @@ msgid "cpsdoc_preview_label_edit"
 msgstr "Vignette : "
 
 msgid "cpsdoc_allow_discussion_label_edit"
-msgstr "Activer les commentaires :"
+msgstr "Activation commentaires :"
 
 msgid "cpsdoc_popup_mode_label_edit"
 msgstr "Afficher les images dans une autre fenêtre"
