@@ -215,7 +215,7 @@ msgid "cpsdoc_preview_label_edit"
 msgstr "Pictograma: "
 
 msgid "cpsdoc_allow_discussion_label_edit"
-msgstr "Activeaza comentariile"
+msgstr "Activare comentarii"
 
 msgid "cpsdoc_popup_mode_label_edit"
 msgstr "Afiseaza imaginile intr-o alta fereastra"
