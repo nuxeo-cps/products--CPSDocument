@@ -513,7 +513,7 @@ msgstr "Archive Zip HTML"
 msgid "portal_type_ZippedHtml_description"
 msgstr ""
 "Une archive zip contenant des documents au format HTML pouvant être "
-"prévisualisé"
+"prévisualisés"
 
 #, fuzzy
 msgid "cpsdoc_zippedhtml_label"
