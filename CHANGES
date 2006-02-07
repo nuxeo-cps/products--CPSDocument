@@ -14,3 +14,4 @@ New internal features:
 - Changed 'action' in cpsdocument_edit_ajax.py script from 'cpsdocument_view'
   to 'view' to profit from aliases when used for different type of object
   than Document.
+- Modified cpsdocument_edit.py script to use aliases for action.

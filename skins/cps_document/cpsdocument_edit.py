@@ -30,7 +30,9 @@ is_valid, ds = doc.validate(request=REQUEST, proxy=context, cluster=cluster,
                             use_session=True)
 
 if action is None:
-    action = '/cpsdocument_edit_form'
+    ti = doc.getTypeInfo()
+    action = ti.queryMethodID('edit', 'cpsdocument_edit_form')
+    action = '/' + action
 
 if is_valid:
     comments = REQUEST.get('comments')
