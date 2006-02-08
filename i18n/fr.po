@@ -33,7 +33,7 @@ msgstr ""
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
-msgstr "Créer un document de type ${type_name}"
+msgstr "Créer un(e) ${type_name}"
 
 #.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
