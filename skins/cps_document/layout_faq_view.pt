@@ -17,13 +17,13 @@
         title doc/description|nothing;"
         tal:content="item/Title"/>
   </p>
-  <hr style="margin:2em"/>
+  <hr style="border:#999999 1px dotted"/>
   <tal:block repeat="item items">
     <div style="padding-top:1em;"
       tal:attributes="id string:a${repeat/item/number}">
       <tal:block tal:replace="structure python:item.getContent().render(proxy=item)" />
     </div>
-    <p style="text-align:center">
+    <p style="text-align:left">
       <a tal:attributes="href string:${base_url}${proxy_url}#q${repeat/item/number}"
         i18n:translate="button_back">back</a>
     </p>
