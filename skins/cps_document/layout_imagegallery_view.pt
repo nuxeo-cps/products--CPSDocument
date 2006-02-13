@@ -21,42 +21,44 @@
                        popup_width python:getattr(gallery, 'popup_width', 300);
                        popup_height python:getattr(gallery, 'popup_height', 300);
                        ">
-<table style="text-align:center;width:100%"
-  summary="gallery layout">
-  <tr tal:repeat="row python:range(nb_rows_in_current_batch)">
-  <tal:block tal:define="batch python:modules['ZTUtils'].Batch(page_batch,
-                                                               size=nb_cols,
-                                                               start=row*nb_cols);">
-    <td tal:repeat="item batch">
-      <a href="."
-        tal:define="item_url python:item.absolute_url()"
-        tal:attributes="
-          href python:test(popup_mode, '.', item_url);
-          onClick python:test(popup_mode, 'window.open(\'' +
-                    item_url +
-                    '/popup_image' + '?pos=%s' % (repeat['row'].index * nb_cols + repeat['item'].index + page_batch_start) +
-                    '\', \'view_image\', ' +
-                    '\'innerwidth=%s' % popup_width +
-                    ',innerheight=%s' % popup_height +
-                    ',location=no' +
-                    ',menubar=no' +
-                    ',personalbar=no' +
-                    ',toolbar=no' +
-                    ',status=no' +
-                    ',scrollbars=yes'
-                    '\');; return false', 'return true')">
-        <img tal:replace="structure
-                           python:here.getImgTag(
-                             item.absolute_url_path()+'/preview',
-                             base_url='',width=th_width,height=th_height,
-                             keep_ratio=1)">
-        <br />
-        <p tal:replace="item/Title"></p>
-      </a>
-    </td>
-  </tal:block>
-  </tr>
-</table>
+<div class="ddefault">
+  <table style="text-align:center;width:100%"
+    summary="gallery layout">
+    <tr tal:repeat="row python:range(nb_rows_in_current_batch)">
+    <tal:block tal:define="batch python:modules['ZTUtils'].Batch(page_batch,
+                                                                 size=nb_cols,
+                                                                 start=row*nb_cols);">
+      <td tal:repeat="item batch">
+        <a href="."
+          tal:define="item_url python:item.absolute_url()"
+          tal:attributes="
+            href python:test(popup_mode, '.', item_url);
+            onClick python:test(popup_mode, 'window.open(\'' +
+                      item_url +
+                      '/popup_image' + '?pos=%s' % (repeat['row'].index * nb_cols + repeat['item'].index + page_batch_start) +
+                      '\', \'view_image\', ' +
+                      '\'innerwidth=%s' % popup_width +
+                      ',innerheight=%s' % popup_height +
+                      ',location=no' +
+                      ',menubar=no' +
+                      ',personalbar=no' +
+                      ',toolbar=no' +
+                      ',status=no' +
+                      ',scrollbars=yes'
+                      '\');; return false', 'return true')">
+          <img tal:replace="structure
+                             python:here.getImgTag(
+                               item.absolute_url_path()+'/preview',
+                               base_url='',width=th_width,height=th_height,
+                               keep_ratio=1)">
+          <br />
+          <p tal:replace="item/Title"></p>
+        </a>
+      </td>
+    </tal:block>
+    </tr>
+  </table>
+</div>
 
 <table width="100%" cellspacing="0" cellpadding="0" summary="batch layout"
   tal:condition="python:previous_page or next_page">
