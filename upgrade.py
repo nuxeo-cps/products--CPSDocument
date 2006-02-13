@@ -21,6 +21,8 @@ from zLOG import LOG, DEBUG
 from Acquisition import aq_base
 from Products.CMFCore.utils import getToolByName
 
+import itertools
+
 _marker = object()
 
 def upgrade_334_335_allowct_sections(context):
@@ -73,3 +75,39 @@ def upgrade_336_337_anim_flash(context):
                 doc.manage_renameObject('preview', 'flash_file')
                 fixed_files += 1
     return "CPSDocument updated: fixed %d flash anims" % fixed_files
+
+
+def upgrade_338_340_document_to_flex(context):
+    """Upgrade Document type instances to become flexible."""
+    repository = getToolByName(context, 'portal_repository')
+    pfilter = lambda o: getattr(o, 'portal_type', '') == 'Document'
+    docs = itertools.ifilter(pfilter, repository.values())
+    count = 0
+    for doc in docs:
+        bdoc = aq_base(doc)
+
+        schemas = getattr(bdoc, '.cps_schemas', None)
+        content = getattr(bdoc, 'content', None)
+        content_position = getattr(bdoc, 'content_position', None)
+        content_format = getattr(bdoc, 'content_format', None)
+
+        if (schemas is not None
+            and content is None
+            and content_position is None
+            and content_format is None
+            ):
+            continue
+
+        doc.flexibleAddWidget('flexible_content', 'textimage')
+        kw = {'content_f0': content,
+              'content_f1': content_position,
+              'content_f2': content_format,
+              }
+        doc.edit(**kw)
+
+        for attr in 'content', 'content_position', 'content_format':
+            delattr(doc, attr)
+
+        count += 1
+
+    return 'CPSDocument updated: %d Document instances became flexible' % count

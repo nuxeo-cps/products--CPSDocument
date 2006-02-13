@@ -8,6 +8,8 @@ Bug fixes:
 ~~~~~~~~~~
 - Fix zip archive import: crashed if the zip contained filenames with accented
   characters
+- Provided migration script for Document type instances. In CPS3.4.0 they are
+  "flexible".
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Move widget selector from right to left in flexible documents

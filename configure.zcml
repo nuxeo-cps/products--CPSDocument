@@ -57,4 +57,10 @@
       handler=".upgrade.upgrade_336_337_anim_flash"
       />
 
+  <cps:upgradeStep
+      title="Upgrade document instances to become flexible"
+      source="3.3.8" destination="3.4.0"
+      handler=".upgrade.upgrade_338_340_document_to_flex"
+      />
+
 </configure>
