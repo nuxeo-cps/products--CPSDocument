@@ -199,6 +199,13 @@ class CPSDocumentXMLAdapter(XMLAdapterBase, CPSObjectManagerHelpers):
             field = datamodel._fields[key]
             nodeio = IFieldNodeIO(field)
             value = nodeio.getNodeValue(child, self)
+            if not self._convertToBoolean(child.getAttribute('purge')
+                                          or 'True'):
+                # If the purge attribute is False, merge sequences
+                original_value = datamodel[key]
+                if isinstance(original_value, (tuple, list)):
+                    value = [v for v in original_value
+                               if v not in value] + list(value)
             datamodel[key] = value
         ti._commitDM(datamodel)
 

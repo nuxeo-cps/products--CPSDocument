@@ -17,3 +17,5 @@ New internal features:
   to 'view' to profit from aliases when used for different type of object
   than Document.
 - Modified cpsdocument_edit.py script to use aliases for action.
+- field value IO now supports the purge="False" param for sequence values in a
+  similar way as PropertyHelpers does for sequence-like properties.
