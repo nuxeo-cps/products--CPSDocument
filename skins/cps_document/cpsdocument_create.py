@@ -23,7 +23,8 @@ is_valid, ds = ti.validateObject(None, layout_mode='create',
                                  cluster=cluster, use_session=True)
 
 if is_valid:
-    ob = context.cpsdocument_create_do(type_name, ds.getDataModel())
+    meth_id = ti.queryMethodID('create_do', 'cpsdocument_create_do')
+    ob = getattr(context, meth_id)(type_name, ds.getDataModel())
     url = ob.absolute_url()
     action = ob.getTypeInfo().immediate_view
     psm = 'psm_content_created'

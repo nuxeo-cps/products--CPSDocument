@@ -19,3 +19,4 @@ New internal features:
 - Modified cpsdocument_edit.py script to use aliases for action.
 - field value IO now supports the purge="False" param for sequence values in a
   similar way as PropertyHelpers does for sequence-like properties.
+- Use of an alias for `cpsdocument_create_do` called `create_do`.
