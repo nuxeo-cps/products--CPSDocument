@@ -1,4 +1,30 @@
 *******************************************
+** CPSDocument V0.40.0 [R1 build 2006/02/17-20:18 by fermigier]
+** SVN URL: https://svn.nuxeo.org/pub/CPSDocument/trunk Revision: 32986
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- Fix zip archive import: crashed if the zip contained filenames with accented
+  characters
+- Provided migration script for Document type instances. In CPS3.4.0 they are
+  "flexible".
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Move widget selector from right to left in flexible documents
+- Changed 'action' in cpsdocument_edit_ajax.py script from 'cpsdocument_view'
+  to 'view' to profit from aliases when used for different type of object
+  than Document.
+- Modified cpsdocument_edit.py script to use aliases for action.
+- field value IO now supports the purge="False" param for sequence values in a
+  similar way as PropertyHelpers does for sequence-like properties.
+- Use of an alias for `cpsdocument_create_do` called `create_do`.
+
+*******************************************
 ** CPSDocument V0.39.0 [R1 build 2006/01/23-17:27 by fermigier]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSDocument/trunk Revision: 31976
 Requires:

@@ -6,17 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- Fix zip archive import: crashed if the zip contained filenames with accented
-  characters
-- Provided migration script for Document type instances. In CPS3.4.0 they are
-  "flexible".
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- Move widget selector from right to left in flexible documents
-- Changed 'action' in cpsdocument_edit_ajax.py script from 'cpsdocument_view'
-  to 'view' to profit from aliases when used for different type of object
-  than Document.
-- Modified cpsdocument_edit.py script to use aliases for action.
-- field value IO now supports the purge="False" param for sequence values in a
-  similar way as PropertyHelpers does for sequence-like properties.
-- Use of an alias for `cpsdocument_create_do` called `create_do`.
+-
