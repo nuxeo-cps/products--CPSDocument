@@ -55,7 +55,7 @@ class CPSObjectManagerHelpers(object):
     or as subobjects.
 
     Knows how to create File or Images, or CPSDocuments according to
-    their portal_type.
+    their portal_type, initializing their title from parent XML's info.
     """
 
     def _extractObjects(self):
@@ -107,6 +107,14 @@ class CPSObjectManagerHelpers(object):
                         pass
 
             obj = getattr(parent, obj_id)
+
+            # Ideally this should be done by the child's adapter, but in
+            # the case of Files/Images we'd rather store the title on
+            # the parent's XML node, which simplifies profiles.
+            if child.hasAttribute('title'):
+                title = str(child.getAttribute('title'))
+                obj.title = title
+
             importer = zapi.queryMultiAdapter((obj, self.environ), INode)
             if importer:
                 importer.node = child
@@ -123,16 +131,13 @@ class CPSObjectManagerHelpers(object):
         meta_type = str(node.getAttribute('meta_type'))
         __traceback_info__ = id, meta_type
         if meta_type == 'File':
-            return OFS.Image.File(id, '', '')
+            return OFS.Image.File(id, id, '')
         if meta_type == 'Image':
-            return OFS.Image.Image(id, '', '')
+            return OFS.Image.Image(id, id, '')
         for mt in Products.meta_types:
             if mt['name'] == meta_type:
                 return mt['instance'](id)
         raise ValueError("unknown meta_type '%s'" % meta_type)
-
-
-
 
 
 class CPSDocumentXMLAdapter(XMLAdapterBase, CPSObjectManagerHelpers):
@@ -262,7 +267,6 @@ class OFSFileBodyAdapter(BodyAdapterBase):
 
     Dumps CMF Image and File documents as their simpler OFS version.
     """
-    # XXX we need to I/O the title too
 
     adapts(IOFSFile, ISetupEnviron)
     implements(IBody)
@@ -277,7 +281,7 @@ class OFSFileBodyAdapter(BodyAdapterBase):
     def _getObjectNode(self, name, i18n=True):
         ob = self.context
         node = self._doc.createElement(name)
-        node.setAttribute('name', ob.getId()) # XXX needs unique id, parent's
+        node.setAttribute('name', ob.getId())
         meta_type = ob.meta_type
         # If they don't have specific adapters, change their type
         if meta_type == 'Portal Image':
@@ -285,6 +289,7 @@ class OFSFileBodyAdapter(BodyAdapterBase):
         elif meta_type == 'Portal File':
             meta_type = 'File'
         node.setAttribute('meta_type', meta_type)
+        node.setAttribute('title', ob.title)
         return node
 
     def _exportBody(self):
