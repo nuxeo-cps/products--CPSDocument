@@ -70,9 +70,14 @@ def upgrade_336_337_anim_flash(context):
     for doc in repository.values():
         bdoc = aq_base(doc)
         if getattr(bdoc, 'portal_type', None) == 'Flash Animation':
-            if (getattr(bdoc, 'preview', _marker) is not _marker and
-                getattr(bdoc, 'flash_file', _marker) is _marker):
-                doc.manage_renameObject('preview', 'flash_file')
+            preview = getattr(bdoc, 'preview', _marker)
+            flash_file = getattr(bdoc, 'flash_file', _marker)
+            if preview is not _marker and flash_file is _marker:
+                if preview == None:
+                    delattr(bdoc, 'preview')
+                    bdoc.flash_file = None
+                else:
+                    doc.manage_renameObject('preview', 'flash_file')
                 fixed_files += 1
     return "CPSDocument updated: fixed %d flash anims" % fixed_files
 
