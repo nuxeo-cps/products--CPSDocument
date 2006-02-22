@@ -17,13 +17,23 @@
         title doc/description|nothing;"
         tal:content="item/Title"/>
   </p>
-  <hr style="border:#999999 1px dotted"/>
+  <hr class="faqBorder"/>
   <tal:block repeat="item items">
-    <div style="padding-top:1em;"
-      tal:attributes="id string:a${repeat/item/number}">
-      <tal:block tal:replace="structure python:item.getContent().render(proxy=item)" />
+    <div class="faqResponse"
+         tal:attributes="id string:a${repeat/item/number}"
+         tal:define="response item/getContent">
+      <h2 class="faqResponseElement">
+        <tal:block  tal:content="response/title">ma question</tal:block>
+      </h2>
+      <div class="ddescription" tal:content="response/description">
+        description
+      </div>
+      <p class="faqResponseElement">
+        <span class="dlabel" i18n:translate="cpsdoc_faq_answer_label">Response: </span>
+        <tal:block tal:replace="response/content" />
+      </p>
     </div>
-    <p style="text-align:left">
+    <p class="faqResponseElement">
       <a tal:attributes="href string:${base_url}${proxy_url}#q${repeat/item/number}"
         i18n:translate="button_back">back</a>
     </p>

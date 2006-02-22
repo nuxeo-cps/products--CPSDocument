@@ -165,6 +165,18 @@ div.ddescription {
   border: 1px solid black;
 }
 
+hr.faqBorder {
+  border:#999999 1px dotted
+}
+
+div.faqResponse {
+  padding-top:1em;
+}
+
+.faqResponseElement {
+  padding-left: 0px! important;
+}
+
 /* hack for IE6 bugs */
 /* Hides from IE5-mac \*/
 * html div.dleft {height: 1%}
