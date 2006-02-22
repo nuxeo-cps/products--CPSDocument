@@ -134,6 +134,9 @@ CPSDocumentEditor.prototype = {
       // let's serialize the content of the form
       // and send it to the server
       params = Form.serialize(this.edit_form);
+      if (params!='') {
+        params += '&ajax_edit=1';
+      }
       var sendFormCompletedFn = this.sendFormCompleted.bind(this);
       var options = {parameters: params, onComplete: sendFormCompletedFn};
       if (!this.sender) {
@@ -154,6 +157,7 @@ CPSDocumentEditor.prototype = {
       params = Form.serialize(this.edit_form);
       if (params!='') {
         params += '&cpsdocument_edit_and_view_button=1';
+        params += '&ajax_edit=1';
       }
       var sendFormCompletedFn = this.sendFormCompleted.bind(this);
       var options = {parameters: params, onComplete: sendFormCompletedFn};
@@ -169,6 +173,7 @@ CPSDocumentEditor.prototype = {
 
   sendFormCompleted: function(originalRequest) {
     var result = originalRequest.responseXML;
+
     // result comes in three node, under ajax-response
     result = result.childNodes[0];
     var action = '';

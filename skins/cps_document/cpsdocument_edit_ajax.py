@@ -12,6 +12,8 @@ for key, value in REQUEST.form.items():
     if isinstance(value, str):
         value = value.decode('utf-8', 'replace').encode('iso-8859-15')
         REQUEST.form[key] = value
+    if value == ['']:
+        REQUEST.form[key] = []
 
 doc = context.getContent()
 res = doc.renderEditDetailed(request=REQUEST, proxy=context, cluster=cluster)
@@ -37,4 +39,5 @@ response += '<result>%s</result>' % str(bool(is_valid))
 response += '<layout><![CDATA[%s]]></layout>' % layout
 response += '<action>%s</action>' % action
 response += '</ajax-response>'
+
 return response

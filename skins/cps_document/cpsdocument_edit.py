@@ -18,7 +18,7 @@ from Products.CPSDocument.utils import getFormUidUrlArg
 
 # Until ajax posts directly to its own script...
 if 'ajax_edit' in REQUEST.form:
-    return self.cpsdocument_edit_ajax(REQUEST, cluster=cluster)
+    return context.cpsdocument_edit_ajax(REQUEST, cluster=cluster)
 
 # Check flexible controls
 context.editLayouts(REQUEST=REQUEST)
