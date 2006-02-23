@@ -18,6 +18,7 @@
               is_flexible options/is_flexible;
               cpsmcat nocall:here/translation_service;
               ">
+
 <tal:block condition="first_layout">
   <tal:block
   content="structure string:<form id='editForm' action='${formaction}' method='post'
@@ -78,18 +79,20 @@
               </tal:block>
           </tal:block>
           <div style="float: right;" tal:condition="is_flexible">
-            <input type="submit" value="button_move_up"
+            <input type="button" value="button_move_up"
               tal:condition="not:repeat/row/start"
-              tal:attributes="name string:uprow_${repeat/row/index}"
+              tal:attributes="name string:uprow_${repeat/row/index};
+                              onClick python:'buttonClick(this, \'\')'"
               class="context moveUp" i18n:attributes="value" />
-            <input type="submit" value="button_move_down"
+            <input type="button" value="button_move_down"
               tal:condition="not:repeat/row/end"
-              tal:attributes="name string:downrow_${repeat/row/index}"
+              tal:attributes="name string:downrow_${repeat/row/index};
+                              onClick python:'buttonClick(this, \'\')'"
               class="context moveDown" i18n:attributes="value" />
-            <input type="submit" value="button_delete"
+            <input type="button" value="button_delete"
               class="destructive" i18n:attributes="value"
               tal:attributes="name string:deleterow_${repeat/row/index};
-                              onclick python:'return window.confirm(\'%s\')' %
+                              onClick python:'buttonClick(this, \'%s\')' %
                                 (cpsmcat('description_confirm_delete'), )" />
           </div>
         </div>
@@ -116,10 +119,11 @@
         tal:content="widget/title_or_id">Type</option>
       </tal:block>
     </select>
-    <input type="submit" id="addwidget_button"
+    <input type="button" id="addwidget_button"
            name="addwidget_button" value="button_add"
            class="context"
-           i18n:attributes="value" />
+           i18n:attributes="value"
+           tal:attributes="onClick python:'buttonClick(this, \'\')'" />
   </tal:select>
   <tal:button condition="python:len(flexible_widgets) == 1">
     <tal:block define="widget python:flexible_widgets[0]">
