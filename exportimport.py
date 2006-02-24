@@ -201,6 +201,8 @@ class CPSDocumentXMLAdapter(XMLAdapterBase, CPSObjectManagerHelpers):
             if child.nodeName != 'f':
                 continue
             key = str(child.getAttribute('id'))
+            # FIXME if document schema changed, field is not available, see
+            # trac ticket #1456
             field = datamodel._fields[key]
             nodeio = IFieldNodeIO(field)
             value = nodeio.getNodeValue(child, self)
