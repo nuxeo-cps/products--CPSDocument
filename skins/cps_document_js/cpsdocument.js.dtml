@@ -33,6 +33,7 @@ restrictive as it does'nt allow to send simple
 types like Document, flexible, etc...
 
 */
+
 var CPSDocumentEditor = Class.create();
 
 CPSDocumentEditor.prototype = {
@@ -271,3 +272,42 @@ CPSDocumentEditor.prototype = {
     }
   }
 }
+
+/*--------------------------------------------------------------------------*/
+
+if (!window.CPSFlexibleEdit) {
+  var CPSFlexibleEdit = new Object();
+  }
+  
+Object.extend(CPSFlexibleEdit, {
+  buttonClick: function(button, message) {
+  /*
+  this function will simulate a click on a submit button, by setting a hidden
+  field with the name/value of the clicked button and then submitting the form
+  */
+    if (message) {
+      if (window.confirm(message))
+        flag = true;
+    }
+    else
+      flag = true;
+    if (flag) {
+      buttonName = button.name;
+      buttonValue = button.value;
+      myform = button.form;
+      placeholder = document.getElementById('button_placeholder');
+      if (document.all) { // what follows should work
+                          // with Opera/IE but doesn't in Firefox
+        placeholder.name = buttonName;
+        placeholder.value = buttonValue;
+      }
+      else if (document.getElementById) { // so here is the
+                                          // Firefox workaround
+        placeholder.setAttribute('name', buttonName);
+        placeholder.setAttribute('value', buttonValue);
+      }
+      myform.submit();
+    }
+  }
+});
+

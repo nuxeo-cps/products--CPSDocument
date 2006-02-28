@@ -82,17 +82,17 @@
             <input type="button" value="button_move_up"
               tal:condition="not:repeat/row/start"
               tal:attributes="name string:uprow_${repeat/row/index};
-                              onclick python:'buttonClick(this, \'\')'"
+                              onclick python:'CPSFlexibleEdit.buttonClick(this, \'\')'"
               class="context moveUp" i18n:attributes="value" />
             <input type="button" value="button_move_down"
               tal:condition="not:repeat/row/end"
               tal:attributes="name string:downrow_${repeat/row/index};
-                              onclick python:'buttonClick(this, \'\')'"
+                              onclick python:'CPSFlexibleEdit.buttonClick(this, \'\')'"
               class="context moveDown" i18n:attributes="value" />
             <input type="button" value="button_delete"
               class="destructive" i18n:attributes="value"
               tal:attributes="name string:deleterow_${repeat/row/index};
-                              onclick python:'buttonClick(this, \'%s\')' %
+                              onclick python:'CPSFlexibleEdit.buttonClick(this, \'%s\')' %
                                 (cpsmcat('description_confirm_delete'), )" />
           </div>
         </div>
@@ -123,7 +123,7 @@
            name="addwidget_button" value="button_add"
            class="context"
            i18n:attributes="value"
-           tal:attributes="onclick python:'buttonClick(this, \'\')'" />
+           tal:attributes="onclick python:'CPSFlexibleEdit.buttonClick(this, \'\')'" />
   </tal:select>
   <tal:button condition="python:len(flexible_widgets) == 1">
     <tal:block define="widget python:flexible_widgets[0]">
