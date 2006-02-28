@@ -1,0 +1,21 @@
+<dtml-comment>/*
+$Id: default.css.dtml 33533 2006-02-27 17:33:36Z tsoulcie $
+
+Empty CSS file to avoid hardcoded CSS references to forum.css in
+cpsdocument_view.pt and page_view.pt to trigger 404 Error on each
+request that severly impact the performance of CPS when the
+CPS Forum extension is not installed.
+
+This CSS is overridden by CPSForum's when installed. This is a temporary hack
+that should go away when either:
+- we get rid of CPSForum (and replace it by CPSComment)
+- have a way to register resources such as CSS files and use that registry
+instead of hardcoding CSS reference in view templates.
+*/</dtml-comment>
+
+<dtml-let last_modified="_.DateTime()-14" expires="_.DateTime()+1" >
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Content-Type', 'text/css' )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Last-Modified', last_modified.toZone('GMT').rfc822() )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Cache-Control', 'max-age=36000, must-revalidate' )">
+<dtml-call "REQUEST.RESPONSE.setHeader( 'Expires', expires.toZone('GMT').rfc822() )" >
+</dtml-let>
