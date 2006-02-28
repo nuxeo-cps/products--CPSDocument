@@ -101,9 +101,7 @@
                         type_info python:here.portal_types[type_name]"
             tal:content="type_info/Title">Type Title</tal:block>
     </h1>
-    <h1 tal:condition="not:creation"
-      tal:attributes="style 
-        python:'background:url(%s) no-repeat 0px 4px' % here.getIcon(1)">
+    <h1 tal:condition="not:creation">
       <tal:block condition="edition"
         i18n:translate="">Edit <span id="page_title" i18n:name="title"
         tal:content="here/title_or_id">Page Title</span></tal:block>
