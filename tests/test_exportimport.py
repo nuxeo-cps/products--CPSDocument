@@ -50,12 +50,17 @@ class FakeDM(object):
 class FakeCPSDocument(Folder):
     implements(ICPSDocument)
     meta_type = "fakedoc"
+    portal_type = 'Fake Doc'
     def getTypeInfo(self):
         return FakeTI()
     def getDataModel(self):
         return FakeDM()
     def getPortalTypeName(self):
-        return 'Fake Doc'
+        return self.portal_type
+    def invokeFactory(self, portal_type, id):
+        ob = FakeCPSDocument(id)
+        ob.portal_type = portal_type
+        self._setObject(id, ob)
 
 def dummyLog(self, level, msg, *args, **kwargs):
     self._messages.append((level, self._id, msg))
@@ -74,6 +79,18 @@ _IMPORT_FOLDER_NOTITLE = """\
 <object>
   <object name="sub" meta_type="File"/>
 </object>
+"""
+
+_IMPORT_FOLDER_TRANSTYPE = """\
+<?xml version="1.0"?>
+<object>
+  <object name="subdoc" portal_type="Other Type" title="other"/>
+</object>
+"""
+
+_IMPORT_SUBDOC = """\
+<?xml version="1.0"?>
+<object portal_type="Other Type"/>
 """
 
 _EXPORT_FOLDER = """\
@@ -131,6 +148,22 @@ class OFSFileIOTests(ZopeTestCase, DOMComparator):
         self.assertEquals(ob.sub.getId(), 'sub')
         self.assertEquals(str(ob.sub), _FILE_CONTENT)
         self.assertEquals(ob.sub.title, 'sub') # default title to id
+
+    def test_import_transtype(self):
+        site = Folder('site')
+        context = DummyImportContext(site, purge=False)
+        context._files['folder.xml'] = _IMPORT_FOLDER_TRANSTYPE
+        context._files['folder/subdoc.xml'] = _IMPORT_SUBDOC
+
+        ob = FakeCPSDocument('folder')
+        ob._setObject('subdoc', Folder('subdoc'))
+        ob.subdoc.portal_type = 'Old Type'
+        importCPSObjects(ob, '', context)
+
+        self.assertEquals(ob.objectIds(), ['subdoc'])
+        self.assertEquals(ob.subdoc.getId(), 'subdoc')
+        self.assertEquals(ob.subdoc.portal_type, 'Other Type')
+        self.assertEquals(ob.subdoc.title, 'other')
 
     def test_export(self):
         site = Folder('site')

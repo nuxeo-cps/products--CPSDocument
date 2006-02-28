@@ -82,6 +82,24 @@ class CPSObjectManagerHelpers(object):
             parent = self.context
 
             obj_id = str(child.getAttribute('name'))
+
+            # Transtyping for documents with a different portal_type
+            old_state = None
+            portal_type = child.getAttribute('portal_type')
+            if portal_type is not None and obj_id in parent.objectIds():
+                obj = getattr(parent, obj_id)
+                if (getattr(aq_base(obj), 'portal_type', None) !=
+                    str(portal_type)):
+                    # Need to transtype the document
+                    old_state = obj.__dict__.copy()
+                    # Ignore part of old state
+                    for info in old_state.pop('_objects', ()):
+                        old_state.pop(info['id'], None)
+                    old_state.pop('portal_type', None)
+                    old_state.pop('id', None)
+                    old_state.pop('__name__', None)
+                    parent._delObject(obj_id)
+
             if obj_id not in parent.objectIds():
                 self._addInstance(parent, obj_id, child)
 
@@ -107,6 +125,10 @@ class CPSObjectManagerHelpers(object):
                         pass
 
             obj = getattr(parent, obj_id)
+
+            if old_state:
+                # Transtyping: copy previous state
+                obj.__dict__.update(old_state)
 
             # Ideally this should be done by the child's adapter, but in
             # the case of Files/Images we'd rather store the title on

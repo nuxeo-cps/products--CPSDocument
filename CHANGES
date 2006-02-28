@@ -12,6 +12,7 @@ Bug fixes:
 - #1456: better error message when importing a document with unknown fields
 - temporary fix for 404 Errors on forum.css: added an empty forum.css.dtml file
   with HTTP caching headers
+- #1472: transtyping for documents on profile import
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
