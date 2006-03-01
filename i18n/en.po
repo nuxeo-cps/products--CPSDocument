@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-30 18:58default\n"
+"POT-Creation-Date: 2006-03-01 18:33default\n"
 "PO-Revision-Date: 2005-05-16 02:59+0200\n"
 "Last-Translator: Julien Anguenot <anguenot@in.nuxeo.com>\n"
 "Language-Team:  <en@li.org>\n"
@@ -31,11 +31,17 @@ msgstr ""
 msgid "Create a document of type ${type_name}"
 msgstr "Create a ${type_name}"
 
+#.   <block condition="python: edition and not metadata">Edit ${title (tal content="here/title_or_id")}</block>
 #.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr "Edit \"${title}\""
+
+#.   <block condition="metadata">Metadata of ${title (tal content="here/title_or_id")}</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Metadata of ${title}"
+msgstr "Metadata of \"${title}\""
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -67,6 +73,11 @@ msgstr " to  "
 #: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "From  "
+
+#.   <span class="dlabel">Response: </span>
+#: from ../skins/cps_document/layout_faq_view.pt
+msgid "cpsdoc_faq_answer_label"
+msgstr "Answer: "
 
 #.   <h2>Import ZIP File</h2>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
@@ -103,15 +114,12 @@ msgstr "Table of Contents"
 #.   <span>
 #.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #.     </span>
-#: from ../skins/cps_document/layout_imagegallery_view.pt
-#: ../skins/cps_document_cmf/layout_imagegallery_view.pt
+#: from ../skins/cps_document_cmf/layout_imagegallery_view.pt
 msgid "description_up_to"
 msgstr "Up to ${up_id}"
 
-#.   <block condition="metadata">heading_metadata_edit</block>
 #.   <span condition="metadata">heading_metadata_edit</span>
-#: from ../skins/cps_document/cpsdocument_edit_form.pt
-#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
+#: from ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "heading_metadata_edit"
 msgstr "Metadata edition"
 
@@ -415,9 +423,6 @@ msgid "cpsdoc_faq_long_question_label_edit"
 msgstr "Question comments: "
 
 msgid "cpsdoc_faq_answer_label_edit"
-msgstr "Answer: "
-
-msgid "cpsdoc_faq_answer_label"
 msgstr "Answer: "
 
 # default doc types

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-30 18:58default\n"
+"POT-Creation-Date: 2006-03-01 18:33default\n"
 "PO-Revision-Date: 2004-11-25 13:38+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -31,11 +31,18 @@ msgstr ""
 msgid "Create a document of type ${type_name}"
 msgstr "Mamorona antotandahatsoratra karazana ${type_name}"
 
+#.   <block condition="python: edition and not metadata">Edit ${title (tal content="here/title_or_id")}</block>
 #.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr "Fanovana ${title}"
+
+#.   <block condition="metadata">Metadata of ${title (tal content="here/title_or_id")}</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+#, fuzzy
+msgid "Metadata of ${title}"
+msgstr "Modification de «${title}»"
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -67,6 +74,11 @@ msgstr " hatramin'ny "
 #: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "Manomboka ny"
+
+#.   <span class="dlabel">Response: </span>
+#: from ../skins/cps_document/layout_faq_view.pt
+msgid "cpsdoc_faq_answer_label"
+msgstr "Valiny :  "
 
 #.   <h2>Import ZIP File</h2>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
@@ -103,15 +115,12 @@ msgstr "Sommaire"
 #.   <span>
 #.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #.     </span>
-#: from ../skins/cps_document/layout_imagegallery_view.pt
-#: ../skins/cps_document_cmf/layout_imagegallery_view.pt
+#: from ../skins/cps_document_cmf/layout_imagegallery_view.pt
 msgid "description_up_to"
 msgstr "Mankany amin'ny ${up_id}"
 
-#.   <block condition="metadata">heading_metadata_edit</block>
 #.   <span condition="metadata">heading_metadata_edit</span>
-#: from ../skins/cps_document/cpsdocument_edit_form.pt
-#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
+#: from ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "heading_metadata_edit"
 msgstr "Manova ny méta-données"
 
@@ -446,9 +455,6 @@ msgstr "Famenon'ny fanontaniana :"
 msgid "cpsdoc_faq_answer_label_edit"
 msgstr "Valiny : "
 
-msgid "cpsdoc_faq_answer_label"
-msgstr "Valiny :  "
-
 # default doc types
 msgid "portal_type_Glossary_title"
 msgstr "Glossaire"
@@ -474,7 +480,7 @@ msgstr "Dikany"
 
 #, fuzzy
 msgid "portal_type_NewsItem_title"
-msgstr "Nouvelle"
+msgstr "Brève"
 
 #, fuzzy
 msgid "portal_type_NewsItem_description"

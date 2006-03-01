@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-30 18:58default\n"
+"POT-Creation-Date: 2006-03-01 18:33default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -31,11 +31,17 @@ msgstr ""
 msgid "Create a document of type ${type_name}"
 msgstr "Creeaza un document de tip ${type_name}"
 
+#.   <block condition="python: edition and not metadata">Edit ${title (tal content="here/title_or_id")}</block>
 #.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr "Editeaza ${title} "
+
+#.   <block condition="metadata">Metadata of ${title (tal content="here/title_or_id")}</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Metadata of ${title}"
+msgstr "Proprietati comune pentru \"${title}\""
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -67,6 +73,11 @@ msgstr " la  "
 #: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "De la  "
+
+#.   <span class="dlabel">Response: </span>
+#: from ../skins/cps_document/layout_faq_view.pt
+msgid "cpsdoc_faq_answer_label"
+msgstr "Raspuns :  "
 
 #.   <h2>Import ZIP File</h2>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
@@ -102,15 +113,12 @@ msgstr "Continut "
 #.   <span>
 #.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #.     </span>
-#: from ../skins/cps_document/layout_imagegallery_view.pt
-#: ../skins/cps_document_cmf/layout_imagegallery_view.pt
+#: from ../skins/cps_document_cmf/layout_imagegallery_view.pt
 msgid "description_up_to"
 msgstr "Inapoi la ${up_id}"
 
-#.   <block condition="metadata">heading_metadata_edit</block>
 #.   <span condition="metadata">heading_metadata_edit</span>
-#: from ../skins/cps_document/cpsdocument_edit_form.pt
-#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
+#: from ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "heading_metadata_edit"
 msgstr "Editare proprietati comune"
 
@@ -313,39 +321,39 @@ msgstr "Sport"
 
 #, fuzzy
 msgid "label_sort_by"
-msgstr "Trier par"
+msgstr "Sort by"
 
 #, fuzzy
 msgid "label_title_asc"
-msgstr "Titre (croissant)"
+msgstr "Ascending title"
 
 #, fuzzy
 msgid "label_title_desc"
-msgstr "Titre (décroissant)"
+msgstr "Descending title"
 
 #, fuzzy
 msgid "label_date_asc"
-msgstr "Date (croissant)"
+msgstr "Ascending date"
 
 #, fuzzy
 msgid "label_date_desc"
-msgstr "Date (décroissant)"
+msgstr "Descending date"
 
 #, fuzzy
 msgid "label_status_asc"
-msgstr "Statut (croissant)"
+msgstr "Ascending status"
 
 #, fuzzy
 msgid "label_status_desc"
-msgstr "Statut (décroissant)"
+msgstr "Descending status"
 
 #, fuzzy
 msgid "label_author_asc"
-msgstr "Auteur (croissant)"
+msgstr "Ascending author"
 
 #, fuzzy
 msgid "label_author_desc"
-msgstr "Auteur (décroissant)"
+msgstr "Descending author"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Bloc text"
@@ -424,9 +432,6 @@ msgstr "Comentarii pentru intrebare: "
 
 msgid "cpsdoc_faq_answer_label_edit"
 msgstr "Raspuns: "
-
-msgid "cpsdoc_faq_answer_label"
-msgstr "Raspuns :  "
 
 msgid "portal_type_Glossary_title"
 msgstr "Glosar"
@@ -577,11 +582,11 @@ msgstr "Intr-o singura pagina"
 # default doc types
 #, fuzzy
 msgid "portal_type_Flash_Animation_title"
-msgstr "Animation Flash "
+msgstr "Flash Animation"
 
 #, fuzzy
 msgid "portal_type_Flash_Animation_description"
-msgstr "Animation Flash au format swf"
+msgstr "Flash Animation (swf format)"
 
 msgid "psm_ajax_working"
 msgstr ""
@@ -606,4 +611,4 @@ msgstr "Ok"
 
 #, fuzzy
 msgid "label_text_to_search"
-msgstr "Texte à chercher"
+msgstr "Text to search"

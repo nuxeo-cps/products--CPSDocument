@@ -69,11 +69,11 @@
             tal:content="type_info/Title">Type Title</tal:block>
     </h1>
     <h1 tal:condition="not:creation">
-      <tal:block condition="edition"
+      <tal:block condition="python: edition and not metadata"
         i18n:translate="">Edit <span id="page_title" i18n:name="title"
         tal:content="here/title_or_id">Page Title</span></tal:block>
       <tal:block tal:condition="metadata"
-        i18n:translate="">heading_metadata_edit</tal:block>
+        i18n:translate="">Metadata of <span i18n:name="title" tal:content="here/title_or_id">Page Title</span></tal:block>
     </h1>
   </metal:block>
 
