@@ -23,7 +23,7 @@ document. This is a stricter grouping scheme than the one defined by the
 </dtml-comment>
 .documentFields {
   border: <dtml-var groupBorder>;
-  margin: 1em 0 2em 0;
+  margin: 0em 0 1em 0;
   padding: 0em;
 }
 
@@ -52,7 +52,7 @@ Class for positioning document elements.
 }
 
 .ddefault {
-  padding:5px 10px 10px 20px;
+  padding-bottom: 1em;
 }
 
 
@@ -119,8 +119,8 @@ div.dcontent p {
 }
 
 div.ddescription {
-  font-style: normal;
-  font-size: 110%;
+  font-style: italic;
+  font-size: 100%;
 }
 
 .dlabel {
