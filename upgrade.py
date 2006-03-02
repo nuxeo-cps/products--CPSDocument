@@ -85,6 +85,21 @@ def upgrade_336_337_anim_flash(context):
 def upgrade_338_340_document_to_flex(context):
     """Upgrade Document type instances to become flexible."""
     repository = getToolByName(context, 'portal_repository')
+    ttool = getToolByName(context, 'portal_types')
+
+    doc_type = ttool['Document']
+    schemas = list(doc_type.schemas)
+    schemas.remove('document')
+    schemas.append('flexible_content')
+    doc_type.schemas = tuple(schemas)
+
+    layouts = list(doc_type.layouts)
+    layouts.remove('document')
+    layouts.append('flexible_content')
+    doc_type.layouts = tuple(layouts)
+
+    doc_type.flexible_layouts = ('flexible_content:flexible_content',)
+
     pfilter = lambda o: getattr(o, 'portal_type', '') == 'Document'
     docs = itertools.ifilter(pfilter, repository.values())
     count = 0
