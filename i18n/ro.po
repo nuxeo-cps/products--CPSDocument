@@ -1,18 +1,20 @@
+# translation of ro.po to
 # Alin Voinea <avoinea@nuxeo.com>, 2005.
+# Dragos Ivan <div@nuxeo.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: default\n"
+"Project-Id-Version: ro\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-01 18:33default\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Your Name <your@email>\n"
-"Language-Team: Name <email>\n"
+"PO-Revision-Date: 2006-03-02 17:39+0200\n"
+"Last-Translator: Dragos Ivan <div@nuxeo.com>\n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Preferred-encodings: utf-8 latin1\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: KBabel 1.11.1\n"
 "Language-Code: ro\n"
 "Language-Name: Romanian\n"
 "Domain: default\n"
@@ -171,8 +173,8 @@ msgstr "eticheta"
 msgid "label_zip_file"
 msgstr "Fisier ZIP"
 
-#.   <a href="." attributes="href python:'/'+ 
-#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos + 1].absolute_url(relative=1) +
 #.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -319,41 +321,32 @@ msgstr "Societate"
 msgid "label_subject_Sports"
 msgstr "Sport"
 
-#, fuzzy
 msgid "label_sort_by"
-msgstr "Sort by"
+msgstr "Sorteaza dupa"
 
-#, fuzzy
 msgid "label_title_asc"
-msgstr "Ascending title"
+msgstr "Titlu (crescator)"
 
-#, fuzzy
 msgid "label_title_desc"
-msgstr "Descending title"
+msgstr "Titlu (descrescator)"
 
-#, fuzzy
 msgid "label_date_asc"
-msgstr "Ascending date"
+msgstr "Data (crescator)"
 
-#, fuzzy
 msgid "label_date_desc"
-msgstr "Descending date"
+msgstr "Data (descrescator)"
 
-#, fuzzy
 msgid "label_status_asc"
-msgstr "Ascending status"
+msgstr "Stare (crescator)"
 
-#, fuzzy
 msgid "label_status_desc"
-msgstr "Descending status"
+msgstr "Stare (descrescator)"
 
-#, fuzzy
 msgid "label_author_asc"
-msgstr "Ascending author"
+msgstr "Autor (crescator)"
 
-#, fuzzy
 msgid "label_author_desc"
-msgstr "Descending author"
+msgstr "Autor (descrescator)"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Bloc text"
@@ -446,8 +439,7 @@ msgid "portal_type_GlossaryItem_description"
 msgstr "Inregistrare in glosar"
 
 msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr ""
-"Afiseaza toate inregistrarile daca nici o litera nu a fost selectionata"
+msgstr "Afiseaza toate inregistrarile daca nici o litera nu a fost selectionata"
 
 msgid "cpsdoc_glossary_term_label_edit"
 msgstr "Termen"
@@ -580,16 +572,14 @@ msgid "cpsdoc_book_display_flat"
 msgstr "Intr-o singura pagina"
 
 # default doc types
-#, fuzzy
 msgid "portal_type_Flash_Animation_title"
-msgstr "Flash Animation"
+msgstr "Animatie Flash"
 
-#, fuzzy
 msgid "portal_type_Flash_Animation_description"
-msgstr "Flash Animation (swf format)"
+msgstr "Animatie Flash (format swf)"
 
 msgid "psm_ajax_working"
-msgstr ""
+msgstr "Se modifica..."
 
 msgid "button_back"
 msgstr "Inapoi"
@@ -609,6 +599,6 @@ msgstr "Muta mai sus"
 msgid "button_ok"
 msgstr "Ok"
 
-#, fuzzy
 msgid "label_text_to_search"
-msgstr "Text to search"
+msgstr "Text de cautat"
+
