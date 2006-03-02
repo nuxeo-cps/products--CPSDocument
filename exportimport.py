@@ -82,6 +82,9 @@ class CPSObjectManagerHelpers(object):
             parent = self.context
 
             obj_id = str(child.getAttribute('name'))
+            if child.hasAttribute('remove'):
+                parent._delObject(obj_id)
+                continue
 
             # Transtyping for documents with a different portal_type
             old_state = None
