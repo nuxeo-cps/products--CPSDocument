@@ -61,7 +61,7 @@ div.dflush {
 }
 
 div.dcolleft {
-  margin-right: 50%;
+  width: 48%;
   padding-bottom: 1em;
 }
 
