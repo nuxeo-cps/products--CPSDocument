@@ -14,6 +14,7 @@ Bug fixes:
   with HTTP caching headers
 - #1472: transtyping for documents on profile import
 - #1485: fix metadata's page title
+- #1504: fix peekaboo bug in IE
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Made 'Upgrade document instances to become flexible' step to work before

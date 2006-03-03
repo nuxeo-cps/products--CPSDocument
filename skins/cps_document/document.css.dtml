@@ -180,6 +180,9 @@ div.faqResponse {
 /* hack for IE6 bugs */
 /* Hides from IE5-mac \*/
 * html div.dleft {height: 1%}
+* html .ddefault {height: 1%}
+* html div.dcolleft {height: 1%}
+* html div.dcolright {height: 1%}
 /* End hide from IE-mac */
 
 /*
