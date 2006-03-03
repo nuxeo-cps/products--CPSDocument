@@ -6,17 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- The 'Add flexible widget' menu do no longer float on the left
-- #1437: pressing Enter when modifying the title of a document containing
-  file/url/text widget no longer delete the widget
-- #1456: better error message when importing a document with unknown fields
-- temporary fix for 404 Errors on forum.css: added an empty forum.css.dtml file
-  with HTTP caching headers
-- #1472: transtyping for documents on profile import
-- #1485: fix metadata's page title
-- #1504: fix peekaboo bug in IE
-- #1513: fix layout problem in IE
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- Made 'Upgrade document instances to become flexible' step to work before
-  importing/reinstalling 'CPS Default Site' profile.
+-
