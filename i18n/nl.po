@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-01 18:33default\n"
+"POT-Creation-Date: 2006-03-03 16:05default\n"
 "PO-Revision-Date: 2004-02-16 14:14+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -43,7 +43,7 @@ msgstr "Bewerken van «${title}»"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #, fuzzy
 msgid "Metadata of ${title}"
-msgstr "Edit \"${title}\""
+msgstr "Metadata of \"${title}\""
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -642,24 +642,3 @@ msgstr "Flash Animation (swf format)"
 
 msgid "psm_ajax_working"
 msgstr ""
-
-msgid "button_back"
-msgstr "Back"
-
-msgid "button_add"
-msgstr "Add"
-
-msgid "button_delete"
-msgstr "Delete"
-
-msgid "button_move_down"
-msgstr "Move down"
-
-msgid "button_move_up"
-msgstr "Move up"
-
-msgid "button_ok"
-msgstr "Ok"
-
-msgid "label_text_to_search"
-msgstr "Text to search"

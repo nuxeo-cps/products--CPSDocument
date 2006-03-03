@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-01 18:33default\n"
+"POT-Creation-Date: 2006-03-03 16:05default\n"
 "PO-Revision-Date: 2006-03-02 17:39+0200\n"
 "Last-Translator: Dragos Ivan <div@nuxeo.com>\n"
 "Language-Team:  <en@li.org>\n"
@@ -173,8 +173,8 @@ msgstr "eticheta"
 msgid "label_zip_file"
 msgstr "Fisier ZIP"
 
-#.   <a href="." attributes="href python:'/'+
-#.                       itemList[pos + 1].absolute_url(relative=1) +
+#.   <a href="." attributes="href python:'/'+ 
+#.                       itemList[pos + 1].absolute_url(relative=1) + 
 #.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #.   <a href="." attributes="href python:'/'+
 #.                                       itemList[pos + 1].absolute_url(relative=1) +
@@ -439,7 +439,8 @@ msgid "portal_type_GlossaryItem_description"
 msgstr "Inregistrare in glosar"
 
 msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Afiseaza toate inregistrarile daca nici o litera nu a fost selectionata"
+msgstr ""
+"Afiseaza toate inregistrarile daca nici o litera nu a fost selectionata"
 
 msgid "cpsdoc_glossary_term_label_edit"
 msgstr "Termen"
@@ -580,25 +581,3 @@ msgstr "Animatie Flash (format swf)"
 
 msgid "psm_ajax_working"
 msgstr "Se modifica..."
-
-msgid "button_back"
-msgstr "Inapoi"
-
-msgid "button_add"
-msgstr "Adauga"
-
-msgid "button_delete"
-msgstr "Sterge"
-
-msgid "button_move_down"
-msgstr "Muta mai jos"
-
-msgid "button_move_up"
-msgstr "Muta mai sus"
-
-msgid "button_ok"
-msgstr "Ok"
-
-msgid "label_text_to_search"
-msgstr "Text de cautat"
-

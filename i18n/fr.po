@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-01 18:33default\n"
+"POT-Creation-Date: 2006-03-03 16:05default\n"
 "PO-Revision-Date: 2005-05-16 02:59+0200\n"
 "Last-Translator: Julien Anguenot <anguenot@in.nuxeo.com>\n"
 "Language-Team:  <en@li.org>\n"
@@ -597,24 +597,3 @@ msgstr "Animation Flash au format swf"
 
 msgid "psm_ajax_working"
 msgstr "Transfert en cours"
-
-#~ msgid "button_back"
-#~ msgstr "Retour"
-
-#~ msgid "button_add"
-#~ msgstr "Ajouter"
-
-#~ msgid "button_delete"
-#~ msgstr "Effacer"
-
-#~ msgid "button_move_down"
-#~ msgstr "Déplacer en dessous"
-
-#~ msgid "button_move_up"
-#~ msgstr "Déplacer au dessus"
-
-#~ msgid "button_ok"
-#~ msgstr "Ok"
-
-#~ msgid "label_text_to_search"
-#~ msgstr "Texte à chercher"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-01 18:33default\n"
+"POT-Creation-Date: 2006-03-03 16:05default\n"
 "PO-Revision-Date: 2004-11-25 13:38+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -42,7 +42,7 @@ msgstr "Fanovana ${title}"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #, fuzzy
 msgid "Metadata of ${title}"
-msgstr "Modification de «${title}»"
+msgstr "Méta-données de «${title}»"
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -625,25 +625,3 @@ msgstr "Animation Flash au format swf"
 
 msgid "psm_ajax_working"
 msgstr ""
-
-msgid "button_back"
-msgstr "Retour"
-
-msgid "button_add"
-msgstr "Ajouter"
-
-msgid "button_delete"
-msgstr "Effacer"
-
-msgid "button_move_down"
-msgstr "Déplacer en dessous"
-
-msgid "button_move_up"
-msgstr "Déplacer au dessus"
-
-msgid "button_ok"
-msgstr "Ok"
-
-#, fuzzy
-msgid "label_text_to_search"
-msgstr "Texte à chercher"
