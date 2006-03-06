@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Added a checker for the CPSDocument upgrade, so it's not available when 
+  it can't be run.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Minor zpt optimization
