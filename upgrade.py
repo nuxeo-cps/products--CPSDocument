@@ -81,6 +81,18 @@ def upgrade_336_337_anim_flash(context):
                 fixed_files += 1
     return "CPSDocument updated: fixed %d flash anims" % fixed_files
 
+def check_338_340_document_to_flex(context):
+    ttool = getToolByName(context, 'portal_types')
+    if 'Document' not in ttool.objectIds():
+        # No Document type to upgrade
+        return False
+    doc_type = ttool['Document']
+    from FlexibleTypeInformation import FlexibleTypeInformation
+    if doc_type.meta_type != FlexibleTypeInformation.meta_type:
+        # This is CPS 3.2, and Document is not even Flexible.
+        # Can't upgrade
+        return False
+    return True
 
 def upgrade_338_340_document_to_flex(context):
     """Upgrade Document type instances to become flexible."""
