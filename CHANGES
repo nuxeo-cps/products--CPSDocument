@@ -6,8 +6,10 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- Added a checker for the CPSDocument upgrade, so it's not available when 
+- Added a checker for the CPSDocument upgrade, so it's not available when
   it can't be run.
+- Take the portal type allow_discussion attribute into account when
+  creating a document.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Minor zpt optimization

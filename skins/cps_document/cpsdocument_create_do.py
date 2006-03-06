@@ -19,9 +19,14 @@ if not language:
     ts = getToolByName(context, 'translation_service')
     language = ts.getSelectedLanguage()
 
+ttool = getToolByName(context, 'portal_types')
+ti = ttool[type_name]
+allow_discussion = ti.allow_discussion
+
 # Datamodel is passed so that flexti can initialize the object.
 new_id = context.invokeFactory(type_name, id, datamodel=datamodel,
-                               language=language)
+                               language=language,
+                               allow_discussion=allow_discussion)
 if new_id is not None:
     id = new_id
 
