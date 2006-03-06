@@ -21,7 +21,7 @@ if not language:
 
 ttool = getToolByName(context, 'portal_types')
 ti = ttool[type_name]
-allow_discussion = ti.allow_discussion
+allow_discussion = ti.allowDiscussion()
 
 # Datamodel is passed so that flexti can initialize the object.
 new_id = context.invokeFactory(type_name, id, datamodel=datamodel,
