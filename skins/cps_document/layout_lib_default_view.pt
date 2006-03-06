@@ -2,13 +2,14 @@
 <!-- $Id$ -->
 
 <metal:block define-macro="default_view"
-  tal:define="layout options/layout">
+  tal:define="layout options/layout;
+              dm options/datastructure/getDataModel;
+             ">
 <table width="100%" cellpadding="2" cellspacing="2" summary="layout">
   <tr tal:repeat="row layout/rows">
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget">
-      <div tal:define="dm options/datastructure/getDataModel;"
-           tal:attributes="class cell/widget_css_class|nothing;
+      <div tal:attributes="class cell/widget_css_class|nothing;
                            id python:widget.getHtmlWidgetId()+'_widget';
                           ">
         <tal:block condition="widget/label">

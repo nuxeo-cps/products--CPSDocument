@@ -4,12 +4,13 @@
 <!-- this layout doesn't take care of cell layout -->
 
 <metal:block define-macro="div_view"
-  tal:define="layout options/layout">
+  tal:define="layout options/layout;
+              dm options/datastructure/getDataModel;
+             ">
   <tal:block repeat="row layout/rows">
     <tal:block repeat="cell row">
       <tal:block define="widget cell/widget">
-      <div tal:define="dm options/datastructure/getDataModel;"
-           tal:attributes="class cell/widget_css_class|nothing;
+      <div tal:attributes="class cell/widget_css_class|nothing;
                            id python:widget.getHtmlWidgetId()+'_widget';
                           ">
         <tal:block condition="widget/label">

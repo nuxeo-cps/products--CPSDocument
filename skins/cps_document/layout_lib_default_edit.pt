@@ -3,6 +3,7 @@
 <metal:block define-macro="default_edit"
   tal:define="layout options/layout;
               ds options/datastructure;
+              dm ds/getDataModel;
               creation creation|nothing;
               metadata metadata|nothing;
               type_name request/type_name|nothing;
@@ -35,7 +36,6 @@
       tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget;
                          wid widget/getWidgetId;
-                         dm options/datastructure/getDataModel;
                          err python:ds.getError(wid);
                          err_mapping python:ds.getErrorMapping(wid);
                          is_required widget/is_required|nothing;
