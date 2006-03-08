@@ -92,6 +92,9 @@ def check_338_340_document_to_flex(context):
         # This is CPS 3.2, and Document is not even Flexible.
         # Can't upgrade
         return False
+    if 'flexible_content' in doc_type.schemas:
+        # Alredy upgraded:
+        return False
     return True
 
 def upgrade_338_340_document_to_flex(context):
@@ -101,12 +104,14 @@ def upgrade_338_340_document_to_flex(context):
 
     doc_type = ttool['Document']
     schemas = list(doc_type.schemas)
-    schemas.remove('document')
+    if 'document' in schemas:
+        schemas.remove('document')
     schemas.append('flexible_content')
     doc_type.schemas = tuple(schemas)
 
     layouts = list(doc_type.layouts)
-    layouts.remove('document')
+    if 'document' in layouts:
+        layouts.remove('document')
     layouts.append('flexible_content')
     doc_type.layouts = tuple(layouts)
 

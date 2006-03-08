@@ -7,7 +7,8 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - Added a checker for the CPSDocument upgrade, so it's not available when
-  it can't be run.
+  it does not need to be run or can not be run.
+- Fixed bugs in the upgrade that stopped an upgrade from CPS 3.2.4.
 - Take the portal type allow_discussion attribute into account when
   creating a document.
 New internal features:
