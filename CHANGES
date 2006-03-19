@@ -13,4 +13,5 @@ Bug fixes:
   creating a document.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- Minor zpt optimization
+- Minor ZPT optimization.
+- Added testing of CSS validity.

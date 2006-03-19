@@ -60,6 +60,14 @@ class TestCPSDocument(CPSTestCase):
         self.assertEqual(info['photo'],
                          utool.getRelativeUrl(proxy) + '/'+ 'image')
 
+
+    def testCss(self):
+        ALL_CSS = ['document.css']
+        for css_name in ALL_CSS:
+            css_body = self.portal[css_name](self.portal)
+            self.assertValidCss(css_body, css_name)
+
+
 def test_suite():
     return unittest.TestSuite((
         unittest.makeSuite(TestCPSDocument),

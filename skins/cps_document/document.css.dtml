@@ -14,7 +14,7 @@ $Id$
 <dtml-with stylesheet_properties>
 */
 
-@import url(<dtml-var portal_url>/schemas.css);
+<dtml-var schemas.css>
 
 <dtml-comment>
 The "documentFields" class is used to group together the fields pertaining to a
