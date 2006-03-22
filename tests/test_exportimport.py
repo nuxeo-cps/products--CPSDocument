@@ -93,6 +93,13 @@ _IMPORT_SUBDOC = """\
 <object portal_type="Other Type"/>
 """
 
+_IMPORT_FOLDER_REMOVE = """\
+<?xml version="1.0"?>
+<object>
+  <object name="subdoc" remove="ab"/>
+</object>
+"""
+
 _EXPORT_FOLDER = """\
 <?xml version="1.0"?>
 <object name="folder" meta_type="fakedoc" portal_type="Fake Doc">
@@ -164,6 +171,35 @@ class OFSFileIOTests(ZopeTestCase, DOMComparator):
         self.assertEquals(ob.subdoc.getId(), 'subdoc')
         self.assertEquals(ob.subdoc.portal_type, 'Other Type')
         self.assertEquals(ob.subdoc.title, 'other')
+
+    def test_import_remove(self):
+        site = Folder('site')
+        context = DummyImportContext(site, purge=False)
+        context._files['folder.xml'] = _IMPORT_FOLDER_REMOVE
+
+        ob = FakeCPSDocument('folder')
+        ob._setObject('subdoc', Folder('subdoc'))
+        self.assertEquals(ob.objectIds(), ['subdoc'])
+        importCPSObjects(ob, '', context)
+
+        # remove worked
+        self.failIf('subdoc' in ob.objectIds())
+
+    def test_import_remove_non_existing(self):
+        # requesting removal of a non existing object doesn't fail
+        site = Folder('site')
+        context = DummyImportContext(site)
+        context._files['folder.xml'] = _IMPORT_FOLDER_REMOVE
+        self.assertEquals(context._notes, [])
+
+        ob = FakeCPSDocument('folder')
+
+        importCPSObjects(ob, '', context)
+
+        # a warning was issued
+        warn_level = 30 # picked in DummyLogger
+        warnings = [note[2] for note in context._notes if note[0] == warn_level]
+        self.assertEquals(len(warnings), 1)
 
     def test_export(self):
         site = Folder('site')

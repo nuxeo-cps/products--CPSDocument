@@ -83,7 +83,13 @@ class CPSObjectManagerHelpers(object):
 
             obj_id = str(child.getAttribute('name'))
             if child.hasAttribute('remove'):
-                parent._delObject(obj_id)
+                if obj_id in parent.objectIds():
+                    parent._delObject(obj_id)
+                    msg = "Object %s removed"
+                    self._logger.log(VERBOSE, msg)
+                else:
+                    msg = "Attempt of removing non-existent object %s" % obj_id
+                    self._logger.warning(msg)
                 continue
 
             # Transtyping for documents with a different portal_type
