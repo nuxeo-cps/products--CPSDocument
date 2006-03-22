@@ -6,13 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- Added a checker for the CPSDocument upgrade, so it's not available when
-  it does not need to be run or can not be run.
-- Fixed bugs in the upgrade that stopped an upgrade from CPS 3.2.4.
-- Take the portal type allow_discussion attribute into account when
-  creating a document.
-- #1527 (partial): remove=True doesn't fail if object doesn't exist.
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- Minor ZPT optimization.
-- Added testing of CSS validity.
+-
