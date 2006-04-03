@@ -155,7 +155,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
     manage_options = FactoryTypeInformation.manage_options + (
         {'label': 'Export',
-         'action': 'manage_export',
+         'action': 'manage_genericSetupExport.html',
          },
         )
 
