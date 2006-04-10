@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: pt-BR\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-03 16:05default\n"
-"PO-Revision-Date: 2005-09-29 14:44-0300\n"
+"PO-Revision-Date: 2006-04-03 15:12-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -40,9 +40,8 @@ msgstr "Editar ${title}"
 
 #.   <block condition="metadata">Metadata of ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
-#, fuzzy
 msgid "Metadata of ${title}"
-msgstr "Metadata of \"${title}\""
+msgstr "Metadados de \"${title}\""
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -360,17 +359,14 @@ msgstr "Documento anexado:"
 msgid "cpsdoc_flex_attachedFile_label"
 msgstr "Documento anexado"
 
-#, fuzzy
 msgid "cpsdoc_flex_flash_title"
-msgstr "Flash Animation"
+msgstr "Animação Flash"
 
-#, fuzzy
 msgid "cpsdoc_flex_flash_label_edit"
-msgstr "Flash Animation: "
+msgstr "Animação Flash: "
 
-#, fuzzy
 msgid "cpsdoc_flex_flash_label"
-msgstr "Flash Animation: "
+msgstr "Animação Flash: "
 
 msgid "cpsdoc_flex_photo_title"
 msgstr "Foto"
@@ -587,4 +583,4 @@ msgid "portal_type_Flash_Animation_description"
 msgstr "Animação em MacroMedia Flash"
 
 msgid "psm_ajax_working"
-msgstr ""
+msgstr "Ajax funcionando"
