@@ -213,9 +213,10 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         ob = container._getOb( id )
 
         # Init from datamodel if present, or from an empty one
-        # to get default values.
+        # to get default values. In the latter case, we have no proxy.
         dm = kw.get('datamodel')
-        if dm is None:
+        proxy = dm and dm.getProxy()
+        if dm is None or dm.getObject() is None:
             dm = self.getDataModel(None, context=container)
 
         # Initialize the dm with values within the kw. Take care : the values
@@ -229,7 +230,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             if dm.has_key(k):
                 dm.set(k, v)
 
-        dm._setObject(ob, proxy=dm.getProxy())
+        dm._setObject(ob, proxy=proxy)
         dm._commit(check_perms=0)
 
         return ob
