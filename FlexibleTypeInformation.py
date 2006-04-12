@@ -215,7 +215,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         # Init from datamodel if present, or from an empty one
         # to get default values. In the latter case, we have no proxy.
         dm = kw.get('datamodel')
-        proxy = dm and dm.getProxy()
+        proxy = dm is not None and dm.getProxy() or None
         if dm is None or dm.getObject() is None:
             dm = self.getDataModel(None, context=container)
 
