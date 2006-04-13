@@ -22,15 +22,17 @@
 
 import Testing.ZopeTestCase.ZopeLite
 import unittest
+from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
 
 from Interface.Verify import verifyClass
 
 from Products.CMFCore.interfaces.portal_types \
      import ContentTypeInformation as IContentTypeInformation
 
+from Products.CMFCore.utils import getToolByName
+from Products.CPSSchemas.DataModel import DataModel
 from Products.CPSDocument.FlexibleTypeInformation \
     import FlexibleTypeInformation
-
 
 class TestFlexibleTypeInformation(unittest.TestCase):
 
@@ -62,9 +64,40 @@ class TestFlexibleTypeInformation(unittest.TestCase):
         self.assertEquals(func(cluster='view'), ['blob', 'mickey'])
         self.assertEquals(func(cluster='babar'), default)
 
+class IntegrationTestFlexibleTypeInformation(CPSTestCase):
+
+    def afterSetUp(self):
+        self.login('manager')
+        self.ttool = ttool = getToolByName(self.portal, 'portal_types')
+        self.fti = ttool['News Item']
+        wftool = getToolByName(self.portal, 'portal_workflow')
+        ws = self.portal.workspaces
+        wftool.invokeFactoryFor(ws, 'Workspace', 'testFTI_sandbox')
+        self.sandbox = ws.testFTI_sandbox
+
+    def beforeTearDown(self):
+        self.portal.workspaces.manage_delObjects(['testFTI_sandbox'])
+
+    def test_constructInstance(self):
+        # when supplied with prefilled dm, don't wipe it
+        dm = self.fti.getDataModel(None)
+        dm['Title'] = 'User written'
+
+        ob = self.fti._constructInstance(self.sandbox, 'the_id', datamodel=dm)
+        self.assertEquals(ob.Title(), 'User written')
+
+        # when supplied with bare dm, produce a new dm
+        # (couldn't set Title otherwise)
+        dm = DataModel(None)
+        ob = self.fti._constructInstance(self.sandbox, 'other',
+                                         datamodel=dm,
+                                         Title='User written')
+        self.assertEquals(ob.Title(), 'User written')
+
 def test_suite():
     return unittest.TestSuite((
         unittest.makeSuite(TestFlexibleTypeInformation),
+        unittest.makeSuite(IntegrationTestFlexibleTypeInformation),
         ))
 
 
