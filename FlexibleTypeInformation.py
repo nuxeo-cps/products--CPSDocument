@@ -26,7 +26,6 @@ from zLOG import LOG, DEBUG, WARNING
 from Acquisition import aq_base, aq_parent, aq_inner
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
-from OFS.Image import File, Image
 
 from Products.CMFCore.permissions import View
 from Products.CMFCore.permissions import ModifyPortalContent
@@ -37,7 +36,6 @@ from Products.CMFCore.TypesTool import FactoryTypeInformation
 from Products.CMFCore.interfaces import ITypeInformation
 
 from Products.CPSCore.EventServiceTool import getEventService
-from Products.CPSSchemas.utils import copyFile, copyImage
 from Products.CPSSchemas.Schema import SchemaContainer
 from Products.CPSSchemas.Layout import LayoutContainer
 from Products.CPSSchemas.DataModel import DataModel

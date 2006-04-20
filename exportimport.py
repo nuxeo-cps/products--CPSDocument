@@ -27,10 +27,8 @@ from Acquisition import aq_base
 import Products
 import OFS.Image
 from ZODB.loglevels import BLATHER as VERBOSE
-from Products.CMFCore.utils import getToolByName
 from Products.GenericSetup.utils import BodyAdapterBase
 from Products.GenericSetup.utils import XMLAdapterBase
-from Products.GenericSetup.utils import ObjectManagerHelpers
 from Products.GenericSetup.interfaces import INode
 from Products.GenericSetup.interfaces import IBody
 from Products.GenericSetup.interfaces import ISetupEnviron
