@@ -12,12 +12,13 @@ from pprint import pprint
 import unittest
 from DateTime import DateTime
 from Testing import ZopeTestCase
-from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
+from OFS.Image import File
 
-from Products.CPSSchemas.Widget import widgetname
 from Products.CMFCore.utils import _getViewFor
 
-from OFS.Image import File
+from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
+from Products.CPSSchemas.Widget import widgetname
+from Products.CPSUtil.tests.web_conformance import assertWellFormedXml
 
 class DummyResponse:
     def __init__(self):
@@ -114,7 +115,7 @@ class TestDocuments(CPSTestCase):
         # Normal View
         view = _getViewFor(proxy)
         self.assert_(view())
-        self.assertWellFormedXML(doc.exportAsXML(proxy=proxy), "exportAsXML")
+        assertWellFormedXml(doc.exportAsXML(proxy=proxy), "exportAsXML")
 
     # Standard conversion to attributes for special metadata schema.
     field_to_attr = {

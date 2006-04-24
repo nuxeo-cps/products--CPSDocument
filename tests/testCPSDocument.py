@@ -26,6 +26,7 @@ from Acquisition import aq_base
 from OFS.Image import File
 
 from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
+from Products.CPSUtil.tests.web_conformance import assertValidCss
 
 class TestCPSDocument(CPSTestCase):
 
@@ -65,7 +66,7 @@ class TestCPSDocument(CPSTestCase):
         ALL_CSS = ['document.css']
         for css_name in ALL_CSS:
             css_body = self.portal[css_name](self.portal)
-            self.assertValidCss(css_body, css_name)
+            assertValidCss(css_body, css_name)
 
 
 def test_suite():
