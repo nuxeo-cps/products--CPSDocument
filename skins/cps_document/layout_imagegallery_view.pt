@@ -50,7 +50,8 @@
                              python:here.getImgTag(
                                item.absolute_url_path()+'/preview',
                                base_url='',width=th_width,height=th_height,
-                               keep_ratio=1)">
+                               keep_ratio=1, 
+			       img=item.restrictedTraverse('preview'))">
           <br />
           <p tal:replace="item/Title"></p>
         </a>

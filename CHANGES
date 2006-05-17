@@ -6,7 +6,8 @@ New features:
 - FlexibleTypeInformation lets each schema handle what storage adapter to use
 Bug fixes:
 ~~~~~~~~~~
--
+- #1551: now passes image object to getImgTag to work under any virtual hosting
+  condition and avoid redundant traversals
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
