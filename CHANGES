@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- FlexibleTypeInformation lets each schema handle what storage adapter to use
 Bug fixes:
 ~~~~~~~~~~
 -

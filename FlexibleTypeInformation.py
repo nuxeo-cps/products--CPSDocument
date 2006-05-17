@@ -40,8 +40,6 @@ from Products.CPSSchemas.Schema import SchemaContainer
 from Products.CPSSchemas.Layout import LayoutContainer
 from Products.CPSSchemas.DataModel import DataModel
 from Products.CPSSchemas.DataStructure import DataStructure
-from Products.CPSSchemas.StorageAdapter import AttributeStorageAdapter, \
-     MetaDataStorageAdapter
 
 from Products.CPSDocument.CPSDocument import addCPSDocument
 from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget
@@ -554,10 +552,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         schemas = self._listSchemas(ob)
         adapters = []
         for schema in schemas:
-            if schema.id.startswith('metadata'):
-                adapters.append(MetaDataStorageAdapter(schema, ob, proxy=proxy))
-            else:
-                adapters.append(AttributeStorageAdapter(schema, ob, proxy=proxy))
+            adapters.append(schema.getStorageAdapter(ob, proxy=proxy))
         dm = DataModel(ob, adapters, proxy=proxy, context=context)
         dm._fetch()
         return dm
