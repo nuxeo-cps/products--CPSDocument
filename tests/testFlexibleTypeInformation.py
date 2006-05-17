@@ -20,19 +20,22 @@
 """Tests for Flexible Type Information.
 """
 
-import Testing.ZopeTestCase.ZopeLite
 import unittest
-from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
+
+from DateTime import DateTime
 
 from Interface.Verify import verifyClass
 
+from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
+
 from Products.CMFCore.interfaces.portal_types \
      import ContentTypeInformation as IContentTypeInformation
-
 from Products.CMFCore.utils import getToolByName
+
 from Products.CPSSchemas.DataModel import DataModel
 from Products.CPSDocument.FlexibleTypeInformation \
     import FlexibleTypeInformation
+
 
 class TestFlexibleTypeInformation(unittest.TestCase):
 
@@ -64,6 +67,8 @@ class TestFlexibleTypeInformation(unittest.TestCase):
         self.assertEquals(func(cluster='view'), ['blob', 'mickey'])
         self.assertEquals(func(cluster='babar'), default)
 
+
+
 class IntegrationTestFlexibleTypeInformation(CPSTestCase):
 
     def afterSetUp(self):
@@ -93,6 +98,47 @@ class IntegrationTestFlexibleTypeInformation(CPSTestCase):
                                          datamodel=dm,
                                          Title='User written')
         self.assertEquals(ob.Title(), 'User written')
+
+
+    def test_getDataModel(self):
+        # fti has metadata and attribute storage adapters
+        dm = self.fti.getDataModel(self.sandbox)
+        # test keys, may break if new item schema changes
+        keys = [
+            'Contributors',
+            'Coverage',
+            'CreationDate',
+            'Creator',
+            'Description',
+            'EffectiveDate',
+            'ExpirationDate',
+            'Format',
+            'Language',
+            'ModificationDate',
+            'Relation',
+            'Rights',
+            'Source',
+            'Subject',
+            'Title',
+            'allow_discussion',
+            'content',
+            'content_format',
+            'content_position',
+            'photo',
+            'photo_original',
+            'photo_position',
+            'photo_subtitle',
+            'preview',
+            ]
+        dm_keys = dm.keys()
+        dm_keys.sort()
+        self.assertEquals(dm_keys, keys)
+        # test set default values
+        self.assertEquals(dm['Format'], 'text/html')
+        self.assertEquals(dm['Creator'], 'manager')
+        self.assertEquals(isinstance(dm['ModificationDate'], DateTime), True)
+        self.assertEquals(isinstance(dm['CreationDate'], DateTime), True)
+
 
 def test_suite():
     return unittest.TestSuite((
