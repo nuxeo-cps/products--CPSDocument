@@ -1,4 +1,21 @@
 *******************************************
+** CPSDocument V0.44.0 [R1 build 2006/05/19-12:37 by fermigier]
+** SVN URL: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk Revision: 45740
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- FlexibleTypeInformation lets each schema handle what storage adapter to use
+Bug fixes:
+~~~~~~~~~~
+- #1551: now passes image object to getImgTag to work under any virtual hosting
+  condition and avoid redundant traversals
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.43.0 [R1 build 2006/05/02-15:49 by gracinet]
 ** SVN URL: http://svn/pub/CPSDocument/trunk Revision: 45157
 Requires:
