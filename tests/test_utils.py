@@ -26,11 +26,13 @@ class TestUtils(unittest.TestCase):
     def test_cleanAjaxParams(self):
 
         class FakeRequest(object):
-            form = {'yo': ['one,two,three']}
+            form = {'yo': ['one,two,three'],
+                    'mama': ['blue', []]}
 
         req = FakeRequest()
         cleanAjaxParams(req)
         self.assertEquals(req.form['yo'], ['one', 'two', 'three'])
+        self.assertEquals(req.form['mama'], ['blue', []])
 
 def test_suite():
     loader = unittest.TestLoader()

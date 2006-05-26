@@ -68,6 +68,8 @@ ModuleSecurityInfo('Products.CPSDocument.utils'
 def cleanAjaxParams(request):
 
     def clean(element):
+        if isinstance(element, list):
+            return [clean(item) for item in element]
         return element.decode('utf-8', 'replace').encode('iso-8859-15')
 
     for key, value in request.form.items():
