@@ -7,6 +7,8 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - #1617: Attached files in News items was lost after upgrade.
+- #1624: Multi selection was not working with ajax editing enabled
+
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

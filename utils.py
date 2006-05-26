@@ -63,3 +63,21 @@ def getFormUidUrlArg(request):
     else:
         return {}
 
+ModuleSecurityInfo('Products.CPSDocument.utils'
+                   ).declarePublic('cleanAjaxParams')
+def cleanAjaxParams(request):
+
+    def clean(element):
+        return element.decode('utf-8', 'replace').encode('iso-8859-15')
+
+    for key, value in request.form.items():
+        if isinstance(value, str):
+            value = clean(value)
+            request.form[key] = value
+        if value == ['']:
+            request.form[key] = []
+        if isinstance(value, list):
+            if len(value) == 1 and ',' in value[0]:
+                value = value[0].split(',')
+            value = [clean(element) for element in value]
+            request.form[key] = value

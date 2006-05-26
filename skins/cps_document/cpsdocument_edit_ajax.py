@@ -5,15 +5,10 @@ Called when a document form is posted for AJAX validation.
 
 Returns the validation result and the rendered page in an XML-RPC response.
 """
+from Products.CPSDocument.utils import cleanAjaxParams
 
-# This is hardcoded here because CPS is not UTF-8 yet (it's ISO-8859-15)
-# so the form fields are sent in strings that are unicode in fact
-for key, value in REQUEST.form.items():
-    if isinstance(value, str):
-        value = value.decode('utf-8', 'replace').encode('iso-8859-15')
-        REQUEST.form[key] = value
-    if value == ['']:
-        REQUEST.form[key] = []
+# cleaning incoming params
+cleanAjaxParams(REQUEST)
 
 doc = context.getContent()
 res = doc.renderEditDetailed(request=REQUEST, proxy=context, cluster=cluster)
