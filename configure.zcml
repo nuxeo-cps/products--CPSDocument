@@ -66,4 +66,12 @@
       checker=".upgrade.check_338_340_document_to_flex"
       />
 
+  <cps:upgradeStep
+      title="Upgrade news item instances to become flexible"
+      source="3.3.8" destination="3.4.0"
+      handler=".upgrade.upgrade_338_340_newsitem_to_flex"
+      checker=".upgrade.check_338_340_newsitem_to_flex"
+      />
+
+
 </configure>

@@ -148,3 +148,70 @@ def upgrade_338_340_document_to_flex(context):
         count += 1
 
     return 'CPSDocument updated: %d Document instances became flexible' % count
+
+def check_338_340_newsitem_to_flex(context):
+    ttool = getToolByName(context, 'portal_types')
+    if 'News Item' not in ttool.objectIds():
+        # No Document type to upgrade
+        return False
+    doc_type = ttool['News Item']
+    from FlexibleTypeInformation import FlexibleTypeInformation
+    if doc_type.meta_type != FlexibleTypeInformation.meta_type:
+        # This is CPS 3.2, and Document is not even Flexible.
+        # Can't upgrade
+        return False
+    return True
+
+def upgrade_338_340_newsitem_to_flex(context):
+    """Upgrade News Item type instances to become flexible."""
+    repository = getToolByName(context, 'portal_repository')
+    ttool = getToolByName(context, 'portal_types')
+
+    doc_type = ttool['News Item']
+    schemas = list(doc_type.schemas)
+    if 'news' in schemas:
+        schemas.remove('news')
+        schemas.append('newsitem')
+        doc_type.schemas = tuple(schemas)
+
+    layouts = list(doc_type.layouts)
+    if 'news' in layouts:
+        layouts.remove('news')
+        layouts.append('newsitem_start')
+        layouts.append('newsitem_flexible')
+        layouts.append('newsitem_end')
+        doc_type.layouts = tuple(layouts)
+
+    doc_type.flexible_layouts = ('newsitem_flexible:flexible_content',)
+    
+    pfilter = lambda o: getattr(o, 'portal_type', '') == 'News Item'
+    docs = itertools.ifilter(pfilter, repository.values())
+    count = 0
+    for doc in docs:
+        bdoc = aq_base(doc)
+
+        schemas = getattr(bdoc, '.cps_schemas', None)
+        attachedFile = getattr(bdoc, 'attachedFile', None)
+        attachedFile_text = getattr(bdoc, 'attachedFile_text', None)
+        attachedFile_html = getattr(bdoc, 'attachedFile_html', None)
+
+        if (schemas is not None
+            and attachedFile is None
+            and attachedFile_text is None
+            and attachedFile_html is None
+            ):
+            continue
+
+        doc.flexibleAddWidget('newsitem_flexible', 'attachedFile')
+        kw = {'attachedFile_f0': attachedFile,
+              'attachedFile_f1': attachedFile_text,
+              'attachedFile_f2': attachedFile_html,
+              }
+        doc.edit(**kw)
+
+        for attr in 'attachedFile', 'attachedFile_text', 'attachedFile_html':
+            delattr(doc, attr)
+
+        count += 1
+
+    return 'CPSDocument updated: %d Document instances became flexible' % count

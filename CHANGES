@@ -6,7 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- #1617: Attached files in News items was lost after upgrade.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
