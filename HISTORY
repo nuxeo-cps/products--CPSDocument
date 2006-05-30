@@ -1,4 +1,22 @@
 *******************************************
+** CPSDocument V0.44.1 [R1 build 2006/05/30-21:20 by ogrisel]
+** SVN URL: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk Revision: 46041
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- #1617: Attached files in News items was lost after upgrade.
+- #1624: Multi selection was not working with ajax editing enabled
+
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.44.0 [R1 build 2006/05/19-12:37 by fermigier]
 ** SVN URL: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk Revision: 45740
 Requires:
