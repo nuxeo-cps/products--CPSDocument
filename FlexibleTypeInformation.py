@@ -650,10 +650,9 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             datastructure.updateFromMapping(request.form)
 
         layout_structures = []
-        datamodel = datastructure.getDataModel()
         for layout in layouts:
             layout_structure = layout.computeLayoutStructure(layout_mode,
-                                                             datamodel)
+                                                             datastructure)
             layout_structures.append(layout_structure)
 
         return layout_structures
