@@ -210,7 +210,16 @@ class CPSDocumentXMLAdapter(XMLAdapterBase, CPSObjectManagerHelpers):
         ob = self.context
         fragment = self._doc.createDocumentFragment()
         datamodel = ob.getDataModel()
-        for key, value, field in datamodel._itemsWithFields():
+
+        items_wfields = datamodel._itemsWithFields()
+        excluded = []
+        for k, v, field in items_wfields:
+            excluded.extend(field._getAllDependantFieldIds())
+
+        for key, value, field in items_wfields:
+            if key in excluded:
+                continue
+            print key
             node = self.createStrictTextElement('f')
             node.setAttribute('id', key)
             nodeio = IFieldNodeIO(field)
@@ -359,6 +368,7 @@ def addCPSFieldObjectItems(parent, items):
     datamodel = parent.getDataModel()
     bases = [aq_base(i[1]) for i in items]
     field_items = []
+
     for key, value, field in datamodel._itemsWithFields():
         if IFileField.providedBy(field):
             if value is not None and aq_base(value) not in bases:
