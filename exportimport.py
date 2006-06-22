@@ -219,7 +219,6 @@ class CPSDocumentXMLAdapter(XMLAdapterBase, CPSObjectManagerHelpers):
         for key, value, field in items_wfields:
             if key in excluded:
                 continue
-            print key
             node = self.createStrictTextElement('f')
             node.setAttribute('id', key)
             nodeio = IFieldNodeIO(field)
