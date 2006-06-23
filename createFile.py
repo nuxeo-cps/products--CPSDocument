@@ -22,15 +22,18 @@ Create a document (attached file) for each file in the uploaded ZIP,
 with types according to their extensions
 """
 
+from logging import getLogger
+
 from Products.CMFCore.utils import getToolByName
 from OFS.Image import File
-from zLOG import LOG, DEBUG, INFO
 from AccessControl import ModuleSecurityInfo
 from zipfile import ZipFile, BadZipfile
 from StringIO import StringIO
 from zExceptions import BadRequest
 from Products.CPSCore.EventServiceTool import getEventService
 from Products.CPSUtil.id import generateFileName
+
+logger = getLogger('CPSDocument.createFile')
 
 ModuleSecurityInfo('Products.CPSDocument.createFile').declarePublic('createFile')
 
@@ -39,6 +42,7 @@ def createFile(context, zip_file):
 
     evtool = getEventService(context)
     evtool.notifyEvent('modify_object', context, {})
+    registry = getToolByName(context, 'mimetypes_registry')
 
     if hasattr(zip_file, 'filename'):
         filename = zip_file.filename
@@ -48,14 +52,12 @@ def createFile(context, zip_file):
     try:
         temp_file = File(filename, '', file=zip_file)
     except ValueError:
-        LOG('createFile', INFO,
-                'Inexistent uploaded ZIP file')
+        logger.info('Inexistent uploaded ZIP file')
         return 0
     try:
         zipfile = ZipFile(StringIO(str(temp_file)))
     except BadZipfile:
-        LOG('createFile', INFO,
-                'Bad Zip File')
+        logger.info('Bad Zip File')
         return 0
     infolist = zipfile.infolist()
     # browsing the ZIP file
@@ -64,35 +66,39 @@ def createFile(context, zip_file):
         # Skip folders
         if path[-1] == '/':
             continue
-        data = zipfile.read(path)
         # Acquiring only the filename (without the directory path)
         path_filename = generateFileName(path.split('/')[-1])
+        mimetype = registry.lookupExtension(path_filename.lower()).normalized()
+        if mimetype.startswith('image/'):
+            ptype = 'Image'
+            field_name = 'preview'
+        else:
+            ptype = 'File'
+            field_name = 'file'
         try:
             file_id = context.portal_workflow.invokeFactoryFor(
-                     context, 'File', path_filename)
+                context, ptype, path_filename)
         except BadRequest:
-            LOG('createFile', INFO,
-                'File %s already exists' % (path_filename))
+            logger.info('File %s already exists', path_filename)
             return 0
 
-        file_obj = getattr(context, file_id)
-        file_obj = file_obj.getEditableContent()
+        file_proxy = getattr(context, file_id)
+        file_doc = file_proxy.getEditableContent()
 
         # create file to attach to document
+        data = zipfile.read(path)
         file_to_attach = File(path_filename, path_filename, data)
-        registry = getToolByName(context, 'mimetypes_registry')
-        mimetype = registry.lookupExtension(path_filename.lower())
-        if mimetype and file_to_attach.content_type != mimetype.normalized():
-            LOG('createFile', DEBUG,
-                'Fixing mimetype from %s to %s' % (
-                file_to_attach.content_type, mimetype.normalized()))
-            file_to_attach.manage_changeProperties(
-                content_type=mimetype.normalized())
+        if mimetype and file_to_attach.content_type != mimetype:
+            logger.debug('Fixing mimetype from %s to %s',
+                         file_to_attach.content_type, mimetype)
+            file_to_attach.manage_changeProperties(content_type=mimetype)
 
-        kw = {'Title': path_filename,
-          'Description': 'Imported File (original archive: %s)' % filename,
-          'file': file_to_attach}
+        doc_def = {
+            'Title': path_filename,
+            'Description': 'Imported File (original archive: %s)' % filename,
+            field_name: file_to_attach,
+        }
 
-        file_obj.edit(**kw)
+        file_doc.edit(doc_def, proxy=file_proxy)
 
     return 1
