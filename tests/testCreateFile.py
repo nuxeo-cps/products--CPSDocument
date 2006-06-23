@@ -15,6 +15,9 @@ class TestCreateFile(CPSTestCase):
         file = StringIO.StringIO(open(filename).read())
         return file
 
+    def test_withNone(self):
+        createFile(self.ws, None)
+
     def test_createFileWithName(self):
         file = self._makeZipFile()
         file.name = "toto.zip"
@@ -46,6 +49,12 @@ class TestCreateFile(CPSTestCase):
         otherfile = getattr(self.ws, 'testCreateFile.py')
         self.assertEquals(otherfile.portal_type, 'File')
         self.assert_(otherfile.getContent()['file'] is not None)
+
+    def test_imageGalleryZipFileUpload(self):
+        wftool = getToolByName(self.portal, 'portal_workflow')
+        ig_id = wftool.invokeFactoryFor(self.ws, 'Image Gallery', 'test_ig')
+        ig = getattr(self.ws, ig_id)
+        ig_doc = ig.getEditableContent()
 
 
 def test_suite():

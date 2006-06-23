@@ -39,23 +39,28 @@ ModuleSecurityInfo('Products.CPSDocument.createFile').declarePublic('createFile'
 
 def createFile(context, zip_file):
     """create documents based on the files in the uploaded ZIP"""
-
+    if zip_file is None:
+        return
     evtool = getEventService(context)
     evtool.notifyEvent('modify_object', context, {})
     registry = getToolByName(context, 'mimetypes_registry')
+    ttool = getToolByName(context, 'portal_types')
 
     if hasattr(zip_file, 'filename'):
         filename = zip_file.filename
-    else:
+    elif hasattr(zip_file, 'name'):
         filename = zip_file.name
+    else:
+        filename = "temp_file"
 
+    if not isinstance(zip_file, File):
+        try:
+            zip_file = File(filename, '', file=zip_file)
+        except ValueError:
+            logger.info('Inexistent uploaded ZIP file')
+            return
     try:
-        temp_file = File(filename, '', file=zip_file)
-    except ValueError:
-        logger.info('Inexistent uploaded ZIP file')
-        return 0
-    try:
-        zipfile = ZipFile(StringIO(str(temp_file)))
+        zipfile = ZipFile(StringIO(str(zip_file)))
     except BadZipfile:
         logger.info('Bad Zip File')
         return 0
@@ -75,6 +80,9 @@ def createFile(context, zip_file):
         else:
             ptype = 'File'
             field_name = 'file'
+        fti = ttool[context.portal_type]
+        if ptype not in fti.allowed_content_types:
+            continue
         try:
             file_id = context.portal_workflow.invokeFactoryFor(
                 context, ptype, path_filename)

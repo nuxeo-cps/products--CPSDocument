@@ -385,6 +385,12 @@ msgstr ""
 msgid "cpsdoc_imgallery_col_label_edit"
 msgstr ""
 
+msgid "cpsdoc_imgallery_ziparchiveuploader_label_edit"
+msgstr ""
+
+msgid "cpsdoc_imgallery_ziparchiveuploader_label_help"
+msgstr ""
+
 
 # Book and page
 msgid "portal_type_Book_title"
@@ -430,3 +436,4 @@ msgstr ""
 
 msgid "psm_ajax_working"
 msgstr ""
+
