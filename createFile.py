@@ -37,7 +37,7 @@ logger = getLogger('CPSDocument.createFile')
 
 ModuleSecurityInfo('Products.CPSDocument.createFile').declarePublic('createFile')
 
-def createFile(context, zip_file):
+def createFile(context, zip_file, check_allowed_content_types=True):
     """create documents based on the files in the uploaded ZIP"""
     if zip_file is None:
         return
@@ -45,6 +45,7 @@ def createFile(context, zip_file):
     evtool.notifyEvent('modify_object', context, {})
     registry = getToolByName(context, 'mimetypes_registry')
     ttool = getToolByName(context, 'portal_types')
+    allowed_content_types = ttool[context.portal_type].allowed_content_types
 
     if hasattr(zip_file, 'filename'):
         filename = zip_file.filename
@@ -80,8 +81,7 @@ def createFile(context, zip_file):
         else:
             ptype = 'File'
             field_name = 'file'
-        fti = ttool[context.portal_type]
-        if ptype not in fti.allowed_content_types:
+        if check_allowed_content_types and ptype not in allowed_content_types:
             continue
         try:
             file_id = context.portal_workflow.invokeFactoryFor(
