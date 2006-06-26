@@ -148,8 +148,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
     # XXX make this a WorkflowMethod
     security.declareProtected(ModifyPortalContent, 'edit')
-    def edit(self, mapping={}, proxy=None, REQUEST=None, **kw):
-        """Edit the document.
+    def edit(self, mapping=None, proxy=None, REQUEST=None, **kw):
+        """Edit the document
 
         The mapping and the keyword arguments describe fields, not
         widgets.
@@ -162,9 +162,17 @@ class CPSDocumentMixin(ExtensionClass.Base):
         """
         if REQUEST:
             raise Unauthorized("Not accessible TTW.")
-        kw.update(mapping)
-        return self.getTypeInfo().editObject(self, kw, proxy=proxy)
+        if mapping is None:
+            mapping = {}
+        self._edit(mapping=mapping, proxy=proxy, check_perms=True, **kw)
 
+    security.declarePrivate('_edit')
+    def _edit(self, mapping=None, proxy=None, check_perms=False, **kw):
+        """Private version of edit without the permission check"""
+        if mapping is not None:
+            kw.update(mapping)
+        return self.getTypeInfo().editObject(self, kw, proxy=proxy,
+                                             check_perms=check_perms)
 
     security.declareProtected(View, 'SearchableText')
     def SearchableText(self):

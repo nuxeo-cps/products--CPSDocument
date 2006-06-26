@@ -984,13 +984,13 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                                    **kw)
 
     security.declarePrivate('editObject')
-    def editObject(self, ob, mapping, proxy=None):
+    def editObject(self, ob, mapping, proxy=None, check_perms=True):
         """Modify the object's fields from a mapping."""
         dm = self.getDataModel(ob, proxy=proxy)
         for key, value in mapping.items():
             if dm.has_key(key):
                 dm[key] = value
-        self._commitDM(dm)
+        self._commitDM(dm, check_perms=check_perms)
 
     security.declarePublic('renderCreateObjectDetailed')
     def renderCreateObjectDetailed(self, container, request=None, validate=1,

@@ -8,17 +8,17 @@ import os, sys
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
-from pprint import pprint
 import unittest
 from DateTime import DateTime
-from Testing import ZopeTestCase
 from OFS.Image import File
+from AccessControl import Unauthorized
 
 from Products.CMFCore.utils import _getViewFor
 
 from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
 from Products.CPSSchemas.Widget import widgetname
 from Products.CPSUtil.tests.web_conformance import assertWellFormedXml
+from Products.CMFCore.utils import getToolByName
 
 class DummyResponse:
     def __init__(self):
@@ -43,17 +43,14 @@ def randomText(max_len=10):
 
 class TestDocuments(CPSTestCase):
     def afterSetUp(self):
-        try:
-            self.login('manager')
-        except AttributeError:
-            # CMF
-            uf = self.portal.acl_users
-            uf._doAddUser('manager', '', ['Manager'], [])
-            self.login('manager')
-        try:
-            self.ws = self.portal.workspaces
-        except AttributeError:
-            self.ws = self.portal
+        # adding a ws reader user to test access rigths
+        mtool = getToolByName(self.portal, 'portal_membership')
+        mdir = getToolByName(self.portal, 'portal_directories').members
+        mdir._createEntry({'id': 'wsreader', 'roles': ('Member',)})
+        self.ws = self.portal.workspaces
+        mtool.setLocalRoles(self.ws, ['wsreader'], 'WorkspaceReader')
+
+        self.login('manager')
         self.document_schemas = self.portal.getDocumentSchemas()
         self.document_types = self.portal.getDocumentTypes()
         # getFolderContents check SESSION to get user display choice
@@ -101,9 +98,15 @@ class TestDocuments(CPSTestCase):
                 self._testAttributeValues(doc, self.attr_values_1)
                 self._testAttributeValues(doc, expected_invariable)
 
+                # test edit permission
+                self.login('wsreader')
+                self.assertRaises(Unauthorized, doc.edit,
+                                  proxy=proxy, **self.attr_values_1)
+                doc._edit(proxy=proxy, **self.attr_values_1)
+                self.login('manager')
+
         # Now testing global view for the container
         self.assert_(self.ws.folder_view())
-
 
     def _validateDocument(self, proxy, doc):
         self._testDefaultAttributes(doc)

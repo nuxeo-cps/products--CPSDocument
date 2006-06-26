@@ -61,7 +61,6 @@ class TestCPSDocument(CPSTestCase):
         self.assertEqual(info['photo'],
                          utool.getRelativeUrl(proxy) + '/'+ 'image')
 
-
     def testCss(self):
         ALL_CSS = ['document.css']
         for css_name in ALL_CSS:
