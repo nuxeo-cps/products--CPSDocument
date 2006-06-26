@@ -184,7 +184,6 @@ class TestDocuments(CPSTestCase):
         res = doc.render(request=None, proxy=proxy, layout_mode='edit')
         self.assert_(res)
 
-
     def testCreateDocumentsInWorkspacesRootThroughWFTool(self):
         try:
             wft = self.portal.portal_workflow
