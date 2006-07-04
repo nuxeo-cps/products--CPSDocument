@@ -1,4 +1,22 @@
 *******************************************
+** CPSDocument V0.45.0 [R1 build 2006/07/04-16:08 by gracinet]
+** SVN URL: http://svn/pub/CPS3/products/CPSDocument/trunk Revision: 46900
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- GenericSetup: Dependent fields don't get exported
+- reupdated the createFile utility + made it image aware
+Bug fixes:
+~~~~~~~~~~
+- fixed potential bugs with mutable default value for the mapping kw arg in
+  CPSDocument.edit
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- added a private method CPSDocument._edit that do not perform security checks
+
+*******************************************
 ** CPSDocument V0.44.1 [R1 build 2006/05/30-21:20 by ogrisel]
 ** SVN URL: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk Revision: 46041
 Requires:

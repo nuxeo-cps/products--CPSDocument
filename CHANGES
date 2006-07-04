@@ -3,12 +3,10 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- GenericSetup: Dependent fields don't get exported
-- reupdated the createFile utility + made it image aware
+-
 Bug fixes:
 ~~~~~~~~~~
-- fixed potential bugs with mutable default value for the mapping kw arg in
-  CPSDocument.edit
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- added a private method CPSDocument._edit that do not perform security checks
+-
