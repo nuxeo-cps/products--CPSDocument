@@ -21,10 +21,16 @@ layout, is_valid = str(res[0]), res[1]
 
 # At this time we do XML-RPC answers.
 # We'll see later how to automate it to avoid a manual serialization here.
+
+if is_valid:
+    comments = REQUEST.get('comments')
+    context.cpsdocument_notify_modification(comments=comments)
+
 if is_valid and 'cpsdocument_edit_and_view_button' in REQUEST:
     action = 'view'
 else:
     action = ''
+
 
 REQUEST.RESPONSE.setHeader('Content-Type', 'text/xml')
 REQUEST.RESPONSE.setHeader('Cache-Control', 'no-cache')
