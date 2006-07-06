@@ -6,7 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- fix: ajax doesn't notify the workflow about document modification
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
