@@ -160,7 +160,10 @@ def check_338_340_newsitem_to_flex(context):
         # This is CPS 3.2, and Document is not even Flexible.
         # Can't upgrade
         return False
-    return True
+    schemas = list(doc_type.schemas)
+    if 'news' in schemas:
+        return True
+    return False
 
 def upgrade_338_340_newsitem_to_flex(context):
     """Upgrade News Item type instances to become flexible."""

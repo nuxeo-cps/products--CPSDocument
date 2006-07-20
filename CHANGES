@@ -7,6 +7,7 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - fix: ajax doesn't notify the workflow about document modification
+- The upgrade of news items was shown even after it was run.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
