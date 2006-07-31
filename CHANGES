@@ -3,11 +3,10 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- #1702: Added new Catalan translation thanks to Santi Camps.
+-
 Bug fixes:
 ~~~~~~~~~~
-- fix: ajax doesn't notify the workflow about document modification
-- The upgrade of news items was shown even after it was run.
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

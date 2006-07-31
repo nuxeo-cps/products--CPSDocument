@@ -1,4 +1,21 @@
 *******************************************
+** CPSDocument V0.45.1 [R1 build 2006/07/31-11:09 by fermigier]
+** SVN URL: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk Revision: 47588
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- #1702: Added new Catalan translation thanks to Santi Camps.
+Bug fixes:
+~~~~~~~~~~
+- fix: ajax doesn't notify the workflow about document modification
+- The upgrade of news items was shown even after it was run.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.45.0 [R1 build 2006/07/04-16:08 by gracinet]
 ** SVN URL: http://svn/pub/CPS3/products/CPSDocument/trunk Revision: 46900
 Requires:
