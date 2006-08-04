@@ -157,12 +157,20 @@ def check_338_340_newsitem_to_flex(context):
     doc_type = ttool['News Item']
     from FlexibleTypeInformation import FlexibleTypeInformation
     if doc_type.meta_type != FlexibleTypeInformation.meta_type:
-        # This is CPS 3.2, and Document is not even Flexible.
-        # Can't upgrade
+        # News item is not even a CPSDocument. That happens with 3.3.0.
         return False
     schemas = list(doc_type.schemas)
     if 'news' in schemas:
         return True
+
+    # Even if the doc_type is upgraded, we might need to upgrade documents
+    catalog = getToolByName(context, 'portal_catalog')
+    brains = catalog.searchResults(portal_type='News Item')
+    # Let's just test the first one, so the checker doesn't get very slow.
+    ob = brains[0].getObject()
+    if getattr(ob, 'attachedFile_f0', _marker) is _marker:
+        return True
+
     return False
 
 def upgrade_338_340_newsitem_to_flex(context):

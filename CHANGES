@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- The upgrade checker for the News Item would return False when upgrading
+  from 3.2.4, even though an upgrade was needed.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
