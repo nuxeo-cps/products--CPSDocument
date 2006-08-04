@@ -167,6 +167,9 @@ def check_338_340_newsitem_to_flex(context):
     catalog = getToolByName(context, 'portal_catalog')
     brains = catalog.searchResults(portal_type='News Item')
     # Let's just test the first one, so the checker doesn't get very slow.
+    if len(brains) == 0:
+        return False
+    
     ob = brains[0].getObject()
     if getattr(ob, 'attachedFile_f0', _marker) is _marker:
         return True
