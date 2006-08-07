@@ -1,4 +1,22 @@
 *******************************************
+** CPSDocument V0.45.2 [R1 build 2006/08/07-16:43 by fermigier]
+** SVN URL: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk Revision: 48074
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- The upgrade checker for the News Item would return False when upgrading
+  from 3.2.4, even though an upgrade was needed.
+- #1714: fields init at creation time is always made on default language doc.
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSDocument V0.45.1 [R1 build 2006/07/31-11:09 by fermigier]
 ** SVN URL: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk Revision: 47588
 Requires:
