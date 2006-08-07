@@ -8,6 +8,7 @@ Bug fixes:
 ~~~~~~~~~~
 - The upgrade checker for the News Item would return False when upgrading
   from 3.2.4, even though an upgrade was needed.
+- #1714: fields init at creation time is always made on default language doc.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

@@ -99,6 +99,17 @@ class IntegrationTestFlexibleTypeInformation(CPSTestCase):
                                          Title='User written')
         self.assertEquals(ob.Title(), 'User written')
 
+    def test_contructInstance_languages(self):
+        wftool = getToolByName(self.portal, 'portal_workflow')
+        wftool.invokeFactoryFor(self.sandbox, 'News Item', 'some_news',
+                                Title="Some News")
+        some_news = self.sandbox.some_news
+        first_lang = some_news.getContent().Language()
+        some_news.addLanguageToProxy('exotic_language')
+
+        # assertion for #1714
+        self.assertEquals(some_news.getContent(lang=first_lang).Title(),
+                          "Some News")
 
     def test_getDataModel(self):
         # fti has metadata and attribute storage adapters

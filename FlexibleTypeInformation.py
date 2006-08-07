@@ -213,6 +213,10 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         # if dm already holds data (see renderCreateObjectDetailed),
         # we assume it already has the right adapters & context
 
+        lang = kw.pop('Language', None)
+        if lang is not None:
+            ob.setLanguage(lang)
+
         dm = kw.get('datamodel')
         proxy = dm is not None and dm.getProxy() or None
         if not dm:
@@ -230,7 +234,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                 dm.set(k, v)
 
         dm._setObject(ob, proxy=proxy)
-        dm._commit(check_perms=0)
+        dm._commit(check_perms=0, _set_editable=False)
 
         return ob
 
