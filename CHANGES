@@ -9,4 +9,5 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Moved jscalendar lang/ subdir to calendar-lang/ to avoid name collisions.
+
