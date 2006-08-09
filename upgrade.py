@@ -171,10 +171,10 @@ def check_338_340_newsitem_to_flex(context):
         return False
     
     ob = brains[0].getObject()
-    if getattr(ob, 'attachedFile_f0', _marker) is _marker:
-        return True
+    if getattr(ob, 'attachedFile', _marker) is _marker:
+        return False
 
-    return False
+    return True
 
 def upgrade_338_340_newsitem_to_flex(context):
     """Upgrade News Item type instances to become flexible."""
@@ -224,7 +224,8 @@ def upgrade_338_340_newsitem_to_flex(context):
         doc.edit(**kw)
 
         for attr in 'attachedFile', 'attachedFile_text', 'attachedFile_html':
-            delattr(doc, attr)
+            if getattr(doc, attr, _marker) is not _marker:
+                delattr(doc, attr)
 
         count += 1
 
