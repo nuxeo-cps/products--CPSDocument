@@ -27,6 +27,17 @@ document. This is a stricter grouping scheme than the one defined by the
   padding: 0em;
 }
 
+table.layoutDefault {
+  width: 100%;
+  border-spacing: 0;
+}
+
+table.layoutDefault td {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
 <dtml-comment>
 Class for positioning document elements.
 </dtml-comment>

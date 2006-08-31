@@ -7,6 +7,8 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - Further bugfixes in the upgrade of News Items to a flexible schema.
+- Moved hardcoded table style to stylesheet
+- Made table based layouts better look when combined with div based ones
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Moved jscalendar lang/ subdir to calendar-lang/ to avoid name collisions.
