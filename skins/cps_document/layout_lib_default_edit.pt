@@ -29,7 +29,7 @@
     tal:condition="creation" tal:attributes="value request/type_name" />
 </tal:block>
 
-<table summary="Form layout" tal:condition="layout/rows">
+<table class="layoutDefault" summary="Form layout" tal:condition="layout/rows">
   <tr tal:repeat="row layout/rows" valign="top">
     <td tal:repeat="cell row"
       tal:attributes="colspan cell/ncols">
