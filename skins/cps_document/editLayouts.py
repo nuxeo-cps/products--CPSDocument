@@ -9,36 +9,55 @@ Returns True if layout changed
 if REQUEST is not None:
     kw.update(REQUEST.form)
 
-layout_id = kw.get('layout_id')
-if layout_id is None:
-    return False
-
 changed = False
 
-up_row = None
-down_row = None
-delete_rows = []
+# parsing the form data
+up_rows = []
+down_rows = []
+delete_rows = {}
+add_widgets = []
+
 for k in kw:
+
     if k.startswith('uprow_'):
-        up_row = int(k[len('uprow_'):])
-    if k.startswith('downrow_'):
-        down_row = int(k[len('downrow_'):])
-    if k.startswith('deleterow_'):
-        delete_rows.append(int(k[len('deleterow_'):]))
+        cmd, layout_id = k.split('__', 1)
+        up_rows.append((int(cmd[len('uprow_'):]), layout_id))
 
-if up_row is not None or down_row is not None:
-    doc = context.getEditableContent()
-    doc.flexibleChangeLayout(layout_id, up_row=up_row, down_row=down_row)
+    elif k.startswith('downrow_'):
+        cmd, layout_id = k.split('__', 1)
+        down_rows.append((int(cmd[len('downrow_'):]), layout_id))
+
+    elif k.startswith('deleterow_'):
+        cmd, layout_id = k.split('__', 1)
+        rows = delete_rows.setdefault(layout_id, [])
+        rows.append(int(cmd[len('deleterow_'):]))
+
+    elif k.startswith('addwidget_button'):
+        _, layout_id = k.split('__', 1)
+        add_widgets.append(layout_id)
+
+
+if not (up_rows or down_rows or delete_rows or add_widgets):
+    # optim: do not getEditableContent unless necessary
+    return changed
+
+# now performing the requested layout tasks:
+doc = context.getEditableContent()
+
+for up_row, layout_id in up_rows:
+    doc.flexibleChangeLayout(layout_id, up_row=up_row)
     changed = True
 
-if delete_rows:
-    doc = context.getEditableContent()
-    doc.flexibleDelWidgetRows(layout_id, delete_rows)
+for down_row, layout_id in down_rows:
+    doc.flexibleChangeLayout(layout_id, down_row=down_row)
     changed = True
 
-if 'addwidget_button' in kw:
-    doc = context.getEditableContent()
-    doc.flexibleAddWidget(layout_id, kw['widget_type'],
+for layout_id, rows in delete_rows.items():
+    doc.flexibleDelWidgetRows(layout_id, rows)
+    changed = True
+
+for layout_id in add_widgets:
+    doc.flexibleAddWidget(layout_id, kw['widget_type__%s' % layout_id],
                           label_edit=kw.get('widget_label_edit'))
     changed = True
 

@@ -9,6 +9,9 @@ Bug fixes:
 - Further bugfixes in the upgrade of News Items to a flexible schema.
 - Moved hardcoded table style to stylesheet
 - Made table based layouts better look when combined with div based ones
+- Fixed edit form and 'editLayouts.py' script to avoid  namespace clash
+  on request variable 'layout_id' and make it actually possible to use several
+  flexible layouts on the same document type
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Moved jscalendar lang/ subdir to calendar-lang/ to avoid name collisions.
