@@ -6,19 +6,9 @@ Notify of the modification on a document.
 Called by cpsdocument_edit.py
 """
 
-# Find out if we are in a workspace, in which case we follow
-# the workflow transition.
-current = context
-in_workspace = False
-while current.portal_type != 'Portal':
-    if current.portal_type == 'Workspace':
-        in_workspace = True
-        break
-    current = current.aq_inner.aq_parent
-
 # Only CPS Proxy Documents and friends have a workflow (this is not the case
 # for other CPSDocument instances such as portlets)
-if in_workspace and context.meta_type.startswith('CPS Proxy'):
+if context.meta_type.startswith('CPS Proxy'):
     from Products.CMFCore.utils import getToolByName
     from Products.CMFCore.WorkflowCore import WorkflowException
     wftool = getToolByName(context, 'portal_workflow')
@@ -27,6 +17,8 @@ if in_workspace and context.meta_type.startswith('CPS Proxy'):
         wftool.doActionFor(context, 'modify', comment=comments)
         return
     except WorkflowException, e:
+        # if the current document's wf does not have a modify transition, simply
+        # ignore it
         if str(e) != 'No workflow provides the "modify" action.':
             raise
 

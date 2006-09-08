@@ -15,4 +15,6 @@ Bug fixes:
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Moved jscalendar lang/ subdir to calendar-lang/ to avoid name collisions.
+- the modify transition is called at modification time for all documents that
+  have it defined in their wf (not only in so called 'workspaces')
 
