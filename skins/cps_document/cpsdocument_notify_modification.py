@@ -19,7 +19,8 @@ if context.meta_type.startswith('CPS Proxy'):
     except WorkflowException, e:
         # if the current document's wf does not have a modify transition, simply
         # ignore it
-        if str(e) != 'No workflow provides the "modify" action.':
+        if str(e) not in ('No workflow provides the "modify" action.',
+                          'No workflow found.'):
             raise
 
 # Notify manually if no workflow modify transition is there
