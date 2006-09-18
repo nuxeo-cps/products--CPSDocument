@@ -30,18 +30,13 @@
       tal:attributes="src string:${base_url}controls.js"></script>
     <script type="text/javascript" src="cpsdocument.js"
       tal:attributes="src string:${base_url}cpsdocument.js"></script>
+    <script type="text/javascript" src="cpsschemas.js"
+      tal:attributes="src string:${base_url}cpsschemas.js"></script>
     <tal:block condition="python:modules['Products.CPSUtil.integration'].isProductPresent('Products.FCKeditor')">
       <script type="text/javascript">
         var popup_editor_form = 'popup_fckeditor_form';
         var width = 640;
         var height = 520;
-      </script>
-    </tal:block>
-    <tal:block condition="python:modules['Products.CPSUtil.integration'].isProductPresent('Products.Epoz')">
-      <script type="text/javascript">
-        var popup_editor_form = 'popup_rte_form';
-        var width = 640;
-        var height = 480;
       </script>
     </tal:block>
     <script type="text/javascript">
