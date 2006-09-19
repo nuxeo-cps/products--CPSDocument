@@ -39,6 +39,8 @@ from Products.CMFCore.interfaces.DublinCore import DublinCore as IDublinCore
 from Products.CMFCore.interfaces.Contentish import Contentish as IContentish
 from Products.CMFCore.interfaces.Dynamic import DynamicType as IDynamicType
 
+from Products.CPSUtil.id import generateFileName
+
 from zope.interface import implements
 from Products.CPSDocument.interfaces import ICPSDocument
 
@@ -301,7 +303,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
             last_modified = ''
             if f._p_mtime:
                 last_modified = str(f._p_mtime)
-            filename = f.getId()
+            filename = generateFileName(f.title_or_id())
             infos['download_url'] = "%s/downloadFile/file/%s?nocache=%s" % (
                    utool.getRelativeUrl(proxy), filename, last_modified)
             registry = getToolByName(self, 'mimetypes_registry')

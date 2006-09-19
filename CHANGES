@@ -12,6 +12,7 @@ Bug fixes:
 - Fixed edit form and 'editLayouts.py' script to avoid  namespace clash
   on request variable 'layout_id' and make it actually possible to use several
   flexible layouts on the same document type
+- #1747: Files get downloaded as 'file' from folder_contents
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Moved jscalendar lang/ subdir to calendar-lang/ to avoid name collisions.
