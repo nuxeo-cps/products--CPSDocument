@@ -1,3 +1,32 @@
+===========================================================
+Package: CPSDocument 0.46.0
+===========================================================
+First release built by: ben at: 2006-10-04T11:14:24
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/tags/0.46.0
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk@49293
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- Further bugfixes in the upgrade of News Items to a flexible schema.
+- Moved hardcoded table style to stylesheet
+- Made table based layouts better look when combined with div based ones
+- Fixed edit form and 'editLayouts.py' script to avoid  namespace clash
+  on request variable 'layout_id' and make it actually possible to use several
+  flexible layouts on the same document type
+- #1747: Files get downloaded as 'file' from folder_contents
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Moved jscalendar lang/ subdir to calendar-lang/ to avoid name collisions.
+- The modify transition is called at modification time for all documents that
+  have it defined in their wf (not only in so called 'workspaces').
+- Removed the useless and unmaintained cps_document_cmf and cps_utils_cmf skins.
+
 *******************************************
 ** CPSDocument V0.45.2 [R1 build 2006/08/07-16:43 by fermigier]
 ** SVN URL: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk Revision: 48074
