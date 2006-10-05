@@ -74,7 +74,13 @@ def createFile(context, zip_file, check_allowed_content_types=True):
             continue
         # Acquiring only the filename (without the directory path)
         path_filename = generateFileName(path.split('/')[-1])
-        mimetype = registry.lookupExtension(path_filename.lower()).normalized()
+
+        mimetype = registry.lookupExtension(path_filename.lower())
+        if mimetype is not None:
+            mimetype = mimetype.normalized()
+        else:
+            mimetype = 'application/octet-stream'
+
         if mimetype.startswith('image/'):
             ptype = 'Image'
             field_name = 'preview'
