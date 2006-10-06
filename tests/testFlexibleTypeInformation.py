@@ -1,5 +1,5 @@
 # -*- coding: iso-8859-15 -*-
-# Copyright (C) 2003-2005 Nuxeo SARL <http://nuxeo.com>
+# Copyright (C) 2003-2006 Nuxeo SAS <http://nuxeo.com>
 # Author: Florent Guillaume <fg@nuxeo.com>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -139,6 +139,7 @@ class IntegrationTestFlexibleTypeInformation(CPSTestCase):
             'photo_original',
             'photo_position',
             'photo_subtitle',
+            'photo_title',
             'preview',
             ]
         dm_keys = dm.keys()
