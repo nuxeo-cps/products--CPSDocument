@@ -3,11 +3,10 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
-- Provided access to the prototype JavaScript library on document view too.
+-
 Bug fixes
 ~~~~~~~~~
-- Made the createFile (ZIP uploader) more robust to files with buggy suffixes.
-- Updated Spanish translation thanks to Jesús Martín.
+-
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
