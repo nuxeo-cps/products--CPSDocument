@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-06-23 15:03default\n"
+"POT-Creation-Date: 2006-10-13 11:42default\n"
 "PO-Revision-Date: 2004-11-25 13:38+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -22,19 +22,12 @@ msgstr ""
 #.         ${type_name (tal content="type_info/Title" define="type_name request/type_name;
 #.                           type_info python:here.portal_types[type_name]")}
 #.       </h1>
-#.   <h1 condition="creation">
-#.         Create a document of type
-#.         ${type_name}
-#.       </h1>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
-#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
 msgstr "Mamorona antotandahatsoratra karazana ${type_name}"
 
 #.   <block condition="python: edition and not metadata">Edit ${title (tal content="here/title_or_id")}</block>
-#.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
-#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
 msgstr "Fanovana ${title}"
 
@@ -46,32 +39,27 @@ msgstr "Méta-données de «${title}»"
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
-#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "Page ${page}"
 msgstr "Pejy ${page}"
 
 #.   <option content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n" value=".">Type</option>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
-#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "Type"
 msgstr "nop"
 
 #.   <block content="type_info/Title" define="type_name request/type_name;
 #.                           type_info python:here.portal_types[type_name]">Type Title</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
-#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
 msgstr ""
 
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
-#: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_end_label"
 msgstr " hatramin'ny "
 
 #.   <span>from</span>
 #: from ../skins/cps_document/layout_event_view.pt
-#: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
 msgstr "Manomboka ny"
 
@@ -87,46 +75,28 @@ msgstr ""
 
 #.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
-#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
 msgstr "Pejy manaraka"
 
 #.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
-#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
 msgstr "Pejy teo aloha"
 
 # default doc types
 #.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
-#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_toc"
 msgstr "Sommaire"
 
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
 #: ../skins/cps_document/layout_chapter_view.pt
-#: ../skins/cps_document_cmf/layout_book_view.pt
-#: ../skins/cps_document_cmf/layout_chapter_view.pt
 msgid "cpsdoc_title_toc"
 msgstr "Sommaire"
 
-#.   <span>
-#.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
-#.     </span>
-#: from ../skins/cps_document_cmf/layout_imagegallery_view.pt
-msgid "description_up_to"
-msgstr "Mankany amin'ny ${up_id}"
-
-#.   <span condition="metadata">heading_metadata_edit</span>
-#: from ../skins/cps_document_cmf/cpsdocument_edit_form.pt
-msgid "heading_metadata_edit"
-msgstr "Manova ny méta-données"
-
 #.   <h1>heading_metadata_view</h1>
 #: from ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "heading_metadata_view"
 msgstr "Méta-données-n'ny antotandahatsoratra"
 
@@ -140,28 +110,21 @@ msgstr "Méta-données-n'ny antotandahatsoratra"
 #.       </div>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
-#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
-#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "i18_key-help_for_this_field"
 msgstr ""
 
 #.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
 #.   <span content="widget/label" condition="widget/is_i18n" class="dlabel">label</span>
 #.   <strong content="widget/label">label</strong>
-#.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
-#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
-#: ../skins/cps_document_cmf/layout_lib_default_view.pt
-#: ../skins/cps_document_cmf/layout_lib_div_view.pt
-#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "label"
 
@@ -173,29 +136,20 @@ msgstr ""
 #.   <a attributes="href python:'/'+ 
 #.                       itemList[pos + 1].absolute_url(relative=1) + 
 #.                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
-#.   <a attributes="href python:'/'+
-#.                                       itemList[pos + 1].absolute_url(relative=1) +
-#.                                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
 #: from ../skins/cps_document/popup_image.pt
-#: ../skins/cps_document_cmf/popup_image.pt
 msgid "next"
 msgstr "Manaraka"
 
 #.   <a attributes="href python:'/'+
 #.                       itemList[pos - 1].absolute_url(relative=1) +
 #.                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
-#.   <a attributes="href python:'/'+
-#.                                       itemList[pos - 1].absolute_url(relative=1) +
-#.                                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
-#: ../skins/cps_document_cmf/popup_image.pt
 msgid "previous"
 msgstr "Teo aloha"
 
 #.   <label for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
-#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
 msgstr ""
 
@@ -582,11 +536,23 @@ msgstr "Isan'ny colonne ao amin'ny pejy iray"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_edit"
-msgstr "Nombre de colonnes par page"
+msgstr "Importer une archive Zip d'images"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_help"
-msgstr "Nombre de colonnes par page"
+msgstr ""
+"Tous les fichiers images (jpeg, png, gif, ...) seront chargés dans la "
+"photothèques."
+
+#, fuzzy
+msgid "cpsdoc_ziparchiveuploader_label_edit"
+msgstr "Importer une archive Zip d'images"
+
+#, fuzzy
+msgid "cpsdoc_ziparchiveuploader_label_help"
+msgstr ""
+"Tous les fichiers images (jpeg, png, gif, ...) seront chargés dans la "
+"photothèques."
 
 # default doc types
 msgid "portal_type_Book_title"
@@ -633,3 +599,9 @@ msgstr "Animation Flash au format swf"
 
 msgid "psm_ajax_working"
 msgstr ""
+
+msgid "description_up_to"
+msgstr "Mankany amin'ny ${up_id}"
+
+msgid "heading_metadata_edit"
+msgstr "Manova ny méta-données"

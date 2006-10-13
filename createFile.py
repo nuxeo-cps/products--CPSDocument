@@ -66,6 +66,10 @@ def createFile(context, zip_file, check_allowed_content_types=True):
         logger.info('Bad Zip File')
         return 0
     infolist = zipfile.infolist()
+    if not check_allowed_content_types:
+        image_type_allowed = True
+    else:
+        image_type_allowed = 'Image' in  allowed_content_types
     # browsing the ZIP file
     for info in infolist:
         path = info.filename
@@ -81,7 +85,9 @@ def createFile(context, zip_file, check_allowed_content_types=True):
         else:
             mimetype = 'application/octet-stream'
 
-        if mimetype.startswith('image/'):
+        if mimetype.startswith('image/') and image_type_allowed:
+            # use the Image portal type or fallback to File if Image is not
+            # allowed
             ptype = 'Image'
             field_name = 'preview'
         else:

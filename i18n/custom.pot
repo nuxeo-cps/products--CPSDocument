@@ -391,6 +391,12 @@ msgstr ""
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_help"
 msgstr ""
 
+msgid "cpsdoc_ziparchiveuploader_label_edit"
+msgstr ""
+
+msgid "cpsdoc_ziparchiveuploader_label_help"
+msgstr ""
+
 
 # Book and page
 msgid "portal_type_Book_title"
