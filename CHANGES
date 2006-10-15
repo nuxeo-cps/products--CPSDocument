@@ -3,10 +3,10 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
-- new i18n for the zip archive file uploader widget
+-
 Bug fixes
 ~~~~~~~~~
-- zip archiver upload images as File documents if Image is not allowed
+-
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

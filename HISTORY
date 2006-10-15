@@ -1,4 +1,24 @@
 ===========================================================
+Package: CPSDocument 0.48.0
+===========================================================
+First release built by: ogrisel at: 2006-10-15T22:39:21
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/tags/0.48.0
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk@49572
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- new i18n for the zip archive file uploader widget
+Bug fixes
+~~~~~~~~~
+- zip archiver upload images as File documents if Image is not allowed
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 0.47.0
 ===========================================================
 First release built by: ogrisel at: 2006-10-10T11:44:14
