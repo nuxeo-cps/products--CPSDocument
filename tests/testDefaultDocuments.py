@@ -137,6 +137,7 @@ class TestDocuments(CPSTestCase):
         'Coverage': 'coverage',
         'Source': 'source',
         'Relation': 'relation',
+        'ziparchiveuploader': None, # computed field with no write to attr
         }
 
     def _testDefaultAttributes(self, doc):

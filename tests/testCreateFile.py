@@ -55,10 +55,16 @@ class TestCreateFile(CPSTestCase):
         archive = self._makeZipFile()
         archive.archivename = "toto.zip"
         createFile(self.ws, archive, check_allowed_content_types=True)
-        self.failIf('endives.gif' in self.ws.objectIds())
-        self.failIf('felix.jpg' in self.ws.objectIds())
-        self.failIf('petit-chat.png' in self.ws.objectIds())
-        self.assert_('testCreateFile.py' in self.ws.objectIds())
+        ws = self.ws
+        # Worspace allows File but not Image
+        self.assert_(ws.hasObject('endives.gif'))
+        self.assert_(ws.hasObject('felix.jpg'))
+        self.assert_(ws.hasObject('petit-chat.png'))
+        self.assert_(ws.hasObject('testCreateFile.py'))
+        self.assertEquals(ws['endives.gif'].portal_type, 'File')
+        self.assertEquals(ws['felix.jpg'].portal_type, 'File')
+        self.assertEquals(ws['petit-chat.png'].portal_type, 'File')
+        self.assertEquals(ws['testCreateFile.py'].portal_type, 'File')
 
     def test_createFileWithCheckAllowedContentTypes2(self):
         archive = self._makeZipFile()
@@ -71,12 +77,14 @@ class TestCreateFile(CPSTestCase):
 
         # do not create file as sub objects of an image gallery
         createFile(ig, archive, check_allowed_content_types=True)
-        self.assert_('endives.gif' in ig.objectIds())
-        self.assert_('felix.jpg' in ig.objectIds())
-        self.assert_('petit-chat.png' in ig.objectIds())
-        self.failIf('testCreateFile.py' in ig.objectIds())
-
-
+        ws = self.ws
+        self.assert_(ws.hasObject('endives.gif'))
+        self.assert_(ws.hasObject('felix.jpg'))
+        self.assert_(ws.hasObject('petit-chat.png'))
+        self.failIf(ws.hasObject('testCreateFile.py'))
+        self.assertEquals(ws['endives.gif'].portal_type, 'Image')
+        self.assertEquals(ws['felix.jpg'].portal_type, 'Image')
+        self.assertEquals(ws['petit-chat.png'].portal_type, 'Image')
 
 
 def test_suite():

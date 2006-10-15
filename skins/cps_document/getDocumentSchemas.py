@@ -451,6 +451,29 @@ flash_animation_schema = {
         },
 }
 
+ziparchiveuploader_schema = {
+    'ziparchiveuploader': {
+        'type': 'CPS File Field',
+        'data': {
+            'default_expr': 'nothing',
+            'is_searchabletext': 0,
+            'acl_read_permissions': '',
+            'acl_read_roles': '',
+            'acl_read_expr': '',
+            'acl_write_permissions': '',
+            'acl_write_roles': '',
+            'acl_write_expr': '',
+            'read_ignore_storage': True,
+            'read_process_expr': '',
+            'read_process_dependent_fields': (),
+            'write_ignore_storage': True,
+            'write_process_expr': "python: modules['Products.CPSDocument.createFile'].createFile(proxy, value)",
+            'suffix_text': '',
+            'suffix_html': '',
+            'suffix_html_subfiles': '',
+        },
+    },
+}
 
 schemas = {}
 
@@ -471,6 +494,7 @@ schemas['event'] = event_schema
 schemas['imagegallery'] = imagegallery_schema
 schemas['book'] = book_schema
 schemas['flash_animation'] = flash_animation_schema
+schemas['ziparchiveuploader'] = ziparchiveuploader_schema
 
 # other products
 try:
