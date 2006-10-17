@@ -77,14 +77,13 @@ class TestCreateFile(CPSTestCase):
 
         # do not create file as sub objects of an image gallery
         createFile(ig, archive, check_allowed_content_types=True)
-        ws = self.ws
-        self.assert_(ws.hasObject('endives.gif'))
-        self.assert_(ws.hasObject('felix.jpg'))
-        self.assert_(ws.hasObject('petit-chat.png'))
-        self.failIf(ws.hasObject('testCreateFile.py'))
-        self.assertEquals(ws['endives.gif'].portal_type, 'Image')
-        self.assertEquals(ws['felix.jpg'].portal_type, 'Image')
-        self.assertEquals(ws['petit-chat.png'].portal_type, 'Image')
+        self.assert_(ig.hasObject('endives.gif'))
+        self.assert_(ig.hasObject('felix.jpg'))
+        self.assert_(ig.hasObject('petit-chat.png'))
+        self.failIf(ig.hasObject('testCreateFile.py'))
+        self.assertEquals(ig['endives.gif'].portal_type, 'Image')
+        self.assertEquals(ig['felix.jpg'].portal_type, 'Image')
+        self.assertEquals(ig['petit-chat.png'].portal_type, 'Image')
 
 
 def test_suite():
