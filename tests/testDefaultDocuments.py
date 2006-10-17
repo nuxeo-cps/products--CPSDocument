@@ -519,30 +519,6 @@ class TestDocuments(CPSTestCase):
         # and that was before the DM commit
         self.assertEquals(proxy.getContent(rev=1).Description(), 'Old')
 
-    def test_validate_post_commit_hook(self):
-        # a post-commit hook that stores info 
-        events = []
-        def post_hook(ob, proxy=None, **kw):
-            events.append((proxy.getId(), ob.Description()))
-
-        self.ws.invokeFactory('Workspace', 'test',
-                              Title='test', Description='Old')
-        proxy = self.ws.test
-        ob = proxy.getContent()
-
-        request = self.portal.REQUEST
-        request.form = {widgetname('Description') : 'New descr'}
-        ob.validate(request=request, proxy=proxy, post_commit_hook=post_hook)
-
-        proxy = self.ws.test
-        # modification was done
-        self.assertEquals(proxy.getContent().Description(), 'New descr')
-        # hook was called, and that was after the DM commit
-        self.assertEquals(events, [('test', 'New descr')])
-
-
-        
-
     def testFlashDocument(self):
 
         doc_type = 'Flash Animation'
