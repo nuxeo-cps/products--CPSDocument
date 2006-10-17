@@ -496,7 +496,7 @@ class TestDocuments(CPSTestCase):
         # Check it's they are the same
         self.assertEqual(dm, dm2)
 
-    def test_renderEditObjectDetailed_pre_commit_hook(self):
+    def test_validate_pre_commit_hook(self):
         # this no more mis-placed than the previous one :-)
 
         def pre_hook(dm, proxy=None, **kw):
@@ -506,13 +506,10 @@ class TestDocuments(CPSTestCase):
                               Title='test', Description='Old')
         proxy = self.ws.test
         ob = proxy.getContent()
-        tinfo = ob.getTypeInfo()
 
         request = self.portal.REQUEST
         request.form = {widgetname('Description') : 'New descr'}
-        tinfo.renderEditObjectDetailed(ob, request=request,
-                                       proxy=proxy,
-                                       pre_commit_hook=pre_hook)
+        ob.validate(request=request, proxy=proxy, pre_commit_hook=pre_hook)
 
         proxy = self.ws.test
         # modification was done
@@ -522,7 +519,7 @@ class TestDocuments(CPSTestCase):
         # and that was before the DM commit
         self.assertEquals(proxy.getContent(rev=1).Description(), 'Old')
 
-    def test_renderEditObjectDetailed_post_commit_hook(self):
+    def test_validate_post_commit_hook(self):
         # a post-commit hook that stores info 
         events = []
         def post_hook(ob, proxy=None, **kw):
@@ -532,13 +529,10 @@ class TestDocuments(CPSTestCase):
                               Title='test', Description='Old')
         proxy = self.ws.test
         ob = proxy.getContent()
-        tinfo = ob.getTypeInfo()
 
         request = self.portal.REQUEST
         request.form = {widgetname('Description') : 'New descr'}
-        tinfo.renderEditObjectDetailed(ob, request=request,
-                                       proxy=proxy,
-                                       post_commit_hook=post_hook)
+        ob.validate(request=request, proxy=proxy, post_commit_hook=post_hook)
 
         proxy = self.ws.test
         # modification was done
