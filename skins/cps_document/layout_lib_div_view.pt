@@ -6,7 +6,15 @@
 <metal:block define-macro="div_view"
   tal:define="layout options/layout;
               dm options/datastructure/getDataModel;
-             ">
+              layout_label options/label;
+              layout_is_i18n options/is_i18n;
+              ">
+
+ <h2 tal:condition="python:layout_label and layout_is_i18n"
+   i18n:translate="" tal:content="layout_label"></h2>
+ <h2 tal:condition="python:layout_label and not layout_is_i18n"
+   tal:content="layout_label"></h2>
+
   <tal:block repeat="row layout/rows">
     <tal:block repeat="cell row">
       <tal:block define="widget cell/widget">

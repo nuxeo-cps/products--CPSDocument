@@ -3,6 +3,8 @@
 <metal:block define-macro="default_edit"
   tal:define="layout options/layout;
               layout_id layout/layout_id;
+              layout_label options/label_edit;
+              layout_is_i18n options/is_i18n;
               ds options/datastructure;
               dm ds/getDataModel;
               creation creation|nothing;
@@ -29,6 +31,13 @@
   <input type="hidden" name="type_name" value="."
     tal:condition="creation" tal:attributes="value request/type_name" />
 </tal:block>
+
+
+<fieldset tal:omit-tag="not:layout_label">
+  <legend tal:condition="python:layout_label and layout_is_i18n"
+    i18n:translate="" tal:content="layout_label"></legend>
+  <legend tal:condition="python:layout_label and not layout_is_i18n"
+    tal:content="layout_label"></legend>
 
 <table class="layoutDefault" summary="Form layout" tal:condition="layout/rows">
   <tr tal:repeat="row layout/rows" valign="top">
@@ -100,6 +109,8 @@
     </td>
   </tr>
 </table>
+
+</fieldset>
 
 <tal:block condition="is_flexible">
 <div tal:define="flexible_widgets options/flexible_widgets">

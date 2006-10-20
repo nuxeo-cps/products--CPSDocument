@@ -3,7 +3,9 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
--
+- Leverage the new Layout labeling properties in default layout_lib templates:
+  labeled layouts now have a new h2 tag in view mode and fieldset + legend tags
+  in edit mode
 Bug fixes
 ~~~~~~~~~
 - [packaging] bundleman svn property
