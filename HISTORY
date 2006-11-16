@@ -1,4 +1,26 @@
 ===========================================================
+Package: CPSDocument 0.49.0
+===========================================================
+First release built by: gracinet at: 2006-11-16T18:13:47
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/tags/0.49.0
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk@50008
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- Leverage the new Layout labeling properties in default layout_lib templates:
+  labeled layouts now have a new h2 tag in view mode and fieldset + legend tags
+  in edit mode
+Bug fixes
+~~~~~~~~~
+- [packaging] bundleman svn property
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 0.48.0
 ===========================================================
 First release built by: ogrisel at: 2006-10-15T22:39:21
