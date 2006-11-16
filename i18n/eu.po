@@ -1,68 +1,87 @@
-# Asier  Sarasua <asarasua@codesyntax.com>, 2004.
-# Aitzol Naberan Burgaña <anaberan@codesyntax.com>, 2004.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: CPSDocument_en\n"
+"Project-Id-Version: CPSDocument\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-13 11:42default\n"
-"PO-Revision-Date: 2004-10-04 16:55+0100\n"
-"Last-Translator:  <>\n"
-"Language-Team: Euskara <eu@li.org>\n"
+"POT-Creation-Date: 2006-06-23 15:03default\n"
+"PO-Revision-Date: 2006-11-16 15:41+0100\n"
+"Last-Translator: Jesus Martin <jesusmartin@lasalle.es>\n"
+"Language-Team: euskara <perikoalkain@lasalle.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Code: eu\n"
-"Language-Name: Basque\n"
+"Preferred-encodings: utf-8 latin1\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Generator: KBabel 1.0.2\n"
 "Domain: default\n"
+"Language-Code: es\n"
+"Language-Name: Spanish\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: basque\n"
+"X-Poedit-Country: SPAIN\n"
 
+#    <h1 condition="creation">
+#          Create a document of type
+#          ${type_name}
+#        </h1>
 #.   <h1 condition="creation">
 #.         Create a document of type
 #.         ${type_name (tal content="type_info/Title" define="type_name request/type_name;
 #.                           type_info python:here.portal_types[type_name]")}
 #.       </h1>
+#.   <h1 condition="creation">
+#.         Create a document of type
+#.         ${type_name}
+#.       </h1>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Create a document of type ${type_name}"
-msgstr "Mota honetako dokumentua sortu:  ${type_name}"
+msgstr "${type_name} dokumentu-mota sortu"
 
+#    <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
 #.   <block condition="python: edition and not metadata">Edit ${title (tal content="here/title_or_id")}</block>
+#.   <block condition="edition">Edit ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Edit ${title}"
-msgstr "Editatu  \"${title}\""
+msgstr " ${title} aldatu"
 
 #.   <block condition="metadata">Metadata of ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
-#, fuzzy
 msgid "Metadata of ${title}"
-msgstr "Metadatos de \"${title}\""
+msgstr " \"${title}\"-ren metadatuak"
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
+#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "Page ${page}"
-msgstr "${page}. orrialdea"
+msgstr " ${page}. orrialdea"
 
+#    <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
 #.   <option content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n" value=".">Type</option>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "Type"
-msgstr ""
+msgstr "Mota"
 
 #.   <block content="type_info/Title" define="type_name request/type_name;
 #.                           type_info python:here.portal_types[type_name]">Type Title</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document_cmf/cpsdocument_edit_form.pt
 msgid "Type Title"
-msgstr ""
+msgstr "Izenburua idatzi"
 
 #    <span>to</span>
 #.   <span>to</span>
 #: from ../skins/cps_document/layout_event_view.pt
-#, fuzzy
+#: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_end_label"
-msgstr "al "
+msgstr "Gertaeraren bukaera-data"
 
 #.   <span>from</span>
 #: from ../skins/cps_document/layout_event_view.pt
+#: ../skins/cps_document_cmf/layout_event_view.pt
 msgid "cpsdoc_Event_start_label"
-msgstr "Hasiera: "
+msgstr "Gertaeraren hasierako data"
 
 #.   <span class="dlabel">Response: </span>
 #: from ../skins/cps_document/layout_faq_view.pt
@@ -72,34 +91,57 @@ msgstr "Erantzuna: "
 #.   <h2>Import ZIP File</h2>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
 msgid "cpsdoc_import_zip_title"
-msgstr ""
+msgstr "ZIP artxibo-dokumentuak inportatu"
 
 #.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
+#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
 msgstr "Hurrengo orrialdea"
 
 #.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
+#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
 msgstr "Aurreko orrialdea"
 
 # default doc types
 #.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
+#: ../skins/cps_document_cmf/layout_page_view.pt
 msgid "cpsdoc_link_toc"
-msgstr "Edukiak"
+msgstr "Edukien taula"
 
 #.   <h3>cpsdoc_title_toc</h3>
 #: from ../skins/cps_document/layout_book_view.pt
 #: ../skins/cps_document/layout_chapter_view.pt
+#: ../skins/cps_document_cmf/layout_book_view.pt
+#: ../skins/cps_document_cmf/layout_chapter_view.pt
 msgid "cpsdoc_title_toc"
-msgstr "Edukiak"
+msgstr "Edukien taula"
 
+#    <span>
+#        ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
+#      </span>
+#.   <span>
+#.       ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
+#.     </span>
+#: from ../skins/cps_document_cmf/layout_imagegallery_view.pt
+msgid "description_up_to"
+msgstr "${up_id}-ra"
+
+#    <span condition="metadata">heading_metadata_edit</span>
+#.   <span condition="metadata">heading_metadata_edit</span>
+#: from ../skins/cps_document_cmf/cpsdocument_edit_form.pt
+msgid "heading_metadata_edit"
+msgstr "Metadatuak aldatu"
+
+#    <h1>heading_metadata_view</h1>
 #.   <h1>heading_metadata_view</h1>
 #: from ../skins/cps_document/layout_metadata_view.pt
+#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "heading_metadata_view"
-msgstr "Metadatuak"
+msgstr "Dokumentuaren metadatuak"
 
 #.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
 #.               In this field you can give the reason for the modification
@@ -111,300 +153,286 @@ msgstr "Metadatuak"
 #.       </div>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
-msgstr ""
+msgstr "Eremu honetan jar dezakezu dokumentu aldatzen duzun arrazoia."
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "i18_key-help_for_this_field"
-msgstr "Laguntza"
+msgstr "Eremu honetarako laguntza-botoia"
 
+#    <span condition="widget/is_i18n" content="widget/label" class="dlabel">label</span>
+#    <span condition="widget/is_i18n" content="widget/label_edit">label</span>
+#    <strong content="widget/label">label</strong>
 #.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
 #.   <span content="widget/label" condition="widget/is_i18n" class="dlabel">label</span>
 #.   <strong content="widget/label">label</strong>
+#.   <span content="widget/label_edit" condition="widget/is_i18n">label</span>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document/layout_lib_default_view.pt
 #: ../skins/cps_document/layout_lib_div_view.pt
 #: ../skins/cps_document/layout_metadata_view.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_view.pt
+#: ../skins/cps_document_cmf/layout_lib_div_view.pt
+#: ../skins/cps_document_cmf/layout_metadata_view.pt
 msgid "label"
 msgstr "Etiketa"
 
 #.   <block>ZIP File</block>
 #: from ../skins/cps_document/cpsdocument_import_zip_form.pt
 msgid "label_zip_file"
-msgstr ""
+msgstr "ZIP artxiboa"
 
-#.   <a attributes="href python:'/'+ 
-#.                       itemList[pos + 1].absolute_url(relative=1) + 
+#.   <a attributes="href python:'/'+
+#.                       itemList[pos + 1].absolute_url(relative=1) +
 #.                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
+#.   <a attributes="href python:'/'+
+#.                                       itemList[pos + 1].absolute_url(relative=1) +
+#.                                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
 #: from ../skins/cps_document/popup_image.pt
+#: ../skins/cps_document_cmf/popup_image.pt
 msgid "next"
-msgstr "Hurrengoa"
+msgstr "hurrengoa"
 
 #.   <a attributes="href python:'/'+
 #.                       itemList[pos - 1].absolute_url(relative=1) +
 #.                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
+#.   <a attributes="href python:'/'+
+#.                                       itemList[pos - 1].absolute_url(relative=1) +
+#.                                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
+#: ../skins/cps_document_cmf/popup_image.pt
 msgid "previous"
-msgstr "Aurrekoa"
+msgstr "aurrekoa"
 
 #.   <label for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document_cmf/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
-msgstr ""
+msgstr "Aldatzeko arrazoia"
 
 msgid "cpsdoc_title_label_edit"
 msgstr "Izenburua: "
 
 msgid "cpsdoc_description_label_edit"
-msgstr "Azalpena: "
+msgstr "Deskribapena:"
 
 msgid "cpsdoc_theme_label_edit"
-msgstr "Gaia: "
+msgstr "Gaia:"
 
 msgid "cpsdoc_date_label_edit"
-msgstr "Data: "
+msgstr "Data:"
 
 msgid "cpsdoc_date_label"
-msgstr " "
+msgstr "Data"
 
-#, fuzzy
 msgid "cpsdoc_attachedFile_label"
-msgstr "Archivo adjunto:"
+msgstr "Fitxategi erantsia:"
 
 msgid "cpsdoc_preview_label_edit"
-msgstr "Ikonoa: "
+msgstr "Ikonoa:"
 
 msgid "cpsdoc_allow_discussion_label_edit"
-msgstr "Eztabaida onartu: "
+msgstr "Iruzkinak artxibatu:"
 
 msgid "cpsdoc_popup_mode_label_edit"
-msgstr "Irudiak pop-up lehiatiletan erakutsi"
+msgstr "Irudiak erakutsi azaleratutako leihoan"
 
 msgid "cpsdoc_popup_width_label_edit"
-msgstr "Leihoaren zabalera"
+msgstr "Leihoaren artxiboa"
 
 msgid "cpsdoc_popup_height_label_edit"
-msgstr "Leihoaren zabalera"
+msgstr "Leihoaren altuera"
 
 msgid "label_source"
 msgstr "Iturria"
 
-#, fuzzy
 msgid "label_coverage"
-msgstr "Cobertura"
+msgstr "Irismena"
 
-#, fuzzy
 msgid "label_relation"
-msgstr "Relación"
+msgstr "Erlazioa"
 
 msgid "cpsdoc_hidden_folder"
-msgstr "Nabigatzean, karpeta hau ezkutatu"
+msgstr "Leiho hau  ezkutatu nabigatzerakoan"
 
 msgid "cpsdoc_hidden_folder_help"
-msgstr ""
-"karpeta hau ezkutuan geratuko da. Gero ere ikusi ahal izango duzu, "
-"\"Karpetaren Edukiak\" klikatuz. Edo bestela, publikatzerakoan. Erabili Use "
-"'Rol lokalak' karpetaren segurtasuna ziurtatzeko."
+msgstr "Karpeta ez da ikusiko  nabigazio lehenetsian,  hala ere, \"Edukia Kudeatu\" ikuspegian eskuragarria izango da eta argitaragarria ere bai. Karpetaren sarbidea babesteko \"Bertako rolak Kudeatu\" erabili behar da.  "
 
 msgid "help_dc_subject"
-msgstr ""
+msgstr "Edukiaren gaia"
 
 msgid "help_dc_contirbutors"
-msgstr ""
+msgstr "Edukia sortzeko lagundu duten erakundeak"
 
-#, fuzzy
 msgid "help_dc_source"
-msgstr ""
-"Una referencia a un recurso a partir del que se deriva el recurso actual."
+msgstr "Baliabide baten erreferentzia, bertatik eratortzen baita oraingo baliabidea. "
 
 msgid "help_dc_coverage"
-msgstr ""
+msgstr "Baliabidearen denbora eta espazioko irismena."
 
 msgid "help_dc_relation"
-msgstr ""
+msgstr "Baliabide honekin zerikusia duen beste baliabide baten (URL) erreferentzia."
 
 msgid "label_portal_type"
-msgstr "Baliabide mota"
+msgstr "Baliabide-mota:"
 
-#, fuzzy
 msgid "label_subject_Arts"
-msgstr "Artes"
+msgstr "Arteak"
 
 msgid "label_subject_Business"
-msgstr ""
+msgstr "Merkataritza eta ekonomia"
 
 msgid "label_subject_Computers"
-msgstr ""
+msgstr "Informatika"
 
-#, fuzzy
 msgid "label_subject_Games"
-msgstr "Juegos"
+msgstr "Jokuak"
 
-#, fuzzy
 msgid "label_subject_Health"
-msgstr "Salud"
+msgstr "Osasuna"
 
-#, fuzzy
 msgid "label_subject_Home"
-msgstr "Hogar"
+msgstr "Etxea"
 
 msgid "label_subject_Kids and Teens"
-msgstr ""
+msgstr "Ume eta nerabeak"
 
-#, fuzzy
 msgid "label_subject_News"
-msgstr "Noticias"
+msgstr "Albisteak"
 
-#, fuzzy
 msgid "label_subject_Recreation"
-msgstr "Ocio"
+msgstr "Aisialdia"
 
-#, fuzzy
 msgid "label_subject_Reference"
-msgstr "Referencia"
+msgstr "Erreferentzia"
 
-#, fuzzy
 msgid "label_subject_Regional"
-msgstr "Regional"
+msgstr "Lurraldekoa"
 
-#, fuzzy
 msgid "label_subject_Science"
-msgstr "Ciencia"
+msgstr "Zientzia"
 
 msgid "label_subject_Shopping"
-msgstr ""
+msgstr "Dendak eta erosketak on-line"
 
-#, fuzzy
 msgid "label_subject_Society"
-msgstr "Sociedad"
+msgstr "Gizartea"
 
 msgid "label_subject_Sports"
-msgstr ""
+msgstr "Kirolak"
 
-#, fuzzy
 msgid "label_sort_by"
-msgstr "Ordenado por"
+msgstr "Honen arabera ordenatuta"
 
 msgid "label_title_asc"
-msgstr ""
+msgstr "Izenburua (goraka)"
 
-#, fuzzy
 msgid "label_title_desc"
-msgstr "Título (descendente)"
+msgstr "Izenburua (beheraka)"
 
-#, fuzzy
 msgid "label_date_asc"
-msgstr "Fecha (ascendente)"
+msgstr "Data (goraka)"
 
-#, fuzzy
 msgid "label_date_desc"
-msgstr "Fecha (descendente)"
+msgstr "Dara (beheraka)"
 
-#, fuzzy
 msgid "label_status_asc"
-msgstr "Estado (ascendente)"
+msgstr "Egoera (goraka)"
 
-#, fuzzy
 msgid "label_status_desc"
-msgstr "Estado (descendente)"
+msgstr "Egoera (beheraka)"
 
-#, fuzzy
 msgid "label_author_asc"
-msgstr "Autor (ascendente)"
+msgstr "Egilea (goraka)"
 
-#, fuzzy
 msgid "label_author_desc"
-msgstr "Autor (descendente)"
+msgstr "Egilea (beheraka)"
 
 msgid "cpsdoc_flex_content_title"
-msgstr "Testua: "
+msgstr "Edukia"
 
-#, fuzzy
 msgid "cpsdoc_flex_content_label_edit"
-msgstr "Contenido:"
+msgstr "Edukia:"
 
 msgid "cpsdoc_flex_content_right_label_edit"
-msgstr "Eskuineko zutabeko testua: "
+msgstr "Eskuineko zutabeko testua (aukerakoa):"
 
 msgid "cpsdoc_flex_attachedFile_title"
-msgstr "Fitxategi erantsia"
+msgstr "Fitxategi erantsia:"
 
 msgid "cpsdoc_flex_attachedFile_label_edit"
-msgstr "Fitxategi erantsia: "
+msgstr "Fitxategi erantsia:"
 
 msgid "cpsdoc_flex_attachedFile_label"
-msgstr "Fitxategi erantsia: "
+msgstr "Fitxategi erantsia:"
 
-#, fuzzy
 msgid "cpsdoc_flex_flash_title"
-msgstr "Animación Flash"
+msgstr "Flash animazioa"
 
-#, fuzzy
 msgid "cpsdoc_flex_flash_label_edit"
-msgstr "Animación Flash: "
+msgstr "Flash animazioa: "
 
-#, fuzzy
 msgid "cpsdoc_flex_flash_label"
-msgstr "Animación Flash: "
+msgstr "Flash animazioa: "
 
 msgid "cpsdoc_flex_photo_title"
-msgstr "Argazkia"
+msgstr "Irudia "
 
 msgid "cpsdoc_flex_photo_label_edit"
-msgstr "Argazkia: "
+msgstr "Irudia: "
 
 # default doc types
 msgid "cpsdoc_flex_link_title"
-msgstr "Lotura (URL)"
+msgstr "Esteka"
 
+# FIXME: this msg is not used anywhere
 msgid "cpdoc_flex_link_label_edit"
-msgstr "Loturako helbidea: "
+msgstr "Esteka:"
 
-#, fuzzy
 msgid "cpsdoc_flex_textimage_title"
-msgstr "Bloque de texto e imagen"
+msgstr "Testu eta irudi-blokea"
 
-#, fuzzy
 msgid "cpsdoc_flex_textimage_label_edit"
-msgstr "Bloque de texto e imagen:"
+msgstr "Testu eta irudi-blokea:"
 
 # default doc types
 msgid "portal_type_Flexible_title"
 msgstr "Dokumentu malgua"
 
 msgid "portal_type_Flexible_description"
-msgstr "Zuk zeuk sortu dokumentua, zure beharren arabera!"
+msgstr "Egitura aldakorreko dokumentua"
 
 # default doc types
-#, fuzzy
 msgid "portal_type_Document_title"
-msgstr "Documento"
+msgstr "Dokumentua"
 
-#, fuzzy
 msgid "portal_type_Document_description"
-msgstr "Documento base que puede ser utilizado para crear una página HTML"
+msgstr "HTML orrialdea sortzeko erabili daitekeen oinarrizko dokumentua"
 
 # default doc types
 msgid "portal_type_FAQ_title"
-msgstr "FAQ (Galdera Arruntenak)"
+msgstr "FAQ (maiz egiten diren galderak)"
 
 msgid "portal_type_FAQ_description"
-msgstr "FAQ (Galdera Arruntenak)"
+msgstr "Maiz egiten diren galderak biltzen dituen karpeta"
 
 # default doc types
 msgid "portal_type_FAQitem_title"
-msgstr "FAQ sarrera"
+msgstr "Maiz egiten den galderaren sarrera"
 
 msgid "portal_type_FAQitem_description"
-msgstr "Galdera / Erantzuna"
+msgstr "Galdera / erantzuna."
 
 msgid "cpsdoc_faq_question_label_edit"
 msgstr "Galdera: "
 
 msgid "cpsdoc_faq_long_question_label_edit"
-msgstr "Komentarioak: "
+msgstr "Galderaren informazio osagarria:"
 
 msgid "cpsdoc_faq_answer_label_edit"
 msgstr "Erantzuna: "
@@ -414,223 +442,161 @@ msgid "portal_type_Glossary_title"
 msgstr "Glosarioa"
 
 msgid "portal_type_Glossary_description"
-msgstr "Alfabetikoki ordenatutako definizioak"
+msgstr "Alfabetikoki ordenatutako terminoen definizioez osatutako multzoa"
 
 # default doc types
 msgid "portal_type_GlossaryItem_title"
-msgstr "Glosarioko sarrera"
+msgstr "Glosarioa-terminoen definizioak"
 
 msgid "portal_type_GlossaryItem_description"
-msgstr "Terminoaren definizioa (glosariorako)"
+msgstr "Glosarioaren sarrera"
 
-#, fuzzy
 msgid "cpsdoc_glossary_dispall_label_edit"
-msgstr "Mostrar todas las entradas si no se selecciona ninguna letra"
+msgstr "Sarrera guztiak erakutsi baldin eta ez bada letrarik hautatzen"
 
-#, fuzzy
 msgid "cpsdoc_glossary_term_label_edit"
-msgstr "Término"
+msgstr "Terminoa"
 
 msgid "cpsdoc_glossary_expl_label_edit"
-msgstr "Azalpena"
+msgstr "Definizioa"
 
-#, fuzzy
 msgid "portal_type_NewsItem_title"
-msgstr "Noticia"
+msgstr "Albistea"
 
-#, fuzzy
 msgid "portal_type_NewsItem_description"
-msgstr "Una noticia"
+msgstr "Albiste bat"
 
-#, fuzzy
 msgid "cpsdoc_NewsItem_label_related_subjects"
-msgstr "Temas relacionados"
+msgstr "Zerikusia duten gaiak"
 
 msgid "cpsdoc_NewsItem_label_publication_date"
-msgstr "Data:"
+msgstr "Agertze-data: "
 
-#, fuzzy
 msgid "portal_type_PressRelease_title"
-msgstr "Comunicado de prensa"
+msgstr "Prentsa-komunikatua"
 
-#, fuzzy
 msgid "portal_type_PressRelease_description"
-msgstr ""
-"Un comunicado de prensa es un tipo especial de noticia, utilizada "
-"habitualmente para los comunicados más formales (noticias "
-"institucionales...)."
+msgstr "Prentsa-komunikatua albiste-mota berezi bat da, komunikatu formalenak emateko erabiltzen delarik (erakundeen albisteak...)."
 
 # default doc types
 msgid "portal_type_File_title"
 msgstr "Fitxategia"
 
 msgid "portal_type_File_description"
-msgstr "Indexatutako fitxategi erantsia"
+msgstr "Fitxategi bat txertatu"
 
 # default doc types
-#, fuzzy
 msgid "portal_type_ZippedHtml_title"
-msgstr "Archivo HTML comprimido en formato zip"
+msgstr "Zip formatoan konprimitutako HTML fitxategia"
 
-#, fuzzy
 msgid "portal_type_ZippedHtml_description"
-msgstr ""
-"Un archivo zip que contiene código html y que puede previsualizarse en línea."
+msgstr "HTML kodea duen  zip artxiboa eta on-line aurreikuspegira daitekeena."
 
-#, fuzzy
 msgid "cpsdoc_zippedhtml_label"
-msgstr "Archivo Html comprimido en formato zip"
+msgstr "zip formatoan konprimatutako HTML fitxategia"
 
 # default doc types
 msgid "portal_type_Event_title"
-msgstr "Hitzordua"
+msgstr "Gertaera"
 
 msgid "portal_type_Event_description"
-msgstr "Hitzordu bat"
+msgstr "Gertaera bat"
 
 msgid "cpsdoc_Event_start_label_edit"
-msgstr "Nork: "
+msgstr "Hasiera: "
 
 msgid "cpsdoc_Event_end_label_edit"
-msgstr "Nori: "
+msgstr "Amaiera: "
 
 msgid "cpsdoc_Event_content_label_edit"
-msgstr "Hitzorduaren edukia: "
+msgstr "Gertaeraren edukia: "
 
 # default doc types
 msgid "portal_type_Link_title"
-msgstr "Lotura"
+msgstr "Esteka"
 
 msgid "portal_type_Link_description"
-msgstr "URL"
+msgstr "URL bat"
 
 msgid "cpsdoc_Link_label_edit"
-msgstr "Loturaren helbidea: "
+msgstr "Esteka:"
 
 # default doc types
 msgid "portal_type_Image_title"
 msgstr "Irudia"
 
 msgid "portal_type_Image_description"
-msgstr "Argazkia"
+msgstr "Irudi bat"
 
 msgid "cpsdoc_Image_label_edit"
 msgstr "Irudia: "
 
 # default doc types
 msgid "portal_type_ImageGallery_title"
-msgstr "Irudi bilduma"
+msgstr "Irudien galeria"
 
 msgid "portal_type_ImageGallery_description"
-msgstr "Argazki bilduma"
+msgstr "Irudien liburutegia"
 
-#, fuzzy
 msgid "cpsdoc_imgallery_width_label_edit"
-msgstr "Tamaño de las miniaturas (thumbnails)"
+msgstr "Koadro txikien  tamaina (thumbnails)"
 
-#, fuzzy
 msgid "cpsdoc_imgallery_height_label_edit"
-msgstr "Altura de las miniaturas"
+msgstr "Koadro txikiaren altuera"
 
-#, fuzzy
 msgid "cpsdoc_imgallery_items_label_edit"
-msgstr "Número de miniaturas por página"
+msgstr "Koadro txikien kopurua orrialdeko"
 
 msgid "cpsdoc_imgallery_col_label_edit"
-msgstr "Zenbat zutabe orrialdeko"
+msgstr "Zutabe-kopurua orrialdeko"
 
-#, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_edit"
-msgstr "Número de columnas por página"
+msgstr "Zutabe-kopurua orrialdeko"
 
-#, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_help"
-msgstr "Número de columnas por página"
-
-#, fuzzy
-msgid "cpsdoc_ziparchiveuploader_label_edit"
-msgstr "Load images from a Zip archive"
-
-#, fuzzy
-msgid "cpsdoc_ziparchiveuploader_label_help"
-msgstr "Load any image file (jpeg, png, gif) from a zip archive file."
+msgstr "Zutabe-kopurua orrialdeko"
 
 # default doc types
 msgid "portal_type_Book_title"
 msgstr "Liburua"
 
-#, fuzzy
 msgid "portal_type_Book_description"
-msgstr ""
-"Una carpeta que muestra los documentos que contiene como si fueran páginas "
-"de un libro."
+msgstr "Liburu baten antzera bere barruan dituen dokumentuak erakusten duen karpeta."
 
 msgid "portal_type_Page_title"
 msgstr "Liburua - Orrialdea"
 
-#, fuzzy
 msgid "portal_type_Page_description"
-msgstr ""
-"Documento flexible mostrado estructuralmente como si fuera la página de un "
-"libro."
+msgstr "Liburu baten orrialde baten antzera bere egitura erakusten duen dokumentu malgua."
 
 msgid "portal_type_Chapter_title"
 msgstr "Liburua - Kapitulua"
 
-#, fuzzy
 msgid "portal_type_Chapter_description"
-msgstr ""
-"Documento flexible con aspecto de capítulo de un libro el cual, a su vez, "
-"contiene páginas."
+msgstr "Orrialdeak dituen liburu baten kapitulu baten itxura duen dokumentu malgua. "
 
-#, fuzzy
 msgid "cpsdoc_book_nb_summary_page_label_edit"
-msgstr "Número de tablas de contenido que se mostrará por página"
+msgstr "Orrialdeko erakutsiko den eduki-taulen kopurua "
 
 msgid "cpsdoc_book_has_search_box_label_edit"
-msgstr ""
+msgstr "Bilaketa-laukia"
 
 msgid "cpsdoc_book_display"
-msgstr ""
+msgstr "Aurkezpen-modua"
 
 msgid "cpsdoc_book_display_pages"
-msgstr ""
+msgstr "bereiztutako orrialdetan"
 
 msgid "cpsdoc_book_display_flat"
-msgstr ""
+msgstr "Dokumentu bakarra"
 
 # default doc types
-#, fuzzy
 msgid "portal_type_Flash_Animation_title"
-msgstr "Animación Flash"
+msgstr "Flash animazioa"
 
-#, fuzzy
 msgid "portal_type_Flash_Animation_description"
-msgstr "Animación Flash (formato swf)"
+msgstr "Flash animazioa (swf formatoa)"
 
 msgid "psm_ajax_working"
-msgstr ""
+msgstr "Datuak bidaltzen..."
 
-msgid "description_up_to"
-msgstr "Up to ${up_id}"
-
-msgid "heading_metadata_edit"
-msgstr "Metadatuen edizioa"
-
-#~ msgid "button_back"
-#~ msgstr "Back"
-
-#~ msgid "button_add"
-#~ msgstr "Add"
-
-#~ msgid "button_delete"
-#~ msgstr "Delete"
-
-#~ msgid "button_move_down"
-#~ msgstr "Move down"
-
-#~ msgid "button_move_up"
-#~ msgstr "Move up"
-
-#~ msgid "button_ok"
-#~ msgstr "Ok"
