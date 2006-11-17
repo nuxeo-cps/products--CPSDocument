@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-13 11:42default\n"
+"POT-Creation-Date: 2006-11-17 11:18default\n"
 "PO-Revision-Date: 2004-02-16 14:14+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -43,7 +43,7 @@ msgstr "Metadata of \"${title}\""
 msgid "Page ${page}"
 msgstr ""
 
-#.   <option content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n" value=".">Type</option>
+#.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 msgid "Type"
 msgstr ""
@@ -74,19 +74,19 @@ msgstr "Antwoord :  "
 msgid "cpsdoc_import_zip_title"
 msgstr ""
 
-#.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
+#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #, fuzzy
 msgid "cpsdoc_link_next_page"
 msgstr "Next page"
 
-#.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
+#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
 msgstr ""
 
 # default doc types
-#.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
+#.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
 #, fuzzy
 msgid "cpsdoc_link_toc"
@@ -104,11 +104,11 @@ msgstr "Table of Contents"
 msgid "heading_metadata_view"
 msgstr ""
 
-#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.               In this field you can give the reason for the modification
 #.               on this document. Your comments may be used to notify other users.
 #.             </div>
-#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.         In this filed you can give the reason of the modification that you are doing on this document.
 #.         Your comments may be used to notify other users.
 #.       </div>
@@ -123,7 +123,7 @@ msgid "i18_key-help_for_this_field"
 msgstr ""
 
 #.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
-#.   <span content="widget/label" condition="widget/is_i18n" class="dlabel">label</span>
+#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document/layout_lib_default_view.pt
@@ -137,16 +137,16 @@ msgstr "label"
 msgid "label_zip_file"
 msgstr ""
 
-#.   <a attributes="href python:'/'+ 
+#.   <a href="." attributes="href python:'/'+ 
 #.                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
+#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "next"
 msgstr ""
 
-#.   <a attributes="href python:'/'+
+#.   <a href="." attributes="href python:'/'+
 #.                       itemList[pos - 1].absolute_url(relative=1) +
-#.                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
+#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "previous"
 msgstr ""
@@ -380,7 +380,8 @@ msgstr "Web Document"
 
 #, fuzzy
 msgid "portal_type_Document_description"
-msgstr "A basic document that can be used to create an HTML page"
+msgstr ""
+"A flexible document to create an HTML page with images and attached files"
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -414,7 +415,7 @@ msgstr "Glossary"
 
 #, fuzzy
 msgid "portal_type_Glossary_description"
-msgstr "Set of definitions grouped alphabetically"
+msgstr "A folder containing a set of definitions alphabetically sorted"
 
 # default doc types
 #, fuzzy
@@ -443,7 +444,7 @@ msgstr "News item"
 
 #, fuzzy
 msgid "portal_type_NewsItem_description"
-msgstr "A news item document"
+msgstr "A document to write a news item"
 
 #, fuzzy
 msgid "cpsdoc_NewsItem_label_related_subjects"
@@ -476,7 +477,7 @@ msgstr "Zipped Html File"
 
 #, fuzzy
 msgid "portal_type_ZippedHtml_description"
-msgstr "A zip archive that contain html, that can be preview online"
+msgstr "A ZIP archive containing HTML documents to publish"
 
 #, fuzzy
 msgid "cpsdoc_zippedhtml_label"
@@ -525,7 +526,7 @@ msgstr "Image Gallery"
 
 #, fuzzy
 msgid "portal_type_ImageGallery_description"
-msgstr "Set of pictures"
+msgstr "An image gallery"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_width_label_edit"
@@ -553,11 +554,11 @@ msgstr "Load any image file (jpeg, png, gif) from a zip archive file."
 
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_edit"
-msgstr "Load images from a Zip archive"
+msgstr "Load files from a Zip archive"
 
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_help"
-msgstr "Load any image file (jpeg, png, gif) from a zip archive file."
+msgstr "Load any file from a zip archive file."
 
 # default doc types
 #, fuzzy
