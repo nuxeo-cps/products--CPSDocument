@@ -354,14 +354,14 @@ msgid "portal_type_Document_title"
 msgstr "Web Document"
 
 msgid "portal_type_Document_description"
-msgstr "A basic document that can be used to create an HTML page"
+msgstr "A flexible document to create an HTML page with images and attached files"
 
 # default doc types
 msgid "portal_type_FAQ_title"
 msgstr "FAQ (Frequently Asked Questions)"
 
 msgid "portal_type_FAQ_description"
-msgstr "Set of Frequently Asked Questions"
+msgstr "A folder containing a set of frequently asked questions"
 
 # default doc types
 msgid "portal_type_FAQitem_title"
@@ -384,7 +384,7 @@ msgid "portal_type_Glossary_title"
 msgstr "Glossary"
 
 msgid "portal_type_Glossary_description"
-msgstr "Set of definitions grouped alphabetically"
+msgstr "A folder containing a set of definitions alphabetically sorted"
 
 # default doc types
 msgid "portal_type_GlossaryItem_title"
@@ -406,7 +406,7 @@ msgid "portal_type_NewsItem_title"
 msgstr "News item"
 
 msgid "portal_type_NewsItem_description"
-msgstr "A news item document"
+msgstr "A document to write a news item"
 
 msgid "cpsdoc_NewsItem_label_related_subjects"
 msgstr "Related subjects:"
@@ -427,14 +427,14 @@ msgid "portal_type_File_title"
 msgstr "File"
 
 msgid "portal_type_File_description"
-msgstr "Indexed attached file"
+msgstr "A document to store a file (.odt, .doc, .zip, etc.) and have a preview of it"
 
 # default doc types
 msgid "portal_type_ZippedHtml_title"
 msgstr "Zipped Html File"
 
 msgid "portal_type_ZippedHtml_description"
-msgstr "A zip archive that contain html, that can be preview online"
+msgstr "A ZIP archive containing HTML documents to publish"
 
 msgid "cpsdoc_zippedhtml_label"
 msgstr "Html zip archive"
@@ -460,7 +460,7 @@ msgid "portal_type_Link_title"
 msgstr "Link"
 
 msgid "portal_type_Link_description"
-msgstr "An URL"
+msgstr "A document to reference a web link (URL)"
 
 msgid "cpsdoc_Link_label_edit"
 msgstr "Link address: "
@@ -480,7 +480,7 @@ msgid "portal_type_ImageGallery_title"
 msgstr "Image Gallery"
 
 msgid "portal_type_ImageGallery_description"
-msgstr "Set of pictures"
+msgstr "An image gallery"
 
 msgid "cpsdoc_imgallery_width_label_edit"
 msgstr "Thumbnail Width"

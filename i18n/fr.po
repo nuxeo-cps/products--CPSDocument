@@ -365,14 +365,14 @@ msgid "portal_type_Document_title"
 msgstr "Document Web"
 
 msgid "portal_type_Document_description"
-msgstr "Un document de base qui peut être utilisé pour créer une page HTML"
+msgstr "Un document flexible pour créer une page HTML avec images et fichiers attachés"
 
 # default doc types
 msgid "portal_type_FAQ_title"
 msgstr "FAQ (Foire Aux Questions)"
 
 msgid "portal_type_FAQ_description"
-msgstr "Dossier contenant un ensemble de questions posées fréquemment"
+msgstr "Un dossier contenant un ensemble de questions posées fréquemment"
 
 # default doc types
 msgid "portal_type_FAQitem_title"
@@ -395,7 +395,7 @@ msgid "portal_type_Glossary_title"
 msgstr "Glossaire"
 
 msgid "portal_type_Glossary_description"
-msgstr "Ensemble de définitions de termes classés alphabétiquement"
+msgstr "Un dossier contenant un ensemble de définitions de termes classés alphabétiquement"
 
 # default doc types
 msgid "portal_type_GlossaryItem_title"
@@ -414,10 +414,10 @@ msgid "cpsdoc_glossary_expl_label_edit"
 msgstr "Définition"
 
 msgid "portal_type_NewsItem_title"
-msgstr "Brève"
+msgstr "Nouvelle"
 
 msgid "portal_type_NewsItem_description"
-msgstr "Une nouvelle"
+msgstr "Un document pour rédiger une nouvelle"
 
 msgid "cpsdoc_NewsItem_label_related_subjects"
 msgstr "Sujets connexes :"
@@ -438,7 +438,7 @@ msgid "portal_type_File_title"
 msgstr "Fichier"
 
 msgid "portal_type_File_description"
-msgstr "Attacher un fichier"
+msgstr "Un document pour stocker un fichier (.odt, .doc, .zip, etc.) et en avoir une prévisualisation"
 
 # default doc types
 msgid "portal_type_ZippedHtml_title"
@@ -446,8 +446,7 @@ msgstr "Archive Zip HTML"
 
 msgid "portal_type_ZippedHtml_description"
 msgstr ""
-"Une archive zip contenant des documents au format HTML pouvant être "
-"prévisualisés"
+"Une archive ZIP contenant des documents HTML à publier"
 
 msgid "cpsdoc_zippedhtml_label"
 msgstr "Archive zip de documents au format HTML"
@@ -473,7 +472,7 @@ msgid "portal_type_Link_title"
 msgstr "Lien"
 
 msgid "portal_type_Link_description"
-msgstr "Une URL"
+msgstr "Un document pour référencer un lien web (URL)"
 
 msgid "cpsdoc_Link_label_edit"
 msgstr "Lien http :"
@@ -493,7 +492,7 @@ msgid "portal_type_ImageGallery_title"
 msgstr "Photothèque"
 
 msgid "portal_type_ImageGallery_description"
-msgstr "Bibliothèque d'images"
+msgstr "Une bibliothèque d'images"
 
 msgid "cpsdoc_imgallery_width_label_edit"
 msgstr "Largeur des miniatures"
