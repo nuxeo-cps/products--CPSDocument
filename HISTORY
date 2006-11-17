@@ -1,4 +1,24 @@
 ===========================================================
+Package: CPSDocument 0.49.1
+===========================================================
+First release built by: gracinet at: 2006-11-17T17:50:14
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/tags/0.49.1
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk@50110
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Fixed #1505 : Make the portal types description consistent.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 0.49.0
 ===========================================================
 First release built by: gracinet at: 2006-11-16T18:13:47
