@@ -12,7 +12,8 @@
 <h2 tal:condition="python:layout_label and not layout_is_i18n"
   tal:content="layout_label"></h2>
 
-<table class="layoutDefault" summary="layout">
+<table class="layoutDefault" summary="layout"
+       tal:omit-tag="not:layout/rows">
   <tr tal:repeat="row layout/rows">
     <td tal:repeat="cell row" tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget">
