@@ -74,6 +74,7 @@
 
   <metal:block fill-slot="main">
     <form action="ACTION" method="post" id="editForm"
+          accept-charset="utf-8"
           enctype="multipart/form-data" class="workflow"
           tal:attributes="action form_action">
       <div class="group">

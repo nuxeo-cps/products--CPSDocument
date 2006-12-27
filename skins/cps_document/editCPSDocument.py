@@ -29,14 +29,9 @@ else:
     psm = ''
 
 if ajax_edit:
-    # this is hardcoded here because CPS is not utf8 yet
-    # (it's ISO-8859-15)
-    # so the form fields are sent in strings that are
-    # unicode in fact
-    for field_name, field_value in request.form.items():
-        if isinstance(field_value, str):
-            field_value = field_value.decode('utf8', 'replace')
-            request.form[field_name] = field_value.encode('ISO-8859-15')
+    from Products.CPSDocument.utils import cleanAjaxParams
+    cleanAjaxParams(request)
+
 
 res = doc.renderEditDetailed(request=request, proxy=context,
                              layout_id=layout_id, cluster=cluster)
@@ -57,7 +52,7 @@ if ajax_edit:
     layout = str(res[0])
 
     # sending utf8 content
-    layout = layout.decode('iso-8859-15').encode('utf8')
+    layout = layout.encode('utf-8')
     if result and REQUEST.has_key('cpsdocument_edit_and_view_button'):
         action = 'redirect'
 

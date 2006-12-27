@@ -202,7 +202,17 @@ class CPSDocumentMixin(ExtensionClass.Base):
             if not isinstance(value, (list, tuple)):
                 value = (value,)
             for v in value:
-                strings.append(str(v)) # XXX Use ustr ?
+                if isinstance(v, str):
+                    try:
+                        v = unicode(v, 'iso-8859-15')
+                    except UnicodeError:
+                        raise UnicodeError(
+                            "Field %s has bad string value %r" %
+                            (fieldid, v))
+                elif not isinstance(v, unicode):
+                    v = unicode(v)
+                strings.append(v)
+
         # XXX Deal with fields that use a vocabulary, and add the
         #     translated value to the searchable text, not the key.
         # XXX Deal with Unicode properly...
