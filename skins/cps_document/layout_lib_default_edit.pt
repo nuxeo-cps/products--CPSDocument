@@ -53,6 +53,7 @@
                          widget_css_class python:test(is_flexible, 'group', widget_css_class);
                          css_class python:test(err, 'row error',
                                                test(is_flexible, 'group', 'row'))">
+        <div class="error" tal:omit-tag="not:err">
         <div tal:attributes="class widget_css_class;
                              id python:widget.getHtmlWidgetId()+'_widget';
                             ">
@@ -83,8 +84,7 @@
           </div>
           <tal:block condition="err">
               <tal:block define="msg python:cpsmcat(err, mapping=err_mapping)">
-                <br /><em style="color: red"
-                  tal:content="msg">err</em>
+                <p class="errorMessage"><em tal:content="msg">err</em></p>
               </tal:block>
           </tal:block>
           <div style="float: right;" tal:condition="is_flexible">
@@ -104,6 +104,7 @@
                               onclick python:'CPSFlexibleEdit.buttonClick(this, \'%s\')' %
                                 (cpsmcat('description_confirm_delete'), )" />
           </div>
+        </div>
         </div>
       </tal:block>
     </td>
@@ -130,7 +131,7 @@
     </select>
     <input type="button"
            value="button_add" id="addwidget_button"
-           class="context" 
+           class="context"
            i18n:attributes="value"
            tal:attributes="onclick string:CPSFlexibleEdit.buttonClick(this, '');
                            name string:addwidget_button__${layout_id};" />
