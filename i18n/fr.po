@@ -115,7 +115,7 @@ msgstr "Méta-données du document"
 #: ../skins/cps_document/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
-"Dans ce champs vous pouvez donner la raison de la modification que vous "
+"Dans ce champ, vous pouvez donner la raison de la modification que vous "
 "effectuez sur ce document. Vos commentaires pourront être utilisés pour "
 "avertir d'autres utilisateurs."
 
