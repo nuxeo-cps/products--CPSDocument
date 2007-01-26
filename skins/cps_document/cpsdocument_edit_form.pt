@@ -89,7 +89,8 @@
           </div>
         </div>
 
-        <tal:block condition="not:creation">
+        <tal:block define="c_beh python:here.portal_workflow.getCommentBehaviour('modify', here, here)"
+                   condition="python:not creation and c_beh == 'display'">
           <div class="tooltipArea" style="visibility: hidden;"
                id="transition_comments_help"
                onclick="showElement(false, 'transition_comments_help')"
