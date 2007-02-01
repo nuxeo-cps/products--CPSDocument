@@ -25,7 +25,7 @@
 
 <tal:block condition="first_layout">
   <tal:block
-  content="structure string:<form id='editForm' action='${formaction}' method='post'
+  content="structure string:<form id='editForm' action='${formaction}' method='post' accept-charset='utf-8'
   enctype='multipart/form-data' class='workflow'>
   <div class='group'><div class='documentFields'>" />
   <input type="hidden" name="type_name" value="."
@@ -171,7 +171,7 @@
           onclick="toggleElementVisibility('transition_comments_help')"> ? </button>
       </dt>
       <dd>
-        <textarea name="comments" id="comments" cols="60" rows="3"
+        <textarea name="comments:utf8:ustring" id="comments" cols="60" rows="3"
           tal:content="nothing">
         </textarea>
       </dd>
