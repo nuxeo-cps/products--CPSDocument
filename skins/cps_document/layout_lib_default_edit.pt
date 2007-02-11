@@ -162,21 +162,20 @@
       id="transition_comments_help"
       onclick="showElement(false, 'transition_comments_help')"
       i18n:translate="help_transition_comments_modification">
-      In this filed you can give the reason of the modification that you are doing on this document.
-      Your comments may be used to notify other users.
+      In this field you can give the reason for the modification
+      on this document. Your comments may be used to notify other users.
     </div>
-    <dl>
-      <dt><label for="comments"
-          i18n:translate="transition_comments_modification">Reason of the modification</label>
-        <button type="button" class="tooltipControl"
-          onclick="toggleElementVisibility('transition_comments_help')"> ? </button>
-      </dt>
-      <dd>
-        <textarea name="comments" id="comments" cols="60" rows="3"
-          tal:content="nothing">
-        </textarea>
-      </dd>
-    </dl>
+    <p>
+      <label for="comments" class="comments"
+             i18n:translate="transition_comments_modification"
+                 >Reason of the modification</label>
+      <button type="button" class="tooltipControl"
+              onclick="toggleElementVisibility('transition_comments_help')"> ? </button>
+      <br/>
+      <textarea name="comments" id="comments" cols="60" rows="3"
+                tal:content="nothing">
+      </textarea>
+    </p>
   </tal:block>
   <input type="submit" class="standalone" name="cpsdocument_edit_button"
     value="button_change" i18n:attributes="value" id="cpsdocument_edit_button"
