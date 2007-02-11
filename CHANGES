@@ -6,6 +6,9 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
+- In verifyMetaData.py disabling the effective date check since it's possible to
+  create and publish documents after the effective date of the event. This
+  happens when one creates documents to cover past events.
 - Improved transition forms comments markup.
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
