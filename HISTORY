@@ -1,4 +1,27 @@
 ===========================================================
+Package: CPSDocument 0.50.1
+===========================================================
+First release built by: div at: 2007-02-19T18:34:28
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/tags/0.50.1
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk@51117
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- In verifyMetaData.py disabling the effective date check since it's possible to
+  create and publish documents after the effective date of the event. This
+  happens when one creates documents to cover past events.
+- Improved transition forms comments markup.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 0.50.0
 ===========================================================
 First release built by: gracinet at: 2007-02-06T14:44:58
