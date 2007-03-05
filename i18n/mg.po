@@ -380,7 +380,7 @@ msgstr "Antotandahatsoratra azo ovaina"
 # default doc types
 #, fuzzy
 msgid "portal_type_Document_title"
-msgstr "Document Web"
+msgstr "Document web"
 
 #, fuzzy
 msgid "portal_type_Document_description"
