@@ -1,4 +1,24 @@
 ===========================================================
+Package: CPSDocument 0.50.2
+===========================================================
+First release built by: div at: 2007-03-14T12:23:12
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/tags/0.50.2
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk@51329
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Better French words capitalizations.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 0.50.1
 ===========================================================
 First release built by: div at: 2007-02-19T18:34:28
