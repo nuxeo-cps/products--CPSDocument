@@ -443,7 +443,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         new_widget_ids = []
         for widget_id in widget_ids:
             widget = layout[widget_id]
-            if widget.meta_type == 'CPS Compound Widget':
+            if isinstance(widget,  CPSCompoundWidget):
                 new_widget_ids.extend(widget.widget_ids)
             new_widget_ids.append(widget_id)
 
