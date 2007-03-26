@@ -1,4 +1,24 @@
 ===========================================================
+Package: CPSDocument 0.50.3
+===========================================================
+First release built by: div at: 2007-03-26T20:47:10
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/tags/0.50.3
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk@51414
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #1817: flexible compound widget deletion doesn't recurse in subwidgets
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 0.50.2
 ===========================================================
 First release built by: div at: 2007-03-14T12:23:12
