@@ -76,6 +76,9 @@ msgstr ""
 msgid "help_dc_source"
 msgstr ""
 
+msgid "help_dc_rights"
+msgstr ""
+
 msgid "help_dc_coverage"
 msgstr ""
 
