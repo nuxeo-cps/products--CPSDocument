@@ -343,7 +343,6 @@ class TestDocuments(CPSTestCase):
             self.assertEquals(response.headers['Content-Disposition'],
                 "inline; filename=filename")
 
-    # XXX: is this correct ???
     def testFileCalledFile(self):
         self.ws.invokeFactory('File', 'file')
         proxy = self.ws.file
@@ -351,7 +350,7 @@ class TestDocuments(CPSTestCase):
             doc = proxy.getContent()
         except AttributeError:
             doc = proxy
-        self.assertEquals(proxy['file'], None)
+        self.assert_(proxy['file'])
 
     def testFlexible(self):
         self.ws.invokeFactory('Flexible', 'flex')
