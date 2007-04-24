@@ -136,11 +136,14 @@ class IntegrationTestFlexibleTypeInformation(CPSTestCase):
             'content_format',
             'content_position',
             'photo',
+            'photo_alt',
             'photo_original',
             'photo_position',
             'photo_subtitle',
             'photo_title',
             'preview',
+            'preview_alt',
+            'preview_title',
             ]
         dm_keys = dm.keys()
         dm_keys.sort()
