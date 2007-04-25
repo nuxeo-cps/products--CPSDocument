@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-02 17:07default\n"
+"POT-Creation-Date: 2007-04-25 12:22default\n"
 "PO-Revision-Date: 2006-11-16 15:41+0100\n"
 "Last-Translator: Jesus Martin <jesusmartin@lasalle.es>\n"
 "Language-Team: euskara <perikoalkain@lasalle.es>\n"
@@ -229,8 +229,7 @@ msgstr ""
 
 #, fuzzy
 msgid "help_dc_rights"
-msgstr ""
-"Baliabide honekin zerikusia duen beste baliabide baten (URL) erreferentzia."
+msgstr "Information about rights held in and over the resource."
 
 msgid "help_dc_coverage"
 msgstr "Baliabidearen denbora eta espazioko irismena."
@@ -580,9 +579,9 @@ msgstr "Datuak bidaltzen..."
 #    <span>
 #        ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #      </span>
-#~ msgid "description_up_to"
-#~ msgstr "${up_id}-ra"
+msgid "description_up_to"
+msgstr "${up_id}-ra"
 
 #    <span condition="metadata">heading_metadata_edit</span>
-#~ msgid "heading_metadata_edit"
-#~ msgstr "Metadatuak aldatu"
+msgid "heading_metadata_edit"
+msgstr "Metadatuak aldatu"

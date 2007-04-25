@@ -218,7 +218,7 @@ msgstr ""
 
 #, fuzzy
 msgid "help_dc_rights"
-msgstr "Beziehung oder Verweis (URL) zu einer verwandten Ressource."
+msgstr "Information about rights held in and over the resource."
 
 msgid "help_dc_coverage"
 msgstr "Der Kontext des Inhalts dieser Ressource."
@@ -564,8 +564,8 @@ msgstr "Flash Animation (im swf-Format)"
 msgid "psm_ajax_working"
 msgstr ""
 
-#~ msgid "description_up_to"
-#~ msgstr "Zurück zu ${up_id}"
+msgid "description_up_to"
+msgstr "Zurück zu ${up_id}"
 
-#~ msgid "heading_metadata_edit"
-#~ msgstr "Metadaten Bearbeiten"
+msgid "heading_metadata_edit"
+msgstr "Metadaten Bearbeiten"

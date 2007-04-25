@@ -230,7 +230,7 @@ msgstr ""
 
 #, fuzzy
 msgid "help_dc_rights"
-msgstr "Una referència (URL) a un altre recurs que té relació amb aquest."
+msgstr "Una referencia (URL) a otro recurso que tiene relación con éste."
 
 msgid "help_dc_coverage"
 msgstr "L'abast o la cobertura espai-temporal del recurs."
@@ -514,19 +514,23 @@ msgstr "Número de columnes per pàgina"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_edit"
-msgstr "Load images from a Zip archive"
+msgstr "Importar un archivo Zip de imágenes"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_help"
-msgstr "Load any image file (jpeg, png, gif) from a zip archive file."
+msgstr ""
+"Todos los archivos de imagen (jpeg, png, gif...) serán subidos a la galería "
+"de imágenes"
 
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_edit"
-msgstr "Load files from a Zip archive"
+msgstr "Importar un archivo Zip de documentos"
 
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_help"
-msgstr "Load any file from a zip archive file."
+msgstr ""
+"Todos los archivos contenidos en el archivo serán subidos en el espacio "
+"correspondiente como un documento de tipo Archivo."
 
 # default doc types
 msgid "portal_type_Book_title"
@@ -580,9 +584,9 @@ msgstr "Transferint dades..."
 #    <span>
 #        ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #      </span>
-#~ msgid "description_up_to"
-#~ msgstr "cap a ${up_id}"
+msgid "description_up_to"
+msgstr "cap a ${up_id}"
 
 #    <span condition="metadata">heading_metadata_edit</span>
-#~ msgid "heading_metadata_edit"
-#~ msgstr "Modificar les metadades"
+msgid "heading_metadata_edit"
+msgstr "Modificar les metadades"
