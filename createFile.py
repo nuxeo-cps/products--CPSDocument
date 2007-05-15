@@ -25,7 +25,7 @@ with types according to their extensions
 from logging import getLogger
 
 from Products.CMFCore.utils import getToolByName
-from OFS.Image import File
+from OFS.Image import File, Image
 from AccessControl import ModuleSecurityInfo
 from zipfile import ZipFile, BadZipfile
 from StringIO import StringIO
