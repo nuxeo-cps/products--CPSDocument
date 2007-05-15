@@ -1,4 +1,4 @@
-# (C) Copyright 2005 Nuxeo SARL <http://nuxeo.com>
+# (C) Copyright 2005-2007 Nuxeo SAS <http://nuxeo.com>
 # Author: Dragos Ivan <di@nuxeo.com>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 # $Id$
 """import documents from uploaded ZIP file
 
-Create a document (attached file) for each file in the uploaded ZIP, 
+Create a document (attached file) for each file in the uploaded ZIP,
 with types according to their extensions
 """
 
@@ -107,7 +107,10 @@ def createFile(context, zip_file, check_allowed_content_types=True):
 
         # create file to attach to document
         data = zipfile.read(path)
-        file_to_attach = File(path_filename, path_filename, data)
+        if ptype in ['Image']:
+            file_to_attach = Image(path_filename, path_filename, data)
+        else:
+            file_to_attach = File(path_filename, path_filename, data)
         if mimetype and file_to_attach.content_type != mimetype:
             logger.debug('Fixing mimetype from %s to %s',
                          file_to_attach.content_type, mimetype)

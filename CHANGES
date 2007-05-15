@@ -6,7 +6,8 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- Fixed #1839: "Creating images with CPSDocument.createFile" by creating Image
+  objects instead of File objects when images are uploaded.
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
