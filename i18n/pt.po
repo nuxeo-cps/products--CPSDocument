@@ -1,0 +1,550 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CPSDocument\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-11-17 11:18default\n"
+"PO-Revision-Date: 2007-05-01 16:26+0100\n"
+"Last-Translator: \n"
+"Language-Team: Português <luis727@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.3.1\n"
+"Domain: default\n"
+"Language-Code: pt_BR\n"
+"Language-Name: Portuguese Brazilian\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: PORTUGAL\n"
+"X-Poedit-Basepath: /var/lib/zope2.8/instance/default/Products\n"
+
+#.   <h1 condition="creation">
+#.         Create a document of type
+#.         ${type_name (tal content="type_info/Title" define="type_name request/type_name;
+#.                           type_info python:here.portal_types[type_name]")}
+#.       </h1>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Create a document of type ${type_name}"
+msgstr "Criar um documento do tipo ${type_name}"
+
+#.   <block condition="python: edition and not metadata">Edit ${title (tal content="here/title_or_id")}</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Edit ${title}"
+msgstr "Editar ${title}"
+
+#.   <block condition="metadata">Metadata of ${title (tal content="here/title_or_id")}</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Metadata of ${title}"
+msgstr "Metadados de \"${title}\""
+
+#.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
+#: from ../skins/cps_document/layout_page_view.pt
+msgid "Page ${page}"
+msgstr "Página ${page}"
+
+#.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+msgid "Type"
+msgstr "Tipo"
+
+#.   <block content="type_info/Title" define="type_name request/type_name;
+#.                           type_info python:here.portal_types[type_name]">Type Title</block>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+msgid "Type Title"
+msgstr "Título do Tipo"
+
+#.   <span>to</span>
+#: from ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_end_label"
+msgstr "Até"
+
+#.   <span>from</span>
+#: from ../skins/cps_document/layout_event_view.pt
+msgid "cpsdoc_Event_start_label"
+msgstr "De"
+
+#.   <span class="dlabel">Response: </span>
+#: from ../skins/cps_document/layout_faq_view.pt
+msgid "cpsdoc_faq_answer_label"
+msgstr "Resposta:"
+
+#.   <h2>Import ZIP File</h2>
+#: from ../skins/cps_document/cpsdocument_import_zip_form.pt
+msgid "cpsdoc_import_zip_title"
+msgstr "Importar um Arquivo ZIP"
+
+#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
+#: from ../skins/cps_document/layout_page_view.pt
+msgid "cpsdoc_link_next_page"
+msgstr "Próxima"
+
+#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
+#: from ../skins/cps_document/layout_page_view.pt
+msgid "cpsdoc_link_previous_page"
+msgstr "Anterior"
+
+#.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
+#: from ../skins/cps_document/layout_page_view.pt
+msgid "cpsdoc_link_toc"
+msgstr "Link"
+
+#.   <h3>cpsdoc_title_toc</h3>
+#: from ../skins/cps_document/layout_book_view.pt
+#: ../skins/cps_document/layout_chapter_view.pt
+msgid "cpsdoc_title_toc"
+msgstr "Índice"
+
+#.   <h1>heading_metadata_view</h1>
+#: from ../skins/cps_document/layout_metadata_view.pt
+msgid "heading_metadata_view"
+msgstr "Metadados"
+
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.               In this field you can give the reason for the modification
+#.               on this document. Your comments may be used to notify other users.
+#.             </div>
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.         In this filed you can give the reason of the modification that you are doing on this document.
+#.         Your comments may be used to notify other users.
+#.       </div>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document/layout_lib_default_edit.pt
+msgid "help_transition_comments_modification"
+msgstr "O seu comentário pode ser utilizado para notificar outros usuários."
+
+#.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+msgid "i18_key-help_for_this_field"
+msgstr "Tecla de ajuda i18 para este campo"
+
+#.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
+#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
+#.   <strong content="widget/label">label</strong>
+#: from ../skins/cps_document/layout_lib_default_edit.pt
+#: ../skins/cps_document/layout_lib_default_view.pt
+#: ../skins/cps_document/layout_lib_div_view.pt
+#: ../skins/cps_document/layout_metadata_view.pt
+msgid "label"
+msgstr "Rótulo"
+
+#.   <block>ZIP File</block>
+#: from ../skins/cps_document/cpsdocument_import_zip_form.pt
+msgid "label_zip_file"
+msgstr "Arquivo ZIP"
+
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos + 1].absolute_url(relative=1) +
+#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#: from ../skins/cps_document/popup_image.pt
+msgid "next"
+msgstr "Próximo"
+
+#.   <a href="." attributes="href python:'/'+
+#.                       itemList[pos - 1].absolute_url(relative=1) +
+#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
+#: from ../skins/cps_document/popup_image.pt
+msgid "previous"
+msgstr "Anterior"
+
+#.   <label for="comments">Reason of the modification</label>
+#: from ../skins/cps_document/cpsdocument_edit_form.pt
+#: ../skins/cps_document/layout_lib_default_edit.pt
+msgid "transition_comments_modification"
+msgstr "Razão da modificação"
+
+# generic names
+msgid "cpsdoc_title_label_edit"
+msgstr "Título:"
+
+msgid "cpsdoc_description_label_edit"
+msgstr "Descrição:"
+
+msgid "cpsdoc_theme_label_edit"
+msgstr "Tema"
+
+msgid "cpsdoc_date_label_edit"
+msgstr "Data:"
+
+msgid "cpsdoc_date_label"
+msgstr "Data"
+
+msgid "cpsdoc_attachedFile_label"
+msgstr "Arquivo anexado:"
+
+msgid "cpsdoc_preview_label_edit"
+msgstr "Previsão"
+
+msgid "cpsdoc_allow_discussion_label_edit"
+msgstr "Permite discussão"
+
+msgid "cpsdoc_popup_mode_label_edit"
+msgstr "Mostra imagens em uma janela popup"
+
+msgid "cpsdoc_popup_width_label_edit"
+msgstr "Largura da janela"
+
+msgid "cpsdoc_popup_height_label_edit"
+msgstr "Altura da janela"
+
+# metadata
+msgid "label_source"
+msgstr "Origem"
+
+msgid "label_coverage"
+msgstr "Cobertura"
+
+msgid "label_relation"
+msgstr "Relação"
+
+msgid "cpsdoc_hidden_folder"
+msgstr "Pasta oculta"
+
+msgid "cpsdoc_hidden_folder_help"
+msgstr "Esta pasta será oculta no modo de visualização; ainda poderá vê-la/acessá-la usando 'Conteúdo da Pasta' ou quando escolher um alvo para publicação. Use 'Papéis Locais' para definir a segurança no acesso à pasta."
+
+msgid "help_dc_subject"
+msgstr "Um tópico do conteúdo do recurso."
+
+msgid "help_dc_contirbutors"
+msgstr "Responsáveis por fazer contribuições ao conteúdo do recurso."
+
+msgid "help_dc_source"
+msgstr "Uma Referência a um recurso do qual o recurso presente é derivado."
+
+msgid "help_dc_coverage"
+msgstr "A extensão ou escopo do conteúdo do recurso."
+
+msgid "help_dc_relation"
+msgstr "Uma referência (URL) a um recurso relacionado."
+
+msgid "label_portal_type"
+msgstr "Tipo do Recurso"
+
+msgid "label_subject_Arts"
+msgstr "Artes"
+
+msgid "label_subject_Business"
+msgstr "Negócios"
+
+msgid "label_subject_Computers"
+msgstr "Computadores"
+
+msgid "label_subject_Games"
+msgstr "Jogos"
+
+msgid "label_subject_Health"
+msgstr "Saúde"
+
+msgid "label_subject_Home"
+msgstr "Casa"
+
+msgid "label_subject_Kids and Teens"
+msgstr "Crianças e Adolescentes"
+
+msgid "label_subject_News"
+msgstr "Notícias"
+
+msgid "label_subject_Recreation"
+msgstr "Lazer"
+
+msgid "label_subject_Reference"
+msgstr "Referência"
+
+msgid "label_subject_Regional"
+msgstr "Regional"
+
+msgid "label_subject_Science"
+msgstr "Ciência"
+
+msgid "label_subject_Shopping"
+msgstr "Compras"
+
+msgid "label_subject_Society"
+msgstr "Sociedade"
+
+msgid "label_subject_Sports"
+msgstr "Desporto"
+
+msgid "label_sort_by"
+msgstr "Ordenar por"
+
+msgid "label_title_asc"
+msgstr "Crescente por título"
+
+msgid "label_title_desc"
+msgstr "Decrescente por título"
+
+msgid "label_date_asc"
+msgstr "Crescente por data"
+
+msgid "label_date_desc"
+msgstr "Decrescente por data"
+
+msgid "label_status_asc"
+msgstr "Crescente por estado"
+
+msgid "label_status_desc"
+msgstr "Decrescente por estado"
+
+msgid "label_author_asc"
+msgstr "Crescente por autor"
+
+msgid "label_author_desc"
+msgstr "Decrescente por autor"
+
+# flex content
+msgid "cpsdoc_flex_content_title"
+msgstr "Conteúdo"
+
+msgid "cpsdoc_flex_content_label_edit"
+msgstr "Conteúdo:"
+
+msgid "cpsdoc_flex_content_right_label_edit"
+msgstr "Conteúdo da direita:"
+
+msgid "cpsdoc_flex_attachedFile_title"
+msgstr "Documento anexado"
+
+msgid "cpsdoc_flex_attachedFile_label_edit"
+msgstr "Documento anexado:"
+
+msgid "cpsdoc_flex_attachedFile_label"
+msgstr "Documento anexado"
+
+msgid "cpsdoc_flex_flash_title"
+msgstr "Animação Flash"
+
+msgid "cpsdoc_flex_flash_label_edit"
+msgstr "Animação Flash: "
+
+msgid "cpsdoc_flex_flash_label"
+msgstr "Animação Flash: "
+
+msgid "cpsdoc_flex_photo_title"
+msgstr "Foto"
+
+msgid "cpsdoc_flex_photo_label_edit"
+msgstr "Foto:"
+
+msgid "cpsdoc_flex_link_title"
+msgstr "Link"
+
+msgid "cpdoc_flex_link_label_edit"
+msgstr "Link:"
+
+msgid "cpsdoc_flex_textimage_title"
+msgstr "Imagem e bloco de texto"
+
+msgid "cpsdoc_flex_textimage_label_edit"
+msgstr "Imagem e bloco de texto:"
+
+# Flexible
+msgid "portal_type_Flexible_title"
+msgstr "Documento Flexível"
+
+msgid "portal_type_Flexible_description"
+msgstr "Um documento cuja estrutura pode ser modificada de modo flexível."
+
+# default doc types
+msgid "portal_type_Document_title"
+msgstr "Documento"
+
+msgid "portal_type_Document_description"
+msgstr "Um documento básico que pode ser utilizado para criar uma página HTML."
+
+# Faq
+msgid "portal_type_FAQ_title"
+msgstr "FAQ (Perguntas feitas com freqüência e suas respostas)"
+
+msgid "portal_type_FAQ_description"
+msgstr "Pasta que contém um conjunto de perguntas feitas com freqüência e suas respostas."
+
+msgid "portal_type_FAQitem_title"
+msgstr "FAQ - Pergunta feita com freqüência"
+
+msgid "portal_type_FAQitem_description"
+msgstr "Pergunta / Resposta"
+
+msgid "cpsdoc_faq_question_label_edit"
+msgstr "Pergunta:"
+
+msgid "cpsdoc_faq_long_question_label_edit"
+msgstr "Informação complementar à pergunta:"
+
+msgid "cpsdoc_faq_answer_label_edit"
+msgstr "Resposta:"
+
+# Glossary
+msgid "portal_type_Glossary_title"
+msgstr "Glossário"
+
+msgid "portal_type_Glossary_description"
+msgstr "Conjunto de definições e termos ordenados alfabeticamente."
+
+msgid "portal_type_GlossaryItem_title"
+msgstr "Glossário - definição de termos"
+
+msgid "portal_type_GlossaryItem_description"
+msgstr "Entrada de glossário:"
+
+# Glossary
+msgid "cpsdoc_glossary_dispall_label_edit"
+msgstr "Mostrar todas as entradas se não selecionar nenhuma letra"
+
+msgid "cpsdoc_glossary_term_label_edit"
+msgstr "Término"
+
+msgid "cpsdoc_glossary_expl_label_edit"
+msgstr "Definição"
+
+msgid "portal_type_NewsItem_title"
+msgstr "Item de notícia"
+
+msgid "portal_type_NewsItem_description"
+msgstr "Um documento item de notícia"
+
+msgid "cpsdoc_NewsItem_label_related_subjects"
+msgstr "Assuntos relacionados:"
+
+msgid "cpsdoc_NewsItem_label_publication_date"
+msgstr "Data de ocorrência:"
+
+msgid "portal_type_PressRelease_title"
+msgstr "Nota à imprensa"
+
+msgid "portal_type_PressRelease_description"
+msgstr "Uma Nota à Imprensa é uma Notícia especial destinada à imprensa através da publicação formal."
+
+# File
+msgid "portal_type_File_title"
+msgstr "Arquivo"
+
+msgid "portal_type_File_description"
+msgstr "Anexar um arquivo"
+
+# default doc types
+msgid "portal_type_ZippedHtml_title"
+msgstr "Arquivo HTML Zipado (compactado)"
+
+msgid "portal_type_ZippedHtml_description"
+msgstr "Um arquivo zipado (compactado) que contém html e que pode ser previsto online."
+
+msgid "cpsdoc_zippedhtml_label"
+msgstr "Arquivo Html zipado (compactado)"
+
+# Event
+msgid "portal_type_Event_title"
+msgstr "Evento"
+
+msgid "portal_type_Event_description"
+msgstr "Um evento"
+
+msgid "cpsdoc_Event_start_label_edit"
+msgstr "Início:"
+
+msgid "cpsdoc_Event_end_label_edit"
+msgstr "Fim:"
+
+msgid "cpsdoc_Event_content_label_edit"
+msgstr "Conteúdo do evento:"
+
+# Link
+msgid "portal_type_Link_title"
+msgstr "Link"
+
+msgid "portal_type_Link_description"
+msgstr "Uma URL"
+
+msgid "cpsdoc_Link_label_edit"
+msgstr "Link:"
+
+# Image
+msgid "portal_type_Image_title"
+msgstr "Imagem"
+
+msgid "portal_type_Image_description"
+msgstr "Uma imagem"
+
+msgid "cpsdoc_Image_label_edit"
+msgstr "Imagem:"
+
+# Images
+msgid "portal_type_ImageGallery_title"
+msgstr "Fototeca"
+
+msgid "portal_type_ImageGallery_description"
+msgstr "Galeria de imagens/fotos"
+
+# ImageGallery
+msgid "cpsdoc_imgallery_width_label_edit"
+msgstr "Tamanho das miniaturas (thumbnails)"
+
+msgid "cpsdoc_imgallery_height_label_edit"
+msgstr "Altura das miniaturas"
+
+msgid "cpsdoc_imgallery_items_label_edit"
+msgstr "Número de miniaturas (thumbnails) por página"
+
+msgid "cpsdoc_imgallery_col_label_edit"
+msgstr "Número de colunas por página"
+
+msgid "cpsdoc_imgallery_ziparchiveuploader_label_edit"
+msgstr "Carrega imagens de um ficheiro zip"
+
+msgid "cpsdoc_imgallery_ziparchiveuploader_label_help"
+msgstr "Carrega qualquer ficheiro de imagem(jpeg, png, gif) a partir de um arquivo zip."
+
+msgid "cpsdoc_ziparchiveuploader_label_edit"
+msgstr "Carrega ficheiros de um ficheiro zip"
+
+msgid "cpsdoc_ziparchiveuploader_label_help"
+msgstr "Carrega qualquer ficheiro de um ficheiro zip"
+
+# Book and page
+msgid "portal_type_Book_title"
+msgstr "Livro"
+
+msgid "portal_type_Book_description"
+msgstr "Um pasta que mostra os documentos que contém como páginas"
+
+msgid "portal_type_Page_title"
+msgstr "Livro - Página"
+
+msgid "portal_type_Page_description"
+msgstr "Um documento flexível mostrado como uma página em um livro"
+
+msgid "portal_type_Chapter_title"
+msgstr "Livro - Capítulo"
+
+msgid "portal_type_Chapter_description"
+msgstr "Um Capítulo contém Páginas"
+
+msgid "cpsdoc_book_nb_summary_page_label_edit"
+msgstr "Número de entradas do índice mostrados por página"
+
+msgid "cpsdoc_book_has_search_box_label_edit"
+msgstr "Caixa de Busca"
+
+msgid "cpsdoc_book_display"
+msgstr "Modo de Apresentação"
+
+msgid "cpsdoc_book_display_pages"
+msgstr "Páginas Separadas"
+
+msgid "cpsdoc_book_display_flat"
+msgstr "Documento único"
+
+msgid "portal_type_Flash_Animation_title"
+msgstr "Animação Flash"
+
+msgid "portal_type_Flash_Animation_description"
+msgstr "Animação em MacroMedia Flash"
+
+msgid "psm_ajax_working"
+msgstr "Ajax a funcionar"
+
+msgid "description_up_to"
+msgstr "Subir para"
+
+msgid "heading_metadata_edit"
+msgstr "Metadados:"
+
