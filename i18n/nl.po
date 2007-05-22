@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-17 11:18default\n"
+"POT-Creation-Date: 2007-04-02 17:07default\n"
 "PO-Revision-Date: 2004-02-16 14:14+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -109,8 +109,8 @@ msgstr ""
 #.               on this document. Your comments may be used to notify other users.
 #.             </div>
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
-#.         In this filed you can give the reason of the modification that you are doing on this document.
-#.         Your comments may be used to notify other users.
+#.         In this field you can give the reason for the modification
+#.         on this document. Your comments may be used to notify other users.
 #.       </div>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
@@ -151,7 +151,7 @@ msgstr ""
 msgid "previous"
 msgstr ""
 
-#.   <label for="comments">Reason of the modification</label>
+#.   <label class="comments" for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
@@ -219,6 +219,9 @@ msgid "help_dc_contirbutors"
 msgstr ""
 
 msgid "help_dc_source"
+msgstr ""
+
+msgid "help_dc_rights"
 msgstr ""
 
 msgid "help_dc_coverage"
@@ -614,8 +617,8 @@ msgid "psm_ajax_working"
 msgstr ""
 
 #, fuzzy
-msgid "description_up_to"
-msgstr "Up to ${up_id}"
+#~ msgid "description_up_to"
+#~ msgstr "Up to ${up_id}"
 
-msgid "heading_metadata_edit"
-msgstr "Metadata edition"
+#~ msgid "heading_metadata_edit"
+#~ msgstr "Metadata edition"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-17 11:18default\n"
+"POT-Creation-Date: 2007-04-02 17:07default\n"
 "PO-Revision-Date: 2006-11-16 15:41+0100\n"
 "Last-Translator: Jesus Martin <jesusmartin@lasalle.es>\n"
 "Language-Team: euskara <perikoalkain@lasalle.es>\n"
@@ -115,8 +115,8 @@ msgstr "Dokumentuaren metadatuak"
 #.               on this document. Your comments may be used to notify other users.
 #.             </div>
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
-#.         In this filed you can give the reason of the modification that you are doing on this document.
-#.         Your comments may be used to notify other users.
+#.         In this field you can give the reason for the modification
+#.         on this document. Your comments may be used to notify other users.
 #.       </div>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
@@ -160,7 +160,7 @@ msgstr "hurrengoa"
 msgid "previous"
 msgstr "aurrekoa"
 
-#.   <label for="comments">Reason of the modification</label>
+#.   <label class="comments" for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
@@ -226,6 +226,11 @@ msgstr "Edukia sortzeko lagundu duten erakundeak"
 msgid "help_dc_source"
 msgstr ""
 "Baliabide baten erreferentzia, bertatik eratortzen baita oraingo baliabidea. "
+
+#, fuzzy
+msgid "help_dc_rights"
+msgstr ""
+"Baliabide honekin zerikusia duen beste baliabide baten (URL) erreferentzia."
 
 msgid "help_dc_coverage"
 msgstr "Baliabidearen denbora eta espazioko irismena."
@@ -575,9 +580,9 @@ msgstr "Datuak bidaltzen..."
 #    <span>
 #        ${up_id (tal content="python:options['proxy'].aq_parent.title_or_id()")}
 #      </span>
-msgid "description_up_to"
-msgstr "${up_id}-ra"
+#~ msgid "description_up_to"
+#~ msgstr "${up_id}-ra"
 
 #    <span condition="metadata">heading_metadata_edit</span>
-msgid "heading_metadata_edit"
-msgstr "Metadatuak aldatu"
+#~ msgid "heading_metadata_edit"
+#~ msgstr "Metadatuak aldatu"

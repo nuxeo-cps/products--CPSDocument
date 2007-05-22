@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-17 11:18default\n"
+"POT-Creation-Date: 2007-04-02 17:07default\n"
 "PO-Revision-Date: 2006-04-03 15:12-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
@@ -103,8 +103,8 @@ msgstr "Metadados"
 #.               on this document. Your comments may be used to notify other users.
 #.             </div>
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
-#.         In this filed you can give the reason of the modification that you are doing on this document.
-#.         Your comments may be used to notify other users.
+#.         In this field you can give the reason for the modification
+#.         on this document. Your comments may be used to notify other users.
 #.       </div>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
@@ -145,7 +145,7 @@ msgstr "Próximo"
 msgid "previous"
 msgstr "Anterior"
 
-#.   <label for="comments">Reason of the modification</label>
+#.   <label class="comments" for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
@@ -212,6 +212,10 @@ msgstr "Responsáveis por fazer contribuições ao conteúdo do recurso."
 
 msgid "help_dc_source"
 msgstr "Uma Referência a um recurso do qual o recurso presente é derivado."
+
+#, fuzzy
+msgid "help_dc_rights"
+msgstr "Uma referência (URL) a um recurso relacionado."
 
 msgid "help_dc_coverage"
 msgstr "A extensão ou escopo do conteúdo do recurso."
@@ -555,8 +559,8 @@ msgstr "Animação em MacroMedia Flash"
 msgid "psm_ajax_working"
 msgstr "Ajax funcionando"
 
-msgid "description_up_to"
-msgstr "Subir para"
+#~ msgid "description_up_to"
+#~ msgstr "Subir para"
 
-msgid "heading_metadata_edit"
-msgstr "Metadados:"
+#~ msgid "heading_metadata_edit"
+#~ msgstr "Metadados:"
