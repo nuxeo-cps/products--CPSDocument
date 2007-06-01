@@ -2,19 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-02 17:07default\n"
-"PO-Revision-Date: 2006-07-12 17:26+0100\n"
-"Last-Translator: Santi Camps <scamps@earcon.com>\n"
-"Language-Team: catala\n"
+"POT-Creation-Date: 2006-10-13 11:42default\n"
+"PO-Revision-Date: 2007-05-31 09:29+0100\n"
+"Language-Team: valencià/català. <juangus@lasalle.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Preferred-encodings: utf-8 latin1\n"
-"X-Is-Fallback-For: ca ca-es\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Preferred-encodings: latin9 utf-8\n"
 "Domain: default\n"
 "Language-Code: ca\n"
-"Language-Name: Catalan\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Name: valencià/català\n"
 "X-Poedit-Language: Catalan\n"
 "X-Poedit-Country: SPAIN\n"
 
@@ -48,7 +46,7 @@ msgid "Page ${page}"
 msgstr "Pàgina ${page}"
 
 #    <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
-#.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
+#.   <option content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n" value=".">Type</option>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 msgid "Type"
 msgstr "Tipus"
@@ -80,18 +78,18 @@ msgstr "Resposta: "
 msgid "cpsdoc_import_zip_title"
 msgstr "Importar documents d'arxius ZIP"
 
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
 msgstr "Pàgina següent"
 
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
 msgstr "Pàgina anterior"
 
 # default doc types
-#.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
+#.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_toc"
 msgstr "Taula de continguts"
@@ -108,20 +106,18 @@ msgstr "Taula de continguts"
 msgid "heading_metadata_view"
 msgstr "Metadades del document"
 
-#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
 #.               In this field you can give the reason for the modification
 #.               on this document. Your comments may be used to notify other users.
 #.             </div>
-#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
-#.         In this field you can give the reason for the modification
-#.         on this document. Your comments may be used to notify other users.
+#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
+#.         In this filed you can give the reason of the modification that you are doing on this document.
+#.         Your comments may be used to notify other users.
 #.       </div>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
-msgstr ""
-"A aquest camp podrà indicar el motiu pel qual desitja moidficar aquest "
-"document."
+msgstr "A este camp podrà indicar el motiu pel qual desitja moidficar este document."
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
@@ -132,7 +128,7 @@ msgstr ""
 #    <span condition="widget/is_i18n" content="widget/label_edit">label</span>
 #    <strong content="widget/label">label</strong>
 #.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
-#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
+#.   <span content="widget/label" condition="widget/is_i18n" class="dlabel">label</span>
 #.   <strong content="widget/label">label</strong>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document/layout_lib_default_view.pt
@@ -146,21 +142,21 @@ msgstr "Etiqueta"
 msgid "label_zip_file"
 msgstr "Arxiu ZIP"
 
-#.   <a href="." attributes="href python:'/'+ 
-#.                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#.   <a attributes="href python:'/'+
+#.                       itemList[pos + 1].absolute_url(relative=1) +
+#.                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "next"
 msgstr "següent"
 
-#.   <a href="." attributes="href python:'/'+
+#.   <a attributes="href python:'/'+
 #.                       itemList[pos - 1].absolute_url(relative=1) +
-#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
+#.                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "previous"
 msgstr "anterior"
 
-#.   <label class="comments" for="comments">Reason of the modification</label>
+#.   <label for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
@@ -185,7 +181,7 @@ msgid "cpsdoc_attachedFile_label"
 msgstr "Arxiu adjunt:"
 
 msgid "cpsdoc_preview_label_edit"
-msgstr "Icone:"
+msgstr "Icona:"
 
 msgid "cpsdoc_allow_discussion_label_edit"
 msgstr "Activar comentaris:"
@@ -209,14 +205,10 @@ msgid "label_relation"
 msgstr "Relació"
 
 msgid "cpsdoc_hidden_folder"
-msgstr "Ocultar aquesta carpeta a la navegació"
+msgstr "Ocultar esta carpeta a la navegació"
 
 msgid "cpsdoc_hidden_folder_help"
-msgstr ""
-"La carpeta ja no serà visible a la navegació per defecte, no obstant seguirà "
-"sent accessible a la vista 'Gestionar contingut' així com per a la "
-"publicació.   Per protegir el accés a la carpeta s'ha d'utilitzar 'Gestionar "
-"perfils locals'."
+msgstr "La carpeta ja no serà visible a la navegació per defecte, no obstant seguirà sent accessible a la vista 'Gestionar contingut' així com per a la publicació.   Per protegir el accés a la carpeta s'ha d'utilitzar 'Gestionar perfils locals'."
 
 msgid "help_dc_subject"
 msgstr "El tema del contingut"
@@ -225,12 +217,7 @@ msgid "help_dc_contirbutors"
 msgstr "Les entitats que han contribuit a la creació del contingut, "
 
 msgid "help_dc_source"
-msgstr ""
-"Una referència a un recurs a partir del qual se'n deriva el recurs actual."
-
-#, fuzzy
-msgid "help_dc_rights"
-msgstr "Una referencia (URL) a otro recurso que tiene relación con éste."
+msgstr "Una referència a un recurs a partir del qual se'n deriva el recurs actual."
 
 msgid "help_dc_coverage"
 msgstr "L'abast o la cobertura espai-temporal del recurs."
@@ -254,16 +241,16 @@ msgid "label_subject_Games"
 msgstr "Jocs"
 
 msgid "label_subject_Health"
-msgstr "Salud"
+msgstr "Salut"
 
 msgid "label_subject_Home"
 msgstr "Llar"
 
 msgid "label_subject_Kids and Teens"
-msgstr "Nens i adol·lescents"
+msgstr "Xics i adol·lescents"
 
 msgid "label_subject_News"
-msgstr "Noticies"
+msgstr "Notícies"
 
 msgid "label_subject_Recreation"
 msgstr "Oci"
@@ -278,13 +265,13 @@ msgid "label_subject_Science"
 msgstr "Ciència"
 
 msgid "label_subject_Shopping"
-msgstr "Tendes i compres en linia"
+msgstr "Tendes i compres en línia"
 
 msgid "label_subject_Society"
 msgstr "Societat"
 
 msgid "label_subject_Sports"
-msgstr "Deports"
+msgstr "Esports"
 
 msgid "label_sort_by"
 msgstr "Ordenat per"
@@ -436,9 +423,7 @@ msgid "portal_type_PressRelease_title"
 msgstr "Comunicat de premsa"
 
 msgid "portal_type_PressRelease_description"
-msgstr ""
-"Un comunicat de premsa és un tipus especial de noticia, utilitzada "
-"habitualmente pels comunicats més formals (noticies institucionals...)."
+msgstr "Un comunicat de premsa és un tipus especial de noticia, utilitzada habitualmente pels comunicats més formals (noticies institucionals...)."
 
 # default doc types
 msgid "portal_type_File_title"
@@ -514,47 +499,38 @@ msgstr "Número de columnes per pàgina"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_edit"
-msgstr "Importar un archivo Zip de imágenes"
+msgstr "Load images from a Zip archive"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_help"
-msgstr ""
-"Todos los archivos de imagen (jpeg, png, gif...) serán subidos a la galería "
-"de imágenes"
+msgstr "Load any image file (jpeg, png, gif) from a zip archive file."
 
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_edit"
-msgstr "Importar un archivo Zip de documentos"
+msgstr "Load files from a Zip archive"
 
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_help"
-msgstr ""
-"Todos los archivos contenidos en el archivo serán subidos en el espacio "
-"correspondiente como un documento de tipo Archivo."
+msgstr "Load any file from a zip archive file."
 
 # default doc types
 msgid "portal_type_Book_title"
 msgstr "Llibre"
 
 msgid "portal_type_Book_description"
-msgstr ""
-"Una carpeta que mostra els documents que conté com si fossin pàgines d'un "
-"llibre"
+msgstr "Una carpeta que mostra els documents que conté com si foran pàgines d'un llibre"
 
 msgid "portal_type_Page_title"
 msgstr "Llibre - Pàgina"
 
 msgid "portal_type_Page_description"
-msgstr ""
-"Document flexible mostrat estructuralment com si fos la pàgina d'un llibre"
+msgstr "Document flexible mostrat estructuralment com si fos la pàgina d'un llibre"
 
 msgid "portal_type_Chapter_title"
 msgstr "Llibre - Capítol"
 
 msgid "portal_type_Chapter_description"
-msgstr ""
-"Document flexible amb aspecte de capítol d'un llibre el qual, alhora, conté "
-"pàgines."
+msgstr "Document flexible amb aspecte de capítol d'un llibre el qual, alhora, conté pàgines."
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
 msgstr "Número de taules de contingut que es mostrarà per pàgina"
@@ -590,3 +566,4 @@ msgstr "cap a ${up_id}"
 #    <span condition="metadata">heading_metadata_edit</span>
 msgid "heading_metadata_edit"
 msgstr "Modificar les metadades"
+
