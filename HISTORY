@@ -1,4 +1,24 @@
 ===========================================================
+Package: CPSDocument 0.51.0-rel1271525924
+===========================================================
+First release built by: div at: 2007-06-14T14:31:26
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/tags/0.51.0-rel1271525924
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/branches/rel1271525924@51831
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+-
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- Merged with the trunk
+
+===========================================================
 Package: CPSDocument 0.50.0-rel1271525924
 ===========================================================
 First release built by: ben at: 2007-02-21T16:46:15
