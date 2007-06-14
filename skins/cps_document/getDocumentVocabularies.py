@@ -30,7 +30,7 @@ vocabularies = {
    'language_voc': {
         'type': 'CPS Vocabulary',
         'data': {'tuples': (
-            ('fr', 'Français', 'label_language_fr'),
+            ('fr', 'Franais', 'label_language_fr'),
             ('en', 'English', 'label_language_en'),
             ('es', 'Castellano', 'label_language_es'),
             ('de', 'Deutsch', 'label_language_de'),
@@ -40,6 +40,9 @@ vocabularies = {
             ('mg', 'Malagasy', 'label_language_mg'),
             ('ro', 'Romana', 'label_language_ro'),
             ('eu', 'Euskara', 'label_language_eu'),
+            ('ca', 'Valencian/Catalan', 'label_language_ca'),
+            ('gl', 'Galician', 'label_language_gl'),
+            ('pt', 'Portuguese', 'label_language_pt'),
             )},
         },
     'search_sort_results_by': {
