@@ -30,7 +30,7 @@ vocabularies = {
    'language_voc': {
         'type': 'CPS Vocabulary',
         'data': {'tuples': (
-            ('fr', 'Franais', 'label_language_fr'),
+            ('fr', 'Français', 'label_language_fr'),
             ('en', 'English', 'label_language_en'),
             ('es', 'Castellano', 'label_language_es'),
             ('de', 'Deutsch', 'label_language_de'),
