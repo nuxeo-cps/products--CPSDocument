@@ -46,9 +46,6 @@
        args = '?input_id='+input_id+'&amp;label_edit='+escape(label_edit);
        str_window_features = 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,dependent=1,width=' + width + ',height=' + height;
        popup = window.open(popup_editor_form + args, input_id, str_window_features);
-       if (!popup.opener) {
-         popup.opener = window;
-       }
        return false;
      }
    </script>
