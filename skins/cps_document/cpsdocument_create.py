@@ -29,6 +29,10 @@ if is_valid:
     action = ob.getTypeInfo().immediate_view
     psm = 'psm_content_created'
     args = {}
+    # Move the newly created object as the first object in the folder,
+    # otherwise in folders with more that one page of documents
+    # one would have to go to the last page.
+    context.moveObjectsToTop([ob.getId()])
 else:
     url = context.absolute_url()
     action = 'cpsdocument_create_form'

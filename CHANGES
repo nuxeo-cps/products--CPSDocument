@@ -6,6 +6,8 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
+- Fixed #1827 : "Newly created documents in a workspace should become the first
+  document in this workspace".
 - Fixed #1839: "Creating images with CPSDocument.createFile" by creating Image
   objects instead of File objects when images are uploaded.
 New internal features
