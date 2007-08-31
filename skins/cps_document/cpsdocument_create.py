@@ -14,6 +14,7 @@ form in the session.
 """
 from urllib import urlencode
 from Products.CMFCore.utils import getToolByName
+from Products.CPSDefault.utils import isIOrderedContainer
 from Products.CPSDocument.utils import getFormUidUrlArg
 
 ti = getToolByName(context, 'portal_types').getTypeInfo(type_name)
@@ -32,7 +33,8 @@ if is_valid:
     # Move the newly created object as the first object in the folder,
     # otherwise in folders with more that one page of documents
     # one would have to go to the last page.
-    context.moveObjectsToTop([ob.getId()])
+    if isIOrderedContainer(context):
+        context.moveObjectsToTop([ob.getId()])
 else:
     url = context.absolute_url()
     action = 'cpsdocument_create_form'
