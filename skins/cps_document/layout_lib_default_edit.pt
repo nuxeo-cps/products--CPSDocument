@@ -53,7 +53,7 @@
                          widget_css_class python:test(is_flexible, 'group', widget_css_class);
                          css_class python:test(err, 'row error',
                                                test(is_flexible, 'group', 'row'))">
-        <div class="error" tal:omit-tag="not:err">
+        <div class="fieldError" tal:omit-tag="not:err">
         <div tal:attributes="class widget_css_class;
                              id python:widget.getHtmlWidgetId()+'_widget';
                             ">
