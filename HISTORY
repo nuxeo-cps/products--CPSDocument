@@ -1,4 +1,28 @@
 ===========================================================
+Package: CPSDocument 1.0.1
+===========================================================
+First release built by: madarche at: 2007-10-19T12:19:31
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/tags/1.0.1
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk@52013
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Fixed #1827 : "Newly created documents in a workspace should become the first
+  document in this workspace".
+- Fixed #1839: "Creating images with CPSDocument.createFile" by creating Image
+  objects instead of File objects when images are uploaded.
+- Fixed #725 : "Change the message background when it's an error or a warning".
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.0.0
 ===========================================================
 First release built by: madarche at: 2007-04-25T12:38:11
