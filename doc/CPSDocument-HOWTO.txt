@@ -11,7 +11,7 @@ CPSDocument How-to
 For a CPSDocument documentType
 ==============================
 
-portal_schema:
+portal_schemas:
 
 1. Create your fields.
 
@@ -21,7 +21,7 @@ portal_schema:
 
 4. Description can be used like a resume displayed in folders
   
-portal_layout:
+portal_layouts:
 
 1. Create your widgets and your layout.
   
@@ -43,3 +43,9 @@ portal_types:
 .cps_workflow_configuration
 
 1. Add the workflow_content_wf where it's necessary.
+
+
+.. Local Variables:
+.. mode: rst
+.. End:
+.. vim: set filetype=rst:

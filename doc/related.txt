@@ -69,3 +69,9 @@ Archetypes
 ==========
 
 (XXX too be filled in)
+
+
+.. Local Variables:
+.. mode: rst
+.. End:
+.. vim: set filetype=rst:

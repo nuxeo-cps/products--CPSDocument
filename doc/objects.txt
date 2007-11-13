@@ -351,3 +351,7 @@ Things to do:
   external storages.
 
 
+.. Local Variables:
+.. mode: rst
+.. End:
+.. vim: set filetype=rst:

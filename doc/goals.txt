@@ -54,3 +54,9 @@ Centralize text transformations
 Abstract storage requirements
 
 - Provide a simple way to map an object to a database storage
+
+
+.. Local Variables:
+.. mode: rst
+.. End:
+.. vim: set filetype=rst:
