@@ -60,7 +60,7 @@ created by the flexible content mechanism.
 
 If the field types defined in the `field_types` attribute are not those you
 want, you will have to create a new widget with a different `field_types`
-attribute.
+attribute. The CPS flexible mechanism is not 100% flexible.
 
 An example of this situation occurs if one wants to use an `AttachedFile Widget`
 with a `Disk File` field. In this situation one would need to create a new
