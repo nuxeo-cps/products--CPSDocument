@@ -35,7 +35,7 @@ msgstr "Fanovana ${title}"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #, fuzzy
 msgid "Metadata of ${title}"
-msgstr "Méta-données de «${title}»"
+msgstr "Métadonnées de «${title}»"
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -98,7 +98,7 @@ msgstr "Sommaire"
 #.   <h1>heading_metadata_view</h1>
 #: from ../skins/cps_document/layout_metadata_view.pt
 msgid "heading_metadata_view"
-msgstr "Méta-données-n'ny antotandahatsoratra"
+msgstr "Métadonnées-n'ny antotandahatsoratra"
 
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.               In this field you can give the reason for the modification
@@ -604,8 +604,3 @@ msgstr "Animation Flash au format swf"
 msgid "psm_ajax_working"
 msgstr ""
 
-msgid "description_up_to"
-msgstr "Mankany amin'ny ${up_id}"
-
-msgid "heading_metadata_edit"
-msgstr "Manova ny méta-données"

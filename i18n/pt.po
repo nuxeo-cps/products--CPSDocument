@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-17 11:18default\n"
+"POT-Creation-Date: 2007-11-27 11:05default\n"
 "PO-Revision-Date: 2007-05-01 16:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: Português <luis727@gmail.com>\n"
@@ -103,8 +103,8 @@ msgstr "Metadados"
 #.               on this document. Your comments may be used to notify other users.
 #.             </div>
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
-#.         In this filed you can give the reason of the modification that you are doing on this document.
-#.         Your comments may be used to notify other users.
+#.         In this field you can give the reason for the modification
+#.         on this document. Your comments may be used to notify other users.
 #.       </div>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
@@ -131,8 +131,8 @@ msgstr "Rótulo"
 msgid "label_zip_file"
 msgstr "Arquivo ZIP"
 
-#.   <a href="." attributes="href python:'/'+
-#.                       itemList[pos + 1].absolute_url(relative=1) +
+#.   <a href="." attributes="href python:'/'+ 
+#.                       itemList[pos + 1].absolute_url(relative=1) + 
 #.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "next"
@@ -145,7 +145,7 @@ msgstr "Próximo"
 msgid "previous"
 msgstr "Anterior"
 
-#.   <label for="comments">Reason of the modification</label>
+#.   <label class="comments" for="comments">Reason of the modification</label>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
@@ -199,7 +199,10 @@ msgid "cpsdoc_hidden_folder"
 msgstr "Pasta oculta"
 
 msgid "cpsdoc_hidden_folder_help"
-msgstr "Esta pasta será oculta no modo de visualização; ainda poderá vê-la/acessá-la usando 'Conteúdo da Pasta' ou quando escolher um alvo para publicação. Use 'Papéis Locais' para definir a segurança no acesso à pasta."
+msgstr ""
+"Esta pasta será oculta no modo de visualização; ainda poderá vê-la/acessá-la "
+"usando 'Conteúdo da Pasta' ou quando escolher um alvo para publicação. Use "
+"'Papéis Locais' para definir a segurança no acesso à pasta."
 
 msgid "help_dc_subject"
 msgstr "Um tópico do conteúdo do recurso."
@@ -209,6 +212,10 @@ msgstr "Responsáveis por fazer contribuições ao conteúdo do recurso."
 
 msgid "help_dc_source"
 msgstr "Uma Referência a um recurso do qual o recurso presente é derivado."
+
+#, fuzzy
+msgid "help_dc_rights"
+msgstr "Information about rights held in and over the resource."
 
 msgid "help_dc_coverage"
 msgstr "A extensão ou escopo do conteúdo do recurso."
@@ -356,7 +363,9 @@ msgid "portal_type_FAQ_title"
 msgstr "FAQ (Perguntas feitas com freqüência e suas respostas)"
 
 msgid "portal_type_FAQ_description"
-msgstr "Pasta que contém um conjunto de perguntas feitas com freqüência e suas respostas."
+msgstr ""
+"Pasta que contém um conjunto de perguntas feitas com freqüência e suas "
+"respostas."
 
 msgid "portal_type_FAQitem_title"
 msgstr "FAQ - Pergunta feita com freqüência"
@@ -412,7 +421,9 @@ msgid "portal_type_PressRelease_title"
 msgstr "Nota à imprensa"
 
 msgid "portal_type_PressRelease_description"
-msgstr "Uma Nota à Imprensa é uma Notícia especial destinada à imprensa através da publicação formal."
+msgstr ""
+"Uma Nota à Imprensa é uma Notícia especial destinada à imprensa através da "
+"publicação formal."
 
 # File
 msgid "portal_type_File_title"
@@ -426,7 +437,9 @@ msgid "portal_type_ZippedHtml_title"
 msgstr "Arquivo HTML Zipado (compactado)"
 
 msgid "portal_type_ZippedHtml_description"
-msgstr "Um arquivo zipado (compactado) que contém html e que pode ser previsto online."
+msgstr ""
+"Um arquivo zipado (compactado) que contém html e que pode ser previsto "
+"online."
 
 msgid "cpsdoc_zippedhtml_label"
 msgstr "Arquivo Html zipado (compactado)"
@@ -491,7 +504,9 @@ msgid "cpsdoc_imgallery_ziparchiveuploader_label_edit"
 msgstr "Carrega imagens de um ficheiro zip"
 
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_help"
-msgstr "Carrega qualquer ficheiro de imagem(jpeg, png, gif) a partir de um arquivo zip."
+msgstr ""
+"Carrega qualquer ficheiro de imagem(jpeg, png, gif) a partir de um arquivo "
+"zip."
 
 msgid "cpsdoc_ziparchiveuploader_label_edit"
 msgstr "Carrega ficheiros de um ficheiro zip"
@@ -547,4 +562,3 @@ msgstr "Subir para"
 
 msgid "heading_metadata_edit"
 msgstr "Metadados:"
-

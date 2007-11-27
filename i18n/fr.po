@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-25 12:22default\n"
+"POT-Creation-Date: 2007-11-27 11:05default\n"
 "PO-Revision-Date: 2005-05-16 02:59+0200\n"
 "Last-Translator: Julien Anguenot <anguenot@in.nuxeo.com>\n"
 "Language-Team:  <en@li.org>\n"
@@ -38,7 +38,7 @@ msgstr "Modification de «${title}»"
 #.   <block condition="metadata">Metadata of ${title (tal content="here/title_or_id")}</block>
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 msgid "Metadata of ${title}"
-msgstr "Méta-données de «${title}»"
+msgstr "Métadonnées de «${title}»"
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -101,7 +101,7 @@ msgstr "Sommaire"
 #.   <h1>heading_metadata_view</h1>
 #: from ../skins/cps_document/layout_metadata_view.pt
 msgid "heading_metadata_view"
-msgstr "Méta-données du document"
+msgstr "Métadonnées du document"
 
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.               In this field you can give the reason for the modification
@@ -574,9 +574,3 @@ msgstr "Animation Flash au format swf"
 
 msgid "psm_ajax_working"
 msgstr "Transfert en cours"
-
-#~ msgid "description_up_to"
-#~ msgstr "vers ${up_id}"
-
-#~ msgid "heading_metadata_edit"
-#~ msgstr "Modification des Méta-données"
