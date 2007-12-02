@@ -1,4 +1,4 @@
-# Copyright 2005 Nuxeo SARL <http://nuxeo.com>
+# Copyright 2005-2007 Nuxeo SAS <http://nuxeo.com>
 # Author: Julien Anguenot <ja@nuxeo.com>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -106,13 +106,15 @@ def upgrade_338_340_document_to_flex(context):
     schemas = list(doc_type.schemas)
     if 'document' in schemas:
         schemas.remove('document')
-    schemas.append('flexible_content')
+    if 'flexible_content' not in schemas:
+        schemas.append('flexible_content')
     doc_type.schemas = tuple(schemas)
 
     layouts = list(doc_type.layouts)
     if 'document' in layouts:
         layouts.remove('document')
-    layouts.append('flexible_content')
+    if 'flexible_content' not in layouts:
+        layouts.append('flexible_content')
     doc_type.layouts = tuple(layouts)
 
     doc_type.flexible_layouts = ('flexible_content:flexible_content',)
@@ -169,7 +171,7 @@ def check_338_340_newsitem_to_flex(context):
     # Let's just test the first one, so the checker doesn't get very slow.
     if len(brains) == 0:
         return False
-    
+
     ob = brains[0].getObject()
     if getattr(ob, 'attachedFile', _marker) is _marker:
         return False
@@ -197,7 +199,7 @@ def upgrade_338_340_newsitem_to_flex(context):
         doc_type.layouts = tuple(layouts)
 
     doc_type.flexible_layouts = ('newsitem_flexible:flexible_content',)
-    
+
     pfilter = lambda o: getattr(o, 'portal_type', '') == 'News Item'
     docs = itertools.ifilter(pfilter, repository.values())
     count = 0
