@@ -278,7 +278,7 @@ CPSDocumentEditor.prototype = {
 if (!window.CPSFlexibleEdit) {
   var CPSFlexibleEdit = new Object();
   }
-  
+
 Object.extend(CPSFlexibleEdit, {
   buttonClick: function(button, message) {
   /*
