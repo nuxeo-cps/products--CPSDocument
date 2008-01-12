@@ -311,3 +311,90 @@ Object.extend(CPSFlexibleEdit, {
   }
 });
 
+//************************************************************
+//
+// Those methods add a resize handle on each textarea of class resizable.
+// The preferred size of the user is kept in cookies and reused the next time
+// the textareas are loaded.
+//
+// Depends on prototype >= 1.5.0
+//
+// Inspired by:
+// (1) resize.js of DotClear
+//     (c) 2005 Nicolas Martin & Olivier Meunier and contributors.
+// (2) jQuery plugin
+//     (c) Fil 2007 http://www.jquery.info/resizehandle-une-poignee-pour
+
+// Creates the handles on the page load.
+Event.observe(window, 'load', function() {
+    var textareaElements = $$('textarea.resizable');
+    textareaElements.each(function(node) {
+
+        // This filters only the textarea used in content widgets.
+        // As of Prototype 1.5.1. one could use the more legible code below
+        // if (!node.startsWith('widget__content')) {
+        if (!((node.id.indexOf('widget__content') == 0)
+              || (node.name == 'source'))) {
+            return;
+        }
+
+        // There is no need to redefine this variable here,
+        // it's just to have more legible code with explicit variable names.
+        var element_to_resize = node;
+        setToPreferredSize(element_to_resize);
+
+        // As of Prototype 1.6, the complete Insertion class has been deprecated
+        // in favor of Element#insert.
+        new Insertion.After(element_to_resize,
+                            '<span class="resizeHandle" '
+                            + 'title="Resize by dragging"></span>');
+        newElement = element_to_resize.nextSibling;
+        Event.observe(newElement, 'mousedown',
+                      function(event) {setupElementResizer(event,
+                                                           element_to_resize);
+        });
+    });
+});
+
+// Sets the given element to the cookies recorded size if any.
+function setToPreferredSize(element) {
+    var cookiePrefix = element.id + '-';
+    var width = Cookie.get(cookiePrefix + 'textAreaWidth');
+    var height = Cookie.get(cookiePrefix + 'textAreaHeight');
+    if (width && height) {
+        element.setStyle({'width': width + 'px',
+                          'height': height + 'px'});
+    }
+}
+
+// Sets up the handlers (event listeners) for the element to resize.
+function setupElementResizer(event, element_to_resize) {
+    var htmlElement = $$('html')[0];
+    var dimension = Element.getDimensions(element_to_resize);
+    var h = dimension.height;
+    var w = dimension.width;
+    var x = Event.pointerX(event);
+    var y = Event.pointerY(event);
+
+    function moveHandler(event) {
+        var newWidth = Math.max(20, Event.pointerX(event) + w - x);
+        var newHeight = Math.max(20, Event.pointerY(event) + h - y);
+        element_to_resize.setStyle({'width': newWidth + 'px',
+                                    'height': newHeight + 'px'});
+
+        // Record the preferred size in cookies
+	var cookiePrefix = element_to_resize.id + '-';
+        Cookie.set(cookiePrefix + 'textAreaWidth', newWidth);
+        Cookie.set(cookiePrefix + 'textAreaHeight', newHeight);
+    }
+
+    function upHandler(event) {
+        Event.stopObserving(htmlElement, 'mousemove', moveHandler);
+        Event.stopObserving(htmlElement, 'mouseup', upHandler);
+    }
+
+    Event.observe(htmlElement, 'mousemove', moveHandler);
+    Event.observe(htmlElement, 'mouseup', upHandler);
+}
+
+//************************************************************
