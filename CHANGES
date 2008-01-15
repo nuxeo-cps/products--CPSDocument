@@ -3,11 +3,10 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
-- #1881: Provide an easy mean to resize the widget textareas.
+-
 Bug fixes
 ~~~~~~~~~
-- Removed useless install.py file.
-- French spelling for metadata.
+-
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

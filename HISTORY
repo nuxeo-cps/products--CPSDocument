@@ -1,4 +1,25 @@
 ===========================================================
+Package: CPSDocument 1.1.0
+===========================================================
+First release built by: madarche at: 2008-01-15T12:17:18
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/tags/1.1.0
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk@52414
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- #1881: Provide an easy mean to resize the widget textareas.
+Bug fixes
+~~~~~~~~~
+- Removed useless install.py file.
+- French spelling for metadata.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.0.1
 ===========================================================
 First release built by: madarche at: 2007-10-19T12:19:31
