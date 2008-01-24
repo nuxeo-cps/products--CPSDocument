@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CPSDocument\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-25 12:22default\n"
+"POT-Creation-Date: 2008-01-24 18:10default\n"
 "PO-Revision-Date: 2007-05-31 09:29+0100\n"
 "Language-Team: valencià/català. <juangus@lasalle.es>\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgid "Page ${page}"
 msgstr "Pàgina ${page}"
 
 #    <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
-#.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
+#.   <option content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n" value=".">Type</option>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 msgid "Type"
 msgstr "Tipus"
@@ -78,18 +78,18 @@ msgstr "Resposta: "
 msgid "cpsdoc_import_zip_title"
 msgstr "Importar documents d'arxius ZIP"
 
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
 msgstr "Pàgina següent"
 
-#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
+#.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
 msgstr "Pàgina anterior"
 
 # default doc types
-#.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
+#.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_toc"
 msgstr "Taula de continguts"
@@ -106,11 +106,11 @@ msgstr "Taula de continguts"
 msgid "heading_metadata_view"
 msgstr "Metadades del document"
 
-#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
 #.               In this field you can give the reason for the modification
 #.               on this document. Your comments may be used to notify other users.
 #.             </div>
-#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
+#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
 #.         In this field you can give the reason for the modification
 #.         on this document. Your comments may be used to notify other users.
 #.       </div>
@@ -129,7 +129,7 @@ msgstr ""
 #    <span condition="widget/is_i18n" content="widget/label_edit">label</span>
 #    <strong content="widget/label">label</strong>
 #.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
-#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
+#.   <span content="widget/label" condition="widget/is_i18n" class="dlabel">label</span>
 #.   <strong content="widget/label">label</strong>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document/layout_lib_default_view.pt
@@ -143,16 +143,16 @@ msgstr "Etiqueta"
 msgid "label_zip_file"
 msgstr "Arxiu ZIP"
 
-#.   <a href="." attributes="href python:'/'+ 
+#.   <a attributes="href python:'/'+ 
 #.                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
+#.                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "next"
 msgstr "següent"
 
-#.   <a href="." attributes="href python:'/'+
+#.   <a attributes="href python:'/'+
 #.                       itemList[pos - 1].absolute_url(relative=1) +
-#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
+#.                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "previous"
 msgstr "anterior"
