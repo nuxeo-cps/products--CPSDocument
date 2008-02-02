@@ -384,8 +384,8 @@ function setupElementResizer(event, element_to_resize) {
 
         // Record the preferred size in cookies
 	var cookiePrefix = element_to_resize.id + '-';
-        Cookie.set(cookiePrefix + 'textAreaWidth', newWidth);
-        Cookie.set(cookiePrefix + 'textAreaHeight', newHeight);
+        Cookie.set(cookiePrefix + 'textAreaWidth', newWidth, 365, '/');
+        Cookie.set(cookiePrefix + 'textAreaHeight', newHeight, 365, '/');
     }
 
     function upHandler(event) {

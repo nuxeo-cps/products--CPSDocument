@@ -6,6 +6,8 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
+- Added a path parameter to set cookies so that it's possible to set a cookie 
+  site-wide to keep the textarea sizes in memory.
 - Improved the description translations for the News Item document type.
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
