@@ -14,14 +14,19 @@
       tal:attributes="src string:${base_url}prototype.js"></script>
   </metal:block>
 
-  <metal:block fill-slot="head_slot">
+  <metal:block fill-slot="head_slot"
+               tal:define="mcat nocall:here/translation_service;
+                           doc_language here/getLanguage">
     <meta name="DC.Language" scheme="RFC3066"
-          tal:attributes="content here/getLanguage"/>
+          tal:attributes="content doc_language"/>
     <meta name="DC.Date.created" scheme="W3CDTF"
           tal:attributes="content python:doc.creation_date.ISO8601()"/>
     <meta name="DC.Date.modified" scheme="W3CDTF"
           tal:attributes="content python:doc.modification_date.ISO8601()"/>
-    <tal:block define="subjects python:', '.join(doc.Subject())" condition="subjects">
+    <tal:block
+          define="subjects python:', '.join([mcat(x, target_language=doc_language)
+                                             for x in doc.Subject()])"
+          condition="subjects">
     <meta name="Keywords" tal:attributes="content subjects"/>
     <meta name="DC.Subject" tal:attributes="content subjects"/>
     </tal:block>
