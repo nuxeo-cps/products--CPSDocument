@@ -6,7 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- #495: Document HTML view page should contain HTML metadata.
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
