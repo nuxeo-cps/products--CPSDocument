@@ -35,7 +35,7 @@
           condition="subjects">
     <meta name="DC.Subject" tal:attributes="content subjects"/>
     </tal:block>
-    <tal:block define="keywords doc/keywords" condition="keywords">
+    <tal:block define="keywords doc/keywords|nothing" condition="keywords">
      <meta name="Keywords" tal:attributes="content keywords"/>
     </tal:block>
   </metal:block>
