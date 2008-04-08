@@ -16,6 +16,7 @@
 
   <metal:block fill-slot="head_slot"
                tal:define="mcat nocall:here/translation_service;
+                           subject_voc here/portal_vocabularies/subject_voc|nothing;
                            doc_language here/getLanguage">
     <meta name="DC.Language" scheme="RFC3066"
           tal:attributes="content doc_language"/>
@@ -24,11 +25,16 @@
     <meta name="DC.Date.modified" scheme="W3CDTF"
           tal:attributes="content python:doc.modification_date.ISO8601()"/>
     <tal:block
-          define="subjects python:', '.join([mcat(x, target_language=doc_language)
-                                             for x in doc.Subject()])"
+          define="subjects python:subject_voc and
+                                       ', '.join([mcat(subject_voc.getMsgid(x, x))
+                                                  for x in doc.Subject()])
+                                       or
+                                       ', '.join([mcat(x)
+                                                  for x in doc.Subject()])
+                                      "
           condition="subjects">
-    <meta name="Keywords" tal:attributes="content subjects"/>
     <meta name="DC.Subject" tal:attributes="content subjects"/>
+    <meta name="Keywords" tal:attributes="content subjects"/>
     </tal:block>
   </metal:block>
 
