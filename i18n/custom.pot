@@ -61,6 +61,9 @@ msgstr ""
 msgid "label_relation"
 msgstr ""
 
+msgid "label_keywords"
+msgstr ""
+
 msgid "cpsdoc_hidden_folder"
 msgstr ""
 
@@ -83,6 +86,9 @@ msgid "help_dc_coverage"
 msgstr ""
 
 msgid "help_dc_relation"
+msgstr ""
+
+msgid "help_keywords"
 msgstr ""
 
 msgid "label_portal_type"

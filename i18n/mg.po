@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-24 17:51default\n"
+"POT-Creation-Date: 2008-04-08 21:32default\n"
 "PO-Revision-Date: 2004-11-25 13:38+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
@@ -42,7 +42,7 @@ msgstr "Métadonnées de «${title}»"
 msgid "Page ${page}"
 msgstr "Pejy ${page}"
 
-#.   <option content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n" value=".">Type</option>
+#.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 msgid "Type"
 msgstr "nop"
@@ -73,18 +73,18 @@ msgstr "Valiny :  "
 msgid "cpsdoc_import_zip_title"
 msgstr ""
 
-#.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
+#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
 msgstr "Pejy manaraka"
 
-#.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
+#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
 msgstr "Pejy teo aloha"
 
 # default doc types
-#.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
+#.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_toc"
 msgstr "Sommaire"
@@ -100,11 +100,11 @@ msgstr "Sommaire"
 msgid "heading_metadata_view"
 msgstr "Métadonnées-n'ny antotandahatsoratra"
 
-#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.               In this field you can give the reason for the modification
 #.               on this document. Your comments may be used to notify other users.
 #.             </div>
-#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.         In this field you can give the reason for the modification
 #.         on this document. Your comments may be used to notify other users.
 #.       </div>
@@ -119,7 +119,7 @@ msgid "i18_key-help_for_this_field"
 msgstr ""
 
 #.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
-#.   <span content="widget/label" condition="widget/is_i18n" class="dlabel">label</span>
+#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document/layout_lib_default_view.pt
@@ -133,16 +133,16 @@ msgstr "label"
 msgid "label_zip_file"
 msgstr ""
 
-#.   <a attributes="href python:'/'+ 
+#.   <a href="." attributes="href python:'/'+ 
 #.                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
+#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "next"
 msgstr "Manaraka"
 
-#.   <a attributes="href python:'/'+
+#.   <a href="." attributes="href python:'/'+
 #.                       itemList[pos - 1].absolute_url(relative=1) +
-#.                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
+#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "previous"
 msgstr "Teo aloha"
@@ -196,6 +196,10 @@ msgstr "Fihelezana"
 msgid "label_relation"
 msgstr "Fifandraisana"
 
+#, fuzzy
+msgid "label_keywords"
+msgstr "Mots clés"
+
 msgid "cpsdoc_hidden_folder"
 msgstr ""
 "Aza aseho ity repertoara ity eo amin'ny fandehandehanana eo anivon'ny "
@@ -230,6 +234,9 @@ msgid "help_dc_relation"
 msgstr ""
 "Une référence (URL) à une autre ressource qui a un rapport avec cette "
 "ressource. "
+
+msgid "help_keywords"
+msgstr ""
 
 msgid "label_portal_type"
 msgstr "Karazana ressource"

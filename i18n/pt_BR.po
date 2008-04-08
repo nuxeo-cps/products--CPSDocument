@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt-BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-24 18:10default\n"
+"POT-Creation-Date: 2008-04-08 21:46default\n"
 "PO-Revision-Date: 2006-04-03 15:12-0300\n"
 "Last-Translator: Mario Olimpio de Menezes <mario@ipen.br>\n"
 "Language-Team: Portugues do Brasil <pt@li.org>\n"
@@ -41,7 +41,7 @@ msgstr "Metadados de \"${title}\""
 msgid "Page ${page}"
 msgstr "Página ${page}"
 
-#.   <option content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n" value=".">Type</option>
+#.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 msgid "Type"
 msgstr "Tipo"
@@ -72,17 +72,17 @@ msgstr "Resposta:"
 msgid "cpsdoc_import_zip_title"
 msgstr "Importar um Arquivo ZIP"
 
-#.   <a attributes="href python:book_url+'/'+page_ids[page_index+1]" href=".">cpsdoc_link_next_page</a>
+#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
 msgstr "Próxima"
 
-#.   <a attributes="href python:book_url+'/'+page_ids[page_index-1]" href=".">cpsdoc_link_previous_page</a>
+#.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
 msgstr "Anterior"
 
-#.   <a attributes="href book_url" href=".">cpsdoc_link_toc</a>
+#.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_toc"
 msgstr "Link"
@@ -98,11 +98,11 @@ msgstr "Índice"
 msgid "heading_metadata_view"
 msgstr "Metadados"
 
-#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.               In this field you can give the reason for the modification
 #.               on this document. Your comments may be used to notify other users.
 #.             </div>
-#.   <div style="visibility: hidden;" class="tooltipArea" onclick="showElement(false, 'transition_comments_help')" id="transition_comments_help">
+#.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.         In this field you can give the reason for the modification
 #.         on this document. Your comments may be used to notify other users.
 #.       </div>
@@ -117,7 +117,7 @@ msgid "i18_key-help_for_this_field"
 msgstr "Tecla de ajuda i18 para este campo"
 
 #.   <label content="widget/label_edit" attributes="for cell/widget_input_area_id|nothing;" condition="widget/is_i18n">label</label>
-#.   <span content="widget/label" condition="widget/is_i18n" class="dlabel">label</span>
+#.   <span class="dlabel" content="widget/label" condition="widget/is_i18n">label</span>
 #.   <strong content="widget/label">label</strong>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
 #: ../skins/cps_document/layout_lib_default_view.pt
@@ -131,16 +131,16 @@ msgstr "Rótulo"
 msgid "label_zip_file"
 msgstr "Arquivo ZIP"
 
-#.   <a attributes="href python:'/'+ 
+#.   <a href="." attributes="href python:'/'+ 
 #.                       itemList[pos + 1].absolute_url(relative=1) + 
-#.                       '/popup_image?pos=%s' % (pos + 1)" href=".">Next</a>
+#.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "next"
 msgstr "Próximo"
 
-#.   <a attributes="href python:'/'+
+#.   <a href="." attributes="href python:'/'+
 #.                       itemList[pos - 1].absolute_url(relative=1) +
-#.                       '/popup_image?pos=%s' % (pos - 1)" href=".">Previous</a>
+#.                       '/popup_image?pos=%s' % (pos - 1)">Previous</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "previous"
 msgstr "Anterior"
@@ -195,6 +195,10 @@ msgstr "Cobertura"
 msgid "label_relation"
 msgstr "Relação"
 
+#, fuzzy
+msgid "label_keywords"
+msgstr "Decrescente por autor"
+
 msgid "cpsdoc_hidden_folder"
 msgstr "Pasta oculta"
 
@@ -222,6 +226,9 @@ msgstr "A extensão ou escopo do conteúdo do recurso."
 
 msgid "help_dc_relation"
 msgstr "Uma referência (URL) a um recurso relacionado."
+
+msgid "help_keywords"
+msgstr ""
 
 msgid "label_portal_type"
 msgstr "Tipo do Recurso"
