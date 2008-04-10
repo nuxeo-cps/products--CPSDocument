@@ -1,14 +1,16 @@
 /*
-<dtml-let last_modified="_.DateTime()-14" expires="_.DateTime()+1" >
-<dtml-call "REQUEST.RESPONSE.setHeader( 'Content-Type', 'text/javascript' )">
-<dtml-call "REQUEST.RESPONSE.setHeader( 'Last-Modified', last_modified.toZone('GMT').rfc822() )">
-<dtml-call "REQUEST.RESPONSE.setHeader( 'Cache-Control', 'max-age=36000, must-revalidate' )">
-<dtml-call "REQUEST.RESPONSE.setHeader( 'Expires', expires.toZone('GMT').rfc822() )" >
+<dtml-let last_modified="_.DateTime()-14" expires="_.DateTime()+1">
+<dtml-call "REQUEST.RESPONSE.setHeader('Content-Type', 'text/javascript')">
+<dtml-call "REQUEST.RESPONSE.setHeader('Last-Modified', last_modified.toZone('GMT').rfc822())">
+<dtml-call "REQUEST.RESPONSE.setHeader('Cache-Control', 'max-age=36000, must-revalidate')">
+<dtml-call "REQUEST.RESPONSE.setHeader('Expires', expires.toZone('GMT').rfc822())">
 </dtml-let>
 */
 /*
 # (C) Copyright 2003-2008 Nuxeo SAS <http://nuxeo.com>
-# Author: Tarek Ziadé <tz@nuxeo.com>
+# Authors:
+# Tarek Ziadé <tz@nuxeo.com>
+# M.-A. Darche <madarche@nuxeo.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 2 as published
@@ -28,9 +30,9 @@
 
 CPSDocument javascript layer
 
-XXX need to find a way to upload file, it is very
-restrictive as it does'nt allow to send simple
-types like Document, flexible, etc...
+TODO: need to find a way to upload file, it is very
+restrictive as it doesn't allow to send simple
+types like Document, flexible, etc.
 
 */
 
@@ -317,7 +319,7 @@ Object.extend(CPSFlexibleEdit, {
 // The preferred size of the user is kept in cookies and reused the next time
 // the textareas are loaded.
 //
-// Depends on prototype >= 1.5.0
+// Depends on prototype >= 1.6.0
 //
 // Inspired by:
 // (1) resize.js of DotClear
@@ -330,10 +332,10 @@ Event.observe(window, 'load', function() {
     var textareaElements = $$('textarea.resizable');
     textareaElements.each(function(node) {
 
-        // This filters only the textarea used in content widgets.
-        // As of Prototype 1.5.1. one could use the more legible code below
-        // if (!node.startsWith('widget__content')) {
-        if (!((node.id.indexOf('widget__content') == 0)
+        // This filters only the textarea used
+        // * in content widgets (id="widget__contentXXX")
+        // * in wiki pages (name="source")
+        if (!(node.id.startsWith('widget__content')
               || (node.name == 'source'))) {
             return;
         }
@@ -343,11 +345,11 @@ Event.observe(window, 'load', function() {
         var element_to_resize = node;
         setToPreferredSize(element_to_resize);
 
-        // As of Prototype 1.6, the complete Insertion class has been deprecated
-        // in favor of Element#insert.
+        // TODO: As of Prototype 1.6, the complete Insertion class has been
+        // deprecated in favor of Element#insert.
         new Insertion.After(element_to_resize,
-                            '<span class="resizeHandle" '
-                            + 'title="Resize by dragging"></span>');
+                            '<div class="resizeHandleVertical" '
+                            + 'title="Resize by dragging"></div>');
         newElement = element_to_resize.nextSibling;
         Event.observe(newElement, 'mousedown',
                       function(event) {setupElementResizer(event,
@@ -359,11 +361,16 @@ Event.observe(window, 'load', function() {
 // Sets the given element to the cookies recorded size if any.
 function setToPreferredSize(element) {
     var cookiePrefix = element.id + '-';
-    var width = Cookie.get(cookiePrefix + 'textAreaWidth');
+    // Code to resize width too
+    //var width = Cookie.get(cookiePrefix + 'textAreaWidth');
     var height = Cookie.get(cookiePrefix + 'textAreaHeight');
-    if (width && height) {
-        element.setStyle({'width': width + 'px',
-                          'height': height + 'px'});
+    // Code to resize width too
+    //if (width && height) {
+    if (height) {
+        element.setStyle({height: height + 'px'});
+        // Code to resize width too
+        //element.setStyle({width: width + 'px',
+        //                  height: height + 'px'});
     }
 }
 
@@ -371,20 +378,26 @@ function setToPreferredSize(element) {
 function setupElementResizer(event, element_to_resize) {
     var htmlElement = $$('html')[0];
     var dimension = Element.getDimensions(element_to_resize);
+    // Code to resize width too
+    //var w = dimension.width;
     var h = dimension.height;
-    var w = dimension.width;
-    var x = Event.pointerX(event);
+    // Code to resize width too
+    //var x = Event.pointerX(event);
     var y = Event.pointerY(event);
 
     function moveHandler(event) {
-        var newWidth = Math.max(20, Event.pointerX(event) + w - x);
+        // Code to resize width too
+        //var newWidth = Math.max(20, Event.pointerX(event) + w - x);
         var newHeight = Math.max(20, Event.pointerY(event) + h - y);
-        element_to_resize.setStyle({'width': newWidth + 'px',
-                                    'height': newHeight + 'px'});
+        element_to_resize.setStyle({height: newHeight + 'px'});
+        // Code to resize width too
+        //element_to_resize.setStyle({width: newWidth + 'px',
+        //                            height: newHeight + 'px'});
 
         // Record the preferred size in cookies
 	var cookiePrefix = element_to_resize.id + '-';
-        Cookie.set(cookiePrefix + 'textAreaWidth', newWidth, 365, '/');
+        // Code to resize width too
+        //Cookie.set(cookiePrefix + 'textAreaWidth', newWidth, 365, '/');
         Cookie.set(cookiePrefix + 'textAreaHeight', newHeight, 365, '/');
     }
 
