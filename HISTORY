@@ -1,4 +1,26 @@
 ===========================================================
+Package: CPSDocument 1.1.2
+===========================================================
+First release built by: madarche at: 2008-04-18T12:57:02
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/tags/1.1.2
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSDocument/trunk@52768
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #1885: Upgrade the embedded prototype and scriptacoulus JavaScript libs 
+  to script.aculo.us 1.8.1 and prototype 1.6.0.1.
+- #495: Document HTML view page should contain HTML metadata.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.1.1
 ===========================================================
 First release built by: madarche at: 2008-02-22T15:55:29
