@@ -6,7 +6,10 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- Made the subjects metadata of a document not be outputted translated since
+  those are the words that will be used for indexing by indexing robots, so
+  those words must not be adapted according to the language used to access the
+  doc. 
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

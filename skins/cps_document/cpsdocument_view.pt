@@ -26,12 +26,13 @@
           tal:attributes="content python:doc.modification_date.ISO8601()"/>
     <tal:block
           define="subjects python:subject_voc and
-                                       ', '.join([mcat(subject_voc.getMsgid(x, x))
-                                                  for x in doc.Subject()])
-                                       or
-                                       ', '.join([mcat(x)
-                                                  for x in doc.Subject()])
-                                      "
+                                  ', '.join([mcat(subject_voc.getMsgid(x, x),
+                                                  target_language=doc_language)
+                                             for x in doc.Subject()])
+                                  or
+                                  ', '.join([mcat(x, target_language=doc_language)
+                                             for x in doc.Subject()])
+                                  "
           condition="subjects">
     <meta name="DC.Subject" tal:attributes="content subjects"/>
     </tal:block>
