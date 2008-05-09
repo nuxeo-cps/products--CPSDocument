@@ -1,4 +1,4 @@
-# (C) Copyright 2003 Nuxeo SARL <http://nuxeo.com>
+# (C) Copyright 2003-2008 Nuxeo SAS <http://nuxeo.com>
 # Author: Florent Guillaume <fg@nuxeo.com>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -123,12 +123,15 @@ class FlexibleTypeInformation(FactoryTypeInformation):
          'label': 'Layouts'},
         {'id': 'layout_clusters', 'type': 'tokens', 'mode': 'w',
          'label': 'Layout clusters'},
+        # Of the following form:
+        # layout1:schema1 layout2:schema2
+        #
         # Layout clusters: sequence of tokens of the form
-        #  clusterid:layoutid_1,layoutid_2,layoutid_3...
+        # clusterid:layoutid_1,layoutid_2,layoutid_3...
         # Layout ids do not need to be listed in the 'layouts' property. This
         # list of layouts can be considered as the default cluster.
         {'id': 'flexible_layouts', 'type': 'tokens', 'mode': 'w',
-         'label': 'Flexible layouts'}, # XXX layout1:schema1 layout2:schema2
+         'label': 'Flexible layouts'},
         {'id': 'storage_methods', 'type': 'tokens', 'mode': 'w',
          'label': 'Storage methods'}, # XXX use schema storage adapters later
         )
@@ -302,6 +305,15 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             layout.manage_delObjects(widget2del)
 
     def _getFlexibleInfo(self, n=None):
+        """Return information about the used layouts and schemas.
+
+        n = None : return the list of used layouts and schemas
+                   example: ['layout1:schema1', 'layout2:schema2']
+        n = 0    : return the list of used layouts
+                   example: ['layout1', 'layout2']
+        n = 1    : return the list of used schemas
+                   example: ['schema1', 'schema2']
+        """
         flex = []
         for s in self.flexible_layouts:
             v = s.split(':')
