@@ -9,13 +9,14 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team:  <fr@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;X-Generator: KBabel 1.0.2\n"
 "X-Generator: KBabel 1.3\n"
 "Language-Code: mg\n"
 "Language-Name: Malagasy\n"
 "Domain: default\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Preferred-Encodings: utf-8\n"
 
 #.   <h1 condition="creation">
 #.         Create a document of type
@@ -35,7 +36,7 @@ msgstr "Fanovana ${title}"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #, fuzzy
 msgid "Metadata of ${title}"
-msgstr "Métadonnées de «${title}»"
+msgstr "MÃ©tadonnÃ©es de Â«${title}Â»"
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -98,7 +99,7 @@ msgstr "Sommaire"
 #.   <h1>heading_metadata_view</h1>
 #: from ../skins/cps_document/layout_metadata_view.pt
 msgid "heading_metadata_view"
-msgstr "Métadonnées-n'ny antotandahatsoratra"
+msgstr "MÃ©tadonnÃ©es-n'ny antotandahatsoratra"
 
 #.   <div style="visibility: hidden;" onclick="showElement(false, 'transition_comments_help')" class="tooltipArea" id="transition_comments_help">
 #.               In this field you can give the reason for the modification
@@ -160,7 +161,7 @@ msgid "cpsdoc_description_label_edit"
 msgstr "Fanazavana : "
 
 msgid "cpsdoc_theme_label_edit"
-msgstr "Thème : "
+msgstr "ThÃ¨me : "
 
 msgid "cpsdoc_date_label_edit"
 msgstr "Daty : "
@@ -170,7 +171,7 @@ msgstr "Ny "
 
 #, fuzzy
 msgid "cpsdoc_attachedFile_label"
-msgstr "Fichier attaché :"
+msgstr "Fichier attachÃ© :"
 
 msgid "cpsdoc_preview_label_edit"
 msgstr "Sary kely (vignette) : "
@@ -179,13 +180,13 @@ msgid "cpsdoc_allow_discussion_label_edit"
 msgstr "Velomina ny fanazavana :"
 
 msgid "cpsdoc_popup_mode_label_edit"
-msgstr "Aseho ireo sary ao amin'ny fenêtre iray hafa"
+msgstr "Aseho ireo sary ao amin'ny fenÃªtre iray hafa"
 
 msgid "cpsdoc_popup_width_label_edit"
-msgstr "Sakan'ny fenêtre"
+msgstr "Sakan'ny fenÃªtre"
 
 msgid "cpsdoc_popup_height_label_edit"
-msgstr "Haavon'ny fenêtre"
+msgstr "Haavon'ny fenÃªtre"
 
 msgid "label_source"
 msgstr "Fototra"
@@ -198,7 +199,7 @@ msgstr "Fifandraisana"
 
 #, fuzzy
 msgid "label_keywords"
-msgstr "Mots clés"
+msgstr "Mots clÃ©s"
 
 msgid "cpsdoc_hidden_folder"
 msgstr ""
@@ -208,8 +209,8 @@ msgstr ""
 msgid "cpsdoc_hidden_folder_help"
 msgstr ""
 "Tsy ho hita ity repertoara ity amin'ny fandehandehanana eo anivon'ny "
-"tranonkala amin'ny endriny voalohany (par défaut). Ho hita nefa izy ao "
-"amin'ny 'Mandrindra ny votoatiny'. Ampiasao ny 'Gérer les rôles locaux' raha "
+"tranonkala amin'ny endriny voalohany (par dÃ©faut). Ho hita nefa izy ao "
+"amin'ny 'Mandrindra ny votoatiny'. Ampiasao ny 'GÃ©rer les rÃ´les locaux' raha "
 "tianao fehezina ny fandehanana ao amin'io repertoara io."
 
 msgid "help_dc_subject"
@@ -220,8 +221,8 @@ msgstr "Ireo olona izay niasa tamin'ny famoronana ny votoatin'ny ressource."
 
 msgid "help_dc_source"
 msgstr ""
-"Une référence à une ressource à partir de laquelle la ressource actuelle a "
-"été dérivée. "
+"Une rÃ©fÃ©rence Ã  une ressource Ã  partir de laquelle la ressource actuelle a "
+"Ã©tÃ© dÃ©rivÃ©e. "
 
 #, fuzzy
 msgid "help_dc_rights"
@@ -232,7 +233,7 @@ msgstr "Ny fihelezan'ny ressource."
 
 msgid "help_dc_relation"
 msgstr ""
-"Une référence (URL) à une autre ressource qui a un rapport avec cette "
+"Une rÃ©fÃ©rence (URL) Ã  une autre ressource qui a un rapport avec cette "
 "ressource. "
 
 msgid "help_keywords"
@@ -257,7 +258,7 @@ msgstr "Jeux"
 
 #, fuzzy
 msgid "label_subject_Health"
-msgstr "Santé"
+msgstr "SantÃ©"
 
 #, fuzzy
 msgid "label_subject_Home"
@@ -268,7 +269,7 @@ msgstr ""
 
 #, fuzzy
 msgid "label_subject_News"
-msgstr "Actualité"
+msgstr "ActualitÃ©"
 
 #, fuzzy
 msgid "label_subject_Recreation"
@@ -276,11 +277,11 @@ msgstr "Loisirs"
 
 #, fuzzy
 msgid "label_subject_Reference"
-msgstr "Référence"
+msgstr "RÃ©fÃ©rence"
 
 #, fuzzy
 msgid "label_subject_Regional"
-msgstr "Régional"
+msgstr "RÃ©gional"
 
 #, fuzzy
 msgid "label_subject_Science"
@@ -291,7 +292,7 @@ msgstr ""
 
 #, fuzzy
 msgid "label_subject_Society"
-msgstr "Société"
+msgstr "SociÃ©tÃ©"
 
 msgid "label_subject_Sports"
 msgstr ""
@@ -305,7 +306,7 @@ msgstr ""
 
 #, fuzzy
 msgid "label_title_desc"
-msgstr "Titre (décroissant)"
+msgstr "Titre (dÃ©croissant)"
 
 #, fuzzy
 msgid "label_date_asc"
@@ -313,7 +314,7 @@ msgstr "Date (croissant)"
 
 #, fuzzy
 msgid "label_date_desc"
-msgstr "Date (décroissant)"
+msgstr "Date (dÃ©croissant)"
 
 #, fuzzy
 msgid "label_status_asc"
@@ -321,7 +322,7 @@ msgstr "Statut (croissant)"
 
 #, fuzzy
 msgid "label_status_desc"
-msgstr "Statut (décroissant)"
+msgstr "Statut (dÃ©croissant)"
 
 #, fuzzy
 msgid "label_author_asc"
@@ -329,7 +330,7 @@ msgstr "Auteur (croissant)"
 
 #, fuzzy
 msgid "label_author_desc"
-msgstr "Auteur (décroissant)"
+msgstr "Auteur (dÃ©croissant)"
 
 msgid "cpsdoc_flex_content_title"
 msgstr "Vondrona lahatsoratra"
@@ -396,8 +397,8 @@ msgstr "Document web"
 #, fuzzy
 msgid "portal_type_Document_description"
 msgstr ""
-"Un document flexible pour créer une page HTML avec images et fichiers "
-"attachés"
+"Un document flexible pour crÃ©er une page HTML avec images et fichiers "
+"attachÃ©s"
 
 # default doc types
 msgid "portal_type_FAQ_title"
@@ -408,7 +409,7 @@ msgstr "Antontataratasy misy ireo fanontaniana mipetraka matetika"
 
 # default doc types
 msgid "portal_type_FAQitem_title"
-msgstr "FAQ - Question posée fréquemment"
+msgstr "FAQ - Question posÃ©e frÃ©quemment"
 
 msgid "portal_type_FAQitem_description"
 msgstr "Fanontaniana / Valiny"
@@ -451,7 +452,7 @@ msgstr "Nouvelle"
 
 #, fuzzy
 msgid "portal_type_NewsItem_description"
-msgstr "Un document pour rédiger une nouvelle ou un communiqué de presse"
+msgstr "Un document pour rÃ©diger une nouvelle ou un communiquÃ© de presse"
 
 #, fuzzy
 msgid "cpsdoc_NewsItem_label_related_subjects"
@@ -462,12 +463,12 @@ msgstr "Daty nivoahana : "
 
 #, fuzzy
 msgid "portal_type_PressRelease_title"
-msgstr "Communiqué de presse"
+msgstr "CommuniquÃ© de presse"
 
 #, fuzzy
 msgid "portal_type_PressRelease_description"
 msgstr ""
-"Un communiqué de presse est une nouvelle spéciale destinée à la presse par "
+"Un communiquÃ© de presse est une nouvelle spÃ©ciale destinÃ©e Ã  la presse par "
 "le biais d'une publication formelle"
 
 # default doc types
@@ -484,7 +485,7 @@ msgstr "Archive Zip HTML"
 
 #, fuzzy
 msgid "portal_type_ZippedHtml_description"
-msgstr "Une archive ZIP contenant des documents HTML à publier"
+msgstr "Une archive ZIP contenant des documents HTML Ã  publier"
 
 #, fuzzy
 msgid "cpsdoc_zippedhtml_label"
@@ -552,8 +553,8 @@ msgstr "Importer une archive Zip d'images"
 #, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_help"
 msgstr ""
-"Tous les fichiers images (jpeg, png, gif, ...) seront chargés dans la "
-"photothèques."
+"Tous les fichiers images (jpeg, png, gif, ...) seront chargÃ©s dans la "
+"photothÃ¨ques."
 
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_edit"
@@ -562,7 +563,7 @@ msgstr "Importer une archive Zip de fichiers"
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_help"
 msgstr ""
-"Tous les fichiers contenus dans l'archive seront chargés dans la l'espace "
+"Tous les fichiers contenus dans l'archive seront chargÃ©s dans la l'espace "
 "courant sous forme de documents de type Fichier."
 
 # default doc types

@@ -7,14 +7,14 @@ msgstr ""
 "Last-Translator: Stefano Schintu <schintu@gmail.com>\n"
 "Language-Team: CPS Italian <schintu@gmail.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Preferred-encodings: utf-8 latin1\n"
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
 "Language-Code: it\n"
 "Language-Name: Italian\n"
 "Domain: default\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Preferred-Encodings: utf-8\n"
 
 #.   <h1 condition="creation">
 #.         Create a document of type
@@ -34,7 +34,7 @@ msgstr "Modifica: ${title}"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #, fuzzy
 msgid "Metadata of ${title}"
-msgstr "Métadonnées de «${title}»"
+msgstr "MÃ©tadonnÃ©es de Â«${title}Â»"
 
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
@@ -200,14 +200,14 @@ msgstr "Correlazioni:"
 
 #, fuzzy
 msgid "label_keywords"
-msgstr "Mots clés"
+msgstr "Mots clÃ©s"
 
 msgid "cpsdoc_hidden_folder"
 msgstr "Nascondi questa cartella nella navigazione"
 
 msgid "cpsdoc_hidden_folder_help"
 msgstr ""
-"Questa cartella risulterà nascosta nella modalità di visualizzazione, benché "
+"Questa cartella risulterÃ  nascosta nella modalitÃ  di visualizzazione, benchÃ© "
 "sia possibile ancora visualizzare e accedere ad essa utilizzando 'Contenuti "
 "della cartella' e quando si deve scegliere una sezione per la pubblicazione. "
 "Utilizza 'Ruoli locali' per consentire l'accesso alla cartella."
@@ -279,7 +279,7 @@ msgid "label_subject_Shopping"
 msgstr "Acquisti"
 
 msgid "label_subject_Society"
-msgstr "Società"
+msgstr "SocietÃ "
 
 msgid "label_subject_Sports"
 msgstr "Sport"
@@ -373,7 +373,7 @@ msgstr "Documento"
 
 msgid "portal_type_Document_description"
 msgstr ""
-"Un documento di base che può essere utilizzato per creare una pagina HTML"
+"Un documento di base che puÃ² essere utilizzato per creare una pagina HTML"
 
 # Faq
 msgid "portal_type_FAQ_title"
@@ -413,7 +413,7 @@ msgstr "Definizione di un termine"
 # Glossary
 msgid "cpsdoc_glossary_dispall_label_edit"
 msgstr ""
-"Visualizza tutti gli oggetti se non è stata selezionata alcuna lettera:"
+"Visualizza tutti gli oggetti se non Ã¨ stata selezionata alcuna lettera:"
 
 msgid "cpsdoc_glossary_term_label_edit"
 msgstr "Termine"
@@ -521,8 +521,8 @@ msgstr "Importer une archive Zip d'images"
 #, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_help"
 msgstr ""
-"Tous les fichiers images (jpeg, png, gif, ...) seront chargés dans la "
-"photothèques."
+"Tous les fichiers images (jpeg, png, gif, ...) seront chargÃ©s dans la "
+"photothÃ¨ques."
 
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_edit"
@@ -531,7 +531,7 @@ msgstr "Importer une archive Zip de fichiers"
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_help"
 msgstr ""
-"Tous les fichiers contenus dans l'archive seront chargés dans la l'espace "
+"Tous les fichiers contenus dans l'archive seront chargÃ©s dans la l'espace "
 "courant sous forme de documents de type Fichier."
 
 # Book and page
@@ -566,7 +566,7 @@ msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr "Casella di ricerca"
 
 msgid "cpsdoc_book_display"
-msgstr "Modalità di visualizzazione"
+msgstr "ModalitÃ  di visualizzazione"
 
 msgid "cpsdoc_book_display_pages"
 msgstr "In pagine separate"

@@ -4,17 +4,17 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-08 21:32default\n"
 "PO-Revision-Date: 2007-05-31 09:29+0100\n"
-"Language-Team: valenci‡/catal‡. <juangus@lasalle.es>\n"
+"Language-Team: valenci√†/catal√†. <juangus@lasalle.es>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"Preferred-encodings: latin9 utf-8\n"
-"Domain: default\n"
-"Language-Code: ca\n"
-"Language-Name: valenci‡/catal‡\n"
 "X-Poedit-Language: Catalan\n"
 "X-Poedit-Country: SPAIN\n"
+"Language-Code: ca\n"
+"Language-Name: ca\n"
+"Domain: default\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Preferred-Encodings: utf-8\n"
 
 #    <h1 condition="creation">
 #          Create a document of type
@@ -43,7 +43,7 @@ msgstr "Metadades de \"${title}\""
 #.   <span>Page ${page (tal replace="python:str(page_index + 1)")}</span>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "Page ${page}"
-msgstr "P‡gina ${page}"
+msgstr "P√†gina ${page}"
 
 #    <option condition="widget/is_i18n" attributes="value widget/getWidgetId" content="widget/title_or_id" value=".">Type</option>
 #.   <option value="." content="widget/title_or_id" attributes="value widget/getWidgetId" condition="widget/is_i18n">Type</option>
@@ -81,12 +81,12 @@ msgstr "Importar documents d'arxius ZIP"
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index+1]">cpsdoc_link_next_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_next_page"
-msgstr "P‡gina seg¸ent"
+msgstr "P√†gina seg√ºent"
 
 #.   <a href="." attributes="href python:book_url+'/'+page_ids[page_index-1]">cpsdoc_link_previous_page</a>
 #: from ../skins/cps_document/layout_page_view.pt
 msgid "cpsdoc_link_previous_page"
-msgstr "P‡gina anterior"
+msgstr "P√†gina anterior"
 
 # default doc types
 #.   <a href="." attributes="href book_url">cpsdoc_link_toc</a>
@@ -118,7 +118,7 @@ msgstr "Metadades del document"
 #: ../skins/cps_document/layout_lib_default_edit.pt
 msgid "help_transition_comments_modification"
 msgstr ""
-"A este camp podr‡ indicar el motiu pel qual desitja moidficar este document."
+"A este camp podr√† indicar el motiu pel qual desitja moidficar este document."
 
 #.   <block content="widget/help" condition="widget/is_i18n">i18_key-help_for_this_field</block>
 #: from ../skins/cps_document/layout_lib_default_edit.pt
@@ -148,7 +148,7 @@ msgstr "Arxiu ZIP"
 #.                       '/popup_image?pos=%s' % (pos + 1)">Next</a>
 #: from ../skins/cps_document/popup_image.pt
 msgid "next"
-msgstr "seg¸ent"
+msgstr "seg√ºent"
 
 #.   <a href="." attributes="href python:'/'+
 #.                       itemList[pos - 1].absolute_url(relative=1) +
@@ -161,13 +161,13 @@ msgstr "anterior"
 #: from ../skins/cps_document/cpsdocument_edit_form.pt
 #: ../skins/cps_document/layout_lib_default_edit.pt
 msgid "transition_comments_modification"
-msgstr "Motiu de la modificaciÛ"
+msgstr "Motiu de la modificaci√≥"
 
 msgid "cpsdoc_title_label_edit"
-msgstr "TÌtol: "
+msgstr "T√≠tol: "
 
 msgid "cpsdoc_description_label_edit"
-msgstr "DescripciÛ:"
+msgstr "Descripci√≥:"
 
 msgid "cpsdoc_theme_label_edit"
 msgstr "Tema:"
@@ -194,7 +194,7 @@ msgid "cpsdoc_popup_width_label_edit"
 msgstr "Ample de la finestra"
 
 msgid "cpsdoc_popup_height_label_edit"
-msgstr "AlÁada de la finestra"
+msgstr "Al√ßada de la finestra"
 
 msgid "label_source"
 msgstr "Font"
@@ -203,31 +203,31 @@ msgid "label_coverage"
 msgstr "Cobertura"
 
 msgid "label_relation"
-msgstr "RelaciÛ"
+msgstr "Relaci√≥"
 
 #, fuzzy
 msgid "label_keywords"
 msgstr "Keywords"
 
 msgid "cpsdoc_hidden_folder"
-msgstr "Ocultar esta carpeta a la navegaciÛ"
+msgstr "Ocultar esta carpeta a la navegaci√≥"
 
 msgid "cpsdoc_hidden_folder_help"
 msgstr ""
-"La carpeta ja no ser‡ visible a la navegaciÛ per defecte, no obstant seguir‡ "
-"sent accessible a la vista 'Gestionar contingut' aixÌ com per a la "
-"publicaciÛ.   Per protegir el accÈs a la carpeta s'ha d'utilitzar 'Gestionar "
+"La carpeta ja no ser√† visible a la navegaci√≥ per defecte, no obstant seguir√† "
+"sent accessible a la vista 'Gestionar contingut' aix√≠ com per a la "
+"publicaci√≥.   Per protegir el acc√©s a la carpeta s'ha d'utilitzar 'Gestionar "
 "perfils locals'."
 
 msgid "help_dc_subject"
 msgstr "El tema del contingut"
 
 msgid "help_dc_contirbutors"
-msgstr "Les entitats que han contribuit a la creaciÛ del contingut, "
+msgstr "Les entitats que han contribuit a la creaci√≥ del contingut, "
 
 msgid "help_dc_source"
 msgstr ""
-"Una referËncia a un recurs a partir del qual se'n deriva el recurs actual."
+"Una refer√®ncia a un recurs a partir del qual se'n deriva el recurs actual."
 
 #, fuzzy
 msgid "help_dc_rights"
@@ -237,7 +237,7 @@ msgid "help_dc_coverage"
 msgstr "L'abast o la cobertura espai-temporal del recurs."
 
 msgid "help_dc_relation"
-msgstr "Una referËncia (URL) a un altre recurs que tÈ relaciÛ amb aquest."
+msgstr "Una refer√®ncia (URL) a un altre recurs que t√© relaci√≥ amb aquest."
 
 msgid "help_keywords"
 msgstr ""
@@ -249,10 +249,10 @@ msgid "label_subject_Arts"
 msgstr "Arts"
 
 msgid "label_subject_Business"
-msgstr "ComerÁ i economia"
+msgstr "Comer√ß i economia"
 
 msgid "label_subject_Computers"
-msgstr "Inform‡tica"
+msgstr "Inform√†tica"
 
 msgid "label_subject_Games"
 msgstr "Jocs"
@@ -264,25 +264,25 @@ msgid "label_subject_Home"
 msgstr "Llar"
 
 msgid "label_subject_Kids and Teens"
-msgstr "Xics i adol∑lescents"
+msgstr "Xics i adol¬∑lescents"
 
 msgid "label_subject_News"
-msgstr "NotÌcies"
+msgstr "Not√≠cies"
 
 msgid "label_subject_Recreation"
 msgstr "Oci"
 
 msgid "label_subject_Reference"
-msgstr "ReferËncia"
+msgstr "Refer√®ncia"
 
 msgid "label_subject_Regional"
 msgstr "Regional"
 
 msgid "label_subject_Science"
-msgstr "CiËncia"
+msgstr "Ci√®ncia"
 
 msgid "label_subject_Shopping"
-msgstr "Tendes i compres en lÌnia"
+msgstr "Tendes i compres en l√≠nia"
 
 msgid "label_subject_Society"
 msgstr "Societat"
@@ -294,10 +294,10 @@ msgid "label_sort_by"
 msgstr "Ordenat per"
 
 msgid "label_title_asc"
-msgstr "TÌtol (ascendent)"
+msgstr "T√≠tol (ascendent)"
 
 msgid "label_title_desc"
-msgstr "TÌtol (descendent)"
+msgstr "T√≠tol (descendent)"
 
 msgid "label_date_asc"
 msgstr "Data (ascendent)"
@@ -336,13 +336,13 @@ msgid "cpsdoc_flex_attachedFile_label"
 msgstr "Arxiu adjunt:"
 
 msgid "cpsdoc_flex_flash_title"
-msgstr "AnimaciÛ Flash"
+msgstr "Animaci√≥ Flash"
 
 msgid "cpsdoc_flex_flash_label_edit"
-msgstr "AnimaciÛ Flash: "
+msgstr "Animaci√≥ Flash: "
 
 msgid "cpsdoc_flex_flash_label"
-msgstr "AnimaciÛ Flash: "
+msgstr "Animaci√≥ Flash: "
 
 msgid "cpsdoc_flex_photo_title"
 msgstr "Imatge"
@@ -352,11 +352,11 @@ msgstr "Imatge: "
 
 # default doc types
 msgid "cpsdoc_flex_link_title"
-msgstr "EnllaÁ"
+msgstr "Enlla√ß"
 
 # FIXME: this msg is not used anywhere
 msgid "cpdoc_flex_link_label_edit"
-msgstr "EnllaÁ:"
+msgstr "Enlla√ß:"
 
 msgid "cpsdoc_flex_textimage_title"
 msgstr "Bloc de text o imatge"
@@ -376,18 +376,18 @@ msgid "portal_type_Document_title"
 msgstr "Document"
 
 msgid "portal_type_Document_description"
-msgstr "Document base que pot ser utilitzat per a crear una p‡gina HTML"
+msgstr "Document base que pot ser utilitzat per a crear una p√†gina HTML"
 
 # default doc types
 msgid "portal_type_FAQ_title"
-msgstr "FAQ (preguntes freq¸ents)"
+msgstr "FAQ (preguntes freq√ºents)"
 
 msgid "portal_type_FAQ_description"
-msgstr "Carpeta que contÈ un conjunt de preguntes freq¸ents"
+msgstr "Carpeta que cont√© un conjunt de preguntes freq√ºents"
 
 # default doc types
 msgid "portal_type_FAQitem_title"
-msgstr "FAQ - Preguntes freq¸ents"
+msgstr "FAQ - Preguntes freq√ºents"
 
 msgid "portal_type_FAQitem_description"
 msgstr "Pregunta / resposta."
@@ -396,7 +396,7 @@ msgid "cpsdoc_faq_question_label_edit"
 msgstr "Pregunta: "
 
 msgid "cpsdoc_faq_long_question_label_edit"
-msgstr "InformaciÛ complement‡ria a la pregunta:"
+msgstr "Informaci√≥ complement√†ria a la pregunta:"
 
 msgid "cpsdoc_faq_answer_label_edit"
 msgstr "Resposta: "
@@ -406,7 +406,7 @@ msgid "portal_type_Glossary_title"
 msgstr "Glosari"
 
 msgid "portal_type_Glossary_description"
-msgstr "Conjunt de definicions de termes ordenats alfabËticament"
+msgstr "Conjunt de definicions de termes ordenats alfab√®ticament"
 
 # default doc types
 msgid "portal_type_GlossaryItem_title"
@@ -422,27 +422,27 @@ msgid "cpsdoc_glossary_term_label_edit"
 msgstr "Terme"
 
 msgid "cpsdoc_glossary_expl_label_edit"
-msgstr "DefiniciÛ"
+msgstr "Definici√≥"
 
 msgid "portal_type_NewsItem_title"
-msgstr "NotÌcia"
+msgstr "Not√≠cia"
 
 msgid "portal_type_NewsItem_description"
-msgstr "Una notÌcia"
+msgstr "Una not√≠cia"
 
 msgid "cpsdoc_NewsItem_label_related_subjects"
 msgstr "Temes relacionats"
 
 msgid "cpsdoc_NewsItem_label_publication_date"
-msgstr "Data d'apariciÛ: "
+msgstr "Data d'aparici√≥: "
 
 msgid "portal_type_PressRelease_title"
 msgstr "Comunicat de premsa"
 
 msgid "portal_type_PressRelease_description"
 msgstr ""
-"Un comunicat de premsa Ès un tipus especial de noticia, utilitzada "
-"habitualmente pels comunicats mÈs formals (noticies institucionals...)."
+"Un comunicat de premsa √©s un tipus especial de noticia, utilitzada "
+"habitualmente pels comunicats m√©s formals (noticies institucionals...)."
 
 # default doc types
 msgid "portal_type_File_title"
@@ -456,7 +456,7 @@ msgid "portal_type_ZippedHtml_title"
 msgstr "Arxiu HTML comprimit en format zip"
 
 msgid "portal_type_ZippedHtml_description"
-msgstr "Un arxiu zip que contÈ codi html i que pot previsualitzar-se en lÌnia"
+msgstr "Un arxiu zip que cont√© codi html i que pot previsualitzar-se en l√≠nia"
 
 msgid "cpsdoc_zippedhtml_label"
 msgstr "Arxiu Html comprimit en format zip"
@@ -469,7 +469,7 @@ msgid "portal_type_Event_description"
 msgstr "Un esdeveniment"
 
 msgid "cpsdoc_Event_start_label_edit"
-msgstr "ComenÁament: "
+msgstr "Comen√ßament: "
 
 msgid "cpsdoc_Event_end_label_edit"
 msgstr "Fi: "
@@ -479,13 +479,13 @@ msgstr "Contingut del esdeveniment: "
 
 # default doc types
 msgid "portal_type_Link_title"
-msgstr "EnllaÁ"
+msgstr "Enlla√ß"
 
 msgid "portal_type_Link_description"
 msgstr "Una URL"
 
 msgid "cpsdoc_Link_label_edit"
-msgstr "EnllaÁ:"
+msgstr "Enlla√ß:"
 
 # default doc types
 msgid "portal_type_Image_title"
@@ -508,23 +508,23 @@ msgid "cpsdoc_imgallery_width_label_edit"
 msgstr "Tamany de les miniatures (thumbnails)"
 
 msgid "cpsdoc_imgallery_height_label_edit"
-msgstr "AlÁada de las miniatures"
+msgstr "Al√ßada de las miniatures"
 
 msgid "cpsdoc_imgallery_items_label_edit"
-msgstr "N˙mero de miniatures per p‡gina"
+msgstr "N√∫mero de miniatures per p√†gina"
 
 msgid "cpsdoc_imgallery_col_label_edit"
-msgstr "N˙mero de columnes per p‡gina"
+msgstr "N√∫mero de columnes per p√†gina"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_edit"
-msgstr "Importar un archivo Zip de im·genes"
+msgstr "Importar un archivo Zip de im√°genes"
 
 #, fuzzy
 msgid "cpsdoc_imgallery_ziparchiveuploader_label_help"
 msgstr ""
-"Todos los archivos de imagen (jpeg, png, gif...) ser·n subidos a la galerÌa "
-"de im·genes"
+"Todos los archivos de imagen (jpeg, png, gif...) ser√°n subidos a la galer√≠a "
+"de im√°genes"
 
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_edit"
@@ -533,7 +533,7 @@ msgstr "Importar un archivo Zip de documentos"
 #, fuzzy
 msgid "cpsdoc_ziparchiveuploader_label_help"
 msgstr ""
-"Todos los archivos contenidos en el archivo ser·n subidos en el espacio "
+"Todos los archivos contenidos en el archivo ser√°n subidos en el espacio "
 "correspondiente como un documento de tipo Archivo."
 
 # default doc types
@@ -542,45 +542,45 @@ msgstr "Llibre"
 
 msgid "portal_type_Book_description"
 msgstr ""
-"Una carpeta que mostra els documents que contÈ com si foran p‡gines d'un "
+"Una carpeta que mostra els documents que cont√© com si foran p√†gines d'un "
 "llibre"
 
 msgid "portal_type_Page_title"
-msgstr "Llibre - P‡gina"
+msgstr "Llibre - P√†gina"
 
 msgid "portal_type_Page_description"
 msgstr ""
-"Document flexible mostrat estructuralment com si fos la p‡gina d'un llibre"
+"Document flexible mostrat estructuralment com si fos la p√†gina d'un llibre"
 
 msgid "portal_type_Chapter_title"
-msgstr "Llibre - CapÌtol"
+msgstr "Llibre - Cap√≠tol"
 
 msgid "portal_type_Chapter_description"
 msgstr ""
-"Document flexible amb aspecte de capÌtol d'un llibre el qual, alhora, contÈ "
-"p‡gines."
+"Document flexible amb aspecte de cap√≠tol d'un llibre el qual, alhora, cont√© "
+"p√†gines."
 
 msgid "cpsdoc_book_nb_summary_page_label_edit"
-msgstr "N˙mero de taules de contingut que es mostrar‡ per p‡gina"
+msgstr "N√∫mero de taules de contingut que es mostrar√† per p√†gina"
 
 msgid "cpsdoc_book_has_search_box_label_edit"
 msgstr "Requadre de cerca"
 
 msgid "cpsdoc_book_display"
-msgstr "Mode de presentaciÛ"
+msgstr "Mode de presentaci√≥"
 
 msgid "cpsdoc_book_display_pages"
-msgstr "en p‡gines separades"
+msgstr "en p√†gines separades"
 
 msgid "cpsdoc_book_display_flat"
-msgstr "Document ˙nic"
+msgstr "Document √∫nic"
 
 # default doc types
 msgid "portal_type_Flash_Animation_title"
-msgstr "AnimaciÛ Flash"
+msgstr "Animaci√≥ Flash"
 
 msgid "portal_type_Flash_Animation_description"
-msgstr "AnimaciÛ Flash (format swf)"
+msgstr "Animaci√≥ Flash (format swf)"
 
 msgid "psm_ajax_working"
 msgstr "Transferint dades..."
