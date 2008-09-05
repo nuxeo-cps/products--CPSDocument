@@ -18,12 +18,16 @@
                tal:define="mcat nocall:here/translation_service;
                            subject_voc here/portal_vocabularies/subject_voc|nothing;
                            doc_language here/getLanguage">
+    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
     <meta name="DC.Language" scheme="RFC3066"
           tal:attributes="content doc_language"/>
     <meta name="DC.Date.created" scheme="W3CDTF"
           tal:attributes="content python:doc.creation_date.ISO8601()"/>
     <meta name="DC.Date.modified" scheme="W3CDTF"
           tal:attributes="content python:doc.modification_date.ISO8601()"/>
+    <tal:block define="rights doc/Rights|nothing" condition="rights">
+    <meta name="DC.Rights" tal:attributes="content rights"/>
+    </tal:block>
     <tal:block
           define="subjects python:subject_voc and
                                   ', '.join([mcat(subject_voc.getMsgid(x, x),
