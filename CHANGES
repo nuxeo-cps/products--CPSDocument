@@ -6,9 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
-- Improved Dublin Core metadata in the rendered HTML by adding a link to the
-  schema used and the output of the "DC.Rights" field.
-- #1916: Switch all the .po files to UTF-8
+-
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
