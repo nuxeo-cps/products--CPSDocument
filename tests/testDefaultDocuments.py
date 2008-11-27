@@ -1,8 +1,5 @@
 # -*- coding: iso-8859-15 -*-
 # $Id$
-# TODO:
-# - don't depend on getDocumentSchemas / getDocumentTypes but is there
-#   an API for that ?
 
 import os, sys
 if __name__ == '__main__':
@@ -19,6 +16,12 @@ from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
 from Products.CPSSchemas.Widget import widgetname
 from Products.CPSUtil.tests.web_conformance import assertWellFormedXml
 from Products.CMFCore.utils import getToolByName
+
+DOCUMENT_TYPES = ['Chapter', 'News Item', 'File', 'Flash Animation', 
+                  'Glossary', 'Image', 'Section', 'FAQ', 'Page', 'ZippedHtml', 'Book', 
+                  'Link', 'ImageGallery', 'Workspace', 'Press Release', 'Flexible', 
+                  'FAQitem', 'Document', 'GlossaryItem', 'EventDoc']
+
 
 class DummyResponse:
     def __init__(self):
@@ -52,7 +55,10 @@ class TestDocuments(CPSTestCase):
 
         self.login('manager')
         self.document_schemas = self.portal.getDocumentSchemas()
-        self.document_types = self.portal.getDocumentTypes()
+        # GR This is lame, intended for compat with the sequel
+        # that expects the good ol' dict from CPS 3.3's getDocumentTypes
+        # which is now otherwise unused
+        self.document_types = dict((k,None) for k in DOCUMENT_TYPES)
         # getFolderContents check SESSION to get user display choice
         self.portal.REQUEST.SESSION = {}
         self.portal.REQUEST.form = {}
