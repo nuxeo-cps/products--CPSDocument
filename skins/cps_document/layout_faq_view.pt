@@ -22,16 +22,7 @@
     <div class="faqResponse"
          tal:attributes="id string:a${repeat/item/number}"
          tal:define="response item/getContent">
-      <h2 class="faqResponseElement">
-        <tal:block  tal:content="response/title">ma question</tal:block>
-      </h2>
-      <div class="ddescription" tal:content="response/description">
-        description
-      </div>
-      <p class="faqResponseElement">
-        <span class="dlabel" i18n:translate="cpsdoc_faq_answer_label">Response: </span>
-        <tal:block tal:replace="response/content" />
-      </p>
+      <tal:block tal:replace="structure python:item.getContent().render(proxy=item)" />
     </div>
     <p class="faqResponseElement">
       <a tal:attributes="href string:${base_url}${proxy_url}#q${repeat/item/number}"
