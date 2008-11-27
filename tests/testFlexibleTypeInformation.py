@@ -135,6 +135,7 @@ class IntegrationTestFlexibleTypeInformation(CPSTestCase):
             'content',
             'content_format',
             'content_position',
+            'keywords',
             'photo',
             'photo_alt',
             'photo_original',
