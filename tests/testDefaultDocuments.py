@@ -298,7 +298,6 @@ class TestDocuments(CPSTestCase):
         except AttributeError:
             doc = proxy
 
-        # Default value. Shouldn't it be '' ?
         self.assertEquals(doc.file, None)
         self.assertEquals(proxy['file'], None)
         #XXX move download tests to the proxy behavior
@@ -306,9 +305,10 @@ class TestDocuments(CPSTestCase):
 
         # Edit file as string
         text = randomText()
-        doc.edit(proxy=proxy, file=text)
-        self.assertEquals(doc.file, text)
-        self.assertEquals(proxy['file'], text)
+        ftext = File('file', 'something.txt', text)
+        doc.edit(proxy=proxy, file=ftext)
+        self.assertEquals(str(doc.file), text)
+        self.assertEquals(str(proxy['file']), text)
         #XXX self.assertEquals(doc.downloadFile('file'), text)
 
         # XXX: theses tests are not enough, this the *proxy*'s behavior
