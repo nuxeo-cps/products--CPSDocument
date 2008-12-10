@@ -34,17 +34,11 @@
       tal:attributes="src string:${base_url}cpsdocument.js"></script>
     <script type="text/javascript" src="cpsschemas.js"
       tal:attributes="src string:${base_url}cpsschemas.js"></script>
-    <tal:block condition="python:modules['Products.CPSUtil.integration'].isProductPresent('Products.FCKeditor')">
-      <script type="text/javascript">
-        //var popup_editor_form = 'popup_fckeditor_form';
-        var popup_editor_form = 'popup_tinymce_form';
-        var width = 640;
-        var height = 520;
-      </script>
-    </tal:block>
     <script type="text/javascript">
      function popup_rte(input_id, label_edit) {
        var args, value;
+       var width = 640;
+       var height = 520;
        value = document.getElementById(input_id).value;
        args = '?input_id='+input_id+'&amp;label_edit='+escape(label_edit);
        str_window_features = 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,dependent=1,width=' + width + ',height=' + height;
