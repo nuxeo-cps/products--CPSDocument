@@ -22,6 +22,8 @@
       tal:attributes="src string:${base_url}calendar-lang/calendar-${local}.js"></script>
     <script type="text/javascript" src="calendar-setup.js"
       tal:attributes="src string:${base_url}calendar-setup.js"></script>
+    <script type="text/javascript" src="tiny_mce.js"
+      tal:attributes="src string:${base_url}tiny_mce.js"></script>
     <script type="text/javascript" src="cpsdocument.js"
       tal:attributes="src string:${base_url}cpsdocument.js"></script>
     <script type="text/javascript" src="cpsschemas.js"
