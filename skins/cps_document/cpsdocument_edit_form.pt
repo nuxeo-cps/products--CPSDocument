@@ -39,8 +39,8 @@
        popup = window.open(popup_editor_form + args, input_id, str_window_features);
        return false;
      }
-   </script>
-   </metal:block>
+    </script>
+    </metal:block>
   </metal:block>
 
   <metal:block fill-slot="header">
