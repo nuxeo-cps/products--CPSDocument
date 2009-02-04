@@ -10,6 +10,7 @@ Bug fixes
 - #1929: FAQ not displyaing HTML content.
 - Removed JavaScript declarations now present in header_lib_header.pt since
   changeset [52901].
+- Removed obsolete scripts for defining documents now that GenericSetup is used.
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
