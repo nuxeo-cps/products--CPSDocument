@@ -1,4 +1,24 @@
 # -*- coding: iso-8859-15 -*-
+# (C) Copyright 2003-2009 Nuxeo SA <http://nuxeo.com>
+# Authors:
+# Florent Guillaume <fg@nuxeo.com>
+# G. Racinet <georges@racinet.fr>
+# M.-A. Darche <madarche@nuxeo.com>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2 as published
+# by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+# 02111-1307, USA.
+#
 # $Id$
 
 import os, sys
@@ -11,17 +31,18 @@ from OFS.Image import File
 from AccessControl import Unauthorized
 
 from Products.CMFCore.utils import _getViewFor
+from Products.CMFCore.utils import getToolByName
 
 from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
 from Products.CPSSchemas.Widget import widgetname
 from Products.CPSUtil.tests.web_conformance import assertWellFormedXml
-from Products.CMFCore.utils import getToolByName
 
-DOCUMENT_TYPES = ['Chapter', 'News Item', 'File', 'Flash Animation', 
-                  'Glossary', 'Image', 'Section', 'FAQ', 'Page', 'ZippedHtml', 'Book', 
-                  'Link', 'ImageGallery', 'Workspace', 'Press Release', 'Flexible', 
+from document_definitions import getDocumentSchemas
+
+DOCUMENT_TYPES = ['Chapter', 'News Item', 'File', 'Flash Animation',
+                  'Glossary', 'Image', 'Section', 'FAQ', 'Page', 'ZippedHtml', 'Book',
+                  'Link', 'ImageGallery', 'Workspace', 'Press Release', 'Flexible',
                   'FAQitem', 'Document', 'GlossaryItem', 'EventDoc']
-
 
 class DummyResponse:
     def __init__(self):
@@ -54,7 +75,7 @@ class TestDocuments(CPSTestCase):
         mtool.setLocalRoles(self.ws, ['wsreader'], 'WorkspaceReader')
 
         self.login('manager')
-        self.document_schemas = self.portal.getDocumentSchemas()
+        self.document_schemas = getDocumentSchemas()
         # GR This is lame, intended for compat with the sequel
         # that expects the good ol' dict from CPS 3.3's getDocumentTypes
         # which is now otherwise unused
