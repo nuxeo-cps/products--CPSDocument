@@ -40,6 +40,8 @@ from Products.CPSSchemas.Schema import SchemaContainer
 from Products.CPSSchemas.Layout import LayoutContainer
 from Products.CPSSchemas.DataModel import DataModel
 from Products.CPSSchemas.DataStructure import DataStructure
+from Products.CPSSchemas.Widget import CIDPARTS_KEY
+from Products.CPSSchemas.Widget import EMAIL_LAYOUT_MODE
 
 from Products.CPSDocument.CPSDocument import addCPSDocument
 from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget
@@ -739,17 +741,18 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     # API
     #
 
-    security.declareProtected(View, 'renderObject')
-    def renderObject(self, ob, layout_mode='view', layout_id=None,
-                     cluster=None, request=None, context=None,
-                     use_session=False, **kw):
-        """Render the object.
+    security.declareProtected(View, 'renderObjectDetailed')
+    def renderObjectDetailed(self, ob, layout_mode='view', layout_id=None,
+                             cluster=None, request=None, context=None,
+                             use_session=False, **kw):
+        """Render the object and return datastructure and rendered html
 
         The datastructure information comes from the object, and, if
         available, the request (to be able to pass explicit values in
         the URL) and the session (if use_session is true).
 
         ``context`` is used to find the layout method.
+
         """
         proxy = kw.get('proxy')
         dm = self.getDataModel(ob, proxy=proxy, context=context)
@@ -761,8 +764,28 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         if context is None:
             context = ob
-        return self._renderLayouts(layout_structures, ds, context,
-                                   layout_mode=layout_mode, **kw)
+        rendered = self._renderLayouts(layout_structures, ds, context,
+                                       layout_mode=layout_mode, **kw)
+
+        return ds, rendered
+
+    security.declareProtected(View, 'renderObject')
+    def renderObject(self, ob, **kw):
+        return self.renderObjectDetailed(ob, **kw)[1]
+
+    security.declareProtected(View, 'renderEmailObject')
+    def renderEmailObject(self, ob, layout_mode=EMAIL_LAYOUT_MODE, **kw):
+        """Method to render as multipart/related MIME structure (RFC 2387)
+
+        Return the main part and a dict of parts referred to by CID
+        (see RFC 2392) within the main part.
+
+        Implementation note (see #1961): we use a special layout mode to tell
+        the widgets to render for email.
+        """
+        ds, main = self.renderObjectDetailed(ob, layout_mode=layout_mode, **kw)
+        cidparts = ds.get(CIDPARTS_KEY)
+        return main, cidparts
 
     security.declareProtected(View, 'validateObject')
     def validateObject(self, ob, layout_mode='edit', layout_id=None,
@@ -871,7 +894,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         Optional 'pre_commit_hook' and 'post_commit_hook' args can be given.
         These are callables. The request and kw get forwarded to them.
         The first one takes datamodel as unique positional arg. It can access
-        the object through the datamodel, but must maintain consistency. 
+        the object through the datamodel, but must maintain consistency.
         The second one takes the object, and must return it in case it changed.
 
         Returns (rendered, ok, datastructure):

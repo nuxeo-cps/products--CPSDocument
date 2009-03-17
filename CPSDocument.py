@@ -69,6 +69,15 @@ class CPSDocumentMixin(ExtensionClass.Base):
         """
         return self.getTypeInfo().renderObject(self, **kw)
 
+    security.declareProtected(View, 'render')
+    def renderEmail(self, **kw):
+        """Render the object according to a layout mode.
+
+        Optional arguments are layout_mode, layout_id, cluster,
+        proxy, request.
+        """
+        return self.getTypeInfo().renderEmailObject(self, **kw)
+
     security.declareProtected(View, 'validate')
     def validate(self, **kw):
         """Validate the modifications posted on an object.

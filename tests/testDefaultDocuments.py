@@ -199,6 +199,8 @@ class TestDocuments(CPSTestCase):
     def _testRendering(self, doc, proxy):
         res = doc.render(proxy=proxy)
         self.assert_(res)
+        main, cidparts = doc.renderEmail(proxy=proxy)
+        self.assert_(res)
 
     def _testMetadataRendering(self, doc, proxy):
         res = doc.render(request=None, proxy=proxy, layout_mode='view',
