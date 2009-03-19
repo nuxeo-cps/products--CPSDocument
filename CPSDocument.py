@@ -71,9 +71,9 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
     security.declareProtected(View, 'render')
     def renderEmail(self, **kw):
-        """Render the object according to a layout mode.
+        """Render the object according to a layout mode for email inclusion.
 
-        Optional arguments are layout_mode, layout_id, cluster,
+        Optional arguments are layout_id, cluster,
         proxy, request.
         """
         return self.getTypeInfo().renderEmailObject(self, **kw)

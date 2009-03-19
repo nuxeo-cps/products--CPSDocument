@@ -1,0 +1,186 @@
+<dtml-comment>
+CSS for CPSDocument (for layouts and for specific documents)
+To be used in the context of email messages
+$Id$
+</dtml-comment>
+
+<dtml-comment>
+The "documentFields" class is used to group together the fields pertaining to a
+document. This is a stricter grouping scheme than the one defined by the
+"group" class.
+</dtml-comment>
+.documentFields {
+  border: 0px none transparent;
+  margin: 0em 0 1em 0;
+  padding: 0em;
+}
+
+table.layoutDefault {
+  width: 100%;
+  border-spacing: 0;
+}
+
+table.layoutDefault td {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+<dtml-comment>
+Class for positioning document elements.
+</dtml-comment>
+
+.dright {
+  float: right;
+  text-align: right;
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+
+.dleft {
+  float: left;
+  padding-right: 1em;
+  padding-bottom: 1em;
+}
+
+.dcenter {
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+}
+
+.ddefault {
+  padding-bottom: 1em;
+}
+
+
+div.dflush {
+  clear: both;
+}
+
+div.dcolleft {
+  width: 48%;
+  padding-bottom: 1em;
+}
+
+div.dcolright {
+  clear: right;
+  float: right;
+  width: 48%;
+  padding-bottom: 1em;
+}
+
+
+div.dtitle, div.dtitle2, div.dtitle3, div.dtitle4, div.dtitle5, div.dtitle6 {
+  color: black;
+  background-color: transparent;
+  font: verdana;
+  margin: 0;
+  padding-top: 0.5em;
+}
+
+div.dtitle {
+  font-size: 140%;
+  border-bottom: 1px solid #818183;
+  margin-bottom: 0.5em;
+}
+div.dtitle2 {
+  font-size: 130%;
+  border-bottom: 1px solid #818183;
+  margin-bottom: 0.5em;
+}
+div.dtitle3 {
+  font-size: 120%;
+  border-bottom: 1px solid #818183;
+}
+div.dtitle4 {
+  font-size: 110%;
+  border-bottom: 1px solid #818183;
+  font-weight: bold;
+}
+div.dtitle5 {
+  font-size: 105%;
+  border-bottom: 1px solid #818183;
+  font-weight: bold;
+}
+div.dtitle6 {
+  font-size: 100%;
+  border-bottom: 1px solid #818183;
+  font-weight: bold;
+}
+
+div.dcontent {
+  font-size: 100%;
+}
+div.dcontent p {
+  text-align: left;
+}
+
+div.ddescription {
+  font-style: italic;
+  font-size: 100%;
+}
+
+.dlabel {
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.dbold {
+  font-weight: bold;
+}
+
+.publicationDate {
+  color: #777777;
+  font-weight: bold;
+  font-size: 110%;
+}
+
+.photoWidget {
+  text-align: center;
+  padding: 0.5em;
+}
+
+.photoWidget p {
+  display: inline;
+  text-align: left;
+}
+
+.photoWidget span {
+  vertical-align: top;
+  display: table-cell;
+  display: inline-table;
+  display: inline-block;
+  font-size: 95%;
+}
+
+#ajax_psm {
+  background: #ffac0b;
+  color: white;
+  position: absolute;
+  z-index:500;
+  padding: 8px;
+  border: 1px solid black;
+}
+
+hr.faqBorder {
+  border:#999999 1px dotted
+}
+
+div.faqResponse {
+  padding-top:1em;
+}
+
+.faqResponseElement {
+  padding-left: 0px! important;
+}
+
+/* hack for IE6 bugs */
+/* Hides from IE5-mac \*/
+* html div.dleft {height: 1%}
+* html .ddefault {height: 1%}
+* html div.dcolleft {height: 1%}
+* html div.dcolright {height: 1%}
+/* End hide from IE-mac */
+

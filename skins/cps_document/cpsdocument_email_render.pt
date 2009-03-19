@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <tal:block repeat="cid options/stylesheet_cids">
+      <link rel="stylesheet" type="text/css"
+	    tal:attributes="href string:cid:${cid}"/>
+    </tal:block>
+  </head>
+  <body>
+    <tal:block replace="structure options/rendered_doc"/>
+  </body>
+</html>

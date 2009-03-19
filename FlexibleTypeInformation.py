@@ -136,8 +136,9 @@ class FlexibleTypeInformation(FactoryTypeInformation):
          'label': 'Flexible layouts'},
         {'id': 'storage_methods', 'type': 'tokens', 'mode': 'w',
          'label': 'Storage methods'}, # XXX use schema storage adapters later
-        )
-        )
+        {'id': 'email_stylesheets', 'type': 'lines', 'mode': 'w',
+         'label': 'stylesheet methods for email rendering'},
+        ))
     content_meta_type = 'CPS Document'
     product = 'CPSDocument'
     factory = 'addCPSDocument'
@@ -147,6 +148,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     layout_clusters = ()
     flexible_layouts = ()
     storage_methods = () # XXX will later use a storage adapter in the schema
+    email_stylesheets = ('document_email.css',)
     cps_is_searchable = 1
     cps_proxy_type = 'document'
     cps_display_as_document_in_listing = 0
@@ -783,9 +785,23 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         Implementation note (see #1961): we use a special layout mode to tell
         the widgets to render for email.
         """
-        ds, main = self.renderObjectDetailed(ob, layout_mode=layout_mode, **kw)
-        cidparts = ds.get(CIDPARTS_KEY)
-        return main, cidparts
+        ds, div = self.renderObjectDetailed(ob, layout_mode=layout_mode, **kw)
+        cid_parts = ds.get(CIDPARTS_KEY, {})
+
+        # Adding CSS cid parts
+        for stylesheet in self.email_stylesheets:
+            cid = stylesheet # TODO put something unique
+            sheet = getattr(self, stylesheet)
+            if callable(sheet):
+                sheet = sheet()
+            cid_parts[cid] = {'content': sheet,
+                              'filename': stylesheet,
+                              'content-type': 'text/css'}
+
+        # Overall bootstrap
+        render_method = getattr(self, 'cpsdocument_email_render')
+        main = render_method(stylesheet_cids=cid_parts.keys(), rendered_doc=div)
+        return main, cid_parts
 
     security.declareProtected(View, 'validateObject')
     def validateObject(self, ob, layout_mode='edit', layout_id=None,
