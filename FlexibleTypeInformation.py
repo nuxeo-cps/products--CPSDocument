@@ -35,6 +35,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.TypesTool import FactoryTypeInformation
 from Products.CMFCore.interfaces import ITypeInformation
 
+from Products.CPSUtil.mail import make_cid
 from Products.CPSCore.EventServiceTool import getEventService
 from Products.CPSSchemas.Schema import SchemaContainer
 from Products.CPSSchemas.Layout import LayoutContainer
@@ -790,7 +791,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         # Adding CSS cid parts
         for stylesheet in self.email_stylesheets:
-            cid = stylesheet # TODO put something unique
+            cid = make_cid(stylesheet)
             sheet = getattr(self, stylesheet)
             if callable(sheet):
                 sheet = sheet()
