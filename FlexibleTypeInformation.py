@@ -790,8 +790,10 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         cid_parts = ds.get(CIDPARTS_KEY, {})
 
         # Adding CSS cid parts
+        stylesheet_cids = []
         for stylesheet in self.email_stylesheets:
             cid = make_cid(stylesheet)
+            stylesheet_cids.append(cid)
             sheet = getattr(self, stylesheet)
             if callable(sheet):
                 sheet = sheet()
@@ -801,7 +803,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         # Overall bootstrap
         render_method = getattr(self, 'cpsdocument_email_render')
-        main = render_method(stylesheet_cids=cid_parts.keys(), rendered_doc=div)
+        main = render_method(stylesheet_cids=stylesheet_cids,
+                             rendered_doc=div)
         return main, cid_parts
 
     security.declareProtected(View, 'validateObject')
