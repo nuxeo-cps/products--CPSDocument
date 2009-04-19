@@ -441,12 +441,14 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
         # Set the fields used by the widget.
         widget.fields = fields
+
         if layout_register:
             # Add the widget to the end of the layout definition.
             layoutdef = layout.getLayoutDefinition()
             layoutdef['rows'].append([{'widget_id': widget_id}])
             layout.setLayoutDefinition(layoutdef)
 
+        widget.finalizeFlexibleCreation(schema=schema, layout=layout)
         return widget.getWidgetId()
 
     security.declareProtected(ModifyPortalContent, 'flexibleDelWidgets')
