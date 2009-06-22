@@ -521,7 +521,9 @@ class TestDocuments(CPSTestCase):
         dm2 = doc.getTypeInfo().getDataModel(doc, proxy=proxy)
         self.assert_(dm2)
 
-        # Check it's they are the same
+        # unwrap file protections and check that they are the same
+        dm._unProtectFiles()
+        dm2._unProtectFiles()
         self.assertEqual(dm, dm2)
 
     def test_validate_pre_commit_hook(self):
