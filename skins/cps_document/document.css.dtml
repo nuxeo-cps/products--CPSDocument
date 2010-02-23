@@ -32,9 +32,17 @@ table.layoutDefault {
   border-spacing: 0;
 }
 
+.layoutDefault fieldset {
+  padding: 0 .5em;
+}
+
 table.layoutDefault td {
   padding-left: 0;
   padding-right: 0;
+}
+
+div.flexible_widgets_ctrl {
+  margin-bottom: 0.5em;
 }
 
 

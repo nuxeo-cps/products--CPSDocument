@@ -53,11 +53,29 @@
                          widget_css_class python:test(is_flexible, 'group', widget_css_class);
                          css_class python:test(err, 'row error',
                                                test(is_flexible, 'group', 'row'))">
-        <div class="fieldError" tal:omit-tag="not:err">
-        <div tal:attributes="class widget_css_class;
-                             id python:widget.getHtmlWidgetId()+'_widget';
-                            ">
-          <div class="label" tal:condition="widget/label_edit"
+        <div class="fieldError" tal:omit-tag="not:err"
+	     tal:define="fieldset widget/fieldset">
+
+	<fieldset
+	    tal:omit-tag="not:fieldset"
+	    tal:attributes="class widget_css_class;
+			    id python:widget.getHtmlWidgetId()+'_widget';">
+
+	  <tal:block condition="fieldset"
+		     define="legend_css python:test(is_required, 'label required', 'label')">
+  	    <legend i18n:translate="" tal:condition="widget/is_i18n"
+		    tal:attributes="class legend_css"
+		    tal:content="widget/label_edit"/>
+	    <legend tal:condition="not:widget/is_i18n"
+		    tal:attributes="class legend_css"
+		    tal:content="widget/label_edit"/>
+	  </tal:block>
+
+        <div tal:omit-tag="fieldset"
+	     tal:attributes="class widget_css_class;
+                             id python:widget.getHtmlWidgetId()+'_widget';">
+          <div class="label"
+	       tal:condition="python:widget.label_edit and not fieldset"
             tal:attributes="class python:test(is_required, 'label required',
                                               'label')">
             <label i18n:translate="" tal:condition="widget/is_i18n"
@@ -67,6 +85,7 @@
               tal:content="widget/label_edit"
               tal:attributes="for cell/widget_input_area_id|nothing;">label</label>
           </div>
+
           <button type="button" class="tooltipControl"
                   tal:condition="widget/help"
                   tal:attributes="onclick python:'toggleElementVisibility(\'%s\')' % tooltip_id;"> ? </button>
@@ -87,7 +106,8 @@
                 <p class="errorMessage"><em tal:content="msg">err</em></p>
               </tal:block>
           </tal:block>
-          <div style="float: right;" tal:condition="is_flexible">
+          <div style="float: right;" class="flexible_widgets_ctrl"
+	       tal:condition="is_flexible">
             <input type="button" value="button_move_up"
               tal:condition="not:repeat/row/start"
               tal:attributes="name string:uprow_${repeat/row/index}__${layout_id};
@@ -105,6 +125,7 @@
                                 (cpsmcat('description_confirm_delete'), )" />
           </div>
         </div>
+	</fieldset>
         </div>
       </tal:block>
     </td>
