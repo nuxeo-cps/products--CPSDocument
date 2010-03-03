@@ -288,8 +288,8 @@ class TestDocuments(CPSTestCase):
             # getDocumentSchemas(). I consider this as a bug.
             self.assert_(hasattr(doc, prop_name))
 
-        TITLE = "Un titre accentué"
-        CONTENT = "L'été est bientôt terminé"
+        TITLE = u"Un titre accentué"
+        CONTENT = u"L'été est bientôt terminé"
 
         doc.edit(proxy=proxy, Title=TITLE)
         self.assertEquals(doc.Title(), TITLE)

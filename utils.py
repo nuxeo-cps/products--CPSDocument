@@ -70,7 +70,9 @@ def cleanAjaxParams(request):
     def clean(element):
         if isinstance(element, list):
             return [clean(item) for item in element]
-        return element.decode('utf-8', 'replace').encode('iso-8859-15')
+        if not isinstance(element, unicode):
+            element = unicode(element, 'utf-8')
+        return element
 
     for key, value in request.form.items():
         if isinstance(value, str):

@@ -62,6 +62,7 @@
 
   <metal:block fill-slot="main">
     <form action="ACTION" method="post" id="editForm"
+          accept-charset="utf-8"
           enctype="multipart/form-data" class="workflow"
           tal:attributes="action form_action">
       <div class="group">
@@ -93,8 +94,8 @@
             <button type="button" class="tooltipControl"
                     onclick="toggleElementVisibility('transition_comments_help')"> ? </button>
             <br/>
-            <textarea name="comments" id="comments" cols="60" rows="3"
-                      tal:content="nothing">
+            <textarea name="comments:utf8:ustring" id="comments" cols="60"
+                      rows="3" tal:content="nothing">
             </textarea>
           </p>
         </tal:block>

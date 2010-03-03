@@ -716,7 +716,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         BBB: no_form will be implicit in CPS 3.5.0
         """
         layout_mode = kw['layout_mode']
-        all_rendered = ''
+        all_rendered = []
         nb_layouts = len(layout_structures)
         flexible_layouts = self._getFlexibleLayouts()
         for i, layout_structure in enumerate(layout_structures):
@@ -739,8 +739,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                                                 last_layout=last_layout,
                                                 is_flexible=is_flexible,
                                                 **kw)
-            all_rendered += rendered
-        return all_rendered
+            all_rendered.append(rendered)
+        return '\n'.join(all_rendered)
 
     #
     # API
