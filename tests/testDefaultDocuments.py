@@ -300,7 +300,8 @@ class TestDocuments(CPSTestCase):
             doc.getAdditionalContentInfo(proxy)['summary'], CONTENT)
 
         # Test view
-        view = proxy.cpsdocument_view().decode('utf8')
+
+        view = proxy.cpsdocument_view()
         self.assert_(TITLE in view)
         self.assert_(CONTENT in view)
 
