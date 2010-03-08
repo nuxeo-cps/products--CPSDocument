@@ -17,7 +17,9 @@
 #
 # $Id$
 
-from zLOG import LOG, DEBUG
+import logging
+
+import transaction
 from Acquisition import aq_base
 from Products.CMFCore.utils import getToolByName
 
@@ -232,3 +234,51 @@ def upgrade_338_340_newsitem_to_flex(context):
         count += 1
 
     return 'CPSDocument updated: %d Document instances became flexible' % count
+
+
+def upgrade_350_351_unicode(portal):
+    """Upgrade all documents to unicode.
+
+    Takes care of frozen revisions without version bumps
+    """
+
+    logger = logging.getLogger('Products.CPSDocument.upgrades.350_351_unicode')
+    repotool = portal.portal_repository
+    total = len(repotool)
+
+    done = 0
+    ptype2fields = dict() # portal_type -> (string fields, string list fields)
+    for doc in repotool.iterValues():
+        ptype = doc.portal_type
+
+        # Going through DataModel for uniformity (DublinCore etc)
+        try:
+            dm = doc.getDataModel()
+        except ValueError:
+            # if due to lack of FTI, already logged
+            continue
+
+        sfields = []
+        slfields = []
+        for f_id, f in dm._fields.items():
+            if f.meta_type == 'CPS String Field':
+                v = dm[f_id]
+                if not isinstance(v, str):
+                    # can have unicode, or... None (bad schema conf)
+                    continue
+
+            elif f.meta_type == 'CPS String List Field':
+                lv = dm[f_id]
+                if lv is None:
+                    continue
+                dm[f_id] = tuple(v.decode('iso-8859-15') for v in lv
+                                 if isinstance(v, str))
+
+        dm._commitData() # _commit() could spawn a new revision
+
+        done += 1
+        if done % 100 == 0:
+            logger.info("Upgraded %d/%d document revisions", done, total)
+            transaction.commit()
+
+    logger.warn("Finished unicode upgrade of the %d documents.", total)
