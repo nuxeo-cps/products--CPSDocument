@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSDocument 1.2.1
+===========================================================
+First release built by: gracinet at: 2010-03-13T17:51:41
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2120: optional use of fieldsets with widgets
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.2.0
 ===========================================================
 First release built by: gracinet at: 2009-12-15T12:27:48
