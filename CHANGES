@@ -6,7 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- #2120: optional use of fieldsets with widgets
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
