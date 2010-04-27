@@ -266,6 +266,7 @@ def upgrade_350_351_unicode(portal):
                 if not isinstance(v, str):
                     # can have unicode, or... None (bad schema conf)
                     continue
+                dm[f_id] = v.decode('iso-8859-15')
 
             elif f.meta_type == 'CPS String List Field':
                 lv = dm[f_id]
