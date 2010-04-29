@@ -305,6 +305,15 @@ def _upgrade_doc_unicode(doc):
                 except UnicodeError:
                     logger.error("Non ascii content for CPS Ascii String Field"
                                  " in %s", doc.getId())
+            elif f.meta_type == 'CPS Ascii String List Field':
+                lv = dm[f_id]
+                if not lv:
+                    continue
+                try:
+                    dm[f_id] = [str(v) for v in lv]
+                except UnicodeError:
+                    logger.error("Non ascii content for CPS Ascii String List "
+                                 "Field in %s", doc.getId())
 
         dm._commitData() # _commit() could spawn a new revision
         return True
