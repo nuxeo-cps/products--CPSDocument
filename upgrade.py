@@ -22,7 +22,7 @@ import logging
 import transaction
 from Acquisition import aq_base
 from Products.CMFCore.utils import getToolByName
-
+from Products.CPSUtil.text import OLD_CPS_ENCODING
 import itertools
 
 _marker = object()
@@ -235,11 +235,12 @@ def upgrade_338_340_newsitem_to_flex(context):
 
     return 'CPSDocument updated: %d Document instances became flexible' % count
 
-
 def upgrade_350_351_unicode(portal):
     """Upgrade all documents to unicode.
 
     Takes care of frozen revisions without version bumps
+    CPS String Field content will be cast to unicode, whereas
+    CPS Ascii String Field content will be cast to str
     """
 
     logger = logging.getLogger('Products.CPSDocument.upgrades.350_351_unicode')
@@ -247,8 +248,32 @@ def upgrade_350_351_unicode(portal):
     total = len(repotool)
 
     done = 0
-    ptype2fields = dict() # portal_type -> (string fields, string list fields)
     for doc in repotool.iterValues():
+        if not _upgrade_doc_unicode(doc):
+            logger.error("Could not upgrade document revision %s", doc)
+            continue
+        done += 1
+        if done % 100 == 0:
+            logger.info("Upgraded %d/%d document revisions", done, total)
+            transaction.commit()
+
+    logger.warn("Finished unicode upgrade of the %d/%d documents.", done, total)
+
+    ptool = portal.portal_cpsportlets
+    done = 0
+    logger.info("Starting upgrade of portlets")
+    ptls = ptool.listAllPortlets()
+    total = len(ptls)
+    for ptl in ptls:
+        if not _upgrade_doc_unicode(ptl):
+            logger.error("Could not upgrade portlet %s", doc)
+            continue
+        done += 1
+    transaction.commit()
+    logger.warn("Upgraded %d/%d portlets.", done, total)
+
+def _upgrade_doc_unicode(doc):
+
         ptype = doc.portal_type
 
         # Going through DataModel for uniformity (DublinCore etc)
@@ -256,8 +281,7 @@ def upgrade_350_351_unicode(portal):
             dm = doc.getDataModel()
         except ValueError:
             # if due to lack of FTI, already logged
-            continue
-
+            return False
         sfields = []
         slfields = []
         for f_id, f in dm._fields.items():
@@ -266,20 +290,22 @@ def upgrade_350_351_unicode(portal):
                 if not isinstance(v, str):
                     # can have unicode, or... None (bad schema conf)
                     continue
-                dm[f_id] = v.decode('iso-8859-15')
+                dm[f_id] = v.decode(OLD_CPS_ENCODING)
 
             elif f.meta_type == 'CPS String List Field':
                 lv = dm[f_id]
                 if lv is None:
                     continue
-                dm[f_id] = tuple(v.decode('iso-8859-15') for v in lv
+                dm[f_id] = tuple(v.decode(OLD_CPS_ENCODING) for v in lv
                                  if isinstance(v, str))
+            elif f.meta_type == 'CPS Ascii String Field':
+                v = dm[f_id]
+                try:
+                    dm[f_id] = str(v)
+                except UnicodeError:
+                    logger.error("Non ascii content for CPS Ascii String Field"
+                                 " in %s", doc.getId())
 
         dm._commitData() # _commit() could spawn a new revision
+        return True
 
-        done += 1
-        if done % 100 == 0:
-            logger.info("Upgraded %d/%d document revisions", done, total)
-            transaction.commit()
-
-    logger.warn("Finished unicode upgrade of the %d documents.", total)
