@@ -294,10 +294,10 @@ def _upgrade_doc_unicode(doc):
 
             elif f.meta_type == 'CPS String List Field':
                 lv = dm[f_id]
-                if lv is None:
+                if not lv:
                     continue
-                dm[f_id] = tuple(v.decode(OLD_CPS_ENCODING) for v in lv
-                                 if isinstance(v, str))
+                dm_fid = [v.decode(OLD_CPS_ENCODING)
+                          for v in lv if isinstance(v, str)]
             elif f.meta_type == 'CPS Ascii String Field':
                 v = dm[f_id]
                 try:
