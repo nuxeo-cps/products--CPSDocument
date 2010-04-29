@@ -296,8 +296,8 @@ def _upgrade_doc_unicode(doc):
                 lv = dm[f_id]
                 if not lv:
                     continue
-                dm_fid = [v.decode(OLD_CPS_ENCODING)
-                          for v in lv if isinstance(v, str)]
+                dm[f_id] = [v.decode(OLD_CPS_ENCODING)
+                            for v in lv if isinstance(v, str)]
             elif f.meta_type == 'CPS Ascii String Field':
                 v = dm[f_id]
                 try:
