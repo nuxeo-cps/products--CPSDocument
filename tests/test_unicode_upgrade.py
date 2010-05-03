@@ -49,6 +49,7 @@ class TestUpgrade(CPSTestCase):
     def test_upgrade(self):
         # A whole run
         doc = self.fti.constructInstance(self.portal, 'upgrade')
+
         # avoiding dm side effects by setting attrs directly
         self.doc_set(doc, string='a\xe9', ascii_string='abcd',
                      string_list=['\xe0', 'abc', u'xy', '\xe9', u'\xe9'],
@@ -64,6 +65,39 @@ class TestUpgrade(CPSTestCase):
         self.assertEquals(dm['ascii_string_list'],
                           ['abc', 'xy'])
 
+    def check_string(self, input, output):
+        """Set the doc with input in string field, upgrade, check output"""
+        doc = self.fti.constructInstance(self.portal, 'upgrade')
+        self.doc_set(doc, string=input)
+
+        self.assertTrue(_upgrade_doc_unicode(doc))
+
+        dm = doc.getDataModel()
+        self.assertEquals(dm['string'], output)
+        self.portal.manage_delObjects(['upgrade',])
+
+    def test_upgrade_entities(self):
+        self.check_string('See what I mean &#8230;', u'See what I mean \u2026')
+        self.check_string('&#8230; Abusing of ellipsis &#8230;',
+                          u'\u2026 Abusing of ellipsis \u2026')
+        self.check_string('Av\xe9 l&#8217;assent !', u'Av\xe9 l\u2019assent !')
+
+    def test_upgrade_entities_list(self):
+        doc = self.fti.constructInstance(self.portal, 'upgrade')
+        self.doc_set(doc, string_list=[u'\xe0', '\xe9', 'I mean &#8230;'])
+        self.assertTrue(_upgrade_doc_unicode(doc))
+
+        dm = doc.getDataModel()
+        self.assertEquals(dm['string_list'],
+                          [u'\xe0', u'\xe9', u'I mean \u2026'])
+
+    def test_upgrade_entities_u2u(self):
+        # Here input is already unicode, but entities haven't been decoded yet
+        # typical of partial upgrades
+        self.check_string(u'See what I mean &#8230;', u'See what I mean \u2026')
+        self.check_string(u'&#8230; Abusing of ellipsis &#8230;',
+                          u'\u2026 Abusing of ellipsis \u2026')
+        self.check_string(u'Av\xe9 l&#8217;assent !', u'Av\xe9 l\u2019assent !')
 
     def beforeTearDown(self):
         self.logout()
