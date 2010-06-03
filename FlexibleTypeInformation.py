@@ -385,7 +385,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
     security.declarePrivate('_flexibleAddSimpleWidget')
     def _flexibleAddSimpleWidget(self, ob, layout_id, wtid,
-                                layout_register = 1, **kw):
+                                layout_register = 1, position=None, **kw):
         """Add a new widget to the flexible part of a document.
 
         Returns the widget id.
@@ -443,9 +443,11 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         widget.fields = fields
 
         if layout_register:
-            # Add the widget to the end of the layout definition.
             layoutdef = layout.getLayoutDefinition()
-            layoutdef['rows'].append([{'widget_id': widget_id}])
+            if position is None:
+                # Add the widget to the end of the layout definition.
+                register = len(layoutdef)
+            layoutdef['rows'].insert(position, [{'widget_id': widget_id}])
             layout.setLayoutDefinition(layoutdef)
 
         widget.finalizeFlexibleCreation(schema=schema, layout=layout)

@@ -6,7 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- #2159: allow insertion of flexible widgets everywhere in the layout
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - Set editors' mode in JavaScript file. 

@@ -33,9 +33,12 @@ for k in kw:
         rows.append(int(cmd[len('deleterow_'):]))
 
     elif k.startswith('addwidget_button'):
-        _, layout_id = k.split('__', 1)
-        add_widgets.append(layout_id)
-
+        cmd, layout_id = k.split('__')
+        try:
+            position = int(cmd[len('addwidget_button_'):])
+        except ValueError: # layout method not up to date for #2159
+            position = None
+        add_widgets.append((position, layout_id))
 
 if not (up_rows or down_rows or delete_rows or add_widgets):
     # optim: do not getEditableContent unless necessary
@@ -56,9 +59,11 @@ for layout_id, rows in delete_rows.items():
     doc.flexibleDelWidgetRows(layout_id, rows)
     changed = True
 
-for layout_id in add_widgets:
-    doc.flexibleAddWidget(layout_id, kw['widget_type__%s' % layout_id],
-                          label_edit=kw.get('widget_label_edit'))
+for position, layout_id in add_widgets:
+    doc.flexibleAddWidget(layout_id,
+                          kw['widget_type_%d__%s' % (position, layout_id)],
+                          label_edit=kw.get('widget_label_edit'),
+                          position=position)
     changed = True
 
 return changed

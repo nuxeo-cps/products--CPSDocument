@@ -1,6 +1,9 @@
 <!-- a layout_lib macro -->
 <!-- $Id$ -->
 <metal:block define-macro="default_edit"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
   tal:define="layout options/layout;
               layout_id layout/layout_id;
               layout_label options/label_edit;
@@ -39,8 +42,15 @@
   <legend tal:condition="python:layout_label and not layout_is_i18n"
     tal:content="layout_label"></legend>
 
+  <tal:block define="position python:0"
+	     condition="is_flexible" >
+    <metal:block use-macro="here/layout_lib_default_flex_widget/macros/add" />
+  </tal:block>
+
 <table class="layoutDefault" summary="Form layout" tal:condition="layout/rows">
-  <tr tal:repeat="row layout/rows" valign="top">
+
+  <tal:block repeat="row layout/rows">
+    <tr valign="top">
     <td tal:repeat="cell row"
       tal:attributes="colspan cell/ncols">
       <tal:block define="widget cell/widget;
@@ -130,49 +140,17 @@
       </tal:block>
     </td>
   </tr>
+  <tr tal:define="position repeat/row/number">
+    <td>
+      <metal:block use-macro="here/layout_lib_default_flex_widget/macros/add"
+		   tal:condition="is_flexible" />
+    </td>
+  </tr>
+  </tal:block>
+
 </table>
 
 </fieldset>
-
-<tal:block condition="is_flexible">
-<div tal:define="flexible_widgets options/flexible_widgets">
-  <tal:select condition="python:len(flexible_widgets)>1">
-    <select tal:attributes="name string:widget_type__${layout_id}">
-      <tal:block repeat="widget options/flexible_widgets">
-      <option value="."
-        tal:condition="widget/is_i18n"
-        i18n:translate=""
-        tal:attributes="value widget/getWidgetId"
-        tal:content="widget/title_or_id">Type</option>
-      <option value="."
-        tal:condition="not:widget/is_i18n"
-        tal:attributes="value widget/getWidgetId"
-        tal:content="widget/title_or_id">Type</option>
-      </tal:block>
-    </select>
-    <input type="button"
-           value="button_add" id="addwidget_button"
-           class="context"
-           i18n:attributes="value"
-           tal:attributes="onclick string:CPSFlexibleEdit.buttonClick(this, '');
-                           name string:addwidget_button__${layout_id};" />
-  </tal:select>
-  <tal:button condition="python:len(flexible_widgets) == 1">
-    <tal:block define="widget python:flexible_widgets[0]">
-      <input type="hidden"
-        tal:attributes="value widget/getWidgetId;
-                        name string:widget_type__${layout_id};">
-      <input type="submit" id="addwidget_button"
-        tal:define="button_add python:cpsmcat('button_add');
-          widget_title python:cpsmcat(widget.title_or_id())"
-          tal:attributes="onclick string:CPSFlexibleEdit.buttonClick(this, '');
-                          value string:${button_add} ${widget_title};
-                          name string:addwidget_button__${layout_id};"
-        class="context" />
-    </tal:block>
-  </tal:button>
-</div>
-</tal:block>
 
 <tal:block condition="last_layout">
   <tal:block content="structure string:</div>" />
