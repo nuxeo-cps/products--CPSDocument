@@ -446,7 +446,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
             layoutdef = layout.getLayoutDefinition()
             if position is None:
                 # Add the widget to the end of the layout definition.
-                register = len(layoutdef)
+                position = len(layoutdef)
             layoutdef['rows'].insert(position, [{'widget_id': widget_id}])
             layout.setLayoutDefinition(layoutdef)
 
