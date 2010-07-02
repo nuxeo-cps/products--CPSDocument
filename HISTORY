@@ -1,4 +1,38 @@
 ===========================================================
+Package: CPSDocument 1.3.0
+===========================================================
+First release built by: gracinet at: 2010-06-30T02:35:16
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2159: allow insertion of flexible widgets everywhere in the layout
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- Set editors' mode in JavaScript file. 
+
+===========================================================
+Package: CPSDocument 1.2.1
+===========================================================
+First release built by: gracinet at: 2010-03-13T17:51:41
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2120: optional use of fieldsets with widgets
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.2.0
 ===========================================================
 First release built by: gracinet at: 2009-12-15T12:27:48
