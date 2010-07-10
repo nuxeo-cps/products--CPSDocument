@@ -23,7 +23,7 @@ import re
 import transaction
 from Acquisition import aq_base
 from Products.CMFCore.utils import getToolByName
-from Products.CPSUtil.text import OLD_CPS_ENCODING
+from Products.CPSUtil.text import upgrade_string_unicode
 import itertools
 
 _marker = object()
@@ -273,23 +273,6 @@ def upgrade_350_351_unicode(portal):
     transaction.commit()
     logger.warn("Upgraded %d/%d portlets.", done, total)
 
-ENTITY_RE = re.compile(r'&#(\d+);')
-
-def _entity_transcode(match_obj):
-    """Replace numeric XML entity by corresponding unicode string."""
-    return unichr(int(match_obj.group(1)))
-
-def _upgrade_string_unicode(v):
-    """Upgrade a single string, including entities"""
-    if not isinstance(v, basestring):
-        # can have None (bad schema conf)
-        return v # not the job of *this* upgrader
-
-    if isinstance(v, str):
-        v = v.decode(OLD_CPS_ENCODING)
-
-    return ENTITY_RE.sub(_entity_transcode, v)
-
 def _upgrade_doc_unicode(doc):
         ptype = doc.portal_type
 
@@ -303,12 +286,12 @@ def _upgrade_doc_unicode(doc):
         slfields = []
         for f_id, f in dm._fields.items():
             if f.meta_type == 'CPS String Field':
-                dm[f_id] = _upgrade_string_unicode(dm[f_id])
+                dm[f_id] = upgrade_string_unicode(dm[f_id])
             elif f.meta_type == 'CPS String List Field':
                 lv = dm[f_id]
                 if not lv:
                     continue
-                dm[f_id] = [_upgrade_string_unicode(v) for v in lv]
+                dm[f_id] = [upgrade_string_unicode(v) for v in lv]
             elif f.meta_type == 'CPS Ascii String Field':
                 v = dm[f_id]
                 try:
