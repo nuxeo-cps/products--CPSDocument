@@ -24,6 +24,7 @@ import transaction
 from Acquisition import aq_base
 from Products.CMFCore.utils import getToolByName
 from Products.CPSUtil.text import upgrade_string_unicode
+
 import itertools
 
 _marker = object()
@@ -244,13 +245,13 @@ def upgrade_350_351_unicode(portal):
     CPS Ascii String Field content will be cast to str
     """
 
-    logger = logging.getLogger('Products.CPSDocument.upgrades.350_351_unicode')
+    logger = logging.getLogger('Products.CPSDocument.upgrades.unicode')
     repotool = portal.portal_repository
     total = len(repotool)
 
     done = 0
     for doc in repotool.iterValues():
-        if not _upgrade_doc_unicode(doc):
+        if not upgrade_doc_unicode(doc):
             logger.error("Could not upgrade document revision %s", doc)
             continue
         done += 1
@@ -260,19 +261,6 @@ def upgrade_350_351_unicode(portal):
 
     logger.warn("Finished unicode upgrade of the %d/%d documents.", done, total)
 
-    ptool = portal.portal_cpsportlets
-    done = 0
-    logger.info("Starting upgrade of portlets")
-    ptls = ptool.listAllPortlets()
-    total = len(ptls)
-    for ptl in ptls:
-        if not _upgrade_doc_unicode(ptl):
-            logger.error("Could not upgrade portlet %s", doc)
-            continue
-        done += 1
-    transaction.commit()
-    logger.warn("Upgraded %d/%d portlets.", done, total)
-
     logger.info("Rebuilding Tree Caches")
     trees = portal.portal_trees.objectValues('CPS Tree Cache')
     for tree in trees:
@@ -281,7 +269,7 @@ def upgrade_350_351_unicode(portal):
         transaction.commit()
     logger.warn("Finished rebuilding the Tree Caches")
 
-def _upgrade_doc_unicode(doc):
+def upgrade_doc_unicode(doc):
         ptype = doc.portal_type
 
         # Going through DataModel for uniformity (DublinCore etc)

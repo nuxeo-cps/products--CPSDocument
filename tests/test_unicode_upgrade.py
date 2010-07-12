@@ -23,7 +23,7 @@ import unittest
 from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
 from Products.CPSUtil.text import get_final_encoding
 
-from Products.CPSDocument.upgrade import _upgrade_doc_unicode
+from Products.CPSDocument.upgrade import upgrade_doc_unicode
 
 from layer import CPSDocumentLayer
 
@@ -55,7 +55,7 @@ class TestUpgrade(CPSTestCase):
                      string_list=['\xe0', 'abc', u'xy', '\xe9', u'\xe9'],
                      ascii_string_list=['abc', u'xy'])
 
-        self.assertTrue(_upgrade_doc_unicode(doc))
+        self.assertTrue(upgrade_doc_unicode(doc))
 
         dm = doc.getDataModel()
         self.assertEquals(dm['string'], u'a\xe9')
@@ -70,7 +70,7 @@ class TestUpgrade(CPSTestCase):
         doc = self.fti.constructInstance(self.portal, 'upgrade')
         self.doc_set(doc, string=input)
 
-        self.assertTrue(_upgrade_doc_unicode(doc))
+        self.assertTrue(upgrade_doc_unicode(doc))
 
         dm = doc.getDataModel()
         self.assertEquals(dm['string'], output)
@@ -85,7 +85,7 @@ class TestUpgrade(CPSTestCase):
     def test_upgrade_entities_list(self):
         doc = self.fti.constructInstance(self.portal, 'upgrade')
         self.doc_set(doc, string_list=[u'\xe0', '\xe9', 'I mean &#8230;'])
-        self.assertTrue(_upgrade_doc_unicode(doc))
+        self.assertTrue(upgrade_doc_unicode(doc))
 
         dm = doc.getDataModel()
         self.assertEquals(dm['string_list'],
