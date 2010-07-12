@@ -273,6 +273,14 @@ def upgrade_350_351_unicode(portal):
     transaction.commit()
     logger.warn("Upgraded %d/%d portlets.", done, total)
 
+    logger.info("Rebuilding Tree Caches")
+    trees = portal.portal_trees.objectValues('CPS Tree Cache')
+    for tree in trees:
+        logger.info("Rebuilding %s", tree)
+        tree.rebuild()
+        transaction.commit()
+    logger.warn("Finished rebuilding the Tree Caches")
+
 def _upgrade_doc_unicode(doc):
         ptype = doc.portal_type
 
