@@ -36,6 +36,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
 from Products.CPSSchemas.Widget import widgetname
 from Products.CPSUtil.tests.web_conformance import assertWellFormedXml
+from Products.CPSUtil.text import get_final_encoding
 
 from document_definitions import getDocumentSchemas
 
@@ -288,8 +289,8 @@ class TestDocuments(CPSTestCase):
             # getDocumentSchemas(). I consider this as a bug.
             self.assert_(hasattr(doc, prop_name))
 
-        TITLE = "Un titre accentué"
-        CONTENT = "L'été est bientôt terminé"
+        TITLE = u"Un titre accentu\xe9"
+        CONTENT = u"L'\xe9t\xe9 est bientôt termin\xe9"
 
         doc.edit(proxy=proxy, Title=TITLE)
         self.assertEquals(doc.Title(), TITLE)
@@ -300,9 +301,11 @@ class TestDocuments(CPSTestCase):
             doc.getAdditionalContentInfo(proxy)['summary'], CONTENT)
 
         # Test view
+
         view = proxy.cpsdocument_view()
-        self.assert_(TITLE in view)
-        self.assert_(CONTENT in view)
+        encoding = get_final_encoding(self.portal)
+        self.assert_(TITLE.encode(encoding) in view)
+        self.assert_(CONTENT.encode(encoding) in view)
 
         # Test summary for long content
         from Products.CPSDocument.CPSDocument import SUMMARY_MAX_LEN

@@ -17,9 +17,13 @@
 #
 # $Id$
 
-from zLOG import LOG, DEBUG
+import logging
+import re
+
+import transaction
 from Acquisition import aq_base
 from Products.CMFCore.utils import getToolByName
+from Products.CPSUtil.text import upgrade_string_unicode
 
 import itertools
 
@@ -232,3 +236,75 @@ def upgrade_338_340_newsitem_to_flex(context):
         count += 1
 
     return 'CPSDocument updated: %d Document instances became flexible' % count
+
+def upgrade_350_351_unicode(portal):
+    """Upgrade all documents to unicode.
+
+    Takes care of frozen revisions without version bumps
+    CPS String Field content will be cast to unicode, whereas
+    CPS Ascii String Field content will be cast to str
+    """
+
+    logger = logging.getLogger('Products.CPSDocument.upgrades.unicode')
+    repotool = portal.portal_repository
+    total = len(repotool)
+
+    done = 0
+    for doc in repotool.iterValues():
+        if not upgrade_doc_unicode(doc):
+            logger.error("Could not upgrade document revision %s", doc)
+            continue
+        done += 1
+        if done % 100 == 0:
+            logger.info("Upgraded %d/%d document revisions", done, total)
+            transaction.commit()
+
+    logger.warn("Finished unicode upgrade of the %d/%d documents.", done, total)
+
+    logger.info("Rebuilding Tree Caches")
+    trees = portal.portal_trees.objectValues('CPS Tree Cache')
+    for tree in trees:
+        logger.info("Rebuilding %s", tree)
+        tree.rebuild()
+        transaction.commit()
+    logger.warn("Finished rebuilding the Tree Caches")
+
+def upgrade_doc_unicode(doc):
+        ptype = doc.portal_type
+
+        # Going through DataModel for uniformity (DublinCore etc)
+        try:
+            dm = doc.getDataModel()
+        except ValueError:
+            # if due to lack of FTI, already logged
+            return False
+        sfields = []
+        slfields = []
+        for f_id, f in dm._fields.items():
+            if f.meta_type == 'CPS String Field':
+                dm[f_id] = upgrade_string_unicode(dm[f_id])
+            elif f.meta_type == 'CPS String List Field':
+                lv = dm[f_id]
+                if not lv:
+                    continue
+                dm[f_id] = [upgrade_string_unicode(v) for v in lv]
+            elif f.meta_type == 'CPS Ascii String Field':
+                v = dm[f_id]
+                try:
+                    dm[f_id] = str(v)
+                except UnicodeError:
+                    logger.error("Non ascii content for CPS Ascii String Field"
+                                 " in %s", doc.getId())
+            elif f.meta_type == 'CPS Ascii String List Field':
+                lv = dm[f_id]
+                if not lv:
+                    continue
+                try:
+                    dm[f_id] = [str(v) for v in lv]
+                except UnicodeError:
+                    logger.error("Non ascii content for CPS Ascii String List "
+                                 "Field in %s", doc.getId())
+
+        dm._commitData() # _commit() could spawn a new revision
+        return True
+

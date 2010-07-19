@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="test_upgrade" meta_type="CPS Schema">
+ <field name="string" meta_type="CPS String Field"/>
+ <field name="string_list" meta_type="CPS String List Field"/>
+ <field name="ascii_string_list" meta_type="CPS Ascii String List Field"/>
+ <field name="ascii_string" meta_type="CPS Ascii String Field"/>
+</object>

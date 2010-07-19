@@ -12,7 +12,7 @@ cleanAjaxParams(REQUEST)
 
 doc = context.getContent()
 res = doc.renderEditDetailed(request=REQUEST, proxy=context, cluster=cluster)
-layout, is_valid = str(res[0]), res[1]
+layout, is_valid = res[0], res[1]
 
 # AJAX tries to change the doc and just needs to know if there were errors
 # for feedback without a new form rendering.

@@ -73,5 +73,11 @@
       checker=".upgrade.check_338_340_newsitem_to_flex"
       />
 
+  <cps:upgradeStep
+      title="Upgrade documents to unicode"
+      source="3.5.0" destination="3.5.1"
+      handler=".upgrade.upgrade_350_351_unicode"
+      />
+
 
 </configure>
