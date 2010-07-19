@@ -774,7 +774,7 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         rendered = self._renderLayouts(layout_structures, ds, context,
                                        layout_mode=layout_mode, **kw)
 
-        return ds, rendered
+        return ds, rendered.strip()
 
     security.declareProtected(View, 'renderObject')
     def renderObject(self, ob, **kw):
