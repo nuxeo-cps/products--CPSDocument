@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSDocument 1.3.1
+===========================================================
+First release built by: gracinet at: 2010-07-26T22:48:42
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2176: avoid leading or trailing lines in document renderings
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.3.0
 ===========================================================
 First release built by: gracinet at: 2010-06-30T02:35:16
