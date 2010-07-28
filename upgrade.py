@@ -24,6 +24,7 @@ import transaction
 from Acquisition import aq_base
 from Products.CMFCore.utils import getToolByName
 from Products.CPSUtil.text import upgrade_string_unicode
+from Products.CPSSchemas.BasicFields import CPSStringField
 
 import itertools
 
@@ -272,7 +273,30 @@ def upgrade_350_351_unicode(portal):
 def upgrade_doc_unicode(doc):
         ptype = doc.portal_type
 
+        logger = logging.getLogger('Products.CPSDocument.upgrades.doc_unicode')
         # Going through DataModel for uniformity (DublinCore etc)
+        if doc.hasObject('.cps_schemas'):
+            # we may have String fields to upgrade so that they validate None
+            for sch in doc['.cps_schemas'].objectValues(['CPS Schema']):
+                for ffield in sch.objectValues(['CPS File Field']):
+                    suffix = ffield.suffix_text
+                    if not suffix:
+                        continue
+                    try:
+                        tfield = sch[ffield._getDependantFieldsBaseId()+suffix]
+                    except KeyError, AtrributeError:
+                        logger.warn("Could not find the text alternative field"
+                                    "for %s", ffield.absolute_url_path())
+                        continue
+
+                    if not isinstance(tfield, CPSStringField):
+                        logger.warn("Should have been a CPS String Field: %s",
+                                    field.absolute_url_path())
+                        continue
+                    tfield.validate_none = True
+                    logger.info("Upgraded text alternative field at %s",
+                                tfield.absolute_url_path())
+
         try:
             dm = doc.getDataModel()
         except ValueError:
