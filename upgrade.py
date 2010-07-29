@@ -238,7 +238,7 @@ def upgrade_338_340_newsitem_to_flex(context):
 
     return 'CPSDocument updated: %d Document instances became flexible' % count
 
-def upgrade_350_351_unicode(portal):
+def upgrade_unicode(portal):
     """Upgrade all documents to unicode.
 
     Takes care of frozen revisions without version bumps
