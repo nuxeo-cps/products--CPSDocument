@@ -238,7 +238,7 @@ def upgrade_338_340_newsitem_to_flex(context):
 
     return 'CPSDocument updated: %d Document instances became flexible' % count
 
-def upgrade_unicode(portal):
+def upgrade_unicode(portal, resync_trees=True):
     """Upgrade all documents to unicode.
 
     Takes care of frozen revisions without version bumps
@@ -261,6 +261,9 @@ def upgrade_unicode(portal):
             transaction.commit()
 
     logger.warn("Finished unicode upgrade of the %d/%d documents.", done, total)
+
+    if not resync_trees:
+        return
 
     logger.info("Rebuilding Tree Caches")
     trees = portal.portal_trees.objectValues('CPS Tree Cache')
