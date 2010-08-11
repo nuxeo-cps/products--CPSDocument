@@ -3,7 +3,7 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
--
+- #693: leverage on-the-fly image resizing capability introduced in #2204
 Bug fixes
 ~~~~~~~~~
 -

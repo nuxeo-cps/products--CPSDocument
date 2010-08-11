@@ -47,11 +47,10 @@
                       ',scrollbars=yes'
                       '\');; return false', 'return true')">
           <img tal:replace="structure
-                             python:here.getImgTag(
-                               item.absolute_url_path()+'/preview',
-                               base_url='',width=th_width,height=th_height,
-                               keep_ratio=1, 
-			       img=item.restrictedTraverse('preview'))">
+                             python:here.getImgTag(proxy_doc=item,
+			     img_name='preview',
+			     width=th_width,height=th_height,
+			     keep_ratio=1)">
           <br />
           <p tal:replace="item/Title"></p>
         </a>
@@ -66,10 +65,11 @@
   <tr class="even">
     <td align="center" width="100%"
         tal:define="mq nocall:modules/ZTUtils/make_query;">
+
       <a href="." tal:condition="previous_page"
          tal:attributes="href python:'%s?%s'%(request['URL'],
                                               mq(request.form,
-                                                 start=0))">«</a>
+                                                 start=0))"></a>
       <a tal:condition="previous_page"
          tal:attributes="href python:'%s?%s'%(request['URL'],
                                               mq(request.form,
@@ -83,7 +83,7 @@
          tal:attributes="href python:'%s?%s'%(request['URL'],
                                               mq(request.form,
                                                  start=len(items) - (len(items) % nb_items)))">
-        »</a>
+        </a>
     </td>
   </tr>
   <tr>
