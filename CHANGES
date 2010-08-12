@@ -9,4 +9,4 @@ Bug fixes
 -
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
-- 
+- #2208: automatic content creation (createFile now configurable) 
