@@ -34,6 +34,7 @@ from OFS.Image import Image, File
 
 from Products.CMFCore.utils import getToolByName
 from Products.CPSUtil.id import generateFileName
+from Products.CPSUtil.file import ofsFileHandler
 from Products.CPSCore.EventServiceTool import getEventService
 from Products.CPSSchemas.BasicFields import CPSFileField, CPSImageField
 
@@ -109,8 +110,7 @@ def createFile(container, zip_file, check_allowed_content_types=True):
             logger.info('Inexistent uploaded ZIP file')
             return
     try:
-        # TODO use OFSFileIO
-        zipfile = ZipFile(StringIO(str(zip_file)))
+        zipfile = ZipFile(ofsFileHandler(zip_file))
     except BadZipfile:
         logger.info('Bad Zip File')
         return 0
