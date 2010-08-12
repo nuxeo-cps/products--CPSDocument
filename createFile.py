@@ -22,9 +22,10 @@ Create a document (attached file) for each file in the uploaded ZIP,
 with types according to their extensions
 """
 
-from logging import getLogger
 from zipfile import ZipFile, BadZipfile
 from cStringIO import StringIO
+from copy import deepcopy
+from logging import getLogger
 
 from zope.component import getAdapter
 from AccessControl import ModuleSecurityInfo
@@ -52,9 +53,12 @@ class FileObjectFactory(object):
     # (StorageAdapter, TramlineFile itself?) that could be done this way
     # and clarified.
     # Besides, OFS.Image.File has no interface anyway (!)
-    classes = { # field class -> file class
-        CPSFileField.meta_type: File,
-        CPSImageField.meta_type: Image,
+    methods = { # field class -> (callable, options dict)
+        CPSFileField.meta_type: (File, {}),
+        CPSImageField.meta_type: (Image, {})
+        # example with a factory method needing the context and having
+        # another option
+        # : (TramlineFile.direct_create, dict(context=True, thr=10240))
     }
 
     def __init__(self, types_tool):
@@ -79,8 +83,11 @@ class FileObjectFactory(object):
                     "Field %s not in %s non-flexible schemas" % (fid, ptype))
 
         # instantiation
-        klass = self.classes[field.meta_type]
-        return klass(oid, title, data)
+        meth, options = self.methods[field.meta_type]
+        kw = deepcopy(options)
+        if kw.get('context', False):
+            kw['context'] = self.ttool
+        return meth(oid, title, data, **kw)
 
 def createFile(container, zip_file, check_allowed_content_types=True):
     """create documents based on the files in the uploaded ZIP"""
