@@ -196,6 +196,28 @@ div.faqResponse {
   padding-left: 0px! important;
 }
 
+/* File upload (currently in CPSTramline only, 
+but would be ridiculous to make a new stylesheet for
+just two declarations)
+*/
+
+.fuWrapper div {
+  border: 1px solid black;
+  margin: 10px auto 0 auto;
+  width: 80%;
+}
+
+div.fuFilename {
+  border: none;
+  margin-top: 1ex;
+  width: auto
+}
+
+span.fuProgress {
+  background: #ffac0b; /* taken from ajax_psm */
+  padding-left: .5em;
+}
+
 /* hack for IE6 bugs */
 /* Hides from IE5-mac \*/
 * html div.dleft {height: 1%}
