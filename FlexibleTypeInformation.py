@@ -158,7 +158,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
     cps_is_searchable = 1
     cps_proxy_type = 'document'
     cps_display_as_document_in_listing = 0
-    auto_content_types = ()
+    auto_content_types = ('image/.*:Image:preview', '.*:File:file')
     auto_content_types_c = ((re.compile(r'image/.*'), 'Image', 'preview'),
                             (re.compile(r'.*'), 'File', 'file'),)
 
