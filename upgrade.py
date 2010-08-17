@@ -273,6 +273,77 @@ def upgrade_unicode(portal, resync_trees=True):
         transaction.commit()
     logger.warn("Finished rebuilding the Tree Caches")
 
+def resync_flexible_widgets(portal, wid_props=None):
+    """Upgrade flexible widgets by recopying properties from the master ones.
+
+    wid_props is a double dict (layout_id -> (master widget id -> property ids))
+    template
+    """
+
+    logger = logging.getLogger('Products.CPSDocument.upgrades.'
+                               'resync_flexible_widgets')
+    repotool = portal.portal_repository
+    total = len(repotool)
+
+    ltool = portal.portal_layouts
+    layout_ids = wid_props.keys()
+    logger.info("Starting resync of flexible widgets for layouts %r \n"
+                "detailed parameters: %r", layout_ids, wid_props)
+
+    layouts = dict((lid, ltool[lid]) for lid in layout_ids)
+
+    done = 0
+    for doc in repotool.iterValues():
+        ret = resync_doc_flex_widgets(doc, layouts=layouts, wid_props=wid_props)
+        if ret is None: # means was not applicable, but ok
+            continue
+
+        if not ret:
+            logger.error("Could not upgrade document revision %s", doc)
+            continue
+
+        done += 1
+        if done % 100 == 0:
+            logger.info("Upgraded %d/%d document revisions", done, total)
+            transaction.commit()
+
+    logger.warn("Finished resyncing flexible widgets for layouts %r "
+                "of the %d/%d documents.", layout_ids, done, total)
+
+    transaction.commit()
+
+def resync_doc_flex_widgets(doc, layouts=None, wid_props=None):
+
+    if not doc.hasObject('.cps_layouts'):
+        return
+    lcont = doc['.cps_layouts']
+    loc_lids = lcont.objectIds()
+    for lid, glob in layouts.items():
+        if not lid in loc_lids:
+            continue
+        lwp = wid_props.get(lid)
+        if lwp is None:
+            continue
+        loc = lcont[lid]
+
+        for wid, w in loc.items():
+            if wid in glob.keys():
+                gw = glob[wid]
+            else:
+                split = wid.rsplit('_', 1)
+                try:
+                    int(split[1])
+                    gw = glob[split[0]]
+                except (TypeError, IndexError, KeyError):
+                    logger.warn("Could not find template widget for %s",
+                                w.absolute_url_path())
+                    continue
+
+            for pid in lwp.get(gw.getWidgetId(), ()):
+                w.manage_changeProperties(**{pid: gw.getProperty(pid)})
+    return True
+
+
 def upgrade_doc_unicode(doc):
         ptype = doc.portal_type
 
@@ -335,3 +406,9 @@ def upgrade_doc_unicode(doc):
         dm._commitData() # _commit() could spawn a new revision
         return True
 
+def upgrade_text_widgets_tidy(portal):
+    """This should be played after running the profiles."""
+    resync_flexible_widgets(portal, wid_props=dict(
+        flexible_content=dict(content=('xhtml_sanitize_system',),
+                              content_right=('xhtml_sanitize_system',))
+        ))
