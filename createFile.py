@@ -134,6 +134,9 @@ def createFile(container, zip_file, check_allowed_content_types=True):
         # Skip folders
         if path[-1] == '/':
             continue
+	# Skip technical MacOS dir that's useless for us and causes collisions
+	if '__MACOSX/' in path:
+            continue
 
         # Acquiring only the filename (without the directory path)
         filename = path.rsplit('/', 1)[-1]
@@ -150,8 +153,8 @@ def createFile(container, zip_file, check_allowed_content_types=True):
             file_id = proxy_fact(container, ptype, path_filename,
                                  Title=filename, **{fid: fobj})
         except BadRequest:
-            logger.info('File %s already exists', path_filename)
-            return 0
+            logger.exception('File %s already exists', path_filename)
+            continue
 
         # there was a content_type correction of file obj in earlier version.
         # might be necessary again (didn't see anything in history)
