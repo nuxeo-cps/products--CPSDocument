@@ -23,6 +23,7 @@ from Products.CMFCore.permissions import AddPortalContent
 import FlexibleTypeInformation
 import CPSDocument
 import createFile
+import bulkcreate
 import Products.CPSDocument.utils
 
 contentClasses = (
