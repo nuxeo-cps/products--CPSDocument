@@ -35,6 +35,7 @@ from OFS.Image import Image, File
 from Products.CMFCore.utils import getToolByName
 from Products.CPSUtil.id import generateFileName
 from Products.CPSUtil.file import ofsFileHandler
+from Products.CPSUtil.text import get_final_encoding
 from Products.CPSCore.EventServiceTool import getEventService
 from Products.CPSSchemas.BasicFields import CPSFileField, CPSImageField
 
@@ -153,9 +154,12 @@ def import_zip(container, zip_file, check_allowed_content_types=True):
 
         fobj = fobj_fact.make(ptype, fid, path_filename, filename,
                               zipfile.read(path))
+
+        encoding = get_final_encoding(container)
+        title = filename.decode(encoding, 'ignore')
         try:
             file_id = proxy_fact(container, ptype, path_filename,
-                                 Title=filename, **{fid: fobj})
+                                 Title=title, **{fid: fobj})
         except BadRequest:
             logger.exception('File %s already exists', path_filename)
             continue
