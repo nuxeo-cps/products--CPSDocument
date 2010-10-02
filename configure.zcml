@@ -79,5 +79,11 @@
       handler=".upgrade.upgrade_unicode"
       />
 
+  <cps:upgradeStep
+      title="Upgrade flexible widgets to unicode (post profiles)"
+      source="3.5.0" destination="3.5.1"
+      handler=".upgrade.upgrade_text_widgets_tidy"
+      />
+
 
 </configure>
