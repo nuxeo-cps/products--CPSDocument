@@ -6,7 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- #2216 (related to): factorized the pure datamodel part of unicode upgrade to CPSSchemas
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
