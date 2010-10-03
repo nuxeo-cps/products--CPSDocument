@@ -35,7 +35,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CPSSchemas.DataModel import DataModel
 from Products.CPSDocument.FlexibleTypeInformation \
     import FlexibleTypeInformation
-
+from Products.PortalTransforms.MimeTypesRegistry import MimeTypesRegistry
 
 class TestFlexibleTypeInformation(unittest.TestCase):
 
@@ -67,6 +67,36 @@ class TestFlexibleTypeInformation(unittest.TestCase):
         self.assertEquals(func(cluster='view'), ['blob', 'mickey'])
         self.assertEquals(func(cluster='babar'), default)
 
+    def test_getAutoContentInfo(self):
+        ti = FlexibleTypeInformation('myti')
+        ti.mimetypes_registry = MimeTypesRegistry(fill=1)
+
+        # default values for BBB in createFile
+        self.assertEquals(ti.getAutoContentInfo(file_name='truc.jpg'),
+                          ('Image', 'preview'))
+        self.assertEquals(ti.getAutoContentInfo(file_name='truc.ogg'),
+                          ('File', 'file'))
+
+        # now let's put some new value
+        ti.manage_changeProperties(auto_content_types=(
+            ('image/.*:Image:preview'),
+            ('audio/.*:Audio Track:audio_file'),
+            ('.*:File:file'),
+            ))
+
+        self.assertEquals(ti.getAutoContentInfo(file_name='truc.jpg'),
+                          ('Image', 'preview'))
+        self.assertEquals(ti.getAutoContentInfo(file_name='truc.mp3'),
+                          ('Audio Track', 'audio_file'))
+        self.assertEquals(ti.getAutoContentInfo(file_name='truc.bin'),
+                          ('File', 'file'))
+        self.assertEquals(ti.getAutoContentInfo(file_name='truc.bin',
+                                                check_allowed=True),
+                          (None, None))
+        ti.manage_changeProperties(allowed_content_types=('Image', 'File'))
+        self.assertEquals(ti.getAutoContentInfo(file_name='truc.bin',
+                                                check_allowed=True),
+                          ('File', 'file'))
 
 
 class IntegrationTestFlexibleTypeInformation(CPSTestCase):

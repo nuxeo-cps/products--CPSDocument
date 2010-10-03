@@ -12,9 +12,8 @@
       tal:attributes="href string:${base_url}document.css" />
 
     <metal:block define-macro="widgets_javascript">
-    <!-- XXX this has to move to CPSSchemas -->
-    <script type="text/javascript" src="tiny_mce.js"
-      tal:attributes="src string:${base_url}tiny_mce.js"></script>
+      <tal:block replace="structure python:modules['Products.CPSUtil.resourceregistry'].dump_category(here, 'widget')"></tal:block>
+
     <script type="text/javascript" src="cpsdocument.js"
       tal:attributes="src string:${base_url}cpsdocument.js"></script>
     <script type="text/javascript" src="cpsschemas.js"

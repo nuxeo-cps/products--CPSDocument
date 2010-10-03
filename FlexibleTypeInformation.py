@@ -22,6 +22,7 @@ Type information for types described by a flexible set of schemas and layout.
 """
 
 import warnings
+import re
 from zLOG import LOG, DEBUG, WARNING
 from Acquisition import aq_base, aq_parent, aq_inner
 from Globals import InitializeClass, DTMLFile
@@ -36,6 +37,7 @@ from Products.CMFCore.TypesTool import FactoryTypeInformation
 from Products.CMFCore.interfaces import ITypeInformation
 
 from Products.CPSUtil.mail import make_cid
+from Products.CPSUtil.PropertiesPostProcessor import PropertiesPostProcessor
 from Products.CPSCore.EventServiceTool import getEventService
 from Products.CPSSchemas.Schema import SchemaContainer
 from Products.CPSSchemas.Layout import LayoutContainer
@@ -105,7 +107,7 @@ from Products.CMFCore.TypesTool import TypesTool
 TypesTool.addFlexibleTypeInformation = addFlexibleTypeInformation
 
 
-class FlexibleTypeInformation(FactoryTypeInformation):
+class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
     """Flexible Type Information
 
     Describes how to construct a form-based document.
@@ -118,6 +120,8 @@ class FlexibleTypeInformation(FactoryTypeInformation):
 
     security = ClassSecurityInfo()
 
+    _propertiesBaseClass = FactoryTypeInformation
+
     _properties = (
         FactoryTypeInformation._properties + (
         {'id': 'schemas', 'type': 'tokens', 'mode': 'w',
@@ -125,14 +129,15 @@ class FlexibleTypeInformation(FactoryTypeInformation):
         {'id': 'layouts', 'type': 'tokens', 'mode': 'w',
          'label': 'Layouts'},
         {'id': 'layout_clusters', 'type': 'tokens', 'mode': 'w',
-         'label': 'Layout clusters'},
-        # Of the following form:
-        # layout1:schema1 layout2:schema2
-        #
-        # Layout clusters: sequence of tokens of the form
-        # clusterid:layoutid_1,layoutid_2,layoutid_3...
-        # Layout ids do not need to be listed in the 'layouts' property. This
-        # list of layouts can be considered as the default cluster.
+         'label': 'Layout clusters',
+         'help': "Layout clusters: sequence of tokens of the form"
+         "clusterid:layoutid_1,layoutid_2,layoutid_3... "
+         "Layout ids do not need to be listed in the 'layouts' property. The "
+         "latter list of layouts should rather be considered as the "
+         "default cluster."},
+        dict(id='auto_content_types', type='lines', mode='w',
+             label='Automatic content types (mimetype regexp rules)',
+             help='Each line is <mimetype regexp>:<content type>:<file field>'),
         {'id': 'flexible_layouts', 'type': 'tokens', 'mode': 'w',
          'label': 'Flexible layouts'},
         {'id': 'storage_methods', 'type': 'tokens', 'mode': 'w',
@@ -153,6 +158,18 @@ class FlexibleTypeInformation(FactoryTypeInformation):
     cps_is_searchable = 1
     cps_proxy_type = 'document'
     cps_display_as_document_in_listing = 0
+    auto_content_types = ('image/.*:Image:preview', '.*:File:file')
+    auto_content_types_c = ((re.compile(r'image/.*'), 'Image', 'preview'),
+                            (re.compile(r'.*'), 'File', 'file'),)
+
+    _properties_post_process_split_lines = (
+        ('auto_content_types', 'auto_content_types_c', ':'),
+    )
+
+    def _postProcessProperties(self):
+        PropertiesPostProcessor._postProcessProperties(self)
+        self.auto_content_types_c = tuple((re.compile(x), y, z) for
+                                          x, y, z in self.auto_content_types_c)
 
     def __init__(self, id, **kw):
         FactoryTypeInformation.__init__(self, id, **kw)
@@ -1134,5 +1151,39 @@ class FlexibleTypeInformation(FactoryTypeInformation):
                       "removed in CPS 3.5.0", DeprecationWarning, 2)
         rendered, ok, ds = self.renderCreateObjectDetailed(*args, **kw)
         return rendered
+
+    security.declarePublic('getAutoContentInfo')
+    def getAutoContentInfo(self, file_obj=None, file_name=None,
+                           check_allowed=False):
+        """Return a pair (portal_type, field name) or (None, None).
+
+        This is determined from file_obj (OFS.Image.File), which takes
+        precedence over file_name.
+        If check_allowed is True then allowed_content_types will be checked
+        First (allowed) wins.
+        """
+        if file_obj is None and file_name is None:
+            raise ValueError("Nothing passed")
+
+        mimetype = None
+        if file_obj is not None:
+            mimetype = file_obj.content_type
+
+        if mimetype is None and file_name is not None:
+            mime_registry = getToolByName(self, 'mimetypes_registry')
+            mimetype = mime_registry.lookupExtension(file_name.lower())
+
+        if mimetype is not None:
+            mimetype = mimetype.normalized()
+        else:
+            mimetype = 'application/octet-stream'
+
+        for mime_regexp, ptype, field in self.auto_content_types_c:
+            if mime_regexp.match(mimetype):
+                if not check_allowed or ptype in self.allowed_content_types:
+                    return ptype, field
+        return None, None
+
+
 
 InitializeClass(FlexibleTypeInformation)

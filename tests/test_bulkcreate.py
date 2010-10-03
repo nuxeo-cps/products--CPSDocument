@@ -11,8 +11,8 @@ class TestCreateFile(CPSTestCase):
         self.login('manager')
         self.ws = self.portal.workspaces
 
-    def _makeZipFile(self):
-        filename = os.path.join(os.path.dirname(__file__), 'toto.zip')
+    def _makeZipFile(self, fname='toto.zip'):
+        filename = os.path.join(os.path.dirname(__file__), fname)
         file = StringIO.StringIO(open(filename).read())
         return file
 
@@ -27,6 +27,13 @@ class TestCreateFile(CPSTestCase):
         self.assert_('felix.jpg' in self.ws.objectIds())
         self.assert_('petit-chat.png' in self.ws.objectIds())
         self.assert_('testCreateFile.py' in self.ws.objectIds())
+
+    def test_createFile_encoding_robustness(self):
+        archive = self._makeZipFile('non-utf8.zip')
+        archive.name = "non-utf8.zip"
+        self.portal.default_charset = 'utf-8'
+        createFile(self.ws, archive, check_allowed_content_types=False)
+        self.assert_('felin.jpg' in self.ws.objectIds())
 
     def test_createFileWithFileName(self):
         archive = self._makeZipFile()
