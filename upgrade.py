@@ -125,10 +125,10 @@ def upgrade_338_340_document_to_flex(context):
 
     doc_type.flexible_layouts = ('flexible_content:flexible_content',)
 
-    pfilter = lambda o: getattr(o, 'portal_type', '') == 'Document'
-    docs = itertools.ifilter(pfilter, repository.values())
     count = 0
-    for doc in docs:
+    for doc in repository.iterValues():
+        if doc.portal_type != 'Document':
+            continue
         bdoc = aq_base(doc)
 
         schemas = getattr(bdoc, '.cps_schemas', None)
@@ -144,11 +144,9 @@ def upgrade_338_340_document_to_flex(context):
             continue
 
         doc.flexibleAddWidget('flexible_content', 'textimage')
-        kw = {'content_f0': content,
-              'content_f1': content_position,
-              'content_f2': content_format,
-              }
-        doc.edit(**kw)
+        doc.content_f0 = content
+        doc.content_f1 = content_position
+        doc.content_f2 = content_format
 
         for attr in 'content', 'content_position', 'content_format':
             delattr(doc, attr)
