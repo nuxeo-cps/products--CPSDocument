@@ -6,7 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- #2264: allow unicode title and description in document types
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

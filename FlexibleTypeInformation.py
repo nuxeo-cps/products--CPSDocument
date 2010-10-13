@@ -122,8 +122,12 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
 
     _propertiesBaseClass = FactoryTypeInformation
 
-    _properties = (
-        FactoryTypeInformation._properties + (
+    _properties = ((
+        {'id':'title', 'type': 'ustring', 'mode':'w',
+         'label':'Title'},
+        {'id':'description', 'type': 'utext', 'mode':'w',
+         'label':'Description'},) +
+        FactoryTypeInformation._properties[2:] + (
         {'id': 'schemas', 'type': 'tokens', 'mode': 'w',
          'label': 'Schemas'},
         {'id': 'layouts', 'type': 'tokens', 'mode': 'w',
@@ -144,10 +148,13 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
          'label': 'Storage methods'}, # XXX use schema storage adapters later
         {'id': 'email_stylesheets', 'type': 'lines', 'mode': 'w',
          'label': 'stylesheet methods for email rendering'},
+        dict(id='is_i18n', type='boolean', mode='w',
+             label="Are title and description translation message ids ?"),
         ))
     content_meta_type = 'CPS Document'
     product = 'CPSDocument'
     factory = 'addCPSDocument'
+    is_i18n = True
     schemas = ()
     # XXX assume fixed storage adapters for now
     layouts = ()
