@@ -1,4 +1,22 @@
 ===========================================================
+Package: CPSDocument 1.4.0
+===========================================================
+First release built by: gracinet at: 2010-10-13T11:36:08
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- #693: leverage on-the-fly image resizing capability introduced in #2204
+- #837: starting to use the new resource registry
+Bug fixes
+~~~~~~~~~
+- #2245: repaired "upgrade Document to flexible" step and improved efficiency
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- #2208: automatic content creation (createFile now configurable) 
+
+===========================================================
 Package: CPSDocument 1.3.3
 ===========================================================
 First release built by: gracinet at: 2010-10-03T11:46:43
