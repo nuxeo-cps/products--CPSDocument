@@ -3,11 +3,10 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
-- #693: leverage on-the-fly image resizing capability introduced in #2204
-- #837: starting to use the new resource registry
+-
 Bug fixes
 ~~~~~~~~~
-- #2245: repaired "upgrade Document to flexible" step and improved efficiency
+-
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
-- #2208: automatic content creation (createFile now configurable) 
+- 
