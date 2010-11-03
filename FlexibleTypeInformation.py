@@ -675,6 +675,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
     def _computeLayoutStructures(self, datastructure, layout_mode,
                                  layout_id=None, cluster=None,
                                  ob=None, request=None,
+                                 excluded_layouts=(),
                                  use_session=False):
         """Initialize the datastructure and compute the layout.
 
@@ -686,7 +687,8 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         Returns a list of layout_structures.
         """
         lids = self.getLayoutIds(layout_id=layout_id, cluster=cluster)
-        layouts = [self.getLayout(lid, ob) for lid in lids]
+        layouts = [self.getLayout(lid, ob) for lid in lids
+                   if lid not in excluded_layouts]
 
         for layout in layouts:
             layout.prepareLayoutWidgets(datastructure)
@@ -775,6 +777,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
     security.declareProtected(View, 'renderObjectDetailed')
     def renderObjectDetailed(self, ob, layout_mode='view', layout_id=None,
                              cluster=None, request=None, context=None,
+                             excluded_layouts=(),
                              use_session=False, **kw):
         """Render the object and return datastructure and rendered html
 
@@ -791,6 +794,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
 
         layout_structures = self._computeLayoutStructures(
             ds, layout_mode, layout_id=layout_id, cluster=cluster,
+            excluded_layouts=excluded_layouts,
             ob=ob, request=request, use_session=use_session)
 
         if context is None:

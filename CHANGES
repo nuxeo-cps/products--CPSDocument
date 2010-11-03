@@ -7,6 +7,7 @@ New features
 Bug fixes
 ~~~~~~~~~
 - #2264: allow unicode title and description in document types
+- #2059: new system to exclude a layout from rendering
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
