@@ -30,49 +30,22 @@ from logging import getLogger
 from zope.component import getAdapter
 from AccessControl import ModuleSecurityInfo
 from zExceptions import BadRequest
-from OFS.Image import Image, File
+from OFS.Image import File
 
 from Products.CMFCore.utils import getToolByName
 from Products.CPSUtil.id import generateFileName
 from Products.CPSUtil.file import ofsFileHandler
 from Products.CPSUtil.text import get_final_encoding
 from Products.CPSCore.EventServiceTool import getEventService
-from Products.CPSSchemas.BasicFields import CPSFileField, CPSImageField
+from Products.CPSSchemas.FileUtils import FileObjectFactory
 
 logger = getLogger('CPSDocument.bulkcreate')
 
 msi = ModuleSecurityInfo('Products.CPSDocument.bulkcreate')
 
-class FileObjectFactory(object):
-    """A class that generate File objects, caching some info.
-
-    Must be transient.
-    """
-
-    # GR: this could be handled by a ZCA adapter,
-    # but I don't want to open this pandora box now; just opening CPSSchema's
-    # ZCML files is mind-blocking: two many things around
-    # (StorageAdapter, TramlineFile itself?) that could be done this way
-    # and clarified.
-    # Besides, OFS.Image.File has no interface anyway (!)
-    methods = { # field class -> (callable, options dict)
-        CPSFileField.meta_type: (File, {}),
-        CPSImageField.meta_type: (Image, {})
-        # example with a factory method needing the context and having
-        # another option
-        # : (TramlineFile.direct_create, dict(context=True, thr=10240))
-    }
-
-    @classmethod
-    def make(self, field, oid, title, data):
-        # instantiation
-        meth, options = self.methods[field.meta_type]
-        kw = deepcopy(options)
-        if kw.get('context', False):
-            kw['context'] = self.ttool
-        return meth(oid, title, data, **kw)
-
 class FieldResolver(object):
+    """Caches the field objects : must stay transient."""
+
     def __init__(self, types_tool):
         self.cache = {}
         self.ttool = types_tool
