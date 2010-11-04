@@ -63,11 +63,21 @@ class FileObjectFactory(object):
         # : (TramlineFile.direct_create, dict(context=True, thr=10240))
     }
 
+    @classmethod
+    def make(self, field, oid, title, data):
+        # instantiation
+        meth, options = self.methods[field.meta_type]
+        kw = deepcopy(options)
+        if kw.get('context', False):
+            kw['context'] = self.ttool
+        return meth(oid, title, data, **kw)
+
+class FieldResolver(object):
     def __init__(self, types_tool):
         self.cache = {}
         self.ttool = types_tool
 
-    def make(self, ptype, fid, oid, title, data):
+    def resolve(self, ptype, fid):
         fti = self.ttool[ptype]
 
         # field retrieval with cache
@@ -83,13 +93,8 @@ class FileObjectFactory(object):
             else:
                 raise ValueError(
                     "Field %s not in %s non-flexible schemas" % (fid, ptype))
+        return field
 
-        # instantiation
-        meth, options = self.methods[field.meta_type]
-        kw = deepcopy(options)
-        if kw.get('context', False):
-            kw['context'] = self.ttool
-        return meth(oid, title, data, **kw)
 
 msi.declarePublic('import_zip')
 def import_zip(container, zip_file, check_allowed_content_types=True):
@@ -127,7 +132,7 @@ def import_zip(container, zip_file, check_allowed_content_types=True):
     ttool = getToolByName(container, 'portal_types')
     cont_fti = ttool[cont_ptype]
 
-    fobj_fact = FileObjectFactory(ttool)
+    field_resolver = FieldResolver(ttool)
     proxy_fact = getToolByName(container, 'portal_workflow').invokeFactoryFor
 
     evtool.notifyEvent('modify_object', container, {})
@@ -152,8 +157,10 @@ def import_zip(container, zip_file, check_allowed_content_types=True):
         if ptype is None:
             continue
 
-        fobj = fobj_fact.make(ptype, fid, path_filename, filename,
-                              zipfile.read(path))
+        field = field_resolver.resolve(ptype, fid)
+
+        fobj = FileObjectFactory.make(field, path_filename, filename,
+                                      zipfile.read(path))
 
         encoding = get_final_encoding(container)
         title = filename.decode(encoding, 'ignore')
