@@ -303,9 +303,8 @@ class TestDocuments(CPSTestCase):
         # Test view
 
         view = proxy.cpsdocument_view()
-        encoding = get_final_encoding(self.portal)
-        self.assert_(TITLE.encode(encoding) in view)
-        self.assert_(CONTENT.encode(encoding) in view)
+        self.assert_(TITLE in view)
+        self.assert_(CONTENT in view)
 
         # Test summary for long content
         from Products.CPSDocument.CPSDocument import SUMMARY_MAX_LEN
