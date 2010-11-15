@@ -148,7 +148,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
          'label': 'Storage methods'}, # XXX use schema storage adapters later
         {'id': 'email_stylesheets', 'type': 'lines', 'mode': 'w',
          'label': 'stylesheet methods for email rendering'},
-        dict(id='is_i18n', type='boolean', mode='w',
+        dict(id='is_i18n', type='boolean', mode='wd',
              label="Are title and description translation message ids ?"),
         ))
     content_meta_type = 'CPS Document'
