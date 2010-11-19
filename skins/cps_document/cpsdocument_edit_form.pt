@@ -13,23 +13,10 @@
 
     <metal:block define-macro="widgets_javascript">
       <tal:block replace="structure python:modules['Products.CPSUtil.resourceregistry'].dump_category(here, 'widget')"></tal:block>
-
     <script type="text/javascript" src="cpsdocument.js"
       tal:attributes="src string:${base_url}cpsdocument.js"></script>
     <script type="text/javascript" src="cpsschemas.js"
       tal:attributes="src string:${base_url}cpsschemas.js"></script>
-    <script type="text/javascript">
-     function popup_rte(input_id, label_edit) {
-       var args, value;
-       var width = 640;
-       var height = 520;
-       value = document.getElementById(input_id).value;
-       args = '?input_id='+input_id+'&amp;label_edit='+escape(label_edit);
-       str_window_features = 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,dependent=1,width=' + width + ',height=' + height;
-       popup = window.open(popup_editor_form + args, input_id, str_window_features);
-       return false;
-     }
-    </script>
     </metal:block>
   </metal:block>
 
