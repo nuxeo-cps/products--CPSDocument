@@ -23,7 +23,8 @@ Type information for types described by a flexible set of schemas and layout.
 
 import warnings
 import re
-from zLOG import LOG, DEBUG, WARNING
+import logging
+
 from Acquisition import aq_base, aq_parent, aq_inner
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
@@ -53,6 +54,7 @@ from Products.CPSDocument.utils import getFormUid
 
 import zope.interface
 
+logger = logging.getLogger(__name__)
 
 def addFlexibleTypeInformation(container, id, REQUEST=None):
     """Add a Flexible Type Information."""
@@ -432,7 +434,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
             n += 1
             widget_id = '%s_%d' % (wtid, n)
 
-        LOG('FlexibleAddWidget', DEBUG, 'adding widget_id %s' % widget_id)
+        logger.debug('FlexibleAddWidget adding widget_id %r', widget_id)
         self._copyPasteObject(tpl_widget, layout,
                               dst_id=layout.prefix + widget_id)
 
@@ -459,8 +461,8 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
                 kw = {}
             i += 1
             schema.addField(field_id, field_type, **kw)
-            LOG('FlexibleAddWidget', DEBUG, 'adding field_id %s init %s'
-                % (field_id, str(kw)))
+            logger.debug('FlexibleAddWidget adding field_id %r init %r',
+                         field_id, kw)
             fields.append(field_id)
 
         # Set the fields used by the widget.
@@ -516,8 +518,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         for widget_id in widget_ids:
             widget = layout[widget_id]
             for field_id in widget.fields:
-                LOG('FlexibleTypeInformation', DEBUG, 'deleting field %s' %
-                        field_id)
+                logger.debug('deleting field %r', field_id)
                 # Delete the field.
                 schema.delSubObject(field_id)
                 # XXX FIXME it has to be handle differently
@@ -528,8 +529,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
                 # each time you wanna add the same kind of widget again.
                 # Was the case with the attached file.
                 if field_id in ob.objectIds():
-                    LOG('FlexibleTypeInformation', DEBUG, 'deleting object %s' %
-                            field_id)
+                    logger.debug('deleting object %r', field_id)
                     ob.manage_delObjects([field_id])
                 else:
                     # Other fields such as string Fields are stored as
@@ -537,13 +537,11 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
                     delattr(ob, field_id)
             if widget_id in flexible_widgets:
                 # Hide the widget as we may need it to create new widget.
-                LOG('FlexibleTypeInformation', DEBUG, 'hiding widget %s' %
-                        widget_id)
+                logger.debug('hiding widget %r', widget_id)
                 widget.hide()
             else:
                 # Delete the widget.
-                LOG('FlexibleTypeInformation', DEBUG, 'deleting widget %s' %
-                        widget_id)
+                logger.debug('deleting widget %r', widget_id)
                 layout.delSubObject(widget_id)
 
     security.declareProtected(ModifyPortalContent, 'flexibleChangeLayout')
@@ -657,9 +655,8 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
                     else:
                         v = []
                 except ValueError:
-                    LOG('getLayoutIds', WARNING,
-                        "Invalid layout cluster %s in portal_type '%s'"
-                        %(`s`, self.getId()))
+                    logger.warn('getLayoutIds : invalid layout cluster %r '
+                                'in portal_type %r', s, self.getId())
                     continue
                 if cl != cluster:
                     continue
