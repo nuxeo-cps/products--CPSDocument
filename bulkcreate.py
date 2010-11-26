@@ -140,7 +140,8 @@ def import_zip(container, zip_file, check_allowed_content_types=True):
         encoding = get_final_encoding(container)
         title = filename.decode(encoding, 'ignore')
         # id without collisions, based on filename without extension
-        newid = generateId(path_filename.rsplit('.', 1)[0])
+        newid = generateId(path_filename.rsplit('.', 1)[0],
+                           container=container)
         try:
             proxy_fact(container, ptype, newid, Title=title, **{fid: fobj})
         except BadRequest:
