@@ -1,4 +1,23 @@
 ===========================================================
+Package: CPSDocument 1.4.1
+===========================================================
+First release built by: gracinet at: 2010-11-27T04:24:40
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2264: allow unicode title and description in document types
+- #2059: new system to exclude a layout from rendering
+- #2271: FileObjectFactory moved to CPSSchemas
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.4.0
 ===========================================================
 First release built by: gracinet at: 2010-10-13T11:36:08
