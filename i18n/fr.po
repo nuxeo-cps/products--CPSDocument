@@ -513,11 +513,8 @@ msgstr "Photothèque"
 msgid "portal_type_ImageGallery_description"
 msgstr "Une bibliothèque d'images"
 
-msgid "cpsdoc_imgallery_width_label_edit"
-msgstr "Largeur des miniatures"
-
-msgid "cpsdoc_imgallery_height_label_edit"
-msgstr "Hauteur des miniatures"
+msgid "cpsdoc_imgallery_thumbnail_size_label_edit"
+msgstr "Taille des miniatures"
 
 msgid "cpsdoc_imgallery_items_label_edit"
 msgstr "Nombre de miniatures par page"

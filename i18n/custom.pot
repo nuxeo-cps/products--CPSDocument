@@ -385,9 +385,6 @@ msgstr ""
 msgid "cpsdoc_imgallery_width_label_edit"
 msgstr ""
 
-msgid "cpsdoc_imgallery_height_label_edit"
-msgstr ""
-
 msgid "cpsdoc_imgallery_items_label_edit"
 msgstr ""
 

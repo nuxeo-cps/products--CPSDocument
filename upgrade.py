@@ -384,3 +384,38 @@ def upgrade_text_widgets_tidy(portal):
         flexible_content=dict(content=('xhtml_sanitize_system',),
                               content_right=('xhtml_sanitize_system',))
         ))
+
+def upgrade_image_gallery_unidim_thumbnails(portal):
+    """This should be played after running the profiles."""
+    logger = logging.getLogger(
+        'Products.CPSDocument.upgrades.image_gallery_unidim_thumbnails')
+    logger.info("Starting.")
+    done = seen = 0
+
+    def commit_log(counter):
+        logger.info(
+            "Went through %d docs, upgraded %d over %d image galleries",
+            c+1, done, seen)
+        transaction.commit()
+
+
+    repotool = portal.portal_repository
+    for c, doc in enumerate(repotool.iterValues()):
+        if doc.portal_type != "ImageGallery":
+            continue
+        seen += 1
+        try:
+            doc_b = aq_base(doc)
+            size = max(getattr(doc_b, 'preview_height', 0),
+                       getattr(doc_b, 'preview_width', 0))
+            if size: # otherwise there'll be field default value
+                doc.thumbnail_size = size
+            done += 1
+        except ConflictError:
+            raise
+        except:
+            logger.exception("Could not upgrade Image Gallery at %s",
+                             doc.absolute_url_path())
+        if c and not (c % 100):
+            commit_log(c)
+    commit_log(c)
