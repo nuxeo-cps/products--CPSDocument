@@ -358,14 +358,7 @@ event_schema = {
 # Image
 ########################################################
 imagegallery_schema = {
-    'preview_width': {
-        'type': 'CPS Int Field',
-        'data': {
-                'default_expr': 'python:64',
-                'is_searchabletext': 0,
-            },
-        },
-    'preview_height': {
+    'thumbnail_size': {
         'type': 'CPS Int Field',
         'data': {
                 'default_expr': 'python:64',
