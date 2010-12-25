@@ -3,7 +3,7 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
--
+- #851: flexible widgets now follow changes of template widgets
 Bug fixes
 ~~~~~~~~~
 -

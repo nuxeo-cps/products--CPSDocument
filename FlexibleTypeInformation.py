@@ -48,6 +48,7 @@ from Products.CPSSchemas.Widget import CIDPARTS_KEY
 from Products.CPSSchemas.Widget import EMAIL_LAYOUT_MODE
 
 from Products.CPSDocument.CPSDocument import addCPSDocument
+from Products.CPSSchemas.widgets.indirect import IndirectWidget
 from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget
 
 from Products.CPSDocument.utils import getFormUid
@@ -404,7 +405,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         widget = layout[widget_id]
 
         # set sub widget ids
-        widget.widget_ids = new_widget_ids
+        widget.manage_addProperty('widget_ids', new_widget_ids, 'lines')
 
         return widget_id
 
@@ -426,6 +427,8 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
             tpl_widget = layout_global[wtid]
         else:
             tpl_widget = layout[wtid]
+        utool = getToolByName(self, 'portal_url')
+        tpl_rpath = utool.getRpath(tpl_widget)
 
         widget_id = wtid
         widget_ids = layout.keys()
@@ -435,14 +438,14 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
             widget_id = '%s_%d' % (wtid, n)
 
         logger.debug('FlexibleAddWidget adding widget_id %r', widget_id)
-        self._copyPasteObject(tpl_widget, layout,
-                              dst_id=layout.prefix + widget_id)
+        layout.addSubObject(IndirectWidget(widget_id))
 
         widget = layout[widget_id]
+        widget.manage_changeProperties(base_widget_rpath=tpl_rpath)
 
         # Create the needed fields.
-        field_types = widget.getFieldTypes()
-        field_inits = widget.getFieldInits()
+        field_types = tpl_widget.getFieldTypes()
+        field_inits = tpl_widget.getFieldInits()
         fields = []
         i = 0
         for field_type in field_types:
@@ -466,7 +469,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
             fields.append(field_id)
 
         # Set the fields used by the widget.
-        widget.fields = fields
+        widget.manage_addProperty('fields', fields, 'lines')
 
         if layout_register:
             layoutdef = layout.getLayoutDefinition()
@@ -476,7 +479,6 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
             layoutdef['rows'].insert(position, [{'widget_id': widget_id}])
             layout.setLayoutDefinition(layoutdef)
 
-        widget.finalizeFlexibleCreation(schema=schema, layout=layout)
         return widget.getWidgetId()
 
     security.declareProtected(ModifyPortalContent, 'flexibleDelWidgets')
@@ -535,14 +537,10 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
                     # Other fields such as string Fields are stored as
                     # non-object attributes
                     delattr(ob, field_id)
-            if widget_id in flexible_widgets:
-                # Hide the widget as we may need it to create new widget.
-                logger.debug('hiding widget %r', widget_id)
-                widget.hide()
-            else:
-                # Delete the widget.
-                logger.debug('deleting widget %r', widget_id)
-                layout.delSubObject(widget_id)
+
+            # Delete the widget.
+            logger.debug('deleting widget %r', widget_id)
+            layout.delSubObject(widget_id)
 
     security.declareProtected(ModifyPortalContent, 'flexibleChangeLayout')
     def flexibleChangeLayout(self, ob, layout_id, up_row=None, down_row=None,
