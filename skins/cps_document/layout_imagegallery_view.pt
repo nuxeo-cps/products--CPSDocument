@@ -2,9 +2,13 @@
 <tal:block tal:define="utool nocall:here/portal_url;
                        proxy nocall:options/proxy;
                        items proxy/getFolderContents;
-                       gallery python:here.getContent();
-                       nb_cols python:getattr(gallery,'nb_cols','3');
-                       nb_items python:int(getattr(gallery,'nb_items',9));
+                       gallery_dm options/datastructure/getDataModel;
+                       nb_cols gallery_dm/nb_cols;
+                       nb_items gallery_dm/nb_items;
+                       popup_mode gallery_dm/popup_mode;
+                       popup_width gallery_dm/popup_width;
+                       popup_height gallery_dm/popup_height;
+                       thumb_size gallery_dm/thumbnail_size;
                        page_batch_start python:int(path('request/start | nothing') or 0);
                        page_batch python:modules['ZTUtils'].Batch(items,
                                                                   size=nb_items,
@@ -14,12 +18,7 @@
                        nb_items_in_current_batch python:len(page_batch);
                        mod python:nb_items_in_current_batch % nb_cols;
                        div python:nb_items_in_current_batch / nb_cols;
-                       th_width python:getattr(gallery,'preview_width','64');
-                       th_height python:getattr(gallery,'preview_height','64');
                        nb_rows_in_current_batch python:test(mod == 0,div,div + 1);
-                       popup_mode python:getattr(gallery, 'popup_mode', 0);
-                       popup_width python:getattr(gallery, 'popup_width', 300);
-                       popup_height python:getattr(gallery, 'popup_height', 300);
                        ">
 <div class="ddefault">
   <table style="text-align:center;width:100%"
@@ -30,7 +29,8 @@
                                                                  start=row*nb_cols);">
       <td tal:repeat="item batch">
         <a href="."
-          tal:define="item_url python:item.absolute_url()"
+          tal:define="item_url python:item.absolute_url();
+                      item_dm python:item.getContent().getDataModel(proxy=item)"
           tal:attributes="
             href python:test(popup_mode, '.', item_url);
             onClick python:test(popup_mode, 'window.open(\'' +
@@ -46,13 +46,11 @@
                       ',status=no' +
                       ',scrollbars=yes'
                       '\');; return false', 'return true')">
-          <img tal:replace="structure
-                             python:here.getImgTag(proxy_doc=item,
-			     img_name='preview',
-			     width=th_width,height=th_height,
-			     keep_ratio=1)">
+          <img
+            tal:attributes="
+                src python:item_dm.imageUri('preview', largest=thumb_size)"/>
           <br />
-          <p tal:replace="item/Title"></p>
+          <p tal:replace="item_dm/Title"></p>
         </a>
       </td>
     </tal:block>

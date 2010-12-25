@@ -1,5 +1,6 @@
 # (C) Copyright 2005-2007 Nuxeo SAS <http://nuxeo.com>
-# Author: Dragos Ivan <di@nuxeo.com>
+# Authors: Dragos Ivan <div@nuxeo.com>
+#          Georges Racinet <georges@racinet.fr>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 2 as published
@@ -34,6 +35,7 @@ from OFS.Image import File
 
 from Products.CMFCore.utils import getToolByName
 from Products.CPSUtil.id import generateFileName
+from Products.CPSUtil.id import generateId
 from Products.CPSUtil.file import ofsFileHandler
 from Products.CPSUtil.text import get_final_encoding
 from Products.CPSCore.EventServiceTool import getEventService
@@ -137,11 +139,14 @@ def import_zip(container, zip_file, check_allowed_content_types=True):
 
         encoding = get_final_encoding(container)
         title = filename.decode(encoding, 'ignore')
+        # id without collisions, based on filename without extension
+        newid = generateId(path_filename.rsplit('.', 1)[0],
+                           container=container)
         try:
-            file_id = proxy_fact(container, ptype, path_filename,
-                                 Title=title, **{fid: fobj})
+            proxy_fact(container, ptype, newid, Title=title, **{fid: fobj})
         except BadRequest:
-            logger.exception('File %s already exists', path_filename)
+            logger.exception('Problem creating a %r for %r', ptype,
+                             path_filename)
             continue
 
         # there was a content_type correction of file obj in earlier version.

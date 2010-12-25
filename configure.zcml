@@ -85,5 +85,10 @@
       handler=".upgrade.upgrade_text_widgets_tidy"
       />
 
+  <cps:upgradeStep
+      title="Upgrade image galleries for unidimensional thumbnail specification"      source="3.5.1" destination="3.5.2"
+      handler=".upgrade.upgrade_image_gallery_unidim_thumbnails"
+      />
+
 
 </configure>
