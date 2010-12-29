@@ -90,5 +90,11 @@
       handler=".upgrade.upgrade_image_gallery_unidim_thumbnails"
       />
 
+  <cps:upgradeStep
+      title="Upgrade flexible widgets to indirect widgets"
+      source="3.5.1" destination="3.5.2"
+      handler=".upgrade.upgrade_flexible_widgets_indirect"
+      />
+
 
 </configure>
