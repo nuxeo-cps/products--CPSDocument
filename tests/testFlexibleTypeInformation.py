@@ -100,6 +100,8 @@ class TestFlexibleTypeInformation(unittest.TestCase):
 
 
 class IntegrationTestFlexibleTypeInformation(CPSTestCase):
+    """Tests needing full CPS rig. Warning: depends on structure of News Item.
+    """
 
     def afterSetUp(self):
         self.login('manager')
@@ -185,6 +187,75 @@ class IntegrationTestFlexibleTypeInformation(CPSTestCase):
         self.assertEquals(isinstance(dm['ModificationDate'], DateTime), True)
         self.assertEquals(isinstance(dm['CreationDate'], DateTime), True)
 
+    def testFlexibleAddWidget(self):
+        # note that News Item is flexible
+        dm = DataModel(None)
+        ob = self.fti._constructInstance(self.sandbox, 'ze_ob', datamodel=dm)
+
+        # simple widget
+        lid = 'newsitem_flexible'
+        simple_w = 'attachedFile'
+        self.fti.flexibleAddWidget(ob, lid, simple_w)
+        lay, sch = self.fti._getFlexibleLayoutAndSchemaFor(ob, lid)
+        self.assertEquals(lay.keys(), [simple_w])
+        self.assertEquals(sch.keys(), [('%s_' + f) % simple_w
+                                       for f in ('f0', 'f1', 'f2', 'f3')])
+
+    def testFlexibleAddWidget_compound(self):
+        # Add a compound widget to News Item
+        from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget
+        lid = 'newsitem_flexible'
+        layout = self.portal.portal_layouts[lid]
+        compid = 'comp'
+        layout.addSubObject(CPSCompoundWidget(compid))
+        comp = layout[compid]
+        comp.manage_changeProperties(widget_ids=('attachedFile', 'link_title'),
+                                     fields=['?'])
+
+        # make a News Item
+        dm = DataModel(None)
+        ob = self.fti._constructInstance(self.sandbox, 'ze_ob', datamodel=dm)
+
+        # flexible compound
+        self.fti.flexibleAddWidget(ob, lid, compid)
+        lay, sch = self.fti._getFlexibleLayoutAndSchemaFor(ob, lid)
+        expected = set(comp.widget_ids)
+        expected.add(compid)
+        self.assertEquals(set(lay.keys()), expected)
+
+        expected = set(lay[comp.widget_ids[0]].fields)
+        expected.update(lay[comp.widget_ids[1]].fields)
+        self.assertEquals(set(sch.keys()), expected)
+
+    def testFlexibleAddWidget_compound_nested(self):
+        # Add a compound widget to News Item
+        from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget
+        lid = 'newsitem_flexible'
+        layout = self.portal.portal_layouts[lid]
+        compid = 'comp'
+        subcompid = 'link'
+        layout.addSubObject(CPSCompoundWidget(compid))
+        comp = layout[compid]
+        subcomp = layout[subcompid]
+        comp.manage_changeProperties(widget_ids=('attachedFile', subcompid),
+                                     fields=['?'])
+        # make a News Item
+        dm = DataModel(None)
+        ob = self.fti._constructInstance(self.sandbox, 'ze_ob', datamodel=dm)
+
+        # flexible compound
+        self.fti.flexibleAddWidget(ob, lid, compid)
+        lay, sch = self.fti._getFlexibleLayoutAndSchemaFor(ob, lid)
+        expected = set(comp.widget_ids)
+        expected.update(subcomp.widget_ids)
+        expected.add(compid)
+        self.assertEquals(set(lay.keys()), expected)
+
+        expected = set(lay[comp.widget_ids[0]].fields)
+        expected.update(lay[comp.widget_ids[1]].fields)
+        for subwid in subcomp.widget_ids:
+            expected.update(lay[subwid].fields)
+        self.assertEquals(set(sch.keys()), expected)
 
 def test_suite():
     return unittest.TestSuite((

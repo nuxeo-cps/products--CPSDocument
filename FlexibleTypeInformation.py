@@ -382,7 +382,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
     def flexibleAddWidget(self, ob, layout_id, wtid, **kw):
         """Add a new widget to the flexible part of a document.
 
-        Takes care of compound widget.
+        Takes care of compound widgets.
 
         Returns the widget id.
         """
@@ -395,9 +395,10 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         # Compound widget - creating sub widgets
         new_widget_ids = []
         for widget_id in tpl_widget.widget_ids:
-            id = self._flexibleAddSimpleWidget(ob, layout_id, widget_id,
-                                              layout_register=0, **kw)
-            new_widget_ids.append(id)
+            subkw = kw.copy()
+            subkw['layout_register'] = False
+            wid = self.flexibleAddWidget(ob, layout_id, widget_id, **subkw)
+            new_widget_ids.append(wid)
 
         # creating the compound widget
         widget_id = self._flexibleAddSimpleWidget(ob, layout_id, wtid, **kw)
