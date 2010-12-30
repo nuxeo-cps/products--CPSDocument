@@ -227,6 +227,11 @@ class IntegrationTestFlexibleTypeInformation(CPSTestCase):
         expected.update(lay[comp.widget_ids[1]].fields)
         self.assertEquals(set(sch.keys()), expected)
 
+        # now test deletion (see #1758, #1817)
+        self.fti.flexibleDelWidgets(ob, lid, [compid])
+        self.assertEquals(lay.keys(), [])
+        self.assertEquals(sch.keys(), [])
+
     def testFlexibleAddWidget_compound_nested(self):
         # Add a compound widget to News Item
         from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget
@@ -256,6 +261,11 @@ class IntegrationTestFlexibleTypeInformation(CPSTestCase):
         for subwid in subcomp.widget_ids:
             expected.update(lay[subwid].fields)
         self.assertEquals(set(sch.keys()), expected)
+
+        # now test deletion (see #1758, #1817)
+        self.fti.flexibleDelWidgets(ob, lid, [compid])
+        self.assertEquals(lay.keys(), [])
+        self.assertEquals(sch.keys(), [])
 
 def test_suite():
     return unittest.TestSuite((

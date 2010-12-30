@@ -486,18 +486,25 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
     def flexibleDelWidgets(self, ob, layout_id, widget_ids):
         """Delete widgets from the flexible part of a document.
 
-        Takes care of Compound widget.
+        Takes care of Compound widgets, including nested ones.
         """
         self._makeObjectFlexible(ob)
         layout, schema = self._getFlexibleLayoutAndSchemaFor(ob, layout_id)
-        new_widget_ids = []
-        for widget_id in widget_ids:
-            widget = layout[widget_id]
-            if isinstance(widget,  CPSCompoundWidget):
-                new_widget_ids.extend(widget.widget_ids)
-            new_widget_ids.append(widget_id)
 
-        return self._flexibleDelSimpleWidgets(ob, layout_id, new_widget_ids)
+        to_del = []
+        to_inspect = list(widget_ids)
+        while to_inspect:
+            to_del.extend(to_inspect)
+            cur = []
+            for widget_id in to_inspect:
+                widget = layout[widget_id]
+                # subwidgets can now be IndirectWidget instances
+                # checking the meta_type or the class is too restrictive
+                subwids = widget.getProperty('widget_ids', ())
+                cur.extend(subwids)
+            to_inspect = cur
+
+        return self._flexibleDelSimpleWidgets(ob, layout_id, to_del)
 
     security.declarePrivate('_flexibleDelSimpleWidgets')
     def _flexibleDelSimpleWidgets(self, ob, layout_id, widget_ids):
@@ -537,7 +544,10 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
                 else:
                     # Other fields such as string Fields are stored as
                     # non-object attributes
-                    delattr(ob, field_id)
+                    try:
+                        delattr(ob, field_id)
+                    except AttributeError: # has never been written.
+                        pass
 
             # Delete the widget.
             logger.debug('deleting widget %r', widget_id)
