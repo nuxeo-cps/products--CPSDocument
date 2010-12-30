@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSDocument 1.5.0
+===========================================================
+First release built by: gracinet at: 2010-12-30T12:10:11
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- #851: flexible widgets now follow changes of template widgets
+Bug fixes
+~~~~~~~~~
+-
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.4.1
 ===========================================================
 First release built by: gracinet at: 2010-11-27T04:24:40
