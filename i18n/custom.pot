@@ -449,3 +449,10 @@ msgstr ""
 msgid "psm_ajax_working"
 msgstr ""
 
+# Image
+
+msgid "cpsdoc_image_display_size_largest_label_edit"
+msgstr ""
+
+msgid "cpsdoc_image_display_size_help"
+msgstr ""
