@@ -21,16 +21,20 @@
 import unittest
 from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
 
+import os
+
 from Acquisition import aq_base
 from OFS.Image import Image
 from Products.CPSUtil.text import get_final_encoding
 
 from Products.CPSSchemas.BasicWidgets import CPSImageWidget as OldImageWidget
+from Products.CPSSchemas.ExtendedWidgets import CPSPhotoWidget as OldPhotoWidget
 from Products.CPSSchemas.widgets.image import CPSImageWidget
 from Products.CPSSchemas.tests.testWidgets import TEST_IMAGE
 
 from Products.CPSDocument.upgrade import upgrade_doc_unicode
 from Products.CPSDocument.upgrade import upgrade_image_widget
+from Products.CPSDocument.upgrade import upgrade_photo_widget
 
 from layer import CPSDocumentLayer
 
@@ -115,6 +119,8 @@ class TestImageWidgetUpgrade(CPSTestCase):
 
     layer = CPSDocumentLayer
 
+    petit_chat_path = os.path.join(os.path.dirname(__file__), 'petit-chat.png')
+
     def afterSetUp(self):
         self.login('manager')
         fti = self.fti = self.portal.portal_types['Test Image Upgrade']
@@ -129,6 +135,11 @@ class TestImageWidgetUpgrade(CPSTestCase):
         widget = layout['no_res']
         widget.manage_changeProperties(display_width=320, display_height=200,
                                        fields=('?',), allow_resize=False)
+
+        layout.addSubObject(OldPhotoWidget('photo'))
+        widget = layout['photo']
+        widget.manage_changeProperties(display_width=320, display_height=200,
+                                       fields=('?',))
 
         self.doc = fti._constructInstance(self.portal, 'upgrade')
         self.doc.portal_type = fti.getId()
@@ -185,6 +196,33 @@ class TestImageWidgetUpgrade(CPSTestCase):
         size_widget = layout['display_size']
         dm = doc.getDataModel()
         self.assertEquals(dm[size_widget.fields[0]], 32)
+
+    def test_upgrade_photo(self):
+        wid = 'photo'
+        widget, layout, tpl_widget, tpl_layout = self.makeFlexibleWidget(wid)
+        self.assertEquals(widget.__class__, OldPhotoWidget)
+
+        doc = self.doc
+        fid = widget.fields[0]
+        original_fid = widget.fields[3]
+        dm = doc.getDataModel()
+        dm[fid] = Image(fid, 'ze_image.png', TEST_IMAGE)
+        dm[original_fid] = Image(original_fid, 'petit chat',
+                                 open(self.petit_chat_path))
+        dm._commitData()
+
+        upgrade_photo_widget(doc, layout[wid], layout, tpl_layout, tpl_widget)
+
+        upgraded = layout[wid]
+        self.assertEquals(upgraded.__class__, CPSImageWidget)
+        self.assertEquals(upgraded.size_spec, 'l320')
+        self.assertEquals(upgraded.widget_ids, ('display_size',))
+        self.assertEquals(len(upgraded.fields), 5)
+
+        size_widget = layout['display_size']
+        dm = doc.getDataModel()
+        self.assertEquals(dm[size_widget.fields[0]], 32)
+        self.assertEquals(dm[upgraded.fields[0]].title, 'petit chat')
 
 def test_suite():
     suite = unittest.TestSuite()

@@ -506,7 +506,7 @@ def upgrade_image_widget(doc, widget, layout, template_widget, template_layout):
         oldclsprops = frozenset(p['id'] for p in widget.__class__._properties)
         addprops = tuple(p for p in stprops if p['id'] not in oldclsprops)
     size = max(state.pop('display_width', 0), state.pop('display_height', 0))
-    allow_resize = state.pop('allow_resize', False)
+    allow_resize = state.pop('allow_resize', widget.__class__.allow_resize)
 
     # instantiation and state init
     layout.delSubObject(wid)
@@ -555,7 +555,33 @@ def upgrade_image_widget(doc, widget, layout, template_widget, template_layout):
             dm[subfid] = max(*imageGeometry(ofsFileHandler(img)))
             dm._commitData()
 
+def upgrade_photo_widget(doc, widget, layout, template_widget, template_layout):
+    has_original = widget.canKeepOriginal()
+    if has_original:
+        fields = widget.fields
+        original_fid = fields[3]
+        dm = doc.getDataModel()
+        original = dm[original_fid]._file_obj
 
+    upgrade_image_widget(doc, widget, layout, template_widget, template_layout)
+    widget = layout[widget.getWidgetId()]
+    widget.fields = fields[:3] + fields[4:]
+
+    if has_original:
+        if original is not None:
+            # main field now the original
+            dm = doc.getDataModel()
+            dm[fields[0]] = original
+            dm._commitData()
+
+        # resized version not stored in a field
+        fti = doc.getTypeInfo()
+        _, schema = fti._getFlexibleLayoutAndSchemaFor(doc, layout.getId())
+        schema.delSubObject(original_fid)
+
+        # Zoom size did not exist before.
+        # In any case the later switch to Indirect Widget will take over it
+        widget.manage_changeProperties(zoom_size_spec='l800')
 
 def upgrade_image_widgets(portal):
     from Products.CPSSchemas.BasicWidgets import CPSImageWidget \
