@@ -57,6 +57,25 @@ import zope.interface
 
 logger = logging.getLogger(__name__)
 
+def flexible_widget_split(widget_id):
+    """Return base widget id, suffix.
+
+    >>> flexible_widget_split('res_1')
+    ('res', '1')
+    >>> flexible_widget_split('res')
+    ('res', '')
+    >>> flexible_widget_split('res_ok')
+    ('res_ok', '')
+    """
+
+    try:
+        split = widget_id.rsplit('_', 1)
+        int(split[1])
+        return split[0], split[1]
+    except (IndexError, ValueError):
+        return widget_id, ''
+
+
 def addFlexibleTypeInformation(container, id, REQUEST=None):
     """Add a Flexible Type Information."""
     flexti = FlexibleTypeInformation(id)

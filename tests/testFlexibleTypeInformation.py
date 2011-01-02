@@ -21,6 +21,7 @@
 """
 
 import unittest
+from Testing.ZopeTestCase import doctest
 
 from DateTime import DateTime
 
@@ -269,6 +270,7 @@ class IntegrationTestFlexibleTypeInformation(CPSTestCase):
 
 def test_suite():
     return unittest.TestSuite((
+        doctest.DocTestSuite('Products.CPSDocument.FlexibleTypeInformation'),
         unittest.makeSuite(TestFlexibleTypeInformation),
         unittest.makeSuite(IntegrationTestFlexibleTypeInformation),
         ))
