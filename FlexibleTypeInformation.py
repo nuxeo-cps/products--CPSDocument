@@ -444,7 +444,20 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         widget = layout[widget_id]
         widget.manage_changeProperties(base_widget_rpath=tpl_rpath)
 
-        # Create the needed fields.
+        self._createFieldsForFlexibleWidget(schema, widget, tpl_widget)
+
+        if layout_register:
+            layoutdef = layout.getLayoutDefinition()
+            if position is None:
+                # Add the widget to the end of the layout definition.
+                position = len(layoutdef)
+            layoutdef['rows'].insert(position, [{'widget_id': widget_id}])
+            layout.setLayoutDefinition(layoutdef)
+
+        return widget.getWidgetId()
+
+    def _createFieldsForFlexibleWidget(self, schema, widget, tpl_widget):
+        widget_id = widget.getWidgetId()
         field_types = tpl_widget.getFieldTypes()
         field_inits = tpl_widget.getFieldInits()
         fields = []
@@ -469,18 +482,12 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
                          field_id, kw)
             fields.append(field_id)
 
-        # Set the fields used by the widget.
-        widget.manage_addProperty('fields', fields, 'lines')
-
-        if layout_register:
-            layoutdef = layout.getLayoutDefinition()
-            if position is None:
-                # Add the widget to the end of the layout definition.
-                position = len(layoutdef)
-            layoutdef['rows'].insert(position, [{'widget_id': widget_id}])
-            layout.setLayoutDefinition(layoutdef)
-
-        return widget.getWidgetId()
+        # Set the fields used by the widget. Accomodate either Indirect Widget
+        # or a direct widget (useful, e.g, in upgrade tests)
+        if widget.hasProperty('fields'):
+            widget.manage_changeProperties(fields=fields)
+        else:
+            widget.manage_addProperty('fields', fields, 'lines')
 
     security.declareProtected(ModifyPortalContent, 'flexibleDelWidgets')
     def flexibleDelWidgets(self, ob, layout_id, widget_ids):
