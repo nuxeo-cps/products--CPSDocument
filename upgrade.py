@@ -24,7 +24,12 @@ import transaction
 from Acquisition import aq_base, aq_inner, aq_parent
 from Products.CMFCore.utils import getToolByName
 from Products.CPSUtil.text import upgrade_string_unicode
+from Products.CPSUtil.file import ofsFileHandler
+
 from Products.CPSSchemas.BasicFields import CPSStringField
+from Products.CPSSchemas.BasicWidgets import CPSIntWidget
+from Products.CPSSchemas.widgets.image import CPSImageWidget
+from Products.CPSSchemas.widgets.image import CPSPhotoWidget
 from Products.CPSSchemas.upgrade import upgrade_datamodel_unicode
 
 import itertools
@@ -279,8 +284,9 @@ def do_on_flexible_widgets(meth, portal, layout_ids):
       typically defined inside the primary handler function to benefit from
       its local variables.
 
-      signature: def meth(widget, layout, template_widget, template_layout)
-         where template_widget is the global widget this one refers to
+      signature:
+        def meth(doc, widget, layout, template_widget, template_layout)
+      where template_widget is the global widget this one refers to
 
       meaning of returned values:
         - True if has run successfully
@@ -351,7 +357,7 @@ def do_on_flex_widgets_doc(meth, doc, layouts, logger):
                     status = False
                     continue
 
-            ret = meth(w, loc, gw, glob)
+            ret = meth(doc, w, loc, gw, glob)
             if ret is None:
                 status is None
             elif status is not None:
@@ -373,7 +379,7 @@ def resync_flexible_widgets(portal, wid_props=None):
     logger.info("Starting resync of flexible widgets for layouts %r \n"
                 "detailed parameters: %r", layout_ids, wid_props)
 
-    def do_one(widget, layout, template_widget, template_layout):
+    def do_one(doc, widget, layout, template_widget, template_layout):
         props = wid_props.get(layout.getId())
         for pid in props.get(template_widget.getWidgetId(), ()):
             widget.manage_changeProperties(
@@ -470,7 +476,7 @@ def upgrade_flexible_widgets_indirect(portal):
     from Products.CPSSchemas.widgets.indirect import IndirectWidget
     utool = portal.portal_url
 
-    def do_one(widget, layout, template_widget, template_layout):
+    def do_one(doc, widget, layout, template_widget, template_layout):
         fields = widget.fields
         subwidgets = widget.getProperty('widget_ids', None)
 
@@ -486,5 +492,73 @@ def upgrade_flexible_widgets_indirect(portal):
         if subwidgets is not None:
             indirect.manage_addProperty('widget_ids', subwidgets, 'lines')
         return True
+
+    do_on_flexible_widgets(do_one, portal, FLEXIBLE_LAYOUTS)
+
+def upgrade_image_widget(doc, widget, layout, template_widget, template_layout):
+    wid = widget.getWidgetId()
+
+    # keeping interesting part of attrs
+    state = widget.__dict__.copy()
+    stprops = state.pop('_properties', ())
+    if stprops:
+        oldclsprops = frozenset(p['id'] for p in widget.__class__._properties)
+        addprops = tuple(p for p in stprops if p['id'] not in oldclsprops)
+    size = max(state.pop('display_width', 0), state.pop('display_height', 0))
+    allow_resize = state.pop('allow_resize', False)
+
+    # instantiation and state init
+    layout.delSubObject(wid)
+    layout.addSubObject(CPSImageWidget(wid))
+    widget = layout[wid]
+    widget.__dict__.update(state)
+    if stprops:
+        widget._properties = CPSImageWidget._properties + addprops
+    widget.size_spec = 'l%d' % size
+
+    try:
+        suffix = wid.rsplit('_', 1)[1]
+    except IndexError:
+        suffix = ''
+
+    if allow_resize:
+        # user has had the opportunity to resize, we make a subwidget.
+        # we try and have the same suffix as the main one, to stay
+        # human-readers friendly
+        fti = doc.getTypeInfo()
+        _, schema = fti._getFlexibleLayoutAndSchemaFor(doc, layout.getId())
+
+        base_id = 'display_size'
+        subwid = '_'.join(base_id, suffix)
+        subfid = '_'.join(base_id, suffix, 'f0')
+        # TODO what if more that 26 ? illegal chars ? Yes I've seen that
+        c = ord('a')
+        while subwid in layout.keys() or subfid in schema.keys():
+            subwid = '_'.join(base_id, chr(c), suffix)
+            subfid = '_'.join(base_id, chr(c), suffix, 'f0')
+            c += 1
+
+        layout.addSubObject(CPSIntWidget(subwid))
+        size_widget.fields = [subfid]
+        widget.widget_ids = [subwid]
+
+        dm = doc.getDataModel()
+        img = dm[widget.fields[0]]
+        if img is not None:
+            dm[subfid] = max(*imageGeometry(ofsFileHandler(img)))
+        dm._commitData()
+
+
+
+def upgrade_image_widgets(portal):
+    from Products.CPSSchemas.BasicWidgets import CPSImageWidget \
+        as OldImageWidget
+    from Products.CPSSchemas.BasicWidgets import CPSPhotoWidget \
+        as OldPhotoWidget
+    def do_one(doc, widget, layout, template_widget, template_layout):
+        if widget.__class__ is OldImageWidget:
+            upgrade_image_widget(doc, widget, layout)
+        elif widget.__class__ is OldPhotoWidget:
+            upgrade_photo_widget(doc, widget, layout)
 
     do_on_flexible_widgets(do_one, portal, FLEXIBLE_LAYOUTS)

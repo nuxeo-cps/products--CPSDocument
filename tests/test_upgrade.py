@@ -19,15 +19,20 @@
 # $Id$
 
 import unittest
-
 from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
+
+from Acquisition import aq_base
 from Products.CPSUtil.text import get_final_encoding
 
+from Products.CPSSchemas.BasicWidgets import CPSImageWidget as OldImageWidget
+from Products.CPSSchemas.widgets.image import CPSImageWidget
+
 from Products.CPSDocument.upgrade import upgrade_doc_unicode
+from Products.CPSDocument.upgrade import upgrade_image_widget
 
 from layer import CPSDocumentLayer
 
-class TestUpgrade(CPSTestCase):
+class BaseTestUpgrade(CPSTestCase):
 
     layer = CPSDocumentLayer
 
@@ -45,6 +50,23 @@ class TestUpgrade(CPSTestCase):
         assume AttributeStorageAdapter."""
         for k, v in kw.items():
             setattr(doc, k, v)
+
+    def beforeTearDown(self):
+        self.logout()
+
+
+class TestUnicodeUpgrade(BaseTestUpgrade):
+
+    def check_string(self, input, output):
+        """Set the doc with input in string field, upgrade, check output"""
+        doc = self.fti.constructInstance(self.portal, 'upgrade')
+        self.doc_set(doc, string=input)
+
+        self.assertTrue(upgrade_doc_unicode(doc))
+
+        dm = doc.getDataModel()
+        self.assertEquals(dm['string'], output)
+        self.portal.manage_delObjects(['upgrade',])
 
     def test_upgrade(self):
         # A whole run
@@ -64,18 +86,6 @@ class TestUpgrade(CPSTestCase):
                                               u'\xe9', u'\xe9'])
         self.assertEquals(dm['ascii_string_list'],
                           ['abc', 'xy'])
-
-    def check_string(self, input, output):
-        """Set the doc with input in string field, upgrade, check output"""
-        doc = self.fti.constructInstance(self.portal, 'upgrade')
-        self.doc_set(doc, string=input)
-
-        self.assertTrue(upgrade_doc_unicode(doc))
-
-        dm = doc.getDataModel()
-        self.assertEquals(dm['string'], output)
-        self.portal.manage_delObjects(['upgrade',])
-
     def test_upgrade_entities(self):
         self.check_string('See what I mean &#8230;', u'See what I mean \u2026')
         self.check_string('&#8230; Abusing of ellipsis &#8230;',
@@ -99,11 +109,53 @@ class TestUpgrade(CPSTestCase):
                           u'\u2026 Abusing of ellipsis \u2026')
         self.check_string(u'Av\xe9 l&#8217;assent !', u'Av\xe9 l\u2019assent !')
 
-    def beforeTearDown(self):
-        self.logout()
+class TestImageWidgetUpgrade(CPSTestCase):
+
+    layer = CPSDocumentLayer
+
+    def afterSetUp(self):
+        self.login('manager')
+        self.fti = self.portal.portal_types['Test Image Upgrade']
+        self.layout_id = 'test_image_upgrade'
+        layout = self.layout = self.portal.portal_layouts[self.layout_id]
+        layout.addSubObject(OldImageWidget('res_ok'))
+        widget = layout['res_ok']
+        widget.manage_changeProperties(display_width=320, display_height=200,
+                                       fields=('?',), allow_resize=True)
+
+        layout.addSubObject(OldImageWidget('no_res'))
+        widget = layout['no_res']
+        widget.manage_changeProperties(display_width=320, display_height=200,
+                                       fields=('?',), allow_resize=False)
+
+        self.doc = self.fti._constructInstance(self.portal, 'upgrade')
+
+    def test_upgrade_no_resize(self):
+        layout_id = self.layout_id
+        wid = 'no_res'
+        tpl_layout = self.layout
+        tpl_widget = tpl_layout[wid]
+
+        # don't rely on official methods: they now make Indirect Widget
+        # instances
+        doc = self.doc
+        fti = self.fti
+        fti._makeObjectFlexible(doc)
+        layout, schema = fti._getFlexibleLayoutAndSchemaFor(doc, layout_id)
+        layout.addSubObject(aq_base(tpl_widget))
+        self.assertEquals(layout[wid].__class__, OldImageWidget)
+
+        upgrade_image_widget(doc, layout[wid], layout, tpl_layout, tpl_widget)
+        upgraded = layout[wid]
+        self.assertEquals(upgraded.__class__, CPSImageWidget)
+        self.assertEquals(upgraded.size_spec, 'l320')
+        self.assertEquals(upgraded.widget_ids, ())
+
+
 
 
 def test_suite():
     suite = unittest.TestSuite()
-    suite.addTest(unittest.makeSuite(TestUpgrade))
+    suite.addTest(unittest.makeSuite(TestUnicodeUpgrade))
+    suite.addTest(unittest.makeSuite(TestImageWidgetUpgrade))
     return suite

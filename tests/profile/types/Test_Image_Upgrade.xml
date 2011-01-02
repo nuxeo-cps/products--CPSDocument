@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<object name="Test Image Upgrade" meta_type="CPS Flexible Type Information">
+ <property name="title">Test document for upgrades</property>
+ <property name="description"></property>
+ <property name="content_icon">icon.png</property>
+ <property name="content_meta_type">CPS Document</property>
+ <property name="product">CPSDocument</property>
+ <property name="factory">addCPSDocument</property>
+ <property name="immediate_view">cpsdocument_view</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types"/>
+ <property name="allow_discussion">False</property>
+ <property name="cps_is_searchable">True</property>
+ <property name="cps_proxy_type">document</property>
+ <property name="cps_display_as_document_in_listing">False</property>
+ <property name="schemas">
+  <element value="test_image_upgrade"/>
+ </property>
+ <property name="layouts">
+  <element value="test_image_upgrade"/>
+ </property>
+ <property name="cps_is_portlet">False</property>
+ <property name="flexible_layouts">
+  <element value="test_image_upgrade:test_image_upgrade"/>
+ </property>
+</object>
