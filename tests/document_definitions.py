@@ -357,6 +357,12 @@ event_schema = {
 ########################################################
 # Image
 ########################################################
+image_schema = {
+    'display_size': {
+        'type': 'CPS Int Field',
+        }
+    }
+
 imagegallery_schema = {
     'thumbnail_size': {
         'type': 'CPS Int Field',
@@ -493,6 +499,7 @@ schemas['newsitem'] = newsitem_schema
 schemas['file'] = file_schema
 schemas['zippedhtml'] = zippedhtml_schema
 schemas['event'] = event_schema
+schemas['image'] = image_schema
 schemas['imagegallery'] = imagegallery_schema
 schemas['book'] = book_schema
 schemas['flash_animation'] = flash_animation_schema
