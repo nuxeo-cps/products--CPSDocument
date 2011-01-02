@@ -22,10 +22,12 @@ import unittest
 from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
 
 from Acquisition import aq_base
+from OFS.Image import Image
 from Products.CPSUtil.text import get_final_encoding
 
 from Products.CPSSchemas.BasicWidgets import CPSImageWidget as OldImageWidget
 from Products.CPSSchemas.widgets.image import CPSImageWidget
+from Products.CPSSchemas.tests.testWidgets import TEST_IMAGE
 
 from Products.CPSDocument.upgrade import upgrade_doc_unicode
 from Products.CPSDocument.upgrade import upgrade_image_widget
@@ -115,7 +117,7 @@ class TestImageWidgetUpgrade(CPSTestCase):
 
     def afterSetUp(self):
         self.login('manager')
-        self.fti = self.portal.portal_types['Test Image Upgrade']
+        fti = self.fti = self.portal.portal_types['Test Image Upgrade']
         self.layout_id = 'test_image_upgrade'
         layout = self.layout = self.portal.portal_layouts[self.layout_id]
         layout.addSubObject(OldImageWidget('res_ok'))
@@ -128,31 +130,61 @@ class TestImageWidgetUpgrade(CPSTestCase):
         widget.manage_changeProperties(display_width=320, display_height=200,
                                        fields=('?',), allow_resize=False)
 
-        self.doc = self.fti._constructInstance(self.portal, 'upgrade')
+        self.doc = fti._constructInstance(self.portal, 'upgrade')
+        self.doc.portal_type = fti.getId()
 
-    def test_upgrade_no_resize(self):
+    def makeFlexibleWidget(self, wid):
+        """Return widget, layout, template widget, template layout
+        doesn't rely on official methods: they now make Indirect Widget
+        instances.
+        """
         layout_id = self.layout_id
-        wid = 'no_res'
         tpl_layout = self.layout
         tpl_widget = tpl_layout[wid]
-
-        # don't rely on official methods: they now make Indirect Widget
-        # instances
         doc = self.doc
         fti = self.fti
         fti._makeObjectFlexible(doc)
         layout, schema = fti._getFlexibleLayoutAndSchemaFor(doc, layout_id)
         layout.addSubObject(aq_base(tpl_widget))
-        self.assertEquals(layout[wid].__class__, OldImageWidget)
+        widget = layout[wid]
+        fti._createFieldsForFlexibleWidget(schema, widget, tpl_widget)
 
-        upgrade_image_widget(doc, layout[wid], layout, tpl_layout, tpl_widget)
+        #widget.manage_changeProperties(fields=[wid + '_f0'])
+        return layout[wid], layout, tpl_widget, tpl_layout
+
+    def test_upgrade_no_resize(self):
+        wid = 'no_res'
+        widget, layout, tpl_widget, tpl_layout = self.makeFlexibleWidget(wid)
+        self.assertEquals(widget.__class__, OldImageWidget)
+
+        upgrade_image_widget(self.doc, layout[wid], layout,
+                             tpl_layout, tpl_widget)
+
         upgraded = layout[wid]
         self.assertEquals(upgraded.__class__, CPSImageWidget)
         self.assertEquals(upgraded.size_spec, 'l320')
         self.assertEquals(upgraded.widget_ids, ())
 
+    def test_upgrade_resize(self):
+        wid = 'res_ok'
+        widget, layout, tpl_widget, tpl_layout = self.makeFlexibleWidget(wid)
+        self.assertEquals(widget.__class__, OldImageWidget)
 
+        doc = self.doc
+        fid = widget.fields[0]
+        dm = doc.getDataModel()
+        dm[fid] = Image('fid', 'ze_image.png', TEST_IMAGE)
+        dm._commitData()
 
+        upgrade_image_widget(doc, layout[wid], layout, tpl_layout, tpl_widget)
+        upgraded = layout[wid]
+        self.assertEquals(upgraded.__class__, CPSImageWidget)
+        self.assertEquals(upgraded.size_spec, 'l320')
+        self.assertEquals(upgraded.widget_ids, ('display_size',))
+
+        size_widget = layout['display_size']
+        dm = doc.getDataModel()
+        self.assertEquals(dm[size_widget.fields[0]], 32)
 
 def test_suite():
     suite = unittest.TestSuite()
