@@ -91,7 +91,7 @@
       />
 
   <cps:upgradeStep
-      title="Upgrade flexible widgets to indirect widgets"
+      title="Upgrade flexible image widgets"
       source="3.5.1" destination="3.5.2"
       handler=".upgrade.upgrade_image_widgets"
       sortkey="100"
