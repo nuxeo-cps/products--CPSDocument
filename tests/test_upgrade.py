@@ -144,23 +144,27 @@ class TestImageWidgetUpgrade(CPSTestCase):
         self.doc = fti._constructInstance(self.portal, 'upgrade')
         self.doc.portal_type = fti.getId()
 
-    def makeFlexibleWidget(self, wid):
+    def makeFlexibleWidget(self, tplwid, wid=''):
         """Return widget, layout, template widget, template layout
         doesn't rely on official methods: they now make Indirect Widget
         instances.
         """
+        if not wid:
+            wid = tplwid
+
         layout_id = self.layout_id
         tpl_layout = self.layout
-        tpl_widget = tpl_layout[wid]
+        tpl_widget = tpl_layout[tplwid]
         doc = self.doc
         fti = self.fti
         fti._makeObjectFlexible(doc)
         layout, schema = fti._getFlexibleLayoutAndSchemaFor(doc, layout_id)
-        layout.addSubObject(aq_base(tpl_widget))
+        widget = aq_base(tpl_widget)
+        widget._setId(wid)
+        layout.addSubObject(widget)
         widget = layout[wid]
         fti._createFieldsForFlexibleWidget(schema, widget, tpl_widget)
 
-        #widget.manage_changeProperties(fields=[wid + '_f0'])
         return layout[wid], layout, tpl_widget, tpl_layout
 
     def test_upgrade_no_resize(self):
@@ -184,7 +188,7 @@ class TestImageWidgetUpgrade(CPSTestCase):
         doc = self.doc
         fid = widget.fields[0]
         dm = doc.getDataModel()
-        dm[fid] = Image('fid', 'ze_image.png', TEST_IMAGE)
+        dm[fid] = Image(fid, 'ze_image.png', TEST_IMAGE)
         dm._commitData()
 
         upgrade_image_widget(doc, layout[wid], layout, tpl_layout, tpl_widget)
@@ -194,6 +198,26 @@ class TestImageWidgetUpgrade(CPSTestCase):
         self.assertEquals(upgraded.widget_ids, ('display_size',))
 
         size_widget = layout['display_size']
+        dm = doc.getDataModel()
+        self.assertEquals(dm[size_widget.fields[0]], 32)
+
+    def test_upgrade_with_suffix(self):
+        widget, layout, tpl_widget, tpl_layout = self.makeFlexibleWidget(
+            'res_ok', wid='res_ok_1')
+        doc = self.doc
+        fid = widget.fields[0]
+        dm = doc.getDataModel()
+        dm[fid] = Image(fid, 'ze_image.png', TEST_IMAGE)
+        dm._commitData()
+
+        upgrade_image_widget(self.doc, widget, layout, tpl_layout, tpl_widget)
+
+        upgraded = layout['res_ok_1']
+        self.assertEquals(upgraded.__class__, CPSImageWidget)
+        self.assertEquals(upgraded.size_spec, 'l320')
+        self.assertEquals(upgraded.widget_ids, ('display_size_1',))
+
+        size_widget = layout['display_size_1']
         dm = doc.getDataModel()
         self.assertEquals(dm[size_widget.fields[0]], 32)
 

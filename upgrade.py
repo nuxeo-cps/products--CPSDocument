@@ -32,6 +32,7 @@ from Products.CPSSchemas.BasicWidgets import CPSIntWidget
 from Products.CPSSchemas.widgets.image import CPSImageWidget
 from Products.CPSSchemas.widgets.image import CPSPhotoWidget
 from Products.CPSSchemas.upgrade import upgrade_datamodel_unicode
+from Products.CPSDocument.FlexibleTypeInformation import flexible_widget_split
 
 import itertools
 
@@ -348,11 +349,10 @@ def do_on_flex_widgets_doc(meth, doc, layouts, logger):
             if wid in glob.keys():
                 gw = glob[wid]
             else:
-                split = wid.rsplit('_', 1)
+                split = flexible_widget_split(wid)
                 try:
-                    int(split[1])
                     gw = glob[split[0]]
-                except (TypeError, IndexError, KeyError):
+                except KeyError:
                     logger.warn("Could not find template widget for %s",
                                 w.absolute_url_path())
                     status = False
@@ -471,6 +471,8 @@ def upgrade_image_gallery_unidim_thumbnails(portal):
 
 # downstream welcome to add more
 FLEXIBLE_LAYOUTS = ['flexible_content', 'newsitem_flexible']
+FLEXIBLE_LAYOUTS_SIZE_WIDGETS = dict(flexible_content=('display_size',),
+                                     newsitem_flexible=('display_size',))
 
 def upgrade_flexible_widgets_indirect(portal):
     """Upgrade all flexible documents to use IndirectWidget."""
@@ -496,6 +498,19 @@ def upgrade_flexible_widgets_indirect(portal):
 
     do_on_flexible_widgets(do_one, portal, FLEXIBLE_LAYOUTS)
 
+def make_size_widget(layout, subwid, **kw):
+    """Make a subwidget to control sizes and return it.
+
+    Can be used either to upgrade flexible layouts or for the global ones.
+    kw gets applied as properties on the widget.
+    """
+    layout.addSubObject(CPSIntWidget(subwid))
+    size_widget = layout[subwid]
+    kw.setdefault('label_edit', 'cpsdoc_image_display_size_largest_label_edit')
+    kw.setdefault('help', 'cpsdoc_image_display_size_help')
+    size_widget.manage_changeProperties(**kw)
+    return size_widget
+
 def upgrade_image_widget(doc, widget, layout, template_widget, template_layout):
     wid = widget.getWidgetId()
 
@@ -517,10 +532,7 @@ def upgrade_image_widget(doc, widget, layout, template_widget, template_layout):
         widget._properties = CPSImageWidget._properties + addprops
     widget.size_spec = 'l%d' % size
 
-    try:
-        suffix = int(wid.rsplit('_', 1)[1])
-    except (IndexError, ValueError):
-        suffix = ''
+    suffix = flexible_widget_split(wid)[1]
 
     if allow_resize:
         # user has had the opportunity to resize, we make a subwidget.
@@ -540,9 +552,8 @@ def upgrade_image_widget(doc, widget, layout, template_widget, template_layout):
             subwid = '_'.join((base_id, chr(c), suffix))
             c += 1
 
-        layout.addSubObject(CPSIntWidget(subwid))
-        size_widget = layout[subwid]
         widget.widget_ids = (subwid,)
+        size_widget = make_size_widget(layout, subwid)
 
         tpl_widget = CPSIntWidget('tpl') # for now, that's enough, this is
         # used for field inits, which are in this case ok at class level
@@ -561,7 +572,7 @@ def upgrade_photo_widget(doc, widget, layout, template_widget, template_layout):
         fields = widget.fields
         original_fid = fields[3]
         dm = doc.getDataModel()
-        original = dm[original_fid]._file_obj
+        original = dm[original_fid]
 
     upgrade_image_widget(doc, widget, layout, template_widget, template_layout)
     widget = layout[widget.getWidgetId()]
@@ -569,6 +580,7 @@ def upgrade_photo_widget(doc, widget, layout, template_widget, template_layout):
 
     if has_original:
         if original is not None:
+            original = original._file_obj
             # main field now the original
             dm = doc.getDataModel()
             dm[fields[0]] = original
@@ -584,14 +596,22 @@ def upgrade_photo_widget(doc, widget, layout, template_widget, template_layout):
         widget.manage_changeProperties(zoom_size_spec='l800')
 
 def upgrade_image_widgets(portal):
+    logger = logging.getLogger('Products.CPSDocument.upgrade.image_widgets')
+
+    for layout_id, subwids in FLEXIBLE_LAYOUTS_SIZE_WIDGETS.items():
+        layout = portal.portal_layouts[layout_id]
+        for subwid in subwids:
+            make_size_widget(layout, subwid, fields=['?'])
+            logger.info("Added widget %r to layout %r", subwid, layout)
+
     from Products.CPSSchemas.BasicWidgets import CPSImageWidget \
         as OldImageWidget
-    from Products.CPSSchemas.BasicWidgets import CPSPhotoWidget \
+    from Products.CPSSchemas.ExtendedWidgets import CPSPhotoWidget \
         as OldPhotoWidget
-    def do_one(doc, widget, layout, template_widget, template_layout):
+    def do_one(doc, widget, layout, tpl_widget, tpl_layout):
         if widget.__class__ is OldImageWidget:
-            upgrade_image_widget(doc, widget, layout)
+            upgrade_image_widget(doc, widget, layout, tpl_widget, tpl_layout)
         elif widget.__class__ is OldPhotoWidget:
-            upgrade_photo_widget(doc, widget, layout)
+            upgrade_photo_widget(doc, widget, layout, tpl_widget, tpl_layout)
 
     do_on_flexible_widgets(do_one, portal, FLEXIBLE_LAYOUTS)
