@@ -3,7 +3,7 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
--
+- #2234: upgrade step for image widgets
 Bug fixes
 ~~~~~~~~~
 - #2315: nested compound flexible widgets
