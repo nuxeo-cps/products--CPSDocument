@@ -16,6 +16,7 @@ from urllib import urlencode
 from Products.CMFCore.utils import getToolByName
 from Products.CPSDefault.utils import isIOrderedContainer
 from Products.CPSDocument.utils import getFormUidUrlArg
+from Products.CPSDocument.utils import createObjectsAtBottom
 
 ti = getToolByName(context, 'portal_types').getTypeInfo(type_name)
 
@@ -31,9 +32,11 @@ if is_valid:
     psm = 'psm_content_created'
     args = {}
     # Move the newly created object as the first object in the folder,
+    # unless an optional prop on context's fti contradicts this:
     # otherwise in folders with more that one page of documents
     # one would have to go to the last page.
-    if isIOrderedContainer(context):
+
+    if isIOrderedContainer(context) and not createObjectsAtBottom(context):
         context.moveObjectsToTop([ob.getId()])
 else:
     url = context.absolute_url()
