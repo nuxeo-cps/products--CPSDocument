@@ -110,6 +110,30 @@ def check_338_340_document_to_flex(context):
         return False
     return True
 
+def upgrade_338_340_textimage_widgets(portal):
+    logger = logging.getLogger('Products.CPSDocument.upgrades.'
+                               'textimage_widgets')
+    layout_ids = ('flexible_content',)
+
+    def do_one(doc, widget, layout, template_widget, template_layout):
+        wid = widget.getId()
+        tpl_id = flexible_widget_split(wid)[0]
+        if tpl_id != 'textimage':
+            return
+        logger.debug("Upgrading widget %r", widget)
+        state = widget.__dict__.copy()
+        state.pop('widget_type', None)
+        layout.delSubObject(wid)
+        layout.add(TextImageWidget(wid))
+        layout[wid].__dict__.update(state)
+        return True
+
+    do_on_flexible_widgets(do_one, portal, layout_ids)
+    logger.warn("Finished upgrading textimage widgets for layouts %r",
+                ','.join(layout_ids))
+    transaction.commit()
+
+
 def upgrade_338_340_document_to_flex(context):
     """Upgrade Document type instances to become flexible."""
     repository = getToolByName(context, 'portal_repository')
