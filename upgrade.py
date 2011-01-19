@@ -25,7 +25,7 @@ from Acquisition import aq_base, aq_inner, aq_parent
 from Products.CMFCore.utils import getToolByName
 from Products.CPSUtil.text import upgrade_string_unicode
 from Products.CPSUtil.file import ofsFileHandler
-from Products.CPSUtil.image import imageGeometry
+from Products.CPSUtil import image
 
 from Products.CPSSchemas.BasicFields import CPSStringField
 from Products.CPSSchemas.BasicWidgets import CPSIntWidget
@@ -587,7 +587,7 @@ def upgrade_image_widget(doc, widget, layout, template_widget, template_layout):
         img = dm[widget.fields[0]]
         if img is not None:
             subfid = size_widget.fields[0]
-            dm[subfid] = max(*imageGeometry(ofsFileHandler(img)))
+            dm[subfid] = max(*image.geometry(ofsFileHandler(img)))
             dm._commitData()
 
 def upgrade_photo_widget(doc, widget, layout, template_widget, template_layout):
