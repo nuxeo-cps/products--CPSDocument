@@ -24,7 +24,10 @@ currently edited. It is included in forms and propagated during redirects.
 
 import random
 from AccessControl import ModuleSecurityInfo
+from Acquisition import aq_base
+from Products.CMFCore.utils import getToolByName
 
+security = ModuleSecurityInfo(__name__)
 
 _FORM_UID_REQUEST_KEY = 'cpsformuid'
 
@@ -85,3 +88,18 @@ def cleanAjaxParams(request):
                 value = value[0].split(',')
             value = [clean(element) for element in value]
             request.form[key] = value
+
+security.declarePublic('createObjectsAtBottom')
+def createObjectsAtBottom(container):
+    """Return true if in container we must create new objects at bottom.
+
+    TODO would actually be better to hook this as a method in CPSCore's
+    CPSTypes, but that requires a bit more of thinking.
+    """
+
+    ptype = getattr(aq_base(container), 'portal_type', None)
+    if ptype is None:
+        return False
+
+    fti = getToolByName(container, 'portal_types')[ptype]
+    return fti.getProperty('create_objects_at_bottom', False)

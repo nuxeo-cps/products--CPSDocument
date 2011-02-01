@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="image" meta_type="CPS Layout">
+ <property name="flexible_widgets">
+  <element value="res_ok"/>
+  <element value="no_res"/>
+ </property>
+
+ <!-- no widget here, 'cause they would of course be of the new classes -->
+</object>

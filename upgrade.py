@@ -21,11 +21,18 @@ import logging
 import re
 
 import transaction
-from Acquisition import aq_base
+from Acquisition import aq_base, aq_inner, aq_parent
 from Products.CMFCore.utils import getToolByName
 from Products.CPSUtil.text import upgrade_string_unicode
+from Products.CPSUtil.file import ofsFileHandler
+from Products.CPSUtil import image
+
 from Products.CPSSchemas.BasicFields import CPSStringField
+from Products.CPSSchemas.BasicWidgets import CPSIntWidget
+from Products.CPSSchemas.widgets.image import CPSImageWidget
+from Products.CPSSchemas.widgets.image import CPSPhotoWidget
 from Products.CPSSchemas.upgrade import upgrade_datamodel_unicode
+from Products.CPSDocument.FlexibleTypeInformation import flexible_widget_split
 
 import itertools
 
@@ -102,6 +109,30 @@ def check_338_340_document_to_flex(context):
         # Alredy upgraded:
         return False
     return True
+
+def upgrade_338_340_textimage_widgets(portal):
+    logger = logging.getLogger('Products.CPSDocument.upgrades.'
+                               'textimage_widgets')
+    layout_ids = ('flexible_content',)
+
+    def do_one(doc, widget, layout, template_widget, template_layout):
+        wid = widget.getId()
+        tpl_id = flexible_widget_split(wid)[0]
+        if tpl_id != 'textimage':
+            return
+        logger.debug("Upgrading widget %r", widget)
+        state = widget.__dict__.copy()
+        state.pop('widget_type', None)
+        layout.delSubObject(wid)
+        layout.add(TextImageWidget(wid))
+        layout[wid].__dict__.update(state)
+        return True
+
+    do_on_flexible_widgets(do_one, portal, layout_ids)
+    logger.warn("Finished upgrading textimage widgets for layouts %r",
+                ','.join(layout_ids))
+    transaction.commit()
+
 
 def upgrade_338_340_document_to_flex(context):
     """Upgrade Document type instances to become flexible."""
@@ -272,28 +303,42 @@ def upgrade_unicode(portal, resync_trees=True):
         transaction.commit()
     logger.warn("Finished rebuilding the Tree Caches")
 
-def resync_flexible_widgets(portal, wid_props=None):
-    """Upgrade flexible widgets by recopying properties from the master ones.
+def do_on_flexible_widgets(meth, portal, layout_ids):
+    """Apply meth to for all flexible widgets of given layout_ids in the portal.
 
-    wid_props is a double dict (layout_id -> (master widget id -> property ids))
-    template
+    Details for meth:
+      typically defined inside the primary handler function to benefit from
+      its local variables.
+
+      signature:
+        def meth(doc, widget, layout, template_widget, template_layout)
+      where template_widget is the global widget this one refers to
+
+      meaning of returned values:
+        - True if has run successfully
+        - False if some error has occurred
+        - None if has not been applicable, and this is not an error
+
+    This looper is supposed to understand both IndirectWidget cases and
+    the older copy-pasted flexible widgets.
     """
 
     logger = logging.getLogger('Products.CPSDocument.upgrades.'
-                               'resync_flexible_widgets')
+                               'do_on_flexible_widgets')
     repotool = portal.portal_repository
     total = len(repotool)
 
     ltool = portal.portal_layouts
-    layout_ids = wid_props.keys()
-    logger.info("Starting resync of flexible widgets for layouts %r \n"
-                "detailed parameters: %r", layout_ids, wid_props)
-
-    layouts = dict((lid, ltool[lid]) for lid in layout_ids)
+    layouts = {}
+    for lid in layout_ids:
+        try:
+            layouts[lid] = ltool[lid]
+        except KeyError:
+            logger.warn("Global layout %r not found", lid)
 
     done = 0
     for doc in repotool.iterValues():
-        ret = resync_doc_flex_widgets(doc, layouts=layouts, wid_props=wid_props)
+        ret = do_on_flex_widgets_doc(meth, doc, layouts, logger)
         if ret is None: # means was not applicable, but ok
             continue
 
@@ -311,37 +356,65 @@ def resync_flexible_widgets(portal, wid_props=None):
 
     transaction.commit()
 
-def resync_doc_flex_widgets(doc, layouts=None, wid_props=None):
+def do_on_flex_widgets_doc(meth, doc, layouts, logger):
 
     if not doc.hasObject('.cps_layouts'):
         return
     lcont = doc['.cps_layouts']
     loc_lids = lcont.objectIds()
+    status = True
     for lid, glob in layouts.items():
         if not lid in loc_lids:
             continue
-        lwp = wid_props.get(lid)
-        if lwp is None:
-            continue
+
         loc = lcont[lid]
 
         for wid, w in loc.items():
             if wid in glob.keys():
                 gw = glob[wid]
             else:
-                split = wid.rsplit('_', 1)
+                split = flexible_widget_split(wid)
                 try:
-                    int(split[1])
                     gw = glob[split[0]]
-                except (TypeError, IndexError, KeyError):
+                except KeyError:
                     logger.warn("Could not find template widget for %s",
                                 w.absolute_url_path())
+                    status = False
                     continue
 
-            for pid in lwp.get(gw.getWidgetId(), ()):
-                w.manage_changeProperties(**{pid: gw.getProperty(pid)})
-    return True
+            ret = meth(doc, w, loc, gw, glob)
+            if ret is None:
+                status is None
+            elif status is not None:
+                status = status and ret
 
+    return status
+
+
+def resync_flexible_widgets(portal, wid_props=None):
+    """Upgrade flexible widgets by recopying properties from the master ones.
+
+    wid_props is a double dict
+       (layout_id -> (template widget id -> property ids))
+    """
+
+    logger = logging.getLogger('Products.CPSDocument.upgrades.'
+                               'resync_flexible_widgets')
+    layout_ids = wid_props.keys()
+    logger.info("Starting resync of flexible widgets for layouts %r \n"
+                "detailed parameters: %r", layout_ids, wid_props)
+
+    def do_one(doc, widget, layout, template_widget, template_layout):
+        props = wid_props.get(layout.getId())
+        for pid in props.get(template_widget.getWidgetId(), ()):
+            widget.manage_changeProperties(
+                **{pid: template_widget.getProperty(pid)})
+        return True
+
+    do_on_flexible_widgets(do_one, portal, layout_ids)
+    logger.warn("Finished resyncing flexible widgets for layouts %r",
+                ','.join(layout_ids))
+    transaction.commit()
 
 def upgrade_doc_unicode(doc):
         ptype = doc.portal_type
@@ -419,3 +492,150 @@ def upgrade_image_gallery_unidim_thumbnails(portal):
         if c and not (c % 100):
             commit_log(c)
     commit_log(c)
+
+# downstream welcome to add more
+FLEXIBLE_LAYOUTS = ['flexible_content', 'newsitem_flexible']
+FLEXIBLE_LAYOUTS_SIZE_WIDGETS = dict(flexible_content=('display_size',),
+                                     newsitem_flexible=('display_size',))
+
+def upgrade_flexible_widgets_indirect(portal):
+    """Upgrade all flexible documents to use IndirectWidget."""
+    from Products.CPSSchemas.widgets.indirect import IndirectWidget
+    utool = portal.portal_url
+
+    def do_one(doc, widget, layout, template_widget, template_layout):
+        fields = widget.fields
+        subwidgets = widget.getProperty('widget_ids', None)
+
+        layout = aq_parent(aq_inner(widget))
+        wid = widget.getWidgetId()
+        layout.delSubObject(wid)
+        layout.addSubObject(IndirectWidget(wid))
+        indirect = layout[wid]
+
+        rpath = utool.getRpath(template_widget)
+        indirect.manage_changeProperties(base_widget_rpath=rpath)
+        indirect.manage_addProperty('fields', fields, 'lines')
+        if subwidgets is not None:
+            indirect.manage_addProperty('widget_ids', subwidgets, 'lines')
+        return True
+
+    do_on_flexible_widgets(do_one, portal, FLEXIBLE_LAYOUTS)
+
+def make_size_widget(layout, subwid, **kw):
+    """Make a subwidget to control sizes and return it.
+
+    Can be used either to upgrade flexible layouts or for the global ones.
+    kw gets applied as properties on the widget.
+    """
+    layout.addSubObject(CPSIntWidget(subwid))
+    size_widget = layout[subwid]
+    kw.setdefault('label_edit', 'cpsdoc_image_display_size_largest_label_edit')
+    kw.setdefault('help', 'cpsdoc_image_display_size_help')
+    size_widget.manage_changeProperties(**kw)
+    return size_widget
+
+def upgrade_image_widget(doc, widget, layout, template_widget, template_layout):
+    wid = widget.getWidgetId()
+
+    # keeping interesting part of attrs
+    state = widget.__dict__.copy()
+    stprops = state.pop('_properties', ())
+    if stprops:
+        oldclsprops = frozenset(p['id'] for p in widget.__class__._properties)
+        addprops = tuple(p for p in stprops if p['id'] not in oldclsprops)
+    size = max(state.pop('display_width', 0), state.pop('display_height', 0))
+    allow_resize = state.pop('allow_resize', widget.__class__.allow_resize)
+
+    # instantiation and state init
+    layout.delSubObject(wid)
+    layout.addSubObject(CPSImageWidget(wid))
+    widget = layout[wid]
+    widget.__dict__.update(state)
+    if stprops:
+        widget._properties = CPSImageWidget._properties + addprops
+    widget.size_spec = 'l%d' % size
+
+    suffix = flexible_widget_split(wid)[1]
+
+    if allow_resize:
+        # user has had the opportunity to resize, we make a subwidget.
+        # we try and have the same suffix as the main one, to stay
+        # human-readers friendly
+        fti = doc.getTypeInfo()
+        _, schema = fti._getFlexibleLayoutAndSchemaFor(doc, layout.getId())
+
+        base_id = 'display_size'
+        if suffix:
+            subwid = '_'.join((base_id, suffix))
+        else:
+            subwid = base_id
+        # TODO: what if hundreds of flex widgets. Seen that in the wild
+        c = ord('A')
+        while subwid in layout.keys():
+            subwid = '_'.join((base_id, chr(c), suffix))
+            c += 1
+
+        widget.widget_ids = (subwid,)
+        size_widget = make_size_widget(layout, subwid)
+
+        tpl_widget = CPSIntWidget('tpl') # for now, that's enough, this is
+        # used for field inits, which are in this case ok at class level
+        fti._createFieldsForFlexibleWidget(schema, size_widget, tpl_widget)
+
+        dm = doc.getDataModel()
+        img = dm[widget.fields[0]]
+        if img is not None:
+            subfid = size_widget.fields[0]
+            dm[subfid] = max(*image.geometry(ofsFileHandler(img)))
+            dm._commitData()
+
+def upgrade_photo_widget(doc, widget, layout, template_widget, template_layout):
+    has_original = widget.canKeepOriginal()
+    if has_original:
+        fields = widget.fields
+        original_fid = fields[3]
+        dm = doc.getDataModel()
+        original = dm[original_fid]
+
+    upgrade_image_widget(doc, widget, layout, template_widget, template_layout)
+    widget = layout[widget.getWidgetId()]
+    widget.fields = fields[:3] + fields[4:]
+
+    if has_original:
+        if original is not None:
+            original = original._file_obj
+            # main field now the original
+            dm = doc.getDataModel()
+            dm[fields[0]] = original
+            dm._commitData()
+
+        # resized version not stored in a field
+        fti = doc.getTypeInfo()
+        _, schema = fti._getFlexibleLayoutAndSchemaFor(doc, layout.getId())
+        schema.delSubObject(original_fid)
+
+        # Zoom size did not exist before.
+        # In any case the later switch to Indirect Widget will take over it
+        widget.manage_changeProperties(zoom_size_spec='l800')
+
+def upgrade_image_widgets(portal):
+    logger = logging.getLogger('Products.CPSDocument.upgrade.image_widgets')
+
+    for layout_id, subwids in FLEXIBLE_LAYOUTS_SIZE_WIDGETS.items():
+        layout = portal.portal_layouts[layout_id]
+        for subwid in subwids:
+            make_size_widget(layout, subwid, fields=['?'])
+            logger.info("Added widget %r to layout %r", subwid, layout)
+
+    from Products.CPSSchemas.BasicWidgets import CPSImageWidget \
+        as OldImageWidget
+    from Products.CPSSchemas.ExtendedWidgets import CPSPhotoWidget \
+        as OldPhotoWidget
+    def do_one(doc, widget, layout, tpl_widget, tpl_layout):
+        if widget.__class__ is OldImageWidget:
+            upgrade_image_widget(doc, widget, layout, tpl_widget, tpl_layout)
+        elif widget.__class__ is OldPhotoWidget:
+            upgrade_photo_widget(doc, widget, layout, tpl_widget, tpl_layout)
+
+    do_on_flexible_widgets(do_one, portal, FLEXIBLE_LAYOUTS)

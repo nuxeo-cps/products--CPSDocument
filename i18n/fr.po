@@ -582,3 +582,14 @@ msgstr "Animation Flash au format swf"
 
 msgid "psm_ajax_working"
 msgstr "Transfert en cours"
+
+# Image
+
+msgid "cpsdoc_image_display_size_largest_label_edit"
+msgstr "Taille d'affichage (plus grande dimension, pixels)"
+
+msgid "cpsdoc_image_display_size_help"
+msgstr "vous pouvez ajuster la taille d'affichage de cette image. L'originale "
+"est conservée telle que vous l'aurez envoyée quoi qu'il arrive</br> "
+"La valeur par défaut définie par l'administrateur sera appliquée si "
+"vide ou nul."

@@ -567,3 +567,13 @@ msgstr "Transferring datas"
 
 #~ msgid "heading_metadata_edit"
 #~ msgstr "Metadata edition"
+
+# Image
+
+msgid "cpsdoc_image_display_size_largest_label_edit"
+msgstr "Display size (largest dimension)"
+
+msgid "cpsdoc_image_display_size_help"
+msgstr "You may tune the size for this image. This is purely a matter of "
+"display. The full image is always kept. <br/> A default value will be applied "
+"if void or zero"

@@ -57,6 +57,25 @@ import zope.interface
 
 logger = logging.getLogger(__name__)
 
+def flexible_widget_split(widget_id):
+    """Return base widget id, suffix.
+
+    >>> flexible_widget_split('res_1')
+    ('res', '1')
+    >>> flexible_widget_split('res')
+    ('res', '')
+    >>> flexible_widget_split('res_ok')
+    ('res_ok', '')
+    """
+
+    try:
+        split = widget_id.rsplit('_', 1)
+        int(split[1])
+        return split[0], split[1]
+    except (IndexError, ValueError):
+        return widget_id, ''
+
+
 def addFlexibleTypeInformation(container, id, REQUEST=None):
     """Add a Flexible Type Information."""
     flexti = FlexibleTypeInformation(id)
@@ -382,7 +401,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
     def flexibleAddWidget(self, ob, layout_id, wtid, **kw):
         """Add a new widget to the flexible part of a document.
 
-        Takes care of compound widget.
+        Takes care of compound widgets.
 
         Returns the widget id.
         """
@@ -395,9 +414,10 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         # Compound widget - creating sub widgets
         new_widget_ids = []
         for widget_id in tpl_widget.widget_ids:
-            id = self._flexibleAddSimpleWidget(ob, layout_id, widget_id,
-                                              layout_register=0, **kw)
-            new_widget_ids.append(id)
+            subkw = kw.copy()
+            subkw['layout_register'] = False
+            wid = self.flexibleAddWidget(ob, layout_id, widget_id, **subkw)
+            new_widget_ids.append(wid)
 
         # creating the compound widget
         widget_id = self._flexibleAddSimpleWidget(ob, layout_id, wtid, **kw)
@@ -443,7 +463,20 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         widget = layout[widget_id]
         widget.manage_changeProperties(base_widget_rpath=tpl_rpath)
 
-        # Create the needed fields.
+        self._createFieldsForFlexibleWidget(schema, widget, tpl_widget)
+
+        if layout_register:
+            layoutdef = layout.getLayoutDefinition()
+            if position is None:
+                # Add the widget to the end of the layout definition.
+                position = len(layoutdef)
+            layoutdef['rows'].insert(position, [{'widget_id': widget_id}])
+            layout.setLayoutDefinition(layoutdef)
+
+        return widget.getWidgetId()
+
+    def _createFieldsForFlexibleWidget(self, schema, widget, tpl_widget):
+        widget_id = widget.getWidgetId()
         field_types = tpl_widget.getFieldTypes()
         field_inits = tpl_widget.getFieldInits()
         fields = []
@@ -468,35 +501,36 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
                          field_id, kw)
             fields.append(field_id)
 
-        # Set the fields used by the widget.
-        widget.manage_addProperty('fields', fields, 'lines')
-
-        if layout_register:
-            layoutdef = layout.getLayoutDefinition()
-            if position is None:
-                # Add the widget to the end of the layout definition.
-                position = len(layoutdef)
-            layoutdef['rows'].insert(position, [{'widget_id': widget_id}])
-            layout.setLayoutDefinition(layoutdef)
-
-        return widget.getWidgetId()
+        # Set the fields used by the widget. Accomodate either Indirect Widget
+        # or a direct widget (useful, e.g, in upgrade tests)
+        if widget.hasProperty('fields'):
+            widget.manage_changeProperties(fields=fields)
+        else:
+            widget.manage_addProperty('fields', fields, 'lines')
 
     security.declareProtected(ModifyPortalContent, 'flexibleDelWidgets')
     def flexibleDelWidgets(self, ob, layout_id, widget_ids):
         """Delete widgets from the flexible part of a document.
 
-        Takes care of Compound widget.
+        Takes care of Compound widgets, including nested ones.
         """
         self._makeObjectFlexible(ob)
         layout, schema = self._getFlexibleLayoutAndSchemaFor(ob, layout_id)
-        new_widget_ids = []
-        for widget_id in widget_ids:
-            widget = layout[widget_id]
-            if isinstance(widget,  CPSCompoundWidget):
-                new_widget_ids.extend(widget.widget_ids)
-            new_widget_ids.append(widget_id)
 
-        return self._flexibleDelSimpleWidgets(ob, layout_id, new_widget_ids)
+        to_del = []
+        to_inspect = list(widget_ids)
+        while to_inspect:
+            to_del.extend(to_inspect)
+            cur = []
+            for widget_id in to_inspect:
+                widget = layout[widget_id]
+                # subwidgets can now be IndirectWidget instances
+                # checking the meta_type or the class is too restrictive
+                subwids = widget.getProperty('widget_ids', ())
+                cur.extend(subwids)
+            to_inspect = cur
+
+        return self._flexibleDelSimpleWidgets(ob, layout_id, to_del)
 
     security.declarePrivate('_flexibleDelSimpleWidgets')
     def _flexibleDelSimpleWidgets(self, ob, layout_id, widget_ids):
@@ -536,7 +570,10 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
                 else:
                     # Other fields such as string Fields are stored as
                     # non-object attributes
-                    delattr(ob, field_id)
+                    try:
+                        delattr(ob, field_id)
+                    except AttributeError: # has never been written.
+                        pass
 
             # Delete the widget.
             logger.debug('deleting widget %r', widget_id)
