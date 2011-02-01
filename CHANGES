@@ -6,7 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
--
+- Image widget upgrade robustness wrt ununderstood images
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

@@ -587,8 +587,10 @@ def upgrade_image_widget(doc, widget, layout, template_widget, template_layout):
         img = dm[widget.fields[0]]
         if img is not None:
             subfid = size_widget.fields[0]
-            dm[subfid] = max(*image.geometry(ofsFileHandler(img)))
-            dm._commitData()
+            size = max(*image.geometry(ofsFileHandler(img)))
+            if size is not None:
+                dm[subfid] = size
+        dm._commitData()
 
 def upgrade_photo_widget(doc, widget, layout, template_widget, template_layout):
     has_original = widget.canKeepOriginal()
