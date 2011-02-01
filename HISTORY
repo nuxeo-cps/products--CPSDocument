@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSDocument 1.6.3
+===========================================================
+First release built by: gracinet at: 2011-02-01T21:21:59
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- applied method name change in CPSUtil.image
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.6.2
 ===========================================================
 First release built by: gracinet at: 2011-01-13T02:31:00
