@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSDocument 1.6.4
+===========================================================
+First release built by: gracinet at: 2011-02-02T00:01:52
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Image widget upgrade robustness wrt ununderstood images
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.6.3
 ===========================================================
 First release built by: gracinet at: 2011-02-01T21:21:59
