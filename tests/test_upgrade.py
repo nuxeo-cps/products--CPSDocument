@@ -60,6 +60,32 @@ class BaseTestUpgrade(CPSTestCase):
     def beforeTearDown(self):
         self.logout()
 
+class TestFlexibleUpgrade(BaseTestUpgrade):
+    """Provide helpers for upgrade tests on flexible widgets."""
+
+    def makeOldFlexibleWidget(self, tplwid, wid=''):
+        """Return widget, layout, template widget, template layout
+        doesn't rely on official methods: they now make Indirect Widget
+        instances.
+        """
+        if not wid:
+            wid = tplwid
+
+        layout_id = self.layout_id
+        tpl_layout = self.layout
+        tpl_widget = tpl_layout[tplwid]
+        doc = self.doc
+        fti = self.fti
+        fti._makeObjectFlexible(doc)
+        layout, schema = fti._getFlexibleLayoutAndSchemaFor(doc, layout_id)
+        widget = aq_base(tpl_widget)
+        widget._setId(wid)
+        layout.addSubObject(widget)
+        widget = layout[wid]
+        fti._createFieldsForFlexibleWidget(schema, widget, tpl_widget)
+
+        return layout[wid], layout, tpl_widget, tpl_layout
+
 
 class TestUnicodeUpgrade(BaseTestUpgrade):
 
@@ -115,7 +141,7 @@ class TestUnicodeUpgrade(BaseTestUpgrade):
                           u'\u2026 Abusing of ellipsis \u2026')
         self.check_string(u'Av\xe9 l&#8217;assent !', u'Av\xe9 l\u2019assent !')
 
-class TestImageWidgetUpgrade(CPSTestCase):
+class TestImageWidgetUpgrade(TestFlexibleUpgrade):
 
     layer = CPSDocumentLayer
 
@@ -144,32 +170,9 @@ class TestImageWidgetUpgrade(CPSTestCase):
         self.doc = fti._constructInstance(self.portal, 'upgrade')
         self.doc.portal_type = fti.getId()
 
-    def makeFlexibleWidget(self, tplwid, wid=''):
-        """Return widget, layout, template widget, template layout
-        doesn't rely on official methods: they now make Indirect Widget
-        instances.
-        """
-        if not wid:
-            wid = tplwid
-
-        layout_id = self.layout_id
-        tpl_layout = self.layout
-        tpl_widget = tpl_layout[tplwid]
-        doc = self.doc
-        fti = self.fti
-        fti._makeObjectFlexible(doc)
-        layout, schema = fti._getFlexibleLayoutAndSchemaFor(doc, layout_id)
-        widget = aq_base(tpl_widget)
-        widget._setId(wid)
-        layout.addSubObject(widget)
-        widget = layout[wid]
-        fti._createFieldsForFlexibleWidget(schema, widget, tpl_widget)
-
-        return layout[wid], layout, tpl_widget, tpl_layout
-
     def test_upgrade_no_resize(self):
         wid = 'no_res'
-        widget, layout, tpl_widget, tpl_layout = self.makeFlexibleWidget(wid)
+        widget, layout, tpl_widget, tpl_layout = self.makeOldFlexibleWidget(wid)
         self.assertEquals(widget.__class__, OldImageWidget)
 
         upgrade_image_widget(self.doc, layout[wid], layout,
@@ -182,7 +185,7 @@ class TestImageWidgetUpgrade(CPSTestCase):
 
     def test_upgrade_resize(self):
         wid = 'res_ok'
-        widget, layout, tpl_widget, tpl_layout = self.makeFlexibleWidget(wid)
+        widget, layout, tpl_widget, tpl_layout = self.makeOldFlexibleWidget(wid)
         self.assertEquals(widget.__class__, OldImageWidget)
 
         doc = self.doc
@@ -202,7 +205,7 @@ class TestImageWidgetUpgrade(CPSTestCase):
         self.assertEquals(dm[size_widget.fields[0]], 32)
 
     def test_upgrade_with_suffix(self):
-        widget, layout, tpl_widget, tpl_layout = self.makeFlexibleWidget(
+        widget, layout, tpl_widget, tpl_layout = self.makeOldFlexibleWidget(
             'res_ok', wid='res_ok_1')
         doc = self.doc
         fid = widget.fields[0]
@@ -223,7 +226,7 @@ class TestImageWidgetUpgrade(CPSTestCase):
 
     def test_upgrade_photo(self):
         wid = 'photo'
-        widget, layout, tpl_widget, tpl_layout = self.makeFlexibleWidget(wid)
+        widget, layout, tpl_widget, tpl_layout = self.makeOldFlexibleWidget(wid)
         self.assertEquals(widget.__class__, OldPhotoWidget)
 
         doc = self.doc
@@ -247,6 +250,7 @@ class TestImageWidgetUpgrade(CPSTestCase):
         dm = doc.getDataModel()
         self.assertEquals(dm[size_widget.fields[0]], 32)
         self.assertEquals(dm[upgraded.fields[0]].title, 'petit chat')
+
 
 def test_suite():
     suite = unittest.TestSuite()
