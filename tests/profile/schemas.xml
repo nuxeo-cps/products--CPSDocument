@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_schemas" meta_type="CPS Schemas Tool">
  <object name="test_upgrade" meta_type="CPS Schema"/>
+ <object name="test_flexible" meta_type="CPS Schema"/>
  <object name="test_image_upgrade" meta_type="CPS Schema"/>
 </object>

@@ -16,9 +16,15 @@
  <property name="cps_display_as_document_in_listing">False</property>
  <property name="schemas">
   <element value="test_upgrade"/>
+  <element value="test_flexible"/>
  </property>
  <property name="layouts">
   <element value="test_upgrade"/>
+  <element value="test_flexible"/>
  </property>
+ <property name="flexible_layouts">
+  <element value="test_flexible:test_flexible"/>
+ </property>
+
  <property name="cps_is_portlet">False</property>
 </object>

@@ -32,9 +32,11 @@ from Products.CPSSchemas.ExtendedWidgets import CPSPhotoWidget as OldPhotoWidget
 from Products.CPSSchemas.widgets.image import CPSImageWidget
 from Products.CPSSchemas.tests.testWidgets import TEST_IMAGE
 
+from Products.CPSDocument.upgrade import upgrade_flexible_widget_indirect
 from Products.CPSDocument.upgrade import upgrade_doc_unicode
 from Products.CPSDocument.upgrade import upgrade_image_widget
 from Products.CPSDocument.upgrade import upgrade_photo_widget
+
 
 from layer import CPSDocumentLayer
 
@@ -46,22 +48,15 @@ class BaseTestUpgrade(CPSTestCase):
         self.login('manager')
         self.fti = self.portal.portal_types['Test Upgrade']
 
-    @classmethod
-    def doc_set(self, doc, **kw):
-        """Avoid datamodel present of future side effects.
+    def initDoc(self):
+        fti = self.fti
+        self.doc = fti._constructInstance(self.portal, 'upgrade')
+        self.doc.portal_type = fti.getId()
 
-        The goal is to reproduce situations anterior to upgrade or partially
-        upgraded data
-
-        assume AttributeStorageAdapter."""
-        for k, v in kw.items():
-            setattr(doc, k, v)
-
-    def beforeTearDown(self):
-        self.logout()
-
-class TestFlexibleUpgrade(BaseTestUpgrade):
-    """Provide helpers for upgrade tests on flexible widgets."""
+    def initLayout(self, layout_id):
+        self.layout_id = layout_id
+        layout = self.layout = self.portal.portal_layouts[layout_id]
+        return layout
 
     def makeOldFlexibleWidget(self, tplwid, wid=''):
         """Return widget, layout, template widget, template layout
@@ -85,6 +80,37 @@ class TestFlexibleUpgrade(BaseTestUpgrade):
         fti._createFieldsForFlexibleWidget(schema, widget, tpl_widget)
 
         return layout[wid], layout, tpl_widget, tpl_layout
+
+    @classmethod
+    def doc_set(self, doc, **kw):
+        """Avoid datamodel present of future side effects.
+
+        The goal is to reproduce situations anterior to upgrade or partially
+        upgraded data
+
+        assume AttributeStorageAdapter."""
+        for k, v in kw.items():
+            setattr(doc, k, v)
+
+    def beforeTearDown(self):
+        self.logout()
+
+class TestFlexibleUpgrade(BaseTestUpgrade):
+    """Provide helpers for upgrade tests on flexible widgets."""
+
+    def afterSetUp(self):
+        BaseTestUpgrade.afterSetUp(self)
+        self.initLayout('test_flexible')
+        self.initDoc()
+
+    def test_upgrade_indirect(self):
+        utool = self.portal.portal_url
+        widget, layout, tpl_w, tpl_l = self.makeOldFlexibleWidget('link_title')
+        upgrade_flexible_widget_indirect(utool, self.doc, widget,
+                                         layout, tpl_w, tpl_l)
+
+        widget = layout['link_title']
+        self.assertEquals(widget.fields, ('link_title_f0',))
 
 
 class TestUnicodeUpgrade(BaseTestUpgrade):
@@ -141,7 +167,7 @@ class TestUnicodeUpgrade(BaseTestUpgrade):
                           u'\u2026 Abusing of ellipsis \u2026')
         self.check_string(u'Av\xe9 l&#8217;assent !', u'Av\xe9 l\u2019assent !')
 
-class TestImageWidgetUpgrade(TestFlexibleUpgrade):
+class TestImageWidgetUpgrade(BaseTestUpgrade):
 
     layer = CPSDocumentLayer
 
@@ -150,8 +176,9 @@ class TestImageWidgetUpgrade(TestFlexibleUpgrade):
     def afterSetUp(self):
         self.login('manager')
         fti = self.fti = self.portal.portal_types['Test Image Upgrade']
-        self.layout_id = 'test_image_upgrade'
-        layout = self.layout = self.portal.portal_layouts[self.layout_id]
+        self.initDoc()
+        layout = self.initLayout('test_image_upgrade')
+
         layout.addSubObject(OldImageWidget('res_ok'))
         widget = layout['res_ok']
         widget.manage_changeProperties(display_width=320, display_height=200,
@@ -166,9 +193,6 @@ class TestImageWidgetUpgrade(TestFlexibleUpgrade):
         widget = layout['photo']
         widget.manage_changeProperties(display_width=320, display_height=200,
                                        fields=('?',))
-
-        self.doc = fti._constructInstance(self.portal, 'upgrade')
-        self.doc.portal_type = fti.getId()
 
     def test_upgrade_no_resize(self):
         wid = 'no_res'
@@ -254,6 +278,7 @@ class TestImageWidgetUpgrade(TestFlexibleUpgrade):
 
 def test_suite():
     suite = unittest.TestSuite()
+    suite.addTest(unittest.makeSuite(TestFlexibleUpgrade))
     suite.addTest(unittest.makeSuite(TestUnicodeUpgrade))
     suite.addTest(unittest.makeSuite(TestImageWidgetUpgrade))
     return suite

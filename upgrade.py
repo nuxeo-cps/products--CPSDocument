@@ -32,6 +32,7 @@ from Products.CPSSchemas.BasicWidgets import CPSIntWidget
 from Products.CPSSchemas.widgets.image import CPSImageWidget
 from Products.CPSSchemas.widgets.image import CPSPhotoWidget
 from Products.CPSSchemas.upgrade import upgrade_datamodel_unicode
+from Products.CPSSchemas.widgets.indirect import IndirectWidget
 from Products.CPSDocument.FlexibleTypeInformation import flexible_widget_split
 
 import itertools
@@ -498,12 +499,8 @@ FLEXIBLE_LAYOUTS = ['flexible_content', 'newsitem_flexible']
 FLEXIBLE_LAYOUTS_SIZE_WIDGETS = dict(flexible_content=('display_size',),
                                      newsitem_flexible=('display_size',))
 
-def upgrade_flexible_widgets_indirect(portal):
-    """Upgrade all flexible documents to use IndirectWidget."""
-    from Products.CPSSchemas.widgets.indirect import IndirectWidget
-    utool = portal.portal_url
-
-    def do_one(doc, widget, layout, template_widget, template_layout):
+def upgrade_flexible_widget_indirect(utool, doc, widget, layout,
+                                     template_widget, template_layout):
         fields = widget.fields
         subwidgets = widget.getProperty('widget_ids', None)
 
@@ -520,6 +517,12 @@ def upgrade_flexible_widgets_indirect(portal):
             indirect.manage_addProperty('widget_ids', subwidgets, 'lines')
         return True
 
+def upgrade_flexible_widgets_indirect(portal):
+    """Upgrade all flexible documents to use IndirectWidget."""
+    utool = portal.portal_url
+
+    def do_one(*args):
+        upgrade_flexible_widget_indirect(utool, *args)
     do_on_flexible_widgets(do_one, portal, FLEXIBLE_LAYOUTS)
 
 def make_size_widget(layout, subwid, **kw):
