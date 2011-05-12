@@ -30,15 +30,19 @@ from Products.CPSUtil.text import get_final_encoding
 from Products.CPSSchemas.BasicWidgets import CPSImageWidget as OldImageWidget
 from Products.CPSSchemas.ExtendedWidgets import CPSPhotoWidget as OldPhotoWidget
 from Products.CPSSchemas.widgets.image import CPSImageWidget
+from Products.CPSSchemas.widgets.indirect import IndirectWidget
 from Products.CPSSchemas.tests.testWidgets import TEST_IMAGE
 
 from Products.CPSDocument.upgrade import upgrade_flexible_widget_indirect
+from Products.CPSDocument.upgrade import upgrade_flexible_widgets_indirect
+from Products.CPSDocument.upgrade import FLEXIBLE_LAYOUTS
 from Products.CPSDocument.upgrade import upgrade_doc_unicode
 from Products.CPSDocument.upgrade import upgrade_image_widget
 from Products.CPSDocument.upgrade import upgrade_photo_widget
 
-
 from layer import CPSDocumentLayer
+
+FLEXIBLE_LAYOUTS.append('test_flexible')
 
 class BaseTestUpgrade(CPSTestCase):
 
@@ -112,6 +116,61 @@ class TestFlexibleUpgrade(BaseTestUpgrade):
         widget = layout['link_title']
         self.assertEquals(widget.fields, ('link_title_f0',))
 
+    def test_upgrade_indirect_compound(self):
+        utool = self.portal.portal_url
+        subw_ids = ('link_title', 'link_href', 'link_description')
+        for swid in subw_ids:
+            self.makeOldFlexibleWidget(swid)
+        widget, layout, tpl_w, tpl_l = self.makeOldFlexibleWidget('link')
+        widget.widget_ids = subw_ids
+
+        upgrade_flexible_widget_indirect(utool, self.doc, widget,
+                                         layout, tpl_w, tpl_l)
+
+        for swid in subw_ids:
+            self.assertTrue(layout.has_key(swid))
+        widget = layout['link']
+        self.assertEquals(widget.widget_ids, subw_ids)
+
+    def test_upgrade_indirect_template(self):
+        # #2394: skip old templates widgets
+        utool = self.portal.portal_url
+        widget, layout, tpl_w, tpl_l = self.makeOldFlexibleWidget('link_title')
+        widget.fields = ('?',)
+        upgrade_flexible_widget_indirect(utool, self.doc, widget,
+                                         layout, tpl_w, tpl_l)
+
+        self.assertEquals(layout.keys(), [])
+
+    def test_upgrade_indirect_compound_tpl(self):
+        # #2394: skip compound of old templates widgets
+        # these compounds may have an empty tuple of fields instead of ('?')
+        utool = self.portal.portal_url
+        subw_ids = ('link_title', 'link_href', 'link_description')
+        for swid in subw_ids:
+            sw = self.makeOldFlexibleWidget(swid)[0]
+            sw.fields = ('?',)
+
+        widget, layout, tpl_w, tpl_l = self.makeOldFlexibleWidget('link')
+        widget.widget_ids = subw_ids
+
+        upgrade_flexible_widget_indirect(utool, self.doc, widget,
+                                         layout, tpl_w, tpl_l)
+
+        self.assertEquals(layout.keys(), [])
+
+    def test_full_upgrade(self):
+        # test the whole looping
+        portal = self.portal
+        ws = portal.workspaces
+        portal.portal_workflow.invokeFactoryFor(ws, self.fti.getId(), 'test')
+        proxy = ws.test
+        self.doc = proxy.getContent()
+        self.makeOldFlexibleWidget('link_title')
+
+        upgrade_flexible_widgets_indirect(self.portal, commit=False)
+        w = self.doc['.cps_layouts'][self.layout_id]['link_title']
+        self.assertTrue(isinstance(w, IndirectWidget))
 
 class TestUnicodeUpgrade(BaseTestUpgrade):
 

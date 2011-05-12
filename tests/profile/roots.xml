@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<roots>
+ <object name="workspaces" meta_type="CPS Proxy Folder"
+	 portal_type="Workspace"/>
+</roots>

@@ -304,7 +304,7 @@ def upgrade_unicode(portal, resync_trees=True):
         transaction.commit()
     logger.warn("Finished rebuilding the Tree Caches")
 
-def do_on_flexible_widgets(meth, portal, layout_ids):
+def do_on_flexible_widgets(meth, portal, layout_ids, commit=True):
     """Apply meth to for all flexible widgets of given layout_ids in the portal.
 
     Details for meth:
@@ -350,12 +350,14 @@ def do_on_flexible_widgets(meth, portal, layout_ids):
         done += 1
         if done % 100 == 0:
             logger.info("Upgraded %d/%d document revisions", done, total)
-            transaction.commit()
+            if commit:
+                transaction.commit()
 
     logger.warn("Finished resyncing flexible widgets for layouts %r "
                 "of the %d/%d documents.", layout_ids, done, total)
 
-    transaction.commit()
+    if commit:
+        transaction.commit()
 
 def do_on_flex_widgets_doc(meth, doc, layouts, logger):
 
@@ -501,12 +503,25 @@ FLEXIBLE_LAYOUTS_SIZE_WIDGETS = dict(flexible_content=('display_size',),
 
 def upgrade_flexible_widget_indirect(utool, doc, widget, layout,
                                      template_widget, template_layout):
+        if isinstance(widget, IndirectWidget):
+            return
         fields = widget.fields
         subwidgets = widget.getProperty('widget_ids', None)
 
         layout = aq_parent(aq_inner(widget))
         wid = widget.getWidgetId()
         layout.delSubObject(wid)
+        if widget.isHidden(): # old leftover template: remove
+            return
+
+        for swid in subwidgets or ():
+            try:
+                subw = layout[swid]
+            except KeyError: # has been removed (template) or missing already
+                return
+            if subw.isHidden(): # will be removed
+                return
+
         layout.addSubObject(IndirectWidget(wid))
         indirect = layout[wid]
 
@@ -517,13 +532,13 @@ def upgrade_flexible_widget_indirect(utool, doc, widget, layout,
             indirect.manage_addProperty('widget_ids', subwidgets, 'lines')
         return True
 
-def upgrade_flexible_widgets_indirect(portal):
+def upgrade_flexible_widgets_indirect(portal, **kw):
     """Upgrade all flexible documents to use IndirectWidget."""
     utool = portal.portal_url
 
     def do_one(*args):
         upgrade_flexible_widget_indirect(utool, *args)
-    do_on_flexible_widgets(do_one, portal, FLEXIBLE_LAYOUTS)
+    do_on_flexible_widgets(do_one, portal, FLEXIBLE_LAYOUTS, **kw)
 
 def make_size_widget(layout, subwid, **kw):
     """Make a subwidget to control sizes and return it.
