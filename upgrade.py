@@ -583,16 +583,11 @@ def upgrade_image_widget(doc, widget, layout, template_widget, template_layout):
         fti = doc.getTypeInfo()
         _, schema = fti._getFlexibleLayoutAndSchemaFor(doc, layout.getId())
 
-        base_id = 'display_size'
-        if suffix:
-            subwid = '_'.join((base_id, suffix))
-        else:
-            subwid = base_id
-        # TODO: what if hundreds of flex widgets. Seen that in the wild
-        c = ord('A')
+        subwid = base_id = 'display_size'
+        c = 0
         while subwid in layout.keys():
-            subwid = '_'.join((base_id, chr(c), suffix))
             c += 1
+            subwid = '%s_%d' % (base_id, c)
 
         widget.widget_ids = (subwid,)
         size_widget = make_size_widget(layout, subwid)
@@ -601,8 +596,13 @@ def upgrade_image_widget(doc, widget, layout, template_widget, template_layout):
         # used for field inits, which are in this case ok at class level
         fti._createFieldsForFlexibleWidget(schema, size_widget, tpl_widget)
 
+        # now read size from the image data
+        fid = widget.fields[0]
+        if fid == '?':
+            return
+
         dm = doc.getDataModel()
-        img = dm[widget.fields[0]]
+        img = dm[fid]
         if img is not None:
             subfid = size_widget.fields[0]
             size = max(*image.geometry(ofsFileHandler(img)))
@@ -620,6 +620,7 @@ def upgrade_photo_widget(doc, widget, layout, template_widget, template_layout):
 
     upgrade_image_widget(doc, widget, layout, template_widget, template_layout)
     widget = layout[widget.getWidgetId()]
+    fields = widget.fields
     widget.fields = fields[:3] + fields[4:]
 
     if has_original:
