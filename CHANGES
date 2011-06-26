@@ -3,7 +3,7 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
--
+- Zope 2.10 support
 Bug fixes
 ~~~~~~~~~
 - #2409: multiple flexible image widgets upgrade naming problem
