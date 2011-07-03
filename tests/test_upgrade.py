@@ -28,6 +28,7 @@ from OFS.Image import Image
 from Products.CPSUtil.text import get_final_encoding
 
 from Products.CPSSchemas.BasicWidgets import CPSImageWidget as OldImageWidget
+from Products.CPSSchemas.BasicWidgets import CPSStringWidget
 from Products.CPSSchemas.ExtendedWidgets import CPSPhotoWidget as OldPhotoWidget
 from Products.CPSSchemas.widgets.image import CPSImageWidget
 from Products.CPSSchemas.widgets.indirect import IndirectWidget
@@ -38,6 +39,7 @@ from Products.CPSDocument.upgrade import upgrade_flexible_widgets_indirect
 from Products.CPSDocument.upgrade import FLEXIBLE_LAYOUTS
 from Products.CPSDocument.upgrade import upgrade_doc_unicode
 from Products.CPSDocument.upgrade import upgrade_image_widget
+from Products.CPSDocument.upgrade import upgrade_image_widgets_global
 from Products.CPSDocument.upgrade import upgrade_photo_widget
 
 from layer import CPSDocumentLayer
@@ -265,6 +267,11 @@ class TestImageWidgetUpgrade(BaseTestUpgrade):
         self.assertEquals(upgraded.__class__, CPSImageWidget)
         self.assertEquals(upgraded.size_spec, 'l320')
         self.assertEquals(upgraded.widget_ids, ())
+
+    def test_upgrade_resize_2411(self):
+        # see issue #2411
+        self.layout.addSubObject(CPSStringWidget('display_size'))
+        upgrade_image_widgets_global(self.portal)
 
     def test_upgrade_resize(self):
         wid = 'res_ok'

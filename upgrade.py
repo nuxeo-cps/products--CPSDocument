@@ -639,14 +639,24 @@ def upgrade_photo_widget(doc, widget, layout, template_widget, template_layout):
         # In any case the later switch to Indirect Widget will take over it
         widget.manage_changeProperties(zoom_size_spec='l800')
 
-def upgrade_image_widgets(portal):
+def upgrade_image_widgets_global(portal):
+    """Global part of the upgrade. """
     logger = logging.getLogger('Products.CPSDocument.upgrade.image_widgets')
 
     for layout_id, subwids in FLEXIBLE_LAYOUTS_SIZE_WIDGETS.items():
         layout = portal.portal_layouts[layout_id]
+        existing = layout.keys()
         for subwid in subwids:
+            if subwid in existing: # see #2411
+                logger.info("Found and kept existing widget %r in layout %r.",
+                            subwid, layout)
+                continue
             make_size_widget(layout, subwid, fields=['?'])
             logger.info("Added widget %r to layout %r", subwid, layout)
+
+
+def upgrade_image_widgets(portal):
+    upgrade_image_widgets_global(portal)
 
     from Products.CPSSchemas.BasicWidgets import CPSImageWidget \
         as OldImageWidget
