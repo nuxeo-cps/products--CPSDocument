@@ -295,9 +295,15 @@ class TestImageWidgetUpgrade(BaseTestUpgrade):
         self.assertEquals(dm[size_widget.fields[0]], 32)
 
     def test_upgrade_with_suffix(self):
+        doc = self.doc
+        # upgrade a first version of the template widget so that we'll get _1
+        widget, layout, tpl_widget, tpl_layout = self.makeOldFlexibleWidget(
+            'res_ok')
+        upgrade_image_widget(doc, layout['res_ok'], layout,
+                             tpl_layout, tpl_widget)
+
         widget, layout, tpl_widget, tpl_layout = self.makeOldFlexibleWidget(
             'res_ok', wid='res_ok_1')
-        doc = self.doc
         fid = widget.fields[0]
         dm = doc.getDataModel()
         dm[fid] = Image(fid, 'ze_image.png', TEST_IMAGE)
