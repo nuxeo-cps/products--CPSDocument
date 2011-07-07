@@ -1,4 +1,23 @@
 ===========================================================
+Package: CPSDocument 1.7.0
+===========================================================
+First release built by: gracinet at: 2011-07-07T17:47:15
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- Zope 2.10 support
+Bug fixes
+~~~~~~~~~
+- #2411: problem with image widget upgrade in case recent profiles applied
+- #2409: multiple flexible image widgets upgrade naming problem
+- #2394: skip older template widgets and inconsistent compounds in upgrade
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.6.4
 ===========================================================
 First release built by: gracinet at: 2011-02-02T00:01:52
