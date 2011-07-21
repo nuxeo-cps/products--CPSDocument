@@ -617,6 +617,7 @@ def upgrade_photo_widget(doc, widget, layout, template_widget, template_layout):
         original_fid = fields[3]
         dm = doc.getDataModel()
         original = dm[original_fid]
+        main = dm[fields[0]]
 
     upgrade_image_widget(doc, widget, layout, template_widget, template_layout)
     widget = layout[widget.getWidgetId()]
@@ -624,7 +625,7 @@ def upgrade_photo_widget(doc, widget, layout, template_widget, template_layout):
     widget.fields = fields[:3] + fields[4:]
 
     if has_original:
-        if original is not None:
+        if original is not None and main is not None:
             original = original._file_obj
             # main field now the original
             dm = doc.getDataModel()

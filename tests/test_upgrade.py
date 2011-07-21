@@ -347,6 +347,27 @@ class TestImageWidgetUpgrade(BaseTestUpgrade):
         self.assertEquals(dm[size_widget.fields[0]], 32)
         self.assertEquals(dm[upgraded.fields[0]].title, 'petit chat')
 
+    def test_upgrade_photo_zombie(self):
+        # see #2415
+        wid = 'photo'
+        widget, layout, tpl_widget, tpl_layout = self.makeOldFlexibleWidget(wid)
+        self.assertEquals(widget.__class__, OldPhotoWidget)
+
+        doc = self.doc
+        fid = widget.fields[0]
+        original_fid = widget.fields[3]
+        dm = doc.getDataModel()
+        dm[original_fid] = Image(original_fid, 'petit chat',
+                                 open(self.petit_chat_path))
+        # no main field : as if the image had been deleted
+        dm._commitData()
+
+        upgrade_photo_widget(doc, layout[wid], layout, tpl_layout, tpl_widget)
+
+        upgraded = layout[wid]
+        dm = doc.getDataModel()
+        self.assertEquals(dm[upgraded.fields[0]], None) # no zombie raised
+
 
 def test_suite():
     suite = unittest.TestSuite()
