@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSDocument 1.7.1
+===========================================================
+First release built by: gracinet at: 2011-08-09T19:36:14
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2415: zombie images coming back after upgrade
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.7.0
 ===========================================================
 First release built by: gracinet at: 2011-07-07T17:47:15
