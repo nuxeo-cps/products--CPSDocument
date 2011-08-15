@@ -25,6 +25,8 @@
         </td>
       </tr>
     </table>
-    <input type="submit" name="cpsdocument_edit_button" value="Envoyer" />
+    <p class="buttons">
+     <input type="submit" name="cpsdocument_edit_button" value="Envoyer" />
+    </p>
   </form>
 </tal:block>
