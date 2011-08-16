@@ -18,14 +18,16 @@
         tal:content="widget/title_or_id">Type</option>
       </tal:block>
     </select>
-    <input type="button"
+    <p class="buttons">
+     <input type="button"
            value="button_add" id="addwidget_button"
            class="context"
            i18n:attributes="value"
            tal:attributes="onclick string:CPSFlexibleEdit.buttonClick(this, '');
                            name string:addwidget_button_${position}__${layout_id};" />
+    </p>
   </tal:select>
-  <tal:button condition="python:len(flexible_widgets) == 1">
+  <p class="buttons" tal:condition="python:len(flexible_widgets) == 1">
     <tal:block define="widget python:flexible_widgets[0]">
       <input type="hidden"
         tal:attributes="value widget/getWidgetId;

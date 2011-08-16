@@ -23,7 +23,9 @@
         </td>
       </tr>
     </table>
-    <input type="submit" name="cpsdocument_edit_button" value="button_change"
-      i18n:attributes="value" />
+    <p class="buttons">
+     <input type="submit" name="cpsdocument_edit_button" value="button_change"
+            i18n:attributes="value" />
+    </p>
   </form>
 </tal:block>

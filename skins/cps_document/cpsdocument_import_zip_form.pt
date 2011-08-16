@@ -16,7 +16,7 @@
         <input type="file" name="zip_file" size="24" />
       </p>
 
-      <p>
+      <p class="buttons">
         <input type="submit" class="standalone"
                name="import" value="Import" />
       </p>

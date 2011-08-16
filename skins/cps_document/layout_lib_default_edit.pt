@@ -176,6 +176,7 @@
       </textarea>
     </p>
   </tal:block>
+ <p class="buttons">
   <input type="submit" class="standalone" name="cpsdocument_edit_button"
     value="button_change" i18n:attributes="value" id="cpsdocument_edit_button"
     tal:condition="not:creation" />
@@ -185,6 +186,7 @@
     tal:condition="not:creation" />
   <input type="submit" class="standalone" name="cpsdocument_create_button"
     value="button_create" i18n:attributes="value" tal:condition="creation" />
+ </p>
   <tal:block content="structure string:</div></form>" />
 </tal:block>
 
