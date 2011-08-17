@@ -2,10 +2,12 @@
      xmlns:tal="http://xml.zope.org/namespaces/tal"
      xmlns:metal="http://xml.zope.org/namespaces/metal"
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-     tal:define="flexible_widgets options/flexible_widgets">
+     tal:define="flexible_widgets options/flexible_widgets;
+		 widget_type_input string:widget_type_${position}__${layout_id};
+                 button_add_name string:addwidget_button_${position}__${layout_id};">
 
   <tal:select condition="python:len(flexible_widgets)>1">
-    <select tal:attributes="name string:widget_type_${position}__${layout_id}">
+    <select tal:attributes="name widget_type_input">
       <tal:block repeat="widget options/flexible_widgets">
       <option value="."
         tal:condition="widget/is_i18n"
@@ -24,20 +26,21 @@
            class="context"
            i18n:attributes="value"
            tal:attributes="onclick string:CPSFlexibleEdit.buttonClick(this, '');
-                           name string:addwidget_button_${position}__${layout_id};" />
+                           name button_add_name" />
     </p>
   </tal:select>
+
   <p class="buttons" tal:condition="python:len(flexible_widgets) == 1">
     <tal:block define="widget python:flexible_widgets[0]">
       <input type="hidden"
         tal:attributes="value widget/getWidgetId;
-                        name string:widget_type_${position}__${layout_id};" />
+                        name widget_type_input;" />
       <input type="submit" id="addwidget_button"
         tal:define="button_add python:cpsmcat('button_add');
-          widget_title python:cpsmcat(widget.title_or_id())"
-          tal:attributes="onclick string:CPSFlexibleEdit.buttonClick(this, '');
-                          value string:${button_add} ${widget_title};
-                          name string:addwidget_button_${position}__${layout_id};"
+                    widget_title python:cpsmcat(widget.title_or_id())"
+        tal:attributes="onclick string:CPSFlexibleEdit.buttonClick(this, '');
+                        value string:${button_add} ${widget_title};
+                        name button_add_name"
         class="context" />
     </tal:block>
   </p>
