@@ -36,7 +36,7 @@ for k in kw:
         cmd, layout_id = k.split('__')
         try:
             position = int(cmd[len('addwidget_button_'):])
-        except ValueError: # layout method not up to date for #2159
+        except ValueError: # BBB layout method not up to date for #2159
             position = None
         add_widgets.append((position, layout_id))
 
@@ -60,8 +60,12 @@ for layout_id, rows in delete_rows.items():
     changed = True
 
 for position, layout_id in add_widgets:
-    doc.flexibleAddWidget(layout_id,
-                          kw['widget_type_%d__%s' % (position, layout_id)],
+    if position is None: # #2159 BBB, see above
+        wid = kw['widget_type__%s' % layout_id]
+    else:
+        wid = kw['widget_type_%d__%s' % (position, layout_id)]
+
+    doc.flexibleAddWidget(layout_id, wid,
                           label_edit=kw.get('widget_label_edit'),
                           position=position)
     changed = True

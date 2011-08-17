@@ -31,13 +31,13 @@
     <tal:block define="widget python:flexible_widgets[0]">
       <input type="hidden"
         tal:attributes="value widget/getWidgetId;
-                        name string:widget_type__${layout_id}_${position};" />
+                        name string:widget_type_${position}__${layout_id};" />
       <input type="submit" id="addwidget_button"
         tal:define="button_add python:cpsmcat('button_add');
           widget_title python:cpsmcat(widget.title_or_id())"
           tal:attributes="onclick string:CPSFlexibleEdit.buttonClick(this, '');
                           value string:${button_add} ${widget_title};
-                          name string:addwidget_button__${layout_id};"
+                          name string:addwidget_button_${position}__${layout_id};"
         class="context" />
     </tal:block>
   </p>
