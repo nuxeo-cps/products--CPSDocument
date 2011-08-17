@@ -40,6 +40,6 @@
                           name string:addwidget_button__${layout_id};"
         class="context" />
     </tal:block>
-  </tal:button>
+  </p>
 
 </metal:block>
