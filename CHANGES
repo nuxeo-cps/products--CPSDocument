@@ -8,6 +8,7 @@ Bug fixes
 ~~~~~~~~~
 - #2429: Error adding a flexible widget if there's only one available choice
 - #2421: put all form buttons in a consistent container
+- #2436: improved structure for the control buttons of flexible widgets
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

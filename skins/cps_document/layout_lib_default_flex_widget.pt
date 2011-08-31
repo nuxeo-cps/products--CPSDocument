@@ -6,6 +6,8 @@
 		 widget_type_input string:widget_type_${position}__${layout_id};
                  button_add_name string:addwidget_button_${position}__${layout_id};">
 
+ <div class="add_widget" tal:condition="flexible_widgets">
+
   <tal:select condition="python:len(flexible_widgets)>1">
     <select tal:attributes="name widget_type_input">
       <tal:block repeat="widget options/flexible_widgets">
@@ -44,5 +46,5 @@
         class="context" />
     </tal:block>
   </p>
-
+ </div>
 </metal:block>
