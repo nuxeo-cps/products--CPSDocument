@@ -1,4 +1,23 @@
 ===========================================================
+Package: CPSDocument 1.7.2
+===========================================================
+First release built by: gracinet at: 2011-09-23T00:28:32
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2429: Error adding a flexible widget if there's only one available choice
+- #2421: put all form buttons in a consistent container
+- #2436: improved structure for the control buttons of flexible widgets
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.7.1
 ===========================================================
 First release built by: gracinet at: 2011-08-09T19:36:14
