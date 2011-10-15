@@ -50,7 +50,7 @@ from Products.CPSSchemas.Widget import EMAIL_LAYOUT_MODE
 
 from Products.CPSDocument.CPSDocument import addCPSDocument
 from Products.CPSSchemas.widgets.indirect import IndirectWidget
-from Products.CPSSchemas.BasicWidgets import CPSCompoundWidget
+from Products.CPSSchemas.widgets.compound import CPSCompoundWidget
 
 from Products.CPSDocument.utils import getFormUid
 
