@@ -39,7 +39,7 @@ from Products.CMFCore.TypesTool import FactoryTypeInformation
 from Products.CMFCore.interfaces import ITypeInformation
 
 from Products.CPSUtil.mail import make_cid
-from Products.CPSUtil.PropertiesPostProcessor import PropertiesPostProcessor
+from Products.CPSUtil.property import PropertiesPostProcessor
 from Products.CPSCore.EventServiceTool import getEventService
 from Products.CPSSchemas.Schema import SchemaContainer
 from Products.CPSSchemas.Layout import LayoutContainer
