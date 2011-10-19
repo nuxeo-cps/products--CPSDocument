@@ -32,8 +32,9 @@ class TestCreateFile(CPSTestCase):
         archive = self._makeZipFile('non-utf8.zip')
         archive.name = "non-utf8.zip"
         self.portal.default_charset = 'utf-8'
+        from Products.CPSUtil.text import toAscii
         createFile(self.ws, archive, check_allowed_content_types=False)
-        self.assert_('felin' in self.ws.objectIds())
+        self.assert_(self.ws.hasObject(toAscii('f\xe9lin')))
 
     def test_createFileWithFileName(self):
         archive = self._makeZipFile()
