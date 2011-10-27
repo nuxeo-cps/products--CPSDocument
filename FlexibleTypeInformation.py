@@ -258,6 +258,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         Returns the object.
         """
         if not self.isConstructionAllowed(container):
+            self.isConstructionAllowed(container)
             raise Unauthorized
         ob = self._constructInstance(container, id, *args, **kw)
         return self._finishConstruction(ob)

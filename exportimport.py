@@ -110,6 +110,7 @@ class CPSObjectManagerHelpers(object):
             if obj_id not in parent.objectIds():
                 self._addInstance(parent, obj_id, child)
 
+
             if child.hasAttribute('insert-before'):
                 insert_before = child.getAttribute('insert-before')
                 if insert_before == '*':
