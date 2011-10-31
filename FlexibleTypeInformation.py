@@ -225,27 +225,6 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
                 'btreefolderishdocument',
                 ]
 
-    security.declarePublic('getActionUrl')
-    def getActionUrl(self, action_id, default=''):
-        """Return the URL associated to the object/create action.
-
-        Filtering with permissions is useless.
-        Expressions are not interpreted (same as what was the case in skin
-        scripts)
-        XXX this is used in CPSDocument layout libs to set form actions etc,
-        and also to find the create page in CPSDefault
-        The original method having disappeared from CMFCore suggests that
-        there's a better way of doing
-        """
-        action = self.getActionObject('object/%s' % action_id)
-        if action is None:
-            return default
-        ai = ActionInfo(action, self._getExprContext(None))
-        url = ai.get('url', default)
-        if url.startswith('/'):
-            url = url[1:]
-        return url or default
-
     #
     # Agent methods
     #
