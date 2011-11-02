@@ -32,7 +32,9 @@ from Products.GenericSetup.utils import XMLAdapterBase
 from Products.GenericSetup.interfaces import INode
 from Products.GenericSetup.interfaces import IBody
 from Products.GenericSetup.interfaces import ISetupEnviron
+from Products.CMFCore.exportimport.typeinfo import TypeInformationXMLAdapter
 from Products.CPSDocument.CPSDocument import CPSDocumentMixin
+from Products.CPSUtil.property import PostProcessingPropertyManagerHelpers
 from Products.CPSUtil.genericsetup import StrictTextElement
 from Products.CPSUtil.genericsetup import getExactNodeText
 
@@ -42,9 +44,12 @@ from Products.CPSDocument.interfaces import IOFSFile
 from Products.CPSSchemas.interfaces import IFileField
 from Products.CPSSchemas.interfaces import IFieldNodeIO
 
+class CPSTypeInformationXMLAdapter(PostProcessingPropertyManagerHelpers,
+                                   TypeInformationXMLAdapter):
+    """The CMF XML adapter, with post processing of properties."""
+
 
 NAME = 'cpsdocument'
-
 
 class CPSObjectManagerHelpers(object):
     """ObjectManager importer and export helpers for CPS subobjects.
