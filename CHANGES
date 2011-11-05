@@ -6,8 +6,8 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
+- #2496: creation callback for one shot bulk creation
 - #2333: Post process properties in type info Generic Setup import (for bulk)
-- Updated test for changes in CPSUtil
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
