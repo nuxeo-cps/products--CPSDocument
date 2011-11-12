@@ -67,7 +67,8 @@ class CPSDocumentMixin(ExtensionClass.Base):
         Optional arguments are layout_mode, layout_id, cluster,
         proxy, request.
         """
-        return self.getTypeInfo().renderObject(self, **kw)
+        res = self.getTypeInfo().renderObject(self, **kw)
+        return res
 
     security.declareProtected(View, 'render')
     def renderEmail(self, **kw):

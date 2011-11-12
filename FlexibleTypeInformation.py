@@ -151,6 +151,8 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         {'id':'description', 'type': 'utext', 'mode':'w',
          'label':'Description'},) +
         FactoryTypeInformation._properties[2:] + (
+        {'id': 'marker_interface', 'type': 'string', 'mode': 'w',
+         'label': 'Associated marker interface'},
         {'id': 'schemas', 'type': 'tokens', 'mode': 'w',
          'label': 'Schemas'},
         {'id': 'layouts', 'type': 'tokens', 'mode': 'w',
@@ -174,6 +176,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         dict(id='is_i18n', type='boolean', mode='wd',
              label="Are title and description translation message ids ?"),
         ))
+    marker_interface = ''
     content_meta_type = 'CPS Document'
     product = 'CPSDocument'
     factory = 'addCPSDocument'
