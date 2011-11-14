@@ -25,6 +25,9 @@ import warnings
 import re
 import logging
 
+from zope.interface import directlyProvides
+from zope.dottedname.resolve import resolve as resolve_dotted_name
+
 from Acquisition import aq_base, aq_parent, aq_inner
 from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo, Unauthorized
@@ -151,8 +154,8 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         {'id':'description', 'type': 'utext', 'mode':'w',
          'label':'Description'},) +
         FactoryTypeInformation._properties[2:] + (
-        {'id': 'marker_interface', 'type': 'string', 'mode': 'w',
-         'label': 'Associated marker interface'},
+        {'id': 'datamodel_marker_interface', 'type': 'string', 'mode': 'w',
+         'label': 'Marker interface to set on datamodels for this type'},
         {'id': 'schemas', 'type': 'tokens', 'mode': 'w',
          'label': 'Schemas'},
         {'id': 'layouts', 'type': 'tokens', 'mode': 'w',
@@ -176,7 +179,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         dict(id='is_i18n', type='boolean', mode='wd',
              label="Are title and description translation message ids ?"),
         ))
-    marker_interface = ''
+    datamodel_marker_interface = ''
     content_meta_type = 'CPS Document'
     product = 'CPSDocument'
     factory = 'addCPSDocument'
@@ -642,6 +645,12 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
             adapters.append(schema.getStorageAdapter(ob, proxy=proxy))
         dm = DataModel(ob, adapters, proxy=proxy, context=context)
         dm._fetch()
+
+        marker = self.getProperty('datamodel_marker_interface', '')
+        if marker:
+            marker = resolve_dotted_name(marker.strip())
+            directlyProvides(dm, marker)
+
         return dm
 
     security.declarePrivate('getLayout')

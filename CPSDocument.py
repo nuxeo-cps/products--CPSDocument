@@ -153,7 +153,7 @@ class CPSDocumentMixin(ExtensionClass.Base):
 
         # It has to be an FTI in order to have the getDataModel method
         if getattr(aq_base(ti), 'getDataModel', 0):
-            return self.getTypeInfo().getDataModel(self, proxy=proxy)
+            return self.getTypeInfo().getDataModel(self, proxy=proxy, **kw)
 
         raise ValueError("%s is not a FTI : getDataModel is not available"
                          %(repr(ti)))
