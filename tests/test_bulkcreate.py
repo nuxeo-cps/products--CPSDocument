@@ -1,7 +1,9 @@
-# $Id$
+# This test involves CPSDefault document types and should move to CPSDefault
+# or be rewritten in a different manner
 
 import unittest, os, StringIO
 
+from OFS.Image import File
 from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
 from Products.CPSDocument.createFile import createFile
 from Products.CMFCore.utils import getToolByName
@@ -10,6 +12,7 @@ class TestCreateFile(CPSTestCase):
     def afterSetUp(self):
         self.login('manager')
         self.ws = self.portal.workspaces
+        self.wftool = getToolByName(self.portal, 'portal_workflow')
 
     def _makeZipFile(self, fname='toto.zip'):
         filename = os.path.join(os.path.dirname(__file__), fname)
@@ -85,6 +88,22 @@ class TestCreateFile(CPSTestCase):
 
         # do not create file as sub objects of an image gallery
         createFile(ig, archive, check_allowed_content_types=True)
+        self.assert_(ig.hasObject('endives'))
+        self.assert_(ig.hasObject('felix'))
+        self.assert_(ig.hasObject('petit-chat'))
+        self.failIf(ig.hasObject('testcreatefile'))
+        self.assertEquals(ig['endives'].portal_type, 'Image')
+        self.assertEquals(ig['felix'].portal_type, 'Image')
+        self.assertEquals(ig['petit-chat'].portal_type, 'Image')
+
+    def test_directBulkCreation(self):
+        # test creation of the container and bulk import therein in one shot
+        archive = File('ziparchiveuploader', 'toto.zip', self._makeZipFile())
+        ig_id = self.wftool.invokeFactoryFor(
+            self.ws, 'ImageGallery', 'test_ig',
+            ziparchiveuploader=archive, wf_before_content=True)
+
+        ig = getattr(self.ws, ig_id)
         self.assert_(ig.hasObject('endives'))
         self.assert_(ig.hasObject('felix'))
         self.assert_(ig.hasObject('petit-chat'))
