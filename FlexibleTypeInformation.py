@@ -622,14 +622,16 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
         stool = getToolByName(self, 'portal_schemas')
         flexible_schemas = self._getFlexibleSchemas()
         schemas = []
+        sc = None
         for schema_id in self.schemas:
             schema = None
             if schema_id in flexible_schemas and ob is not None:
-                sc = ob._getOb('.cps_schemas', None)
-                if sc is not None:
-                    schema = sc._getOb(schema_id, None)
+                if sc is None:
+                    sc = ob._getOb('.cps_schemas', stool)
+                schema = sc._getOb(schema_id, None)
             if schema is None:
                 schema = stool._getOb(schema_id, None)
+
             if schema is None:
                 raise RuntimeError("Missing schema '%s' in portal_type '%s'"
                                    % (schema_id, self.getId()))
