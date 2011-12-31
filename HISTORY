@@ -1,4 +1,39 @@
 ===========================================================
+Package: CPSDocument 1.8.2-CPS-3.5
+===========================================================
+First release built by: gracinet at: 2011-12-19T15:40:23
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2496: creation callback for one shot bulk creation
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
+Package: CPSDocument 1.8.1-CPS-3.5
+===========================================================
+First release built by: gracinet at: 2011-11-23T19:44:31
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2333: Post process properties in type info Generic Setup import (for bulk)
+- Updated test for changes in CPSUtil
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.8.0-CPS-3.5
 ===========================================================
 First release built by: gracinet at: 2011-09-28T20:54:54

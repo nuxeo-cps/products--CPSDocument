@@ -24,6 +24,7 @@ from Testing.ZopeTestCase import ZopeTestCase
 
 from zope.interface import implements
 from zope.app.testing import placelesssetup
+from Products.CPSDefault.tests.CPSTestCase import CPSZCMLLayer
 from Products.Five import zcml
 
 from Products.CPSDocument.interfaces import ICPSDocument
@@ -37,7 +38,6 @@ from OFS.Folder import Folder
 
 from Products.CPSDocument.exportimport import importCPSObjects
 from Products.CPSDocument.exportimport import exportCPSObjects
-
 
 class FakeTI(object):
     def _commitDM(self, datamodel):
@@ -222,8 +222,46 @@ class OFSFileIOTests(ZopeTestCase, DOMComparator):
         self.assertEquals(text, _FILE_CONTENT)
         self.assertEquals(content_type, 'image/test' )
 
+_IMPORT_FTI = """\
+<?xml version="1.0"?>
+<object name="Document Type" meta_type="CPS Flexible Type Information">
+ <property name="auto_content_types">
+   <element value="image/sv.*:SvgImage:preview"/>
+ </property>
+</object>
+"""
+
+_IMPORT_TTOOL = """\
+<?xml version="1.0"?>
+<object name="portal_types" meta_type="CMF Types Tool">
+  <object name="Document Type" meta_type="CPS Flexible Type Information"/>
+</object>
+"""
+
+class FTIImportTests(ZopeTestCase, DOMComparator):
+
+    layer = CPSZCMLLayer
+
+    def afterSetUp(self):
+        import Products.CPSDocument
+        from Products.CMFCore.TypesTool import TypesTool
+        self.folder._setOb('portal_types', TypesTool())
+        self.types_tool = self.folder.portal_types
+
+    def test_postprocessing(self):
+        from Products.CMFCore.exportimport.typeinfo import importTypesTool
+        context = DummyImportContext(self.folder, purge=False)
+        context._files['types.xml'] = _IMPORT_TTOOL
+        context._files['types/Document_Type.xml'] = _IMPORT_FTI
+
+        importTypesTool(context)
+        fti = self.types_tool['Document Type']
+        self.assertFalse(fti.auto_content_types_c is None)
+        regexp = fti.auto_content_types_c[0][0]
+        self.assertTrue(regexp.match('image/svg'))
 
 def test_suite():
     return unittest.TestSuite((
         unittest.makeSuite(OFSFileIOTests),
+        unittest.makeSuite(FTIImportTests),
         ))

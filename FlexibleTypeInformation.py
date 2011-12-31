@@ -58,6 +58,7 @@ from Products.CPSSchemas.widgets.compound import CPSCompoundWidget
 from Products.CPSDocument.utils import getFormUid
 
 import zope.interface
+from interfaces import IFlexibleTypeInformation
 
 logger = logging.getLogger(__name__)
 
@@ -142,7 +143,7 @@ class FlexibleTypeInformation(PropertiesPostProcessor, FactoryTypeInformation):
 
     meta_type = 'CPS Flexible Type Information'
 
-    zope.interface.implements(ITypeInformation)
+    zope.interface.implements(IFlexibleTypeInformation)
 
     security = ClassSecurityInfo()
 
