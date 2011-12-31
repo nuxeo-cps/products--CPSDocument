@@ -226,7 +226,7 @@ _IMPORT_FTI = """\
 <?xml version="1.0"?>
 <object name="Document Type" meta_type="CPS Flexible Type Information">
  <property name="auto_content_types">
-   <element value="image/.*:Image"/>
+   <element value="image/.*:Image:preview"/>
  </property>
 </object>
 """
@@ -257,6 +257,8 @@ class FTIImportTests(ZopeTestCase, DOMComparator):
         importTypesTool(context)
         fti = self.types_tool['Document Type']
         self.assertFalse(fti.auto_content_types_c is None)
+        regexp = fti.auto_content_types_c[0][0]
+        self.assertTrue(regexp.match('image/svg'))
 
 def test_suite():
     return unittest.TestSuite((

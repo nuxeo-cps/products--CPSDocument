@@ -5,6 +5,12 @@
     xmlns:cps="http://namespaces.nuxeo.org/cps">
 
   <adapter
+      factory=".exportimport.CPSTypeInformationXMLAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for=".interfaces.IFlexibleTypeInformation
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+  <adapter
       factory=".exportimport.CPSDocumentXMLAdapter"
       provides="Products.GenericSetup.interfaces.IBody"
       for=".interfaces.ICPSDocument

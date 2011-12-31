@@ -20,6 +20,7 @@
 """
 
 from zope.interface import Interface
+from Products.CMFCore.interfaces import ITypeInformation
 
 class ICPSDocument(Interface):
     """CPS Document.
@@ -28,3 +29,6 @@ class ICPSDocument(Interface):
 class IOFSFile(Interface):
     """OFS File.
     """
+
+class IFlexibleTypeInformation(ITypeInformation):
+    """FTI."""
