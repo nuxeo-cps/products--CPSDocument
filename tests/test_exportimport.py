@@ -226,7 +226,7 @@ _IMPORT_FTI = """\
 <?xml version="1.0"?>
 <object name="Document Type" meta_type="CPS Flexible Type Information">
  <property name="auto_content_types">
-   <element value="image/.*:Image:preview"/>
+   <element value="image/sv.*:SvgImage:preview"/>
  </property>
 </object>
 """
