@@ -9,10 +9,17 @@ from Products.CPSDocument.createFile import createFile
 from Products.CMFCore.utils import getToolByName
 
 class TestCreateFile(CPSTestCase):
+
     def afterSetUp(self):
         self.login('manager')
         self.ws = self.portal.workspaces
         self.wftool = getToolByName(self.portal, 'portal_workflow')
+        ttool = getToolByName(self.portal, 'portal_types')
+        ttool['ImageGallery'].manage_changeProperties(
+            auto_content_types=("image/.*:Image:preview",))
+        ttool['Workspace'].manage_changeProperties(
+            auto_content_types=("image/.*:Image:preview",
+                                ".*:File:file",))
 
     def _makeZipFile(self, fname='toto.zip'):
         filename = os.path.join(os.path.dirname(__file__), fname)
