@@ -30,9 +30,8 @@ is_valid, ds = doc.validate(request=REQUEST, proxy=context, cluster=cluster,
                             use_session=True)
 
 if action is None:
-    ti = doc.getTypeInfo()
-    action = ti.queryMethodID('edit', 'cpsdocument_edit_form')
-    action = '/' + action
+    # all document types are now supposed to have this alias
+    action = '/edit_form'
 
 if is_valid:
     comments = REQUEST.get('comments')
