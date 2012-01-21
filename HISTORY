@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSDocument 1.8.3-CPS-3.5
+===========================================================
+First release built by: gracinet at: 2012-01-09T16:10:47
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2333: proper fix for post processed properties (auto_content_types)
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.8.2-CPS-3.5
 ===========================================================
 First release built by: gracinet at: 2011-12-19T15:40:23
