@@ -51,7 +51,7 @@
     <a href="." tal:condition="previous_page"
        tal:attributes="href python:'%s?%s'%(request['URL'],
                                             mq(request.form,
-                                                   start=0))">«</a>
+                                                   start=0))">&lt;&lt;</a>
     <a tal:condition="previous_page"
        tal:attributes="href python:'%s?%s'%(request['URL'],
                                             mq(request.form,
@@ -64,7 +64,7 @@
     <a href="." tal:condition="next_page"
        tal:attributes="href python:'%s?%s'%(request['URL'],
                                             mq(request.form,
-                                               start=len(items) - (len(items) % nb_items)))">»</a>
+                                               start=len(items) - (len(items) % nb_items)))">&gt;&gt;</a>
   </div>
 </div>
 
