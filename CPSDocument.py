@@ -1,6 +1,7 @@
 # (C) Copyright 2003 Nuxeo SARL <http://nuxeo.com>
 # Authors: Lennart Regebro <lr@nuxeo.com>
 #          Florent Guillaume <fg@nuxeo.com>
+#          Georges Racinet <gracinet@cps-cms.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 2 as published
@@ -15,17 +16,14 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 # 02111-1307, USA.
-#
-# $Id$
 
-from zLOG import LOG, DEBUG, ERROR
 from cgi import escape
 import ExtensionClass
 import re
 from Globals import InitializeClass
 from AccessControl import Unauthorized
 from AccessControl import ClassSecurityInfo
-from Acquisition import aq_base
+from Acquisition import aq_base, aq_parent, aq_inner
 from OFS.Image import File
 
 from Products.CMFCore.utils import getToolByName
@@ -35,11 +33,9 @@ from Products.CMFCore.PortalContent import PortalContent
 from Products.CMFCore.PortalFolder import PortalFolder
 from Products.CMFCore.CMFCatalogAware import CMFCatalogAware
 
-from Products.CMFCore.interfaces.DublinCore import DublinCore as IDublinCore
-from Products.CMFCore.interfaces.Contentish import Contentish as IContentish
-from Products.CMFCore.interfaces.Dynamic import DynamicType as IDynamicType
-
 from Products.CPSUtil.id import generateFileName
+from Products.CPSCore.utils import bhasattr
+from Products.CPSSchemas.DataStructure import DataStructure
 
 from zope.interface import implements
 from Products.CPSDocument.interfaces import ICPSDocument
@@ -281,13 +277,42 @@ class CPSDocumentMixin(ExtensionClass.Base):
         # this is called just after the dm commit
         self._size = self._compute_size(datamodel=datamodel)
 
+    security.declareProtected(View, 'getAttachedFiles')
+    def getAttachedFilesInfo(self, layout_mode='view', proxy=None):
+        """Return a list of dicts about *displayed* attached files.
+
+        This is meant to be exactly what a full document view would display
+        (therefore excluding html conversions and the like), as well as
+        empty files.
+        The extracted information is identical to what attached file widgets
+        use internally (getFileInfo).
+        """
+
+        if proxy is None:
+            proxy = aq_parent(aq_inner(self))
+            if not bhasattr(proxy, 'getContent'):
+                proxy = None
+
+        dm = self.getDataModel(proxy=proxy)
+        ds = DataStructure(datamodel=dm)
+        layout_structures = self.getTypeInfo()._computeLayoutStructures(
+            ds, layout_mode, ob=self)
+
+        default = lambda ds: dict(empty_file=True)
+        file_infos = [getattr(cell['widget'], 'getFileInfo', default)(ds)
+                      for l in layout_structures
+                      for row in l['rows'] for cell in row]
+        return [info for info in file_infos if not info['empty_file']]
 
     security.declareProtected(View, 'getAdditionalContentInfo')
     def getAdditionalContentInfo(self, proxy):
-        """Return a dictionary used in getContentInfo."""
+        """Return a dictionary used in getContentInfo.
+
+        TODO GR: this is severely subpar (hardcoded field names everywhere)
+        """
 
         utool = getToolByName(self, 'portal_url')
-        
+
         infos = {}
         doc = aq_base(self)
 
