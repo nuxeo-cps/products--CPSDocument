@@ -25,7 +25,7 @@ import re
 from Globals import InitializeClass
 from AccessControl import Unauthorized
 from AccessControl import ClassSecurityInfo
-from Acquisition import aq_base
+from Acquisition import aq_base, aq_parent, aq_inner
 from OFS.Image import File
 
 from Products.CMFCore.utils import getToolByName
@@ -40,6 +40,9 @@ from Products.CMFCore.interfaces.Contentish import Contentish as IContentish
 from Products.CMFCore.interfaces.Dynamic import DynamicType as IDynamicType
 
 from Products.CPSUtil.id import generateFileName
+from Products.CPSCore.utils import bhasattr
+from Products.CPSSchemas.DataStructure import DataStructure
+from Products.CPSSchemas.BasicWidgets import CPSFileWidget
 
 from zope.interface import implements
 from Products.CPSDocument.interfaces import ICPSDocument
@@ -280,10 +283,39 @@ class CPSDocumentMixin(ExtensionClass.Base):
         # this is called just after the dm commit
         self._size = self._compute_size(datamodel=datamodel)
 
+    security.declareProtected(View, 'getAttachedFiles')
+    def getAttachedFilesInfo(self, layout_mode='view', proxy=None):
+        """Return a list of dicts about *displayed* attached files.
+
+        This is meant to be exactly what a full document view would display
+        (therefore excluding html conversions and the like), as well as
+        empty files.
+        The extracted information is identical to what attached file widgets
+        use internally (getFileInfo).
+        """
+
+        if proxy is None:
+            proxy = aq_parent(aq_inner(self))
+            if not bhasattr(proxy, 'getContent'):
+                proxy = None
+
+        dm = self.getDataModel(proxy=proxy)
+        ds = DataStructure(datamodel=dm)
+        layout_structures = self.getTypeInfo()._computeLayoutStructures(
+            ds, layout_mode, ob=self)
+
+        default = lambda ds: dict(empty_file=True)
+        file_infos = [getattr(cell['widget'], 'getFileInfo', default)(ds)
+                      for l in layout_structures
+                      for row in l['rows'] for cell in row]
+        return [info for info in file_infos if not info['empty_file']]
 
     security.declareProtected(View, 'getAdditionalContentInfo')
     def getAdditionalContentInfo(self, proxy):
-        """Return a dictionary used in getContentInfo."""
+        """Return a dictionary used in getContentInfo.
+
+        TODO GR: this is severely subpar (hardcoded field names everywhere)
+        """
 
         utool = getToolByName(self, 'portal_url')
         

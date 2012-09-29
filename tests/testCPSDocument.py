@@ -61,6 +61,53 @@ class TestCPSDocument(CPSTestCase):
         self.assertEqual(info['photo'],
                          utool.getRelativeUrl(proxy) + '/'+ 'image')
 
+    def test_get_attached_files_info(self):
+        self.login('manager')
+
+        fobj = File("filename", "filename.pdf", "")
+
+        # first, a basic document type
+        proxy_id = self.portal.workspaces.invokeFactory('File', 'file',
+                                                        file=fobj)
+        proxy = getattr(self.portal.workspaces, proxy_id)
+        doc = proxy.getContent()
+        files = doc.getAttachedFilesInfo()
+        self.assertEquals(len(files), 1)
+        self.assertEquals(str(files[0]['mimetype']), 'application/pdf')
+        dm = doc.getDataModel(proxy=proxy)
+        uri = files[0]['content_url']
+        self.assertEquals(uri, dm.fileUri('file'))
+        self.assertTrue(uri.endswith('filename.pdf'))
+
+        # now, a flexible document type
+        proxy_id = self.portal.workspaces.invokeFactory('Document', 'doc')
+        proxy = getattr(self.portal.workspaces, proxy_id)
+        doc = proxy.getEditableContent()
+        self.assertEquals(len(doc.getAttachedFilesInfo()), 0)
+
+        doc.flexibleAddWidget('flexible_content', 'attachedFile')
+        self.assertEquals(len(doc.getAttachedFilesInfo()), 0)
+
+        doc.edit(attachedFile_f0=fobj)
+        files = doc.getAttachedFilesInfo()
+        self.assertEquals(len(files), 1)
+        self.assertEquals(str(files[0]['mimetype']), 'application/pdf')
+        dm = doc.getDataModel(proxy=proxy)
+        self.assertEquals(files[0]['content_url'],
+                          dm.fileUri('attachedFile_f0'))
+
+        doc.flexibleAddWidget('flexible_content', 'attachedFile')
+        self.assertEquals(len(doc.getAttachedFilesInfo()), 1)
+
+        fobj2 = File('spam', 'track.ogg', '')
+        doc.edit(attachedFile_1_f0=fobj2)
+        files = doc.getAttachedFilesInfo()
+        self.assertEquals(len(files), 2)
+        self.assertEquals(str(files[1]['mimetype']), 'audio/ogg')
+        dm = doc.getDataModel(proxy=proxy)
+        self.assertEquals(files[1]['content_url'],
+                          dm.fileUri('attachedFile_1_f0'))
+
     def testCss(self):
         ALL_CSS = ['document.css']
         for css_name in ALL_CSS:
