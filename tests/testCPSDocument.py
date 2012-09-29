@@ -1,7 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 # (C) Copyright 2005 Nuxeo SARL <http://nuxeo.com>
-# Author: Julien Anguenot <ja@nuxeo.com>
-#
+# Authors: Julien Anguenot <ja@nuxeo.com>
+#          Georges Racinet <gracinet@cps-cms.org>
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 2 as published
 # by the Free Software Foundation.
@@ -15,14 +15,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 # 02111-1307, USA.
-#
-# $Id$
 """Tests CPSDocument
 """
 
 import unittest
 
-from Acquisition import aq_base
 from OFS.Image import File
 
 from Products.CPSDefault.tests.CPSTestCase import CPSTestCase
@@ -49,7 +46,6 @@ class TestCPSDocument(CPSTestCase):
         # Generate info
         info = proxy.getContent().getAdditionalContentInfo(proxy)
 
-        f = getattr(proxy.getContent(), 'file')
         self.assertEqual(info['download_url'],
                          "%s/downloadFile/file/%s?nocache=%s" %
                          (utool.getRelativeUrl(proxy), "filename",
@@ -119,6 +115,3 @@ def test_suite():
     return unittest.TestSuite((
         unittest.makeSuite(TestCPSDocument),
         ))
-
-if __name__ == '__main__':
-    unittest.TextTestRunner().run(test_suite())
