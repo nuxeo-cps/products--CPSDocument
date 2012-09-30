@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSDocument 1.10.0
+===========================================================
+First release built by: gracinet at: 2012-09-30T10:15:53
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- #2571 (related): new API to list info about attached files as they'd be rendered
+Bug fixes
+~~~~~~~~~
+-
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSDocument 1.9.1
 ===========================================================
 First release built by: gracinet at: 2012-05-27T21:00:55
